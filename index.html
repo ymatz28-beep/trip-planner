@@ -671,7 +671,36 @@
     .nav a { padding: 0.8rem 1rem; font-size: 0.8rem; }
     .info-chip { font-size: 0.8rem; padding: 0.4rem 1rem; }
   }
+  /* Leaflet popup override */
+  .leaflet-popup-content-wrapper {
+    background: #1a1a2e;
+    color: #f5f5f5;
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .leaflet-popup-tip { background: #1a1a2e; }
+  .leaflet-popup-content { font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; line-height: 1.5; }
+  .leaflet-popup-content a { color: var(--gold); text-decoration: none; }
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(212,175,55,0.1);
+    border: 1px solid rgba(212,175,55,0.25);
+    border-radius: 20px;
+    color: var(--gold-light);
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .map-link:hover { background: rgba(212,175,55,0.25); border-color: var(--gold); }
+  .leaflet-popup-content strong { color: var(--gold-light); }
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
 
@@ -733,6 +762,7 @@
         <li>コタイ中心で隣接リゾートへ徒歩アクセス</li>
         <li>パリジャン・ロンドナーと施設共有可</li>
       </ul>
+      <a class="map-link" href="https://maps.google.com/?q=The+Venetian+Macao" target="_blank">&#128205; Google Map で見る</a>
     </div>
 
     <div class="hotel-card">
@@ -748,6 +778,7 @@
         <li>ベネチアンまで徒歩5分（連絡通路あり）</li>
         <li>レストランはベネチアンより少なめ</li>
       </ul>
+      <a class="map-link" href="https://maps.google.com/?q=The+Parisian+Macao" target="_blank">&#128205; Google Map で見る</a>
     </div>
 
     <div class="hotel-card">
@@ -763,6 +794,7 @@
         <li>コタイ中心 — タクシーで各所10分圏内</li>
         <li>スパ＆ウェルネス施設が充実</li>
       </ul>
+      <a class="map-link" href="https://maps.google.com/?q=Galaxy+Macau" target="_blank">&#128205; Google Map で見る</a>
     </div>
   </div>
 
@@ -796,24 +828,28 @@
           <div class="resto-type">ミシュラン1つ星 ・ 広東料理</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">フォーシーズンズ内。絶品の点心と広東料理。家族の特別ディナーに最適。エビの水晶餃子は必食。上品な空間でお母様にも安心。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Zi+Yat+Heen+Four+Seasons+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Wing Lei（永利軒）</div>
           <div class="resto-type">ミシュラン2つ星 ・ 広東料理</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">Wynn内。9万個のクリスタルで作られた龍が舞うゴージャスな空間。手作り点心が極上。特別な夜に。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Wing+Lei+Wynn+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">The Kitchen（大廚）</div>
           <div class="resto-type">ミシュラン推薦 ・ ビュッフェ</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">Grand Hyatt内。多国籍ビュッフェで4人の異なる好みに全対応。ライブキッチンで目の前で調理。</p>
+          <a class="map-link" href="https://maps.google.com/?q=The+Kitchen+Grand+Hyatt+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Chef Tam's Seasons</div>
           <div class="resto-type">ミシュラン2つ星 ・ 中華創作</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">Wynn Palace内。アジア50ベストレストラン9位。革新的な広東料理。予約必須。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Chef+Tam+Seasons+Wynn+Palace+Macau" target="_blank">&#128205; Google Map</a>
         </div>
       </div>
     </div>
@@ -825,24 +861,28 @@
           <div class="resto-type">ミシュラン掲載 ・ 点心</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">三灯区の路地裏にある30年以上の老舗。蒸籠が積み上がる光景は圧巻。焼売、馬拉糕が絶品。早朝がベスト。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Chong+Shing+dim+sum+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Lei Ka Choi（利加祥）</div>
           <div class="resto-type">ローカル名店 ・ 広東家庭料理</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">地元民に愛される家庭的な広東料理店。素朴で温かい雰囲気。リーズナブルで家族連れに人気。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Lei+Ka+Choi+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Wong Chi Kei（黃枝記）</div>
           <div class="resto-type">有名老舗 ・ 麺・ワンタン</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">セナド広場近く。エビワンタン麺が看板メニュー。観光の合間に立ち寄れる便利な立地。70年以上の歴史。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Wong+Chi+Kei+Senado+Square+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Hawker Hawker</div>
           <div class="resto-type">W Hotel ・ アジアンビュッフェ</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">東南アジア屋台料理をモダンに再現。ラクサ、サテー、海南チキンライスなど。カジュアルな雰囲気。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Hawker+Hawker+W+Hotel+Macau" target="_blank">&#128205; Google Map</a>
         </div>
       </div>
     </div>
@@ -854,24 +894,28 @@
           <div class="resto-type">マカオ名物 ・ エッグタルト</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">マカオ半島の伝説的エッグタルト店。サクサクのパイ生地と濃厚カスタード。マカオに来たら絶対に外せない一品。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Margaret+Cafe+e+Nata+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Lord Stow's Bakery</div>
           <div class="resto-type">コロアン島 ・ エッグタルト</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">1989年創業、マカオ式エッグタルト発祥の店。コロアン・ヴィレッジの可愛い広場に面する。フレッシュクリームの独自レシピ。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Lord+Stow+Bakery+Coloane+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Origin Coffee</div>
           <div class="resto-type">モダンカフェ ・ スペシャルティコーヒー</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">マカオで最もおしゃれなカフェの一つ。大きな窓から差し込む自然光、モダンなインテリア。コーヒーの質も最高レベル。インスタ映え。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Origin+Coffee+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">360° Cafe（マカオタワー）</div>
           <div class="resto-type">展望カフェ ・ パノラマビュー</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">マカオタワー展望フロアの回転カフェ。360度のパノラマビューを楽しみながらアフタヌーンティー。特別な体験。</p>
+          <a class="map-link" href="https://maps.google.com/?q=360+Cafe+Macau+Tower" target="_blank">&#128205; Google Map</a>
         </div>
       </div>
     </div>
@@ -883,18 +927,21 @@
           <div class="resto-type">タイパ村 ・ 本格ポルトガル料理</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">シェフ・オーナーAntonio Coelho氏の本格ポルトガル料理。温かみのある雰囲気と親切なサービス。バカリャウ（干し鱈）料理が絶品。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Antonio+Restaurant+Taipa+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">Restaurante Litoral（海灣餐廳）</div>
           <div class="resto-type">マカオ半島 ・ マカニーズ料理</div>
           <div class="stars">★★★★★</div>
           <p class="resto-desc">マカオ最高のマカニーズ（澳門）料理と評される名店。アフリカンチキン、カレーシュリンプが看板メニュー。東西融合の味を体験。</p>
+          <a class="map-link" href="https://maps.google.com/?q=Restaurante+Litoral+Macau" target="_blank">&#128205; Google Map</a>
         </div>
         <div class="resto-card">
           <div class="resto-name">A Petisqueira</div>
           <div class="resto-type">タイパ村 ・ ポルトガル料理</div>
           <div class="stars">★★★★☆</div>
           <p class="resto-desc">タイパ村の人気ポルトガルレストラン。シーフードリゾットやポルトガル風ステーキが人気。リーズナブルで家族向け。</p>
+          <a class="map-link" href="https://maps.google.com/?q=A+Petisqueira+Taipa+Macau" target="_blank">&#128205; Google Map</a>
         </div>
       </div>
     </div>
@@ -940,10 +987,10 @@
   <div class="casino-info">
     <h3>おすすめカジノ</h3>
     <ul>
-      <li><strong>ベネチアン・マカオ：</strong>世界最大級のフロア。豪華絢爛。ホテル直結で便利</li>
-      <li><strong>Wynn Palace：</strong>噴水ショーが見事。やや高級な客層</li>
-      <li><strong>グランド・リスボア：</strong>マカオ半島のランドマーク。ベット額低めで初心者向き</li>
-      <li><strong>サンズ・マカオ：</strong>コンパクトで回りやすい。フレンドリーな雰囲気</li>
+      <li><strong>ベネチアン・マカオ：</strong>世界最大級のフロア。豪華絢爛。ホテル直結で便利 <a class="map-link" href="https://maps.google.com/?q=The+Venetian+Macao+Casino" target="_blank" style="margin-top:0;">&#128205; Map</a></li>
+      <li><strong>Wynn Palace：</strong>噴水ショーが見事。やや高級な客層 <a class="map-link" href="https://maps.google.com/?q=Wynn+Palace+Macau" target="_blank" style="margin-top:0;">&#128205; Map</a></li>
+      <li><strong>グランド・リスボア：</strong>マカオ半島のランドマーク。ベット額低めで初心者向き <a class="map-link" href="https://maps.google.com/?q=Grand+Lisboa+Macau" target="_blank" style="margin-top:0;">&#128205; Map</a></li>
+      <li><strong>サンズ・マカオ：</strong>コンパクトで回りやすい。フレンドリーな雰囲気 <a class="map-link" href="https://maps.google.com/?q=Sands+Macao" target="_blank" style="margin-top:0;">&#128205; Map</a></li>
     </ul>
   </div>
 
@@ -1345,8 +1392,8 @@
   <h2 class="section-title">Spot Map</h2>
   <p class="section-sub">全スポットをGoogleマップで確認 — タップで詳細・ナビ起動</p>
 
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/d/embed?mid=1Yw3R_FHM_K7O3vN1gWRwP8fB1v4&ehbc=2E312F&z=13&ll=22.15,113.56" allowfullscreen loading="lazy"></iframe>
+  <div class="map-container" id="map-canvas" style="height:450px; border-radius:16px; border:1px solid rgba(255,255,255,0.1); position:relative; overflow:hidden; background:#1a1a2e;">
+    <!-- Interactive Map powered by OpenStreetMap / Leaflet (no API key needed) -->
   </div>
 
   <h3 style="color:var(--gold-light); font-size:1rem; margin-bottom:1rem;">スポット一覧（タップでGoogleマップを開く）</h3>
@@ -1707,9 +1754,67 @@ loadChecklist();
 
 // === PDF Export ===
 function exportPDF() {
-  // Use browser print with print-optimized CSS
   window.print();
 }
+
+// === Leaflet Map ===
+const map = L.map('map-canvas', {
+  center: [22.155, 113.555],
+  zoom: 13,
+  zoomControl: true,
+  scrollWheelZoom: true
+});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  maxZoom: 19
+}).addTo(map);
+
+const spots = [
+  { lat:22.1492, lng:113.5624, name:'The Venetian Macao', type:'hotel', desc:'宿泊ホテル・世界最大カジノ' },
+  { lat:22.1475, lng:113.5597, name:'The Parisian Macao', type:'hotel', desc:'姉妹ホテル・エッフェル塔レプリカ' },
+  { lat:22.1474, lng:113.5652, name:'Wynn Palace', type:'casino', desc:'噴水ショー・ミシュラン2つ星レストラン' },
+  { lat:22.1484, lng:113.5639, name:'City of Dreams', type:'casino', desc:'House of Dancing Water 水上ショー' },
+  { lat:22.1478, lng:113.5529, name:'Galaxy Macau', type:'hotel', desc:'Grand Resort Deck・比較ホテル' },
+  { lat:22.1936, lng:113.5409, name:'聖ポール天主堂跡', type:'culture', desc:'世界遺産・マカオのシンボル' },
+  { lat:22.1932, lng:113.5391, name:'セナド広場', type:'culture', desc:'世界遺産・波模様の石畳' },
+  { lat:22.1933, lng:113.5416, name:'モンテの砦', type:'culture', desc:'世界遺産・市街を一望' },
+  { lat:22.1866, lng:113.5314, name:'媽閣廟', type:'culture', desc:'世界遺産・マカオ地名の由来' },
+  { lat:22.1866, lng:113.5387, name:'マカオタワー', type:'culture', desc:'338m展望台・360° Cafe' },
+  { lat:22.1230, lng:113.5654, name:'コロアン・ヴィレッジ', type:'culture', desc:'静かな漁村・Lord Stow\'s Bakery' },
+  { lat:22.1921, lng:113.5415, name:'Margaret\'s Cafe e Nata', type:'food', desc:'伝説のエッグタルト' },
+  { lat:22.1232, lng:113.5657, name:'Lord Stow\'s Bakery', type:'food', desc:'元祖マカオ式エッグタルト' },
+  { lat:22.1564, lng:113.5572, name:'Antonio', type:'food', desc:'タイパ村・本格ポルトガル料理' },
+  { lat:22.1887, lng:113.5347, name:'Restaurante Litoral', type:'food', desc:'最高のマカニーズ料理' },
+  { lat:22.1567, lng:113.5577, name:'官也街（タイパ村）', type:'culture', desc:'お土産ストリート' },
+  { lat:22.1937, lng:113.5439, name:'グランド・リスボア', type:'casino', desc:'マカオ半島ランドマーク・初心者向き' },
+  { lat:22.1490, lng:113.5606, name:'Zi Yat Heen（紫逸軒）', type:'food', desc:'ミシュラン1つ星・広東料理' },
+  { lat:22.1940, lng:113.5378, name:'Wong Chi Kei（黃枝記）', type:'food', desc:'70年老舗・エビワンタン麺' },
+];
+
+const colors = { hotel:'#D4AF37', food:'#e94560', culture:'#81c784', casino:'#7ec8e3' };
+const icons = { hotel:'H', food:'F', culture:'W', casino:'C' };
+
+spots.forEach(s => {
+  const icon = L.divIcon({
+    className: '',
+    html: '<div style="width:28px;height:28px;border-radius:50%;background:'+colors[s.type]+';display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:11px;color:#0f0f1a;border:2px solid rgba(255,255,255,0.3);box-shadow:0 2px 8px rgba(0,0,0,0.5);">'+icons[s.type]+'</div>',
+    iconSize: [28, 28],
+    iconAnchor: [14, 14]
+  });
+  L.marker([s.lat, s.lng], { icon })
+    .addTo(map)
+    .bindPopup('<strong>'+s.name+'</strong><br>'+s.desc+'<br><a href="https://maps.google.com/?q='+encodeURIComponent(s.name+' Macau')+'" target="_blank">Google Maps で開く &rarr;</a>');
+});
+
+// Legend
+const legend = L.control({position: 'bottomright'});
+legend.onAdd = function() {
+  const div = L.DomUtil.create('div');
+  div.style.cssText = 'background:rgba(15,15,26,0.9);padding:8px 12px;border-radius:8px;font-size:11px;line-height:1.8;border:1px solid rgba(255,255,255,0.1);';
+  div.innerHTML = '<span style="color:#D4AF37">&#9679;</span> ホテル &nbsp;<span style="color:#e94560">&#9679;</span> グルメ &nbsp;<span style="color:#81c784">&#9679;</span> 観光 &nbsp;<span style="color:#7ec8e3">&#9679;</span> カジノ';
+  return div;
+};
+legend.addTo(map);
 </script>
 
 </body>
