@@ -1,318 +1,355 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trip Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #08090d;
+      --surface: rgba(255,255,255,0.028);
+      --surface-hover: rgba(255,255,255,0.055);
+      --border: rgba(255,255,255,0.07);
+      --border-hover: rgba(255,255,255,0.15);
+      --text: #e8ecf4;
+      --muted: #6b7a90;
+      --dim: #3d4a5c;
+      --accent: #f97316;
+    }
 
-  :root {
-    --bg: #0a0a0f;
-    --bg2: #12121a;
-    --card: rgba(255,255,255,0.04);
-    --border: rgba(255,255,255,0.08);
-    --white: #f0f0f5;
-    --muted: rgba(255,255,255,0.45);
-    --accent-trip: #C8102E;
-    --accent-prop: #2D7DD2;
-    --accent-stock: #10B981;
-  }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', 'Noto Sans JP', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--white);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% -5%, rgba(249,115,22,0.06), transparent),
+        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(251,146,60,0.04), transparent),
+        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(56,189,248,0.03), transparent);
+      pointer-events: none; z-index: 0;
+    }
 
-  /* Background grid pattern */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-  }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.3;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem;
-    position: relative;
-    z-index: 1;
-  }
+    .page { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
 
-  /* Header */
-  .header {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-  .header h1 {
-    font-family: 'Inter', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.6) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-  }
-  .header p {
-    color: var(--muted);
-    font-size: 1rem;
-    font-weight: 300;
-  }
-  .header .date {
-    display: inline-block;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 0.3rem 1rem;
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 1rem;
-  }
+    /* Header */
+    header {
+      padding: 56px 0 0;
+      opacity: 0; animation: fadeUp 0.6s ease forwards;
+    }
 
-  /* Section Grid */
-  .section-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1.5rem;
-  }
+    .brand { display: flex; align-items: center; gap: 14px; }
 
-  /* Category Card */
-  .category-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-  .category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    border-radius: 20px 20px 0 0;
-  }
-  .category-card:hover {
-    border-color: rgba(255,255,255,0.15);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-  .category-card.trip::before { background: linear-gradient(90deg, var(--accent-trip), #ff6b6b); }
-  .category-card.property::before { background: linear-gradient(90deg, var(--accent-prop), #64b5f6); }
-  .category-card.stock::before { background: linear-gradient(90deg, var(--accent-stock), #6ee7b7); }
+    .brand-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(251,146,60,0.15));
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid; place-items: center;
+      font-size: 18px;
+    }
 
-  .card-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    flex-shrink: 0;
-  }
-  .trip .card-icon { background: rgba(200,16,46,0.15); }
-  .property .card-icon { background: rgba(45,125,210,0.15); }
-  .stock .card-icon { background: rgba(16,185,129,0.15); }
+    .brand-text { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
+    .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-weight: 400; }
 
-  .card-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-  .card-subtitle {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-top: 0.1rem;
-  }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--muted); text-decoration: none;
+      margin-top: 20px; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--text); }
 
-  /* Link items */
-  .link-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  .link-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.9rem 1.2rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--white);
-    transition: all 0.3s;
-    gap: 1rem;
-  }
-  .link-item:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(255,255,255,0.12);
-    transform: translateX(4px);
-  }
-  .link-info { flex: 1; }
-  .link-name {
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-  .link-desc {
-    font-size: 0.75rem;
-    color: var(--muted);
-    margin-top: 0.15rem;
-  }
-  .link-badge {
-    font-size: 0.65rem;
-    padding: 0.2rem 0.6rem;
-    border-radius: 20px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    flex-shrink: 0;
-  }
-  .trip .link-badge { background: rgba(200,16,46,0.15); color: #ff6b6b; }
-  .property .link-badge { background: rgba(45,125,210,0.15); color: #64b5f6; }
-  .stock .link-badge { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+    /* Hero */
+    .hero {
+      margin-top: 64px;
+      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+    }
 
-  .link-arrow {
-    color: var(--muted);
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    flex-shrink: 0;
-  }
-  .link-item:hover .link-arrow { color: var(--white); transform: translateX(2px); }
+    .hero h1 {
+      font-size: clamp(36px, 5.5vw, 56px);
+      font-weight: 900; line-height: 1.05; letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #e8ecf4 30%, #6b7a90 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
 
-  /* Empty state */
-  .empty-state {
-    text-align: center;
-    padding: 2rem 1rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-    border: 1px dashed rgba(255,255,255,0.1);
-    border-radius: 12px;
-  }
+    .hero p {
+      margin-top: 16px; font-size: 15px; color: var(--muted);
+      max-width: 480px; line-height: 1.7;
+    }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 2rem;
-    color: rgba(255,255,255,0.15);
-    font-size: 0.75rem;
-  }
+    /* Section */
+    .section { margin-top: 56px; }
 
-  /* Mobile */
-  @media (max-width: 768px) {
-    .container { padding: 2rem 1rem; }
-    .section-grid { grid-template-columns: 1fr; }
-    .header { margin-bottom: 2.5rem; }
-  }
-</style>
+    .section-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+    }
+
+    .section-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent); box-shadow: 0 0 12px var(--accent);
+    }
+
+    .section-label {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .section-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--dim); margin-left: auto;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 12px;
+    }
+
+    /* Card */
+    .card {
+      position: relative; display: block; padding: 28px;
+      border-radius: 16px; background: var(--surface);
+      border: 1px solid var(--border);
+      text-decoration: none; color: var(--text);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.25s;
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-top {
+      display: flex; align-items: center;
+      justify-content: space-between; margin-bottom: 16px;
+    }
+
+    .card-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: grid; place-items: center; font-size: 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500;
+      padding: 3px 8px; border-radius: 6px; letter-spacing: 0.03em;
+    }
+
+    .badge-live {
+      background: rgba(52,211,153,0.1); color: #34d399;
+      border: 1px solid rgba(52,211,153,0.15);
+    }
+
+    .badge-new {
+      background: rgba(249,115,22,0.1); color: #fb923c;
+      border: 1px solid rgba(249,115,22,0.15);
+    }
+
+    .card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
+    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    .card-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .meta-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; padding: 3px 8px; border-radius: 6px;
+      background: rgba(255,255,255,0.035); color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .card-action {
+      margin-top: 20px; display: inline-flex; align-items: center;
+      gap: 6px; font-size: 12px; font-weight: 600;
+      color: var(--accent); opacity: 0.7; transition: all 0.2s;
+    }
+
+    .card:hover .card-action { opacity: 1; }
+    .card-action .arrow { transition: transform 0.2s; }
+    .card:hover .card-action .arrow { transform: translateX(4px); }
+
+    /* Fade-in */
+    .fade-in {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer {
+      margin-top: 80px; padding-bottom: 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards;
+    }
+
+    .footer-text {
+      font-size: 11px; color: var(--dim);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .footer-dots { display: flex; gap: 4px; }
+    .footer-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--dim); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: 1fr; }
+      header { padding: 36px 0 0; }
+      .hero { margin-top: 40px; }
+      .section { margin-top: 40px; }
+      footer { flex-direction: column; gap: 12px; }
+    }
+  </style>
 </head>
 <body>
+  <div class="page">
 
-<div class="container">
-  <div class="header">
-    <h1>Dashboard</h1>
-    <p>Personal Planning Hub</p>
-    <div class="date" id="today-date"></div>
-  </div>
-
-  <div class="section-grid">
-
-    <!-- Trip -->
-    <div class="category-card trip">
-      <div class="card-header">
-        <div class="card-icon">&#9992;</div>
+    <header>
+      <div class="brand">
+        <div class="brand-icon">&#9992;&#65039;</div>
         <div>
-          <div class="card-title">Trip</div>
-          <div class="card-subtitle">Travel plans & itineraries</div>
+          <div class="brand-text">Trip Planner</div>
+          <div class="brand-sub">Travel Plans &amp; Itineraries</div>
         </div>
       </div>
-      <div class="link-list">
-        <a class="link-item" href="london.html">
-          <div class="link-info">
-            <div class="link-name">London 2026</div>
-            <div class="link-desc">3/27〜4/5 &#183; 8泊10日 &#183; 2名</div>
-          </div>
-          <span class="link-badge">NEW</span>
-          <span class="link-arrow">&#8594;</span>
-        </a>
-        <a class="link-item" href="macau.html">
-          <div class="link-info">
-            <div class="link-name">Macau 2026</div>
-            <div class="link-desc">3/5〜10 &#183; 5泊6日 &#183; 4名</div>
-          </div>
-          <span class="link-arrow">&#8594;</span>
-        </a>
-      </div>
+      <a class="back-link" href="https://ymatz28-beep.github.io/report-dashboard/">&larr; iUMA Dashboard</a>
+    </header>
+
+    <div class="hero">
+      <h1>Travel<br>Plans.</h1>
+      <p>旅行プランを一元管理。フライト・ホテル・日程を最適化。</p>
     </div>
 
-    <!-- Property -->
-    <div class="category-card property">
-      <div class="card-header">
-        <div class="card-icon">&#127968;</div>
-        <div>
-          <div class="card-title">Property</div>
-          <div class="card-subtitle">Real estate & assets</div>
-        </div>
-      </div>
-      <div class="link-list">
-        <div class="empty-state">
-          Coming soon
-        </div>
-      </div>
-    </div>
+    <div id="sections"></div>
 
-    <!-- Stock -->
-    <div class="category-card stock">
-      <div class="card-header">
-        <div class="card-icon">&#128200;</div>
-        <div>
-          <div class="card-title">Stock</div>
-          <div class="card-subtitle">Investment portfolio</div>
-        </div>
-      </div>
-      <div class="link-list">
-        <div class="empty-state">
-          Coming soon
-        </div>
-      </div>
-    </div>
+    <footer>
+      <div class="footer-text">iUMA Trip Planner &mdash; <span id="footer-year"></span></div>
+      <div class="footer-dots"><span></span><span></span><span></span></div>
+      <div class="footer-text">Unified Dashboard</div>
+    </footer>
 
   </div>
 
-  <footer>Personal Dashboard</footer>
-</div>
+  <script>
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-<script>
-  // Display today's date
-  const d = new Date();
-  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  document.getElementById('today-date').textContent =
-    d.getFullYear() + '.' + String(d.getMonth()+1).padStart(2,'0') + '.' + String(d.getDate()).padStart(2,'0') +
-    ' ' + ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()];
-</script>
+    const TRIPS = [
+      {
+        icon: "\uD83C\uDDEC\uD83C\uDDE7",
+        status: "new",
+        title: "London 2026",
+        desc: "8\u6CCA10\u65E5\u306E\u5B8C\u5168\u30D7\u30E9\u30F3\u3002\u30D5\u30E9\u30A4\u30C8\u30FB\u30DB\u30C6\u30EB\u691C\u7D22\u30FB\u65E5\u7A0B\u30FB\u4E88\u7B97\u3092\u7DB2\u7F85\u3002",
+        tags: ["3/27\u20134/5", "2\u540D", "\u2B50 Alliance"],
+        url: "london.html",
+        action: "\u30D7\u30E9\u30F3\u3092\u898B\u308B"
+      },
+      {
+        icon: "\uD83C\uDDF2\uD83C\uDDF4",
+        status: "live",
+        title: "Macau 2026",
+        desc: "\u5BB6\u65CF4\u4EBA\u3067\u30DE\u30AB\u30AA\u30925\u6CCA6\u65E5\u3002\u30DB\u30C6\u30EB\u30FB\u30AB\u30B8\u30CE\u30FB\u30B0\u30EB\u30E1\u3092\u6E80\u55AB\u3002",
+        tags: ["3/5\u201310", "4\u540D", "Family"],
+        url: "macau.html",
+        action: "\u30D7\u30E9\u30F3\u3092\u898B\u308B"
+      }
+    ];
 
+    function render() {
+      var container = document.getElementById('sections');
+      var fadeElements = [];
+      var delayMs = 200;
+
+      // Section header
+      var section = document.createElement('div');
+      section.className = 'section';
+
+      var header = document.createElement('div');
+      header.className = 'section-header fade-in';
+      header.innerHTML =
+        '<div class="section-dot"></div>' +
+        '<div class="section-label">Upcoming Trips</div>' +
+        '<div class="section-count">' + TRIPS.length + ' plan' + (TRIPS.length > 1 ? 's' : '') + '</div>';
+      fadeElements.push({ el: header, delay: delayMs });
+      delayMs += 80;
+      section.appendChild(header);
+
+      var grid = document.createElement('div');
+      grid.className = 'card-grid';
+
+      TRIPS.forEach(function(trip) {
+        var el = document.createElement('a');
+        el.href = trip.url;
+        el.className = 'card fade-in';
+
+        var badgeClass = trip.status === 'new' ? 'badge-new' : 'badge-live';
+        var badgeText = trip.status === 'new' ? 'NEW' : 'LIVE';
+
+        var tagsHtml = (trip.tags || []).map(function(t) {
+          return '<span class="meta-tag">' + t + '</span>';
+        }).join('');
+
+        el.innerHTML =
+          '<div class="card-top">' +
+            '<div class="card-icon">' + trip.icon + '</div>' +
+            '<div class="card-badge ' + badgeClass + '">' + badgeText + '</div>' +
+          '</div>' +
+          '<div class="card-title">' + trip.title + '</div>' +
+          '<div class="card-desc">' + trip.desc + '</div>' +
+          '<div class="card-meta">' + tagsHtml + '</div>' +
+          '<div class="card-action">' + trip.action + ' <span class="arrow">&rarr;</span></div>';
+
+        fadeElements.push({ el: el, delay: delayMs });
+        delayMs += 100;
+        grid.appendChild(el);
+      });
+
+      section.appendChild(grid);
+      container.appendChild(section);
+
+      requestAnimationFrame(function() {
+        fadeElements.forEach(function(item) {
+          setTimeout(function() {
+            item.el.classList.add('visible');
+          }, item.delay);
+        });
+      });
+    }
+
+    render();
+  </script>
 </body>
 </html>
