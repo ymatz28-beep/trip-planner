@@ -3,348 +3,274 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Trip Planner</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Noto+Sans+JP:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <title>iUMA Travel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #08090d;
-      --surface: rgba(255,255,255,0.028);
-      --surface-hover: rgba(255,255,255,0.055);
-      --border: rgba(255,255,255,0.07);
-      --border-hover: rgba(255,255,255,0.15);
-      --text: #e8ecf4;
-      --muted: #6b7a90;
-      --dim: #3d4a5c;
-      --accent: #f97316;
+      --bg: #050507;
+      --surface: rgba(255,255,255,0.035);
+      --surface-hover: rgba(255,255,255,0.065);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.18);
+      --text: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --muted: #71717a;
+      --dim: #3f3f46;
+      --accent: #ff6b35;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: 'DM Sans', 'Noto Sans JP', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
+      font-family: 'Outfit', 'Noto Sans JP', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      min-height: 100vh; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 15% -5%, rgba(249,115,22,0.06), transparent),
-        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(251,146,60,0.04), transparent),
-        radial-gradient(ellipse 50% 40% at 50% 90%, rgba(56,189,248,0.03), transparent);
-      pointer-events: none; z-index: 0;
+    .atmosphere { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .atm-orb {
+      position: absolute; border-radius: 50%; filter: blur(120px);
+      opacity: 0; animation: orbPulse 8s ease-in-out infinite;
+    }
+    .atm-orb:nth-child(1) {
+      width: 500px; height: 500px; top: -10%; left: -5%;
+      background: radial-gradient(circle, rgba(255,107,53,0.1), transparent 70%);
+    }
+    .atm-orb:nth-child(2) {
+      width: 400px; height: 400px; bottom: 10%; right: -10%;
+      background: radial-gradient(circle, rgba(255,107,53,0.06), transparent 70%);
+      animation-delay: 4s;
+    }
+    @keyframes orbPulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.15); }
     }
 
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      opacity: 0.3;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0;
+    .grain {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.18;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
     }
 
-    .page { position: relative; z-index: 1; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .page { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 32px; }
 
-    /* Header */
-    header {
-      padding: 56px 0 0;
-      opacity: 0; animation: fadeUp 0.6s ease forwards;
-    }
-
-    .brand { display: flex; align-items: center; gap: 14px; }
-
-    .brand-icon {
-      width: 40px; height: 40px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(249,115,22,0.15), rgba(251,146,60,0.15));
-      border: 1px solid rgba(255,255,255,0.08);
-      display: grid; place-items: center;
-      font-size: 18px;
-    }
-
-    .brand-text { font-size: 15px; font-weight: 700; letter-spacing: 0.02em; color: var(--text); }
-    .brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; font-weight: 400; }
-
-    .back-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--muted); text-decoration: none;
-      margin-top: 20px; transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--text); }
-
-    /* Hero */
-    .hero {
-      margin-top: 64px;
-      opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
-    }
-
-    .hero h1 {
-      font-size: clamp(36px, 5.5vw, 56px);
-      font-weight: 900; line-height: 1.05; letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #e8ecf4 30%, #6b7a90 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    }
-
-    .hero p {
-      margin-top: 16px; font-size: 15px; color: var(--muted);
-      max-width: 480px; line-height: 1.7;
-    }
-
-    /* Section */
-    .section { margin-top: 56px; }
-
-    .section-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
-    }
-
-    .section-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent); box-shadow: 0 0 12px var(--accent);
-    }
-
-    .section-label {
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
-    }
-
-    .section-count {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px; color: var(--dim); margin-left: auto;
-    }
-
-    /* Card Grid */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 12px;
-    }
-
-    /* Card */
-    .card {
-      position: relative; display: block; padding: 28px;
-      border-radius: 16px; background: var(--surface);
-      border: 1px solid var(--border);
-      text-decoration: none; color: var(--text);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      overflow: hidden;
-    }
-
-    .card:hover {
-      background: var(--surface-hover);
-      border-color: var(--border-hover);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
-
-    .card::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0; transition: opacity 0.25s;
-    }
-
-    .card:hover::before { opacity: 1; }
-
-    .card-top {
-      display: flex; align-items: center;
-      justify-content: space-between; margin-bottom: 16px;
-    }
-
-    .card-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: grid; place-items: center; font-size: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .card-badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; font-weight: 500;
-      padding: 3px 8px; border-radius: 6px; letter-spacing: 0.03em;
-    }
-
-    .badge-live {
-      background: rgba(52,211,153,0.1); color: #34d399;
-      border: 1px solid rgba(52,211,153,0.15);
-    }
-
-    .badge-new {
-      background: rgba(249,115,22,0.1); color: #fb923c;
-      border: 1px solid rgba(249,115,22,0.15);
-    }
-
-    .card-title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 8px; }
-    .card-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
-
-    .card-meta { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px; }
-
-    .meta-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; padding: 3px 8px; border-radius: 6px;
-      background: rgba(255,255,255,0.035); color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .card-action {
-      margin-top: 20px; display: inline-flex; align-items: center;
-      gap: 6px; font-size: 12px; font-weight: 600;
-      color: var(--accent); opacity: 0.7; transition: all 0.2s;
-    }
-
-    .card:hover .card-action { opacity: 1; }
-    .card-action .arrow { transition: transform 0.2s; }
-    .card:hover .card-action .arrow { transform: translateX(4px); }
-
-    /* Fade-in */
-    .fade-in {
-      opacity: 0; transform: translateY(16px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    /* Footer */
-    footer {
-      margin-top: 80px; padding-bottom: 48px;
+    nav {
+      padding: 40px 0 0;
       display: flex; align-items: center; justify-content: space-between;
-      opacity: 0; animation: fadeUp 0.6s ease 0.5s forwards;
+      opacity: 0; animation: reveal 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
     }
-
-    .footer-text {
-      font-size: 11px; color: var(--dim);
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-mark {
+      width: 36px; height: 36px; border-radius: 10px;
+      background: linear-gradient(135deg, #ff6b35 0%, #ff8f5e 100%);
+      display: grid; place-items: center;
       font-family: 'JetBrains Mono', monospace;
+      font-weight: 600; font-size: 13px; color: #fff; letter-spacing: -0.5px;
+    }
+    .nav-name { font-weight: 600; font-size: 14px; letter-spacing: 0.04em; color: var(--text); }
+    .nav-back {
+      font-size: 12px; color: var(--muted); text-decoration: none;
+      display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .hero {
+      margin-top: 72px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end;
+      opacity: 0; animation: reveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(44px, 6vw, 72px);
+      font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; color: var(--text);
+    }
+    .hero-accent { font-style: italic; color: var(--accent); }
+    .hero-aside { padding-bottom: 8px; }
+    .hero-aside p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 320px; }
+    .hero-line { width: 40px; height: 1px; background: var(--accent); margin-bottom: 16px; }
+
+    .divider {
+      margin: 56px 0 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      opacity: 0; animation: reveal 0.8s ease 0.3s forwards;
     }
 
-    .footer-dots { display: flex; gap: 4px; }
-    .footer-dots span { width: 4px; height: 4px; border-radius: 50%; background: var(--dim); }
+    .trips { margin-top: 0; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+    .trip-item {
+      display: block; text-decoration: none; color: var(--text);
+      position: relative; padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .trip-item:hover { padding-left: 12px; }
+    .trip-item::after {
+      content: ''; position: absolute; left: 0; bottom: -1px;
+      width: 0; height: 1px; background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .trip-item:hover::after { width: 100%; }
+
+    .trip-row {
+      display: grid; grid-template-columns: 48px 1fr auto; gap: 20px; align-items: start;
+    }
+    .trip-ordinal {
+      font-family: 'DM Serif Display', serif;
+      font-size: 32px; line-height: 1; color: var(--dim);
+      transition: color 0.35s; padding-top: 2px;
+    }
+    .trip-item:hover .trip-ordinal { color: var(--accent); }
+
+    .trip-body { display: flex; flex-direction: column; gap: 8px; }
+    .trip-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .trip-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px; font-weight: 400; line-height: 1.2;
+      transition: color 0.3s;
+    }
+    .trip-item:hover .trip-title { color: var(--accent); }
+    .trip-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+    .trip-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+    .trip-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 500; padding: 4px 10px; border-radius: 6px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+      color: var(--text-secondary); transition: all 0.25s;
+    }
+    .trip-item:hover .trip-tag { border-color: rgba(255,255,255,0.12); color: var(--text); }
+
+    .trip-arrow {
+      align-self: center; width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border); display: grid; place-items: center;
+      font-size: 16px; color: var(--muted);
+      transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .trip-item:hover .trip-arrow {
+      background: var(--accent); border-color: var(--accent);
+      color: var(--bg); transform: translateX(4px);
+    }
+
+    .fi {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .fi.v { opacity: 1; transform: translateY(0); }
+
+    footer {
+      margin-top: 80px; padding: 32px 0 48px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      opacity: 0; animation: reveal 0.8s ease 0.6s forwards;
+    }
+    .foot-left, .foot-right {
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--dim);
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 640px) {
-      .card-grid { grid-template-columns: 1fr; }
-      header { padding: 36px 0 0; }
-      .hero { margin-top: 40px; }
-      .section { margin-top: 40px; }
-      footer { flex-direction: column; gap: 12px; }
+    @media (max-width: 768px) {
+      .page { padding: 0 20px; }
+      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 48px; }
+      .trip-row { grid-template-columns: 36px 1fr; gap: 14px; }
+      .trip-arrow { display: none; }
+      .trip-ordinal { font-size: 24px; }
+      .trip-title { font-size: 20px; }
+      footer { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
+  <div class="atmosphere"><div class="atm-orb"></div><div class="atm-orb"></div></div>
+  <div class="grain"></div>
   <div class="page">
-
-    <header>
-      <div class="brand">
-        <div class="brand-icon">&#9992;&#65039;</div>
-        <div>
-          <div class="brand-text">Trip Planner</div>
-          <div class="brand-sub">Travel Plans &amp; Itineraries</div>
-        </div>
+    <nav>
+      <div class="nav-brand">
+        <div class="nav-mark">iU</div>
+        <div class="nav-name">Travel</div>
       </div>
-      <a class="back-link" href="https://ymatz28-beep.github.io/report-dashboard/">&larr; iUMA Dashboard</a>
-    </header>
+      <a class="nav-back" href="https://ymatz28-beep.github.io/report-dashboard/">&larr; Dashboard</a>
+    </nav>
 
     <div class="hero">
-      <h1>Travel<br>Plans.</h1>
-      <p>旅行プランを一元管理。フライト・ホテル・日程を最適化。</p>
+      <h1>Travel<br><span class="hero-accent">Plans.</span></h1>
+      <div class="hero-aside">
+        <div class="hero-line"></div>
+        <p>旅行プランを一元管理。<br>フライト・ホテル・日程を最適化。</p>
+      </div>
     </div>
 
-    <div id="sections"></div>
+    <div class="divider"></div>
+    <div class="trips" id="trips"></div>
 
     <footer>
-      <div class="footer-text">iUMA Trip Planner &mdash; <span id="footer-year"></span></div>
-      <div class="footer-dots"><span></span><span></span><span></span></div>
-      <div class="footer-text">Unified Dashboard</div>
+      <div class="foot-left">iUMA TRAVEL &mdash; 2026</div>
+      <div class="foot-right">TRIP PLANNER</div>
     </footer>
-
   </div>
 
   <script>
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    const TRIPS = [
+    var TRIPS = [
       {
-        icon: "\uD83C\uDDEC\uD83C\uDDE7",
-        status: "new",
+        label: "Upcoming",
         title: "London 2026",
-        desc: "8\u6CCA10\u65E5\u306E\u5B8C\u5168\u30D7\u30E9\u30F3\u3002\u30D5\u30E9\u30A4\u30C8\u30FB\u30DB\u30C6\u30EB\u691C\u7D22\u30FB\u65E5\u7A0B\u30FB\u4E88\u7B97\u3092\u7DB2\u7F85\u3002",
+        desc: "8泊10日の完全プラン。フライト・ホテル検索・日程・予算を網羅。",
         tags: ["3/27\u20134/5", "2\u540D", "\u2B50 Alliance"],
-        url: "london.html",
-        action: "\u30D7\u30E9\u30F3\u3092\u898B\u308B"
+        url: "london.html"
       },
       {
-        icon: "\uD83C\uDDF2\uD83C\uDDF4",
-        status: "live",
+        label: "Upcoming",
         title: "Macau 2026",
-        desc: "\u5BB6\u65CF4\u4EBA\u3067\u30DE\u30AB\u30AA\u30925\u6CCA6\u65E5\u3002\u30DB\u30C6\u30EB\u30FB\u30AB\u30B8\u30CE\u30FB\u30B0\u30EB\u30E1\u3092\u6E80\u55AB\u3002",
+        desc: "家族4人でマカオを5泊6日。ホテル・カジノ・グルメを満喫。",
         tags: ["3/5\u201310", "4\u540D", "Family"],
-        url: "macau.html",
-        action: "\u30D7\u30E9\u30F3\u3092\u898B\u308B"
+        url: "macau.html"
       }
     ];
 
+    function pad(n) { return n < 10 ? "0" + n : "" + n; }
+
     function render() {
-      var container = document.getElementById('sections');
-      var fadeElements = [];
-      var delayMs = 200;
+      var container = document.getElementById("trips");
+      var items = [];
 
-      // Section header
-      var section = document.createElement('div');
-      section.className = 'section';
+      TRIPS.forEach(function(t, i) {
+        var el = document.createElement("a");
+        el.href = t.url;
+        el.className = "trip-item fi";
 
-      var header = document.createElement('div');
-      header.className = 'section-header fade-in';
-      header.innerHTML =
-        '<div class="section-dot"></div>' +
-        '<div class="section-label">Upcoming Trips</div>' +
-        '<div class="section-count">' + TRIPS.length + ' plan' + (TRIPS.length > 1 ? 's' : '') + '</div>';
-      fadeElements.push({ el: header, delay: delayMs });
-      delayMs += 80;
-      section.appendChild(header);
-
-      var grid = document.createElement('div');
-      grid.className = 'card-grid';
-
-      TRIPS.forEach(function(trip) {
-        var el = document.createElement('a');
-        el.href = trip.url;
-        el.className = 'card fade-in';
-
-        var badgeClass = trip.status === 'new' ? 'badge-new' : 'badge-live';
-        var badgeText = trip.status === 'new' ? 'NEW' : 'LIVE';
-
-        var tagsHtml = (trip.tags || []).map(function(t) {
-          return '<span class="meta-tag">' + t + '</span>';
-        }).join('');
+        var tagsHtml = (t.tags || []).map(function(tag) {
+          return '<span class="trip-tag">' + tag + '</span>';
+        }).join("");
 
         el.innerHTML =
-          '<div class="card-top">' +
-            '<div class="card-icon">' + trip.icon + '</div>' +
-            '<div class="card-badge ' + badgeClass + '">' + badgeText + '</div>' +
-          '</div>' +
-          '<div class="card-title">' + trip.title + '</div>' +
-          '<div class="card-desc">' + trip.desc + '</div>' +
-          '<div class="card-meta">' + tagsHtml + '</div>' +
-          '<div class="card-action">' + trip.action + ' <span class="arrow">&rarr;</span></div>';
+          '<div class="trip-row">' +
+            '<div class="trip-ordinal">' + pad(i + 1) + '</div>' +
+            '<div class="trip-body">' +
+              '<div class="trip-label">' + t.label + '</div>' +
+              '<div class="trip-title">' + t.title + '</div>' +
+              '<div class="trip-desc">' + t.desc + '</div>' +
+              (tagsHtml ? '<div class="trip-tags">' + tagsHtml + '</div>' : '') +
+            '</div>' +
+            '<div class="trip-arrow">\u2192</div>' +
+          '</div>';
 
-        fadeElements.push({ el: el, delay: delayMs });
-        delayMs += 100;
-        grid.appendChild(el);
+        items.push(el);
+        container.appendChild(el);
       });
 
-      section.appendChild(grid);
-      container.appendChild(section);
-
       requestAnimationFrame(function() {
-        fadeElements.forEach(function(item) {
-          setTimeout(function() {
-            item.el.classList.add('visible');
-          }, item.delay);
+        requestAnimationFrame(function() {
+          items.forEach(function(el, i) {
+            setTimeout(function() { el.classList.add("v"); }, 400 + i * 120);
+          });
         });
       });
     }
