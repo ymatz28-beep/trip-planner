@@ -6,7 +6,7 @@
   <title>iUMA Travel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #050507;
@@ -23,7 +23,7 @@
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Outfit', 'Noto Sans JP', system-ui, sans-serif;
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
       background: var(--bg); color: var(--text);
       min-height: 100vh; overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
@@ -76,13 +76,13 @@
     .nav-back:hover { color: var(--text); }
 
     .hero {
-      margin-top: 80px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end;
+      margin-top: 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end;
       opacity: 0; animation: reveal 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;
     }
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(52px, 7vw, 80px);
+      font-size: clamp(28px, 5vw, 40px);
       font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; color: var(--text);
     }
     .hero-accent { font-style: italic; color: var(--accent); }
@@ -117,7 +117,7 @@
     }
     .trip-ordinal {
       font-family: 'DM Serif Display', serif;
-      font-size: 36px; line-height: 1; color: var(--dim);
+      font-size: 22px; line-height: 1; color: var(--dim);
       transition: color 0.35s; padding-top: 2px;
     }
     .trip-item:hover .trip-ordinal { color: var(--accent); }
@@ -130,7 +130,7 @@
     }
     .trip-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 28px; font-weight: 400; line-height: 1.2;
+      font-size: 20px; font-weight: 400; line-height: 1.2;
       transition: color 0.3s;
     }
     .trip-item:hover .trip-title { color: var(--accent); }
@@ -179,22 +179,56 @@
 
     @media (max-width: 768px) {
       .page { padding: 0 20px; }
-      .hero { grid-template-columns: 1fr; gap: 24px; margin-top: 56px; }
+      .hero { grid-template-columns: 1fr; gap: 16px; margin-top: 24px; }
       .trip-row { grid-template-columns: 40px 1fr; gap: 16px; }
       .trip-arrow { display: none; }
-      .trip-ordinal { font-size: 28px; }
-      .trip-title { font-size: 22px; }
+      .trip-ordinal { font-size: 18px; }
+      .trip-title { font-size: 18px; }
       .trip-item { padding: 28px 0; }
       footer { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
 
     @media (max-width: 480px) {
       .trip-row { grid-template-columns: 1fr; }
-      .trip-ordinal { font-size: 20px; }
+      .trip-ordinal { font-size: 16px; }
+    }
+
+    /* === Shared gnav === */
+    .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);position:relative;z-index:100}
+    .site-header .site-brand{font-size:13px;font-weight:700;color:#6366f1;white-space:nowrap;font-family:'Inter','Noto Sans JP',sans-serif}
+    .site-header .site-nav{display:flex;gap:6px;flex-wrap:wrap}
+    .site-header .site-nav a{font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;padding:4px 10px;border-radius:6px;transition:all .15s;border:1px solid transparent;min-height:32px;display:inline-flex;align-items:center;font-family:'Inter','Noto Sans JP',sans-serif}
+    .site-header .site-nav a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+    .nav-toggle{display:none}
+    .nav-toggle-label{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+    .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:rgba(255,255,255,0.6);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
+    .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
+    .nav-toggle-label span::before{top:-6px}
+    .nav-toggle-label span::after{top:6px}
+    @media(max-width:640px){
+      .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px}
+      .nav-toggle-label{display:inline-flex}
+      .site-header .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
+      .nav-toggle:checked~.site-nav{display:flex}
+      .nav-toggle:checked+.nav-toggle-label span{background:transparent}
+      .nav-toggle:checked+.nav-toggle-label span::before{top:0;transform:rotate(45deg)}
+      .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
+      .site-header .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
     }
   </style>
 </head>
 <body>
+<header class="site-header">
+  <div class="site-brand">iUMA</div>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://iuma-private.pages.dev/stock/portfolio.html">Stock</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://iuma-private.pages.dev/wealth/dashboard.html">Wealth</a>
+    <a href="https://iuma-private.pages.dev/action/">Action</a>
+  </nav>
+</header>
   <div class="atmosphere"><div class="atm-orb"></div><div class="atm-orb"></div></div>
   <div class="grain"></div>
   <div class="page">
