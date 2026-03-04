@@ -663,14 +663,90 @@
     .tag { border: 1px solid #ccc; }
   }
 
+  /* Back link */
+  .back-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 200;
+    background: rgba(15,15,26,0.85);
+    backdrop-filter: blur(10px);
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(212,175,55,0.2);
+    transition: all 0.3s;
+  }
+  .back-link:hover { background: rgba(212,175,55,0.15); border-color: var(--gold); }
+
   /* Mobile */
   @media (max-width: 768px) {
     .hero h1 { font-size: 2.2rem; }
     .section { padding: 2.5rem 1rem; }
+    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); }
     .timeline { padding-left: 2rem; }
     .nav a { padding: 0.8rem 1rem; font-size: 0.8rem; }
     .info-chip { font-size: 0.8rem; padding: 0.4rem 1rem; }
+    .countdown-num { font-size: clamp(1.8rem, 5vw, 2.5rem); }
+    .budget-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .map-container { max-height: 60vh; }
+    .map-container iframe { height: 350px; }
   }
+
+  @media (max-width: 640px) {
+    .hero .subtitle { font-size: clamp(0.9rem, 3vw, 1.2rem); }
+    .section { padding: 2rem 0.8rem; }
+    .section-title { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+    .timeline { padding-left: 1.5rem; }
+    .timeline::before { display: none; }
+    .timeline-item::before { display: none; }
+    .timeline-item { padding: 1rem; }
+    .nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .nav a { padding: 0.7rem 0.8rem; font-size: 10px; }
+    .countdown-num { font-size: clamp(1.5rem, 4.5vw, 2rem); }
+    .hotel-grid { grid-template-columns: 1fr; }
+    .resto-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .spot-list { grid-template-columns: 1fr; }
+    .map-container { max-height: 50vh; }
+    .map-container iframe { height: 280px; }
+    .day-badge { width: 48px; height: 48px; }
+    .day-badge .num { font-size: 1.2rem; }
+    .day-title { font-size: 1.1rem; }
+    .reservation-card { flex-wrap: wrap; }
+    .casino-info { padding: 1.2rem; }
+    .tab-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
+    .hero .subtitle { font-size: 0.85rem; }
+    .hero-content { padding: 1rem; }
+    .info-chip { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
+    .countdown { gap: 0.8rem; }
+    .countdown-num { font-size: 1.4rem; }
+    .countdown-label { font-size: 0.6rem; }
+    .section { padding: 1.5rem 0.6rem; }
+    .section-title { font-size: 1.1rem; }
+    .nav a { padding: 0.6rem 0.6rem; font-size: 9px; }
+    .budget-table { font-size: 0.75rem; }
+    .budget-table th, .budget-table td { padding: 0.5rem 0.6rem; }
+    .hotel-card { padding: 1.2rem; }
+    .hotel-name { font-size: 1.05rem; }
+    .resto-card { padding: 1rem; }
+    .tip-card { padding: 1rem; }
+    .day-header { gap: 0.6rem; }
+    .day-badge { width: 42px; height: 42px; border-radius: 10px; }
+    .day-badge .num { font-size: 1rem; }
+    .day-badge .label { font-size: 0.5rem; }
+    .day-title { font-size: 1rem; }
+    .back-link { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+    .casino-info { padding: 1rem; }
+    .casino-info h3 { font-size: 0.95rem; }
+  }
+
   /* Leaflet popup override */
   .leaflet-popup-content-wrapper {
     background: #1a1a2e;
@@ -698,11 +774,46 @@
   }
   .map-link:hover { background: rgba(212,175,55,0.25); border-color: var(--gold); }
   .leaflet-popup-content strong { color: var(--gold-light); }
+
+  /* === Shared gnav === */
+  .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);position:relative;z-index:100}
+  .site-header .site-brand{font-size:13px;font-weight:700;color:#6366f1;white-space:nowrap;font-family:'Inter','Noto Sans JP',sans-serif}
+  .site-header .site-nav{display:flex;gap:6px;flex-wrap:wrap}
+  .site-header .site-nav a{font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;padding:4px 10px;border-radius:6px;transition:all .15s;border:1px solid transparent;min-height:32px;display:inline-flex;align-items:center;font-family:'Inter','Noto Sans JP',sans-serif}
+  .site-header .site-nav a:hover{color:#fff;background:rgba(255,255,255,0.05)}
+  .nav-toggle{display:none}
+  .nav-toggle-label{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+  .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:rgba(255,255,255,0.6);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
+  .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
+  .nav-toggle-label span::before{top:-6px}
+  .nav-toggle-label span::after{top:6px}
+  @media(max-width:640px){
+    .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px}
+    .nav-toggle-label{display:inline-flex}
+    .site-header .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
+    .nav-toggle:checked~.site-nav{display:flex}
+    .nav-toggle:checked+.nav-toggle-label span{background:transparent}
+    .nav-toggle:checked+.nav-toggle-label span::before{top:0;transform:rotate(45deg)}
+    .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
+    .site-header .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
+  }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
+<header class="site-header">
+  <div class="site-brand">iUMA</div>
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://iuma-private.pages.dev/stock/portfolio.html">Stock</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://iuma-private.pages.dev/wealth/dashboard.html">Wealth</a>
+    <a href="https://iuma-private.pages.dev/action/">Action</a>
+  </nav>
+</header>
+<a href="./" class="back-link">&larr; Back</a>
 
 <!-- Hero -->
 <section class="hero">
@@ -738,6 +849,7 @@
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
+    <a href="#currency">通貨・両替</a>
     <a href="#hotels">ホテル比較</a>
     <a href="#restaurants">レストラン</a>
     <a href="#casino">カジノガイド</a>
@@ -750,6 +862,46 @@
     <a href="#" onclick="exportPDF()" style="color:var(--accent)!important;">PDF出力</a>
   </div>
 </nav>
+
+<!-- Currency & Exchange -->
+<section class="section" id="currency">
+  <h2 class="section-title">Currency & Exchange</h2>
+  <p class="section-sub">香港ドル(HKD)だけ持っていけばOK。パタカ両替は不要</p>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:1.5rem;">
+    <div style="background:var(--card); border-radius:12px; padding:1.5rem; border:1px solid var(--border);">
+      <h3 style="color:var(--accent); margin:0 0 0.8rem; font-size:1rem;">💴 通貨の基本</h3>
+      <ul style="list-style:none; padding:0; margin:0; font-size:0.9rem; line-height:1.8;">
+        <li><strong>マカオ通貨</strong>: パタカ(MOP) — 1MOP ≒ 約18円</li>
+        <li><strong>香港ドル</strong>: 1HKD ≒ 1.03MOP（ほぼ等価）</li>
+        <li><strong>結論</strong>: マカオ全域で香港ドルがそのまま使える。パタカへの両替は不要</li>
+        <li>⚠️ おつりはパタカで返ってくることがある（日本では使えないので注意）</li>
+      </ul>
+    </div>
+
+    <div style="background:var(--card); border-radius:12px; padding:1.5rem; border:1px solid var(--border);">
+      <h3 style="color:var(--accent); margin:0 0 0.8rem; font-size:1rem;">🏦 両替レート比較（良い順）</h3>
+      <ol style="padding-left:1.2rem; margin:0; font-size:0.9rem; line-height:1.8;">
+        <li><strong>マカオ市内の銀行</strong>（大豊銀行等）— 最良レート</li>
+        <li><strong>マカオ市内の両替所</strong>（セナド広場周辺）— 銀行に次ぐ好レート</li>
+        <li><strong>ATM海外キャッシング</strong> — VISA/Master対応ATMが豊富。手数料込みでも悪くない</li>
+        <li><strong>ホテル・カジノ内</strong> — 便利だがレートはやや悪い</li>
+        <li><strong>日本の空港</strong> — 最もレートが悪い。避けるべき</li>
+      </ol>
+    </div>
+
+    <div style="background:var(--card); border-radius:12px; padding:1.5rem; border:1px solid var(--border);">
+      <h3 style="color:var(--accent); margin:0 0 0.8rem; font-size:1rem;">✅ おすすめ戦略</h3>
+      <ul style="list-style:none; padding:0; margin:0; font-size:0.9rem; line-height:1.8;">
+        <li>🔹 <strong>メイン</strong>: クレカ決済（ホテル・レストラン・ショップ）</li>
+        <li>🔹 <strong>現金</strong>: 到着後にATMキャッシングで必要分だけ引き出し</li>
+        <li>🔹 <strong>カジノ</strong>: カジノ内ATMで香港ドル引き出し可</li>
+        <li>🔹 <strong>予備</strong>: 日本で最低限（1〜2万円分）だけ香港ドルに両替しておくと安心</li>
+        <li>⚠️ 関空での両替はレート最悪。やるなら最小限に</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
 <!-- Hotel Comparison -->
 <section class="section" id="hotels">
@@ -767,6 +919,7 @@
         <li>レストラン30以上 — 和食・中華・洋食何でも揃う</li>
         <li>無料シャトルバス（空港・フェリーターミナル・主要スポット）</li>
         <li>Grand Resort Deck（575m流れるプール）</li>
+        <li>🏋️ <strong>V Gym</strong>（8F South Suites）— 24時間営業。カーディオ＆ウェイト完備。スタッフ常駐 6:00-22:00</li>
         <li>コタイ中心で隣接リゾートへ徒歩アクセス</li>
         <li>パリジャン・ロンドナーと施設共有可</li>
       </ul>
@@ -784,6 +937,7 @@
         <li>室内ウォーターパーク（3月は屋内のみ営業）</li>
         <li>ドン・キホーテ入居 — 日本食・日用品が買える</li>
         <li>カジノ併設</li>
+        <li>🏋️ <strong>Star Tower Fitness Center</strong> — 24時間営業。Technogym製マシン完備（トレッドミル・エリプティカル・ローイング・バイク・ファンクショナルトレーナー）。Outrace機能トレーニングシステムあり</li>
         <li>ベネチアンから無料シャトル or タクシー3分（約600円）</li>
         <li>コスパ最強 — ベネチアン5泊より4人で5万円節約</li>
       </ul>
@@ -1017,6 +1171,12 @@
         <div class="activity-title">関西国際空港T1 出発（NX855 マカオ航空）</div>
         <div class="activity-desc">PNR: NE60ZN。11:45頃には空港到着を。関空T1からマカオ航空直行便。フライト時間 約4時間25分。機内で軽食あり。</div>
         <span class="tag">フライト</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">12:00</div>
+        <div class="activity-title">&#127775; PPラウンジ（関空）</div>
+        <div class="activity-desc"><strong>【PP】カフェラウンジ NODOKA</strong>（エアロプラザ3F）— 3時間無料。食事1品+アルコール2本付き。保安検査前。<br><strong>【PP】ラウンジ金剛</strong>（制限エリア内）— 軽食・ドリンク・クラブサンドイッチ。<br><strong>【スタアラGold/SFC】KIX Lounge Kansai</strong>（制限エリア内）— 同行者1名OK。営業 6:00〜24:55。<br>※PP+スタアラ両方持ちなら NODOKA → 保安検査 → 金剛 or KIX Lounge のはしごも可。</div>
+        <span class="tag">ラウンジ</span>
       </div>
       <div class="timeline-item">
         <div class="time-label">17:10</div>
@@ -1297,6 +1457,12 @@
         <div class="activity-desc">出発の約2時間前に到着。マカオ空港はコンパクトなので手続きはスムーズ。免税店で最後のお土産購入も可能。</div>
       </div>
       <div class="timeline-item">
+        <div class="time-label">07:00</div>
+        <div class="activity-title">&#127775; PPラウンジ（マカオ空港）</div>
+        <div class="activity-desc"><strong>【PP】Plaza Premium Lounge</strong>（制限エリア内・中2階、Gate 9/9A向かいエスカレーター上）— 2時間無料。軽食・ドリンク・アルコール。シャワーあり（有料）。営業 6:00〜22:00。早朝出発の朝食代わりに最適。<br>⚠️ マカオ航空はスタアラ非加盟のため、スタアラGold/SFCではラウンジ利用不可。マカオ空港はPP一択。</div>
+        <span class="tag">ラウンジ</span>
+      </div>
+      <div class="timeline-item">
         <div class="time-label">08:20 &#9992;</div>
         <div class="activity-title">マカオ出発（NX856 マカオ航空）</div>
         <div class="activity-desc">マカオ国際空港 → 関西国際空港。フライト時間 約3時間25分。機内で朝食あり。</div>
@@ -1316,6 +1482,7 @@
   <h2 class="section-title">Budget Estimate</h2>
   <p class="section-sub">4人合計の概算予算（5泊6日）</p>
 
+  <div class="budget-table-wrap">
   <table class="budget-table">
     <thead>
       <tr><th>項目</th><th>概算（4人合計）</th><th>備考</th></tr>
@@ -1358,6 +1525,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 
   <div style="margin-top:2rem; background:rgba(76,175,80,0.08); border:1px solid rgba(76,175,80,0.15); border-radius:12px; padding:1.5rem;">
     <h3 style="color:#81c784; font-size:1rem; margin-bottom:0.5rem;">コスパを上げるコツ</h3>
@@ -1655,7 +1823,7 @@
 <script>
 // === Countdown Timer ===
 function updateCountdown() {
-  const tripDate = new Date('2026-03-05T00:00:00+08:00');
+  const tripDate = new Date('2026-03-05T13:45:00+09:00');
   const now = new Date();
   const diff = tripDate - now;
   if (diff <= 0) {
