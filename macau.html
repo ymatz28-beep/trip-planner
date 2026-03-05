@@ -807,6 +807,7 @@
   <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
   <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
   <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://ymatz28-beep.github.io/trip-planner/">Travel</a>
     <a href="https://iuma-private.pages.dev/stock/portfolio.html">Stock</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
     <a href="https://iuma-private.pages.dev/wealth/dashboard.html">Wealth</a>
@@ -857,6 +858,7 @@
     <a href="#map">マップ</a>
     <a href="#budget">予算</a>
     <a href="#reservations">予約管理</a>
+    <a href="#airport">空港ラウンジ</a>
     <a href="#checklist">持ち物</a>
     <a href="#tips">旅のコツ</a>
     <a href="#" onclick="exportPDF()" style="color:var(--accent)!important;">PDF出力</a>
@@ -1796,6 +1798,121 @@
         <div class="res-detail">80歳のお母様分は特に重要 ・ クレカ付帯も確認</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Airport Lounge -->
+<section class="section" id="airport">
+  <h2 class="section-title">Airport Lounge — KIX Priority Pass</h2>
+  <p class="section-sub">関西国際空港のPriority Pass対象施設 — 出発前に賢く使う</p>
+
+  <div style="background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.25); border-radius:12px; padding:1.2rem 1.5rem; margin-bottom:2rem;">
+    <div style="font-size:0.85rem; font-weight:700; color:var(--gold); margin-bottom:0.5rem;">4名での利用について</div>
+    <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); line-height:1.7;">
+      ぼてぢゅうは<strong style="color:var(--gold-light);">本人+同伴者3名（計4名）まで利用可能</strong>。同伴者の料金はクレジットカードの種類次第（楽天プレミアムは本人のみ無料、同伴者は各US$35）。<br>
+      ラウンジ（金剛・六甲）も同伴者入場可能だが、<strong style="color:var(--accent);">混雑時は4名での入場を断られる場合あり</strong>。ぼてぢゅうの方が確実。
+    </p>
+  </div>
+
+  <div class="hotel-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+
+    <div class="hotel-card recommended">
+      <div class="hotel-name">ぼてぢゅう1946</div>
+      <div class="hotel-price">¥3,400 / 人（食事クレジット）</div>
+      <ul class="hotel-features">
+        <li>T1 南ウイング 2F・国内線制限エリア内</li>
+        <li>営業 5:30〜21:30（LO 21:00）</li>
+        <li>複数人のクレジット合算OK（4人 = ¥13,600）</li>
+        <li>超過分は差額自己負担・お釣りなし</li>
+        <li>テイクアウト対応あり</li>
+        <li>出発3時間以内の搭乗券が必要</li>
+        <li>同伴者最大3名（計4名OK）</li>
+      </ul>
+      <div style="margin-top:0.8rem;">
+        <span class="tag food">お好み焼き</span>
+        <span class="tag food">焼きそば</span>
+        <span class="tag">テイクアウト可</span>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-name">Japan Travelling Restaurant by BOTEJYU</div>
+      <div class="hotel-price">¥3,400 / 人（食事クレジット）</div>
+      <ul class="hotel-features">
+        <li>T1 南ウイング 2F・国内線制限エリア内</li>
+        <li>営業 5:30〜21:30（LO 21:00）</li>
+        <li>ぼてぢゅう系列の別店舗</li>
+        <li>同じPP条件・同伴者ルール適用</li>
+      </ul>
+      <div style="margin-top:0.8rem;">
+        <span class="tag food">和食系</span>
+        <span class="tag">PP対象</span>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-name">Card Members Lounge 金剛</div>
+      <div class="hotel-price">無料（PP会員）</div>
+      <ul class="hotel-features">
+        <li>T1 南ウイング 2F Gate29向かい</li>
+        <li>国際線制限エリア内</li>
+        <li>営業 8:00〜22:00</li>
+        <li>ソフトドリンク・軽食</li>
+        <li>4名入場: 混雑時は断られる可能性あり</li>
+      </ul>
+      <div style="margin-top:0.8rem;">
+        <span class="tag">国際線エリア</span>
+        <span class="tag casino">ラウンジ</span>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-name">Card Members Lounge Annex 六甲</div>
+      <div class="hotel-price">無料（PP会員）</div>
+      <ul class="hotel-features">
+        <li>T1 北ウイング 中間駅付近</li>
+        <li>国際線制限エリア内</li>
+        <li>営業 7:30〜22:00</li>
+        <li>ソフトドリンク・軽食</li>
+      </ul>
+      <div style="margin-top:0.8rem;">
+        <span class="tag">国際線エリア</span>
+        <span class="tag casino">ラウンジ</span>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-name">KIX Airport Cafe Lounge NODOKA</div>
+      <div class="hotel-price">無料（PP会員）</div>
+      <ul class="hotel-features">
+        <li>エアプラザ 2F（制限エリア外）</li>
+        <li>24時間営業</li>
+        <li>搭乗券不要・到着時も利用可</li>
+        <li>ソフトドリンク・シャワー7室・Wi-Fi</li>
+        <li>アルコールは有料</li>
+      </ul>
+      <div style="margin-top:0.8rem;">
+        <span class="tag culture">制限エリア外</span>
+        <span class="tag">24h</span>
+        <span class="tag">シャワー</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:2rem; background:var(--card-bg); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:1.5rem;">
+    <h3 style="color:var(--gold); font-size:0.95rem; margin-bottom:0.8rem;">おすすめプラン: NX855 関空13:45発</h3>
+    <div style="font-size:0.85rem; color:rgba(255,255,255,0.65); line-height:1.8;">
+      <strong style="color:var(--gold-light);">11:00頃</strong> 関空到着 → チェックイン<br>
+      <strong style="color:var(--gold-light);">11:30〜</strong> ぼてぢゅうで4人ランチ（PP利用・合計¥13,600分）<br>
+      <strong style="color:var(--gold-light);">12:30〜</strong> 出国手続き → 国際線制限エリアへ<br>
+      <strong style="color:var(--gold-light);">12:45〜</strong> 金剛 or 六甲ラウンジで軽く休憩（空席あれば）<br>
+      <strong style="color:var(--gold-light);">13:45</strong> NX855 出発
+    </div>
+    <p style="font-size:0.8rem; color:rgba(255,255,255,0.4); margin-top:0.8rem;">
+      ※ ぼてぢゅうは国内線エリアだが、出発便の搭乗券があれば国際線利用者もアクセス可。保安検査前に利用する。<br>
+      ※ T2（Peach専用）にはPP対象施設なし。全施設T1。
+    </p>
   </div>
 </section>
 
