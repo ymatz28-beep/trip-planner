@@ -768,27 +768,48 @@
     .back-link { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
   }
 
-  /* === Shared gnav === */
-  .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);position:relative;z-index:100}
-
-  .site-header .site-nav{display:flex;gap:6px;flex-wrap:wrap}
-  .site-header .site-nav a{font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;padding:4px 10px;border-radius:6px;transition:all .15s;border:1px solid transparent;min-height:32px;display:inline-flex;align-items:center;font-family:'Inter','Noto Sans JP',sans-serif}
-  .site-header .site-nav a:hover{color:#fff;background:rgba(255,255,255,0.05)}
-  .nav-toggle{display:none}
-  .nav-toggle-label{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
-  .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:rgba(255,255,255,0.6);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
-  .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
-  .nav-toggle-label span::before{top:-6px}
-  .nav-toggle-label span::after{top:6px}
-  @media(max-width:640px){
-    .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px}
-    .nav-toggle-label{display:inline-flex}
-    .site-header .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
-    .nav-toggle:checked~.site-nav{display:flex}
-    .nav-toggle:checked+.nav-toggle-label span{background:transparent}
-    .nav-toggle:checked+.nav-toggle-label span::before{top:0;transform:rotate(45deg)}
-    .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
-    .site-header .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
+  /* ── Shared Gnav ── */
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+    background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .site-nav { display: flex; gap: 4px; }
+  .site-nav a {
+    color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
+  }
+  .site-nav a:hover, .site-nav a[aria-current="page"] {
+    background: rgba(255,255,255,0.065); color: #f5f5f7;
+  }
+  .nav-toggle { display: none; }
+  .nav-toggle-label { display: none; cursor: pointer; padding: 8px; }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block; background: #f5f5f7; height: 2px; width: 20px;
+    border-radius: 2px; position: relative; transition: .3s;
+  }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after { content: ''; position: absolute; }
+  .nav-toggle-label span::before { top: -6px; }
+  .nav-toggle-label span::after { top: 6px; }
+  @media (max-width: 640px) {
+    .nav-toggle-label { display: block; }
+    .site-nav {
+      display: none; flex-direction: column; gap: 0;
+      position: absolute; top: 52px; left: 0; right: 0; z-index: 200;
+      background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 0;
+    }
+    .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
+    .nav-toggle:checked ~ .site-nav { display: flex; }
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
   }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -798,10 +819,10 @@
 <header class="site-header">
   <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
   <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-  <nav class="site-nav" aria-label="Site navigation">
+  <nav class="site-nav">
     <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
-    <a href="https://ymatz28-beep.github.io/trip-planner/">Travel</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
   </nav>
 </header>
 <a href="./" class="back-link">&larr; Back</a>
