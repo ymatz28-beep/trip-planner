@@ -786,6 +786,16 @@
       padding: 0 0 8px;
     }
     .section-nav-toggle:checked ~ .nav-bar { display: flex; }
+    .day-nav { display: none; flex-direction: column; gap: 0; padding: 0; }
+    .section-nav-toggle:checked ~ .day-nav { display: flex; }
+    .day-nav a {
+      padding: 10px 16px;
+      font-size: 12px;
+      border-radius: 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
     .nav-bar a {
       padding: 10px 16px;
       font-size: 12px;
