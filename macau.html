@@ -219,8 +219,102 @@
   /* Day Timeline */
   .day-section {
     margin-bottom: 3rem;
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 7rem;
+    transition: opacity 0.3s;
   }
+  .day-section.past {
+    opacity: 0.45;
+  }
+  .day-section.past .timeline {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .day-section.past.expanded .timeline {
+    max-height: 4000px;
+  }
+  .day-section.past .day-header {
+    cursor: pointer;
+  }
+  .day-section.past .day-header::after {
+    content: '▸ 詳細を見る';
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-left: auto;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+  .day-section.past.expanded .day-header::after {
+    content: '▾ 閉じる';
+  }
+  .day-section.past .day-badge {
+    background: linear-gradient(135deg, #666, #555);
+  }
+  .day-section.today {
+    border-left: 3px solid var(--gold);
+    padding-left: 1rem;
+    border-radius: 4px;
+  }
+  .day-section.today .day-header::before {
+    content: 'TODAY';
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 8px;
+    letter-spacing: 0.08em;
+    vertical-align: middle;
+  }
+  .past-divider {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    position: relative;
+  }
+  .past-divider::before,
+  .past-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: var(--border);
+  }
+  .past-divider::before { left: 5%; }
+  .past-divider::after { right: 5%; }
+
+  /* Day quick nav pills */
+  .day-nav {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    padding: 6px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+  .day-nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .day-nav a:hover, .day-nav a.active {
+    color: var(--text);
+    background: var(--surface-hover);
+  }
+  .day-nav a.past-day { opacity: 0.5; }
+  .day-nav a.today-day { color: var(--gold); font-weight: 700; }
   .day-header {
     display: flex;
     align-items: center;
@@ -840,6 +934,8 @@
     <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
     <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/macau.html" style="color:var(--gold-light);">Macau</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/taipei.html">Taipei</a>
   </nav>
 </header>
 <a href="./" class="back-link">&larr; Back</a>
@@ -892,6 +988,14 @@
     <a href="#tips">旅のコツ</a>
     <a href="#" onclick="exportPDF()" style="color:var(--accent)!important;">PDF出力</a>
   </nav>
+  <div class="day-nav" id="day-nav">
+    <a href="#day1" data-day="2026-03-05">Day1</a>
+    <a href="#day2" data-day="2026-03-06">Day2</a>
+    <a href="#day3" data-day="2026-03-07">Day3</a>
+    <a href="#day4" data-day="2026-03-08">Day4</a>
+    <a href="#day5" data-day="2026-03-09">Day5</a>
+    <a href="#day6" data-day="2026-03-10">Day6</a>
+  </div>
 </div>
 
 <!-- Currency & Exchange -->
@@ -1195,7 +1299,7 @@
   <p class="section-sub">80歳のお母様のペースに合わせた、無理のない6日間プラン</p>
 
   <!-- Day 1 -->
-  <div class="day-section" id="day1">
+  <div class="day-section" id="day1" data-date="2026-03-05">
     <div class="day-header">
       <div class="day-badge"><span class="num">1</span><span class="label">Day</span></div>
       <div><div class="day-title">到着 & コタイ満喫</div><div class="day-date">3月5日（木）</div></div>
@@ -1278,7 +1382,7 @@
   </div>
 
   <!-- Day 2 -->
-  <div class="day-section" id="day2">
+  <div class="day-section" id="day2" data-date="2026-03-06">
     <div class="day-header">
       <div class="day-badge"><span class="num">2</span><span class="label">Day</span></div>
       <div><div class="day-title">世界遺産めぐり（マカオ半島）</div><div class="day-date">3月6日（金）</div></div>
@@ -1335,7 +1439,7 @@
   </div>
 
   <!-- Day 3 -->
-  <div class="day-section" id="day3">
+  <div class="day-section" id="day3" data-date="2026-03-07">
     <div class="day-header">
       <div class="day-badge"><span class="num">3</span><span class="label">Day</span></div>
       <div><div class="day-title">コロアン島 & のんびりデー</div><div class="day-date">3月7日（土）</div></div>
@@ -1392,7 +1496,7 @@
   </div>
 
   <!-- Day 4 -->
-  <div class="day-section" id="day4">
+  <div class="day-section" id="day4" data-date="2026-03-08">
     <div class="day-header">
       <div class="day-badge"><span class="num">4</span><span class="label">Day</span></div>
       <div><div class="day-title">ホテル移動 & スタジオシティ満喫</div><div class="day-date">3月8日（日）</div></div>
@@ -1458,7 +1562,7 @@
   </div>
 
   <!-- Day 5 -->
-  <div class="day-section" id="day5">
+  <div class="day-section" id="day5" data-date="2026-03-09">
     <div class="day-header">
       <div class="day-badge"><span class="num">5</span><span class="label">Day</span></div>
       <div><div class="day-title">&#127905; スタジオシティ満喫 & 最後の夜</div><div class="day-date">3月9日（月）</div></div>
@@ -1504,7 +1608,7 @@
   </div>
 
   <!-- Day 6 -->
-  <div class="day-section" id="day6">
+  <div class="day-section" id="day6" data-date="2026-03-10">
     <div class="day-header">
       <div class="day-badge"><span class="num">6</span><span class="label">Day</span></div>
       <div><div class="day-title">帰国日 &#9992; 早朝出発</div><div class="day-date">3月10日（火）</div></div>
@@ -2212,6 +2316,127 @@ legend.onAdd = function() {
   return div;
 };
 legend.addTo(map);
+
+// === Day reorder: past days go to bottom, today highlighted ===
+(function() {
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const itinerary = document.getElementById('itinerary');
+  if (!itinerary) return;
+  const days = Array.from(itinerary.querySelectorAll('.day-section'));
+  const pastDays = [];
+  const currentFutureDays = [];
+  let todayEl = null;
+
+  days.forEach(day => {
+    const dateStr = day.dataset.date;
+    if (!dateStr) { currentFutureDays.push(day); return; }
+    const dayDate = new Date(dateStr + 'T00:00:00+08:00'); // Macau timezone
+    dayDate.setHours(0,0,0,0);
+    if (dayDate < today) {
+      day.classList.add('past');
+      pastDays.push(day);
+    } else if (dayDate.toDateString() === today.toDateString()) {
+      day.classList.add('today');
+      todayEl = day;
+      currentFutureDays.push(day);
+    } else {
+      currentFutureDays.push(day);
+    }
+  });
+
+  if (pastDays.length > 0 && currentFutureDays.length > 0) {
+    // Reorder: current/future first, divider, then past
+    currentFutureDays.forEach(d => itinerary.appendChild(d));
+    const divider = document.createElement('div');
+    divider.className = 'past-divider';
+    divider.textContent = '完了した日程';
+    itinerary.appendChild(divider);
+    pastDays.forEach(d => itinerary.appendChild(d));
+  }
+
+  // Past day toggle expand/collapse
+  pastDays.forEach(day => {
+    const header = day.querySelector('.day-header');
+    if (header) {
+      header.addEventListener('click', () => {
+        day.classList.toggle('expanded');
+      });
+    }
+  });
+
+  // Auto-scroll to today's day
+  if (todayEl) {
+    setTimeout(() => {
+      todayEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 500);
+  }
+
+  // Day nav: style past/today pills
+  document.querySelectorAll('#day-nav a').forEach(a => {
+    const dayDate = new Date(a.dataset.day + 'T00:00:00+08:00');
+    dayDate.setHours(0,0,0,0);
+    if (dayDate < today) a.classList.add('past-day');
+    else if (dayDate.toDateString() === today.toDateString()) a.classList.add('today-day');
+  });
+
+  // Day nav smooth scroll
+  document.querySelectorAll('#day-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const toggle = document.getElementById('section-nav-toggle');
+      if (toggle) toggle.checked = false;
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Hotel past marking
+  const hotelCards = document.querySelectorAll('.hotel-card');
+  hotelCards.forEach(card => {
+    const priceEl = card.querySelector('.hotel-price');
+    if (!priceEl) return;
+    const text = priceEl.textContent;
+    // Extract end date from patterns like "3/5〜8" or "3/8〜10"
+    const m = text.match(/(\d+)\/(\d+)〜(\d+)/);
+    if (m) {
+      const endDate = new Date(2026, parseInt(m[1]) - 1, parseInt(m[3]));
+      endDate.setHours(0,0,0,0);
+      if (endDate <= today) {
+        card.style.opacity = '0.5';
+        const badge = document.createElement('span');
+        badge.textContent = 'チェックアウト済';
+        badge.style.cssText = 'display:inline-block;background:var(--dim);color:var(--muted);font-size:0.65rem;padding:2px 8px;border-radius:4px;margin-left:8px;vertical-align:middle;';
+        priceEl.appendChild(badge);
+      }
+    }
+  });
+
+  // Flight past marking
+  const flightChips = document.querySelectorAll('.info-chip');
+  flightChips.forEach(chip => {
+    const text = chip.textContent;
+    if (text.includes('NX855') && new Date('2026-03-05') < today) {
+      chip.style.opacity = '0.5';
+      chip.textContent = text + ' ✓';
+    }
+    if (text.includes('NX856') && new Date('2026-03-10') < today) {
+      chip.style.opacity = '0.5';
+      chip.textContent = text + ' ✓';
+    }
+  });
+
+  // Countdown: show status text if trip is ongoing or finished
+  const cdEl = document.getElementById('countdown');
+  const tripStart = new Date('2026-03-05T13:45:00+09:00');
+  const tripEnd = new Date('2026-03-10T12:45:00+09:00');
+  const now = new Date();
+  if (now >= tripStart && now <= tripEnd) {
+    cdEl.innerHTML = '<div style="text-align:center;padding:8px 0;"><span style="color:var(--gold);font-weight:700;font-size:14px;letter-spacing:0.1em;">NOW IN MACAU</span></div>';
+  } else if (now > tripEnd) {
+    cdEl.innerHTML = '<div style="text-align:center;padding:8px 0;"><span style="color:var(--muted);font-size:12px;">旅行完了</span></div>';
+  }
+})();
 </script>
 
 </body>
