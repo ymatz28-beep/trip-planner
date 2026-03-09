@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>台北旅行プラン 2026年4月15日〜 | 4泊5日 / 5泊6日</title>
+<title>台北旅行プラン 2026年4月16日〜20日 | 4泊5日</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
@@ -107,7 +107,7 @@
     letter-spacing: 0.15em;
   }
 
-  /* Section Nav — sticky bar with mobile hamburger */
+  /* Section Nav — sticky horizontal scroll bar */
   .section-nav-wrapper {
     position: sticky;
     top: 52px;
@@ -117,32 +117,17 @@
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
   }
-  .section-nav-toggle { display: none; }
-  .section-nav-label {
-    display: none;
-    cursor: pointer;
-    padding: 10px 16px;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    align-items: center;
-    gap: 6px;
-  }
-  .section-nav-label span {
-    display: inline-block;
-    transition: transform .2s;
-  }
-  .section-nav-toggle:checked ~ .section-nav-label span {
-    transform: rotate(180deg);
-  }
   .nav-bar {
     display: flex;
     gap: 4px;
-    flex-wrap: wrap;
     justify-content: center;
     padding: 10px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
   }
+  .nav-bar::-webkit-scrollbar { display: none; }
   .nav-bar a {
     color: var(--muted);
     text-decoration: none;
@@ -152,6 +137,7 @@
     border-radius: 6px;
     transition: all 0.2s;
     white-space: nowrap;
+    flex-shrink: 0;
   }
   .nav-bar a:hover, .nav-bar a.active {
     color: var(--text);
@@ -741,19 +727,15 @@
     .timeline::before { display: none; }
     .timeline-item::before { display: none; }
     .timeline-item { padding: 1rem; }
-    .section-nav-label { display: flex; }
     .nav-bar {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      padding: 0 0 8px;
+      justify-content: flex-start;
+      padding: 10px 12px;
+      gap: 2px;
     }
-    .section-nav-toggle:checked ~ .nav-bar { display: flex; }
     .nav-bar a {
-      padding: 10px 16px;
-      font-size: 12px;
-      border-radius: 0;
-      min-height: 44px;
+      padding: 6px 12px;
+      font-size: 11px;
+      min-height: 36px;
       display: flex;
       align-items: center;
     }
@@ -835,10 +817,10 @@
 <section class="hero">
   <div class="hero-content">
     <h1>TAIPEI 台北</h1>
-    <p class="subtitle">飲茶 × 夜市 × 烏龍茶</p>
+    <p class="subtitle">熱炒 × 夜市 × 烏龍茶</p>
     <div class="trip-info">
-      <span class="info-chip">4月15日〜19日 or 20日</span>
-      <span class="info-chip">4泊5日 / 5泊6日</span>
+      <span class="info-chip">4月16日(木)〜20日(月)</span>
+      <span class="info-chip">4泊5日</span>
       <span class="info-chip">2名</span>
     </div>
     <div class="countdown" id="countdown">
@@ -852,8 +834,6 @@
 
 <!-- Section Navigation -->
 <div class="section-nav-wrapper">
-  <input type="checkbox" id="section-nav-toggle" class="section-nav-toggle">
-  <label for="section-nav-toggle" class="section-nav-label">セクション <span>▾</span></label>
   <nav class="nav-bar" aria-label="Page section navigation">
     <a href="#flights">フライト</a>
     <a href="#hotels">ホテル</a>
@@ -872,65 +852,125 @@
 <!-- Flights -->
 <section class="section" id="flights">
   <h2 class="section-title">Flights</h2>
-  <p class="section-sub">東京→台北 直行便比較。松山空港なら市内中心部に直結</p>
+  <p class="section-sub">羽田 → 松山、同じANA便で一緒に。松山空港は市内直結で最強</p>
 
-  <div class="flight-grid">
-    <div class="flight-card recommended">
-      <div class="flight-route">HND → TSA（羽田 → 松山）</div>
-      <div class="flight-note">市内中心部の空港。MRTで15分で市街地</div>
-      <div class="airline-row"><span class="airline-name">China Airlines 中華航空</span><span class="airline-price">¥30,000〜50,000</span></div>
-      <div class="airline-row"><span class="airline-name">EVA Air 長榮航空 ★</span><span class="airline-price">¥30,000〜50,000</span></div>
-      <div class="airline-row"><span class="airline-name">ANA 全日空</span><span class="airline-price">¥35,000〜55,000</span></div>
-      <div class="airline-row"><span class="airline-name">JAL 日本航空</span><span class="airline-price">¥35,000〜55,000</span></div>
-      <div style="margin-top:1rem; font-size:0.8rem; color:rgba(255,255,255,0.4);">
-        ✈ 約3.5h直行 / 1日約8便 / EVA Air=スタアラ（ANAマイル加算可）
-      </div>
+  <!-- Flight Summary -->
+  <div style="background:linear-gradient(135deg, rgba(232,87,122,0.08), rgba(0,137,123,0.08)); border:1px solid rgba(232,87,122,0.2); border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
+    <h3 style="font-size:1rem; margin-bottom:0.8rem; color:var(--text);">ANA 直行便 — 羽田 ↔ 松山</h3>
+    <div style="font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.8;">
+      同じ便で一緒に搭乗。空港〜機内〜到着まで完全に一緒に行動。<br>
+      松山空港は台北市内に直結（MRT 20分 / タクシー15分で西門町）。<br>
+      各自で航空券を手配 → 同じ便名を予約するだけ。
     </div>
-
-    <div class="flight-card">
-      <div class="flight-route">NRT → TPE（成田 → 桃園）</div>
-      <div class="flight-note">LCC選択肢あり。空港MRTで市内40分</div>
-      <div class="airline-row"><span class="airline-name">Peach ピーチ (LCC)</span><span class="airline-price">¥15,000〜25,000</span></div>
-      <div class="airline-row"><span class="airline-name">Tigerair 台湾虎航 (LCC)</span><span class="airline-price">¥15,000〜25,000</span></div>
-      <div class="airline-row"><span class="airline-name">STARLUX 星宇航空</span><span class="airline-price">¥30,000〜45,000</span></div>
-      <div class="airline-row"><span class="airline-name">EVA Air / China Airlines</span><span class="airline-price">¥30,000〜45,000</span></div>
-      <div style="margin-top:1rem; font-size:0.8rem; color:rgba(255,255,255,0.4);">
-        ✈ 約4h / 桃園空港MRT→台北駅 35-40分（NT$160 ≒ ¥790）
-      </div>
+    <div style="margin-top:1rem; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:1rem; font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.7;">
+      <strong style="color:var(--teal);">ANA vs LCC — 実はあまり変わらない</strong><br>
+      LCCは一見安いが、受託手荷物・座席指定・機内食などオプション込みだと差が縮まる。<br>
+      ANA往復は現時点で <span style="font-family:'JetBrains Mono',monospace; color:var(--pink);">約¥48,000</span>（SGD 430相当）。4月ローシーズンでかなり割安。<br>
+      羽田発着 + 松山到着（市内直結）+ 手荷物23kg込み + ANA品質を考えると、コスパ◎。
     </div>
   </div>
 
-  <div style="margin-top:2rem; background:rgba(0,137,123,0.08); border:1px solid rgba(0,137,123,0.15); border-radius:12px; padding:1.5rem;">
-    <h3 style="color:var(--teal); font-size:1rem; margin-bottom:0.5rem;">空港アクセス比較</h3>
+  <!-- Outbound — CONFIRMED -->
+  <div class="flight-card recommended" style="margin-bottom:1rem;">
+    <div class="flight-route">行き 4/16(木) HND → TSA（羽田 → 松山）</div>
+    <div class="flight-note" style="color:var(--teal); font-weight:500;">同じ便！羽田集合 → 一緒に搭乗 → 松山到着後すぐ市内</div>
+    <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; font-size:0.85rem;">
+      <tr>
+        <td style="padding:0.5rem 0; color:var(--pink); width:50px; font-weight:600;">確定</td>
+        <td style="padding:0.5rem 0; font-weight:600;">ANA NH853</td>
+        <td style="padding:0.5rem 0; font-family:'JetBrains Mono',monospace; font-weight:600;">13:20 → 15:50</td>
+        <td style="padding:0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">朝ゆっくり出発 → 夕方から台北満喫</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Return — CONFIRMED -->
+  <div class="flight-card recommended" style="margin-bottom:1rem;">
+    <div class="flight-route">帰り 4/20(月) TSA → HND（松山 → 羽田）</div>
+    <div class="flight-note">帰りも同じ便。松山空港は市内からタクシー15分</div>
+    <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; font-size:0.85rem;">
+      <tr>
+        <td style="padding:0.5rem 0; color:var(--pink); width:50px; font-weight:600;">確定</td>
+        <td style="padding:0.5rem 0; font-weight:600;">ANA NH852</td>
+        <td style="padding:0.5rem 0; font-family:'JetBrains Mono',monospace; font-weight:600;">13:30 → 17:20</td>
+        <td style="padding:0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">午前に最後の観光 → 午後便で帰国</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- All HND-TSA flights -->
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem; margin-bottom:1.5rem;">
+    <h3 style="font-size:0.9rem; margin-bottom:0.8rem; color:var(--text-secondary);">HND → TSA 全便一覧（参考）</h3>
+    <table style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+        <td style="padding:0.3rem 0; color:var(--muted);">07:55→10:55</td><td style="padding:0.3rem 0;">China Airlines CI223</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+        <td style="padding:0.3rem 0; color:var(--muted);">08:40→11:40</td><td style="padding:0.3rem 0;">JAL JL97</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(232,87,122,0.05);">
+        <td style="padding:0.3rem 0; color:var(--pink); font-weight:500;">09:20→12:30</td><td style="padding:0.3rem 0; color:var(--pink); font-weight:500;">ANA NH851 ★</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+        <td style="padding:0.3rem 0; color:var(--muted);">10:25→13:25</td><td style="padding:0.3rem 0;">EVA Air BR189</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+        <td style="padding:0.3rem 0; color:var(--muted);">12:15→15:05</td><td style="padding:0.3rem 0;">EVA Air BR191</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(232,87,122,0.05);">
+        <td style="padding:0.3rem 0; color:var(--pink-light);">13:20→15:50</td><td style="padding:0.3rem 0; color:var(--pink-light);">ANA NH853 ★確定</td>
+      </tr>
+      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+        <td style="padding:0.3rem 0; color:var(--muted);">14:15→17:15</td><td style="padding:0.3rem 0;">China Airlines CI221</td>
+      </tr>
+      <tr>
+        <td style="padding:0.3rem 0; color:var(--muted);">18:10→21:00</td><td style="padding:0.3rem 0;">JAL JL99</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Airport Access -->
+  <div style="background:rgba(0,137,123,0.08); border:1px solid rgba(0,137,123,0.15); border-radius:12px; padding:1.2rem;">
+    <h3 style="color:var(--teal); font-size:0.9rem; margin-bottom:0.5rem;">松山空港 → 市内アクセス（圧倒的に便利）</h3>
     <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8;">
-      <strong style="color:var(--pink-light);">松山空港 (TSA)</strong>: MRT→台北駅15分(¥300) / タクシー→西門町15分(¥1,000) / <strong>市内直結で圧倒的に便利</strong><br>
-      <strong style="color:var(--pink-light);">桃園空港 (TPE)</strong>: MRT Express→台北駅35分(¥790) / バス→台北駅55分(¥620) / タクシー→西門町40分(¥6,000)<br>
-      <strong style="color:var(--teal);">結論</strong>: 価格差が数千円なら HND→TSA 一択。時間と快適さが圧倒的。
+      <strong style="color:var(--pink-light);">MRT</strong>: 松山空港→西門町 約20分（NT$25 ≒ ¥120）直通<br>
+      <strong style="color:var(--pink-light);">タクシー</strong>: 松山空港→西門町 約15分（NT$200 ≒ ¥1,000）<br>
+      <strong style="color:var(--teal);">到着後プラン</strong>: 入国→タクシー15分→ホテルチェックイン→即観光開始
     </div>
   </div>
 
-  <div style="margin-top:1.5rem; text-align:center;">
-    <a href="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI2LTA0LTE1agwIAhIIL20vMDdkZmtyDAgCEggvbS8wY2NrMBopEgoyMDI2LTA0LTE5agwIAhIIL20vMGNjazByDAgCEggvbS8wN2Rma3ABggELCP___________wFAAUgBmAEB" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.15); border:1px solid rgba(232,87,122,0.3); color:var(--pink); padding:0.6rem 2rem; border-radius:50px; font-size:0.9rem; text-decoration:none; transition:all 0.3s;">Google Flights で検索</a>
+  <div style="margin-top:1.5rem; text-align:center; display:flex; gap:0.8rem; justify-content:center; flex-wrap:wrap;">
+    <a href="https://www.ana.co.jp/ja/jp/international/area/east_asia/tpe/" target="_blank" style="display:inline-block; background:rgba(0,137,123,0.15); border:1px solid rgba(0,137,123,0.3); color:var(--teal); padding:0.6rem 1.5rem; border-radius:50px; font-size:0.85rem; text-decoration:none; transition:all 0.3s;">ANA 台北便を検索</a>
+    <a href="https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI2LTA0LTE1agwIAhIIL20vMDdkZmtyDAgCEggvbS8wY2NrMBopEgoyMDI2LTA0LTE5agwIAhIIL20vMGNjazByDAgCEggvbS8wN2Rma3ABggELCP___________wFAAUgBmAEB" target="_blank" style="display:inline-block; background:rgba(255,255,255,0.05); border:1px solid var(--border); color:var(--text-secondary); padding:0.6rem 1.5rem; border-radius:50px; font-size:0.85rem; text-decoration:none; transition:all 0.3s;">Google Flights</a>
   </div>
 </section>
 
 <!-- Hotels -->
 <section class="section" id="hotels">
   <h2 class="section-title">Hotels</h2>
-  <p class="section-sub">西門町エリア推奨 — Red House LGBTQ+地区 & 夜市へ徒歩圏。ツイン or ダブル1室</p>
+  <p class="section-sub">西門町エリア — 夜市・グルメ・ショッピング全部徒歩圏。ツイン or ダブル1室</p>
 
   <div class="hotel-grid">
-    <div class="hotel-card">
-      <div class="hotel-tier">Luxury</div>
-      <div class="hotel-name">PALAIS de Chine 君品酒店</div>
-      <div class="hotel-price">¥18,000〜25,000/泊</div>
+    <div class="hotel-card recommended">
+      <div class="hotel-tier">Mid-Range｜日系｜予約検討中</div>
+      <div class="hotel-name">相鉄グランドフレッサ 台北西門</div>
+      <div class="hotel-price" style="color:var(--pink);">4泊2人 ¥125,898（会員価格・現地払い）</div>
+      <div style="margin:0.8rem 0;">
+        <img src="img/sotetsu-twin-room.png" alt="スタンダードツインルーム" style="width:100%; border-radius:8px; border:1px solid var(--border);">
+      </div>
+      <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.6rem;">
+        スタンダードツインルーム（眺望なし）・シングルベッド2台 120×200・素泊まり・キャンセル/変更可
+      </div>
       <ul class="hotel-features">
-        <li>5つ星。台北駅直結</li>
-        <li>Le Palais（頤宮）ミシュラン掲載レストラン</li>
-        <li>Red Houseまで徒歩圏内</li>
-        <li>ジム完備</li>
+        <li>2024年2月開業。設備ピカピカ</li>
+        <li>全室30㎡以上 — 台北では破格の広さ。2人でもゆったり</li>
+        <li>西門MRT 3番出口 徒歩1分</li>
+        <li>日本語フロント常駐。セルフランドリー完備</li>
       </ul>
-      <a class="map-link" href="https://maps.google.com/?q=PALAIS+de+Chine+Hotel+Taipei" target="_blank">&#128205; Map</a>
+      <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+        <a class="map-link" href="https://maps.google.com/?q=Sotetsu+Grand+Fresa+Taipei+Ximen" target="_blank">&#128205; Map</a>
+        <a class="map-link" href="https://grandfresa-taipeiximen.sotetsu-hotels.com/" target="_blank" style="border-color:rgba(232,87,122,0.25); background:rgba(232,87,122,0.1); color:var(--pink-light);">&#127968; 公式サイトで予約</a>
+      </div>
     </div>
 
     <div class="hotel-card recommended">
@@ -939,119 +979,18 @@
       <div class="hotel-price">¥10,000〜15,000/泊</div>
       <ul class="hotel-features">
         <li>五角形ビルのデザインホテル</li>
-        <li>西門MRTから徒歩5分、Red House徒歩圏</li>
+        <li>西門MRTから徒歩5分</li>
         <li>音楽ラウンジ、クリエイティブゾーン</li>
-        <li>LGBTQ+フレンドリー</li>
+        <li>台湾らしいデザイン体験</li>
       </ul>
       <a class="map-link" href="https://maps.google.com/?q=amba+Taipei+Ximending" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Mid-Range</div>
-      <div class="hotel-name">Cho Hotel 町・記憶旅店</div>
-      <div class="hotel-price">¥7,000〜10,000/泊</div>
-      <ul class="hotel-features">
-        <li>LGBTQ+歓迎を明確に打ち出し</li>
-        <li>西門MRT至近</li>
-        <li>アーティスティックな内装</li>
-        <li>無料WiFi、セルフランドリー</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=Cho+Hotel+Taipei" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Mid-Range</div>
-      <div class="hotel-name">citizenM Taipei North Gate</div>
-      <div class="hotel-price">¥10,000〜14,000/泊</div>
-      <ul class="hotel-features">
-        <li>Marriott系列。デザインホテル</li>
-        <li>北門駅から西門町徒歩圏</li>
-        <li>眺望の良いルーフトップ</li>
-        <li>LGBTQ+フレンドリー</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=citizenM+Taipei+North+Gate" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Budget</div>
-      <div class="hotel-name">Hotel Midtown Richardson</div>
-      <div class="hotel-price">¥5,000〜8,000/泊</div>
-      <ul class="hotel-features">
-        <li>Red Houseの真横。コスパ最強</li>
-        <li>西門MRT徒歩3分</li>
-        <li>モダンでコンパクトな客室</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=Hotel+Midtown+Richardson+Taipei" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Budget</div>
-      <div class="hotel-name">SWIIO Hotel</div>
-      <div class="hotel-price">¥5,000〜7,000/泊</div>
-      <ul class="hotel-features">
-        <li>モダンデザイン。Red Houseから数ブロック</li>
-        <li>コンパクトだが清潔</li>
-        <li>コスパ重視の旅に最適</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=SWIIO+Hotel+Taipei" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card recommended">
-      <div class="hotel-tier">Mid-Range｜日系</div>
-      <div class="hotel-name">相鉄グランドフレッサ 台北西門 ⭐ NEW</div>
-      <div class="hotel-price">¥10,000〜14,000/泊</div>
-      <ul class="hotel-features">
-        <li>2024年2月開業。設備ピカピカ</li>
-        <li>全室30㎡以上 — 台北では破格の広さ。2人でもゆったり</li>
-        <li>西門MRT 3番出口 徒歩1分</li>
-        <li>日本語フロント常駐。セルフランドリー完備</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=Sotetsu+Grand+Fresa+Taipei+Ximen" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Mid-Range｜日系</div>
-      <div class="hotel-name">ソラリア西鉄ホテル 台北西門</div>
-      <div class="hotel-price">¥12,000〜16,000/泊</div>
-      <ul class="hotel-features">
-        <li>2023年開業。朝食ビュッフェが台北日系ホテル最強（和食+台湾料理+洋食）</li>
-        <li>西門MRT 徒歩1分。相鉄と同エリア</li>
-        <li>日本語サービス完全対応</li>
-        <li>朝食重視ならベストチョイス</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=Solaria+Nishitetsu+Hotel+Taipei+Ximen" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Mid-Range</div>
-      <div class="hotel-name">At Home Hotel 西門</div>
-      <div class="hotel-price">¥7,000〜10,000/泊</div>
-      <ul class="hotel-features">
-        <li>LGBTQ+フレンドリーを明確に打ち出し</li>
-        <li>スタッフ評価が非常に高い（レストラン案内してくれるレベル）</li>
-        <li>西門町ど真ん中の好立地</li>
-        <li>Cho Hotelと同価格帯でコスパ◎</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=At+Home+Hotel+Ximen+Taipei" target="_blank">&#128205; Map</a>
-    </div>
-
-    <div class="hotel-card">
-      <div class="hotel-tier">Budget</div>
-      <div class="hotel-name">Just Sleep 西門町（捷絲旅）</div>
-      <div class="hotel-price">¥6,000〜9,000/泊</div>
-      <ul class="hotel-features">
-        <li>睡眠特化型コンセプト。寝具・枕へのこだわりが強い</li>
-        <li>台湾大手ホテルグループ（晶華）運営で安心</li>
-        <li>バジェット帯ながら清潔感と品質が高い</li>
-      </ul>
-      <a class="map-link" href="https://maps.google.com/?q=Just+Sleep+Ximending+Taipei" target="_blank">&#128205; Map</a>
     </div>
   </div>
 
   <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
     <a href="https://www.google.com/travel/hotels/Taipei?q=hotels+ximending+taipei&g2lb=2502548%2C2503771&hl=ja&gl=jp&cs=1&ssta=1&ts=CAESCgoCCAMKAggDEAAaRwopEicyJTB4MzQ0MmEzMGQxNjA4YjQ2MzoweGY0NjliYzk5NjJmYzM4NjESGhIUCgcI6BkQDxgPEgcI6BkQExgTGAEyAhAA&ap=MABoAA" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.1); border:1px solid rgba(232,87,122,0.2); color:var(--pink-light); padding:0.5rem 1.5rem; border-radius:50px; font-size:0.8rem; text-decoration:none;">Google Hotels</a>
-    <a href="https://www.booking.com/searchresults.html?ss=Ximending%2C+Taipei&checkin=2026-04-15&checkout=2026-04-19&group_adults=2" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.1); border:1px solid rgba(232,87,122,0.2); color:var(--pink-light); padding:0.5rem 1.5rem; border-radius:50px; font-size:0.8rem; text-decoration:none;">Booking.com</a>
-    <a href="https://www.agoda.com/search?city=17088&checkIn=2026-04-15&checkOut=2026-04-19&rooms=1&adults=2" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.1); border:1px solid rgba(232,87,122,0.2); color:var(--pink-light); padding:0.5rem 1.5rem; border-radius:50px; font-size:0.8rem; text-decoration:none;">Agoda</a>
+    <a href="https://www.booking.com/searchresults.html?ss=Ximending%2C+Taipei&checkin=2026-04-16&checkout=2026-04-20&group_adults=2" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.1); border:1px solid rgba(232,87,122,0.2); color:var(--pink-light); padding:0.5rem 1.5rem; border-radius:50px; font-size:0.8rem; text-decoration:none;">Booking.com</a>
+    <a href="https://www.agoda.com/search?city=17088&checkIn=2026-04-16&checkOut=2026-04-20&rooms=1&adults=2" target="_blank" style="display:inline-block; background:rgba(232,87,122,0.1); border:1px solid rgba(232,87,122,0.2); color:var(--pink-light); padding:0.5rem 1.5rem; border-radius:50px; font-size:0.8rem; text-decoration:none;">Agoda</a>
   </div>
 </section>
 
@@ -1061,45 +1000,38 @@
   <p class="section-sub">食 × LGBTQ+ プラン — 観光は軽め、食い倒れ重視。4泊 or 5泊を選択</p>
 
   <div class="tabs" id="plan-tabs">
-    <button class="tab-btn active" onclick="switchPlan('4nights')">4泊5日（4/15〜19）</button>
-    <button class="tab-btn" onclick="switchPlan('5nights')">5泊6日（4/15〜20）</button>
+    <button class="tab-btn active" onclick="switchPlan('4nights')">4泊5日（4/16〜20）</button>
   </div>
 
   <!-- Day 1 -->
   <div class="day-section" id="day1">
     <div class="day-header">
       <div class="day-badge"><span class="num">1</span><span class="label">Day</span></div>
-      <div><div class="day-title">到着 & 西門町探索</div><div class="day-date">4月15日（水）</div></div>
+      <div><div class="day-title">到着 & 西門町探索</div><div class="day-date">4月16日（木）</div></div>
     </div>
     <div class="timeline">
       <div class="timeline-item">
-        <div class="time-label">Morning</div>
-        <div class="activity-title">東京 → 台北フライト</div>
-        <div class="activity-desc">TSA着: ホテルまでタクシー10分 / TPE着: 空港MRT→台北駅40分→西門MRT</div>
+        <div class="time-label">13:20</div>
+        <div class="activity-title">ANA NH853 羽田 → 松山</div>
+        <div class="activity-desc">15:50着。松山空港からタクシー15分で西門町のホテルへ</div>
       </div>
       <div class="timeline-item">
-        <div class="time-label">14:00</div>
+        <div class="time-label">16:30</div>
         <div class="activity-title">チェックイン & 西門町散策</div>
-        <div class="activity-desc">ホテルに荷物を置いて、西門町のストリートを探索。若者カルチャーの中心地。<a href="https://maps.google.com/?q=Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <div class="activity-desc">15:50着→入国→タクシー15分。荷物を置いて西門町を散策。<a href="https://maps.google.com/?q=Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
         <span class="tag shopping">ショッピング</span>
       </div>
       <div class="timeline-item">
-        <div class="time-label">16:00</div>
-        <div class="activity-title">タピオカミルクティー</div>
-        <div class="activity-desc">50嵐 or CoCo都可でタピオカ。台湾バブルティーの本場を味わう。<a href="https://maps.google.com/?q=50%E5%B5%90+Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
-        <span class="tag food">ドリンク</span>
+        <div class="time-label">18:30</div>
+        <div class="activity-title">熱炒で台湾式乾杯</div>
+        <div class="activity-desc">33區熱炒で到着祝い。台湾ビール生 × 海鮮炒め × 空心菜。1人NT$400-500でお腹いっぱい。<a href="https://maps.google.com/?q=33區熱炒+長安東路+台北" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">熱炒</span>
       </div>
       <div class="timeline-item">
-        <div class="time-label">18:00</div>
-        <div class="activity-title">鼎泰豐 Din Tai Fung</div>
-        <div class="activity-desc">世界一の小籠包。信義本店 or 永康街オリジナル店。必食: 小籠包、炒飯、酸辣湯、空心菜。大木くん: 台湾ビール（生）が合う。Yuma: 烏龍茶。<a href="https://maps.google.com/?q=Din+Tai+Fung+Xinyi+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
-        <span class="tag food">小籠包</span>
-      </div>
-      <div class="timeline-item">
-        <div class="time-label">20:00</div>
-        <div class="activity-title">Red House テラスバー</div>
-        <div class="activity-desc">紅樓周辺のLGBTQ+バーエリアを散策。Café DalidaやMudanのテラス席で。大木くん: 台湾ビール＆モヒート、Yuma: フルーツスムージー・ノンアルモクテル。<a href="https://maps.google.com/?q=Red+House+Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
-        <span class="tag lgbt">LGBTQ+</span>
+        <div class="time-label">21:00</div>
+        <div class="activity-title">西門町ナイトウォーク</div>
+        <div class="activity-desc">紅樓周辺のバーエリアを散策。テラス席で台湾クラフトビール or モクテル。<a href="https://maps.google.com/?q=Red+House+Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag culture">ナイトライフ</span>
       </div>
     </div>
   </div>
@@ -1108,7 +1040,7 @@
   <div class="day-section" id="day2">
     <div class="day-header">
       <div class="day-badge"><span class="num">2</span><span class="label">Day</span></div>
-      <div><div class="day-title">飲茶 & 永康街</div><div class="day-date">4月16日（木）</div></div>
+      <div><div class="day-title">飲茶 & 永康街</div><div class="day-date">4月17日（金）</div></div>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -1160,7 +1092,7 @@
   <div class="day-section" id="day3">
     <div class="day-header">
       <div class="day-badge"><span class="num">3</span><span class="label">Day</span></div>
-      <div><div class="day-title">ミシュラン & 夜市</div><div class="day-date">4月17日（金）</div></div>
+      <div><div class="day-title">ミシュラン & 夜市</div><div class="day-date">4月18日（土）</div></div>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -1211,7 +1143,7 @@
   <div class="day-section" id="day4">
     <div class="day-header">
       <div class="day-badge"><span class="num">4</span><span class="label">Day</span></div>
-      <div><div class="day-title">リラックス & 食い倒れ</div><div class="day-date">4月18日（土）</div></div>
+      <div><div class="day-title">リラックス & 食い倒れ</div><div class="day-date">4月19日（日）</div></div>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -1239,8 +1171,8 @@
       </div>
       <div class="timeline-item">
         <div class="time-label">17:00</div>
-        <div class="activity-title">士林夜市 Shilin Night Market</div>
-        <div class="activity-desc">台湾最大の夜市。大餅包小餅、蚵仔麵線、超大雞排（巨大フライドチキン）、滷味。B1フードコートも充実。<a href="https://maps.google.com/?q=Shilin+Night+Market+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <div class="activity-title">南機場夜市（穴場）</div>
+        <div class="activity-desc">観光客ゼロのローカル夜市。ミシュラン掲載多数。来来水餃（10個NT$50）、臭豆腐、麻油鶏。コスパ最強。MRT小南門駅徒歩10分。<a href="https://maps.google.com/?q=南機場夜市+台北" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
         <span class="tag food">夜市</span>
       </div>
       <div class="timeline-item">
@@ -1257,7 +1189,7 @@
     <div class="day-section" id="day5-4n">
       <div class="day-header">
         <div class="day-badge"><span class="num">5</span><span class="label">Day</span></div>
-        <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月19日（日）・4泊プラン</div></div>
+        <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月20日（月）</div></div>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -1273,9 +1205,9 @@
           <span class="tag shopping">お土産</span>
         </div>
         <div class="timeline-item">
-          <div class="time-label">12:00</div>
-          <div class="activity-title">チェックアウト → 空港へ</div>
-          <div class="activity-desc">TSA: 出発2時間前出発。TPE: 出発3時間前出発（MRT所要40分）。空港免税店で最後の買い物も。</div>
+          <div class="time-label">11:00</div>
+          <div class="activity-title">チェックアウト → 松山空港</div>
+          <div class="activity-desc">NH852 13:30発。タクシー15分で松山空港へ。空港免税店で最後の買い物も。17:20 羽田着。</div>
         </div>
       </div>
     </div>
@@ -1359,63 +1291,62 @@
 <!-- Restaurants -->
 <section class="section" id="restaurants">
   <h2 class="section-title">Dining Guide</h2>
-  <p class="section-sub">小籠包から夜市B級グルメまで — 台北食い倒れマップ</p>
+  <p class="section-sub">リピーター向け — 観光客が知らないローカル飯 & 熱炒</p>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('xlb')">飲茶 & 小籠包</button>
-    <button class="tab-btn" onclick="switchTab('fine')">ファインダイニング</button>
-    <button class="tab-btn" onclick="switchTab('night')">夜市必食</button>
-    <button class="tab-btn" onclick="switchTab('morning')">朝食 & カフェ</button>
+    <button class="tab-btn active" onclick="switchTab('local')">ローカル食堂</button>
+    <button class="tab-btn" onclick="switchTab('rechao')">熱炒 & 深夜飯</button>
+    <button class="tab-btn" onclick="switchTab('night')">夜市（穴場）</button>
+    <button class="tab-btn" onclick="switchTab('morning')">朝食</button>
   </div>
 
-  <div id="tab-xlb" class="tab-content active">
+  <div id="tab-local" class="tab-content active">
     <div class="resto-grid">
       <div class="resto-card">
-        <div class="resto-name">鼎泰豐 Din Tai Fung</div>
-        <div class="resto-type">世界一の小籠包 ・ ¥2,000-3,000</div>
-        <p class="resto-desc">永康街オリジナル店 or 信義A4旗艦店。18枚のひだ、黄金比のスープ。炒飯と酸辣湯もマスト。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Din+Tai+Fung+Yongkang+Taipei" target="_blank">&#128205; Map</a>
+        <div class="resto-name">金峰魯肉飯</div>
+        <div class="resto-type">台北No.1魯肉飯 ・ ¥150-300</div>
+        <p class="resto-desc">中正紀念堂駅すぐ。甘辛い豚バラの煮込みをご飯にかけた台湾ソウルフード。筍スープ、滷蛋（煮卵）も追加で。地元民が毎日通う味。行列でも回転速い。</p>
+        <a class="map-link" href="https://maps.google.com/?q=Jin+Feng+Braised+Pork+Rice+Taipei" target="_blank">&#128205; Map</a>
       </div>
       <div class="resto-card">
         <div class="resto-name">杭州小籠湯包</div>
         <div class="resto-type">ミシュラン Bib Gourmand ・ ¥800-1,200</div>
-        <p class="resto-desc">20年以上の家族経営。鼎泰豐の半額で同等クオリティ。薄皮の中に溢れるスープ。大安エリア。</p>
+        <p class="resto-desc">鼎泰豐の半額以下で同等クオリティ。観光客が少なくローカル率高め。薄皮の中に溢れるスープ。大安エリア。</p>
         <a class="map-link" href="https://maps.google.com/?q=Hang+Zhou+Xiao+Long+Bao+Taipei" target="_blank">&#128205; Map</a>
       </div>
       <div class="resto-card">
-        <div class="resto-name">京鼎小館 Jin Din Rou</div>
-        <div class="resto-type">烏龍茶小籠包 ・ ¥1,000-1,500</div>
-        <p class="resto-desc">緑茶の皮 × 烏龍茶粉末入り豚肉の独自XLB。酸辣湯も台北トップクラス。日本人旅行者に人気。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Jin+Din+Rou+Taipei" target="_blank">&#128205; Map</a>
+        <div class="resto-name">阿財虱目魚肚</div>
+        <div class="resto-type">朝6時〜 ・ ¥200-400</div>
+        <p class="resto-desc">南部の味を台北で。サバヒー（虱目魚）の腹身スープは台湾人の朝食原点。魚粥もおすすめ。観光客ほぼゼロ。萬華エリア、早朝がベスト。</p>
+        <a class="map-link" href="https://maps.google.com/?q=阿財虱目魚肚+台北" target="_blank">&#128205; Map</a>
       </div>
       <div class="resto-card">
-        <div class="resto-name">樂天皇朝 Paradise Dynasty</div>
-        <div class="resto-type">8色レインボーXLB ・ ¥1,500-2,500</div>
-        <p class="resto-desc">8種のフレーバー小籠包（オリジナル、ニンニク、麻辣、トリュフ、蟹味噌、チーズ等）。映え度最高。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Paradise+Dynasty+Taipei" target="_blank">&#128205; Map</a>
+        <div class="resto-name">無名子清粥小菜</div>
+        <div class="resto-type">深夜食堂 ・ ¥300-600</div>
+        <p class="resto-desc">台湾式お粥と小皿料理30種以上。好きなおかずを選んでトレイに載せるスタイル。地元の常連でいっぱい。深夜まで営業で飲みの〆に最高。南京東路。</p>
+        <a class="map-link" href="https://maps.google.com/?q=無名子清粥小菜+台北" target="_blank">&#128205; Map</a>
       </div>
     </div>
   </div>
 
-  <div id="tab-fine" class="tab-content">
+  <div id="tab-rechao" class="tab-content">
     <div class="resto-grid">
+      <div class="resto-card">
+        <div class="resto-name">33區熱炒生猛海鮮</div>
+        <div class="resto-type">台湾式居酒屋 ・ 1皿NT$100〜</div>
+        <p class="resto-desc">熱炒＝台湾の居酒屋文化。台湾ビールの生と海鮮炒めで最高の夜。空心菜炒め、蛤蜊絲瓜（ハマグリとヘチマ）、三杯鶏が鉄板。長安東路の熱炒ストリートにある。</p>
+        <a class="map-link" href="https://maps.google.com/?q=33區熱炒+長安東路+台北" target="_blank">&#128205; Map</a>
+      </div>
+      <div class="resto-card">
+        <div class="resto-name">熱炒の楽しみ方</div>
+        <div class="resto-type">ガイド</div>
+        <p class="resto-desc"><strong>注文のコツ</strong>: メニューはほぼ中国語のみ。Google翻訳カメラで。1人3-4品+ビール2本で約NT$400-500（¥2,000）。<strong>定番</strong>: 炒空心菜、鹽酥蝦（塩コショウエビ）、蒜泥白肉（ニンニクダレ豚）、炒蛤蜊。台湾ビール生（生啤酒）は必須。</p>
+      </div>
       <div class="resto-card">
         <div class="resto-name">銘水善 樂 MinSuiZen Raku</div>
         <div class="resto-type">鉄板焼きおまかせ ・ ¥8,000-15,000</div>
-        <p class="resto-desc">台湾No.1鍋ブランドが手がけるプレミアム鉄板焼き。A5和牛、ロブスター、季節食材の12-14コース。西門町店は2025年オープン。</p>
+        <p class="resto-desc">台湾No.1鍋ブランドのプレミアム鉄板焼き。A5和牛、ロブスター、季節食材12-14コース。1晩だけ贅沢するならここ。西門町。要予約。</p>
         <a class="map-link" href="https://maps.google.com/?q=MinSuiZen+Raku+Ximending+Taipei" target="_blank">&#128205; Map</a>
-      </div>
-      <div class="resto-card">
-        <div class="resto-name">元一天ぷら Tempura Motoichi</div>
-        <div class="resto-type">ミシュラン1つ星 ・ ¥7,000</div>
-        <p class="resto-desc">東京のミシュラン2つ星「天ぷら元吉」の海外店。2025年8月にミシュラン1つ星獲得。おまかせランチNT$5,500。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Tempura+Motoichi+Taipei" target="_blank">&#128205; Map</a>
-      </div>
-      <div class="resto-card">
-        <div class="resto-name">頤宮 Le Palais</div>
-        <div class="resto-type">広東料理 ・ ¥10,000+</div>
-        <p class="resto-desc">グランドホテル内。かつてミシュラン3つ星。台北最高峰の広東料理。北京ダック、フカヒレ、点心。要予約。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Le+Palais+Grand+Hotel+Taipei" target="_blank">&#128205; Map</a>
       </div>
     </div>
   </div>
@@ -1423,20 +1354,23 @@
   <div id="tab-night" class="tab-content">
     <div class="tips-grid">
       <div class="tip-card">
+        <h3>南機場夜市（リピーター御用達）</h3>
+        <p>ミシュラン・ビブグルマン多数選出の"地元民の夜市"。観光客ほぼゼロ。<strong>来来水餃</strong>（10個NT$50）、臭豆腐、麻油鶏が絶品。中正区、MRT小南門駅から徒歩10分。</p>
+        <a class="map-link" href="https://maps.google.com/?q=南機場夜市+台北" target="_blank">&#128205; Map</a>
+      </div>
+      <div class="tip-card">
         <h3>寧夏夜市（食の夜市No.1）</h3>
         <p>蚵仔煎（牡蠣オムレツ）¥250 / 豆花（豆腐プリン）¥150 / 雞肉飯 ¥100 / 豬肝湯 ¥100。地元民が認める食の聖地。MRT中山駅から徒歩10分。</p>
         <a class="map-link" href="https://maps.google.com/?q=Ningxia+Night+Market+Taipei" target="_blank">&#128205; Map</a>
       </div>
       <div class="tip-card">
         <h3>饒河夜市（胡椒餅の聖地）</h3>
-        <p>胡椒餅（必食！入口の行列店）¥250 / 藥燉排骨 ¥300 / 臭豆腐 ¥200 / 紅豆餅 ¥100。一本道で歩きやすい。MRT松山駅直結。</p>
+        <p>胡椒餅（必食！入口の行列店）¥250 / 藥燉排骨 ¥300 / 臭豆腐 ¥200。一本道で歩きやすい。MRT松山駅直結。</p>
         <a class="map-link" href="https://maps.google.com/?q=Raohe+Night+Market+Taipei" target="_blank">&#128205; Map</a>
       </div>
-      <div class="tip-card">
-        <h3>士林夜市（台湾最大）</h3>
-        <p>大餅包小餅 ¥200 / 蚵仔麵線 ¥200 / 超大雞排（巨大チキン）¥300 / 滷味（好きな具材を選ぶ）。B1フードコートは雨でも安心。MRT劍潭駅。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Shilin+Night+Market+Taipei" target="_blank">&#128205; Map</a>
-      </div>
+    </div>
+    <div style="margin-top:1rem; font-size:0.8rem; color:rgba(255,255,255,0.4); padding:0 0.5rem;">
+      ※ 士林夜市は観光客向け＆割高なのでスキップ推奨。上の3つで十分
     </div>
   </div>
 
@@ -1451,20 +1385,14 @@
       <div class="resto-card">
         <div class="resto-name">永和豆漿大王</div>
         <div class="resto-type">24時間営業 ・ ¥200-400</div>
-        <p class="resto-desc">台湾朝食の原点。燒餅油條（焼きパン＋揚げパン）、蛋餅、小籠包も。深夜や早朝に最適。</p>
+        <p class="resto-desc">台湾朝食の原点。燒餅油條（焼きパン＋揚げパン）、蛋餅。深夜や早朝に最適。飲みの後にも。</p>
         <a class="map-link" href="https://maps.google.com/?q=Yonghe+Soymilk+King+Taipei" target="_blank">&#128205; Map</a>
       </div>
       <div class="resto-card">
-        <div class="resto-name">微熱山丘 SunnyHills</div>
-        <div class="resto-type">パイナップルケーキ ・ 無料試食</div>
-        <p class="resto-desc">100%台湾産パイナップルの土鳳梨酥。隈研吾設計の美しい建物でお茶と一緒に試食できる。お土産にも。</p>
-        <a class="map-link" href="https://maps.google.com/?q=SunnyHills+Taipei" target="_blank">&#128205; Map</a>
-      </div>
-      <div class="resto-card">
-        <div class="resto-name">Ice Monster</div>
-        <div class="resto-type">マンゴーかき氷 ・ ¥600-800</div>
-        <p class="resto-desc">台湾マンゴーかき氷の元祖。ふわふわの氷にフレッシュマンゴー。4月はシーズン開始で最高の時期。</p>
-        <a class="map-link" href="https://maps.google.com/?q=Ice+Monster+Taipei" target="_blank">&#128205; Map</a>
+        <div class="resto-name">鼎元豆漿</div>
+        <div class="resto-type">ミシュラン掲載 ・ ¥200-400</div>
+        <p class="resto-desc">阜杭豆漿より空いていて味は同等。小籠包も朝から食べられる穴場。中正紀念堂駅近く。金峰魯肉飯と近いのでハシゴ可。</p>
+        <a class="map-link" href="https://maps.google.com/?q=鼎元豆漿+台北" target="_blank">&#128205; Map</a>
       </div>
     </div>
   </div>
@@ -1551,12 +1479,26 @@
     </div>
   </div>
 
+  <h3 style="color:var(--teal); font-size:1.1rem; margin:2rem 0 1rem;">穴場 & コスパ情報</h3>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">林華泰が最強な理由</h3>
+      <p>問屋直売なのでデパートの1/3の価格。150g TWD 300〜で高山烏龍が買える。試飲してから買えるので失敗なし。見た目は倉庫だが、台北の茶通は全員ここで買う。</p>
+    </div>
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">スーパーの茶葉もアリ</h3>
+      <p>カルフール（家樂福）やPXマートに<strong>TWD 100-200</strong>の茶葉パックがある。普段飲み用なら十分な品質。凍頂烏龍のティーバッグがコスパ最強。空港の半額以下。</p>
+    </div>
+  </div>
+
   <div style="margin-top:1.5rem; background:rgba(212,160,85,0.08); border:1px solid rgba(212,160,85,0.15); border-radius:12px; padding:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8;">
     <strong style="color:var(--gold);">購入戦略</strong><br>
-    &#128640; 本命: 林華泰で阿里山 or 梨山高山烏龍を150g〜300g<br>
+    &#128640; 本命: 林華泰で阿里山 or 梨山高山烏龍を150g〜300g（最安）<br>
     &#127873; ギフト: 王德傳のギフトセット（パッケージが美しい）<br>
     &#127381; ばらまき: 京盛宇の個包装ティーバッグ or 天仁茗茶<br>
-    &#9749; 猫空で: 包種茶 & 鉄観音を少量（地元産の意味がある）
+    &#9749; 猫空で: 包種茶 & 鉄観音を少量（地元産の意味がある）<br>
+    &#128176; 自分用: スーパーの凍頂烏龍パック（TWD 100-200で日常飲みに最適）
   </div>
 </section>
 
@@ -1777,20 +1719,30 @@
     <div class="tip-card">
       <h3>&#128176; 通貨・両替</h3>
       <p>
-        <strong>台湾ドル (TWD)</strong>: 1 TWD ≒ 5 JPY<br>
-        10,000円 ≒ 2,000 TWD<br><br>
+        <strong>台湾ドル (TWD)</strong>: 1 TWD ≒ 4.96 JPY（2026年3月時点）<br>
+        10,000円 ≒ 2,016 TWD<br><br>
         <strong>おすすめ順</strong>:<br>
-        1. 桃園空港の台湾銀行（XEとほぼ同レート、手数料NT$30）<br>
-        2. 現地ATM（7-Eleven ATMが至る所に）<br>
-        3. Wiseカード（実質手数料最安）<br>
-        ⚠️ 日本の空港は最悪レート。避ける
+        1. <strong>Wiseデビットカード</strong>（実質最安・後述）<br>
+        2. 松山空港の台湾銀行（到着フロアに窓口あり、レート良好、手数料NT$30）<br>
+        3. 現地ATM（7-Eleven ATMが至る所に）<br>
+        ⚠️ 日本の空港は最悪レート。絶対避ける
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128179; Wise（必携）</h3>
+      <p>
+        <strong>Wiseデビットカード</strong>: 為替手数料0.6%、ミッドマーケットレートで両替<br>
+        <strong>使い方</strong>: 事前にアプリでJPY→TWDに両替（レートを自分で選べる）<br>
+        <strong>ATM引出し</strong>: 月2回・3万円まで無料。それ以上は1.75%<br>
+        <strong>タッチ決済</strong>: Apple Pay / Google Pay対応。コンビニ・レストランでそのまま使える<br><br>
+        &#128161; 現金が必要な夜市以外はほぼWiseで完結。出発前にカード届くよう早めに申込
       </p>
     </div>
     <div class="tip-card">
       <h3>&#128179; クレカ & 現金</h3>
       <p>
         <strong>Visa/Mastercard/JCB</strong>: ホテル・チェーン店で広く利用可<br>
-        <strong>夜市・屋台</strong>: 現金のみが多い。必ず持参<br>
+        <strong>夜市・屋台・熱炒</strong>: 現金のみが多い。必ず持参<br>
         <strong>Apple Pay / Google Pay</strong>: コンビニ、タクシー、スーパーで拡大中<br><br>
         &#128161; 初日に3,000-5,000 TWD（¥15,000-25,000）現金があれば安心
       </p>
@@ -1838,7 +1790,7 @@
 <!-- Budget -->
 <section class="section" id="budget">
   <h2 class="section-title">Budget</h2>
-  <p class="section-sub">2名合計の予算プラン（航空券・食事は×2、ホテルは1部屋共有）</p>
+  <p class="section-sub">2名合計の予算プラン。航空券は各自手配、ホテル1室共有</p>
 
   <div class="tabs" style="margin-bottom:1.5rem;">
     <button class="tab-btn active" onclick="switchBudgetTab('4n')">4泊5日</button>
@@ -1849,30 +1801,30 @@
     <div class="budget-grid">
       <div class="budget-card">
         <div class="budget-tier">Budget 節約（4泊）</div>
-        <div class="budget-total">~¥148,000</div>
-        <div class="budget-line"><span>航空券 (LCC NRT-TPE)×2</span><span>¥40,000</span></div>
+        <div class="budget-total">~¥156,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥80,000</span></div>
         <div class="budget-line"><span>ホテル (Budget×4泊×1室)</span><span>¥24,000</span></div>
         <div class="budget-line"><span>食事×2人</span><span>¥40,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥12,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥74,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥78,000</span></div>
       </div>
       <div class="budget-card recommended">
         <div class="budget-tier">Standard おすすめ（4泊）</div>
-        <div class="budget-total">~¥244,000</div>
-        <div class="budget-line"><span>航空券 (HND-TSA直行)×2</span><span>¥80,000</span></div>
+        <div class="budget-total">~¥204,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥80,000</span></div>
         <div class="budget-line"><span>ホテル (Mid-range×4泊×1室)</span><span>¥44,000</span></div>
-        <div class="budget-line"><span>食事×2人 (DTF+飲茶+夜市)</span><span>¥60,000</span></div>
+        <div class="budget-line"><span>食事×2人 (熱炒+夜市+ローカル飯)</span><span>¥60,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥20,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--teal);">~¥122,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--teal);">~¥102,000</span></div>
       </div>
       <div class="budget-card">
         <div class="budget-tier">Comfort 快適（4泊）</div>
-        <div class="budget-total">~¥370,000</div>
-        <div class="budget-line"><span>航空券 (HND-TSA直行)×2</span><span>¥100,000</span></div>
+        <div class="budget-total">~¥310,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥100,000</span></div>
         <div class="budget-line"><span>ホテル (Luxury×4泊×1室)</span><span>¥80,000</span></div>
         <div class="budget-line"><span>食事×2人 (ミシュラン込)</span><span>¥100,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥30,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥185,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥155,000</span></div>
       </div>
     </div>
   </div>
@@ -1881,43 +1833,43 @@
     <div class="budget-grid">
       <div class="budget-card">
         <div class="budget-tier">Budget 節約（5泊）</div>
-        <div class="budget-total">~¥176,000</div>
-        <div class="budget-line"><span>航空券 (LCC NRT-TPE)×2</span><span>¥40,000</span></div>
+        <div class="budget-total">~¥174,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥80,000</span></div>
         <div class="budget-line"><span>ホテル (Budget×5泊×1室)</span><span>¥30,000</span></div>
         <div class="budget-line"><span>食事×2人</span><span>¥50,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥14,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥88,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥87,000</span></div>
       </div>
       <div class="budget-card recommended">
         <div class="budget-tier">Standard おすすめ（5泊）</div>
-        <div class="budget-total">~¥286,000</div>
-        <div class="budget-line"><span>航空券 (HND-TSA直行)×2</span><span>¥80,000</span></div>
+        <div class="budget-total">~¥234,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥80,000</span></div>
         <div class="budget-line"><span>ホテル (Mid-range×5泊×1室)</span><span>¥55,000</span></div>
-        <div class="budget-line"><span>食事×2人 (DTF+飲茶+夜市+猫空)</span><span>¥75,000</span></div>
+        <div class="budget-line"><span>食事×2人 (熱炒+夜市+ローカル飯+猫空)</span><span>¥75,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥24,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--teal);">~¥143,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--teal);">~¥117,000</span></div>
       </div>
       <div class="budget-card">
         <div class="budget-tier">Comfort 快適（5泊）</div>
-        <div class="budget-total">~¥440,000</div>
-        <div class="budget-line"><span>航空券 (HND-TSA直行)×2</span><span>¥100,000</span></div>
+        <div class="budget-total">~¥376,000</div>
+        <div class="budget-line"><span>航空券 (ANA HND-TSA)×2</span><span>¥100,000</span></div>
         <div class="budget-line"><span>ホテル (Luxury×5泊×1室)</span><span>¥100,000</span></div>
         <div class="budget-line"><span>食事×2人 (ミシュラン込)</span><span>¥120,000</span></div>
         <div class="budget-line"><span>交通+その他×2</span><span>¥36,000</span></div>
-        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥220,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥188,000</span></div>
       </div>
     </div>
   </div>
 
   <div style="margin-top:1.5rem; font-size:0.8rem; color:rgba(255,255,255,0.35); text-align:center;">
-    ※ ホテルはツイン/ダブル1室。食事は大木くんの飲酒代込み見積もり
+    ※ ホテルはツイン/ダブル1室。航空券は各自手配。食事は飲酒代込み見積もり
   </div>
 </section>
 
 <!-- Map -->
 <section class="section" id="map">
   <h2 class="section-title">Map</h2>
-  <p class="section-sub">食・LGBTQ+・夜市スポットを地図で確認</p>
+  <p class="section-sub">グルメ・夜市・茶藝スポットを地図で確認</p>
   <div class="map-container">
     <div id="map"></div>
   </div>
@@ -1930,9 +1882,9 @@
       <div class="spot-icon lgbt-icon">&#127987;&#65039;&#8205;&#127752;</div>
       <div><div class="spot-name">紅樓 Red House</div><div class="spot-area">LGBTQ+ エリア</div></div>
     </a>
-    <a class="spot-item" href="https://maps.google.com/?q=Din+Tai+Fung+Yongkang+Taipei" target="_blank">
+    <a class="spot-item" href="https://maps.google.com/?q=Jin+Feng+Braised+Pork+Rice+Taipei" target="_blank">
       <div class="spot-icon food-icon">&#129378;</div>
-      <div><div class="spot-name">鼎泰豐 Din Tai Fung</div><div class="spot-area">永康街</div></div>
+      <div><div class="spot-name">金峰魯肉飯</div><div class="spot-area">中正区</div></div>
     </a>
     <a class="spot-item" href="https://maps.google.com/?q=Ningxia+Night+Market+Taipei" target="_blank">
       <div class="spot-icon market-icon">&#127982;</div>
@@ -1942,9 +1894,9 @@
       <div class="spot-icon market-icon">&#127982;</div>
       <div><div class="spot-name">饒河夜市</div><div class="spot-area">松山区</div></div>
     </a>
-    <a class="spot-item" href="https://maps.google.com/?q=Shilin+Night+Market+Taipei" target="_blank">
+    <a class="spot-item" href="https://maps.google.com/?q=南機場夜市+台北" target="_blank">
       <div class="spot-icon market-icon">&#127982;</div>
-      <div><div class="spot-name">士林夜市</div><div class="spot-area">士林区</div></div>
+      <div><div class="spot-name">南機場夜市</div><div class="spot-area">中正区・穴場</div></div>
     </a>
     <a class="spot-item" href="https://maps.google.com/?q=Lin+Hua+Tai+Tea+Company+Taipei" target="_blank">
       <div class="spot-icon food-icon">&#9749;</div>
@@ -1983,10 +1935,10 @@
   </div>
 
   <div id="checklist-items">
-    <label class="check-item"><input type="checkbox" data-key="tp-flight"><span class="check-box">&#10003;</span><span class="check-text">航空券予約（2名分）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-flight"><span class="check-box">&#10003;</span><span class="check-text">航空券予約: ANA NH853(行き) / NH852(帰り) — 各自手配</span></label>
     <label class="check-item"><input type="checkbox" data-key="tp-hotel"><span class="check-box">&#10003;</span><span class="check-text">ホテル予約（ツイン or ダブル）</span></label>
     <label class="check-item"><input type="checkbox" data-key="tp-nights"><span class="check-box">&#10003;</span><span class="check-text">4泊 or 5泊 確定</span></label>
-    <label class="check-item"><input type="checkbox" data-key="tp-resto"><span class="check-box">&#10003;</span><span class="check-text">レストラン予約（Din Tai Fung, MinSuiZen Raku）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-resto"><span class="check-box">&#10003;</span><span class="check-text">レストラン予約（MinSuiZen Raku）+ Wiseカード申込</span></label>
     <label class="check-item"><input type="checkbox" data-key="tp-easy"><span class="check-box">&#10003;</span><span class="check-text">EasyCard購入計画</span></label>
     <label class="check-item"><input type="checkbox" data-key="tp-tea"><span class="check-box">&#10003;</span><span class="check-text">烏龍茶ショップリスト確認</span></label>
     <label class="check-item"><input type="checkbox" data-key="tp-souvenir"><span class="check-box">&#10003;</span><span class="check-text">お土産リスト作成（パイナップルケーキ + 茶葉）</span></label>
@@ -2006,7 +1958,7 @@
 <script>
 // Countdown — days only; h/m/s shown only when < 24h
 function updateCountdown() {
-  var target = new Date('2026-04-15T00:00:00+09:00');
+  var target = new Date('2026-04-16T00:00:00+09:00');
   var now = new Date();
   var diff = target - now;
   if (diff <= 0) {
@@ -2062,14 +2014,6 @@ function switchBudgetTab(plan) {
   document.getElementById('budget-5n').style.display = plan === '5n' ? 'block' : 'none';
 }
 
-// Close section nav dropdown on link click (mobile)
-document.querySelectorAll('.nav-bar a[href^="#"]').forEach(function(a) {
-  a.addEventListener('click', function() {
-    var toggle = document.getElementById('section-nav-toggle');
-    if (toggle) toggle.checked = false;
-  });
-});
-
 // Nav highlight
 var navLinks = document.querySelectorAll('.nav-bar a[href^="#"]');
 window.addEventListener('scroll', function() {
@@ -2114,11 +2058,12 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
 var spots = [
   { lat: 25.0421, lng: 121.5079, name: '西門町 Ximending', type: 'hotel', desc: '宿泊・LGBTQ+エリア' },
   { lat: 25.0425, lng: 121.5065, name: '紅樓 Red House', type: 'lgbt', desc: 'LGBTQ+ バー街' },
-  { lat: 25.0336, lng: 121.5297, name: '鼎泰豐 永康街', type: 'food', desc: '世界一の小籠包' },
+  { lat: 25.0327, lng: 121.5178, name: '金峰魯肉飯', type: 'food', desc: '台北No.1魯肉飯' },
   { lat: 25.0555, lng: 121.5155, name: '寧夏夜市', type: 'market', desc: '食の夜市No.1' },
   { lat: 25.0504, lng: 121.5775, name: '饒河夜市', type: 'market', desc: '胡椒餅の聖地' },
-  { lat: 25.0882, lng: 121.5247, name: '士林夜市', type: 'market', desc: '台湾最大の夜市' },
+  { lat: 25.0275, lng: 121.5065, name: '南機場夜市', type: 'market', desc: 'リピーター御用達の穴場' },
   { lat: 25.0339, lng: 121.5282, name: '杭州小籠湯包', type: 'food', desc: 'Bib Gourmand XLB' },
+  { lat: 25.0480, lng: 121.5320, name: '33區熱炒', type: 'food', desc: '台湾式居酒屋・海鮮' },
   { lat: 25.0630, lng: 121.5525, name: '微熱山丘 SunnyHills', type: 'food', desc: 'パイナップルケーキ' },
   { lat: 25.0478, lng: 121.5170, name: '阜杭豆漿', type: 'food', desc: '台北最強の朝食' },
   { lat: 25.0694, lng: 121.5518, name: '松山空港 TSA', type: 'hotel', desc: '市内空港' },
