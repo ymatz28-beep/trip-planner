@@ -21,8 +21,9 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           label_trigger: "update"
-          prompt: |
+          direct_prompt: |
             あなたはtrip-plannerプロジェクトのメンテナーです。
             以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
 
