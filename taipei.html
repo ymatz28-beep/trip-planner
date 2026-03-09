@@ -919,22 +919,30 @@
   <h2 class="section-title">Hotels</h2>
   <p class="section-sub">西門町エリア — 夜市・グルメ・ショッピング全部徒歩圏。ツイン or ダブル1室</p>
 
-  <div class="hotel-grid">
-    <div class="hotel-card recommended">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('sotetsu')">相鉄フレッサ</button>
+    <button class="tab-btn" onclick="switchTab('amba')">amba</button>
+    <button class="tab-btn" onclick="switchTab('compare')">比較</button>
+  </div>
+
+  <div id="tab-sotetsu" class="tab-content active">
+    <div class="hotel-card recommended" style="margin:0;">
       <div class="hotel-tier">Mid-Range｜日系｜予約検討中</div>
       <div class="hotel-name">相鉄グランドフレッサ 台北西門</div>
-      <div class="hotel-price" style="color:var(--pink);">4泊2人 ¥125,898（会員価格・現地払い）</div>
+      <div class="hotel-price" style="color:var(--pink);">4泊2人 ¥125,898（会員価格・現地払い・素泊まり）</div>
       <div style="margin:0.8rem 0;">
         <img src="img/sotetsu-twin-room.png" alt="スタンダードツインルーム" style="width:100%; border-radius:8px; border:1px solid var(--border);">
       </div>
       <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.6rem;">
-        スタンダードツインルーム（眺望なし）・シングルベッド2台 120×200・素泊まり・キャンセル/変更可
+        スタンダードツインルーム（眺望なし）・シングルベッド2台 120×200・キャンセル/変更可
       </div>
       <ul class="hotel-features">
         <li>2024年2月開業。設備ピカピカ</li>
         <li>全室30㎡以上 — 台北では破格の広さ。2人でもゆったり</li>
         <li>西門MRT 3番出口 徒歩1分</li>
         <li>日本語フロント常駐。セルフランドリー完備</li>
+        <li>朝食: 1F 武蔵野森珈琲 NT$350/人（セットメニュー5択）・前日までにフロント申込</li>
+        <li>朝食込み合計: ¥139,786</li>
       </ul>
       <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
         <a class="map-link" href="https://maps.google.com/?q=Sotetsu+Grand+Fresa+Taipei+Ximen" target="_blank">&#128205; Map</a>
@@ -942,8 +950,10 @@
         <a class="map-link" href="https://grandfresa-taipeiximen.sotetsu-hotels.com/breakfast/" target="_blank" style="border-color:rgba(0,137,123,0.25); background:rgba(0,137,123,0.1); color:#80cbc4;">&#9749; 朝食メニュー</a>
       </div>
     </div>
+  </div>
 
-    <div class="hotel-card recommended">
+  <div id="tab-amba" class="tab-content">
+    <div class="hotel-card recommended" style="margin:0;">
       <div class="hotel-tier">Mid-Range｜デザインホテル</div>
       <div class="hotel-name">amba Taipei Ximending</div>
       <div class="hotel-price" style="color:var(--pink);">4泊2人 ¥134,252（朝食込み・税サ込・Agoda）</div>
@@ -954,10 +964,11 @@
         ロフトツイン (Loft Twin)・41㎡・シングルベッド2台・朝食込み・4泊 4/16〜20・キャッシュバック¥3,806適用後
       </div>
       <ul class="hotel-features">
-        <li>五角形ビルのデザインホテル</li>
+        <li>五角形ビルのデザインホテル。口コミ9.2</li>
+        <li>41㎡のロフトツイン — 広さ十分</li>
         <li>西門MRTから徒歩5分</li>
+        <li>朝食ビュッフェ込み（5F chiba・台湾料理+洋食・6:30〜10:00）</li>
         <li>音楽ラウンジ、クリエイティブゾーン</li>
-        <li>台湾らしいデザイン体験</li>
       </ul>
       <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
         <a class="map-link" href="https://maps.google.com/?q=amba+Taipei+Ximending" target="_blank">&#128205; Map</a>
@@ -966,48 +977,63 @@
     </div>
   </div>
 
-  <!-- Breakfast Comparison -->
-  <div style="margin-top:1.5rem; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
-    <h3 style="font-size:0.95rem; margin-bottom:1rem; color:var(--text-secondary);">朝食比較 — 朝食込みだとambaが安い</h3>
-    <table style="width:100%; border-collapse:collapse; font-size:0.8rem;">
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
-        <td style="padding:0.5rem 0; color:var(--muted);"></td>
-        <td style="padding:0.5rem 0.3rem; font-weight:600;">相鉄フレッサ</td>
-        <td style="padding:0.5rem 0.3rem; font-weight:600;">amba</td>
-      </tr>
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-        <td style="padding:0.4rem 0; color:var(--muted);">宿泊料</td>
-        <td style="padding:0.4rem 0.3rem;">¥125,898</td>
-        <td style="padding:0.4rem 0.3rem;">¥134,252</td>
-      </tr>
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-        <td style="padding:0.4rem 0; color:var(--muted);">朝食</td>
-        <td style="padding:0.4rem 0.3rem;">+¥13,888（別途）</td>
-        <td style="padding:0.4rem 0.3rem; color:var(--teal);">込み</td>
-      </tr>
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(232,87,122,0.05);">
-        <td style="padding:0.4rem 0; font-weight:600;">朝食込み合計</td>
-        <td style="padding:0.4rem 0.3rem; font-weight:600;">¥139,786</td>
-        <td style="padding:0.4rem 0.3rem; font-weight:600; color:var(--pink);">¥134,252</td>
-      </tr>
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-        <td style="padding:0.4rem 0; color:var(--muted);">朝食スタイル</td>
-        <td style="padding:0.4rem 0.3rem;">セットメニュー5択</td>
-        <td style="padding:0.4rem 0.3rem;">ビュッフェ（台湾+洋食）</td>
-      </tr>
-      <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
-        <td style="padding:0.4rem 0; color:var(--muted);">朝食メニュー</td>
-        <td style="padding:0.4rem 0.3rem;">パンケーキ、フレンチトースト、エッグベネディクト等</td>
-        <td style="padding:0.4rem 0.3rem;">飯糰、鹹豆漿、台湾料理+洋食</td>
-      </tr>
-      <tr>
-        <td style="padding:0.4rem 0; color:var(--muted);">朝食時間</td>
-        <td style="padding:0.4rem 0.3rem;">7:00〜10:30</td>
-        <td style="padding:0.4rem 0.3rem;">6:30〜10:00</td>
-      </tr>
-    </table>
-    <div style="margin-top:0.8rem; font-size:0.75rem; color:rgba(255,255,255,0.35);">
-      ※ 相鉄の朝食はNT$350/人（1F 武蔵野森珈琲）。前日までにフロント申込必要（当日券なし）
+  <div id="tab-compare" class="tab-content">
+    <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.8rem;">
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+          <td style="padding:0.5rem 0; color:var(--muted);"></td>
+          <td style="padding:0.5rem 0.3rem; font-weight:600;">相鉄フレッサ</td>
+          <td style="padding:0.5rem 0.3rem; font-weight:600;">amba</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">宿泊料</td>
+          <td style="padding:0.4rem 0.3rem;">¥125,898</td>
+          <td style="padding:0.4rem 0.3rem;">¥134,252</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">朝食</td>
+          <td style="padding:0.4rem 0.3rem;">+¥13,888（別途）</td>
+          <td style="padding:0.4rem 0.3rem; color:var(--teal);">込み</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06); background:rgba(232,87,122,0.05);">
+          <td style="padding:0.4rem 0; font-weight:600;">朝食込み合計</td>
+          <td style="padding:0.4rem 0.3rem; font-weight:600;">¥139,786</td>
+          <td style="padding:0.4rem 0.3rem; font-weight:600; color:var(--pink);">¥134,252</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">部屋</td>
+          <td style="padding:0.4rem 0.3rem;">30㎡+ ツイン</td>
+          <td style="padding:0.4rem 0.3rem;">41㎡ ロフトツイン</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">朝食スタイル</td>
+          <td style="padding:0.4rem 0.3rem;">セットメニュー5択</td>
+          <td style="padding:0.4rem 0.3rem;">ビュッフェ（台湾+洋食）</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">朝食メニュー</td>
+          <td style="padding:0.4rem 0.3rem;">パンケーキ、フレンチトースト、エッグベネディクト等</td>
+          <td style="padding:0.4rem 0.3rem;">飯糰、鹹豆漿、台湾料理+洋食</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">朝食時間</td>
+          <td style="padding:0.4rem 0.3rem;">7:00〜10:30</td>
+          <td style="padding:0.4rem 0.3rem;">6:30〜10:00</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06);">
+          <td style="padding:0.4rem 0; color:var(--muted);">駅距離</td>
+          <td style="padding:0.4rem 0.3rem;">徒歩1分</td>
+          <td style="padding:0.4rem 0.3rem;">徒歩5分</td>
+        </tr>
+        <tr>
+          <td style="padding:0.4rem 0; color:var(--muted);">強み</td>
+          <td style="padding:0.4rem 0.3rem;">新築・日本語対応・駅直結</td>
+          <td style="padding:0.4rem 0.3rem;">広い・朝食込みで安い・デザイン◎</td>
+        </tr>
+      </table>
+      <div style="margin-top:0.8rem; font-size:0.75rem; color:rgba(255,255,255,0.35);">
+        ※ 相鉄の朝食はNT$350/人（1F 武蔵野森珈琲）。前日までにフロント申込必要（当日券なし）
+      </div>
     </div>
   </div>
 
