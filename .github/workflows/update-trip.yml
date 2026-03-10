@@ -7,7 +7,7 @@ on:
 jobs:
   update:
     if: contains(github.event.issue.labels.*.name, 'update')
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 10
     permissions:
       contents: write
@@ -16,22 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-
-      - name: Verify API key exists
-        run: |
-          if [ -z "$ANTHROPIC_API_KEY" ]; then
-            echo "::error::ANTHROPIC_API_KEY is empty. Re-set the secret."
-            exit 1
-          fi
-          echo "API key is set (length: ${#ANTHROPIC_API_KEY})"
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-
       - name: Apply trip plan update
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           claude -p --dangerously-skip-permissions "
           あなたはtrip-plannerプロジェクトのメンテナーです。
