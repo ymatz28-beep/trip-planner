@@ -23,7 +23,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          claude -p --dangerously-skip-permissions "
+          claude -p --dangerously-skip-permissions --api-key "$ANTHROPIC_API_KEY" "
           あなたはtrip-plannerプロジェクトのメンテナーです。
           以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
 
