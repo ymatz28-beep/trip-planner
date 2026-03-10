@@ -7,7 +7,7 @@ on:
 jobs:
   update:
     if: contains(github.event.issue.labels.*.name, 'update')
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
@@ -16,7 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+
       - name: Apply trip plan update
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           claude -p --dangerously-skip-permissions "
           あなたはtrip-plannerプロジェクトのメンテナーです。
