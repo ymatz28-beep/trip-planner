@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fukuoka Local Guide | iUMA Travel</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --bg: #050507;
+    --surface: rgba(255,255,255,0.035);
+    --surface-hover: rgba(255,255,255,0.065);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f5f5f7;
+    --text-secondary: #a1a1aa;
+    --muted: #71717a;
+    --dim: #3f3f46;
+    --accent: #C47D4E;
+    --accent-light: #E8B887;
+    --accent-glow: rgba(196,125,78,0.15);
+    --onsen-warm: #8B5E3C;
+    --card-bg: var(--surface);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Shared Gnav ── */
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+    background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .site-nav { display: flex; gap: 4px; }
+  .site-nav a {
+    color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
+  }
+  .site-nav a:hover, .site-nav a[aria-current="page"] {
+    background: rgba(255,255,255,0.065); color: #f5f5f7;
+  }
+  .nav-toggle { display: none; }
+  .nav-toggle-label { display: none; cursor: pointer; padding: 8px; min-width: 44px; min-height: 44px; display: none; align-items: center; justify-content: center; }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block; background: #f5f5f7; height: 2px; width: 20px;
+    border-radius: 2px; position: relative; transition: .3s;
+  }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after { content: ''; position: absolute; }
+  .nav-toggle-label span::before { top: -6px; }
+  .nav-toggle-label span::after { top: 6px; }
+  @media (max-width: 640px) {
+    .nav-toggle-label { display: flex; }
+    .site-nav {
+      display: none; flex-direction: column; gap: 0;
+      position: absolute; top: 52px; left: 0; right: 0; z-index: 200;
+      background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 0;
+    }
+    .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
+    .nav-toggle:checked ~ .site-nav { display: flex; }
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(135deg, #1a0f08, #2a1a0e, #1a0f08);
+    background-size: 200% 200%;
+    animation: heroShift 12s ease-in-out infinite;
+    border-radius: 16px;
+    padding: 32px 40px;
+    margin: 24px auto;
+    max-width: 1100px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  @keyframes heroShift {
+    0%,100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero h1 {
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .hero .subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .hero .trip-info {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .info-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* ── Section Nav ── */
+  .section-nav-wrapper {
+    position: sticky;
+    top: 52px;
+    z-index: 90;
+    background: rgba(5,5,7,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    padding: 10px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-bar a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-bar a:hover, .nav-bar a.active {
+    color: var(--text);
+    background: var(--surface-hover);
+  }
+
+  /* ── Sections ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+  .section-title {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .section-sub {
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* ── Onsen Cards ── */
+  .onsen-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .onsen-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .onsen-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(196,125,78,0.08);
+  }
+  .onsen-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .onsen-card:hover::after { opacity: 1; }
+
+  .onsen-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .onsen-area {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .onsen-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .onsen-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .onsen-detail .icon {
+    flex-shrink: 0;
+    width: 20px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .onsen-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .feature-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--accent-glow);
+    color: var(--accent-light);
+    border: 1px solid rgba(196,125,78,0.2);
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 12px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid rgba(196,125,78,0.25);
+    transition: all 0.2s;
+  }
+  .map-link:hover {
+    background: var(--accent-glow);
+    border-color: var(--accent);
+  }
+
+  /* ── Area Guide ── */
+  .area-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .area-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .area-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-1px);
+  }
+  .area-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .area-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .area-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .area-spots {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .area-spots li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    list-style: none;
+    padding-left: 16px;
+    position: relative;
+  }
+  .area-spots li::before {
+    content: '·';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ── Access Info ── */
+  .access-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .access-table th {
+    text-align: left;
+    padding: 10px 16px;
+    background: var(--surface);
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+  }
+  .access-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .access-table tr:hover td {
+    background: var(--surface);
+  }
+  .price-highlight {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-light);
+    font-weight: 500;
+  }
+
+  /* ── Gourmet Section ── */
+  .gourmet-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .gourmet-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.2s;
+  }
+  .gourmet-item:hover {
+    border-color: var(--border-hover);
+  }
+  .gourmet-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--accent-glow);
+  }
+  .gourmet-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .gourmet-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .gourmet-info .gourmet-area-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  /* ── Tips Section ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .tip-card {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .tip-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tip-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ── Footer ── */
+  footer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 1.5rem 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .hero { margin: 16px; padding: 24px; }
+    .section { padding: 2.5rem 1rem; }
+    .onsen-grid { grid-template-columns: 1fr; }
+    .area-grid { grid-template-columns: 1fr; }
+    .gourmet-list { grid-template-columns: 1fr; }
+    .access-table { font-size: 12px; }
+    .access-table th, .access-table td { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav">
+    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Fukuoka Local Guide</h1>
+    <div class="subtitle">福岡ローカルガイド — 温泉・グルメ・エリア別おすすめ</div>
+    <div class="trip-info">
+      <span class="info-chip">拠点: チサンマンション第三博多</span>
+      <span class="info-chip">温泉 × グルメ × 2拠点生活</span>
+    </div>
+  </div>
+</div>
+
+<!-- Section Nav -->
+<div class="section-nav-wrapper">
+  <div class="nav-bar">
+    <a href="#onsen" class="active">温泉・サウナ</a>
+    <a href="#gourmet">グルメ</a>
+    <a href="#area">エリアガイド</a>
+    <a href="#access">アクセス</a>
+    <a href="#tips">Tips</a>
+  </div>
+</div>
+
+<!-- ════════════ 温泉・サウナ ════════════ -->
+<section class="section" id="onsen">
+  <h2 class="section-title">温泉・サウナ</h2>
+  <p class="section-sub">ふくの湯 — 福岡エリアのスーパー銭湯チェーン。天然温泉 × 本格サウナ</p>
+
+  <div class="onsen-grid">
+
+    <!-- 春日店 -->
+    <div class="onsen-card">
+      <div class="onsen-area">Kasuga</div>
+      <div class="onsen-name">ふくの湯 春日店</div>
+      <div class="onsen-details">
+        <div class="onsen-detail">
+          <span class="icon">📍</span>
+          <span>春日市昇町6-10</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🕐</span>
+          <span>10:00〜翌1:00（最終受付 0:30）</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">💰</span>
+          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🚃</span>
+          <span>JR春日駅から徒歩15分 / 西鉄春日原駅からバス</span>
+        </div>
+      </div>
+      <div class="onsen-features">
+        <span class="feature-tag">天然温泉</span>
+        <span class="feature-tag">岩盤浴</span>
+        <span class="feature-tag">高温サウナ</span>
+        <span class="feature-tag">水風呂</span>
+        <span class="feature-tag">外気浴</span>
+        <span class="feature-tag">食事処</span>
+      </div>
+      <a href="https://maps.google.com/?q=ふくの湯+春日店+春日市" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <!-- 花畑店 -->
+    <div class="onsen-card">
+      <div class="onsen-area">Hanahata / Minami-ku</div>
+      <div class="onsen-name">ふくの湯 花畑店</div>
+      <div class="onsen-details">
+        <div class="onsen-detail">
+          <span class="icon">📍</span>
+          <span>福岡市南区花畑2-4-35</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🕐</span>
+          <span>10:00〜翌1:00（最終受付 0:30）</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">💰</span>
+          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🚃</span>
+          <span>西鉄大橋駅からバス約10分</span>
+        </div>
+      </div>
+      <div class="onsen-features">
+        <span class="feature-tag">天然温泉</span>
+        <span class="feature-tag">岩盤浴</span>
+        <span class="feature-tag">高温サウナ</span>
+        <span class="feature-tag">水風呂</span>
+        <span class="feature-tag">外気浴</span>
+        <span class="feature-tag">食事処</span>
+      </div>
+      <a href="https://maps.google.com/?q=ふくの湯+花畑店+福岡市南区" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <!-- 新宮温泉 -->
+    <div class="onsen-card">
+      <div class="onsen-area">Shingu</div>
+      <div class="onsen-name">ふくの湯 新宮温泉</div>
+      <div class="onsen-details">
+        <div class="onsen-detail">
+          <span class="icon">📍</span>
+          <span>糟屋郡新宮町三代780-5</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🕐</span>
+          <span>10:00〜翌1:00（最終受付 0:30）</span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">💰</span>
+          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
+        </div>
+        <div class="onsen-detail">
+          <span class="icon">🚃</span>
+          <span>JR新宮中央駅から徒歩約15分 / 車推奨</span>
+        </div>
+      </div>
+      <div class="onsen-features">
+        <span class="feature-tag">天然温泉</span>
+        <span class="feature-tag">岩盤浴</span>
+        <span class="feature-tag">高温サウナ</span>
+        <span class="feature-tag">水風呂</span>
+        <span class="feature-tag">外気浴</span>
+        <span class="feature-tag">食事処</span>
+        <span class="feature-tag">駐車場広い</span>
+      </div>
+      <a href="https://maps.google.com/?q=ふくの湯+新宮温泉+糟屋郡新宮町" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════ グルメ ════════════ -->
+<section class="section" id="gourmet">
+  <h2 class="section-title">グルメ</h2>
+  <p class="section-sub">博多・天神エリアの定番からローカルまで</p>
+
+  <div class="gourmet-list">
+    <div class="gourmet-item">
+      <div class="gourmet-icon">🍜</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">HAKATA</div>
+        <h4>博多ラーメン</h4>
+        <p>豚骨ベース・極細麺・バリカタ。ShinShinは博多駅デイトス地下が並ばず入れる。一蘭・一風堂は観光客向け</p>
+      </div>
+    </div>
+    <div class="gourmet-item">
+      <div class="gourmet-icon">🐔</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">HAKATA</div>
+        <h4>水炊き・もつ鍋</h4>
+        <p>水炊きは博多華味鳥（中洲）。もつ鍋は楽天地（天神本店）が地元民に人気</p>
+      </div>
+    </div>
+    <div class="gourmet-item">
+      <div class="gourmet-icon">🍢</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">TENJIN / NAKASU</div>
+        <h4>屋台</h4>
+        <p>中洲・天神・長浜の3エリア。中洲は観光客多め。天神エリアの方が地元感あり。焼きラーメン・おでん・餃子が定番</p>
+      </div>
+    </div>
+    <div class="gourmet-item">
+      <div class="gourmet-icon">🥟</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">HAKATA</div>
+        <h4>博多一口餃子</h4>
+        <p>一口サイズが博多流。テムジン（天神）、旭軒（博多駅）が定番。ビールとの相性抜群</p>
+      </div>
+    </div>
+    <div class="gourmet-item">
+      <div class="gourmet-icon">🐟</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">HAKATA / YANAGIBASHI</div>
+        <h4>海鮮・ごまさば</h4>
+        <p>ごまさばは博多名物。柳橋連合市場で朝食もおすすめ。回転寿司なら「ひょうたん寿司」（天神）</p>
+      </div>
+    </div>
+    <div class="gourmet-item">
+      <div class="gourmet-icon">☕</div>
+      <div class="gourmet-info">
+        <div class="gourmet-area-tag">YAKUIN / TENJIN</div>
+        <h4>カフェ</h4>
+        <p>薬院〜白金エリアはおしゃれカフェ密集地帯。REC COFFEE（薬院）はスペシャルティコーヒーの名店</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ エリアガイド ════════════ -->
+<section class="section" id="area">
+  <h2 class="section-title">エリアガイド</h2>
+  <p class="section-sub">福岡の主要エリアの特徴とおすすめスポット</p>
+
+  <div class="area-grid">
+    <div class="area-card">
+      <div class="area-label">Central</div>
+      <div class="area-name">博多駅エリア</div>
+      <div class="area-desc">新幹線・空港アクセスの起点。博多デイトス・KITTE博多でグルメ。駅ビル屋上は穴場ビュースポット</div>
+      <ul class="area-spots">
+        <li>博多デイトス（グルメ街）</li>
+        <li>KITTE博多</li>
+        <li>住吉神社（徒歩10分）</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <div class="area-label">Shopping & Nightlife</div>
+      <div class="area-name">天神エリア</div>
+      <div class="area-desc">九州最大の繁華街。天神地下街は雨の日に便利。大名エリアはセレクトショップ・バーが集中</div>
+      <ul class="area-spots">
+        <li>天神地下街</li>
+        <li>大名エリア（カフェ・バー）</li>
+        <li>警固神社</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <div class="area-label">Nightlife</div>
+      <div class="area-name">中洲エリア</div>
+      <div class="area-desc">西日本最大の歓楽街。屋台は那珂川沿いに20軒以上。夜のネオンリフレクションは写真映えする</div>
+      <ul class="area-spots">
+        <li>中洲屋台街</li>
+        <li>キャナルシティ博多</li>
+        <li>櫛田神社</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <div class="area-label">Local Vibe</div>
+      <div class="area-name">薬院・白金エリア</div>
+      <div class="area-desc">おしゃれカフェとレストランが集まるローカルエリア。観光客少なめ。散歩に最適</div>
+      <ul class="area-spots">
+        <li>REC COFFEE 薬院</li>
+        <li>白金の飲食店街</li>
+        <li>浄水通り</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <div class="area-label">Nature & Shrine</div>
+      <div class="area-name">太宰府</div>
+      <div class="area-desc">太宰府天満宮は学問の神様。参道の梅ヶ枝餅は必食。スタバ太宰府店は隈研吾デザイン</div>
+      <ul class="area-spots">
+        <li>太宰府天満宮</li>
+        <li>梅ヶ枝餅（参道）</li>
+        <li>スターバックス太宰府天満宮表参道店</li>
+      </ul>
+    </div>
+    <div class="area-card">
+      <div class="area-label">Seaside</div>
+      <div class="area-name">糸島</div>
+      <div class="area-desc">海沿いのドライブコース。おしゃれなカフェ・雑貨店が点在。二見ヶ浦の夫婦岩はサンセットスポット</div>
+      <ul class="area-spots">
+        <li>二見ヶ浦</li>
+        <li>パームビーチ・ザ・ガーデンズ</li>
+        <li>糸島の牡蠣小屋（冬季）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ アクセス ════════════ -->
+<section class="section" id="access">
+  <h2 class="section-title">アクセス</h2>
+  <p class="section-sub">福岡空港から市内中心部まで地下鉄でわずか5分。日本一アクセスが良い空港</p>
+
+  <div style="overflow-x: auto;">
+    <table class="access-table">
+      <thead>
+        <tr>
+          <th>区間</th>
+          <th>交通手段</th>
+          <th>所要時間</th>
+          <th>料金</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>福岡空港 → 博多駅</td>
+          <td>地下鉄空港線</td>
+          <td>5分</td>
+          <td class="price-highlight">¥260</td>
+        </tr>
+        <tr>
+          <td>福岡空港 → 天神</td>
+          <td>地下鉄空港線</td>
+          <td>11分</td>
+          <td class="price-highlight">¥260</td>
+        </tr>
+        <tr>
+          <td>博多駅 → 天神</td>
+          <td>地下鉄空港線</td>
+          <td>5分</td>
+          <td class="price-highlight">¥210</td>
+        </tr>
+        <tr>
+          <td>博多駅 → 太宰府</td>
+          <td>西鉄電車（天神乗換）</td>
+          <td>約45分</td>
+          <td class="price-highlight">¥610</td>
+        </tr>
+        <tr>
+          <td>天神 → 糸島（筑前前原）</td>
+          <td>JR筑肥線</td>
+          <td>約35分</td>
+          <td class="price-highlight">¥580</td>
+        </tr>
+        <tr>
+          <td>東京（羽田） → 福岡</td>
+          <td>飛行機</td>
+          <td>約2時間</td>
+          <td class="price-highlight">¥8,000〜30,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ════════════ Tips ════════════ -->
+<section class="section" id="tips">
+  <h2 class="section-title">Tips</h2>
+  <p class="section-sub">福岡滞在を快適にするローカル知識</p>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h4>🚇 交通ICカード</h4>
+      <p>Suica/PASMOそのまま使える。地下鉄・西鉄バス・JR全対応。チャージは駅の券売機で</p>
+    </div>
+    <div class="tip-card">
+      <h4>🌤️ ベストシーズン</h4>
+      <p>3〜5月（桜・新緑）と10〜11月（紅葉・快適）がおすすめ。7〜8月は猛暑。1月は博多雑煮が旨い</p>
+    </div>
+    <div class="tip-card">
+      <h4>🏪 コンビニ</h4>
+      <p>博多駅〜天神は密集。郊外（糸島・新宮方面）は減るので、温泉行く前に買い出し推奨</p>
+    </div>
+    <div class="tip-card">
+      <h4>🅿️ 駐車場</h4>
+      <p>ふくの湯は全店無料駐車場あり。天神・博多は駐車場高い（1時間¥300〜600）ので公共交通推奨</p>
+    </div>
+    <div class="tip-card">
+      <h4>🌙 夜の楽しみ方</h4>
+      <p>屋台は18時〜翌2時頃。中洲屋台は金土が賑わう。天神エリアは比較的空いている穴場</p>
+    </div>
+    <div class="tip-card">
+      <h4>💳 キャッシュレス</h4>
+      <p>主要店舗はクレカ対応。屋台は現金のみが多い。¥3,000〜5,000あると安心</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>iUMA TRAVEL — FUKUOKA LOCAL GUIDE</span>
+  <span>2026</span>
+</footer>
+
+<!-- Section Nav Active State -->
+<script>
+(function() {
+  var sections = document.querySelectorAll('.section[id]');
+  var navLinks = document.querySelectorAll('.nav-bar a');
+  var headerH = 52, snavH = 42;
+
+  function onScroll() {
+    var scrollY = window.scrollY + headerH + snavH + 40;
+    var current = '';
+    sections.forEach(function(s) {
+      if (s.offsetTop <= scrollY) current = s.getAttribute('id');
+    });
+    navLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Smooth scroll for section nav
+  navLinks.forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop - headerH - snavH - 10,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
