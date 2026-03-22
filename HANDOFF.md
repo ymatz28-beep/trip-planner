@@ -1,6 +1,6 @@
 # HANDOFF
 
-## 最終更新: 2026-03-16
+## 最終更新: 2026-03-22 (kaizen-agent QA巡回結果反映)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -10,7 +10,7 @@
 - **デザイン**: iUMA report-dashboard のデザインシステムに準拠（Inter フォント、共通 gnav）
 
 ## 台北旅行の概要
-- **日程**: 2026年4月15日〜19日（4泊5日）**確定**
+- **日程**: 2026年4月16日〜20日（4泊5日）**確定**
 - **フライト**: EVA Air NRT↔TPE ¥54,840/人 **予約済み**
 - **ホテル**: 相鉄グランドフレッサ台北西門 **予約済み**
 - **空港**: 桃園国際空港（MRT 50分で市内）
@@ -20,36 +20,35 @@
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
 
-## 完了済み（直近セッション）
-- **Booked = Cleanクリーンアップ** (9454601): 予約確定に伴い未予約候補を全削除（-177行）
-  - ホテル: ambaタブ・比較タブ・Google Hotels/Booking.com/Agoda検索リンク削除（相鉄確定）
-  - 予算: 5泊タブ削除（4泊確定）
-  - 日程サブタイトル調整
-- **Booked = Cleanルール制定**: HANDOFF.mdコンテンツ品質ルール#11 + auto memory記録
+## 完了済み（直近セッション: 2026-03-21 kaizen-agent QA巡回）
+- **Public→Private導線遮断チェック合格**: 全5ファイル(index/taipei/taipei-food/macau/london)のsite-navに`iuma-private.pages.dev`へのリンクなし。安全確認済み
+- **renderer.py `_public_nav` 正常確認**: Hub/Property/Travelの3リンクのみ。Private URLの混入なし
 
-## 前セッション完了
-- **台北フライト＆ホテル確定** (5f9f3e0): EVA Air NRT↔TPE (¥54,840/人) + 相鉄グランドフレッサ台北西門。予算実コスト反映 (¥296k)
-- GitHub Actions完全復旧: APIキー再設定 → Issue #10成功。3リポにシークレット設定
-- taipei.html ホテル比較タブに朝食リンクボタン追加 (71eed7a)
-- macau.html Day 5 夕食→Kapok六棉酒家(Bib Gourmand) (08f9174)
+## 前セッション完了（2026-03-20 stock-analyzer #51）
+- **infra-manifest.yaml にデプロイ登録**: trip-planner を GitHub Pages デプロイターゲットとして `scripts/infra-manifest.yaml` の新規 `deployments` セクションに追加。trigger: GHA `update-trip.yml` (Issue label 'update')、branch: main。constancy monitoring 対象に
+- **deploy-private.sh SSoT整理**: `deploy_private.py`（自動）をSSoTに、`deploy-private.sh`（手動）をフォールバックに役割明確化
+- **kaizen-agent constancy_checks 更新**: デプロイメント監視が config.yaml / constancy_checks.py に追加
 
-## 過去セッション完了
-- taipei.html 新規作成（全セクション搭載）
-- index.html 更新（Taipei=Upcoming, Macau=Completed, London=Cancelled）
-- iUMAデザインシステム統一（全3ページ）
-- macau.html gnav拡張+Day選択+過去日程移動 (9291d75)
-- london.html: キャンセル（中東リスク）→ Cancelled表示
+## 前々セッション完了
+- taipei.html フライトセクション圧縮（4ブロック→1カード、面積1/3）+ taipei-food.html新規作成
+- [Projects #51] root .gitignoreにtrip-planner登録: subproject track分離
+- kaizen-agent GHA監視にtrip-planner追加 (99b48b8)
+- Booked = Cleanクリーンアップ (9454601): 未予約候補全削除(-177行) + ルール#11制定
+- 台北フライト＆ホテル確定 (5f9f3e0): EVA Air NRT↔TPE (¥54,840/人) + 相鉄グランドフレッサ台北西門
 
 ## 進行中 / 未完了
+- **taipei-food.html が未コミット**: git status `??`。内容確認してコミットまたは削除が必要
+- **taipei.html 未コミット変更あり**: フライトセクション圧縮の差分が `M` 状態
 - macau.html: レストラン予約 pending（Wing Lei, Chef Tam's, Antonio, House of Dancing Water）
 - macau.html: Studio City 後半2泊が「検討中→予約へ」ステータス
 
 ## 次回アクション（優先順）
-1. **taipei-food.html の処理**: git未追跡のまま放置。taipei.htmlに統合済みなら削除、残すならコミット
+1. **taipei.html + taipei-food.html をコミット&プッシュ**: 変更済み・未追跡ファイルをリポに反映
 2. **マカオ予約確定**: Studio City 後半2泊 + ミシュランレストラン（Wing Lei, Chef Tam's, Antonio）+ House of Dancing Water チケット
-3. **💡改善: taipei.html 桃園空港MRTの詳細ガイド追加** — 桃園MRT時刻表・悠遊卡購入場所・乗り換え案内を充実させる
+3. **💡改善: gnav共通化テンプレート検討**: 現在5ファイルにsite-navをコピペ管理。renderer.pyの`_public_nav`と同期は取れているが手動更新のため乖離リスクあり。ビルドステップ or include snippet で一元化できる余地
 
 ## Key Decisions
+- 2026-03-20: **デプロイ基盤2層化** — Public(GitHub Pages: zero-auth, auto-deploy on push) + Private(Cloudflare Pages + Access: email OTP)。trip-plannerはPublic側。infra-manifest.yamlで全ターゲットをSSoT管理
 - 2026-03-16: **Booked = Cleanルール制定** — 予約確定したら即座に他候補・比較タブ・検索リンクを削除し確定情報のみ残す運用ルール。コンテンツ品質ルール#11
 - 2026-03-16: フライト確定 — ANA HND↔TSA案からEVA Air NRT↔TPEに変更。空港は松山→桃園に。ホテルは相鉄グランドフレッサ台北西門に確定
 - 2026-03-10: Self-hosted Runnerは3S不適合で撤去。Simple: GitHub hosted runnerで十分、Sustainable: メンテコスト増大。遠回りの原因になった
@@ -91,8 +90,9 @@
     - 未確定の選択肢（4泊/5泊タブ等）が確定で不要になったら削除
 
 ## ブロッカー / 注意事項
-- 台北出発まで約30日（4/15出発、本日3/16時点）
-- **taipei-food.html が未追跡**: git status で `??` 状態。統合済みなら削除、残すならコミット
+- 台北出発まで約25日（4/16出発、本日3/22時点）
+- **未コミット変更2件**: taipei.html (M) + taipei-food.html (??) — 次セッション冒頭でコミット必須
+- **HANDOFF.md自体も未コミット変更あり (M)**
 - GitHub Pages はキャッシュが強い: Cmd+Shift+R でハードリロード
 - property-report, report-dashboardのGitHub Actions未テスト（キー設定のみ完了）
 
@@ -106,6 +106,11 @@
 ## History
 | 日付 | サマリー |
 |------|----------|
+| 2026-03-21 | kaizen-agent QA巡回: Public→Private導線遮断チェック。trip-planner全5ファイル合格。renderer.py _public_nav正常 |
+| 2026-03-20 | infra-manifest.yaml deployments新設: trip-plannerをGitHub Pagesターゲット登録 + deploy-private.sh SSoT整理 + constancy monitoring対象化 |
+| 2026-03-20 | taipei.html フライトセクション圧縮（4ブロック→1カード、面積1/3）+ taipei-food.html新規作成。未コミット |
+| 2026-03-20 | [Projects #51] root .gitignoreにsubproject登録（trip-planner独立管理化）。HANDOFF日付・カウントダウン更新 |
+| 2026-03-17 | kaizen-agent GHA監視にtrip-planner追加 (99b48b8)。ワークフロー単位検出で pages-build / Update Trip Plan 両方🟢確認 |
 | 2026-03-16 | Booked=Cleanクリーンアップ: 未予約候補全削除(-177行)、ambaタブ・5泊タブ・検索リンク除去。ルール#11制定 (9454601) |
 | 2026-03-16 | 台北フライト＆ホテル確定: EVA Air NRT↔TPE(¥54,840/人)+相鉄グランドフレッサ西門。空港アクセス・予算・チェックリスト更新 (5f9f3e0) |
 | 2026-03-10 | GitHub Actions完全復旧: APIキー再設定→Issue #10成功(36秒)。3リポにシークレット設定。Private側スマホ更新はROI低で見送り |
@@ -124,4 +129,3 @@
 | 2026-03-04 | macau.html — クレカラウンジ金剛のゴールドカード入場条件+同伴者料金追加 (806c2c3) |
 | 2026-03-04 | iUMA 共通 gnav 追加 + Inter フォント統一 + london/macau モバイル強化 |
 | 2026-03-03 | 緊急バナー追加 + フライト/ホテル価格更新 + 予算再計算 |
-| 2026-02-26 | ロンドン旅行ページ完成（農園・食・LGBTQ+・予算・チェックリスト・マップ全搭載） |

@@ -168,47 +168,7 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.5rem;
   }
-  .flight-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .flight-card:hover {
-    border-color: rgba(232,87,122,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-  .flight-card.recommended {
-    border-color: rgba(232,87,122,0.4);
-    background: rgba(232,87,122,0.05);
-  }
-  .flight-card.recommended::before {
-    content: 'BEST';
-    position: absolute;
-    top: 1rem;
-    right: -2rem;
-    background: var(--pink);
-    color: var(--bg);
-    padding: 0.2rem 2.5rem;
-    font-size: 0.7rem;
-    font-weight: 700;
-    transform: rotate(45deg);
-  }
-  .flight-route {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--pink-light);
-    margin-bottom: 0.3rem;
-  }
-  .flight-note {
-    font-size: 0.85rem;
-    color: var(--pink);
-    margin-bottom: 1rem;
-  }
+  /* flight-card styles removed — booked flights use compact inline layout */
   .airline-row {
     display: flex;
     justify-content: space-between;
@@ -852,53 +812,35 @@
 <!-- Flights -->
 <section class="section" id="flights">
   <h2 class="section-title">Flights</h2>
-  <p class="section-sub">エバー航空 直行便 — 成田 ↔ 桃園。予約済み</p>
+  <p class="section-sub">エバー航空 直行便 — 成田 ↔ 桃園 <span style="background:rgba(0,137,123,0.2); color:var(--teal); padding:2px 10px; border-radius:4px; font-size:0.75rem; margin-left:0.3rem;">予約済み</span></p>
 
-  <!-- Flight Summary -->
-  <div style="background:linear-gradient(135deg, rgba(232,87,122,0.08), rgba(0,137,123,0.08)); border:1px solid rgba(232,87,122,0.2); border-radius:12px; padding:1.5rem; margin-bottom:1.5rem;">
-    <h3 style="font-size:1rem; margin-bottom:0.8rem; color:var(--text);">EVA Air 直行便 — 成田 ↔ 桃園 <span style="background:rgba(0,137,123,0.2); color:var(--teal); padding:2px 10px; border-radius:4px; font-size:0.75rem; margin-left:0.5rem;">予約済み</span></h3>
-    <div style="font-size:0.9rem; color:rgba(255,255,255,0.6); line-height:1.8;">
-      エバー航空（スターアライアンス / ANAコードシェア）。受託手荷物1個+機内持込1個 無料。<br>
-      桃園空港から西門町まで空港MRT直通 約50分（NT$160 ≒ ¥750）。<br>
-      <span style="font-family:'JetBrains Mono',monospace; color:var(--pink);">¥54,840/人</span>（2名合計 ¥109,680）
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.5rem;">
+    <!-- Leg rows -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem 2rem; margin-bottom:0.8rem;">
+      <div style="flex:1; min-width:220px; display:flex; align-items:baseline; gap:0.6rem;">
+        <span style="font-size:0.7rem; font-weight:600; color:var(--teal); background:rgba(0,137,123,0.15); padding:2px 8px; border-radius:4px; flex-shrink:0;">行き</span>
+        <span style="font-size:0.85rem; color:var(--text-secondary);">4/16(木)</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600; color:var(--text);">13:25→16:05</span>
+        <span style="font-size:0.75rem; color:var(--muted);">NRT→TPE 直行 3h40m</span>
+      </div>
+      <div style="flex:1; min-width:220px; display:flex; align-items:baseline; gap:0.6rem;">
+        <span style="font-size:0.7rem; font-weight:600; color:var(--teal); background:rgba(0,137,123,0.15); padding:2px 8px; border-radius:4px; flex-shrink:0;">帰り</span>
+        <span style="font-size:0.85rem; color:var(--text-secondary);">4/20(月)</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600; color:var(--text);">15:20→19:40</span>
+        <span style="font-size:0.75rem; color:var(--muted);">TPE→NRT 直行 3h20m</span>
+      </div>
     </div>
-  </div>
-
-  <!-- Outbound — BOOKED -->
-  <div class="flight-card recommended" style="margin-bottom:1rem;">
-    <div class="flight-route">行き 4/16(木) NRT → TPE（成田 → 桃園）</div>
-    <div class="flight-note" style="color:var(--teal); font-weight:500;">予約済み｜直行便 3時間40分</div>
-    <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; font-size:0.85rem;">
-      <tr>
-        <td style="padding:0.5rem 0; color:var(--teal); width:60px; font-weight:600;">予約済</td>
-        <td style="padding:0.5rem 0; font-weight:600;">EVA Air</td>
-        <td style="padding:0.5rem 0; font-family:'JetBrains Mono',monospace; font-weight:600;">13:25 → 16:05</td>
-        <td style="padding:0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">昼出発 → 夕方から台北満喫</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- Return — BOOKED -->
-  <div class="flight-card recommended" style="margin-bottom:1rem;">
-    <div class="flight-route">帰り 4/20(月) TPE → NRT（桃園 → 成田）</div>
-    <div class="flight-note">予約済み｜直行便 3時間20分</div>
-    <table style="width:100%; border-collapse:collapse; margin-top:0.8rem; font-size:0.85rem;">
-      <tr>
-        <td style="padding:0.5rem 0; color:var(--teal); width:60px; font-weight:600;">予約済</td>
-        <td style="padding:0.5rem 0; font-weight:600;">EVA Air</td>
-        <td style="padding:0.5rem 0; font-family:'JetBrains Mono',monospace; font-weight:600;">15:20 → 19:40</td>
-        <td style="padding:0.5rem 0; font-size:0.8rem; color:rgba(255,255,255,0.5);">午後便で帰国 → 19:40 成田着</td>
-      </tr>
-    </table>
-  </div>
-
-  <!-- Airport Access -->
-  <div style="background:rgba(0,137,123,0.08); border:1px solid rgba(0,137,123,0.15); border-radius:12px; padding:1.2rem;">
-    <h3 style="color:var(--teal); font-size:0.9rem; margin-bottom:0.5rem;">桃園空港 → 市内アクセス</h3>
-    <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8;">
-      <strong style="color:var(--pink-light);">空港MRT（おすすめ）</strong>: 桃園空港→北門→西門 約50分（NT$160 ≒ ¥750）直通快速<br>
-      <strong style="color:var(--pink-light);">タクシー</strong>: 桃園空港→西門町 約40〜50分（NT$1,200〜1,500 ≒ ¥5,500〜7,000）<br>
-      <strong style="color:var(--teal);">到着後プラン</strong>: 16:05着→入国→空港MRT 50分→ホテルチェックイン→18:00頃から観光開始
+    <!-- Meta -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.4rem 1.2rem; font-size:0.78rem; color:var(--muted); padding-top:0.6rem; border-top:1px solid var(--border);">
+      <span>EVA Air（★Alliance / ANAコードシェア）</span>
+      <span>受託手荷物1個+機内持込1個 無料</span>
+      <span style="font-family:'JetBrains Mono',monospace; color:var(--pink);">¥54,840/人（2名計 ¥109,680）</span>
+    </div>
+    <!-- Airport access -->
+    <div style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem; padding-top:0.6rem; border-top:1px solid var(--border);">
+      <span style="color:var(--teal); font-weight:600;">空港→市内</span>
+      MRT直通快速 50分（NT$160 ≒ ¥750）/ タクシー 40-50分（¥5,500〜7,000）
+      <span style="color:var(--text-secondary); margin-left:0.5rem;">16:05着→MRT→18:00頃から観光開始</span>
     </div>
   </div>
 </section>
