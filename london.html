@@ -9,7 +9,7 @@
 
   :root {
     /* iUMA design system tokens */
-    --bg: #050507;
+    --bg: #0f1117;
     --surface: rgba(255,255,255,0.035);
     --surface-hover: rgba(255,255,255,0.065);
     --border: rgba(255,255,255,0.08);
@@ -112,7 +112,7 @@
     position: sticky;
     top: 52px;
     z-index: 90;
-    background: rgba(5,5,7,0.92);
+    background: rgba(15,17,23,0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
@@ -161,7 +161,7 @@
   .section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 64px 24px;
   }
   .section-title {
     font-size: clamp(18px, 2.5vw, 22px);
@@ -603,8 +603,8 @@
   .check-item:hover { opacity: 0.8; }
   .check-item input[type="checkbox"] { display: none; }
   .check-box {
-    width: 22px;
-    height: 22px;
+    width: 44px;
+    height: 44px;
     border: 2px solid rgba(255,255,255,0.2);
     border-radius: 6px;
     display: flex;
@@ -694,7 +694,7 @@
     top: 12px;
     left: 12px;
     z-index: 200;
-    background: rgba(5,5,7,0.85);
+    background: rgba(15,17,23,0.85);
     backdrop-filter: blur(10px);
     color: var(--gold-light);
     text-decoration: none;
@@ -758,7 +758,7 @@
     .reservation-card { flex-wrap: wrap; }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .hero h1 { font-size: clamp(16px, 4vw, 20px); }
     .hero .subtitle { font-size: 0.85rem; }
     .hero-content { padding: 1rem; }

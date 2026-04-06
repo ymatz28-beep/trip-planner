@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #050507;
+      --bg: #0f1117;
       --surface: rgba(255,255,255,0.035);
       --surface-hover: rgba(255,255,255,0.065);
       --border: rgba(255,255,255,0.08);
@@ -18,7 +18,8 @@
       --text-secondary: #a1a1aa;
       --muted: #71717a;
       --dim: #3f3f46;
-      --accent: #ff6b35;
+      --accent: #6366f1;
+      --page-accent: #ff6b35;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -53,7 +54,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
     }
 
-    .page { position: relative; z-index: 2; max-width: 960px; margin: 0 auto; padding: 0 32px; }
+    .page { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
     nav {
       padding: 40px 0 0;
@@ -82,13 +83,13 @@
     }
     .hero h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 5vw, 40px);
+      font-size: clamp(20px, 2.5vw, 26px);
       font-weight: 400; line-height: 0.95; letter-spacing: -0.02em; color: var(--text);
     }
-    .hero-accent { font-style: italic; color: var(--accent); }
+    .hero-accent { font-style: italic; color: var(--page-accent); }
     .hero-aside { padding-bottom: 8px; }
     .hero-aside p { font-size: 14px; color: var(--text-secondary); line-height: 1.8; max-width: 320px; }
-    .hero-line { width: 40px; height: 1px; background: var(--accent); margin-bottom: 16px; }
+    .hero-line { width: 40px; height: 1px; background: var(--page-accent); margin-bottom: 16px; }
 
     .divider {
       margin: 64px 0 0; height: 1px;
@@ -107,7 +108,7 @@
     .trip-item:hover { padding-left: 12px; }
     .trip-item::after {
       content: ''; position: absolute; left: 0; bottom: -1px;
-      width: 0; height: 1px; background: var(--accent);
+      width: 0; height: 1px; background: var(--page-accent);
       transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
     }
     .trip-item:hover::after { width: 100%; }
@@ -120,20 +121,20 @@
       font-size: 22px; line-height: 1; color: var(--dim);
       transition: color 0.35s; padding-top: 2px;
     }
-    .trip-item:hover .trip-ordinal { color: var(--accent); }
+    .trip-item:hover .trip-ordinal { color: var(--page-accent); }
 
     .trip-body { display: flex; flex-direction: column; gap: 10px; }
     .trip-label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent);
+      text-transform: uppercase; color: var(--page-accent);
     }
     .trip-title {
       font-family: 'DM Serif Display', serif;
       font-size: 20px; font-weight: 400; line-height: 1.2;
       transition: color 0.3s;
     }
-    .trip-item:hover .trip-title { color: var(--accent); }
+    .trip-item:hover .trip-title { color: var(--page-accent); }
     .trip-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
 
     .trip-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
@@ -152,7 +153,7 @@
       transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
     }
     .trip-item:hover .trip-arrow {
-      background: var(--accent); border-color: var(--accent);
+      background: var(--page-accent); border-color: var(--page-accent);
       color: var(--bg); transform: translateX(4px);
     }
 
@@ -188,7 +189,7 @@
       footer { flex-direction: column; gap: 16px; align-items: flex-start; }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 640px) {
       .trip-row { grid-template-columns: 1fr; }
       .trip-ordinal { font-size: 16px; }
     }
