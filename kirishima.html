@@ -224,6 +224,15 @@
   .highlight-card.onsen-theme:hover {
     border-color: rgba(106,171,232,0.5);
   }
+  .highlight-card.nature-theme {
+    border-color: rgba(124,179,66,0.25);
+  }
+  .highlight-card.nature-theme:hover {
+    border-color: rgba(124,179,66,0.5);
+  }
+  .highlight-card.nature-theme .highlight-title {
+    color: #AED581;
+  }
   .highlight-icon {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
@@ -347,6 +356,7 @@
   .tag.nature { background: rgba(124,179,66,0.15); color: #AED581; }
   .tag.culture { background: rgba(232,149,106,0.2); color: var(--accent-light); }
   .tag.wellness { background: rgba(106,171,232,0.15); color: var(--onsen-light); }
+  .tag.photo { background: rgba(156,39,176,0.15); color: #ce93d8; }
   .tag.climax { background: linear-gradient(135deg, rgba(232,149,106,0.3), rgba(106,171,232,0.3)); color: #fff; }
 
   /* Map Link */
@@ -517,12 +527,13 @@
 <div class="hero">
   <div class="hero-content">
     <h1>界 霧島</h1>
-    <div class="subtitle">Hoshino Resorts KAI Kirishima — 最終日プラン</div>
+    <div class="subtitle">Hoshino Resorts KAI Kirishima — 霧島周遊プラン</div>
     <div class="trip-info">
       <div class="info-chip">2026.04.09 WED</div>
       <div class="info-chip">霧島温泉郷</div>
       <div class="info-chip">鹿児島県</div>
       <div class="info-chip">1名</div>
+      <div class="info-chip">レンタカーあり</div>
     </div>
   </div>
 </div>
@@ -532,8 +543,10 @@
   <div class="nav-bar">
     <a href="#overview" class="active">概要</a>
     <a href="#morning">朝</a>
-    <a href="#excursion">外出</a>
-    <a href="#afternoon">午後</a>
+    <a href="#drive-am">午前ドライブ</a>
+    <a href="#lunch">ランチ</a>
+    <a href="#drive-pm">午後ドライブ</a>
+    <a href="#evening">夕方</a>
     <a href="#dinner">夕食</a>
     <a href="#night">夜</a>
     <a href="#onsen">温泉ガイド</a>
@@ -543,29 +556,39 @@
 
 <!-- Overview Section -->
 <section class="section" id="overview">
-  <h2 class="section-title">この日のハイライト</h2>
-  <p class="section-sub">同じ湯、三度の表情。天孫降臨の地で、神話と温泉を体感する</p>
-  
+  <h2 class="section-title">霧島周遊 — この日のハイライト</h2>
+  <p class="section-sub">レンタカーで霧島を一周。神話の山・火口湖・滝・100年駅舎・龍馬の湯を巡る</p>
+
   <div class="highlight-grid">
-    <div class="highlight-card onsen-theme">
-      <div class="highlight-icon">♨️</div>
-      <div class="highlight-title">温泉 × 3回</div>
-      <div class="highlight-desc">朝・昼・夜、三つの顔を味わう。日の出、外出後の回復、星空。</div>
-    </div>
     <div class="highlight-card">
       <div class="highlight-icon">⛩️</div>
-      <div class="highlight-title">霧島神宮</div>
-      <div class="highlight-desc">天孫降臨の国宝本殿 × 桜。参道の満開樹齢800年御神木を見逃すな</div>
+      <div class="highlight-title">霧島神宮 × 桜</div>
+      <div class="highlight-desc">国宝本殿。4月上旬の桜吹雪。樹齢800年の御神木、裏手の山神社は観光客の9割が知らない</div>
+    </div>
+    <div class="highlight-card nature-theme">
+      <div class="highlight-icon">🏔️</div>
+      <div class="highlight-title">えびの高原・大浪池</div>
+      <div class="highlight-desc">標高1,200m。コバルトブルーの火口湖を一周トレッキング。錦江湾×桜島の大パノラマ</div>
+    </div>
+    <div class="highlight-card onsen-theme">
+      <div class="highlight-icon">♨️</div>
+      <div class="highlight-title">硫黄谷温泉（霧島ホテル）</div>
+      <div class="highlight-desc">14源泉の豪快な大浴場。龍馬も浸かった歴史の湯。界と泉質を比較する贅沢</div>
     </div>
     <div class="highlight-card">
       <div class="highlight-icon">🏺</div>
-      <div class="highlight-title">坂元のくろず</div>
-      <div class="highlight-desc">52,000壺の絶景ランチ。200年醸造の黒酢で味わう薩摩の格</div>
+      <div class="highlight-title">坂元のくろず壺畑</div>
+      <div class="highlight-desc">52,000壺の絶景ランチ。桜島を眺めながら200年醸造の黒酢で食す</div>
     </div>
     <div class="highlight-card">
-      <div class="highlight-icon">🥁</div>
-      <div class="highlight-title">神話の舞</div>
-      <div class="highlight-desc">太鼓×神楽鈴のパフォーマンス。この土地でしか見られない迫力</div>
+      <div class="highlight-icon">🚂</div>
+      <div class="highlight-title">嘉例川駅</div>
+      <div class="highlight-desc">築100年超の木造無人駅。JR肥薩線。時が止まった大正の空気を纏う</div>
+    </div>
+    <div class="highlight-card">
+      <div class="highlight-icon">🌊</div>
+      <div class="highlight-title">丸尾滝 × 犬飼滝</div>
+      <div class="highlight-desc">温泉水の滝（乳白色〜エメラルド）と龍馬ゆかりの落差36m滝。二つの滝を制覇</div>
     </div>
   </div>
 </section>
@@ -579,177 +602,222 @@
         <div class="label">MORNING</div>
       </div>
       <div>
-        <div class="day-title">05:30–09:30</div>
-        <div class="day-date">目覚めから朝食、身体と心の準備</div>
+        <div class="day-title">05:50–08:30</div>
+        <div class="day-date">朝湯と朝食。ドライブに備える</div>
       </div>
     </div>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="time-label">05:30</div>
-        <div class="activity-title">起床・白湯</div>
-        <div class="activity-desc">部屋の白湯を一杯。温泉の準備として水分を摂る</div>
-        <div><span class="tag wellness">ウェルネス</span></div>
-      </div>
-
-      <div class="timeline-item">
         <div class="time-label">05:50</div>
         <div class="activity-title">朝一番の露天風呂（日の出）</div>
-        <div class="activity-desc">スロープカーで50m下降。霧島連山に朝日が当たり、ススキ野原に靄がかかる幻想的な光景。他の宿泊客が少なく、ほぼ貸切。入浴25分</div>
-        <div><span class="tag onsen">温泉</span><span class="tag wellness">ゴールデンアワー</span></div>
+        <div class="activity-desc">スロープカーで50m下降。霧島連山に朝日が当たり、ススキ野原に靄がかかる幻想的な光景。他の宿泊客が少なく、ほぼ貸切。入浴25分。水分補給300ml忘れずに</div>
+        <div><span class="tag onsen">温泉</span><span class="tag photo">ゴールデンアワー</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">06:30</div>
-        <div class="activity-title">部屋で休息</div>
-        <div class="activity-desc">湯上がりの余韻。窓を開けて山の冷気を入れる。水分補給300ml</div>
-        <div><span class="tag wellness">ウェルネス</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">07:30</div>
+        <div class="time-label">07:00</div>
         <div class="activity-title">朝食</div>
-        <div class="activity-desc">薩摩の郷土食材（さつま揚げ、地鶏、黒酢等）の和食膳。味噌汁で塩分・ミネラル補給</div>
+        <div class="activity-desc">薩摩の郷土食材（さつま揚げ、地鶏、黒酢等）の和食膳。味噌汁で塩分・ミネラル補給。ドライブに備えてしっかり食べる</div>
         <div><span class="tag food">食事</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">08:30</div>
-        <div class="activity-title">敷地内散歩</div>
-        <div class="activity-desc">食後の消化時間。ロビーラウンジやテラスから霧島連山の眺望。館内の設えを鑑賞</div>
-        <div><span class="tag nature">散策</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">09:00</div>
-        <div class="activity-title">湯守（ゆもり）レクチャー</div>
-        <div class="activity-desc">温泉ソムリエによる泉質解説・入浴法指導。硫黄泉の効能、霧島温泉郷の歴史を学ぶ。この知識が午後の入浴体験を別次元に引き上げる</div>
-        <div><span class="tag culture">体験</span><span class="tag onsen">温泉</span></div>
+        <div class="time-label">08:00</div>
+        <div class="activity-title">ドライブ準備・チェックアウト準備</div>
+        <div class="activity-desc">荷物をまとめておく（チェックアウトは明日11:00だが、貴重品以外は部屋に置いてOK）。ドライブ用に水・タオルを車に積む。靴はスニーカー必須（えびの高原ハイキングあり）</div>
+        <div><span class="tag wellness">準備</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Excursion Section -->
-<section class="section" id="excursion">
+<!-- AM Drive Section -->
+<section class="section" id="drive-am">
   <div class="day-section">
     <div class="day-header">
       <div class="day-badge">
-        <div class="num">外</div>
-        <div class="label">EXCURSION</div>
+        <div class="num">午前</div>
+        <div class="label">AM DRIVE</div>
       </div>
       <div>
-        <div class="day-title">10:00–15:30</div>
-        <div class="day-date">南九州の神話と自然を一筆書きで巡る</div>
+        <div class="day-title">08:30–12:00</div>
+        <div class="day-date">南下ルート — 神宮・滝・100年駅舎を巡る</div>
       </div>
     </div>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="time-label">10:00</div>
-        <div class="activity-title">界 霧島 出発</div>
-        <div class="activity-desc">レンタカーまたはタクシーチャーター（半日15,000〜18,000円）。南下→北上の一筆書きルートでバックトラックなし</div>
-        <div><span class="tag nature">移動</span></div>
+        <div class="time-label">08:30</div>
+        <div class="activity-title">界 霧島 出発 → 霧島神宮へ</div>
+        <div class="activity-desc">ルート全体: 界→南下(神宮・滝・駅舎)→西(壺畑ランチ)→北上(えびの高原・硫黄谷温泉・丸尾滝)→界。一筆書きでバックトラックなし。全行程レンタカー</div>
+        <div><span class="tag nature">ドライブ 15分</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">10:15</div>
+        <div class="time-label">08:45</div>
         <div class="activity-title">霧島神宮（国宝）</div>
-        <div class="activity-desc">天孫降臨神話の南九州最大の神宮。2022年に本殿が国宝指定。4月上旬は参道の桜が満開〜花吹雪。御神木の杉（樹齢800年、幹周り7.2m）は観光客の9割が見逃す隠れスポット。本殿裏手の山神社への小径も必見。所要60分</div>
-        <div><span class="tag culture">観光</span><span class="tag nature">桜</span><span class="tag culture">国宝</span></div>
+        <div class="activity-desc">天孫降臨神話の南九州最大の神宮。2022年に本殿が国宝指定。朝一番は参拝者が少なく、杉の森に光の筋が差し込む「光芒」が撮れる。4月上旬は参道の桜が満開〜花吹雪。<br><br><b>見逃し注意:</b> ①御神木の杉（樹齢800年、幹周り7.2m）— 社殿右手奥。観光客の9割が見逃す。②本殿裏手の「山神社」への小径 — 5分登ると苔むした祠。神宮の喧騒が嘘のような静寂。③手水舎の水面に映る社殿 — スマホを水面ギリギリまで下げて反射を撮影。所要60分</div>
+        <div><span class="tag culture">国宝</span><span class="tag nature">桜</span><span class="tag photo">写真</span></div>
         <a href="https://maps.google.com/?q=霧島神宮+鹿児島" target="_blank" class="map-link">📍 Google Maps</a>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">11:20</div>
+        <div class="time-label">09:50</div>
         <div class="activity-title">犬飼滝</div>
-        <div class="activity-desc">落差36m、幅22m。坂本龍馬が新婚旅行で訪れた滝。4月は水量が多く迫力満点。展望台で終わらず、滝壺近くまで降りる道（左手の踏み跡）がある。所要30分</div>
-        <div><span class="tag culture">観光</span><span class="tag nature">自然</span></div>
+        <div class="activity-desc">霧島神宮から車5分。落差36m、幅22m。坂本龍馬が新婚旅行で訪れた滝。4月は水量が多く迫力満点。駐車場から徒歩10分（遊歩道整備済み、路面湿りあり）。展望台で終わらず、滝壺近くまで降りる道（左手の踏み跡）がある。<br><b>写真Tip:</b> iPhoneのLive Photos→編集→長時間露光で水を絹糸のように撮影可能。所要30分</div>
+        <div><span class="tag nature">自然</span><span class="tag photo">写真</span></div>
         <a href="https://maps.google.com/?q=犬飼滝+霧島市" target="_blank" class="map-link">📍 Google Maps</a>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">12:10</div>
+        <div class="time-label">10:25</div>
+        <div class="activity-title">嘉例川駅</div>
+        <div class="activity-desc">犬飼滝から車10分。JR肥薩線の無人駅。築100年超の木造駅舎は鹿児島県内最古（大正時代）。自由見学。木曜日なので名物「かれい川弁当」は販売なし（土日限定）だが、駅舎自体が圧巻。時が止まった大正の空気。ホームに立つだけで映える。所要20分</div>
+        <div><span class="tag culture">歴史</span><span class="tag photo">写真</span></div>
+        <a href="https://maps.google.com/?q=嘉例川駅" target="_blank" class="map-link">📍 Google Maps</a>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time-label">11:00</div>
+        <div class="activity-title">嘉例川 → 坂元のくろず壺畑へ移動</div>
+        <div class="activity-desc">国道10号を西へ。車窓右手に錦江湾と桜島が突然現れる瞬間がある（福山町付近）。路肩に停めて写真を撮れるポイントが数か所。ドライブ自体が体験</div>
+        <div><span class="tag nature">ドライブ 30分</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lunch Section -->
+<section class="section" id="lunch">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">
+        <div class="num">昼</div>
+        <div class="label">LUNCH</div>
+      </div>
+      <div>
+        <div class="day-title">11:30–12:45</div>
+        <div class="day-date">52,000壺の絶景×黒酢ランチ</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">11:30</div>
         <div class="activity-title">坂元のくろず「壺畑」ランチ</div>
-        <div class="activity-desc">52,000個の黒酢壺が並ぶ景観+桜島の眺望。注文は「黒酢黒豚御膳」（¥1,800前後）。200年醸造の坂元黒酢で味付けした黒豚の酢豚。黒酢ドリンクも必飲。壺畑は無料散策可能。ラストオーダー14:30。昼を黒酢にすることで、夜の会席（黒豚メイン）と被らない戦略</div>
+        <div class="activity-desc">52,000個の黒酢壺が並ぶ「壺畑」を見下ろすガラス張りレストラン。晴れていれば桜島が正面。4月の福山は菜の花と壺畑の景観が重なって美しい。<br><br><b>注文:</b> 「黒酢黒豚御膳」（¥1,800前後）。200年醸造の坂元黒酢で味付けした黒豚の酢豚が名物。食前に「壺仕込み黒酢ストレート」を一口頼む — 市販品との違いが明確にわかる。<br><b>戦略:</b> 昼を黒酢にすることで、夜の界の会席（黒豚メイン）と被らない。11:00開店、木曜は予約不要</div>
         <div><span class="tag food">食事</span><span class="tag culture">黒酢</span><span class="tag nature">絶景</span></div>
         <a href="https://maps.google.com/?q=坂元のくろず+壺畑+レストラン" target="_blank" class="map-link">📍 Google Maps</a>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">13:30</div>
-        <div class="activity-title">丸尾滝</div>
-        <div class="activity-desc">温泉水が流れ落ちる珍しい滝。硫黄で乳白色〜エメラルドグリーンに変わる水の色が独特。湯気が立ち上る様子は昼間のほうがよく見える。県道沿い、車を停めて3分。iPhoneのLive Photos→長時間露光で滝を絹糸のように撮影可能</div>
-        <div><span class="tag culture">観光</span><span class="tag onsen">温泉</span><span class="tag wellness">写真</span></div>
-        <a href="https://maps.google.com/?q=丸尾滝+霧島市" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">14:00</div>
-        <div class="activity-title">霧島温泉市場</div>
-        <div class="activity-desc">温泉蒸気で蒸した温泉たまご（5個入¥200）と温泉まんじゅう。焼酎の土産もここで。所要30分</div>
-        <div><span class="tag food">グルメ</span><span class="tag nature">お土産</span></div>
-        <a href="https://maps.google.com/?q=霧島温泉市場" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">14:50</div>
-        <div class="activity-title">道の駅 霧島（天候次第）</div>
-        <div class="activity-desc">標高630m。晴れていれば桜島・錦江湾・高千穂峰の大パノラマ。霧が出ていればスキップして早めに帰館→温泉へ。紫芋ソフトクリーム（¥350）は意外と美味</div>
-        <div><span class="tag nature">絶景</span><span class="tag wellness">天候次第</span></div>
-        <a href="https://maps.google.com/?q=道の駅+霧島" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">15:30</div>
-        <div class="activity-title">界 霧島 帰着</div>
-        <div class="activity-desc">帰館後すぐ水分補給。30分休息してから温泉へ</div>
-        <div><span class="tag nature">移動</span></div>
+        <div class="time-label">12:15</div>
+        <div class="activity-title">壺畑散策 + お土産購入</div>
+        <div class="activity-desc">レストラン前の壺畑は無料散策可能。52,000個の甕が並ぶ景観は圧巻。案内板で200年の醸造プロセスを学ぶ。売店で黒酢（200ml ¥1,000前後）とふりかけ/ドレッシングを購入。ここでしか買えない限定品あり</div>
+        <div><span class="tag culture">見学</span><span class="tag food">お土産</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Afternoon Section -->
-<section class="section" id="afternoon">
+<!-- PM Drive Section -->
+<section class="section" id="drive-pm">
   <div class="day-section">
     <div class="day-header">
       <div class="day-badge">
-        <div class="num">昼</div>
-        <div class="label">AFTERNOON</div>
+        <div class="num">午後</div>
+        <div class="label">PM DRIVE</div>
       </div>
       <div>
-        <div class="day-title">15:30–17:30</div>
-        <div class="day-date">回復と文化体験、夕食への準備</div>
+        <div class="day-title">12:45–17:00</div>
+        <div class="day-date">北上ルート — 火口湖トレッキング・龍馬の湯・温泉の滝</div>
       </div>
     </div>
 
     <div class="timeline">
       <div class="timeline-item">
-        <div class="time-label">15:30</div>
-        <div class="activity-title">二度目の温泉（交互浴）</div>
-        <div class="activity-desc">内湯（高温側）3分→露天で外気浴2分を3セット。ハイキングや外出後の疲労回復。HSP（ヒートショックプロテイン）産生を促進し、帰宅後の体調を支える。必ず「温」で終了すること</div>
-        <div><span class="tag onsen">温泉</span><span class="tag wellness">ウェルネス</span></div>
+        <div class="time-label">12:45</div>
+        <div class="activity-title">壺畑 → えびの高原へ移動</div>
+        <div class="activity-desc">国道10号→霧島スカイライン（鹿児島県側は通行可能）で北上。標高が上がるにつれ新緑が濃くなる。えびのスカイライン宮崎県側は火山活動で通常閉鎖のため鹿児島県側からアクセス</div>
+        <div><span class="tag nature">ドライブ 40分</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="time-label">16:00</div>
-        <div class="activity-title">天孫降臨の舞（ご当地楽）</div>
-        <div class="activity-desc">霧島は天孫降臨神話の舞台。太鼓と神楽鈴を使った迫力のある舞踊パフォーマンス。この土地でしか見られない演目。開催時間はフロントで確認</div>
-        <div><span class="tag culture">体験</span><span class="tag culture">文化</span></div>
+        <div class="time-label">13:30</div>
+        <div class="activity-title">えびの高原 — 大浪池ハイキング</div>
+        <div class="activity-desc">標高1,200m。えびのエコミュージアムセンター駐車場（¥500/日）から出発。大浪池は標高1,411mにある周囲約2kmの火口湖。コバルトブルーの水面が美しい。<br><br><b>コース:</b> 大浪池登山口→火口縁→池一周。約90分（初心者OK）。天気が良ければ錦江湾・桜島が見える。4月は新緑が映え、空気が澄んでいる。<br><b>装備:</b> スニーカー必須、水500ml以上、上着（標高が高く気温10-15℃）</div>
+        <div><span class="tag nature">トレッキング</span><span class="tag nature">絶景</span><span class="tag photo">写真</span></div>
+        <a href="https://maps.google.com/?q=えびの高原+大浪池登山口" target="_blank" class="map-link">📍 Google Maps</a>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time-label">15:00</div>
+        <div class="activity-title">えびの高原 → 硫黄谷温泉へ移動</div>
+        <div class="activity-desc">ハイキングで疲れた体を温泉で癒す。霧島スカイラインを南下</div>
+        <div><span class="tag nature">ドライブ 20分</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time-label">15:20</div>
+        <div class="activity-title">硫黄谷温泉 — 霧島ホテル（立ち寄り湯）</div>
+        <div class="activity-desc">14源泉を持つ豪快な大浴場。硫黄泉+明礬泉+塩類泉+鉄泉の4種が混在する珍しい温泉。坂本龍馬も新婚旅行で訪れた歴史の湯。界 霧島とは泉質が異なるため、両方入ることで霧島温泉郷の奥深さを体感できる。<br><br><b>デイユース:</b> ¥1,000 / 営業11:00-17:00 / 所要45分<br><b>Tips:</b> 硫黄の香りが強い（好み分かれる）。ハイキング後の筋肉疲労に硫黄泉は最適。4月は桜終了直後で人出少なめ</div>
+        <div><span class="tag onsen">温泉</span><span class="tag culture">歴史</span></div>
+        <a href="https://maps.google.com/?q=霧島ホテル+硫黄谷温泉" target="_blank" class="map-link">📍 Google Maps</a>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time-label">16:10</div>
+        <div class="activity-title">丸尾滝</div>
+        <div class="activity-desc">霧島ホテルから車5分。温泉水が流れ落ちる全国的にも珍しい滝。硫黄で乳白色〜エメラルドグリーンに変わる水の色が独特。県道沿いに駐車、3分で滝が見える。湯気が立ち上る様子は昼間のほうがよく見える。所要15分</div>
+        <div><span class="tag nature">自然</span><span class="tag onsen">温泉</span><span class="tag photo">写真</span></div>
+        <a href="https://maps.google.com/?q=丸尾滝+霧島市" target="_blank" class="map-link">📍 Google Maps</a>
       </div>
 
       <div class="timeline-item">
         <div class="time-label">16:30</div>
-        <div class="activity-title">トラベルライブラリー</div>
-        <div class="activity-desc">コーヒーまたはお茶。霧島関連の本や写真集を眺める。夕暮れに染まり始める霧島連山をテラスから眺める</div>
-        <div><span class="tag wellness">休憩</span></div>
+        <div class="activity-title">霧島温泉市場</div>
+        <div class="activity-desc">丸尾滝から車2分。温泉蒸気で蒸した温泉たまご（5個入¥200）と温泉まんじゅう。焼酎の土産もここで揃う。地元の農産物も。所要20分</div>
+        <div><span class="tag food">グルメ</span><span class="tag food">お土産</span></div>
+        <a href="https://maps.google.com/?q=霧島温泉市場" target="_blank" class="map-link">📍 Google Maps</a>
       </div>
 
       <div class="timeline-item">
         <div class="time-label">17:00</div>
+        <div class="activity-title">界 霧島 帰着</div>
+        <div class="activity-desc">温泉市場から界まで車10分。帰館後すぐ水分補給。浴衣に着替えて夕食モードへ。界の温泉は夕食後の夜に回す</div>
+        <div><span class="tag nature">帰着</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Evening Section -->
+<section class="section" id="evening">
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">
+        <div class="num">夕</div>
+        <div class="label">EVENING</div>
+      </div>
+      <div>
+        <div class="day-title">17:00–17:30</div>
+        <div class="day-date">帰館。ドライブの余韻と夕食への準備</div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">17:00</div>
+        <div class="activity-title">天孫降臨の舞（ご当地楽）</div>
+        <div class="activity-desc">霧島は天孫降臨神話の舞台。太鼓と神楽鈴を使った迫力のある舞踊パフォーマンス。この土地でしか見られない演目。夕方開催の場合はここで。夜開催（21:00等）ならスキップして夕食後に。開催時間はフロントで確認</div>
+        <div><span class="tag culture">体験</span><span class="tag culture">文化</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="time-label">17:15</div>
         <div class="activity-title">夕食準備</div>
-        <div class="activity-desc">浴衣に着替え、身だしなみを整える。水分を軽く摂る。夕食前の入浴は避ける（湯上がりで汗が引かない状態での食事は味覚が鈍る）</div>
+        <div class="activity-desc">浴衣に着替え、身だしなみを整える。水分を軽く摂る。夕食前の入浴は避ける — 湯上がりで汗が引かない状態での食事は味覚が鈍る</div>
         <div><span class="tag wellness">準備</span></div>
       </div>
     </div>
@@ -836,29 +904,29 @@
 
 <!-- Onsen Guide Section -->
 <section class="section" id="onsen">
-  <h2 class="section-title">露天風呂 — 三つの顔</h2>
-  <p class="section-sub">同じ湯を三度入って三度とも別の景色。光の変化が物語る時間</p>
+  <h2 class="section-title">温泉 — 三つの湯を巡る</h2>
+  <p class="section-sub">界の露天（朝・夜）と硫黄谷の外湯。異なる泉質と時間帯で霧島温泉郷を体感する</p>
 
   <div class="onsen-grid">
     <div class="onsen-card">
       <div class="card-emoji">🌅</div>
-      <div class="card-time">朝湯 05:50</div>
+      <div class="card-time">朝湯 05:50 — 界 霧島</div>
       <div class="card-title">日の出・霧・澄んだ空気</div>
-      <div class="card-desc">静寂と山の覚醒。霧島連山が赤く染まる数分間。他の客がいない朝一番の露天は瞑想の時間。呼吸が深くなる</div>
+      <div class="card-desc">スロープカーで降りる露天風呂。霧島連山に朝日が当たり、ススキ野原に靄がかかる。ほぼ貸切。硫黄泉の美肌効果を体感する1回目</div>
     </div>
 
     <div class="onsen-card">
-      <div class="card-emoji">☀️</div>
-      <div class="card-time">昼湯 15:30</div>
-      <div class="card-title">真上からの太陽・明るいススキ原</div>
-      <div class="card-desc">外出後の回復、交互浴。HSP産生と血流促進。ハイキング疲れた体が湯の温度変化で蘇る実感。終わったあと体が軽い</div>
+      <div class="card-emoji">♨️</div>
+      <div class="card-time">昼湯 15:20 — 硫黄谷温泉</div>
+      <div class="card-title">14源泉の豪快な龍馬の湯</div>
+      <div class="card-desc">霧島ホテルの立ち寄り湯。硫黄泉+明礬泉+塩類泉+鉄泉が混在。界とは全く異なる泉質。ハイキング後の筋肉疲労に最適。デイユース¥1,000</div>
     </div>
 
     <div class="onsen-card">
       <div class="card-emoji">🌙</div>
-      <div class="card-time">夜湯 21:00</div>
+      <div class="card-time">夜湯 21:00 — 界 霧島</div>
       <div class="card-title">星空・月明かり・シルエット</div>
-      <div class="card-desc">一日の総括、旅の記憶の定着。38-40℃のぬる湯で心身がリセット。星が瞬く中での呼吸が瞑想を完成させる</div>
+      <div class="card-desc">一日の総括。38-40℃のぬる湯で副交感神経を優位に。スロープカーの夜の移動は真っ暗な山の中を降りていく儀式。入浴後90分で就寝が理想</div>
     </div>
   </div>
 </section>
