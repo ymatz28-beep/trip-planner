@@ -1,17 +1,18 @@
 # HANDOFF
 
-## 最終更新: 2026-03-22 (fukuoka.html全面改修 未完了 — API 502で中断)
+## Last Updated
+2026-04-09
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
 - **URL**: https://ymatz28-beep.github.io/trip-planner/
 - **ローカルパス**: `~/Documents/Projects/trip-planner/`
-- **構成**: index.html（ダッシュボード）、taipei.html、taipei-food.html、macau.html、london.html、fukuoka.html（計6ページ）
+- **構成**: index.html（ダッシュボード）、taipei.html、taipei-food.html、macau.html、london.html、fukuoka.html、kirishima.html（計7ページ）
 - **デザイン**: iUMA report-dashboard のデザインシステムに準拠（Inter フォント、共通 gnav）
 
 ## 台北旅行の概要
 - **日程**: 2026年4月16日〜20日（4泊5日）**確定**
-- **フライト**: EVA Air NRT↔TPE ¥54,840/人 **予約済み**
+- **フライト**: EVA Air NRT↔TPE ¥55,376/人 **予約済み**
 - **ホテル**: 相鉄グランドフレッサ台北西門 **予約済み**
 - **空港**: 桃園国際空港（MRT 50分で市内）
 - **人数**: 2名（Yuma + 大木くん）
@@ -20,12 +21,40 @@
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
 
-## 完了済み（直近セッション: 2026-03-22）
-- **fukuoka.html commit+push完了 (2f24845)**: 福岡ローカルガイド新規作成（885行）。iUMAデザインシステム準拠（ダークテーマ、Inter+Noto Sans JP+JetBrains Mono、アクセント#C47D4E）。5セクション構成: ①温泉・サウナ（ふくの湯3店舗: 春日/花畑/新宮。料金・営業時間・アクセス・設備タグ・Google Mapsリンク付き）②グルメ（ラーメン/水炊き・もつ鍋/屋台/一口餃子/海鮮・ごまさば/カフェの6カテゴリ、エリアタグ付き）③エリアガイド（博多駅/天神/中洲/薬院・白金/太宰府/糸島の6エリア、スポットリスト付き）④アクセス（6ルート料金比較テーブル）⑤Tips（ICカード/ベストシーズン/コンビニ/駐車場/夜の楽しみ方/キャッシュレスの6カード）。セクションナビ+スムーススクロール+スクロール連動アクティブ状態実装
-- **index.htmlにFukuokaエントリ追加済み**: TRIPSリストにfukuoka.htmlリンク追加
-- （前回）**taipei.html + taipei-food.html コミット&プッシュ完了** (40f9062)
-- （前回）**マカオ旅行完了マーク**: 全予約・計画確定済み
-- （前回）**Public→Private導線遮断チェック合格** (3/21 kaizen-agent): 全5ファイル安全確認済み
+## Completed (Constancy警告 デザイントークン残存修正 2026-04-09)
+- **Before**: london.html L1180/L1211に `color:#f87171`（2箇所）、taipei-food.html L35に `color:#6366f1`（1箇所）がハードコードで残存。Constancy design_token_complianceが3件WARN検出
+- **After**: london.html `#f87171`→`var(--red-light)` 2箇所修正。taipei-food.html `#6366f1`→`var(--accent)` 1箇所修正。Constancy WARN 3件→0件
+- **Commits**: 未コミット
+
+## Completed (霧島旅行ガイド kirishima.html Day1行程最適化 2026-04-09)
+- **Before**: Day1午後に硫黄谷温泉（霧島ホテル立ち寄り湯）が含まれていたが、界 霧島の露天風呂で十分。温泉ガイドが3湯構成（朝・昼外湯・夜）で冗長。帰着16:30で道の駅が未訪問
+- **After**: 硫黄谷温泉を削除し、空いた時間に道の駅 霧島（標高630m展望台・桜島パノラマ）を追加。温泉ガイドを2湯構成（朝湯05:50・夜湯21:00の界露天のみ）に簡素化。帰着16:00に前倒し。PM DRIVEヘッダー「12:30–17:00」→「12:30–16:00」。就寝セクションにチェックアウト11:00の注記追加
+- **Commits**: trip-planner `680f7e2`
+
+## Completed (iUMAデザインシステムトークン統一 2026-04-06)
+- **Before**: trip-planner全HTMLページのスタイルがiUMAデザインシステムのCSS変数（design_tokens.py由来）と不整合。ハードコードされた色・フォント値が残存
+- **After**: 全HTMLページをiUMAデザインシステムトークンに統一。CSS変数準拠に修正
+- **Commits**: trip-planner `23b5f9a`
+
+## Completed (gnav Pattern B導入 + Cisco昇格 2026-04-06)
+- **Before**: gnavが全13項目フラット表示で横スクロール発生。HealthがprimaryでCiscoがoverflow（⋯）に格下げされていた
+- **After**: Pattern B gnav実装（primary 5項目常時表示 + ⋯ドロップダウン8項目）。Primary: Stock/Market Intel/Cisco/Action/Property。Overflow: Wealth/Insight/Health/Travel/Newsletter/Bookmarks/SNS/Self-Insight。モバイル640px以下はハンバーガー→全13項目フラットリスト。`lib/renderer.py` get_nav_html() + `nav.html` テンプレート両方対応
+- **Commits**: lib renderer.py（uncommitted、trip-planner外）
+
+## Completed (Projects CLAUDE.md Skill Routing追加 2026-03-27)
+- **Before**: Projects/CLAUDE.mdにスキル自動発火ルールがなく、ユーザーがコマンド名を覚えて明示的に呼ぶ必要があった。story-intakeの発火トリガーに「インタビューして」が含まれていなかった
+- **After**: Skill Routing表をCLAUDE.mdに追加（8スキルの自動発火ルール定義）。story-intakeトリガーに「インタビューして」追加。trip-planner自体のコード変更なし
+- **Commits**: Projects CLAUDE.md（uncommitted、trip-planner外）
+
+## Completed (ゾロ推薦グルメ全日程組込み 2026-03-23)
+- **Before**: taipei.htmlにゾロ推薦のレストランが未統合。推薦元タグなし。航空券・ホテル金額が仮値
+- **After**: 全5日にゾロ推薦グルメ組込み（Day1=港都熱炒+王福芋圓〜Day5=大稻埕米粉湯+李記豆漿）。全レストランに推薦元タグ付与。正式金額反映（航空券¥55,376・ホテル¥72,814・1人精算¥128,190）。銘水善樂→朱記餡餅に差替え
+- **Commits**: trip-planner e81dca8, 5f39105, 22053d7
+
+## Completed (fukuoka.html新規作成 2026-03-22)
+- **Before**: 福岡ガイドページが存在しなかった
+- **After**: fukuoka.html作成（ふくの湯3店舗のローカルガイド）。iUMAデザインシステム準拠。index.htmlにFukuokaリンク追加
+- **Commits**: trip-planner 2f24845, 40f9062
 
 ## 進行中 / 未完了
 - **fukuoka.html 全面改修（未着手）**: 現状はふくの湯3店舗のみの不完全状態。以下セクションの追加が必要:
@@ -36,15 +65,16 @@
   - **市内観光拡充**: 太宰府天満宮（仮殿2026/5まで限定）、志賀島、能古島、櫛田神社、柳川川下り、門司港レトロ、篠栗九大の森
   - **グルメ拡充**: ごぼう天うどん、鉄鍋餃子、呼子イカ、明太子
 - **fukuoka.html アクセント色ずれ**: 指定#FF8C42(warm amber)に対し実装は#C47D4E。要確認・修正判断
-- 台北: 基本計画確定（フライト・ホテル予約済み）。詳細スケジュール微調整の余地あり
 
 ## 次回アクション（優先順）
-1. **fukuoka.html 全面改修実行**: 上記「進行中」の全セクションを一括追加。macau.htmlのデザインパターンを参考に同品質で構築。前セッションでリサーチ済みの情報をそのまま実装に移す
-2. **fukuoka.html アクセント色修正判断**: #C47D4E→#FF8C42に修正するか、現行色で良しとするか（全面改修と同時対応推奨）
-3. **台北 詳細プラン仕上げ**: 日程表の各スポット時間配分、移動ルート最適化
-4. **改善: gnav共通化テンプレート検討**: 現在6ファイルにsite-navをコピペ管理。renderer.pyの`_public_nav`と同期は取れているが手動更新のため乖離リスクあり。ビルドステップ or include snippet で一元化できる余地
+1. **fukuoka.html 全面改修実行**: サウナ9施設/温泉10箇所/ドライブ2コース/モデルプラン/市内観光・グルメ拡充。macau.htmlのデザインパターンを参考に同品質で構築
+2. **fukuoka.html アクセント色修正判断**: #C47D4E→#FF8C42に修正するか（全面改修と同時対応推奨）
+3. **台北 最終調整**: 日程表の各スポット時間配分、移動ルート最適化（出発まで約23日）
+4. **改善: taipei-food.htmlとtaipei.htmlのグルメ情報重複整理**: ゾロ推薦追加でtaipei.html内のグルメ密度が上がった。taipei-food.htmlとの役割分担・情報重複を整理する余地あり
 
 ## Key Decisions
+- 2026-04-06: **gnav Pattern B採用（primary+overflow）** — 13項目を5 primary + 8 overflow(⋯ドロップダウン)に分割。Ciscoをprimaryに昇格、Healthをoverflowに降格（ユーザー指示）。モバイルはハンバーガーで全項目フラット表示
+- 2026-03-23: **銘水善樂→朱記餡餅差替え** — 推薦元不明&高額の銘水善樂をゾロ推薦の朱記餡餅に差替え。Day3昼食
 - 2026-03-22: **fukuoka.htmlデザイン方針** — 福岡ホスティングガイド（友人向けスポット案内）。iUMAデザインシステム準拠、アクセント#FF8C42（warm amber）。旅行日程型ではなくスポットガイド形式
 - 2026-03-20: **デプロイ基盤2層化** — Public(GitHub Pages: zero-auth, auto-deploy on push) + Private(Cloudflare Pages + Access: email OTP)。trip-plannerはPublic側。infra-manifest.yamlで全ターゲットをSSoT管理
 - 2026-03-16: **Booked = Cleanルール制定** — 予約確定したら即座に他候補・比較タブ・検索リンクを削除し確定情報のみ残す運用ルール。コンテンツ品質ルール#11
@@ -55,6 +85,7 @@
 - 2026-03-10: claude CLIの認証は`--api-key`フラグではなく`ANTHROPIC_API_KEY`環境変数。GitHub Actionsではsecretsから環境変数として渡す
 - 2026-03-09: macau Day 5夕食を誠昌飯店→Kapok六棉酒家(Bib Gourmand)に変更。品質重視（TripAdvisor 3/5→4.1/5）。広東料理で胸焼け対策も容易
 - 2026-03-09: GitHub Actions用Anthropic APIキー(`github-actions`)設定。クレジット反映待ちで一時保留。スマホ更新はIssue経由で次ローカルセッション対応の暫定運用
+- 2026-04-06: **gnav Pattern B + Cisco昇格** — Primary: Stock/Market Intel/Cisco/Action/Property、Overflow(⋯): 8項目。Travelはoverflow側
 - 2026-03-09: iuma-private全ページのgnav統一。nav順序: Stock → Market Intel → Intel → Wealth → Action → Property → Travel。trip-plannerは "Travel" として全ページからリンク
 - 2026-03-07: Day3夕食をZi Yat Heen→フィッシャーマンズ・ワーフに変更。アウターハーバーターミナル経由でナイトバス集合に直結する導線に最適化
 - 2026-03-07: ナイトバス Klook予約済み（20:30 アウターハーバーターミナル発）
@@ -88,7 +119,7 @@
     - 未確定の選択肢（4泊/5泊タブ等）が確定で不要になったら削除
 
 ## ブロッカー / 注意事項
-- 台北出発まで約25日（4/16出発、本日3/22時点）
+- 台北出発まで7日（4/16出発）
 - GitHub Pages はキャッシュが強い: Cmd+Shift+R でハードリロード
 - property-report, report-dashboardのGitHub Actions未テスト（キー設定のみ完了）
 
@@ -100,30 +131,26 @@
 - 共通 gnav: チェックボックスハックでハンバーガーメニュー（JS不要）
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
-## History
-| 日付 | サマリー |
-|------|----------|
-| 2026-03-22 | fukuoka.html全面改修セッション: 不足セクション洗い出し（サウナ9施設/温泉10箇所/ドライブ2コース/モデルプラン追加要）→Nayuta調査完了→API 502×3で中断。コード変更なし |
-| 2026-03-22 | API障害継続: 「続き」「続きは」で再開試行→502×6回+ConnectionRefused。06:10〜08:22の約2時間ロスト。後続作業（アクセント色修正等）未着手 |
-| 2026-03-22 | fukuoka.html完了後にAPI 502+ConnectionRefused連続発生（リトライ10回超、計47分）。セッション実質停止 |
-| 2026-03-22 | fukuoka.html作成完了+commit+push (2f24845)。初回502エラーで中断→再試行で成功。index.htmlにFukuoka追加済み |
-| 2026-03-22 | taipei.html+taipei-food.html commit+push (40f9062)。マカオ完了マーク |
-| 2026-03-21 | kaizen-agent QA巡回: Public→Private導線遮断チェック。trip-planner全5ファイル合格。renderer.py _public_nav正常 |
-| 2026-03-20 | infra-manifest.yaml deployments新設: trip-plannerをGitHub Pagesターゲット登録 + deploy-private.sh SSoT整理 + constancy monitoring対象化 |
-| 2026-03-20 | taipei.html フライトセクション圧縮（4ブロック→1カード、面積1/3）+ taipei-food.html新規作成。未コミット |
-| 2026-03-20 | [Projects #51] root .gitignoreにsubproject登録（trip-planner独立管理化）。HANDOFF日付・カウントダウン更新 |
-| 2026-03-17 | kaizen-agent GHA監視にtrip-planner追加 (99b48b8)。ワークフロー単位検出で pages-build / Update Trip Plan 両方🟢確認 |
-| 2026-03-16 | Booked=Cleanクリーンアップ: 未予約候補全削除(-177行)、ambaタブ・5泊タブ・検索リンク除去。ルール#11制定 (9454601) |
-| 2026-03-16 | 台北フライト＆ホテル確定: EVA Air NRT↔TPE(¥54,840/人)+相鉄グランドフレッサ西門。空港アクセス・予算・チェックリスト更新 (5f9f3e0) |
-| 2026-03-10 | GitHub Actions完全復旧: APIキー再設定→Issue #10成功(36秒)。3リポにシークレット設定。Private側スマホ更新はROI低で見送り |
-| 2026-03-10 | GitHub Actions CI修正: --api-keyフラグ追加→無効→削除(12cbaf7)。環境変数認証に統一 |
-| 2026-03-10 | taipei.html ホテル比較タブに朝食リンクボタン追加・push済み (71eed7a) |
-| 2026-03-09 | macau.html Day 5夕食→Kapok六棉酒家(Bib Gourmand)に変更・push済み (08f9174) |
-| 2026-03-09 | 台北ホテル4軒追加+push。GitHub Actionsワークフロー修正・APIキー設定。クレジット反映待ちで一時保留 (act-011) |
-| 2026-03-09 | iuma-private gnav統一（全7ページ）→ Travel=trip-planner。Cloudflareデプロイ完了 |
-| 2026-03-08 | HANDOFF.md整理: macau push完了反映、進行中/次回アクション/ブロッカー更新 |
-| 2026-03-07 | macau.html Day3夕食→フィッシャーマンズ・ワーフ（金悅軒/RIO Grill 2候補）+ ナイトバス20:30 Klook予約済み。push済み (fb210f5) |
-| 2026-03-07 | macau.html Day3ブランチ→Common Table + Ho's Cafe。ルーレット攻略法追加。push済み (3a05c1e, c3f84d7) |
-| 2026-03-07 | iUMAデザインシステム統一（全3ページ）。セクションナビにモバイルハンバーガー追加。design-system.md作成 |
-| 2026-03-06 | taipei.html 新規作成（飲茶×LGBTQ+×夜市×烏龍茶）。4泊/5泊デュアルプラン、2名旅行対応 |
-| 2026-03-06 | index.html更新（London→Cancelled, Taipei→Upcoming） |
+## History（最新20件）
+- 2026-04-09: Before: london/taipei-foodに#f87171/#6366f1ハードコード3箇所 → After: var(--red-light)/var(--accent)に修正、Constancy WARN 0件
+- 2026-04-09: Before: Day1に硫黄谷温泉(外湯)+温泉3湯構成 → After: 外湯削除+道の駅追加+界露天2湯に簡素化(680f7e2)
+- 2026-04-06: Before: HTMLがiUMAデザインシステムトークン非準拠 → After: 全ページCSS変数統一(23b5f9a)
+- 2026-04-06: Before: gnav13項目フラット表示 → After: Pattern B(primary5+overflow8⋯)+Cisco昇格
+- 2026-03-27: Before: スキル自動発火ルールがCLAUDE.mdになかった → After: Skill Routing表追加+story-intake「インタビューして」トリガー追加（trip-planner変更なし）
+- 2026-03-24: Before: gnav SSoTが未整備でfalse positive発生 → After: lib/renderer.py更新、kaizen patrol検証パス（trip-planner影響なし）
+- 2026-03-23: Before: ゾロ推薦グルメ未統合・推薦元タグなし・金額仮値 → After: 全5日にゾロ推薦組込み+全店タグ付与+正式金額反映(e81dca8)
+- 2026-03-22: Before: fukuoka.html改修の不足セクション未定義 → After: サウナ9施設/温泉10箇所/ドライブ2コース洗い出し完了。API 502で実装中断
+- 2026-03-22: Before: fukuoka.htmlが存在しなかった → After: 作成+commit+push(2f24845)。index.htmlにFukuokaリンク追加
+- 2026-03-22: Before: taipei.html+taipei-food.html未push → After: commit+push(40f9062)。マカオ完了マーク
+- 2026-03-21: Before: QA巡回未実施 → After: trip-planner全5ファイルPublic→Private導線遮断チェック合格
+- 2026-03-20: Before: trip-plannerがinfra-manifest未登録 → After: GitHub Pagesターゲット登録+constancy monitoring対象化
+- 2026-03-20: Before: フライトセクションが冗長(4ブロック) → After: 1カードに圧縮(面積1/3)+taipei-food.html新規作成
+- 2026-03-20: Before: trip-plannerがProjects root gitに混在 → After: .gitignoreにsubproject登録で独立管理化
+- 2026-03-17: Before: kaizen-agentがtrip-plannerのGHAを未監視 → After: 監視追加、pages-build+Update Trip Plan両方確認(99b48b8)
+- 2026-03-16: Before: 未予約候補・比較タブが残存(+177行) → After: Booked=Cleanで全削除。ルール#11制定(9454601)
+- 2026-03-16: Before: フライト・ホテル未確定 → After: EVA Air NRT↔TPE+相鉄グランドフレッサ西門確定(5f9f3e0)
+- 2026-03-10: Before: GitHub Actions APIキー認証が壊れていた → After: 環境変数認証に統一、Issue#10成功(36秒)
+- 2026-03-10: Before: ホテル比較タブに朝食リンクなし → After: 朝食リンクボタン追加+push(71eed7a)
+- 2026-03-09: Before: macau Day5夕食=誠昌飯店(3/5評価) → After: Kapok六棉酒家(Bib Gourmand, 4.1/5)に変更(08f9174)
+- 2026-03-09: Before: 台北ホテル候補不足 → After: 4軒追加+push。GHA APIキー設定(クレジット待ち)
+- 2026-03-09: Before: iuma-private gnavにTravelリンクなし → After: 全7ページgnav統一、Travel=trip-planner。Cloudflareデプロイ完了
