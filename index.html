@@ -146,6 +146,16 @@
     }
     .trip-item:hover .trip-tag { border-color: rgba(255,255,255,0.12); color: var(--text); }
 
+    /* Archive (completed / cancelled) */
+    .trip-item.archived { opacity: 0.4; }
+    .trip-item.archived:hover { opacity: 0.65; }
+    .trip-item.archived .trip-label { color: var(--muted); }
+    .trip-item.archived .trip-ordinal { color: var(--dim); }
+    .trip-item.archived:hover .trip-ordinal { color: var(--muted); }
+    .trip-item.archived:hover .trip-title { color: var(--text-secondary); }
+    .trip-item.archived::after { background: var(--muted); }
+    .trip-item.archived:hover .trip-arrow { background: var(--muted); border-color: var(--muted); }
+
     .trip-arrow {
       align-self: center; width: 32px; height: 32px; border-radius: 50%;
       border: 1px solid var(--border); display: grid; place-items: center;
@@ -272,11 +282,11 @@
   <script>
     var TRIPS = [
       {
-        label: "Now",
-        title: "界 霧島 2026",
-        desc: "Hoshino Resorts KAI Kirishima。最終日の完全プラン — 温泉×3回・霧島神宮・黒酢ランチ・神話の舞。",
-        tags: ["4/9", "1名", "温泉 × 神話"],
-        url: "kirishima.html"
+        label: "Next Trip",
+        title: "Taipei 2026",
+        desc: "飲茶 \u00d7 LGBTQ+ \u00d7 夜市 \u00d7 烏龍茶。4泊5日の食い倒れ旅（Yuma + 大木くん）。",
+        tags: ["4/16\u201320", "2\u540D", "Food \u00d7 LGBTQ+"],
+        url: "taipei.html"
       },
       {
         label: "Local Guide",
@@ -286,25 +296,28 @@
         url: "fukuoka.html"
       },
       {
-        label: "Upcoming",
-        title: "Taipei 2026",
-        desc: "飲茶 \u00d7 LGBTQ+ \u00d7 夜市 \u00d7 烏龍茶。4泊or5泊の食い倒れ旅（Yuma + 大木くん）。",
-        tags: ["4/15\u201319 or 20", "2\u540D", "Food \u00d7 LGBTQ+"],
-        url: "taipei.html"
+        label: "Completed",
+        title: "界 霧島 2026",
+        desc: "Hoshino Resorts KAI Kirishima。温泉×3回・霧島神宮・黒酢ランチ・神話の舞。",
+        tags: ["4/9", "1名", "温泉 × 神話"],
+        url: "kirishima.html",
+        archived: true
       },
       {
         label: "Completed",
         title: "Macau 2026",
         desc: "家族4人でマカオを5泊6日。ホテル・カジノ・グルメを満喫。",
         tags: ["3/5\u201310", "4\u540D", "Family"],
-        url: "macau.html"
+        url: "macau.html",
+        archived: true
       },
       {
         label: "Cancelled",
         title: "London 2026",
         desc: "\u4E2D\u6771\u30EA\u30B9\u30AF\u306E\u305F\u3081\u4E2D\u6B62\u3002",
         tags: ["Cancelled"],
-        url: "london.html"
+        url: "london.html",
+        archived: true
       }
     ];
 
@@ -317,7 +330,7 @@
       TRIPS.forEach(function(t, i) {
         var el = document.createElement("a");
         el.href = t.url;
-        el.className = "trip-item fi";
+        el.className = "trip-item fi" + (t.archived ? " archived" : "");
 
         var tagsHtml = (t.tags || []).map(function(tag) {
           return '<span class="trip-tag">' + tag + '</span>';
