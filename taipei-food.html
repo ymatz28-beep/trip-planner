@@ -4,25 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>台北フードガイド 2026年4月</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
   :root {
     --bg: #0f1117;
-    --surface: rgba(255,255,255,0.04);
-    --surface-hover: rgba(255,255,255,0.07);
+    --surface: rgba(255,255,255,0.035);
+    --surface-hover: rgba(255,255,255,0.065);
     --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
     --text: #f5f5f7;
     --text-secondary: #a1a1aa;
     --muted: #71717a;
     --dim: #3f3f46;
-    --accent: #e63946;
-    --accent-light: #ff6b6b;
-    --gold: #d4a847;
+    --pink: #E8577A;
+    --pink-light: #FFB3C6;
+    --teal: #00897B;
+    --gold: #D4A055;
+    --gold-light: #F0D5A8;
+    --card-bg: var(--surface);
+    --glass: var(--border);
     --green: #22c55e;
-    --orange: #ff6b35;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
@@ -31,36 +34,32 @@
     line-height: 1.7; overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
-  .site-header{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000}
-  .site-header .site-brand{font-size:13px;font-weight:700;color:var(--accent);white-space:nowrap}
-  .site-header .site-nav{display:flex;gap:6px;flex-wrap:wrap}
-  .site-header .site-nav a{font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;padding:4px 10px;border-radius:6px;transition:all .15s;border:1px solid transparent;min-height:32px;display:inline-flex;align-items:center}
-  .site-header .site-nav a:hover{color:#fff;background:rgba(255,255,255,0.05)}
-  .site-header .site-nav a.current{color:#fff;border-color:rgba(255,255,255,0.15)}
+  .site-header{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:52px;background:rgba(22,24,31,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .site-nav{display:flex;gap:4px}
+  .site-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;padding:6px 14px;border-radius:6px;transition:background .15s,color .15s;font-family:'Inter','Noto Sans JP',sans-serif}
+  .site-nav a:hover,.site-nav a[aria-current="page"]{background:var(--surface-hover);color:var(--text)}
   .nav-toggle{display:none}
   .nav-toggle-label{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
-  .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:rgba(255,255,255,0.6);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
+  .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:var(--text-secondary);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
   .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
   .nav-toggle-label span::before{top:-6px}
   .nav-toggle-label span::after{top:6px}
-  .back-link{position:fixed;bottom:24px;left:24px;z-index:999;font-size:12px;color:var(--muted);text-decoration:none;background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);padding:8px 16px;border-radius:8px;border:1px solid var(--border);transition:all .2s}
-  .back-link:hover{color:var(--text);border-color:var(--accent)}
-  .hero{min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(160deg,#0a0a0f 0%,#1a0a0f 30%,#0f0a1a 70%,#0a0a0f 100%);position:relative;overflow:hidden;padding:80px 20px 60px}
-  .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(ellipse at 30% 50%,rgba(230,57,70,0.06) 0%,transparent 50%),radial-gradient(ellipse at 70% 50%,rgba(212,168,71,0.04) 0%,transparent 50%);animation:heroRotate 40s linear infinite}
-  @keyframes heroRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  .hero{background:linear-gradient(135deg,#1e0a14,#2a1020,#1e0a14);border-radius:16px;padding:32px 40px;margin:24px auto;max-width:1100px;border:1px solid var(--border);position:relative;overflow:hidden}
   .hero-content{position:relative;z-index:1}
-  .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(20px,2.5vw,26px);line-height:1.1;margin-bottom:12px;background:linear-gradient(135deg,var(--text),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .hero .subtitle{font-size:14px;color:var(--text-secondary);font-weight:300;margin-bottom:24px}
-  .hero-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .hero-chip{background:var(--surface);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:50px;padding:6px 18px;font-size:12px;color:var(--text-secondary)}
-  .section-jump{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;padding:16px 20px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);position:sticky;top:54px;z-index:999}
-  .section-jump a{font-size:11px;font-family:'JetBrains Mono',monospace;color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:6px;border:1px solid var(--border);transition:all .2s;min-height:36px;display:inline-flex;align-items:center;white-space:nowrap}
-  .section-jump a:hover{color:var(--accent-light);border-color:var(--accent);background:rgba(230,57,70,0.08)}
+  .hero h1{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(20px,2.5vw,26px);font-weight:700;line-height:1.2;margin-bottom:12px;color:var(--text)}
+  .hero .subtitle{font-size:14px;color:var(--text-secondary);font-weight:400;margin-bottom:24px}
+  .hero-chips{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-chip{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:4px 12px;font-size:12px;color:var(--text-secondary);font-weight:500}
+  .section-nav-wrapper{position:sticky;top:52px;z-index:90;background:rgba(15,17,23,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .nav-bar{display:flex;gap:4px;flex-wrap:nowrap;justify-content:center;padding:10px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .nav-bar::-webkit-scrollbar{display:none}
+  .nav-bar a{color:var(--muted);font-size:12px;font-weight:600;padding:6px 14px;border-radius:6px;transition:all .2s;white-space:nowrap;text-decoration:none;flex-shrink:0}
+  .nav-bar a:hover,.nav-bar a.active{color:var(--text);background:var(--surface-hover)}
   .container{max-width:1100px;margin:0 auto;padding:0 20px}
   .section{padding:60px 0 40px;border-bottom:1px solid var(--border)}
   .section-header{margin-bottom:32px}
-  .section-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-  .section-title{font-family:'DM Serif Display',serif;font-size:clamp(22px,3.5vw,28px);font-weight:400;line-height:1.2}
+  .section-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
+  .section-title{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(18px,2.5vw,20px);font-weight:700;line-height:1.2}
   .section-desc{font-size:13px;color:var(--text-secondary);margin-top:8px;max-width:600px}
   .restaurant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
   .rest-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s}
@@ -68,12 +67,12 @@
   .rest-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
   .rest-name{font-weight:600;font-size:15px;line-height:1.3}
   .rest-name-zh{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
-  .rest-price{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(230,57,70,0.12);color:var(--accent-light);white-space:nowrap;flex-shrink:0}
+  .rest-price{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(232,87,122,0.12);color:var(--pink-light);white-space:nowrap;flex-shrink:0}
   .rest-price.premium{background:rgba(212,168,71,0.12);color:var(--gold)}
   .rest-price.budget{background:rgba(34,197,94,0.12);color:var(--green)}
   .rest-addr{font-size:11px;color:var(--muted);margin-bottom:10px;display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap}
   .rest-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
-  .rest-order{font-size:12px;color:var(--accent-light);margin-bottom:8px}
+  .rest-order{font-size:12px;color:var(--pink-light);margin-bottom:8px}
   .rest-order strong{color:var(--text);font-weight:500}
   .rest-tags{display:flex;flex-wrap:wrap;gap:4px}
   .rest-tag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
@@ -82,8 +81,8 @@
   .rest-note{font-size:11px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
   .maps-link{color:var(--gold);text-decoration:none;font-size:11px}
   .maps-link:hover{text-decoration:underline}
-  .highlight-card{background:linear-gradient(135deg,rgba(230,57,70,0.06),rgba(212,168,71,0.04));border:1px solid rgba(230,57,70,0.15);border-radius:12px;padding:24px;margin-bottom:24px}
-  .highlight-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--accent-light)}
+  .highlight-card{background:linear-gradient(135deg,rgba(232,87,122,0.06),rgba(212,160,85,0.04));border:1px solid rgba(232,87,122,0.15);border-radius:12px;padding:24px;margin-bottom:24px}
+  .highlight-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--pink-light)}
   .highlight-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
   .tips-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-top:24px}
   .tips-box h4{font-size:13px;font-weight:600;margin-bottom:10px;color:var(--gold)}
@@ -94,41 +93,33 @@
   footer{padding:32px 0 48px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;margin-top:60px}
   .foot-left,.foot-right{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim)}
   @media(max-width:640px){
-    .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px}
     .nav-toggle-label{display:inline-flex}
-    .site-header .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
+    .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px;height:auto}
+    .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
     .nav-toggle:checked~.site-nav{display:flex}
     .nav-toggle:checked+.nav-toggle-label span{background:transparent}
     .nav-toggle:checked+.nav-toggle-label span::before{top:0;transform:rotate(45deg)}
     .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
-    .site-header .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
-    .section-jump{top:54px;gap:6px;padding:10px 12px}
-    .section-jump a{font-size:10px;padding:5px 10px;min-height:32px}
-    .hero{min-height:40vh;padding:60px 16px 40px}
+    .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
+    .hero{padding:24px 20px;margin:16px}
     .restaurant-grid{grid-template-columns:1fr}
     .section{padding:40px 0 30px}
     footer{flex-direction:column;gap:12px;align-items:flex-start}
     #map{height:300px}
-  }
-  @media(max-width:640px){
-    .hero h1{font-size:24px}
-    .section-title{font-size:20px}
     .rest-card{padding:16px}
   }
 </style>
 </head>
 <body>
 <header class="site-header">
-  <div class="site-brand">iUMA</div>
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle">
   <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-  <nav class="site-nav" aria-label="Site navigation">
+  <nav class="site-nav">
     <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
-    <a href="https://ymatz28-beep.github.io/trip-planner/" class="current">Travel</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/">Travel</a>
   </nav>
 </header>
-<a class="back-link" href="index.html">&larr; Travel Plans</a>
 <div class="hero">
   <div class="hero-content">
     <h1>Taipei Food Guide</h1>
@@ -140,20 +131,23 @@
     </div>
   </div>
 </div>
-<div class="section-jump">
-  <a href="#dimsum">飲茶</a>
-  <a href="#dintaifung">鼎泰豐</a>
-  <a href="#xlb">小籠包</a>
-  <a href="#beef-noodle">牛肉麺</a>
-  <a href="#nightmarket">夜市</a>
-  <a href="#breakfast">朝ごはん</a>
-  <a href="#boba">タピオカ</a>
-  <a href="#fine-dining">高級店</a>
-  <a href="#teppan-omakase">鉄板/おまかせ</a>
-  <a href="#cafe">カフェ</a>
-  <a href="#dessert">デザート</a>
-  <a href="#pineapple">鳳梨酥</a>
-  <a href="#map-section">Map</a>
+<div class="section-nav-wrapper">
+  <div class="nav-bar">
+    <a href="#dimsum">飲茶</a>
+    <a href="#dintaifung">鼎泰豐</a>
+    <a href="#xlb">小籠包</a>
+    <a href="#beef-noodle">牛肉麺</a>
+    <a href="#nightmarket">夜市</a>
+    <a href="#breakfast">朝ごはん</a>
+    <a href="#boba">タピオカ</a>
+    <a href="#fine-dining">高級店</a>
+    <a href="#teppan-omakase">鉄板/おまかせ</a>
+    <a href="#cafe">カフェ</a>
+    <a href="#dessert">デザート</a>
+    <a href="#pineapple">鳳梨酥</a>
+    <a href="#zorro">ゾロ推薦</a>
+    <a href="#map-section">Map</a>
+  </div>
 </div>
 <div class="container">
 
@@ -810,6 +804,194 @@
   </div>
 </section>
 
+<!-- ZORRO -->
+<section class="section" id="zorro">
+  <div class="section-header">
+    <div class="section-label">Local Expert Pick</div>
+    <div class="section-title">ゾロ推薦グルメ</div>
+    <div class="section-desc">YouTube登録10万人超の台湾グルメ専門チャンネル。調理師免許を持つ大阪出身・台北在住の日本人。独自<strong>3星評価</strong>で選んだ店を公開中。<br><span style="color:var(--gold);">&#11088;&#11088;&#11088;</span> = 自信を持っておすすめ &nbsp;/&nbsp; <span style="color:var(--gold);">&#11088;</span> = 好みが分かれるかも &nbsp;/&nbsp; <a href="https://x.com/yuu_horii_zorro" target="_blank" style="color:var(--gold);">@yuu_horii_zorro</a> &nbsp;<a href="https://www.youtube.com/@zorro_taiwangourmet" target="_blank" style="color:var(--gold);">YouTube</a></div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:1.5rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#11088;&#11088;&#11088; 3星（最高評価）</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">朱遊記</div><div class="rest-name-zh">黄金炒飯</div></div>
+        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+      </div>
+      <div class="rest-addr">台北市中山區撫順街39號 <a class="maps-link" href="https://maps.google.com/?q=朱遊記+台北市中山區撫順街39號" target="_blank">Map</a></div>
+      <div class="rest-desc">「台湾でいちばん安くて美味い黄金炒飯」。鼎泰豐レベル、いや超えてるかもしれない。ハマグリスープはエキスが凝縮されて"飲むハマグリ"。鼎泰豐の半額以下。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">RICE</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">餃匠</div><div class="rest-name-zh">ニンニクまぜそば</div></div>
+        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+      </div>
+      <div class="rest-addr">台北市中正區南陽街19號 <a class="maps-link" href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank">Map</a></div>
+      <div class="rest-desc">台北駅すぐ近くの餃子屋だが、餃子は普通。イチオシは「蒜香辣拌麺」1択。ニンニクの量が尋常じゃなくてクセになる。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">NOODLES</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">嘟嘟水餃</div><div class="rest-name-zh">ニラ水餃子</div></div>
+        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+      </div>
+      <div class="rest-addr">台北市中山區民生東路一段23巷52號 <a class="maps-link" href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank">Map</a></div>
+      <div class="rest-desc">屋台スタイル。ニラ水餃子 + ピリ辛唐辛子醤油ダレが最高。コンビニでビール買って持ち込み推奨。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">DUMPLINGS</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">曾家豆漿</div><div class="rest-name-zh">エッグタルト・朝食</div></div>
+        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+      </div>
+      <div class="rest-addr">台北市中山區錦州街123號 <a class="maps-link" href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank">Map</a></div>
+      <div class="rest-desc">「人生でいちばん美味いエッグタルト」。ブリュレがたっぷりで濃厚。冷蔵庫で冷やしても美味い。大行列ができる朝食屋。翌日食べる用にも安心。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">BREAKFAST</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127860; ゾロ推薦店</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">北北車魯肉飯</div><div class="rest-name-zh">脂身トロトロ魯肉飯</div></div>
+        <span class="rest-price budget">NT$50~150</span>
+      </div>
+      <div class="rest-addr">台北市中正區公園路20巷21號 <a class="maps-link" href="https://maps.google.com/?q=北北車魯肉飯+台北市中正區公園路20巷21號" target="_blank">Map</a></div>
+      <div class="rest-desc">台北駅すぐ。脂身100%タイプの魯肉飯。八角は控えめで甘味が引き立つ。白菜・筍の煮物もクタクタ。店内狭くスーツケース不可。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">LU ROU FAN</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">面線町</div><div class="rest-name-zh">台湾No.1麺線</div></div>
+        <span class="rest-price budget">NT$60~120</span>
+      </div>
+      <div class="rest-addr">台北市大同區赤峰街49巷25號 <a class="maps-link" href="https://maps.google.com/?q=面線町+台北市大同區赤峰街49巷25號" target="_blank">Map</a></div>
+      <div class="rest-desc">台湾でいちばん豪華な麺線。カツオ出汁が効いたソーメンとろみスープ。きつね色のサクサク揚げ具が美味い。赤峰街。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">NOODLES</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">朱記餡餅 台北站前店</div><div class="rest-name-zh">炒飯が絶品</div></div>
+        <span class="rest-price budget">NT$150~300</span>
+      </div>
+      <div class="rest-addr">台北市中正區忠孝西路一段66號B1F <a class="maps-link" href="https://maps.google.com/?q=朱記餡餅+台北市中正區忠孝西路一段66號B1F" target="_blank">Map</a></div>
+      <div class="rest-desc">台北駅前の新光三越B1F。鼎泰豐似のメニューで値段は2/3。女性ひとりでも安心。「炒飯だけでいい」。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">RICE</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">港都熱炒 中山旗艦店</div><div class="rest-name-zh">日本語タッチパネル</div></div>
+        <span class="rest-price">NT$400~500</span>
+      </div>
+      <div class="rest-addr">台北市中山區民生東路一段52號 <a class="maps-link" href="https://maps.google.com/?q=港都熱炒+台北市中山區民生東路一段52號" target="_blank">Map</a></div>
+      <div class="rest-desc">日本語タッチパネルで注文OK。辛さ・ネギ・ニンニク・パクチーの有無も選べる。少し高めだが量が多いので3〜4人で行くと安い。初心者に最適。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">熱炒</span><span class="rest-tag">BEGINNER OK</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">大稻埕米粉湯</div><div class="rest-name-zh">帰国前朝食</div></div>
+        <span class="rest-price budget">NT$80~200</span>
+      </div>
+      <div class="rest-addr">台北市大同區重慶北路一段26巷15號 <a class="maps-link" href="https://maps.google.com/?q=大稻埕米粉湯+台北市大同區重慶北路一段26巷15號" target="_blank">Map</a></div>
+      <div class="rest-desc">空港MRT近くの屋台飯。出汁茶漬けのようなお粥と新鮮な豚トロとハツが美味い。「台湾最高ですね」。李記豆漿とハシゴ可。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">BREAKFAST</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#129791; ゾロの小籠包4選（鼎泰豊を除く）</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">56巷口湯包</div><div class="rest-name-zh">麻辣小籠包も是非</div></div>
+        <span class="rest-price budget">NT$150~400</span>
+      </div>
+      <div class="rest-addr">新北市板橋區裕民街56號（MRT板橋駅） <a class="maps-link" href="https://maps.google.com/?q=56巷口湯包+新北市板橋區裕民街56號" target="_blank">Map</a></div>
+      <div class="rest-desc">板橋エリア（新北市）。麻辣小籠包が他にはない逸品。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="rest-tag">SPICY</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">古北餐</div><div class="rest-name-zh">カスタードまんも是非</div></div>
+        <span class="rest-price budget">NT$150~400</span>
+      </div>
+      <div class="rest-addr">台北市中正區杭州南路一段9號 <a class="maps-link" href="https://maps.google.com/?q=古北餐+台北市中正區杭州南路一段9號" target="_blank">Map</a></div>
+      <div class="rest-desc">中正區。小籠包だけでなくカスタードまんが絶品。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="rest-tag">CUSTARD BUN</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127749; ゾロの寧夏夜市4選</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">方家雞肉飯</div><div class="rest-name-zh">鶏肉飯 + ネギ卵焼き</div></div>
+        <span class="rest-price budget">NT$50~100</span>
+      </div>
+      <div class="rest-addr">寧夏夜市 060攤位</div>
+      <div class="rest-desc">鶏肉飯とネギ卵焼きがおすすめ。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="rest-tag">NIGHT MARKET</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">自然捲</div><div class="rest-name-zh">もちベーコン・豚キムチ</div></div>
+        <span class="rest-price budget">NT$50~150</span>
+      </div>
+      <div class="rest-addr">寧夏夜市 020攤位</div>
+      <div class="rest-desc">もちベーコン、豚キムチ、牛肉の湯葉巻きがおすすめ。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="rest-tag">NIGHT MARKET</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127471;&#127477; 日本人に食べてほしい台湾グルメ4選</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">民樂旗魚米粉</div><div class="rest-name-zh">カジキマグロ米粉</div></div>
+      </div>
+      <div class="rest-addr">臺北市大同區南京西路233巷20號 <a class="maps-link" href="https://maps.google.com/?q=民樂旗魚米粉+臺北市大同區南京西路233巷20號" target="_blank">Map</a></div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">雙月食品社</div><div class="rest-name-zh">台湾スープ料理</div></div>
+      </div>
+      <div class="rest-addr">臺北市中正區青島東路6之2號 <a class="maps-link" href="https://maps.google.com/?q=雙月食品社+臺北市中正區青島東路6之2號" target="_blank">Map</a></div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">鴻水餃牛肉麵</div><div class="rest-name-zh">水餃子 + 牛肉麵</div></div>
+      </div>
+      <div class="rest-addr">臺北市中山區雙城街12號 <a class="maps-link" href="https://maps.google.com/?q=鴻水餃牛肉麵+臺北市中山區雙城街12號" target="_blank">Map</a></div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+    </div>
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">王福芋圓</div><div class="rest-name-zh">芋圓（タロ芋団子）</div></div>
+      </div>
+      <div class="rest-addr">臺北市萬華區峨眉街5-2號（西門町） <a class="maps-link" href="https://maps.google.com/?q=王福芋圓+臺北市萬華區峨眉街5-2號" target="_blank">Map</a></div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span><span class="rest-tag">DESSERT</span></div>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127856; ゾロさんのお店</h3>
+  <div class="restaurant-grid">
+    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.04);">
+      <div class="card-top">
+        <div><div class="rest-name" style="color:var(--gold-light);">奇跡の国 台湾</div><div class="rest-name-zh">手作りフィナンシェ</div></div>
+        <span class="rest-price">NT$60/個</span>
+      </div>
+      <div class="rest-addr">臺北市大同區迪化街一段149號（月曜定休） <a class="maps-link" href="https://maps.google.com/?q=奇跡の国+台湾+臺北市大同區迪化街一段149號" target="_blank">Map</a></div>
+      <div class="rest-desc">ゾロさんが経営するフィナンシェ専門店。パティシエが毎日手作り。パイナップル・タロ芋・あずきの3種。「ちゃんと甘くて、パサパサしない」新しいタイプの台湾お土産。迪化街の散策ついでに。11:00〜売り切れ次第終了。</div>
+      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.2);color:var(--gold-light);">ZORRO'S SHOP</span><span class="rest-tag">SOUVENIR</span></div>
+      <div class="rest-note">情報源: <a href="https://x.com/yuu_horii_zorro" target="_blank" style="color:var(--gold);">@yuu_horii_zorro</a> / <a href="https://www.youtube.com/@zorro_taiwangourmet" target="_blank" style="color:var(--gold);">YouTube</a> で各店の動画レビューも見れる</div>
+    </div>
+  </div>
+</section>
+
 <!-- MAP -->
 <section class="section" id="map-section">
   <div class="section-header">
@@ -852,17 +1034,17 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap &copy; CARTO', maxZoom: 19
 }).addTo(map);
 var spots = [
-  {lat:25.0476,lng:121.5179,name:"Le Palais 頤宮",color:"#d4a847"},
-  {lat:25.0785,lng:121.5265,name:"Golden Dragon 金龍廳",color:"#d4a847"},
-  {lat:25.0461,lng:121.5171,name:"Tim Ho Wan 添好運",color:"#d4a847"},
-  {lat:25.0415,lng:121.5495,name:"Citystar 京星港式飲茶",color:"#d4a847"},
-  {lat:25.0330,lng:121.5298,name:"Din Tai Fung 鼎泰豐",color:"#e63946"},
-  {lat:25.0320,lng:121.5220,name:"Hang Zhou XLB 杭州小籠湯包",color:"#e63946"},
-  {lat:25.0336,lng:121.5290,name:"Gao Ji 高記",color:"#e63946"},
-  {lat:25.0575,lng:121.5235,name:"Jin Din Rou 京鼎小館",color:"#e63946"},
-  {lat:25.0485,lng:121.5441,name:"Lin Dong Fang 林東芳",color:"#ff6b35"},
-  {lat:25.0455,lng:121.5150,name:"Liu Shandong 劉山東",color:"#ff6b35"},
-  {lat:25.0335,lng:121.5285,name:"Yong Kang 永康牛肉麵",color:"#ff6b35"},
+  {lat:25.0476,lng:121.5179,name:"Le Palais 頤宮",color:"#D4A055"},
+  {lat:25.0785,lng:121.5265,name:"Golden Dragon 金龍廳",color:"#D4A055"},
+  {lat:25.0461,lng:121.5171,name:"Tim Ho Wan 添好運",color:"#D4A055"},
+  {lat:25.0415,lng:121.5495,name:"Citystar 京星港式飲茶",color:"#D4A055"},
+  {lat:25.0330,lng:121.5298,name:"Din Tai Fung 鼎泰豐",color:"#E8577A"},
+  {lat:25.0320,lng:121.5220,name:"Hang Zhou XLB 杭州小籠湯包",color:"#E8577A"},
+  {lat:25.0336,lng:121.5290,name:"Gao Ji 高記",color:"#E8577A"},
+  {lat:25.0575,lng:121.5235,name:"Jin Din Rou 京鼎小館",color:"#E8577A"},
+  {lat:25.0485,lng:121.5441,name:"Lin Dong Fang 林東芳",color:"#D4A055"},
+  {lat:25.0455,lng:121.5150,name:"Liu Shandong 劉山東",color:"#D4A055"},
+  {lat:25.0335,lng:121.5285,name:"Yong Kang 永康牛肉麵",color:"#D4A055"},
   {lat:25.0503,lng:121.5774,name:"Raohe 饒河夜市",color:"#a855f7"},
   {lat:25.0548,lng:121.5155,name:"Ningxia 寧夏夜市",color:"#a855f7"},
   {lat:25.0882,lng:121.5245,name:"Shilin 士林夜市",color:"#a855f7"},
@@ -884,7 +1066,7 @@ var spots = [
 ];
 spots.forEach(function(s){
   var icon=L.divIcon({className:'',html:'<div style="width:12px;height:12px;border-radius:50%;background:'+s.color+';border:2px solid rgba(255,255,255,0.7);box-shadow:0 0 6px '+s.color+'"></div>',iconSize:[12,12],iconAnchor:[6,6]});
-  L.marker([s.lat,s.lng],{icon:icon}).addTo(map).bindPopup('<strong>'+s.name+'</strong><br><a href="https://maps.google.com/?q='+encodeURIComponent(s.name)+'+Taipei" target="_blank" style="color:#d4a847">Google Maps</a>');
+  L.marker([s.lat,s.lng],{icon:icon}).addTo(map).bindPopup('<strong>'+s.name+'</strong><br><a href="https://maps.google.com/?q='+encodeURIComponent(s.name)+'+Taipei" target="_blank" style="color:#D4A055">Google Maps</a>');
 });
 </script>
 </body>

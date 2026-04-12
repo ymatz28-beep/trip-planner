@@ -1,7 +1,7 @@
 # HANDOFF
 
 ## Last Updated
-2026-04-09
+2026-04-12
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -20,6 +20,11 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (taipei.html 全店舗にGoogle Mapsリンク追加 2026-04-11)
+- **Before**: taipei.html の全21店舗（面線町、寧夏夜市、小品雅廚、北北車魯肉飯、朱記餡餅、Ice Monster、饒河夜市、四海豆漿大王、永康牛肉麵、嘟嘟水餃、南機場夜市、富錦台菜香檳、李記豆漿、大稻埕米粉湯 等）がプレーンテキストで、タップしても地図が開かなかった
+- **After**: 全21店舗の店名にGoogle Mapsリンク（`<a href="https://maps.google.com/?q=..." target="_blank">`）を付与。CSSに `.meal-name a` スタイル追加（ドット下線+ホバーでピンク色変化）。スマホで店名タップ→即Google Maps遷移が可能に
+- **Commits**: 未コミット
 
 ## Completed (Constancy警告 デザイントークン残存修正 2026-04-09)
 - **Before**: london.html L1180/L1211に `color:#f87171`（2箇所）、taipei-food.html L35に `color:#6366f1`（1箇所）がハードコードで残存。Constancy design_token_complianceが3件WARN検出
@@ -119,7 +124,7 @@
     - 未確定の選択肢（4泊/5泊タブ等）が確定で不要になったら削除
 
 ## ブロッカー / 注意事項
-- 台北出発まで7日（4/16出発）
+- 台北出発まであと4日（4/16出発）— 未コミット変更あり（taipei.html Mapsリンク追加）
 - GitHub Pages はキャッシュが強い: Cmd+Shift+R でハードリロード
 - property-report, report-dashboardのGitHub Actions未テスト（キー設定のみ完了）
 
@@ -132,6 +137,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-11: Before: taipei.html全21店舗がプレーンテキスト → After: 全店にGoogle Mapsリンク+CSSスタイル追加
 - 2026-04-09: Before: london/taipei-foodに#f87171/#6366f1ハードコード3箇所 → After: var(--red-light)/var(--accent)に修正、Constancy WARN 0件
 - 2026-04-09: Before: Day1に硫黄谷温泉(外湯)+温泉3湯構成 → After: 外湯削除+道の駅追加+界露天2湯に簡素化(680f7e2)
 - 2026-04-06: Before: HTMLがiUMAデザインシステムトークン非準拠 → After: 全ページCSS変数統一(23b5f9a)
@@ -153,4 +159,3 @@
 - 2026-03-10: Before: ホテル比較タブに朝食リンクなし → After: 朝食リンクボタン追加+push(71eed7a)
 - 2026-03-09: Before: macau Day5夕食=誠昌飯店(3/5評価) → After: Kapok六棉酒家(Bib Gourmand, 4.1/5)に変更(08f9174)
 - 2026-03-09: Before: 台北ホテル候補不足 → After: 4軒追加+push。GHA APIキー設定(クレジット待ち)
-- 2026-03-09: Before: iuma-private gnavにTravelリンクなし → After: 全7ページgnav統一、Travel=trip-planner。Cloudflareデプロイ完了
