@@ -25,14 +25,12 @@
     --gold-light: #F0D5A8;
     --card-bg: var(--surface);
     --glass: var(--border);
-    --green: #22c55e;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
     font-family: 'Inter', 'Noto Sans JP', sans-serif;
     background: var(--bg); color: var(--text);
     line-height: 1.7; overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
   }
   .site-header{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:52px;background:rgba(22,24,31,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
   .site-nav{display:flex;gap:4px}
@@ -44,7 +42,8 @@
   .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
   .nav-toggle-label span::before{top:-6px}
   .nav-toggle-label span::after{top:6px}
-  .hero{background:linear-gradient(135deg,#1e0a14,#2a1020,#1e0a14);border-radius:16px;padding:32px 40px;margin:24px auto;max-width:1100px;border:1px solid var(--border);position:relative;overflow:hidden}
+  .hero{background:linear-gradient(135deg,#1e0a14,#2a1020,#1e0a14);background-size:200% 200%;animation:heroShift 12s ease-in-out infinite;border-radius:16px;padding:32px 40px;margin:24px auto;max-width:1100px;border:1px solid var(--border);position:relative;overflow:hidden}
+  @keyframes heroShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
   .hero-content{position:relative;z-index:1}
   .hero h1{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(20px,2.5vw,26px);font-weight:700;line-height:1.2;margin-bottom:12px;color:var(--text)}
   .hero .subtitle{font-size:14px;color:var(--text-secondary);font-weight:400;margin-bottom:24px}
@@ -61,26 +60,26 @@
   .section-label{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--pink);margin-bottom:8px}
   .section-title{font-family:'Inter','Noto Sans JP',sans-serif;font-size:clamp(18px,2.5vw,20px);font-weight:700;line-height:1.2}
   .section-desc{font-size:13px;color:var(--text-secondary);margin-top:8px;max-width:600px}
-  .restaurant-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-  .rest-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .25s}
-  .rest-card:hover{border-color:rgba(255,255,255,0.15);background:var(--surface-hover)}
-  .rest-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
-  .rest-name{font-weight:600;font-size:15px;line-height:1.3}
-  .rest-name-zh{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
-  .rest-price{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(232,87,122,0.12);color:var(--pink-light);white-space:nowrap;flex-shrink:0}
-  .rest-price.premium{background:rgba(212,168,71,0.12);color:var(--gold)}
-  .rest-price.budget{background:rgba(34,197,94,0.12);color:var(--green)}
-  .rest-addr{font-size:11px;color:var(--muted);margin-bottom:10px;display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap}
-  .rest-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+  .resto-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+  .resto-card{background:var(--surface);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:1.5rem;transition:all .25s}
+  .resto-card:hover{border-color:rgba(212,160,85,0.3);background:var(--surface-hover);transform:translateY(-2px)}
+  .resto-card .card-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:8px}
+  .resto-name{font-weight:600;font-size:15px;line-height:1.3}
+  .resto-name-zh{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
+  .resto-type{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(232,87,122,0.12);color:var(--pink-light);white-space:nowrap;flex-shrink:0}
+  .resto-type.premium{background:rgba(212,168,71,0.12);color:var(--gold)}
+  .resto-type.budget{background:rgba(34,197,94,0.12);color:#22c55e}
+  .resto-addr{font-size:11px;color:var(--muted);margin-bottom:10px;display:flex;align-items:flex-start;gap:4px;flex-wrap:wrap}
+  .resto-desc{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
   .rest-order{font-size:12px;color:var(--pink-light);margin-bottom:8px}
   .rest-order strong{color:var(--text);font-weight:500}
-  .rest-tags{display:flex;flex-wrap:wrap;gap:4px}
-  .rest-tag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-  .rest-tag.michelin{background:rgba(212,168,71,0.08);border-color:rgba(212,168,71,0.2);color:var(--gold)}
-  .rest-tag.nonalc{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2);color:var(--green)}
+  .resto-tags{display:flex;flex-wrap:wrap;gap:4px}
+  .resto-tag{font-family:'JetBrains Mono',monospace;font-size:9px;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .resto-tag.michelin{background:rgba(212,168,71,0.08);border-color:rgba(212,168,71,0.2);color:var(--gold)}
+  .resto-tag.nonalc{background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.2);color:#22c55e}
   .rest-note{font-size:11px;color:var(--muted);margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
-  .maps-link{color:var(--gold);text-decoration:none;font-size:11px}
-  .maps-link:hover{text-decoration:underline}
+  .map-link{color:var(--gold);text-decoration:none;font-size:11px}
+  .map-link:hover{text-decoration:underline}
   .highlight-card{background:linear-gradient(135deg,rgba(232,87,122,0.06),rgba(212,160,85,0.04));border:1px solid rgba(232,87,122,0.15);border-radius:12px;padding:24px;margin-bottom:24px}
   .highlight-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--pink-light)}
   .highlight-card p{font-size:13px;color:var(--text-secondary);line-height:1.7}
@@ -102,11 +101,11 @@
     .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
     .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
     .hero{padding:24px 20px;margin:16px}
-    .restaurant-grid{grid-template-columns:1fr}
+    .resto-grid{grid-template-columns:1fr}
     .section{padding:40px 0 30px}
     footer{flex-direction:column;gap:12px;align-items:flex-start}
     #map{height:300px}
-    .rest-card{padding:16px}
+    .resto-card{padding:16px}
   }
 </style>
 </head>
@@ -117,11 +116,12 @@
   <nav class="site-nav">
     <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
     <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
-    <a href="https://ymatz28-beep.github.io/trip-planner/">Travel</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
   </nav>
 </header>
 <div class="hero">
   <div class="hero-content">
+    <a href="taipei.html" style="display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);text-decoration:none;margin-bottom:12px;transition:color .15s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">&larr; 台北旅行プランに戻る</a>
     <h1>Taipei Food Guide</h1>
     <div class="subtitle">台北グルメ完全ガイド &mdash; 2026年4月</div>
     <div class="hero-chips">
@@ -158,49 +158,49 @@
     <div class="section-title">飲茶・点心</div>
     <div class="section-desc">台北は本格的な香港式飲茶が楽しめる街。ホテル高級店からローカル24時間営業まで幅広い。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Le Palais</div><div class="rest-name-zh">頤宮</div></div>
-        <span class="rest-price premium">NT$4,880~</span>
+        <div><div class="resto-name">Le Palais</div><div class="resto-name-zh">頤宮</div></div>
+        <span class="resto-type premium">NT$4,880~</span>
       </div>
-      <div class="rest-addr">Palais de Chine Hotel 17F, No.3, Sec.1, Chengde Rd., Datong Dist. <a class="maps-link" href="https://maps.google.com/?q=Le+Palais+Palais+de+Chine+Hotel+Taipei" target="_blank">Map</a></div>
-      <div class="rest-desc">ミシュラン三つ星8年連続（2018-2025）。台湾唯一の三つ星。広東料理の最高峰。点心から宴席コースまで。ダークトーンの豪華内装、17階からの夜景。</div>
+      <div class="resto-addr">Palais de Chine Hotel 17F, No.3, Sec.1, Chengde Rd., Datong Dist. <a class="map-link" href="https://maps.google.com/?q=Le+Palais+Palais+de+Chine+Hotel+Taipei" target="_blank">Map</a></div>
+      <div class="resto-desc">ミシュラン三つ星8年連続（2018-2025）。台湾唯一の三つ星。広東料理の最高峰。点心から宴席コースまで。ダークトーンの豪華内装、17階からの夜景。</div>
       <div class="rest-order"><strong>必食:</strong> 北京ダック（2日前予約必須）、宜蘭チェリーバレーダック4種、中華ほうれん草と塩漬け卵の点心</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN 3-STAR</span><span class="rest-tag">CANTONESE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN 3-STAR</span><span class="resto-tag">CANTONESE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">予約: +886-2-2181-9985（火-日 10:00-20:00）。ドレスコードあり（長ズボン・靴下・革靴必須）。月曜定休。ランチ12:00-14:30 / ディナー18:00-21:30</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Golden Dragon Restaurant</div><div class="rest-name-zh">金龍廳</div></div>
-        <span class="rest-price premium">NT$500~1,500</span>
+        <div><div class="resto-name">Golden Dragon Restaurant</div><div class="resto-name-zh">金龍廳</div></div>
+        <span class="resto-type premium">NT$500~1,500</span>
       </div>
-      <div class="rest-addr">The Grand Hotel, No.1, Sec.4, Zhongshan N. Rd. <a class="maps-link" href="https://maps.google.com/?q=Golden+Dragon+Restaurant+Grand+Hotel+Taipei" target="_blank">Map</a></div>
-      <div class="rest-desc">圓山大飯店内の広東料理レストラン。ランチタイムの香港式飲茶が名物。「アジア太平洋トップ10料理2024」受賞。壮大なホテルのスケール感と眺望が格別。</div>
+      <div class="resto-addr">The Grand Hotel, No.1, Sec.4, Zhongshan N. Rd. <a class="map-link" href="https://maps.google.com/?q=Golden+Dragon+Restaurant+Grand+Hotel+Taipei" target="_blank">Map</a></div>
+      <div class="resto-desc">圓山大飯店内の広東料理レストラン。ランチタイムの香港式飲茶が名物。「アジア太平洋トップ10料理2024」受賞。壮大なホテルのスケール感と眺望が格別。</div>
       <div class="rest-order"><strong>必食:</strong> エビ腸粉（ライスヌードルロール）、エビシュウマイ、草美牛リブ</div>
-      <div class="rest-tags"><span class="rest-tag">HOTEL DIM SUM</span><span class="rest-tag">CANTONESE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">HOTEL DIM SUM</span><span class="resto-tag">CANTONESE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">平日ランチ11:30-14:30 / ディナー18:00-22:00。土日は朝7:30からブランチ飲茶あり。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Tim Ho Wan</div><div class="rest-name-zh">添好運</div></div>
-        <span class="rest-price budget">NT$100~400</span>
+        <div><div class="resto-name">Tim Ho Wan</div><div class="resto-name-zh">添好運</div></div>
+        <span class="resto-type budget">NT$100~400</span>
       </div>
-      <div class="rest-addr">HOYII Main Station B1, No.36, Sec.1, Zhongxiao W. Rd. / Xinyi A8 B2F <a class="maps-link" href="https://maps.google.com/?q=Tim+Ho+Wan+HOYII+Taipei+Main+Station" target="_blank">Map</a></div>
-      <div class="rest-desc">香港発・元ミシュラン一つ星の庶民派飲茶チェーン。元三つ星「龍景軒」出身シェフが2009年創業。台北に3店舗。14-17時は5品NT$590のお得セットあり。</div>
+      <div class="resto-addr">HOYII Main Station B1, No.36, Sec.1, Zhongxiao W. Rd. / Xinyi A8 B2F <a class="map-link" href="https://maps.google.com/?q=Tim+Ho+Wan+HOYII+Taipei+Main+Station" target="_blank">Map</a></div>
+      <div class="resto-desc">香港発・元ミシュラン一つ星の庶民派飲茶チェーン。元三つ星「龍景軒」出身シェフが2009年創業。台北に3店舗。14-17時は5品NT$590のお得セットあり。</div>
       <div class="rest-order"><strong>必食:</strong> メロンパン風焼きチャーシューまん（看板メニュー）、エビ餃子、マーラー腸粉</div>
-      <div class="rest-tags"><span class="rest-tag">HK DIM SUM</span><span class="rest-tag budget">GOOD VALUE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">HK DIM SUM</span><span class="resto-tag budget">GOOD VALUE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">営業11:00-21:30。予約不可・先着順。台北駅店がアクセス最良。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Citystar HK Dim Sum</div><div class="rest-name-zh">京星港式飲茶</div></div>
-        <span class="rest-price budget">NT$100~500</span>
+        <div><div class="resto-name">Citystar HK Dim Sum</div><div class="resto-name-zh">京星港式飲茶</div></div>
+        <span class="resto-type budget">NT$100~500</span>
       </div>
-      <div class="rest-addr">Part 1: 2F, No.216, Dunhua S. Rd. / Part 2: 2F, No.166, Zhongxiao E. Rd. <a class="maps-link" href="https://maps.google.com/?q=京星港式飲茶+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">1989年創業、台湾初の24時間営業香港式飲茶。地元民に愛される老舗。新店舗「大巨星」は台北ドーム内にオープン。朝食セットもあり。</div>
+      <div class="resto-addr">Part 1: 2F, No.216, Dunhua S. Rd. / Part 2: 2F, No.166, Zhongxiao E. Rd. <a class="map-link" href="https://maps.google.com/?q=京星港式飲茶+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">1989年創業、台湾初の24時間営業香港式飲茶。地元民に愛される老舗。新店舗「大巨星」は台北ドーム内にオープン。朝食セットもあり。</div>
       <div class="rest-order"><strong>必食:</strong> 魚卵焼売、中華ソーセージ大根餅、水晶エビ餃子、エビ腸粉</div>
-      <div class="rest-tags"><span class="rest-tag">24H OPEN</span><span class="rest-tag">HK STYLE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">24H OPEN</span><span class="resto-tag">HK STYLE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">全店24時間営業・年中無休。忠孝敦化駅すぐ。深夜飲茶に最適。</div>
     </div>
   </div>
@@ -227,16 +227,16 @@
       <strong>アプリ:</strong> Din Tai Fungアプリで全店舗のリアルタイム待ち時間を確認可能。
     </p>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Din Tai Fung Xinyi Store</div><div class="rest-name-zh">鼎泰豐 信義本店</div></div>
-        <span class="rest-price">NT$400~800/人</span>
+        <div><div class="resto-name">Din Tai Fung Xinyi Store</div><div class="resto-name-zh">鼎泰豐 信義本店</div></div>
+        <span class="resto-type">NT$400~800/人</span>
       </div>
-      <div class="rest-addr">No.194, Sec.2, Xinyi Rd., Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=Din+Tai+Fung+Xinyi+Road+Taipei" target="_blank">Map</a></div>
-      <div class="rest-desc">1958年創業（元は食用油販売店。1972年に小籠包に転換）。NYT紙「世界の10大レストラン」選出。18の折り目が刻まれた薄皮小籠包は本店が最も繊細。信義店のみミシュランガイド掲載。</div>
+      <div class="resto-addr">No.194, Sec.2, Xinyi Rd., Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=Din+Tai+Fung+Xinyi+Road+Taipei" target="_blank">Map</a></div>
+      <div class="resto-desc">1958年創業（元は食用油販売店。1972年に小籠包に転換）。NYT紙「世界の10大レストラン」選出。18の折り目が刻まれた薄皮小籠包は本店が最も繊細。信義店のみミシュランガイド掲載。</div>
       <div class="rest-order"><strong>必食:</strong> 豚肉小籠包、ヘチマとエビの小籠包、トリュフ小籠包、酔鶏、牛肉麺、エビワンタン、タロイモまん</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN GUIDE</span><span class="rest-tag">ORIGINAL STORE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN GUIDE</span><span class="resto-tag">ORIGINAL STORE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">予約不可。先着順のみ。信義店メニューは海外店舗より品数が豊富。お茶は無料。</div>
     </div>
   </div>
@@ -249,57 +249,57 @@
     <div class="section-title">小籠包 &mdash; 鼎泰豐以外のベスト</div>
     <div class="section-desc">DTFの行列を避けつつ同等以上の味を楽しめる実力店。永康街エリアに集中。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Hang Zhou Xiao Long Bao</div><div class="rest-name-zh">杭州小籠湯包</div></div>
-        <span class="rest-price budget">NT$150~350</span>
+        <div><div class="resto-name">Hang Zhou Xiao Long Bao</div><div class="resto-name-zh">杭州小籠湯包</div></div>
+        <span class="resto-type budget">NT$150~350</span>
       </div>
-      <div class="rest-addr">Da'an branch: Near Chiang Kai-shek Memorial Hall <a class="maps-link" href="https://maps.google.com/?q=杭州小籠湯包+大安+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">ミシュラン・ビブグルマン。上海出身シェフ直伝のレシピで20年以上。兄弟経営。DTFの半額以下で極薄皮&ジューシーな肉汁。</div>
+      <div class="resto-addr">Da'an branch: Near Chiang Kai-shek Memorial Hall <a class="map-link" href="https://maps.google.com/?q=杭州小籠湯包+大安+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">ミシュラン・ビブグルマン。上海出身シェフ直伝のレシピで20年以上。兄弟経営。DTFの半額以下で極薄皮&ジューシーな肉汁。</div>
       <div class="rest-order"><strong>必食:</strong> 小籠湯包、エビ焼売、酸辣湯</div>
-      <div class="rest-tags"><span class="rest-tag michelin">BIB GOURMAND</span><span class="rest-tag budget">BUDGET PICK</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">BIB GOURMAND</span><span class="resto-tag budget">BUDGET PICK</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">予約不可。ランチ時は30-45分の行列も。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Jin Din Rou</div><div class="rest-name-zh">京鼎小館</div></div>
-        <span class="rest-price budget">NT$200~400</span>
+        <div><div class="resto-name">Jin Din Rou</div><div class="resto-name-zh">京鼎小館</div></div>
+        <span class="resto-type budget">NT$200~400</span>
       </div>
-      <div class="rest-addr">Zhongshan Dist. <a class="maps-link" href="https://maps.google.com/?q=京鼎小館+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">日本人在住者に人気No.1。烏龍茶小籠包が独自の看板（茶粉を練り込んだ緑色の皮）。酸辣湯は台北屈指。</div>
+      <div class="resto-addr">Zhongshan Dist. <a class="map-link" href="https://maps.google.com/?q=京鼎小館+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">日本人在住者に人気No.1。烏龍茶小籠包が独自の看板（茶粉を練り込んだ緑色の皮）。酸辣湯は台北屈指。</div>
       <div class="rest-order"><strong>必食:</strong> 烏龍茶小籠包、酸辣湯、蟹味噌小籠包</div>
-      <div class="rest-tags"><span class="rest-tag">UNIQUE FLAVOR</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">UNIQUE FLAVOR</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Gao Ji</div><div class="rest-name-zh">高記</div></div>
-        <span class="rest-price budget">NT$200~400</span>
+        <div><div class="resto-name">Gao Ji</div><div class="resto-name-zh">高記</div></div>
+        <span class="resto-type budget">NT$200~400</span>
       </div>
-      <div class="rest-addr">Yongkang Street, Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=高記+永康街+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">DTFから徒歩圏の永康街。厚めでモチモチの皮が特徴。上海風焼き肉まん（生煎包）は台北屈指。DTFの列が長い時の代替に最適。</div>
+      <div class="resto-addr">Yongkang Street, Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=高記+永康街+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">DTFから徒歩圏の永康街。厚めでモチモチの皮が特徴。上海風焼き肉まん（生煎包）は台北屈指。DTFの列が長い時の代替に最適。</div>
       <div class="rest-order"><strong>必食:</strong> 小籠包、上海焼き肉まん（生煎包）</div>
-      <div class="rest-tags"><span class="rest-tag">YONGKANG ST</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">YONGKANG ST</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">SuHang Dessert Shop</div><div class="rest-name-zh">蘇杭點心店</div></div>
-        <span class="rest-price budget">NT$120~300</span>
+        <div><div class="resto-name">SuHang Dessert Shop</div><div class="resto-name-zh">蘇杭點心店</div></div>
+        <span class="resto-type budget">NT$120~300</span>
       </div>
-      <div class="rest-addr">Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=蘇杭點心店+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">最強コスパ。8個NT$120（約550円）は台北最安レベル。スープはどっしり濃厚。行列少ない穴場。</div>
+      <div class="resto-addr">Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=蘇杭點心店+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">最強コスパ。8個NT$120（約550円）は台北最安レベル。スープはどっしり濃厚。行列少ない穴場。</div>
       <div class="rest-order"><strong>必食:</strong> 小籠包8個NT$120</div>
-      <div class="rest-tags"><span class="rest-tag budget">BEST VALUE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag budget">BEST VALUE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Paradise Dynasty</div><div class="rest-name-zh">樂天皇朝</div></div>
-        <span class="rest-price">NT$300~600</span>
+        <div><div class="resto-name">Paradise Dynasty</div><div class="resto-name-zh">樂天皇朝</div></div>
+        <span class="resto-type">NT$300~600</span>
       </div>
-      <div class="rest-addr">Multiple locations (Xinyi, Zhongshan) <a class="maps-link" href="https://maps.google.com/?q=樂天皇朝+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">シンガポール発。8色8味の「虹色小籠包」がインスタ映え（オリジナル/ガーリック/麻辣/人参/フォアグラ/トリュフ/チーズ/蟹味噌）。</div>
+      <div class="resto-addr">Multiple locations (Xinyi, Zhongshan) <a class="map-link" href="https://maps.google.com/?q=樂天皇朝+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">シンガポール発。8色8味の「虹色小籠包」がインスタ映え（オリジナル/ガーリック/麻辣/人参/フォアグラ/トリュフ/チーズ/蟹味噌）。</div>
       <div class="rest-order"><strong>必食:</strong> 8 Treasures XLB（8色小籠包）</div>
-      <div class="rest-tags"><span class="rest-tag">INSTAGRAMMABLE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">INSTAGRAMMABLE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
 </section>
@@ -311,38 +311,38 @@
     <div class="section-title">牛肉麺 Beef Noodle Soup</div>
     <div class="section-desc">台湾のソウルフード。紅焼（醤油煮込み）と清燉（透明スープ）の2大流派。店ごとに味が全く違う。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Lin Dong Fang</div><div class="rest-name-zh">林東芳牛肉麵</div></div>
-        <span class="rest-price budget">NT$220~300</span>
+        <div><div class="resto-name">Lin Dong Fang</div><div class="resto-name-zh">林東芳牛肉麵</div></div>
+        <span class="resto-type budget">NT$220~300</span>
       </div>
-      <div class="rest-addr">No.274, Sec.2, Bade Rd., Zhongshan Dist. <a class="maps-link" href="https://maps.google.com/?q=林東芳牛肉麵+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">台北最有名の牛肉麺。漢方系アロマティックなスープ、ホロホロ牛肉&牛スジ、もちもち麺。世界的フードブロガーも絶賛。</div>
+      <div class="resto-addr">No.274, Sec.2, Bade Rd., Zhongshan Dist. <a class="map-link" href="https://maps.google.com/?q=林東芳牛肉麵+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">台北最有名の牛肉麺。漢方系アロマティックなスープ、ホロホロ牛肉&牛スジ、もちもち麺。世界的フードブロガーも絶賛。</div>
       <div class="rest-order"><strong>必食:</strong> 半筋半肉牛肉麵（牛肉+牛スジのハーフ&ハーフ）</div>
-      <div class="rest-tags"><span class="rest-tag">LEGENDARY</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">LEGENDARY</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">11:00-翌3:00。行列20-40分。深夜営業あり。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Liu Shandong Beef Noodles</div><div class="rest-name-zh">劉山東牛肉麵</div></div>
-        <span class="rest-price budget">NT$180~250</span>
+        <div><div class="resto-name">Liu Shandong Beef Noodles</div><div class="resto-name-zh">劉山東牛肉麵</div></div>
+        <span class="resto-type budget">NT$180~250</span>
       </div>
-      <div class="rest-addr">Near Taipei Main Station <a class="maps-link" href="https://maps.google.com/?q=劉山東牛肉麵+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">1951年創業。ミシュラン・ビブグルマン。清燉（クリアスープ）系の最高峰。澄んだスープの奥に深い旨味が凝縮。</div>
+      <div class="resto-addr">Near Taipei Main Station <a class="map-link" href="https://maps.google.com/?q=劉山東牛肉麵+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">1951年創業。ミシュラン・ビブグルマン。清燉（クリアスープ）系の最高峰。澄んだスープの奥に深い旨味が凝縮。</div>
       <div class="rest-order"><strong>必食:</strong> 清燉牛肉麵（クリアスープ）</div>
-      <div class="rest-tags"><span class="rest-tag michelin">BIB GOURMAND</span><span class="rest-tag">SINCE 1951</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">BIB GOURMAND</span><span class="resto-tag">SINCE 1951</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">11:00開店直後が狙い目。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Yong Kang Beef Noodles</div><div class="rest-name-zh">永康牛肉麵</div></div>
-        <span class="rest-price budget">NT$200~280</span>
+        <div><div class="resto-name">Yong Kang Beef Noodles</div><div class="resto-name-zh">永康牛肉麵</div></div>
+        <span class="resto-type budget">NT$200~280</span>
       </div>
-      <div class="rest-addr">Yongkang Street area, Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=永康牛肉麵+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">永康街エリアの定番。ミシュランガイド推薦。紅焼系の濃厚スープ。DTF本店のすぐ近くでセットで回れる。</div>
+      <div class="resto-addr">Yongkang Street area, Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=永康牛肉麵+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">永康街エリアの定番。ミシュランガイド推薦。紅焼系の濃厚スープ。DTF本店のすぐ近くでセットで回れる。</div>
       <div class="rest-order"><strong>必食:</strong> 紅焼牛肉麵（大）</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN GUIDE</span><span class="rest-tag">YONGKANG AREA</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN GUIDE</span><span class="resto-tag">YONGKANG AREA</span></div>
     </div>
   </div>
 </section>
@@ -408,37 +408,37 @@
     <div class="section-title">台湾式朝ごはん</div>
     <div class="section-desc">蛋餅（ダンビン）、豆漿（ドウジャン）、油條（ヨウティアオ）。6:00-12:00が勝負。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Fu Hang Soy Milk</div><div class="rest-name-zh">阜杭豆漿</div></div>
-        <span class="rest-price budget">NT$50~120</span>
+        <div><div class="resto-name">Fu Hang Soy Milk</div><div class="resto-name-zh">阜杭豆漿</div></div>
+        <span class="resto-type budget">NT$50~120</span>
       </div>
-      <div class="rest-addr">Huashan Market 2F, Sec.1, Zhongxiao E. Rd. <a class="maps-link" href="https://maps.google.com/?q=阜杭豆漿+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">台北で最も有名な朝食店。厚餅（ホウビン）が名物。ミシュラン・ビブグルマン。</div>
+      <div class="resto-addr">Huashan Market 2F, Sec.1, Zhongxiao E. Rd. <a class="map-link" href="https://maps.google.com/?q=阜杭豆漿+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">台北で最も有名な朝食店。厚餅（ホウビン）が名物。ミシュラン・ビブグルマン。</div>
       <div class="rest-order"><strong>必食:</strong> 厚餅夾蛋、鹹豆漿（塩味豆乳スープ）、油條</div>
-      <div class="rest-tags"><span class="rest-tag michelin">BIB GOURMAND</span><span class="rest-tag">MOST FAMOUS</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">BIB GOURMAND</span><span class="resto-tag">MOST FAMOUS</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">5:30-12:30。月曜定休。行列30-60分。早朝がベスト。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Shiji Doujiang Dawang</div><div class="rest-name-zh">世紀豆漿大王</div></div>
-        <span class="rest-price budget">NT$30~80</span>
+        <div><div class="resto-name">Shiji Doujiang Dawang</div><div class="resto-name-zh">世紀豆漿大王</div></div>
+        <span class="resto-type budget">NT$30~80</span>
       </div>
-      <div class="rest-addr">Near Shuanglian MRT Station <a class="maps-link" href="https://maps.google.com/?q=世紀豆漿大王+雙連+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">雙連駅前の24時間営業。鹹豆漿は豆腐花のような食感で油條・葱・干しエビ入り。阜杭の行列回避に。</div>
+      <div class="resto-addr">Near Shuanglian MRT Station <a class="map-link" href="https://maps.google.com/?q=世紀豆漿大王+雙連+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">雙連駅前の24時間営業。鹹豆漿は豆腐花のような食感で油條・葱・干しエビ入り。阜杭の行列回避に。</div>
       <div class="rest-order"><strong>必食:</strong> 鹹豆漿、蛋餅、飯糰</div>
-      <div class="rest-tags"><span class="rest-tag">24H OPEN</span><span class="rest-tag budget">ULTRA CHEAP</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">24H OPEN</span><span class="resto-tag budget">ULTRA CHEAP</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Loco Food</div><div class="rest-name-zh">樂口福</div></div>
-        <span class="rest-price budget">NT$40~100</span>
+        <div><div class="resto-name">Loco Food</div><div class="resto-name-zh">樂口福</div></div>
+        <span class="resto-type budget">NT$40~100</span>
       </div>
-      <div class="rest-addr">Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=Loco+Food+樂口福+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">蛋餅の最強店。ハッシュブラウン蛋餅がカリカリ食感で絶品。自家製チリソースが激ウマ。</div>
+      <div class="resto-addr">Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=Loco+Food+樂口福+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">蛋餅の最強店。ハッシュブラウン蛋餅がカリカリ食感で絶品。自家製チリソースが激ウマ。</div>
       <div class="rest-order"><strong>必食:</strong> ハッシュブラウン蛋餅 + 辣椒ソース、豆漿</div>
-      <div class="rest-tags"><span class="rest-tag">BEST DAN BING</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">BEST DAN BING</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
 </section>
@@ -450,66 +450,66 @@
     <div class="section-title">タピオカミルクティー</div>
     <div class="section-desc">台湾はバブルティー発祥の地。水より安い。甘さと氷の量をカスタマイズ可能。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Chun Shui Tang</div><div class="rest-name-zh">春水堂</div></div>
-        <span class="rest-price budget">NT$80~200</span>
+        <div><div class="resto-name">Chun Shui Tang</div><div class="resto-name-zh">春水堂</div></div>
+        <span class="resto-type budget">NT$80~200</span>
       </div>
-      <div class="rest-addr">Multiple locations <a class="maps-link" href="https://maps.google.com/?q=春水堂+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">1983年台中創業。タピオカミルクティー発祥の店。茶房スタイルで座って飲める。</div>
+      <div class="resto-addr">Multiple locations <a class="map-link" href="https://maps.google.com/?q=春水堂+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">1983年台中創業。タピオカミルクティー発祥の店。茶房スタイルで座って飲める。</div>
       <div class="rest-order"><strong>必食:</strong> 珍珠奶茶（オリジナルタピオカミルクティー）</div>
-      <div class="rest-tags"><span class="rest-tag">ORIGINAL BOBA</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">ORIGINAL BOBA</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Chen San Ding</div><div class="rest-name-zh">陳三鼎</div></div>
-        <span class="rest-price budget">NT$35~55</span>
+        <div><div class="resto-name">Chen San Ding</div><div class="resto-name-zh">陳三鼎</div></div>
+        <span class="resto-type budget">NT$35~55</span>
       </div>
-      <div class="rest-addr">Near National Taiwan University <a class="maps-link" href="https://maps.google.com/?q=陳三鼎+公館+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">台大近くの路上屋台。黒糖タピオカミルクは台北で一二を争う美味しさ。Tiger Sugarの元祖とも。</div>
+      <div class="resto-addr">Near National Taiwan University <a class="map-link" href="https://maps.google.com/?q=陳三鼎+公館+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">台大近くの路上屋台。黒糖タピオカミルクは台北で一二を争う美味しさ。Tiger Sugarの元祖とも。</div>
       <div class="rest-order"><strong>必食:</strong> 黒糖青蛙撞奶（黒糖タピオカミルク）</div>
-      <div class="rest-tags"><span class="rest-tag">LOCAL LEGEND</span><span class="rest-tag budget">NT$35~</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">LOCAL LEGEND</span><span class="resto-tag budget">NT$35~</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Tiger Sugar</div><div class="rest-name-zh">老虎堂</div></div>
-        <span class="rest-price budget">NT$60~90</span>
+        <div><div class="resto-name">Tiger Sugar</div><div class="resto-name-zh">老虎堂</div></div>
+        <span class="resto-type budget">NT$60~90</span>
       </div>
-      <div class="rest-addr">Ximending + others <a class="maps-link" href="https://maps.google.com/?q=老虎堂+西門町+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">虎模様の黒糖ミルクティーで世界的に有名。クリームムース+タピオカは濃厚。</div>
+      <div class="resto-addr">Ximending + others <a class="map-link" href="https://maps.google.com/?q=老虎堂+西門町+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">虎模様の黒糖ミルクティーで世界的に有名。クリームムース+タピオカは濃厚。</div>
       <div class="rest-order"><strong>必食:</strong> 黒糖波霸厚鮮奶</div>
-      <div class="rest-tags"><span class="rest-tag">INSTAGRAMMABLE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">INSTAGRAMMABLE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">50 Lan</div><div class="rest-name-zh">五十嵐</div></div>
-        <span class="rest-price budget">NT$25~60</span>
+        <div><div class="resto-name">50 Lan</div><div class="resto-name-zh">五十嵐</div></div>
+        <span class="resto-type budget">NT$25~60</span>
       </div>
-      <div class="rest-addr">500+ locations across Taiwan <a class="maps-link" href="https://maps.google.com/?q=五十嵐+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">台湾全土500店舗以上。ゴールドスタンダード。圧倒的な安さと安定したクオリティ。</div>
+      <div class="resto-addr">500+ locations across Taiwan <a class="map-link" href="https://maps.google.com/?q=五十嵐+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">台湾全土500店舗以上。ゴールドスタンダード。圧倒的な安さと安定したクオリティ。</div>
       <div class="rest-order"><strong>必食:</strong> 四季春青茶+椰果+波霸</div>
-      <div class="rest-tags"><span class="rest-tag budget">CHEAPEST</span><span class="rest-tag">EVERYWHERE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag budget">CHEAPEST</span><span class="resto-tag">EVERYWHERE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Macu Tea</div><div class="rest-name-zh">麻古茶坊</div></div>
-        <span class="rest-price budget">NT$55~120</span>
+        <div><div class="resto-name">Macu Tea</div><div class="resto-name-zh">麻古茶坊</div></div>
+        <span class="resto-type budget">NT$55~120</span>
       </div>
-      <div class="rest-addr">Multiple locations <a class="maps-link" href="https://maps.google.com/?q=麻古茶坊+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">フルーツティーの最高峰。フレッシュフルーツたっぷり。茶葉の質も高い。</div>
+      <div class="resto-addr">Multiple locations <a class="map-link" href="https://maps.google.com/?q=麻古茶坊+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">フルーツティーの最高峰。フレッシュフルーツたっぷり。茶葉の質も高い。</div>
       <div class="rest-order"><strong>必食:</strong> 柳橙果綠（オレンジグリーンティー）</div>
-      <div class="rest-tags"><span class="rest-tag">FRUIT TEA KING</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">FRUIT TEA KING</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Kebuke</div><div class="rest-name-zh">可不可熟成紅茶</div></div>
-        <span class="rest-price budget">NT$40~75</span>
+        <div><div class="resto-name">Kebuke</div><div class="resto-name-zh">可不可熟成紅茶</div></div>
+        <span class="resto-type budget">NT$40~75</span>
       </div>
-      <div class="rest-addr">Multiple locations <a class="maps-link" href="https://maps.google.com/?q=可不可熟成紅茶+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">紅茶系No.1。熟成紅茶の深みが他チェーンと一線を画す。</div>
+      <div class="resto-addr">Multiple locations <a class="map-link" href="https://maps.google.com/?q=可不可熟成紅茶+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">紅茶系No.1。熟成紅茶の深みが他チェーンと一線を画す。</div>
       <div class="rest-order"><strong>必食:</strong> 熟成紅茶拿鐵</div>
-      <div class="rest-tags"><span class="rest-tag">BLACK TEA BEST</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">BLACK TEA BEST</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
   <div class="tips-box">
@@ -530,37 +530,37 @@
     <div class="section-title">ファインダイニング</div>
     <div class="section-desc">台湾ミシュラン2025は53店が星付き。三つ星はLe PalaisとTairroirの2店が台北に。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Tairroir</div><div class="rest-name-zh">態芮</div></div>
-        <span class="rest-price premium">NT$3,880~6,280</span>
+        <div><div class="resto-name">Tairroir</div><div class="resto-name-zh">態芮</div></div>
+        <span class="resto-type premium">NT$3,880~6,280</span>
       </div>
-      <div class="rest-addr">6F, No.299, Lequn 3rd Rd., Zhongshan Dist. <a class="maps-link" href="https://maps.google.com/?q=Tairroir+態芮+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">ミシュラン三つ星。台湾料理をフレンチ技法で再構築。世界初の三つ星台湾料理。シェフ・カイの20年の集大成。</div>
+      <div class="resto-addr">6F, No.299, Lequn 3rd Rd., Zhongshan Dist. <a class="map-link" href="https://maps.google.com/?q=Tairroir+態芮+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">ミシュラン三つ星。台湾料理をフレンチ技法で再構築。世界初の三つ星台湾料理。シェフ・カイの20年の集大成。</div>
       <div class="rest-order"><strong>必食:</strong> テイスティングメニュー。ランチNT$3,880 / ディナーNT$6,280</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN 3-STAR</span><span class="rest-tag">TAIWANESE-FRENCH</span><span class="rest-tag nonalc">NON-ALC PAIRING ASK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN 3-STAR</span><span class="resto-tag">TAIWANESE-FRENCH</span><span class="resto-tag nonalc">NON-ALC PAIRING ASK</span></div>
       <div class="rest-note">予約: tairroir.com/reservation。30日前から受付。食物アレルギー対応不可（事前確認必須）。全員揃ってからスタート。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Impromptu by Paul Lee</div><div class="rest-name-zh">Impromptu</div></div>
-        <span class="rest-price premium">NT$3,000~5,000</span>
+        <div><div class="resto-name">Impromptu by Paul Lee</div><div class="resto-name-zh">Impromptu</div></div>
+        <span class="resto-type premium">NT$3,000~5,000</span>
       </div>
-      <div class="rest-addr">Zhongshan Dist. <a class="maps-link" href="https://maps.google.com/?q=Impromptu+by+Paul+Lee+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">ミシュラン一つ星。フレンチ&times;インターナショナルの即興テイスティングメニュー。分子料理の要素も。</div>
+      <div class="resto-addr">Zhongshan Dist. <a class="map-link" href="https://maps.google.com/?q=Impromptu+by+Paul+Lee+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">ミシュラン一つ星。フレンチ&times;インターナショナルの即興テイスティングメニュー。分子料理の要素も。</div>
       <div class="rest-order"><strong>必食:</strong> テイスティングメニュー</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN 1-STAR</span><span class="rest-tag">FRENCH-FUSION</span><span class="rest-tag nonalc">NON-ALC PAIRING</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN 1-STAR</span><span class="resto-tag">FRENCH-FUSION</span><span class="resto-tag nonalc">NON-ALC PAIRING</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Tempura Motoichi</div><div class="rest-name-zh">元一天ぷら</div></div>
-        <span class="rest-price premium">NT$5,500~/ランチ</span>
+        <div><div class="resto-name">Tempura Motoichi</div><div class="resto-name-zh">元一天ぷら</div></div>
+        <span class="resto-type premium">NT$5,500~/ランチ</span>
       </div>
-      <div class="rest-addr">Zhongshan area <a class="maps-link" href="https://maps.google.com/?q=Tempura+Motoichi+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">東京ミシュラン二つ星「天ぷら元吉」の海外1号店。2025年8月に一つ星獲得。台北最高峰の天ぷら。</div>
+      <div class="resto-addr">Zhongshan area <a class="map-link" href="https://maps.google.com/?q=Tempura+Motoichi+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">東京ミシュラン二つ星「天ぷら元吉」の海外1号店。2025年8月に一つ星獲得。台北最高峰の天ぷら。</div>
       <div class="rest-order"><strong>必食:</strong> おまかせ天ぷらコース NT$5,500</div>
-      <div class="rest-tags"><span class="rest-tag michelin">MICHELIN 1-STAR</span><span class="rest-tag">TEMPURA</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag michelin">MICHELIN 1-STAR</span><span class="resto-tag">TEMPURA</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
 </section>
@@ -572,48 +572,48 @@
     <div class="section-title">鉄板焼き / おまかせ</div>
     <div class="section-desc">台北は東京に次ぐ和食ファインダイニングの街。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">MinSuiZen Raku</div><div class="rest-name-zh">銘水善 樂</div></div>
-        <span class="rest-price premium">NT$4,000~8,000</span>
+        <div><div class="resto-name">MinSuiZen Raku</div><div class="resto-name-zh">銘水善 樂</div></div>
+        <span class="resto-type premium">NT$4,000~8,000</span>
       </div>
-      <div class="rest-addr">Ximending Branch <a class="maps-link" href="https://maps.google.com/?q=銘水善+樂+西門町+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">プレミアムおまかせ鉄板焼き。12-14コース。A5/A4和牛、ロブスター、旬の海鮮。淡水河ビュー。</div>
+      <div class="resto-addr">Ximending Branch <a class="map-link" href="https://maps.google.com/?q=銘水善+樂+西門町+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">プレミアムおまかせ鉄板焼き。12-14コース。A5/A4和牛、ロブスター、旬の海鮮。淡水河ビュー。</div>
       <div class="rest-order"><strong>必食:</strong> おまかせ鉄板焼きコース</div>
-      <div class="rest-tags"><span class="rest-tag">PREMIUM</span><span class="rest-tag">TEPPANYAKI</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">PREMIUM</span><span class="resto-tag">TEPPANYAKI</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">要予約。淡水河ビューで雰囲気抜群。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Galerie Shina Omakase</div><div class="rest-name-zh">Galerie Shina</div></div>
-        <span class="rest-price premium">NT$4,000~6,000</span>
+        <div><div class="resto-name">Galerie Shina Omakase</div><div class="resto-name-zh">Galerie Shina</div></div>
+        <span class="resto-type premium">NT$4,000~6,000</span>
       </div>
-      <div class="rest-addr">Taipei <a class="maps-link" href="https://maps.google.com/?q=Galerie+Shina+Omakase+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">カウンター12席のみ。美しい技法と季節食材。クリーンでバランスの取れた味付け。</div>
+      <div class="resto-addr">Taipei <a class="map-link" href="https://maps.google.com/?q=Galerie+Shina+Omakase+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">カウンター12席のみ。美しい技法と季節食材。クリーンでバランスの取れた味付け。</div>
       <div class="rest-order"><strong>必食:</strong> おまかせコース</div>
-      <div class="rest-tags"><span class="rest-tag">12 SEATS ONLY</span><span class="rest-tag">OMAKASE SUSHI</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">12 SEATS ONLY</span><span class="resto-tag">OMAKASE SUSHI</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">完全予約制。早めの予約推奨。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Chu Yu Japanese Cuisine</div><div class="rest-name-zh">初魚料亭</div></div>
-        <span class="rest-price">NT$2,068/20品</span>
+        <div><div class="resto-name">Chu Yu Japanese Cuisine</div><div class="resto-name-zh">初魚料亭</div></div>
+        <span class="resto-type">NT$2,068/20品</span>
       </div>
-      <div class="rest-addr">Multiple locations <a class="maps-link" href="https://maps.google.com/?q=初魚料亭+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">コスパ最強のおまかせ。20品でNT$2,068は破格。高級おまかせの半額以下。</div>
+      <div class="resto-addr">Multiple locations <a class="map-link" href="https://maps.google.com/?q=初魚料亭+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">コスパ最強のおまかせ。20品でNT$2,068は破格。高級おまかせの半額以下。</div>
       <div class="rest-order"><strong>必食:</strong> 20品おまかせコース</div>
-      <div class="rest-tags"><span class="rest-tag budget">BEST VALUE OMAKASE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag budget">BEST VALUE OMAKASE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">TOMO</div><div class="rest-name-zh">朋鰭</div></div>
-        <span class="rest-price">NT$2,500~4,000</span>
+        <div><div class="resto-name">TOMO</div><div class="resto-name-zh">朋鰭</div></div>
+        <span class="resto-type">NT$2,500~4,000</span>
       </div>
-      <div class="rest-addr">Near Liuzhangli MRT <a class="maps-link" href="https://maps.google.com/?q=朋鰭+TOMO+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">六張犁駅近くのおまかせ寿司。価格対クオリティのバランスに定評。入門にも最適。</div>
+      <div class="resto-addr">Near Liuzhangli MRT <a class="map-link" href="https://maps.google.com/?q=朋鰭+TOMO+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">六張犁駅近くのおまかせ寿司。価格対クオリティのバランスに定評。入門にも最適。</div>
       <div class="rest-order"><strong>必食:</strong> おまかせ寿司コース</div>
-      <div class="rest-tags"><span class="rest-tag">QUALITY OMAKASE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">QUALITY OMAKASE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
 </section>
@@ -625,57 +625,57 @@
     <div class="section-title">カフェ</div>
     <div class="section-desc">ワールドバリスタチャンピオン輩出国。大安区に名店集中。多くは10:00開店。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Simple Kaffa</div><div class="rest-name-zh">興波咖啡</div></div>
-        <span class="rest-price">NT$180~350</span>
+        <div><div class="resto-name">Simple Kaffa</div><div class="resto-name-zh">興波咖啡</div></div>
+        <span class="resto-type">NT$180~350</span>
       </div>
-      <div class="rest-addr">Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=Simple+Kaffa+興波咖啡+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">2016年ワールドバリスタチャンピオン Berg Wu のショップ。台湾初の世界王者。台北コーヒーの最高峰。</div>
+      <div class="resto-addr">Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=Simple+Kaffa+興波咖啡+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">2016年ワールドバリスタチャンピオン Berg Wu のショップ。台湾初の世界王者。台北コーヒーの最高峰。</div>
       <div class="rest-order"><strong>必食:</strong> ハンドドリップ（シングルオリジン）</div>
-      <div class="rest-tags"><span class="rest-tag">WORLD CHAMPION</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">WORLD CHAMPION</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">予約推奨 or 30分以上の待ち覚悟。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Fika Fika Cafe</div><div class="rest-name-zh">Fika Fika</div></div>
-        <span class="rest-price">NT$150~300</span>
+        <div><div class="resto-name">Fika Fika Cafe</div><div class="resto-name-zh">Fika Fika</div></div>
+        <span class="resto-type">NT$150~300</span>
       </div>
-      <div class="rest-addr">Songshan area <a class="maps-link" href="https://maps.google.com/?q=Fika+Fika+Cafe+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">WBCメダリスト James Chen の北欧スタイルカフェ。浅煎りのクリーンな味わい。</div>
+      <div class="resto-addr">Songshan area <a class="map-link" href="https://maps.google.com/?q=Fika+Fika+Cafe+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">WBCメダリスト James Chen の北欧スタイルカフェ。浅煎りのクリーンな味わい。</div>
       <div class="rest-order"><strong>必食:</strong> フィルターコーヒー、カフェラテ</div>
-      <div class="rest-tags"><span class="rest-tag">NORDIC STYLE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">NORDIC STYLE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">VWI by CHADWANG</div><div class="rest-name-zh">VWI</div></div>
-        <span class="rest-price">NT$160~350</span>
+        <div><div class="resto-name">VWI by CHADWANG</div><div class="resto-name-zh">VWI</div></div>
+        <span class="resto-type">NT$160~350</span>
       </div>
-      <div class="rest-addr">Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=VWI+by+CHADWANG+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">ワールドブリュワーズカップチャンピオン Chad Wang のショップ。抽出の安定性が異次元。</div>
+      <div class="resto-addr">Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=VWI+by+CHADWANG+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">ワールドブリュワーズカップチャンピオン Chad Wang のショップ。抽出の安定性が異次元。</div>
       <div class="rest-order"><strong>必食:</strong> ハンドドリップ</div>
-      <div class="rest-tags"><span class="rest-tag">BREWERS CUP CHAMPION</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">BREWERS CUP CHAMPION</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">CAMA Coffee Roasters</div><div class="rest-name-zh">CAMA</div></div>
-        <span class="rest-price">NT$120~250</span>
+        <div><div class="resto-name">CAMA Coffee Roasters</div><div class="resto-name-zh">CAMA</div></div>
+        <span class="resto-type">NT$120~250</span>
       </div>
-      <div class="rest-addr">Songshan Cultural Park <a class="maps-link" href="https://maps.google.com/?q=CAMA+Coffee+Roasters+松山文創園區+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">松山文創園区のリノベ工場内。台湾各地の豆。空間デザインが秀逸。</div>
+      <div class="resto-addr">Songshan Cultural Park <a class="map-link" href="https://maps.google.com/?q=CAMA+Coffee+Roasters+松山文創園區+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">松山文創園区のリノベ工場内。台湾各地の豆。空間デザインが秀逸。</div>
       <div class="rest-order"><strong>必食:</strong> 台湾産コーヒー（阿里山等）</div>
-      <div class="rest-tags"><span class="rest-tag">TAIWAN COFFEE</span><span class="rest-tag">ARCHITECTURE</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">TAIWAN COFFEE</span><span class="resto-tag">ARCHITECTURE</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Rufous Coffee</div><div class="rest-name-zh">Rufous</div></div>
-        <span class="rest-price">NT$150~280</span>
+        <div><div class="resto-name">Rufous Coffee</div><div class="resto-name-zh">Rufous</div></div>
+        <span class="resto-type">NT$150~280</span>
       </div>
-      <div class="rest-addr">Da'an Dist. <a class="maps-link" href="https://maps.google.com/?q=Rufous+Coffee+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">台北で最も尊敬される独立系カフェ。トレンドに流されず良い一杯を淡々と。自家焙煎。</div>
+      <div class="resto-addr">Da'an Dist. <a class="map-link" href="https://maps.google.com/?q=Rufous+Coffee+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">台北で最も尊敬される独立系カフェ。トレンドに流されず良い一杯を淡々と。自家焙煎。</div>
       <div class="rest-order"><strong>必食:</strong> シングルオリジン・ハンドドリップ</div>
-      <div class="rest-tags"><span class="rest-tag">INDEPENDENT</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">INDEPENDENT</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
   <div class="tips-box">
@@ -697,47 +697,47 @@
     <div class="section-title">デザート &mdash; マンゴーかき氷 / 豆花</div>
     <div class="section-desc">4月は台湾マンゴーシーズン開始（4月末-10月）。豆花は年中。永康街&amp;雙連エリアに名店集中。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Smoothie House</div><div class="rest-name-zh">思慕昔</div></div>
-        <span class="rest-price budget">NT$190~250</span>
+        <div><div class="resto-name">Smoothie House</div><div class="resto-name-zh">思慕昔</div></div>
+        <span class="resto-type budget">NT$190~250</span>
       </div>
-      <div class="rest-addr">Yongkang Street (MRT Dongmen Exit 6) <a class="maps-link" href="https://maps.google.com/?q=思慕昔+永康街+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">永康街の元祖マンゴーかき氷。山盛りかき氷にフレッシュマンゴー+アイス+シロップ+練乳。1皿NT$250で3-4人シェア可能。</div>
+      <div class="resto-addr">Yongkang Street (MRT Dongmen Exit 6) <a class="map-link" href="https://maps.google.com/?q=思慕昔+永康街+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">永康街の元祖マンゴーかき氷。山盛りかき氷にフレッシュマンゴー+アイス+シロップ+練乳。1皿NT$250で3-4人シェア可能。</div>
       <div class="rest-order"><strong>必食:</strong> 芒果雪花冰 NT$250</div>
-      <div class="rest-tags"><span class="rest-tag">ICONIC</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">ICONIC</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Bingzan</div><div class="rest-name-zh">冰讃</div></div>
-        <span class="rest-price budget">NT$120~180</span>
+        <div><div class="resto-name">Bingzan</div><div class="resto-name-zh">冰讃</div></div>
+        <span class="resto-type budget">NT$120~180</span>
       </div>
-      <div class="rest-addr">No.2, Shuanglian St. (MRT Shuanglian 3min) <a class="maps-link" href="https://maps.google.com/?q=冰讃+雙連街+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">マンゴーアイスをあえて乗せない哲学。ミルク風味の雪花冰+カットしたてマンゴーのみ。素材勝負。</div>
+      <div class="resto-addr">No.2, Shuanglian St. (MRT Shuanglian 3min) <a class="map-link" href="https://maps.google.com/?q=冰讃+雙連街+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">マンゴーアイスをあえて乗せない哲学。ミルク風味の雪花冰+カットしたてマンゴーのみ。素材勝負。</div>
       <div class="rest-order"><strong>必食:</strong> 芒果雪花冰</div>
-      <div class="rest-tags"><span class="rest-tag">SEASONAL ONLY</span><span class="rest-tag">PURIST</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">SEASONAL ONLY</span><span class="resto-tag">PURIST</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
       <div class="rest-note">マンゴーシーズン（4月末-10月頃）のみ営業。4月上旬は閉店の可能性あり。事前確認推奨。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Beans Village</div><div class="rest-name-zh">豆花荘</div></div>
-        <span class="rest-price budget">NT$45~80</span>
+        <div><div class="resto-name">Beans Village</div><div class="resto-name-zh">豆花荘</div></div>
+        <span class="resto-type budget">NT$45~80</span>
       </div>
-      <div class="rest-addr">Near Ningxia Night Market <a class="maps-link" href="https://maps.google.com/?q=豆花荘+寧夏+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">1965年創業の豆花の老舗。寧夏夜市そば。毎日手作りの滑らか豆花。温・冷あり。</div>
+      <div class="resto-addr">Near Ningxia Night Market <a class="map-link" href="https://maps.google.com/?q=豆花荘+寧夏+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">1965年創業の豆花の老舗。寧夏夜市そば。毎日手作りの滑らか豆花。温・冷あり。</div>
       <div class="rest-order"><strong>必食:</strong> 豆花（タロイモ団子+ピーナッツが定番）</div>
-      <div class="rest-tags"><span class="rest-tag">SINCE 1965</span><span class="rest-tag budget">CHEAP</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">SINCE 1965</span><span class="resto-tag budget">CHEAP</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Xiaonanmen Traditional Bean Curd</div><div class="rest-name-zh">小南門傳統豆花</div></div>
-        <span class="rest-price budget">NT$40~70</span>
+        <div><div class="resto-name">Xiaonanmen Traditional Bean Curd</div><div class="resto-name-zh">小南門傳統豆花</div></div>
+        <span class="resto-type budget">NT$40~70</span>
       </div>
-      <div class="rest-addr">Across from Yongkang St. entrance <a class="maps-link" href="https://maps.google.com/?q=小南門傳統豆花+東門+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">永康街入口の真向かい。DTF行列待ちの間にサクッと食べられる。魯肉飯もある。</div>
+      <div class="resto-addr">Across from Yongkang St. entrance <a class="map-link" href="https://maps.google.com/?q=小南門傳統豆花+東門+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">永康街入口の真向かい。DTF行列待ちの間にサクッと食べられる。魯肉飯もある。</div>
       <div class="rest-order"><strong>必食:</strong> 豆花、粽子</div>
-      <div class="rest-tags"><span class="rest-tag">NEAR DTF</span><span class="rest-tag nonalc">NON-ALC OK</span></div>
+      <div class="resto-tags"><span class="resto-tag">NEAR DTF</span><span class="resto-tag nonalc">NON-ALC OK</span></div>
     </div>
   </div>
   <div class="tips-box">
@@ -758,48 +758,48 @@
     <div class="section-title">鳳梨酥 パイナップルケーキ</div>
     <div class="section-desc">台湾土産の王様。冬瓜ベース（伝統）vs 100%パイナップル（土鳳梨酥）の2流派。</div>
   </div>
-  <div class="restaurant-grid">
-    <div class="rest-card">
+  <div class="resto-grid">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Chia Te Bakery</div><div class="rest-name-zh">佳德糕餅</div></div>
-        <span class="rest-price budget">NT$350~500/箱</span>
+        <div><div class="resto-name">Chia Te Bakery</div><div class="resto-name-zh">佳德糕餅</div></div>
+        <span class="resto-type budget">NT$350~500/箱</span>
       </div>
-      <div class="rest-addr">Near Nanjing Sanmin MRT <a class="maps-link" href="https://maps.google.com/?q=佳德糕餅+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">1975年創業。台北鳳梨酥フェスティバル初代王者。冬瓜80%+パイナップル20%の「黄金比率」。空港受取可能。</div>
+      <div class="resto-addr">Near Nanjing Sanmin MRT <a class="map-link" href="https://maps.google.com/?q=佳德糕餅+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">1975年創業。台北鳳梨酥フェスティバル初代王者。冬瓜80%+パイナップル20%の「黄金比率」。空港受取可能。</div>
       <div class="rest-order"><strong>必食:</strong> 鳳梨酥（定番）、鳳凰酥（卵黄入り）</div>
-      <div class="rest-tags"><span class="rest-tag">NO.1 POPULAR</span></div>
+      <div class="resto-tags"><span class="resto-tag">NO.1 POPULAR</span></div>
       <div class="rest-note">連休は行列1-2時間。平日朝がベスト。桃園/松山空港受取サービスあり。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">SunnyHills</div><div class="rest-name-zh">微熱山丘</div></div>
-        <span class="rest-price">NT$420~500/箱</span>
+        <div><div class="resto-name">SunnyHills</div><div class="resto-name-zh">微熱山丘</div></div>
+        <span class="resto-type">NT$420~500/箱</span>
       </div>
-      <div class="rest-addr">Minsheng Community (MRT Zhongshan Jr. High School) <a class="maps-link" href="https://maps.google.com/?q=微熱山丘+民生社區+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">プレミアム路線の代表格。100%台湾産パイナップル。無添加。民生社区の洗練された店舗で無料試食+お茶のサービスあり。</div>
+      <div class="resto-addr">Minsheng Community (MRT Zhongshan Jr. High School) <a class="map-link" href="https://maps.google.com/?q=微熱山丘+民生社區+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">プレミアム路線の代表格。100%台湾産パイナップル。無添加。民生社区の洗練された店舗で無料試食+お茶のサービスあり。</div>
       <div class="rest-order"><strong>必食:</strong> 土鳳梨酥（100%パイナップル）</div>
-      <div class="rest-tags"><span class="rest-tag">100% PINEAPPLE</span><span class="rest-tag">FREE TASTING</span></div>
+      <div class="resto-tags"><span class="resto-tag">100% PINEAPPLE</span><span class="resto-tag">FREE TASTING</span></div>
       <div class="rest-note">無料の試食+お茶。並木道の散策も楽しい。</div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">Pan's Cake</div><div class="rest-name-zh">小潘蛋糕坊</div></div>
-        <span class="rest-price budget">NT$300~400/箱</span>
+        <div><div class="resto-name">Pan's Cake</div><div class="resto-name-zh">小潘蛋糕坊</div></div>
+        <span class="resto-type budget">NT$300~400/箱</span>
       </div>
-      <div class="rest-addr">Banqiao, New Taipei (MRT/HSR Banqiao Stn.) <a class="maps-link" href="https://maps.google.com/?q=小潘蛋糕坊+板橋" target="_blank">Map</a></div>
-      <div class="rest-desc">板橋の路地裏。地元の人なら全員知る名店。鳳凰酥（卵黄入り）が本命。ミルキーで中毒性あり。</div>
+      <div class="resto-addr">Banqiao, New Taipei (MRT/HSR Banqiao Stn.) <a class="map-link" href="https://maps.google.com/?q=小潘蛋糕坊+板橋" target="_blank">Map</a></div>
+      <div class="resto-desc">板橋の路地裏。地元の人なら全員知る名店。鳳凰酥（卵黄入り）が本命。ミルキーで中毒性あり。</div>
       <div class="rest-order"><strong>必食:</strong> 鳳凰酥（卵黄入りパイナップルケーキ）</div>
-      <div class="rest-tags"><span class="rest-tag">LOCAL SECRET</span><span class="rest-tag budget">GOOD VALUE</span></div>
+      <div class="resto-tags"><span class="resto-tag">LOCAL SECRET</span><span class="resto-tag budget">GOOD VALUE</span></div>
     </div>
-    <div class="rest-card">
+    <div class="resto-card">
       <div class="card-top">
-        <div><div class="rest-name">LeeChi</div><div class="rest-name-zh">犁記</div></div>
-        <span class="rest-price">NT$350~480/箱</span>
+        <div><div class="resto-name">LeeChi</div><div class="resto-name-zh">犁記</div></div>
+        <span class="resto-type">NT$350~480/箱</span>
       </div>
-      <div class="rest-addr">Near Songjiang Nanjing MRT <a class="maps-link" href="https://maps.google.com/?q=犁記+台北" target="_blank">Map</a></div>
-      <div class="rest-desc">佳德と並ぶ老舗。松の実入り、クランベリー入り等バリエーション豊富。</div>
+      <div class="resto-addr">Near Songjiang Nanjing MRT <a class="map-link" href="https://maps.google.com/?q=犁記+台北" target="_blank">Map</a></div>
+      <div class="resto-desc">佳德と並ぶ老舗。松の実入り、クランベリー入り等バリエーション豊富。</div>
       <div class="rest-order"><strong>必食:</strong> 鳳梨酥、松子鳳梨酥</div>
-      <div class="rest-tags"><span class="rest-tag">VARIETY</span></div>
+      <div class="resto-tags"><span class="resto-tag">VARIETY</span></div>
     </div>
   </div>
 </section>
@@ -813,180 +813,180 @@
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:1.5rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#11088;&#11088;&#11088; 3星（最高評価）</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">朱遊記</div><div class="rest-name-zh">黄金炒飯</div></div>
-        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">朱遊記</div><div class="resto-name-zh">黄金炒飯</div></div>
+        <span class="resto-type">&#11088;&#11088;&#11088;</span>
       </div>
-      <div class="rest-addr">台北市中山區撫順街39號 <a class="maps-link" href="https://maps.google.com/?q=朱遊記+台北市中山區撫順街39號" target="_blank">Map</a></div>
-      <div class="rest-desc">「台湾でいちばん安くて美味い黄金炒飯」。鼎泰豐レベル、いや超えてるかもしれない。ハマグリスープはエキスが凝縮されて"飲むハマグリ"。鼎泰豐の半額以下。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">RICE</span></div>
+      <div class="resto-addr">台北市中山區撫順街39號 <a class="map-link" href="https://maps.google.com/?q=朱遊記+台北市中山區撫順街39號" target="_blank">Map</a></div>
+      <div class="resto-desc">「台湾でいちばん安くて美味い黄金炒飯」。鼎泰豐レベル、いや超えてるかもしれない。ハマグリスープはエキスが凝縮されて"飲むハマグリ"。鼎泰豐の半額以下。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="resto-tag">RICE</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">餃匠</div><div class="rest-name-zh">ニンニクまぜそば</div></div>
-        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">餃匠</div><div class="resto-name-zh">ニンニクまぜそば</div></div>
+        <span class="resto-type">&#11088;&#11088;&#11088;</span>
       </div>
-      <div class="rest-addr">台北市中正區南陽街19號 <a class="maps-link" href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank">Map</a></div>
-      <div class="rest-desc">台北駅すぐ近くの餃子屋だが、餃子は普通。イチオシは「蒜香辣拌麺」1択。ニンニクの量が尋常じゃなくてクセになる。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">NOODLES</span></div>
+      <div class="resto-addr">台北市中正區南陽街19號 <a class="map-link" href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank">Map</a></div>
+      <div class="resto-desc">台北駅すぐ近くの餃子屋だが、餃子は普通。イチオシは「蒜香辣拌麺」1択。ニンニクの量が尋常じゃなくてクセになる。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="resto-tag">NOODLES</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">嘟嘟水餃</div><div class="rest-name-zh">ニラ水餃子</div></div>
-        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">嘟嘟水餃</div><div class="resto-name-zh">ニラ水餃子</div></div>
+        <span class="resto-type">&#11088;&#11088;&#11088;</span>
       </div>
-      <div class="rest-addr">台北市中山區民生東路一段23巷52號 <a class="maps-link" href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank">Map</a></div>
-      <div class="rest-desc">屋台スタイル。ニラ水餃子 + ピリ辛唐辛子醤油ダレが最高。コンビニでビール買って持ち込み推奨。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">DUMPLINGS</span></div>
+      <div class="resto-addr">台北市中山區民生東路一段23巷52號 <a class="map-link" href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank">Map</a></div>
+      <div class="resto-desc">屋台スタイル。ニラ水餃子 + ピリ辛唐辛子醤油ダレが最高。コンビニでビール買って持ち込み推奨。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="resto-tag">DUMPLINGS</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.03);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">曾家豆漿</div><div class="rest-name-zh">エッグタルト・朝食</div></div>
-        <span class="rest-price">&#11088;&#11088;&#11088;</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">曾家豆漿</div><div class="resto-name-zh">エッグタルト・朝食</div></div>
+        <span class="resto-type">&#11088;&#11088;&#11088;</span>
       </div>
-      <div class="rest-addr">台北市中山區錦州街123號 <a class="maps-link" href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank">Map</a></div>
-      <div class="rest-desc">「人生でいちばん美味いエッグタルト」。ブリュレがたっぷりで濃厚。冷蔵庫で冷やしても美味い。大行列ができる朝食屋。翌日食べる用にも安心。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="rest-tag">BREAKFAST</span></div>
+      <div class="resto-addr">台北市中山區錦州街123號 <a class="map-link" href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank">Map</a></div>
+      <div class="resto-desc">「人生でいちばん美味いエッグタルト」。ブリュレがたっぷりで濃厚。冷蔵庫で冷やしても美味い。大行列ができる朝食屋。翌日食べる用にも安心。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO &#11088;&#11088;&#11088;</span><span class="resto-tag">BREAKFAST</span></div>
     </div>
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127860; ゾロ推薦店</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">北北車魯肉飯</div><div class="rest-name-zh">脂身トロトロ魯肉飯</div></div>
-        <span class="rest-price budget">NT$50~150</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">北北車魯肉飯</div><div class="resto-name-zh">脂身トロトロ魯肉飯</div></div>
+        <span class="resto-type budget">NT$50~150</span>
       </div>
-      <div class="rest-addr">台北市中正區公園路20巷21號 <a class="maps-link" href="https://maps.google.com/?q=北北車魯肉飯+台北市中正區公園路20巷21號" target="_blank">Map</a></div>
-      <div class="rest-desc">台北駅すぐ。脂身100%タイプの魯肉飯。八角は控えめで甘味が引き立つ。白菜・筍の煮物もクタクタ。店内狭くスーツケース不可。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">LU ROU FAN</span></div>
+      <div class="resto-addr">台北市中正區公園路20巷21號 <a class="map-link" href="https://maps.google.com/?q=北北車魯肉飯+台北市中正區公園路20巷21號" target="_blank">Map</a></div>
+      <div class="resto-desc">台北駅すぐ。脂身100%タイプの魯肉飯。八角は控えめで甘味が引き立つ。白菜・筍の煮物もクタクタ。店内狭くスーツケース不可。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="resto-tag">LU ROU FAN</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">面線町</div><div class="rest-name-zh">台湾No.1麺線</div></div>
-        <span class="rest-price budget">NT$60~120</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">面線町</div><div class="resto-name-zh">台湾No.1麺線</div></div>
+        <span class="resto-type budget">NT$60~120</span>
       </div>
-      <div class="rest-addr">台北市大同區赤峰街49巷25號 <a class="maps-link" href="https://maps.google.com/?q=面線町+台北市大同區赤峰街49巷25號" target="_blank">Map</a></div>
-      <div class="rest-desc">台湾でいちばん豪華な麺線。カツオ出汁が効いたソーメンとろみスープ。きつね色のサクサク揚げ具が美味い。赤峰街。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">NOODLES</span></div>
+      <div class="resto-addr">台北市大同區赤峰街49巷25號 <a class="map-link" href="https://maps.google.com/?q=面線町+台北市大同區赤峰街49巷25號" target="_blank">Map</a></div>
+      <div class="resto-desc">台湾でいちばん豪華な麺線。カツオ出汁が効いたソーメンとろみスープ。きつね色のサクサク揚げ具が美味い。赤峰街。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="resto-tag">NOODLES</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">朱記餡餅 台北站前店</div><div class="rest-name-zh">炒飯が絶品</div></div>
-        <span class="rest-price budget">NT$150~300</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">朱記餡餅 台北站前店</div><div class="resto-name-zh">炒飯が絶品</div></div>
+        <span class="resto-type budget">NT$150~300</span>
       </div>
-      <div class="rest-addr">台北市中正區忠孝西路一段66號B1F <a class="maps-link" href="https://maps.google.com/?q=朱記餡餅+台北市中正區忠孝西路一段66號B1F" target="_blank">Map</a></div>
-      <div class="rest-desc">台北駅前の新光三越B1F。鼎泰豐似のメニューで値段は2/3。女性ひとりでも安心。「炒飯だけでいい」。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">RICE</span></div>
+      <div class="resto-addr">台北市中正區忠孝西路一段66號B1F <a class="map-link" href="https://maps.google.com/?q=朱記餡餅+台北市中正區忠孝西路一段66號B1F" target="_blank">Map</a></div>
+      <div class="resto-desc">台北駅前の新光三越B1F。鼎泰豐似のメニューで値段は2/3。女性ひとりでも安心。「炒飯だけでいい」。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="resto-tag">RICE</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">港都熱炒 中山旗艦店</div><div class="rest-name-zh">日本語タッチパネル</div></div>
-        <span class="rest-price">NT$400~500</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">港都熱炒 中山旗艦店</div><div class="resto-name-zh">日本語タッチパネル</div></div>
+        <span class="resto-type">NT$400~500</span>
       </div>
-      <div class="rest-addr">台北市中山區民生東路一段52號 <a class="maps-link" href="https://maps.google.com/?q=港都熱炒+台北市中山區民生東路一段52號" target="_blank">Map</a></div>
-      <div class="rest-desc">日本語タッチパネルで注文OK。辛さ・ネギ・ニンニク・パクチーの有無も選べる。少し高めだが量が多いので3〜4人で行くと安い。初心者に最適。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">熱炒</span><span class="rest-tag">BEGINNER OK</span></div>
+      <div class="resto-addr">台北市中山區民生東路一段52號 <a class="map-link" href="https://maps.google.com/?q=港都熱炒+台北市中山區民生東路一段52號" target="_blank">Map</a></div>
+      <div class="resto-desc">日本語タッチパネルで注文OK。辛さ・ネギ・ニンニク・パクチーの有無も選べる。少し高めだが量が多いので3〜4人で行くと安い。初心者に最適。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="resto-tag">熱炒</span><span class="resto-tag">BEGINNER OK</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">大稻埕米粉湯</div><div class="rest-name-zh">帰国前朝食</div></div>
-        <span class="rest-price budget">NT$80~200</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">大稻埕米粉湯</div><div class="resto-name-zh">帰国前朝食</div></div>
+        <span class="resto-type budget">NT$80~200</span>
       </div>
-      <div class="rest-addr">台北市大同區重慶北路一段26巷15號 <a class="maps-link" href="https://maps.google.com/?q=大稻埕米粉湯+台北市大同區重慶北路一段26巷15號" target="_blank">Map</a></div>
-      <div class="rest-desc">空港MRT近くの屋台飯。出汁茶漬けのようなお粥と新鮮な豚トロとハツが美味い。「台湾最高ですね」。李記豆漿とハシゴ可。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="rest-tag">BREAKFAST</span></div>
+      <div class="resto-addr">台北市大同區重慶北路一段26巷15號 <a class="map-link" href="https://maps.google.com/?q=大稻埕米粉湯+台北市大同區重慶北路一段26巷15號" target="_blank">Map</a></div>
+      <div class="resto-desc">空港MRT近くの屋台飯。出汁茶漬けのようなお粥と新鮮な豚トロとハツが美味い。「台湾最高ですね」。李記豆漿とハシゴ可。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO</span><span class="resto-tag">BREAKFAST</span></div>
     </div>
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#129791; ゾロの小籠包4選（鼎泰豊を除く）</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">56巷口湯包</div><div class="rest-name-zh">麻辣小籠包も是非</div></div>
-        <span class="rest-price budget">NT$150~400</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">56巷口湯包</div><div class="resto-name-zh">麻辣小籠包も是非</div></div>
+        <span class="resto-type budget">NT$150~400</span>
       </div>
-      <div class="rest-addr">新北市板橋區裕民街56號（MRT板橋駅） <a class="maps-link" href="https://maps.google.com/?q=56巷口湯包+新北市板橋區裕民街56號" target="_blank">Map</a></div>
-      <div class="rest-desc">板橋エリア（新北市）。麻辣小籠包が他にはない逸品。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="rest-tag">SPICY</span></div>
+      <div class="resto-addr">新北市板橋區裕民街56號（MRT板橋駅） <a class="map-link" href="https://maps.google.com/?q=56巷口湯包+新北市板橋區裕民街56號" target="_blank">Map</a></div>
+      <div class="resto-desc">板橋エリア（新北市）。麻辣小籠包が他にはない逸品。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="resto-tag">SPICY</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">古北餐</div><div class="rest-name-zh">カスタードまんも是非</div></div>
-        <span class="rest-price budget">NT$150~400</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">古北餐</div><div class="resto-name-zh">カスタードまんも是非</div></div>
+        <span class="resto-type budget">NT$150~400</span>
       </div>
-      <div class="rest-addr">台北市中正區杭州南路一段9號 <a class="maps-link" href="https://maps.google.com/?q=古北餐+台北市中正區杭州南路一段9號" target="_blank">Map</a></div>
-      <div class="rest-desc">中正區。小籠包だけでなくカスタードまんが絶品。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="rest-tag">CUSTARD BUN</span></div>
+      <div class="resto-addr">台北市中正區杭州南路一段9號 <a class="map-link" href="https://maps.google.com/?q=古北餐+台北市中正區杭州南路一段9號" target="_blank">Map</a></div>
+      <div class="resto-desc">中正區。小籠包だけでなくカスタードまんが絶品。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO XLB</span><span class="resto-tag">CUSTARD BUN</span></div>
     </div>
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127749; ゾロの寧夏夜市4選</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">方家雞肉飯</div><div class="rest-name-zh">鶏肉飯 + ネギ卵焼き</div></div>
-        <span class="rest-price budget">NT$50~100</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">方家雞肉飯</div><div class="resto-name-zh">鶏肉飯 + ネギ卵焼き</div></div>
+        <span class="resto-type budget">NT$50~100</span>
       </div>
-      <div class="rest-addr">寧夏夜市 060攤位</div>
-      <div class="rest-desc">鶏肉飯とネギ卵焼きがおすすめ。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="rest-tag">NIGHT MARKET</span></div>
+      <div class="resto-addr">寧夏夜市 060攤位</div>
+      <div class="resto-desc">鶏肉飯とネギ卵焼きがおすすめ。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="resto-tag">NIGHT MARKET</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">自然捲</div><div class="rest-name-zh">もちベーコン・豚キムチ</div></div>
-        <span class="rest-price budget">NT$50~150</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">自然捲</div><div class="resto-name-zh">もちベーコン・豚キムチ</div></div>
+        <span class="resto-type budget">NT$50~150</span>
       </div>
-      <div class="rest-addr">寧夏夜市 020攤位</div>
-      <div class="rest-desc">もちベーコン、豚キムチ、牛肉の湯葉巻きがおすすめ。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="rest-tag">NIGHT MARKET</span></div>
+      <div class="resto-addr">寧夏夜市 020攤位</div>
+      <div class="resto-desc">もちベーコン、豚キムチ、牛肉の湯葉巻きがおすすめ。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO 寧夏</span><span class="resto-tag">NIGHT MARKET</span></div>
     </div>
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127471;&#127477; 日本人に食べてほしい台湾グルメ4選</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">民樂旗魚米粉</div><div class="rest-name-zh">カジキマグロ米粉</div></div>
+        <div><div class="resto-name" style="color:var(--gold-light);">民樂旗魚米粉</div><div class="resto-name-zh">カジキマグロ米粉</div></div>
       </div>
-      <div class="rest-addr">臺北市大同區南京西路233巷20號 <a class="maps-link" href="https://maps.google.com/?q=民樂旗魚米粉+臺北市大同區南京西路233巷20號" target="_blank">Map</a></div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+      <div class="resto-addr">臺北市大同區南京西路233巷20號 <a class="map-link" href="https://maps.google.com/?q=民樂旗魚米粉+臺北市大同區南京西路233巷20號" target="_blank">Map</a></div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">雙月食品社</div><div class="rest-name-zh">台湾スープ料理</div></div>
+        <div><div class="resto-name" style="color:var(--gold-light);">雙月食品社</div><div class="resto-name-zh">台湾スープ料理</div></div>
       </div>
-      <div class="rest-addr">臺北市中正區青島東路6之2號 <a class="maps-link" href="https://maps.google.com/?q=雙月食品社+臺北市中正區青島東路6之2號" target="_blank">Map</a></div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+      <div class="resto-addr">臺北市中正區青島東路6之2號 <a class="map-link" href="https://maps.google.com/?q=雙月食品社+臺北市中正區青島東路6之2號" target="_blank">Map</a></div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">鴻水餃牛肉麵</div><div class="rest-name-zh">水餃子 + 牛肉麵</div></div>
+        <div><div class="resto-name" style="color:var(--gold-light);">鴻水餃牛肉麵</div><div class="resto-name-zh">水餃子 + 牛肉麵</div></div>
       </div>
-      <div class="rest-addr">臺北市中山區雙城街12號 <a class="maps-link" href="https://maps.google.com/?q=鴻水餃牛肉麵+臺北市中山區雙城街12號" target="_blank">Map</a></div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
+      <div class="resto-addr">臺北市中山區雙城街12號 <a class="map-link" href="https://maps.google.com/?q=鴻水餃牛肉麵+臺北市中山區雙城街12號" target="_blank">Map</a></div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span></div>
     </div>
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.15);">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.15);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">王福芋圓</div><div class="rest-name-zh">芋圓（タロ芋団子）</div></div>
+        <div><div class="resto-name" style="color:var(--gold-light);">王福芋圓</div><div class="resto-name-zh">芋圓（タロ芋団子）</div></div>
       </div>
-      <div class="rest-addr">臺北市萬華區峨眉街5-2號（西門町） <a class="maps-link" href="https://maps.google.com/?q=王福芋圓+臺北市萬華區峨眉街5-2號" target="_blank">Map</a></div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span><span class="rest-tag">DESSERT</span></div>
+      <div class="resto-addr">臺北市萬華區峨眉街5-2號（西門町） <a class="map-link" href="https://maps.google.com/?q=王福芋圓+臺北市萬華區峨眉街5-2號" target="_blank">Map</a></div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.15);color:var(--gold-light);">ZORRO JP4選</span><span class="resto-tag">DESSERT</span></div>
     </div>
   </div>
 
   <h3 style="color:var(--gold);font-size:0.95rem;margin:2rem 0 1rem;display:flex;align-items:center;gap:0.5rem;">&#127856; ゾロさんのお店</h3>
-  <div class="restaurant-grid">
-    <div class="rest-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.04);">
+  <div class="resto-grid">
+    <div class="resto-card" style="border-color:rgba(255,193,7,0.3);background:rgba(255,193,7,0.04);">
       <div class="card-top">
-        <div><div class="rest-name" style="color:var(--gold-light);">奇跡の国 台湾</div><div class="rest-name-zh">手作りフィナンシェ</div></div>
-        <span class="rest-price">NT$60/個</span>
+        <div><div class="resto-name" style="color:var(--gold-light);">奇跡の国 台湾</div><div class="resto-name-zh">手作りフィナンシェ</div></div>
+        <span class="resto-type">NT$60/個</span>
       </div>
-      <div class="rest-addr">臺北市大同區迪化街一段149號（月曜定休） <a class="maps-link" href="https://maps.google.com/?q=奇跡の国+台湾+臺北市大同區迪化街一段149號" target="_blank">Map</a></div>
-      <div class="rest-desc">ゾロさんが経営するフィナンシェ専門店。パティシエが毎日手作り。パイナップル・タロ芋・あずきの3種。「ちゃんと甘くて、パサパサしない」新しいタイプの台湾お土産。迪化街の散策ついでに。11:00〜売り切れ次第終了。</div>
-      <div class="rest-tags"><span class="rest-tag" style="background:rgba(255,193,7,0.2);color:var(--gold-light);">ZORRO'S SHOP</span><span class="rest-tag">SOUVENIR</span></div>
+      <div class="resto-addr">臺北市大同區迪化街一段149號（月曜定休） <a class="map-link" href="https://maps.google.com/?q=奇跡の国+台湾+臺北市大同區迪化街一段149號" target="_blank">Map</a></div>
+      <div class="resto-desc">ゾロさんが経営するフィナンシェ専門店。パティシエが毎日手作り。パイナップル・タロ芋・あずきの3種。「ちゃんと甘くて、パサパサしない」新しいタイプの台湾お土産。迪化街の散策ついでに。11:00〜売り切れ次第終了。</div>
+      <div class="resto-tags"><span class="resto-tag" style="background:rgba(255,193,7,0.2);color:var(--gold-light);">ZORRO'S SHOP</span><span class="resto-tag">SOUVENIR</span></div>
       <div class="rest-note">情報源: <a href="https://x.com/yuu_horii_zorro" target="_blank" style="color:var(--gold);">@yuu_horii_zorro</a> / <a href="https://www.youtube.com/@zorro_taiwangourmet" target="_blank" style="color:var(--gold);">YouTube</a> で各店の動画レビューも見れる</div>
     </div>
   </div>
