@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>台北旅行プラン 2026年4月16日〜20日 | 4泊5日</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
   :root {
     /* iUMA design system tokens */
@@ -41,8 +41,6 @@
   /* Hero — stock portfolio card pattern */
   .hero {
     background: linear-gradient(135deg, #1e0a14, #2a1020, #1e0a14);
-    background-size: 200% 200%;
-    animation: heroShift 12s ease-in-out infinite;
     border-radius: 16px;
     padding: 32px 40px;
     margin: 24px auto;
@@ -50,10 +48,6 @@
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-  }
-  @keyframes heroShift {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
   }
   .hero-content { position: relative; z-index: 1; }
   .hero h1 {
@@ -148,7 +142,10 @@
   .section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 64px 24px;
+    padding: 40px 16px;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 48px 24px; }
   }
   .section-title {
     font-size: clamp(18px, 2.5vw, 22px);
@@ -275,7 +272,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
+    font-weight: 700;
     flex-shrink: 0;
   }
   .day-badge .num { font-size: 1.5rem; line-height: 1; }
@@ -298,11 +295,11 @@
   }
   .timeline-item {
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.6rem;
     background: var(--card-bg);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 12px;
-    padding: 1.2rem 1.5rem;
+    padding: 0.7rem 1rem;
     transition: all 0.3s;
   }
   .timeline-item:hover {
@@ -363,7 +360,7 @@
     background: var(--card-bg);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 12px;
-    padding: 1.5rem;
+    padding: 1.1rem 1.2rem;
     transition: all 0.3s;
   }
   .resto-card:hover {
@@ -758,6 +755,113 @@
     .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
     .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
   }
+
+  /* === Day accordion === */
+  .day-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  .day-header-chevron {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .day-section:not(.collapsed) .day-header-chevron {
+    transform: rotate(90deg);
+  }
+  .day-section.collapsed .timeline {
+    display: none;
+  }
+
+  /* === 今日のサマリーカード === */
+  #today-summary {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px 24px;
+  }
+  @media (min-width: 768px) {
+    #today-summary { padding: 0 24px 24px; }
+  }
+  .today-card {
+    background: linear-gradient(135deg, rgba(232,87,122,0.1), rgba(10,10,20,0.6));
+    border: 1px solid rgba(232,87,122,0.25);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 2rem;
+    align-items: flex-start;
+  }
+  .today-card-meta {
+    flex-shrink: 0;
+  }
+  .today-card-date {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .today-card-day {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pink-light);
+    margin: 2px 0;
+  }
+  .today-card-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  .today-card-meals {
+    flex: 1;
+    min-width: 200px;
+  }
+  .today-card-meals-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .today-meal-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 0.2rem 0;
+  }
+  .today-meal-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--pink);
+    flex-shrink: 0;
+  }
+
+  /* === Floating "今日へ" button === */
+  #btn-today {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 50;
+    background: var(--pink);
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(232,87,122,0.4);
+    transition: background 0.2s, transform 0.15s;
+  }
+  #btn-today:hover { background: #c74060; transform: translateY(-2px); }
+  @media (min-width: 769px) {
+    #btn-today { display: none !important; }
+  }
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -809,6 +913,14 @@
     <a href="#checklist">チェックリスト</a>
   </nav>
 </div>
+
+<!-- 今日のサマリー (JS-driven, shown only during trip 4/16-4/20) -->
+<div id="today-summary" style="display:none;">
+  <div class="today-card" id="today-card-inner"></div>
+</div>
+
+<!-- Floating "今日へ" button (mobile only, shown during trip) -->
+<button id="btn-today" onclick="scrollToToday()"></button>
 
 <!-- Flights -->
 <section class="section" id="flights">
@@ -887,9 +999,10 @@
 
   <!-- Day 1 -->
   <div class="day-section" id="day1">
-    <div class="day-header">
+    <div class="day-header" onclick="toggleDaySection('day1')">
       <div class="day-badge"><span class="num">1</span><span class="label">Day</span></div>
       <div><div class="day-title">到着 & 西門町探索</div><div class="day-date">4月16日（木）</div></div>
+      <span class="day-header-chevron">›</span>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -920,9 +1033,10 @@
 
   <!-- Day 2 -->
   <div class="day-section" id="day2">
-    <div class="day-header">
+    <div class="day-header" onclick="toggleDaySection('day2')">
       <div class="day-badge"><span class="num">2</span><span class="label">Day</span></div>
       <div><div class="day-title">飲茶 & 永康街</div><div class="day-date">4月17日（金）</div></div>
+      <span class="day-header-chevron">›</span>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -990,9 +1104,10 @@
 
   <!-- Day 3 -->
   <div class="day-section" id="day3">
-    <div class="day-header">
+    <div class="day-header" onclick="toggleDaySection('day3')">
       <div class="day-badge"><span class="num">3</span><span class="label">Day</span></div>
       <div><div class="day-title">ミシュラン & 夜市</div><div class="day-date">4月18日（土）</div></div>
+      <span class="day-header-chevron">›</span>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -1053,9 +1168,10 @@
 
   <!-- Day 4 -->
   <div class="day-section" id="day4">
-    <div class="day-header">
+    <div class="day-header" onclick="toggleDaySection('day4')">
       <div class="day-badge"><span class="num">4</span><span class="label">Day</span></div>
       <div><div class="day-title">リラックス & 食い倒れ</div><div class="day-date">4月19日（日）</div></div>
+      <span class="day-header-chevron">›</span>
     </div>
     <div class="timeline">
       <div class="timeline-item">
@@ -1112,9 +1228,10 @@
   <!-- ===== 4泊プラン: Day 5 = 出発 ===== -->
   <div id="plan-4nights-end">
     <div class="day-section" id="day5-4n">
-      <div class="day-header">
+      <div class="day-header" onclick="toggleDaySection('day5-4n')">
         <div class="day-badge"><span class="num">5</span><span class="label">Day</span></div>
         <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月20日（月）</div></div>
+        <span class="day-header-chevron">›</span>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -1147,9 +1264,10 @@
   <!-- ===== 5泊プラン: Day 5 = フルday + Day 6 = 出発 ===== -->
   <div id="plan-5nights-end" style="display:none;">
     <div class="day-section" id="day5-5n">
-      <div class="day-header">
+      <div class="day-header" onclick="toggleDaySection('day5-5n')">
         <div class="day-badge" style="background:linear-gradient(135deg, var(--teal), #00695C);"><span class="num">5</span><span class="label">Day</span></div>
         <div><div class="day-title">猫空 & 烏龍茶 & ショッピング</div><div class="day-date">4月19日（日）・5泊プラン</div></div>
+        <span class="day-header-chevron">›</span>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -1192,9 +1310,10 @@
     </div>
 
     <div class="day-section" id="day6-5n">
-      <div class="day-header">
+      <div class="day-header" onclick="toggleDaySection('day6-5n')">
         <div class="day-badge" style="background:linear-gradient(135deg, var(--teal), #00695C);"><span class="num">6</span><span class="label">Day</span></div>
         <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月20日（月）・5泊プラン</div></div>
+        <span class="day-header-chevron">›</span>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -2191,6 +2310,91 @@ checks.forEach(function(c) {
   });
 });
 updateProgress();
+
+// ========== Day Accordion ==========
+function toggleDaySection(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.toggle('collapsed');
+}
+
+// Trip date configuration
+var TRIP_DAYS = [
+  { id: 'day1', date: '2026-04-16', num: 1, title: '到着 & 西門町探索',
+    meals: [{ time: '18:30', name: '港都熱炒 or 33區熱炒' }, { time: '21:00', name: '王福芋圓' }] },
+  { id: 'day2', date: '2026-04-17', num: 2, title: '飲茶 & 永康街',
+    meals: [{ time: '07:00', name: '阜杭豆漿' }, { time: '11:30', name: '杭州小籠湯包' }, { time: '18:00', name: '京星港式飲茶' }] },
+  { id: 'day3', date: '2026-04-18', num: 3, title: 'ミシュラン & 夜市',
+    meals: [{ time: '09:00', name: '北北車魯肉飯' }, { time: '16:00', name: '餃匠' }, { time: '18:30', name: '饒河夜市' }] },
+  { id: 'day4', date: '2026-04-19', num: 4, title: 'リラックス & 食い倒れ',
+    meals: [{ time: '08:00', name: '曾家豆漿' }, { time: '11:00', name: '永康牛肉麵' }, { time: '18:30', name: '富錦台菜香檳' }] },
+  { id: 'day5-4n', date: '2026-04-20', num: 5, title: '最終日 & 出発',
+    meals: [{ time: '08:00', name: '李記豆漿 or 永和豆漿大王' }, { time: '09:30', name: '大稻埕米粉湯（オプション）' }] }
+];
+
+function getTodayInJST() {
+  var now = new Date();
+  // Get current date string in JST (UTC+9)
+  var jst = new Date(now.getTime() + 9 * 3600 * 1000);
+  var y = jst.getUTCFullYear();
+  var m = ('0' + (jst.getUTCMonth() + 1)).slice(-2);
+  var d = ('0' + jst.getUTCDate()).slice(-2);
+  return y + '-' + m + '-' + d;
+}
+
+function initDayAccordion() {
+  var todayStr = getTodayInJST();
+  var tripStart = '2026-04-16';
+  var tripEnd = '2026-04-20';
+  var duringTrip = todayStr >= tripStart && todayStr <= tripEnd;
+
+  // Find today's day or default to day1
+  var todayDay = null;
+  for (var i = 0; i < TRIP_DAYS.length; i++) {
+    if (TRIP_DAYS[i].date === todayStr) { todayDay = TRIP_DAYS[i]; break; }
+  }
+  var expandId = todayDay ? todayDay.id : 'day1';
+
+  // Collapse all day-sections in the itinerary section
+  var allDaySections = document.querySelectorAll('#itinerary .day-section');
+  allDaySections.forEach(function(el) {
+    if (el.id !== expandId) {
+      el.classList.add('collapsed');
+    }
+  });
+
+  // Today summary card
+  if (duringTrip && todayDay) {
+    var summaryWrap = document.getElementById('today-summary');
+    var card = document.getElementById('today-card-inner');
+    var dateLabel = todayStr.replace('2026-', '').replace('-', '/') + ' Day ' + todayDay.num;
+    var mealsHtml = todayDay.meals.slice(0, 3).map(function(m) {
+      return '<div class="today-meal-row"><span class="today-meal-time">' + m.time + '</span><span>' + m.name + '</span></div>';
+    }).join('');
+    card.innerHTML = '<div class="today-card-meta"><div class="today-card-date">' + dateLabel + '</div><div class="today-card-day">Day ' + todayDay.num + '</div><div class="today-card-title">' + todayDay.title + '</div></div><div class="today-card-meals"><div class="today-card-meals-label">本日のハイライト</div>' + mealsHtml + '</div>';
+    summaryWrap.style.display = 'block';
+
+    // Floating button (mobile only — CSS hides on desktop)
+    var btn = document.getElementById('btn-today');
+    btn.textContent = 'Day ' + todayDay.num + ' →';
+    btn.style.display = 'block';
+  }
+}
+
+function scrollToToday() {
+  var todayStr = getTodayInJST();
+  var todayDay = null;
+  for (var i = 0; i < TRIP_DAYS.length; i++) {
+    if (TRIP_DAYS[i].date === todayStr) { todayDay = TRIP_DAYS[i]; break; }
+  }
+  if (!todayDay) return;
+  var el = document.getElementById(todayDay.id);
+  if (el) {
+    if (el.classList.contains('collapsed')) el.classList.remove('collapsed');
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+initDayAccordion();
 
 // Leaflet Map
 var map = L.map('map').setView([25.0421, 121.5079], 13);

@@ -4,10 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>iUMA Travel</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
     :root {
       --bg: #0f1117;
       --surface: rgba(255,255,255,0.035);
@@ -35,23 +34,23 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 24px; height: 52px;
       background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border);
       position: sticky; top: 0; z-index: 100;
     }
     .site-nav { display: flex; gap: 4px; }
     .site-nav a {
-      color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
+      color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 500;
       padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
     }
     .site-nav a:hover, .site-nav a[aria-current="page"] {
-      background: rgba(255,255,255,0.065); color: #f5f5f7;
+      background: var(--surface-hover); color: var(--text);
     }
     .nav-toggle { display: none; }
     .nav-toggle-label { display: none; cursor: pointer; padding: 8px; }
     .nav-toggle-label span,
     .nav-toggle-label span::before,
     .nav-toggle-label span::after {
-      display: block; background: #f5f5f7; height: 2px; width: 20px;
+      display: block; background: var(--text); height: 2px; width: 20px;
       border-radius: 2px; position: relative; transition: .3s;
     }
     .nav-toggle-label span::before,
@@ -64,7 +63,7 @@
         display: none; flex-direction: column; gap: 0;
         position: absolute; top: 52px; left: 0; right: 0; z-index: 200;
         background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(255,255,255,0.08);
+        border-bottom: 1px solid var(--border);
         padding: 8px 0;
       }
       .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
@@ -75,135 +74,170 @@
     }
 
     /* ── Page Layout ── */
-    .page { max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
+    .page { max-width: 720px; margin: 0 auto; padding: 24px 20px 60px; }
 
     .page-header {
-      padding: 32px 0 24px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 28px;
-      opacity: 0; animation: reveal 0.6s cubic-bezier(0.16,1,0.3,1) forwards;
+      margin-bottom: 20px;
     }
     .page-header h1 {
-      font-family: 'Inter', sans-serif;
       font-size: clamp(20px, 2.5vw, 26px);
       font-weight: 700; letter-spacing: -0.02em;
-      color: var(--text);
     }
     .page-sub {
-      font-size: 13px; color: var(--muted);
+      font-size: 12px; color: var(--muted);
       margin-top: 4px;
       font-family: 'JetBrains Mono', monospace;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
 
-    /* ── Grid ── */
-    .trips-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
+    /* ── Section ── */
+    .section { margin-bottom: 32px; }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 10px;
+      padding: 0 4px;
     }
 
-    /* ── Card ── */
-    .trip-card {
+    /* ── Next Trip Hero ── */
+    .next-card {
       display: flex; flex-direction: column;
       text-decoration: none; color: var(--text);
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(255,107,53,0.02));
+      border: 1px solid rgba(255,107,53,0.25);
       border-radius: 12px;
-      padding: 20px 24px;
-      transition: border-color 0.2s, transform 0.2s, background 0.2s;
-      opacity: 0;
+      padding: 18px 20px;
+      transition: all 0.2s;
+      position: relative; overflow: hidden;
     }
-    .trip-card.v { animation: cardReveal 0.5s cubic-bezier(0.16,1,0.3,1) forwards; }
-    .trip-card:hover {
-      border-color: var(--border-hover);
-      background: var(--surface-hover);
+    .next-card:hover {
+      border-color: rgba(255,107,53,0.5);
       transform: translateY(-2px);
     }
-
-    /* "Next Trip" accent */
-    .trip-card.next {
-      border-left: 3px solid var(--page-accent);
+    .next-row1 {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 6px;
     }
-
-    /* Archived */
-    .trip-card.archived { opacity: 0; }
-    .trip-card.archived.v { animation: cardReveal 0.5s cubic-bezier(0.16,1,0.3,1) forwards; filter: opacity(0.4); }
-    .trip-card.archived:hover { filter: opacity(0.65); }
-
-    .card-top {
-      display: flex; align-items: flex-start; justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    .trip-label {
+    .next-badge {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--page-accent);
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      color: var(--page-accent);
     }
-    .trip-card.archived .trip-label { color: var(--muted); }
+    .next-countdown {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 600;
+      background: rgba(255,107,53,0.15);
+      color: var(--page-accent);
+      padding: 4px 10px; border-radius: 12px;
+    }
+    .next-row2 {
+      display: flex; align-items: baseline; gap: 10px;
+      margin-bottom: 6px;
+    }
+    .next-flag { font-size: 22px; line-height: 1; }
+    .next-title { font-size: 19px; font-weight: 700; }
+    .next-meta {
+      font-size: 12px; color: var(--text-secondary);
+      padding-left: 32px;
+    }
 
-    .trip-arrow {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 1px solid var(--border);
-      display: grid; place-items: center;
-      font-size: 14px; color: var(--muted);
-      transition: all 0.25s;
+    /* ── List Row ── */
+    .trips-list { display: flex; flex-direction: column; }
+    .trip-row {
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 12px 12px 4px;
+      text-decoration: none; color: var(--text);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s, padding-left 0.2s;
+      min-height: 56px;
+    }
+    .trip-row:hover {
+      background: var(--surface-hover);
+      padding-left: 8px;
+    }
+    .trip-row:last-child { border-bottom: none; }
+    .row-flag {
+      font-size: 18px; line-height: 1;
+      flex-shrink: 0; width: 24px; text-align: center;
+    }
+    .row-body {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column; gap: 2px;
+    }
+    .row-title {
+      font-size: 14px; font-weight: 600;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .row-meta {
+      font-size: 11px; color: var(--muted);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .row-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; color: var(--muted);
       flex-shrink: 0;
     }
-    .trip-card:hover .trip-arrow {
-      background: var(--page-accent); border-color: var(--page-accent);
-      color: var(--bg); transform: translateX(2px);
+    .row-arrow {
+      color: var(--dim); font-size: 14px;
+      flex-shrink: 0;
+      transition: color 0.15s, transform 0.2s;
     }
-    .trip-card.archived:hover .trip-arrow {
-      background: var(--muted); border-color: var(--muted); color: var(--bg);
+    .trip-row:hover .row-arrow {
+      color: var(--text-secondary); transform: translateX(2px);
     }
 
-    .trip-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 18px; font-weight: 700; line-height: 1.25;
+    /* archived row */
+    .trip-row.archived { opacity: 0.55; }
+    .trip-row.archived:hover { opacity: 0.85; }
+    .trip-row.cancelled { opacity: 0.4; }
+    .trip-row.cancelled .row-title { text-decoration: line-through; text-decoration-color: var(--dim); }
+
+    /* ── Year accordion ── */
+    .year-group {
+      border: 1px solid var(--border);
+      border-radius: 10px;
       margin-bottom: 8px;
+      overflow: hidden;
     }
-    .trip-desc {
-      font-size: 13px; color: var(--text-secondary); line-height: 1.65;
-      flex: 1;
+    .year-toggle {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 16px;
+      background: transparent; border: none; color: var(--text);
+      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
     }
-
-    .trip-tags {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin-top: 14px;
+    .year-toggle:hover { background: var(--surface-hover); }
+    .year-toggle .chevron {
+      color: var(--muted); font-size: 12px;
+      transition: transform 0.2s;
     }
-    .trip-tag {
+    .year-toggle.open .chevron { transform: rotate(90deg); }
+    .year-count {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 10px; font-weight: 500;
-      padding: 3px 9px; border-radius: 5px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.07);
-      color: var(--text-secondary);
+      font-size: 11px; color: var(--muted);
+      margin-left: auto; margin-right: 12px;
     }
+    .year-content {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+      border-top: 1px solid var(--border);
+    }
+    .year-content.open { max-height: 2000px; }
 
     /* ── Footer ── */
     footer {
-      margin-top: 48px; padding: 24px 0;
+      margin-top: 40px; padding: 20px 4px;
       border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .foot-left, .foot-right {
+      display: flex; justify-content: space-between;
       font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--dim);
     }
 
-    @keyframes reveal {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes cardReveal {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 768px) {
-      .page { padding: 0 16px 60px; }
-      .trips-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+    @media (max-width: 640px) {
+      .page { padding: 16px 12px 40px; }
     }
   </style>
 </head>
@@ -221,96 +255,162 @@
 <div class="page">
   <div class="page-header">
     <h1>Travel</h1>
-    <p class="page-sub">旅行プラン一覧</p>
+    <p class="page-sub">旅行プラン</p>
   </div>
 
-  <div class="trips-grid" id="trips"></div>
+  <div id="content"></div>
 
   <footer>
-    <div class="foot-left">iUMA TRAVEL &mdash; 2026</div>
-    <div class="foot-right">TRIP PLANNER</div>
+    <div>iUMA TRAVEL — 2026</div>
+    <div>TRIP PLANNER</div>
   </footer>
 </div>
 
 <script>
   var TRIPS = [
     {
-      label: "Next Trip",
+      flag: "🇹🇼",
       title: "Taipei 2026",
-      desc: "飲茶 × LGBTQ+ × 夜市 × 烏龍茶。4泊5日の食い倒れ旅（Yuma + 大木くん）。",
-      tags: ["4/16\u201320", "2\u540D", "Food \u00d7 LGBTQ+"],
+      meta: "2名 · Food × LGBTQ+ × 夜市",
+      date: "4/16–20",
+      startDate: "2026-04-16",
       url: "taipei.html",
-      next: true
+      status: "next"
     },
     {
-      label: "Local Guide",
+      flag: "🇯🇵",
       title: "Fukuoka",
-      desc: "福岡ローカルガイド。温泉・サウナ・グルメ・エリア別おすすめ。ふくの湯3店舗情報あり。",
-      tags: ["2拠点生活", "温泉 \u00d7 グルメ", "Local"],
-      url: "fukuoka.html"
+      meta: "ローカルガイド · 温泉 × グルメ",
+      date: "通年",
+      url: "fukuoka.html",
+      status: "guide"
     },
     {
-      label: "Completed",
+      flag: "🇯🇵",
       title: "界 霧島 2026",
-      desc: "Hoshino Resorts KAI Kirishima。温泉×3回・霧島神宮・黒酢ランチ・神話の舞。",
-      tags: ["4/9", "1名", "温泉 × 神話"],
+      meta: "1名 · 温泉×3 · 霧島神宮 · 神話",
+      date: "4/9",
+      year: 2026,
       url: "kirishima.html",
-      archived: true
+      status: "completed"
     },
     {
-      label: "Completed",
+      flag: "🇲🇴",
       title: "Macau 2026",
-      desc: "家族4人でマカオを5泊6日。ホテル・カジノ・グルメを満喫。",
-      tags: ["3/5\u201310", "4\u540D", "Family"],
+      meta: "4名 · Family · ホテル × カジノ",
+      date: "3/5–10",
+      year: 2026,
       url: "macau.html",
-      archived: true
+      status: "completed"
     },
     {
-      label: "Cancelled",
+      flag: "🇬🇧",
       title: "London 2026",
-      desc: "\u4E2D\u6771\u30EA\u30B9\u30AF\u306E\u305F\u3081\u4E2D\u6B62\u3002",
-      tags: ["Cancelled"],
+      meta: "中東リスクのため中止",
+      date: "—",
+      year: 2026,
       url: "london.html",
-      archived: true
+      status: "cancelled"
     }
   ];
 
-  function render() {
-    var container = document.getElementById("trips");
-    var cards = [];
+  function daysUntil(dateStr) {
+    var target = new Date(dateStr + "T00:00:00+09:00");
+    var now = new Date();
+    var diff = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+    return diff;
+  }
 
-    TRIPS.forEach(function(t) {
-      var el = document.createElement("a");
-      el.href = t.url;
-      var cls = "trip-card";
-      if (t.next) cls += " next";
-      if (t.archived) cls += " archived";
-      el.className = cls;
-
-      var tagsHtml = (t.tags || []).map(function(tag) {
-        return '<span class="trip-tag">' + tag + '</span>';
-      }).join("");
-
-      el.innerHTML =
-        '<div class="card-top">' +
-          '<span class="trip-label">' + t.label + '</span>' +
-          '<div class="trip-arrow">\u2192</div>' +
+  function renderNext(t) {
+    var days = daysUntil(t.startDate);
+    var countdown = days > 0 ? "あと " + days + " 日" : days === 0 ? "今日出発" : "進行中";
+    return '' +
+      '<a href="' + t.url + '" class="next-card">' +
+        '<div class="next-row1">' +
+          '<span class="next-badge">NEXT TRIP</span>' +
+          '<span class="next-countdown">' + countdown + '</span>' +
         '</div>' +
-        '<div class="trip-title">' + t.title + '</div>' +
-        '<div class="trip-desc">' + t.desc + '</div>' +
-        (tagsHtml ? '<div class="trip-tags">' + tagsHtml + '</div>' : '');
+        '<div class="next-row2">' +
+          '<span class="next-flag">' + t.flag + '</span>' +
+          '<span class="next-title">' + t.title + '</span>' +
+        '</div>' +
+        '<div class="next-meta">' + t.date + ' · ' + t.meta + '</div>' +
+      '</a>';
+  }
 
-      cards.push(el);
-      container.appendChild(el);
-    });
+  function renderRow(t) {
+    var cls = "trip-row";
+    if (t.status === "completed") cls += " archived";
+    if (t.status === "cancelled") cls += " cancelled";
+    return '' +
+      '<a href="' + t.url + '" class="' + cls + '">' +
+        '<span class="row-flag">' + t.flag + '</span>' +
+        '<div class="row-body">' +
+          '<div class="row-title">' + t.title + '</div>' +
+          '<div class="row-meta">' + t.meta + '</div>' +
+        '</div>' +
+        '<span class="row-date">' + t.date + '</span>' +
+        '<span class="row-arrow">→</span>' +
+      '</a>';
+  }
 
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        cards.forEach(function(el, i) {
-          setTimeout(function() { el.classList.add("v"); }, 80 + i * 80);
-        });
+  function render() {
+    var container = document.getElementById("content");
+    var html = '';
+
+    var next = TRIPS.find(function(t) { return t.status === "next"; });
+    var guides = TRIPS.filter(function(t) { return t.status === "guide"; });
+    var past = TRIPS.filter(function(t) { return t.status === "completed" || t.status === "cancelled"; });
+
+    // Next Trip
+    if (next) {
+      html += '<div class="section">' + renderNext(next) + '</div>';
+    }
+
+    // Guides
+    if (guides.length > 0) {
+      html += '<div class="section">';
+      html += '<div class="section-label">Guides</div>';
+      html += '<div class="trips-list">';
+      guides.forEach(function(t) { html += renderRow(t); });
+      html += '</div></div>';
+    }
+
+    // Past trips grouped by year
+    if (past.length > 0) {
+      var byYear = {};
+      past.forEach(function(t) {
+        var y = t.year || "Other";
+        if (!byYear[y]) byYear[y] = [];
+        byYear[y].push(t);
       });
-    });
+      var years = Object.keys(byYear).sort(function(a, b) { return b - a; });
+
+      html += '<div class="section">';
+      html += '<div class="section-label">Past Trips</div>';
+      years.forEach(function(y, i) {
+        var trips = byYear[y];
+        var openCls = i === 0 ? ' open' : '';
+        html += '<div class="year-group">';
+        html += '<button class="year-toggle' + openCls + '" onclick="toggleYear(this)">';
+        html += '<span>' + y + '</span>';
+        html += '<span class="year-count">' + trips.length + ' trips</span>';
+        html += '<span class="chevron">›</span>';
+        html += '</button>';
+        html += '<div class="year-content' + openCls + '">';
+        html += '<div class="trips-list">';
+        trips.forEach(function(t) { html += renderRow(t); });
+        html += '</div></div></div>';
+      });
+      html += '</div>';
+    }
+
+    container.innerHTML = html;
+  }
+
+  function toggleYear(btn) {
+    btn.classList.toggle('open');
+    btn.nextElementSibling.classList.toggle('open');
   }
 
   render();
