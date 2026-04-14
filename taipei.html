@@ -38,62 +38,57 @@
     overflow-x: hidden;
   }
 
-  /* Hero — stock portfolio card pattern */
+  /* Hero — compact next-card pattern (matches index.html) */
   .hero {
-    background: linear-gradient(135deg, #1e0a14, #2a1020, #1e0a14);
-    border-radius: 16px;
-    padding: 32px 40px;
-    margin: 24px auto;
-    max-width: 1100px;
-    border: 1px solid var(--border);
+    display: block;
+    background: linear-gradient(135deg, rgba(232,87,122,0.08), rgba(232,87,122,0.02));
+    border: 1px solid rgba(232,87,122,0.25);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px auto;
+    max-width: 720px;
     position: relative;
     overflow: hidden;
   }
   .hero-content { position: relative; z-index: 1; }
-  .hero h1 {
-    font-size: clamp(20px, 2.5vw, 26px);
-    font-weight: 700;
-    color: var(--text);
+  .hero-row1 {
+    display: flex; align-items: center; justify-content: space-between;
     margin-bottom: 6px;
   }
+  .hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--pink);
+  }
+  .hero-countdown {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    background: rgba(232,87,122,0.15);
+    color: var(--pink);
+    padding: 4px 10px; border-radius: 12px;
+  }
+  .hero-row2 {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 6px;
+  }
+  .hero-flag { font-size: 22px; line-height: 1; }
+  .hero h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
   .hero .subtitle {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--muted);
     font-weight: 400;
-    margin-bottom: 16px;
+    padding-left: 32px;
   }
-  .hero .trip-info {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 16px;
+  .hero-meta {
+    font-size: 12px; color: var(--text-secondary);
+    padding-left: 32px; margin-top: 2px;
   }
-  .info-chip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 500;
-  }
-  /* scroll-hint removed — compact hero */
-
-  /* Countdown — days only (h/m/s shown only < 24h) */
-  .countdown {
-    display: flex;
-    gap: 12px;
-    align-items: baseline;
-    margin-top: 16px;
-  }
-  .countdown-item { text-align: center; }
-  .countdown-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--pink);
-    line-height: 1;
-  }
+  /* Legacy fallbacks (unused after refactor) */
   .countdown-label {
     font-size: 10px;
     color: var(--muted);
@@ -666,18 +661,15 @@
 
   /* Mobile */
   @media (max-width: 768px) {
-    .hero h1 { font-size: 2.2rem; }
+    .hero { margin: 16px 12px; padding: 16px 18px; }
     .section { padding: 2.5rem 1rem; }
     .section-title { font-size: clamp(1.4rem, 4vw, 2rem); }
     .timeline { padding-left: 2rem; }
     .nav-bar a { padding: 6px 10px; font-size: 11px; }
-    .info-chip { font-size: 0.8rem; padding: 0.4rem 1rem; }
-    .countdown-num { font-size: clamp(1.8rem, 5vw, 2.5rem); }
     #map { height: 350px; }
   }
 
   @media (max-width: 640px) {
-    .hero .subtitle { font-size: clamp(0.9rem, 3vw, 1.2rem); }
     .section { padding: 2rem 0.8rem; }
     .section-title { font-size: clamp(1.2rem, 4vw, 1.6rem); }
     .timeline { padding-left: 1.5rem; }
@@ -696,7 +688,6 @@
       display: flex;
       align-items: center;
     }
-    .countdown-num { font-size: clamp(1.5rem, 4.5vw, 2rem); }
     .hotel-grid { grid-template-columns: 1fr; }
     .resto-grid { grid-template-columns: 1fr; }
     .flight-grid { grid-template-columns: 1fr; }
@@ -711,13 +702,8 @@
   }
 
   @media (max-width: 640px) {
-    .hero h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
-    .hero .subtitle { font-size: 0.85rem; }
-    .hero-content { padding: 1rem; }
-    .info-chip { font-size: 0.7rem; padding: 0.3rem 0.8rem; }
-    .countdown { gap: 0.8rem; }
-    .countdown-num { font-size: 1.4rem; }
-    .countdown-label { font-size: 0.6rem; }
+    .hero h1 { font-size: 17px; }
+    .hero-meta { font-size: 11px; }
     .section { padding: 1.5rem 0.6rem; }
     .section-title { font-size: 1.1rem; }
     .nav-bar { padding: 8px 0; gap: 2px; }
@@ -880,19 +866,15 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <h1>TAIPEI 台北</h1>
-    <p class="subtitle">熱炒 × 夜市 × 烏龍茶</p>
-    <div class="trip-info">
-      <span class="info-chip">4月16日(木)〜20日(月)</span>
-      <span class="info-chip">4泊5日</span>
-      <span class="info-chip">2名</span>
+    <div class="hero-row1">
+      <span class="hero-badge">NEXT TRIP</span>
+      <span class="hero-countdown" id="cd-pill">あと -- 日</span>
     </div>
-    <div class="countdown" id="countdown">
-      <div class="countdown-item"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">Days</div></div>
-      <div class="countdown-item" id="cd-hms-wrap" style="display:none;"><div class="countdown-num" id="cd-hours">--</div><div class="countdown-label">Hours</div></div>
-      <div class="countdown-item" id="cd-m-wrap" style="display:none;"><div class="countdown-num" id="cd-mins">--</div><div class="countdown-label">Min</div></div>
-      <div class="countdown-item" id="cd-s-wrap" style="display:none;"><div class="countdown-num" id="cd-secs">--</div><div class="countdown-label">Sec</div></div>
+    <div class="hero-row2">
+      <span class="hero-flag">🇹🇼</span>
+      <h1>TAIPEI 台北</h1>
     </div>
+    <div class="hero-meta">4/16(木)〜20(月) · 4泊5日 · 2名 · 熱炒 × 夜市 × 烏龍茶</div>
   </div>
 </section>
 
@@ -2218,32 +2200,22 @@
 </footer>
 
 <script>
-// Countdown — days only; h/m/s shown only when < 24h
+// Countdown pill — matches index.html NEXT TRIP style
 function updateCountdown() {
-  var target = new Date('2026-04-16T00:00:00+09:00');
+  var start = new Date('2026-04-16T00:00:00+09:00');
+  var end = new Date('2026-04-21T00:00:00+09:00');
   var now = new Date();
-  var diff = target - now;
-  if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '0';
-    document.querySelector('.countdown-label').textContent = 'TODAY!';
-    return;
-  }
-  var d = Math.floor(diff / 86400000);
-  var h = Math.floor((diff % 86400000) / 3600000);
-  var m = Math.floor((diff % 3600000) / 60000);
-  var s = Math.floor((diff % 60000) / 1000);
-  document.getElementById('cd-days').textContent = d;
-  if (d === 0) {
-    document.getElementById('cd-hms-wrap').style.display = '';
-    document.getElementById('cd-m-wrap').style.display = '';
-    document.getElementById('cd-s-wrap').style.display = '';
-    document.getElementById('cd-hours').textContent = h;
-    document.getElementById('cd-mins').textContent = m;
-    document.getElementById('cd-secs').textContent = s;
-  }
+  var pill = document.getElementById('cd-pill');
+  if (!pill) return;
+  if (now >= end) { pill.textContent = '完了'; return; }
+  if (now >= start) { pill.textContent = '進行中'; return; }
+  var diff = start - now;
+  var d = Math.ceil(diff / 86400000);
+  if (d === 0) { pill.textContent = '今日出発'; return; }
+  pill.textContent = 'あと ' + d + ' 日';
 }
 updateCountdown();
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown, 60000);
 
 // Tabs (restaurant)
 function switchTab(id) {
