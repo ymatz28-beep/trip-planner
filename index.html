@@ -296,6 +296,7 @@
       startDate: "2026-04-16",
       url: "taipei.html",
       status: "next",
+      endDate: "2026-04-20",
       booking: {
         flight: "EVA Air BR191/190 羽田↔台北松山",
         outbound: "4/16(木) 12:40 HND → 15:05 TSA",
@@ -399,6 +400,15 @@
   function render() {
     var container = document.getElementById("content");
     var html = '';
+
+    // Auto-promote "next" trips past their endDate to "completed" (strip booking noise after return)
+    var today = new Date(); today.setHours(0,0,0,0);
+    TRIPS.forEach(function(t) {
+      if (t.status === "next" && t.endDate && new Date(t.endDate) < today) {
+        t.status = "completed";
+        delete t.booking;
+      }
+    });
 
     var next = TRIPS.find(function(t) { return t.status === "next"; });
     var guides = TRIPS.filter(function(t) { return t.status === "guide"; });
