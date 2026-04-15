@@ -885,6 +885,7 @@
     <a href="#hotels">ホテル</a>
     <a href="#itinerary">日程</a>
     <a href="#meal-plan">食事一覧</a>
+    <a href="#lgbt-plan">LGBT一覧</a>
     <a href="#restaurants">グルメ</a>
     <a href="#tea">烏龍茶</a>
     <a href="#souvenirs">お土産</a>
@@ -1390,6 +1391,9 @@
     .mt-dinner { background: rgba(232,87,122,0.12); color: var(--pink-light); }
     .mt-snack { background: rgba(255,255,255,0.06); color: var(--muted); }
     .mt-night { background: rgba(156,39,176,0.12); color: #CE93D8; }
+    .mt-sauna { background: rgba(255,107,53,0.14); color: #FFB385; }
+    .mt-bar   { background: rgba(100,181,246,0.14); color: #90CAF9; }
+    .mt-club  { background: rgba(233,30,99,0.16); color: #F48FB1; }
     .mt-reserve { background: rgba(232,87,122,0.2); color: var(--pink); font-weight: 600; }
     .meal-badge-zorro {
       font-size: 0.62rem; padding: 1px 5px; border-radius: 3px;
@@ -1603,6 +1607,112 @@
       list.classList.toggle('open');
     }
   </script>
+</section>
+
+<!-- LGBT Plan -->
+<section class="section" id="lgbt-plan">
+  <h2 class="section-title">LGBTQ+ Plan</h2>
+  <p class="section-sub">サウナ=夕方・夜 ／ クラブ=金・土夜限定 ／ バー=それ以外の夜 <span style="color:var(--muted); margin-left:0.5rem;">詳細は↓の LGBTQ+ Taipei セクション</span></p>
+
+  <div class="meal-plan-day">
+    <div class="meal-day-header open" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">1</div>
+      <div><div class="meal-day-title">到着日・バー夜</div><div class="meal-day-date">4/16（木）</div></div>
+      <div class="meal-day-count">2件</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list open">
+      <div class="meal-item">
+        <span class="meal-time">18:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Hans+Mens+Sauna+Taipei" target="_blank">Hans Men's Sauna</a></span>
+        <span class="meal-type mt-sauna">サウナ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">22:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Cafe+Dalida+Red+House+Taipei" target="_blank">Cafe Dalida（紅樓テラス）</a></span>
+        <span class="meal-type mt-bar">バー</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">2</div>
+      <div><div class="meal-day-title">金曜・クラブ夜</div><div class="meal-day-date">4/17（金）</div></div>
+      <div class="meal-day-count">2件</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">18:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Soi+13+in+Taipei" target="_blank">Soi 13in（台北最人気・雙連）</a></span>
+        <span class="meal-type mt-sauna">サウナ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">23:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=G+Star+Club+Taipei+龍江路" target="_blank">G*Star Club（龍江路・K-POP）</a></span>
+        <span class="meal-type mt-club">クラブ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">3</div>
+      <div><div class="meal-day-title">土曜・WERK! 夜 <span style="color:var(--gold-light); font-size:0.75rem; margin-left:0.4rem;">★ メイン</span></div><div class="meal-day-date">4/18（土）</div></div>
+      <div class="meal-day-count">2件</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">17:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Soi+13+in+Taipei" target="_blank">Soi 13in（土曜18:30ピーク前入り）</a></span>
+        <span class="meal-type mt-sauna">サウナ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">22:00</span>
+        <span class="meal-name"><a href="https://instagram.com/werk_taipei" target="_blank">WERK! @ Triangle（毎月第3土曜・台北最大級）</a></span>
+        <span class="meal-type mt-club">クラブ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">4</div>
+      <div><div class="meal-day-title">日曜・バー夜</div><div class="meal-day-date">4/19（日）</div></div>
+      <div class="meal-day-count">2件</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">18:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Taipei+IO+Sauna" target="_blank">Taipei I/O（ベア・ガチムチ系）</a></span>
+        <span class="meal-type mt-sauna">サウナ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">21:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Mudan+Bar+Red+House+Taipei" target="_blank">Mudan 牡丹（紅樓・広いテラス）</a></span>
+        <span class="meal-type mt-bar">バー</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">5</div>
+      <div><div class="meal-day-title">帰国日</div><div class="meal-day-date">4/20（月）</div></div>
+      <div class="meal-day-count">0件</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item" style="color:var(--muted); font-style:italic;">
+        <span class="meal-time">—</span>
+        <span class="meal-name">16:20 BR190 出発のため夜の予定なし</span>
+        <span class="meal-type" style="background:rgba(255,255,255,0.04); color:var(--muted);">—</span>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Restaurants -->
