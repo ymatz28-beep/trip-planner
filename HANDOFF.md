@@ -1,5 +1,8 @@
 # HANDOFF
 
+## [Constancy] 2026-04-14
+- [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
+
 ## Last Updated
 2026-04-12
 
@@ -12,9 +15,9 @@
 
 ## 台北旅行の概要
 - **日程**: 2026年4月16日〜20日（4泊5日）**確定**
-- **フライト**: EVA Air NRT↔TPE ¥55,376/人 **予約済み**
+- **フライト**: EVA Air HND↔TSA（BR191/190）¥55,376/人 **予約済み**（Agoda予約ID 1707813388 / PNR FD79EM）
 - **ホテル**: 相鉄グランドフレッサ台北西門 **予約済み**
-- **空港**: 桃園国際空港（MRT 50分で市内）
+- **空港**: 台北松山空港 TSA（MRT文湖線+板南線 約20分で西門）
 - **人数**: 2名（Yuma + 大木くん）
 - **テーマ**: 飲茶 × LGBTQ+ × 夜市 × 烏龍茶
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
