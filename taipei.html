@@ -1064,10 +1064,10 @@
         <span class="tag food">カフェ</span>
       </div>
       <div class="timeline-item">
-        <div class="time-label">18:00</div>
-        <div class="activity-title">香港式飲茶</div>
-        <div class="activity-desc">京星港式飲茶 or Tim Ho Wan（添好運）で本格的な点心コース。ハーガウ、チャーシューバオ、腸粉を堪能。<a href="https://maps.google.com/?q=Tim+Ho+Wan+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
-        <span class="tag food">飲茶</span>
+        <div class="time-label">17:00</div>
+        <div class="activity-title">Soi 13in（台北最人気ゲイサウナ）</div>
+        <div class="activity-desc">MRT雙連駅から徒歩7分。B1浴場/ジャグジー/サウナ、B2暗室/個室20室以上。20-40代中心で旅行者も多い。2時間しっかり。夕食は20:00寧夏夜市で4店食べ歩きが担うので飲茶は今回スキップ。<a href="https://maps.google.com/?q=Soi+13+in+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag lgbt">LGBTQ+</span><span class="tag culture">サウナ</span>
       </div>
       <div class="timeline-item">
         <div class="time-label">19:00</div>
@@ -1465,10 +1465,11 @@
         <span class="meal-name"><a href="https://maps.google.com/?q=SunnyHills+Taipei" target="_blank">微熱山丘 SunnyHills（試食）</a></span>
         <span class="meal-type mt-snack">おやつ</span>
       </div>
-      <div class="meal-item">
+      <div class="meal-item" style="color:var(--muted);">
         <span class="meal-time">18:00</span>
-        <span class="meal-name"><a href="https://maps.google.com/?q=Tim+Ho+Wan+Taipei" target="_blank">京星港式飲茶 or Tim Ho Wan</a></span>
-        <span class="meal-type mt-dinner">夕食</span>
+        <span class="meal-name" style="text-decoration:line-through;">京星港式飲茶 or Tim Ho Wan</span>
+        <span class="meal-type" style="background:rgba(255,255,255,0.04); color:var(--muted);">スキップ</span>
+        <span style="font-size:0.72rem; color:var(--muted); margin-left:0.3rem;">→ 17:00 Soi 13in</span>
       </div>
       <div class="meal-item">
         <span class="meal-time">19:00</span>
@@ -1644,11 +1645,16 @@
   <div class="meal-plan-day">
     <div class="meal-day-header" onclick="toggleMealDay(this)">
       <div class="meal-day-num">2</div>
-      <div><div class="meal-day-title">金曜・クラブ夜</div><div class="meal-day-date">4/17（金）</div></div>
-      <div class="meal-day-count">1件</div>
+      <div><div class="meal-day-title">金曜・サウナ&クラブ夜</div><div class="meal-day-date">4/17（金）</div></div>
+      <div class="meal-day-count">2件</div>
       <div class="meal-day-toggle">&#9660;</div>
     </div>
     <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">17:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Soi+13+in+Taipei" target="_blank">Soi 13in（MRT雙連駅・台北最人気）</a></span>
+        <span class="meal-type mt-sauna">サウナ</span>
+      </div>
       <div class="meal-item">
         <span class="meal-time">22:00</span>
         <span class="meal-name"><a href="https://maps.google.com/?q=G+Star+Club+Taipei+龍江路" target="_blank">G*Star Club（龍江路・K-POP/ステージ）</a></span>
@@ -1656,7 +1662,7 @@
       </div>
       <div class="meal-item" style="color:var(--muted); font-size:0.78rem;">
         <span class="meal-time">—</span>
-        <span class="meal-name">※ 日程「22:00 LGBTQ+ナイトアウト」を G*Star に具体化。寧夏夜市(20:00)→タクシー10分で直行</span>
+        <span class="meal-name">※ 18:00 香港式飲茶をスキップして Soi 13in 2h。雙連→赤峰街(面線町)→寧夏夜市→龍江路の動線上でシームレス</span>
         <span class="meal-type" style="background:rgba(255,255,255,0.04); color:var(--muted);">note</span>
       </div>
     </div>
@@ -2426,7 +2432,7 @@ var TRIP_DAYS = [
   { id: 'day1', date: '2026-04-16', num: 1, title: '到着 & 西門町探索',
     meals: [{ time: '18:30', name: '港都熱炒 or 33區熱炒' }, { time: '21:00', name: '王福芋圓' }] },
   { id: 'day2', date: '2026-04-17', num: 2, title: '飲茶 & 永康街',
-    meals: [{ time: '07:00', name: '阜杭豆漿' }, { time: '11:30', name: '杭州小籠湯包' }, { time: '18:00', name: '京星港式飲茶' }] },
+    meals: [{ time: '07:00', name: '阜杭豆漿' }, { time: '11:30', name: '杭州小籠湯包' }, { time: '20:00', name: '寧夏夜市（4店食べ歩き）' }] },
   { id: 'day3', date: '2026-04-18', num: 3, title: 'ミシュラン & 夜市',
     meals: [{ time: '09:00', name: '北北車魯肉飯' }, { time: '16:00', name: '餃匠' }, { time: '18:30', name: '饒河夜市' }] },
   { id: 'day4', date: '2026-04-19', num: 4, title: 'リラックス & 食い倒れ',
