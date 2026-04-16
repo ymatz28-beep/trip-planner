@@ -4,8 +4,13 @@ on:
   issues:
     types: [labeled]
 
+permissions:
+  contents: write
+  issues: write
+
 jobs:
   update:
+    if: contains(github.event.issue.labels.*.name, 'update')
     uses: ymatz28-beep/shared-workflows/.github/workflows/claude-issue-handler.yml@main
     with:
       claude_prompt: |
