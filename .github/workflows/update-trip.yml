@@ -6,77 +6,23 @@ on:
 
 jobs:
   update:
-    if: contains(github.event.issue.labels.*.name, 'update')
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    permissions:
-      contents: write
-      issues: write
+    uses: ymatz28-beep/shared-workflows/.github/workflows/claude-issue-handler.yml@main
+    with:
+      claude_prompt: |
+        あなたはtrip-plannerプロジェクトのメンテナーです。
+        以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
 
-    steps:
-      - uses: actions/checkout@v4
+        ## ルール
+        - HANDOFF.md を読んで現状を把握してから編集
+        - 該当するHTMLファイル(taipei.html, macau.html, london.html, fukuoka.html, kirishima.html, index.html)を直接編集
+        - 新しい店舗やスポットを追加する場合はGoogle Mapsリンク付き
+        - デザインシステム準拠（既存HTMLのCSS変数・クラス名をそのまま使う）
+        - HANDOFF.md も更新内容に合わせて更新
+      success_comment: |
+        反映完了 ✅
 
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
+        https://ymatz28-beep.github.io/trip-planner/
 
-      - name: Apply trip plan update
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          claude -p --dangerously-skip-permissions "
-          あなたはtrip-plannerプロジェクトのメンテナーです。
-          以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
-
-          ## 指示内容
-          タイトル: ${{ github.event.issue.title }}
-          本文:
-          ${{ github.event.issue.body }}
-
-          ## ルール
-          - HANDOFF.md を読んで現状を把握してから編集
-          - 該当するHTMLファイル(taipei.html, macau.html, london.html, fukuoka.html, kirishima.html, index.html)を直接編集
-          - 新しい店舗やスポットを追加する場合はGoogle Mapsリンク付き
-          - デザインシステム準拠（既存HTMLのCSS変数・クラス名をそのまま使う）
-          - HANDOFF.md も更新内容に合わせて更新
-          - 編集が終わったら変更内容のサマリを出力
-          "
-
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then
-            echo "No changes to commit"
-            echo "NO_CHANGES=true" >> $GITHUB_ENV
-          else
-            git add -A
-            git commit -m "update: ${{ github.event.issue.title }}
-
-          Triggered by #${{ github.event.issue.number }}
-          Co-Authored-By: Claude Code <noreply@anthropic.com>"
-            git push
-            echo "NO_CHANGES=false" >> $GITHUB_ENV
-          fi
-
-      - name: Comment on issue
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const noChanges = process.env.NO_CHANGES === 'true';
-            const body = noChanges
-              ? '変更対象が見つかりませんでした。指示内容を確認してください。'
-              : `反映完了 ✅\n\nhttps://ymatz28-beep.github.io/trip-planner/\n\nキャッシュ(10分)のためハードリロード推奨。`;
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body
-            });
-            if (!noChanges) {
-              await github.rest.issues.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                state: 'closed'
-              });
-            }
+        キャッシュ(10分)のためハードリロード推奨。
+    secrets:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
