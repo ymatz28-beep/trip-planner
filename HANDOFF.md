@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-16
+2026-04-16 (2回目)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -140,6 +140,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-16 (2): Before: Day2タイムライン空白(17:30→22:00)・Fairy Tapeiのtimeline-itemラッパー欠落・LGBTQ+プランDay2がG*Star Club(旧)・Soi 13in時刻17:00・メールプランDay4南機場夜市17:00 → After: Day2タイムラインに19:00「面線町→寧夏夜市→豆花荘」追加・Fairy Taipeiラッパー修正・LGBTQ+プランDay2をFairy Taipeiに更新・Soi 13in時刻17:30に統一・南機場夜市17:30に修正
 - 2026-04-16: Before: Day2朝食=阜杭豆漿(外食)、Day2夜=G*Star Club、Day3=中正紀念堂あり、Day4=足つぼなし → After: Day2朝食→ホテル朝食(武蔵野森珈琲)、Day2夜→Fairy Taipei、中正紀念堂削除、Day4に足つぼマッサージ(16:30)追加・南機場夜市17:30に変更
 - 2026-04-11: Before: taipei.html全21店舗がプレーンテキスト → After: 全店にGoogle Mapsリンク+CSSスタイル追加
 - 2026-04-09: Before: london/taipei-foodに#f87171/#6366f1ハードコード3箇所 → After: var(--red-light)/var(--accent)に修正、Constancy WARN 0件
