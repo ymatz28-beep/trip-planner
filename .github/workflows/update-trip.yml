@@ -1,81 +1,43 @@
 name: Update Trip Plan
 
 on:
+  issue_comment:
+    types: [created]
   issues:
     types: [labeled]
 
 jobs:
   update:
-    if: contains(github.event.issue.labels.*.name, 'update')
+    if: |
+      (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'update')) ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
       issues: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Claude Code
-        run: npm install -g @anthropic-ai/claude-code
-
-      - name: Apply trip plan update
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: |
-          claude -p --dangerously-skip-permissions "
-          あなたはtrip-plannerプロジェクトのメンテナーです。
-          以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
-
-          ## 指示内容
-          タイトル: ${{ github.event.issue.title }}
-          本文:
-          ${{ github.event.issue.body }}
-
-          ## ルール
-          - HANDOFF.md を読んで現状を把握してから編集
-          - 該当するHTMLファイル(taipei.html, macau.html, london.html, index.html)を直接編集
-          - デザインシステム準拠（Inter/JetBrains Monoフォント、iUMAトークン、コンパクトhero）
-          - HANDOFF.md も更新内容に合わせて更新
-          - 編集が終わったら変更内容のサマリを出力
-          "
-
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet; then
-            echo "No changes to commit"
-            echo "NO_CHANGES=true" >> $GITHUB_ENV
-          else
-            git add -A
-            git commit -m "update: ${{ github.event.issue.title }}
-
-          Triggered by #${{ github.event.issue.number }}
-          Co-Authored-By: Claude Code <noreply@anthropic.com>"
-            git push
-            echo "NO_CHANGES=false" >> $GITHUB_ENV
-          fi
-
-      - name: Comment on issue
-        uses: actions/github-script@v7
+      - uses: anthropics/claude-code-action@v1
         with:
-          script: |
-            const noChanges = process.env.NO_CHANGES === 'true';
-            const body = noChanges
-              ? '変更対象が見つかりませんでした。指示内容を確認してください。'
-              : `反映完了\n\nhttps://ymatz28-beep.github.io/trip-planner/\n\nキャッシュ(10分)のためハードリロード推奨。`;
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-              body
-            });
-            if (!noChanges) {
-              await github.rest.issues.update({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                state: 'closed'
-              });
-            }
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          trigger_phrase: "@claude"
+          prompt: |
+            あなたはtrip-plannerプロジェクトのメンテナーです。
+            以下のGitHub Issueの指示に従い、該当HTMLファイルを編集してください。
+
+            ## 指示内容
+            タイトル: ${{ github.event.issue.title }}
+            本文:
+            ${{ github.event.issue.body }}
+
+            ## ルール
+            - HANDOFF.md を読んで現状を把握してから編集
+            - 該当するHTMLファイル(taipei.html, macau.html, london.html, index.html)を直接編集
+            - デザインシステム準拠（Inter/JetBrains Monoフォント、iUMAトークン、コンパクトhero）
+            - HANDOFF.md も更新内容に合わせて更新
+            - 変更がなければその旨コメント
+            - 変更があれば完了後にIssueをcloseする
