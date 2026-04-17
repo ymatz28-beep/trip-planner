@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17 (Day2夕食→鼎王麻辣鍋, Day3迪化街に林華泰茶行追加, Day4足つぼ削除・遅めスタート)
+2026-04-17 夜 (Day3 WERK! @ Triangle キャンセルにより削除、Day4ヘッダー修正)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,10 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (WERK! @ Triangle キャンセル対応 2026-04-17夜)
+- **Before**: Day 3（4/18 土）22:00「WERK! @ Triangle」が日程に組込み
+- **After**: WERK!イベントキャンセルのため、Day3タイムラインからWERK!を削除。22:00を「Soi 13in（ゲイサウナ or バー街散策）」に変更。Day 4タイトルから「WERK!明け」を削除。食事トラッカーDay 3を「土曜・WERK! 夜」→「土曜夜・自由時間」に変更。LGBTQ+イベント情報に[キャンセル]タグを追加。Triangle説明を「第3土曜ゲイナイト」→「ゲイクラブ・ダンスフロア」に修正
 
 ## Completed (旅行中アップデート4件 2026-04-17)
 - **足つぼ**: Day2（4/17）に実施済みのため Day4（4/19）16:30の足つぼエントリーを削除
