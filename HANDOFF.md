@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17 夜 (Day3 WERK! @ Triangle キャンセルにより削除、Day4ヘッダー修正)
+2026-04-17 夜 (index.htmlフッターに「v3 reply test」追加)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,10 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (index.htmlフッター更新 2026-04-17夜)
+- **Before**: フッターに「iUMA TRAVEL — 2026」「TRIP PLANNER」の2項目のみ
+- **After**: フッターに「v3 reply test」を追加。3項目構成に更新
 
 ## Completed (WERK! @ Triangle キャンセル対応 2026-04-17夜)
 - **Before**: Day 3（4/18 土）22:00「WERK! @ Triangle」が日程に組込み
