@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17 (富邦美術館 Fubon Art Museum を Day4 に追加)
+2026-04-17 (Day2夕食→鼎王麻辣鍋, Day3迪化街に林華泰茶行追加, Day4足つぼ削除・遅めスタート)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,12 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (旅行中アップデート4件 2026-04-17)
+- **足つぼ**: Day2（4/17）に実施済みのため Day4（4/19）16:30の足つぼエントリーを削除
+- **今日の夕食**: Day2 19:00 を「面線町→寧夏夜市→豆花荘」から「Tripod King 鼎王麻辣鍋（西門町成都店）」に変更。面線は21:00間食として別途
+- **林華泰茶行**: Day3（4/18）14:00 迪化街散策の説明に明示追加・Google Mapsリンク付与（Day5にも既存）
+- **Day4 遅めスタート**: WERK!翌朝のため 08:00曾家豆漿・09:30四海豆漿大王・10:00富邦美術館を削除し 12:30 永康牛肉麵ブランチスタートに変更。食事トラッカーも6食→4食に更新
 
 ## Completed (富邦美術館 Fubon Art Museum 追加 2026-04-17)
 - **Before**: Day 4（4/19 日）に現代アート美術館の訪問が未計画
@@ -153,6 +159,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-17 (6): Before: Day2夕食=面線町→寧夏夜市、Day3迪化街に林華泰未記載、Day4=足つぼ16:30+早朝スタート → After: Day2夕食を鼎王麻辣鍋（西門町）に変更・面線を21:00間食へ。Day3迪化街に林華泰茶行追加。Day4=足つぼ削除+08:00〜10:00早朝3件削除・12:30ブランチスタートに変更
 - 2026-04-17 (5): Before: taipei.html Day4 に富邦美術館未記載 → After: Day4 10:00「富邦美術館 Fubon Art Museum」追加・Google Mapsリンク付与。永康牛肉麵を11:00→11:30に調整
 - 2026-04-17 (4): Before: taipei.html Day4 18:30「富錦台菜香檳」（松山區富錦街）→ After: 「富錦樹台菜香檳 敦北店」に更新。店名・説明・Maps リンク・食事トラッカー・レストランカード・JS データ・チェックリスト・21:00 散策アクティビティを一括修正
 - 2026-04-17 (3): Before: taipei.html Day2 14:00「大安エリア カフェ巡り」のactivity-descにGoogle Mapsリンクなし → After: `https://maps.google.com/?q=大安區+台北市+咖啡` リンクを追加
