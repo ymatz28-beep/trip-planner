@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17 (大安エリア カフェ巡り Mapリンク追加)
+2026-04-17 (富錦樹台菜香檳 敦北店に更新)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -149,6 +149,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-17 (4): Before: taipei.html Day4 18:30「富錦台菜香檳」（松山區富錦街）→ After: 「富錦樹台菜香檳 敦北店」に更新。店名・説明・Maps リンク・食事トラッカー・レストランカード・JS データ・チェックリスト・21:00 散策アクティビティを一括修正
 - 2026-04-17 (3): Before: taipei.html Day2 14:00「大安エリア カフェ巡り」のactivity-descにGoogle Mapsリンクなし → After: `https://maps.google.com/?q=大安區+台北市+咖啡` リンクを追加
 - 2026-04-17 (2): Before: アートスポット未計画 → After: Day2(13:00)にEach Modern（亞紀畫廊）、Day3(10:00)に臺北當代藝術館 MOCA Taipei を追加。Google Mapsリンク付与、Day3タイトル更新
 - 2026-04-17: Before: 微熱山丘 SunnyHills が Day2（14:00）に配置・民生東路から大安への非効率ルート → After: Day5（最終日 12:30）に移動、空港前立ち寄りに最適化。Day2 カフェ巡り15:30→14:00繰り上げ
