@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17 (富錦樹台菜香檳 敦北店に更新)
+2026-04-17 (富邦美術館 Fubon Art Museum を Day4 に追加)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,10 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (富邦美術館 Fubon Art Museum 追加 2026-04-17)
+- **Before**: Day 4（4/19 日）に現代アート美術館の訪問が未計画
+- **After**: Day 4（4/19 日）10:00 に富邦美術館 Fubon Art Museum を追加。2023年開館の台北最新ミュージアム。四海豆漿スキップ推奨・10:00開館。Google Mapsリンク付与。永康牛肉麵の時刻を11:00→11:30に調整
 
 ## Completed (アートスポット2件追加 2026-04-17)
 - **Before**: taipei.html にアートギャラリー・美術館の訪問が未計画
@@ -149,6 +153,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-17 (5): Before: taipei.html Day4 に富邦美術館未記載 → After: Day4 10:00「富邦美術館 Fubon Art Museum」追加・Google Mapsリンク付与。永康牛肉麵を11:00→11:30に調整
 - 2026-04-17 (4): Before: taipei.html Day4 18:30「富錦台菜香檳」（松山區富錦街）→ After: 「富錦樹台菜香檳 敦北店」に更新。店名・説明・Maps リンク・食事トラッカー・レストランカード・JS データ・チェックリスト・21:00 散策アクティビティを一括修正
 - 2026-04-17 (3): Before: taipei.html Day2 14:00「大安エリア カフェ巡り」のactivity-descにGoogle Mapsリンクなし → After: `https://maps.google.com/?q=大安區+台北市+咖啡` リンクを追加
 - 2026-04-17 (2): Before: アートスポット未計画 → After: Day2(13:00)にEach Modern（亞紀畫廊）、Day3(10:00)に臺北當代藝術館 MOCA Taipei を追加。Google Mapsリンク付与、Day3タイトル更新
