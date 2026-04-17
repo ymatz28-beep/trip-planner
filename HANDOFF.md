@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-16 (3回目)
+2026-04-17
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,11 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (微熱山丘 SunnyHills を最終日（Day 5）に移動 2026-04-17)
+- **Before**: 微熱山丘 SunnyHills が Day 2（4/17）14:00 に配置。民生東路5段（松山エリア）から大安エリアへの非効率な移動ルート
+- **After**: Day 2 から SunnyHills を削除し Day 5（最終日 4/20）12:30 に移動。空港前立ち寄りとして松山空港との動線を最適化（徒歩10分/MRT1駅）。Day 5 タイムラインを「チェックアウト 11:30 → SunnyHills 12:30 → 松山空港 14:00」に再構成。Day 2 の 15:30 カフェ巡りを 14:00 に繰り上げ。Day 5 食事プラン（件数「2食」→「2食+おやつ」）も更新
+- **Commits**: 未コミット
 
 ## Completed (taipei.html 全店舗にGoogle Mapsリンク追加 2026-04-11)
 - **Before**: taipei.html の全21店舗（面線町、寧夏夜市、小品雅廚、北北車魯肉飯、朱記餡餅、Ice Monster、饒河夜市、四海豆漿大王、永康牛肉麵、嘟嘟水餃、南機場夜市、富錦台菜香檳、李記豆漿、大稻埕米粉湯 等）がプレーンテキストで、タップしても地図が開かなかった
@@ -140,6 +145,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-17: Before: 微熱山丘 SunnyHills が Day2（14:00）に配置・民生東路から大安への非効率ルート → After: Day5（最終日 12:30）に移動、空港前立ち寄りに最適化。Day2 カフェ巡り15:30→14:00繰り上げ
 - 2026-04-16 (3): Before: taipei.html/index.htmlでBR191出発時刻が12:40（誤）→ After: Daily Digest 4/16が11:40を確認、11:40→15:05(3h25m)に修正（taipei.html Flights+Day1タイムライン、index.html booking.outbound）
 - 2026-04-16 (2): Before: Day2タイムライン空白(17:30→22:00)・Fairy Tapeiのtimeline-itemラッパー欠落・LGBTQ+プランDay2がG*Star Club(旧)・Soi 13in時刻17:00・メールプランDay4南機場夜市17:00 → After: Day2タイムラインに19:00「面線町→寧夏夜市→豆花荘」追加・Fairy Taipeiラッパー修正・LGBTQ+プランDay2をFairy Taipeiに更新・Soi 13in時刻17:30に統一・南機場夜市17:30に修正
 - 2026-04-16: Before: Day2朝食=阜杭豆漿(外食)、Day2夜=G*Star Club、Day3=中正紀念堂あり、Day4=足つぼなし → After: Day2朝食→ホテル朝食(武蔵野森珈琲)、Day2夜→Fairy Taipei、中正紀念堂削除、Day4に足つぼマッサージ(16:30)追加・南機場夜市17:30に変更
