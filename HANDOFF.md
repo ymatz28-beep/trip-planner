@@ -4,7 +4,7 @@
 - [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
 
 ## Last Updated
-2026-04-17
+2026-04-17 (アートスポット追加)
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +23,10 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (アートスポット2件追加 2026-04-17)
+- **Before**: taipei.html にアートギャラリー・美術館の訪問が未計画
+- **After**: Day 2（4/17 金）13:00 に Each Modern（亞紀畫廊）を追加（大安区・ランチ後に徒歩圏内）。Day 3（4/18 土）10:00 に 臺北當代藝術館 MOCA Taipei を追加（阜杭豆漿後・迪化街への導線上）。Day 3タイトルを「ミシュラン & 夜市」→「アート & ミシュラン & 夜市」に更新。両スポットにGoogle Mapsリンク付与
 
 ## Completed (微熱山丘 SunnyHills を最終日（Day 5）に移動 2026-04-17)
 - **Before**: 微熱山丘 SunnyHills が Day 2（4/17）14:00 に配置。民生東路5段（松山エリア）から大安エリアへの非効率な移動ルート
@@ -145,6 +149,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-17 (2): Before: アートスポット未計画 → After: Day2(13:00)にEach Modern（亞紀畫廊）、Day3(10:00)に臺北當代藝術館 MOCA Taipei を追加。Google Mapsリンク付与、Day3タイトル更新
 - 2026-04-17: Before: 微熱山丘 SunnyHills が Day2（14:00）に配置・民生東路から大安への非効率ルート → After: Day5（最終日 12:30）に移動、空港前立ち寄りに最適化。Day2 カフェ巡り15:30→14:00繰り上げ
 - 2026-04-16 (3): Before: taipei.html/index.htmlでBR191出発時刻が12:40（誤）→ After: Daily Digest 4/16が11:40を確認、11:40→15:05(3h25m)に修正（taipei.html Flights+Day1タイムライン、index.html booking.outbound）
 - 2026-04-16 (2): Before: Day2タイムライン空白(17:30→22:00)・Fairy Tapeiのtimeline-itemラッパー欠落・LGBTQ+プランDay2がG*Star Club(旧)・Soi 13in時刻17:00・メールプランDay4南機場夜市17:00 → After: Day2タイムラインに19:00「面線町→寧夏夜市→豆花荘」追加・Fairy Taipeiラッパー修正・LGBTQ+プランDay2をFairy Taipeiに更新・Soi 13in時刻17:30に統一・南機場夜市17:30に修正
