@@ -27,17 +27,17 @@
 ## Completed (微熱山丘 SunnyHills を最終日（Day 5）に移動 2026-04-17)
 - **Before**: 微熱山丘 SunnyHills が Day 2（4/17）14:00 に配置。民生東路5段（松山エリア）から大安エリアへの非効率な移動ルート
 - **After**: Day 2 から SunnyHills を削除し Day 5（最終日 4/20）12:30 に移動。空港前立ち寄りとして松山空港との動線を最適化（徒歩10分/MRT1駅）。Day 5 タイムラインを「チェックアウト 11:30 → SunnyHills 12:30 → 松山空港 14:00」に再構成。Day 2 の 15:30 カフェ巡りを 14:00 に繰り上げ。Day 5 食事プラン（件数「2食」→「2食+おやつ」）も更新
-- **Commits**: 未コミット
+- **Commits**: df3cd5b
 
 ## Completed (taipei.html 全店舗にGoogle Mapsリンク追加 2026-04-11)
 - **Before**: taipei.html の全21店舗（面線町、寧夏夜市、小品雅廚、北北車魯肉飯、朱記餡餅、Ice Monster、饒河夜市、四海豆漿大王、永康牛肉麵、嘟嘟水餃、南機場夜市、富錦台菜香檳、李記豆漿、大稻埕米粉湯 等）がプレーンテキストで、タップしても地図が開かなかった
 - **After**: 全21店舗の店名にGoogle Mapsリンク（`<a href="https://maps.google.com/?q=..." target="_blank">`）を付与。CSSに `.meal-name a` スタイル追加（ドット下線+ホバーでピンク色変化）。スマホで店名タップ→即Google Maps遷移が可能に
-- **Commits**: 未コミット
+- **Commits**: df3cd5b
 
 ## Completed (Constancy警告 デザイントークン残存修正 2026-04-09)
 - **Before**: london.html L1180/L1211に `color:#f87171`（2箇所）、taipei-food.html L35に `color:#6366f1`（1箇所）がハードコードで残存。Constancy design_token_complianceが3件WARN検出
 - **After**: london.html `#f87171`→`var(--red-light)` 2箇所修正。taipei-food.html `#6366f1`→`var(--accent)` 1箇所修正。Constancy WARN 3件→0件
-- **Commits**: 未コミット
+- **Commits**: df3cd5b
 
 ## Completed (霧島旅行ガイド kirishima.html Day1行程最適化 2026-04-09)
 - **Before**: Day1午後に硫黄谷温泉（霧島ホテル立ち寄り湯）が含まれていたが、界 霧島の露天風呂で十分。温泉ガイドが3湯構成（朝・昼外湯・夜）で冗長。帰着16:30で道の駅が未訪問
@@ -82,7 +82,7 @@
 ## 次回アクション（優先順）
 1. **fukuoka.html 全面改修実行**: サウナ9施設/温泉10箇所/ドライブ2コース/モデルプラン/市内観光・グルメ拡充。macau.htmlのデザインパターンを参考に同品質で構築
 2. **fukuoka.html アクセント色修正判断**: #C47D4E→#FF8C42に修正するか（全面改修と同時対応推奨）
-3. **台北 最終調整**: 日程表の各スポット時間配分、移動ルート最適化（出発まで約23日）
+3. **台北帰国後レビュー**: 旅行終了（4/20帰着）後に実際の訪問を踏まえて情報を更新
 4. **改善: taipei-food.htmlとtaipei.htmlのグルメ情報重複整理**: ゾロ推薦追加でtaipei.html内のグルメ密度が上がった。taipei-food.htmlとの役割分担・情報重複を整理する余地あり
 
 ## Key Decisions
@@ -132,7 +132,7 @@
     - 未確定の選択肢（4泊/5泊タブ等）が確定で不要になったら削除
 
 ## ブロッカー / 注意事項
-- 台北旅行進行中（4/16出発 → 4/20帰着）— 未コミット変更あり
+- 台北旅行進行中（4/16出発 → 4/20帰着）— すべての変更 df3cd5b コミット済み
 - GitHub Pages はキャッシュが強い: Cmd+Shift+R でハードリロード
 - property-report, report-dashboardのGitHub Actions未テスト（キー設定のみ完了）
 
