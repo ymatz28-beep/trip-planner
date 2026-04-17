@@ -1,10 +1,11 @@
 # HANDOFF
 
-## [Constancy] 2026-04-14
-- [ERROR] github_actions_health: Trip Planner: 'Update Trip Plan' 2回連続失敗. `gh run view --repo ymatz28-beep/trip-planner --log-failed` で確認
+## [Constancy] 2026-04-17
+- [WARN] design_token_compliance: Line 71: hardcoded #22c55e should be var(--green)
+- [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
-2026-04-17 夜 (index.htmlフッターに「v3 reply test」追加)
+2026-04-17 夜 — GAS v3 close-poll + 誤発火Issue 13件クローズ + Haiku default コスト削減 + index.htmlフッターに「v3 reply test」追加（E2E検証）
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -23,6 +24,17 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (Gmail→Issue Routine v3 安定化 + 誤発火 Issue 大量クローズ 2026-04-17)
+- `scripts/gmail-to-issue.gs` v2→v3 改修:
+  - v2 (subject 限定判定 / -in:drafts 除外 / Message-ID dedup / 元スレッド Reply 受付・完了通知)
+  - v3 (close-poll 追加 — Issue が closed になったら元 Gmail スレッドへ `反映完了 ✅` Reply)
+- 誤発火 Issue 13件を一括クローズ（#11,#12,#17,#18,#19,#25,#27,#28,#29,#30,#32,#33,#34）。原因は旧 GAS (v1) が Gmail 下書き autosave + subject+body 検索で 1通→5 Issue 分裂発火していたこと
+- 7段階Routine パターン確立（memory `project_email_routine_pattern.md`）: 受信/dedup/空除外/受付Reply/Issue化/完了Reply/進捗更新
+- **絵文字文字化け修正**: L87 `🔄`（SMP, サロゲートペア）→ `⏳`（BMP）。GmailApp.thread.reply() が SMP を破損する既知挙動への対応
+- **E2E 検証完了 (2026-04-17夜)**: #38 で `受付けました ⏳` → `Issue 作成完了 ✅` → `反映完了 ✅` の3段階 Reply が元 Gmail スレッドに正常到達
+- **v3 本番デプロイ済み**: script.google.com のプロジェクトに v3 貼替完了
+- **Commits**: e4d8498
 
 ## Completed (index.htmlフッター更新 2026-04-17夜)
 - **Before**: フッターに「iUMA TRAVEL — 2026」「TRIP PLANNER」の2項目のみ
