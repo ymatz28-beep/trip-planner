@@ -5,6 +5,8 @@
 - [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
+2026-04-18 (3) — **寧夏夜市とJinan Antique Marketを復活・追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 17:00に寧夏夜市を追加（赤峰街・MRT雙連駅徒歩3分）。Day 3 15:00にJinan Antique Market 錦安市場を追加。ゲイサウナ時間枠はすでに設定済み（Day 3 22:00 Soi 13in、Day 4 13:00選択制）。Google Mapsリンク付与。
+
 2026-04-18 (2) — **阜杭豆漿を Day 3 朝から Day 4 朝に移動**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 には阜杭豆漿に行かなかったため、Day 4 朝 07:00 に変更。Day 4 timeline 先頭に追加、meal-plan-day のカウントを 3食 → 4食 に更新。Day 3 朝食は削除。
 
 2026-04-18 — **富錦樹台菜香檳 敦北店を Day 4 18:30 ディナーから Day 5 12:30 出発前ランチに移動**。Yuma Tejima GitHub Issue「旅行更新」対応。松山空港に最も近いため、ランチ利用が効率的。Day 4 の 18:30 は新提案「足つぼマッサージ + 永康街 bar 散策」に変更。導線最適化：Day 5 チェックアウト 11:30 → MRT → 富錦樹ランチ 12:30 → SunnyHills 13:30 → 松山空港 14:00
