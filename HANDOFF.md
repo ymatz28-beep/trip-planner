@@ -5,6 +5,8 @@
 - [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
+2026-04-18 (4) — **Cosma Taipei ゲイナイト追加 & バー立ち寄り追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 22:00 の紅樓バー街散策を Cosma Taipei ゲイナイト に変更。Day 3 21:00 に Hunt or Commander D（バー選択肢）を新規追加。Day 3 タイトルを「アート & 烏龍茶 & 寧夏夜市」→「アート & 烏龍茶 & 寧夏夜市 & ゲイナイト」に更新。食事プラン Day 3 を寧夏夜市に統一・小品雅廚説明を「WERK!後」→「ゲイナイト後」に修正。LGBTQ+ セクションに Cosma Taipei を新規追加・WERK! キャンセル通知を更新。Google Mapsリンク付与。
+
 2026-04-18 (3) — **寧夏夜市とJinan Antique Marketを復活・追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 17:00に寧夏夜市を追加（赤峰街・MRT雙連駅徒歩3分）。Day 3 15:00にJinan Antique Market 錦安市場を追加。ゲイサウナ時間枠はすでに設定済み（Day 3 22:00 Soi 13in、Day 4 13:00選択制）。Google Mapsリンク付与。
 
 2026-04-18 (2) — **阜杭豆漿を Day 3 朝から Day 4 朝に移動**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 には阜杭豆漿に行かなかったため、Day 4 朝 07:00 に変更。Day 4 timeline 先頭に追加、meal-plan-day のカウントを 3食 → 4食 に更新。Day 3 朝食は削除。
@@ -187,6 +189,8 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-18 (4): Before: Day 3 22:00「紅樓バー街散策」・LGBTQ+セクションにCosma未記載・小品雅廚「WERK!後」 → After: Day 3 22:00「Cosma Taipei ゲイナイト」に変更・Day 3 21:00「Hunt or Commander D（選択制）」新規追加。Day 3 タイトル「アート & 烏龍茶 & 寧夏夜市」→「アート & 烏龍茶 & 寧夏夜市 & ゲイナイト」。LGBTQ+ セクションに Cosma Taipei 詳細記載・WERK!キャンセル通知更新。食事プラン 寧夏夜市統一・小品雅廚説明「ゲイナイト後」に修正。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
+- 2026-04-18 (3): Before: Day 3 22:00「紅樓バー街散策」のまま → After（未確認だがこの時点では紅樓のまま）
 - 2026-04-18 (2): Before: Day 4 18:30 富錦樹台菜香檳 敦北店（ディナー）+ Day 5 朝食・大稻埕後 12:30 SunnyHills → After: Day 4 18:30 を「足つぼマッサージ + 永康街 bar 散策」に変更。Day 5 スケジュール再編成：11:30 チェックアウト → 12:30 富錦樹台菜香檳 敦北店（ランチ・出発前）→ 13:30 SunnyHills → 14:00 松山空港。食事トラッカーも連動更新（Day4 4食→3食、Day5 2食+おやつ→3食+おやつ）。JavaScript meals配列、checklist、resto-card 全て同期。GitHub Issue Yuma Tejima 対応
 - 2026-04-18: Before: taipei.html Day4 に富邦美術館が欠落（2026-04-17で追加後、削除されていた） → After: Day4 10:00「富邦美術館 Fubon Art Museum」復活。2023年開館・台北101 B1F・入場料NT$250。ホテル→MRT→信義安和→101→永康牛肉麺の導線明記。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
 - 2026-04-17 (6): Before: Day2夕食=面線町→寧夏夜市、Day3迪化街に林華泰未記載、Day4=足つぼ16:30+早朝スタート → After: Day2夕食を鼎王麻辣鍋（西門町）に変更・面線を21:00間食へ。Day3迪化街に林華泰茶行追加。Day4=足つぼ削除+08:00〜10:00早朝3件削除・12:30ブランチスタートに変更
