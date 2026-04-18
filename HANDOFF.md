@@ -5,7 +5,7 @@
 - [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
-2026-04-17 夜 — GAS v3 close-poll + 誤発火Issue 13件クローズ + Haiku default コスト削減 + index.htmlフッターに「v3 reply test」追加（E2E検証）
+2026-04-18 — 富邦美術館 Fubon Art Museum を Day 4 10:00 に復活。GitHub Issue 依頼対応。導線：ホテル（西門）→ MRT→信義安和駅→台北101地下1F→永康牛肉麵（12:30）
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -24,6 +24,10 @@
 - **大木くん**: 酒飲み。クラフトビール、カクテル好き
 - **Yuma**: ノンアル。LGBT。食（小籠包、飲茶、夜市B級グルメ）重視
 - **注目イベント**: 4/18（土）= WERK! @ Triangle（毎月第3土曜の台北最大級ゲイナイト）
+
+## Completed (富邦美術館 Fubon Art Museum 復活 2026-04-18)
+- **Before**: Day 4（4/19 日）タイムラインに富邦美術館が欠落。2026-04-17の更新で追加されたが、その後に削除されていた状態
+- **After**: Day 4 10:00 に富邦美術館 Fubon Art Museum を復活。2023年開館・台北101地下1F・現代アート専門館。開館時間 10:00-18:00・入場料NT$250（¥1,250）。導線を明記：ホテル（西門）→MRT西門駅→淡水信義線→信義安和駅→101へ徒歩10分→永康牛肉麵（12:30）に繋ぐ。Google Mapsリンク付与。GitHub Issue Yuma Tejima からの依頼に対応
 
 ## Completed (Gmail→Issue Routine v3 安定化 + 誤発火 Issue 大量クローズ 2026-04-17)
 - `scripts/gmail-to-issue.gs` v2→v3 改修:
@@ -179,6 +183,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-18: Before: taipei.html Day4 に富邦美術館が欠落（2026-04-17で追加後、削除されていた） → After: Day4 10:00「富邦美術館 Fubon Art Museum」復活。2023年開館・台北101 B1F・入場料NT$250。ホテル→MRT→信義安和→101→永康牛肉麵の導線明記。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
 - 2026-04-17 (6): Before: Day2夕食=面線町→寧夏夜市、Day3迪化街に林華泰未記載、Day4=足つぼ16:30+早朝スタート → After: Day2夕食を鼎王麻辣鍋（西門町）に変更・面線を21:00間食へ。Day3迪化街に林華泰茶行追加。Day4=足つぼ削除+08:00〜10:00早朝3件削除・12:30ブランチスタートに変更
 - 2026-04-17 (5): Before: taipei.html Day4 に富邦美術館未記載 → After: Day4 10:00「富邦美術館 Fubon Art Museum」追加・Google Mapsリンク付与。永康牛肉麵を11:00→11:30に調整
 - 2026-04-17 (4): Before: taipei.html Day4 18:30「富錦台菜香檳」（松山區富錦街）→ After: 「富錦樹台菜香檳 敦北店」に更新。店名・説明・Maps リンク・食事トラッカー・レストランカード・JS データ・チェックリスト・21:00 散策アクティビティを一括修正
