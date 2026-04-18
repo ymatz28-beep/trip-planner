@@ -5,7 +5,7 @@
 - [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
-2026-04-18 — 富邦美術館 Fubon Art Museum を Day 4 10:00 に復活。GitHub Issue 依頼対応。導線：ホテル（西門）→ MRT→信義安和駅→台北101地下1F→永康牛肉麵（12:30）
+2026-04-18 — **富錦樹台菜香檳 敦北店を Day 4 18:30 ディナーから Day 5 12:30 出発前ランチに移動**。Yuma Tejima GitHub Issue「旅行更新」対応。松山空港に最も近いため、ランチ利用が効率的。Day 4 の 18:30 は新提案「足つぼマッサージ + 永康街 bar 散策」に変更。導線最適化：Day 5 チェックアウト 11:30 → MRT → 富錦樹ランチ 12:30 → SunnyHills 13:30 → 松山空港 14:00
 
 ## プロジェクト概要
 - **リポジトリ**: ymatz28-beep/trip-planner (GitHub Pages)
@@ -183,7 +183,8 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
-- 2026-04-18: Before: taipei.html Day4 に富邦美術館が欠落（2026-04-17で追加後、削除されていた） → After: Day4 10:00「富邦美術館 Fubon Art Museum」復活。2023年開館・台北101 B1F・入場料NT$250。ホテル→MRT→信義安和→101→永康牛肉麵の導線明記。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
+- 2026-04-18 (2): Before: Day 4 18:30 富錦樹台菜香檳 敦北店（ディナー）+ Day 5 朝食・大稻埕後 12:30 SunnyHills → After: Day 4 18:30 を「足つぼマッサージ + 永康街 bar 散策」に変更。Day 5 スケジュール再編成：11:30 チェックアウト → 12:30 富錦樹台菜香檳 敦北店（ランチ・出発前）→ 13:30 SunnyHills → 14:00 松山空港。食事トラッカーも連動更新（Day4 4食→3食、Day5 2食+おやつ→3食+おやつ）。JavaScript meals配列、checklist、resto-card 全て同期。GitHub Issue Yuma Tejima 対応
+- 2026-04-18: Before: taipei.html Day4 に富邦美術館が欠落（2026-04-17で追加後、削除されていた） → After: Day4 10:00「富邦美術館 Fubon Art Museum」復活。2023年開館・台北101 B1F・入場料NT$250。ホテル→MRT→信義安和→101→永康牛肉麺の導線明記。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
 - 2026-04-17 (6): Before: Day2夕食=面線町→寧夏夜市、Day3迪化街に林華泰未記載、Day4=足つぼ16:30+早朝スタート → After: Day2夕食を鼎王麻辣鍋（西門町）に変更・面線を21:00間食へ。Day3迪化街に林華泰茶行追加。Day4=足つぼ削除+08:00〜10:00早朝3件削除・12:30ブランチスタートに変更
 - 2026-04-17 (5): Before: taipei.html Day4 に富邦美術館未記載 → After: Day4 10:00「富邦美術館 Fubon Art Museum」追加・Google Mapsリンク付与。永康牛肉麵を11:00→11:30に調整
 - 2026-04-17 (4): Before: taipei.html Day4 18:30「富錦台菜香檳」（松山區富錦街）→ After: 「富錦樹台菜香檳 敦北店」に更新。店名・説明・Maps リンク・食事トラッカー・レストランカード・JS データ・チェックリスト・21:00 散策アクティビティを一括修正
