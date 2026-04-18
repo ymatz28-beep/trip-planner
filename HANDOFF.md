@@ -5,6 +5,8 @@
 - [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
 
 ## Last Updated
+2026-04-18 (5) — **佳德糕餅 Chia Te Bakery を削除**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 15:30 の佳德糕餅スケジュール項目を削除。Day 3 17:00 サウナ説明文から「佳德糕餅から中山エリアへ移動し...」のテキストを「2時間のサウナタイム。...」に修正。taipei.html のパイナップルケーキ TOP 3 resto-card から削除。JavaScript markers 配列から削除。taipei-food.html のパイナップルケーキセクション resto-card から削除。JavaScript spots 配列から削除。
+
 2026-04-18 (4) — **Cosma Taipei ゲイナイト追加 & バー立ち寄り追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 22:00 の紅樓バー街散策を Cosma Taipei ゲイナイト に変更。Day 3 21:00 に Hunt or Commander D（バー選択肢）を新規追加。Day 3 タイトルを「アート & 烏龍茶 & 寧夏夜市」→「アート & 烏龍茶 & 寧夏夜市 & ゲイナイト」に更新。食事プラン Day 3 を寧夏夜市に統一・小品雅廚説明を「WERK!後」→「ゲイナイト後」に修正。LGBTQ+ セクションに Cosma Taipei を新規追加・WERK! キャンセル通知を更新。Google Mapsリンク付与。
 
 2026-04-18 (3) — **寧夏夜市とJinan Antique Marketを復活・追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 17:00に寧夏夜市を追加（赤峰街・MRT雙連駅徒歩3分）。Day 3 15:00にJinan Antique Market 錦安市場を追加。ゲイサウナ時間枠はすでに設定済み（Day 3 22:00 Soi 13in、Day 4 13:00選択制）。Google Mapsリンク付与。
@@ -189,6 +191,7 @@
 - デプロイ: `git push` → GitHub Pages 自動デプロイ
 
 ## History（最新20件）
+- 2026-04-18 (5): Before: taipei.html/taipei-food.html に佳德糕餅が記載 → After: Day 3 15:30 timeline-item 削除、resto-card 削除（両ファイル）、JavaScript データ削除。サウナ説明文から参照を除去。GitHub Issue Yuma Tejima「旅行更新」対応
 - 2026-04-18 (4): Before: Day 3 22:00「紅樓バー街散策」・LGBTQ+セクションにCosma未記載・小品雅廚「WERK!後」 → After: Day 3 22:00「Cosma Taipei ゲイナイト」に変更・Day 3 21:00「Hunt or Commander D（選択制）」新規追加。Day 3 タイトル「アート & 烏龍茶 & 寧夏夜市」→「アート & 烏龍茶 & 寧夏夜市 & ゲイナイト」。LGBTQ+ セクションに Cosma Taipei 詳細記載・WERK!キャンセル通知更新。食事プラン 寧夏夜市統一・小品雅廚説明「ゲイナイト後」に修正。Google Mapsリンク付与。GitHub Issue Yuma Tejima 対応
 - 2026-04-18 (3): Before: Day 3 22:00「紅樓バー街散策」のまま → After（未確認だがこの時点では紅樓のまま）
 - 2026-04-18 (2): Before: Day 4 18:30 富錦樹台菜香檳 敦北店（ディナー）+ Day 5 朝食・大稻埕後 12:30 SunnyHills → After: Day 4 18:30 を「足つぼマッサージ + 永康街 bar 散策」に変更。Day 5 スケジュール再編成：11:30 チェックアウト → 12:30 富錦樹台菜香檳 敦北店（ランチ・出発前）→ 13:30 SunnyHills → 14:00 松山空港。食事トラッカーも連動更新（Day4 4食→3食、Day5 2食+おやつ→3食+おやつ）。JavaScript meals配列、checklist、resto-card 全て同期。GitHub Issue Yuma Tejima 対応
