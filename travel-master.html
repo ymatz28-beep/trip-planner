@@ -254,8 +254,12 @@
       allTips = data.tips || [];
       render();
     } catch (e) {
+      const isLocal = location.protocol === 'file:';
+      const hint = isLocal
+        ? '<br><br>ローカルで<code>file://</code>から開いています。fetch()がCORS制約で動きません。<br>→ <a href="https://ymatz28-beep.github.io/trip-planner/travel-master.html">本番URL</a>で開いてください'
+        : '<br><br>data/travel-tips.yamlの取得に失敗: ' + e.message;
       document.getElementById('content').innerHTML =
-        '<div class="empty-state">YAMLの読み込みに失敗しました: ' + e.message + '</div>';
+        '<div class="empty-state">YAMLの読み込みに失敗しました' + hint + '</div>';
     }
   }
 
