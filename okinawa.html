@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沖縄旅行プラン 2026年7月3日〜6日 | 3泊4日 沖縄ルネッサンス</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: rgba(255,255,255,0.035);
+    --surface-hover: rgba(255,255,255,0.065);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f5f5f7;
+    --text-secondary: #a1a1aa;
+    --muted: #71717a;
+    --dim: #3f3f46;
+    --teal: #00B4D8;
+    --teal-light: #90E0EF;
+    --coral: #FF6B6B;
+    --coral-light: #FFA8A8;
+    --sun: #FFA726;
+    --hibiscus: #E8577A;
+    --card-bg: var(--surface);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--teal-light); }
+
+  /* Shared Gnav */
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+    background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .site-nav { display: flex; gap: 4px; }
+  .site-nav a {
+    color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
+  }
+  .site-nav a:hover, .site-nav a[aria-current="page"] {
+    background: rgba(255,255,255,0.065); color: #f5f5f7;
+  }
+  .nav-toggle { display: none; }
+  .nav-toggle-label { display: none; cursor: pointer; padding: 8px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block; background: #f5f5f7; height: 2px; width: 20px;
+    border-radius: 2px; position: relative; transition: .3s;
+  }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after { content: ''; position: absolute; }
+  .nav-toggle-label span::before { top: -6px; }
+  .nav-toggle-label span::after { top: 6px; }
+  @media (max-width: 640px) {
+    .nav-toggle-label { display: flex; }
+    .site-nav {
+      display: none; flex-direction: column; gap: 0;
+      position: absolute; top: 52px; left: 0; right: 0; z-index: 200;
+      background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 0;
+    }
+    .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
+    .nav-toggle:checked ~ .site-nav { display: flex; }
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
+  }
+
+  /* Hero */
+  .hero {
+    display: block;
+    background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(255,107,107,0.04));
+    border: 1px solid rgba(0,180,216,0.25);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px auto;
+    max-width: 720px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-row1 {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--teal);
+  }
+  .hero-countdown {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    background: rgba(0,180,216,0.15);
+    color: var(--teal);
+    padding: 4px 10px; border-radius: 12px;
+  }
+  .hero-row2 { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .hero-flag { font-size: 22px; line-height: 1; }
+  .hero h1 {
+    font-size: 19px; font-weight: 700; color: var(--text); letter-spacing: -0.01em;
+  }
+  .hero-meta { font-size: 12px; color: var(--text-secondary); }
+
+  /* Section nav */
+  .section-nav-wrapper {
+    position: sticky; top: 52px; z-index: 90;
+    background: rgba(15,17,23,0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar {
+    display: flex; gap: 4px; justify-content: center;
+    padding: 10px 0; overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; flex-wrap: nowrap;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-bar a {
+    color: var(--muted); text-decoration: none;
+    font-size: 12px; font-weight: 600;
+    padding: 6px 14px; border-radius: 6px;
+    transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
+  }
+  .nav-bar a:hover, .nav-bar a.active { color: var(--text); background: var(--surface-hover); }
+
+  /* Sections */
+  .section {
+    max-width: 1100px; margin: 0 auto;
+    padding: 32px 16px;
+  }
+  @media (min-width: 768px) { .section { padding: 40px 24px; } }
+  .section-title {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700; color: var(--text); margin-bottom: 0.5rem;
+  }
+  .section-sub {
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.8rem; font-size: 0.95rem;
+  }
+
+  /* Flight blocks */
+  .flight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  .flight-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+  .flight-card.booked { border-color: rgba(0,180,216,0.3); background: rgba(0,180,216,0.04); }
+  .flight-traveler {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--teal); margin-bottom: 0.4rem; font-weight: 700;
+  }
+  .flight-route {
+    font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: 0.6rem;
+  }
+  .airline-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.85rem; color: rgba(255,255,255,0.7);
+  }
+  .airline-row:last-child { border-bottom: none; }
+  .airline-name { font-weight: 500; color: rgba(255,255,255,0.85); }
+  .airline-price {
+    color: var(--coral); font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .airline-note { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+
+  /* Hotel cards */
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .hotel-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 1.6rem;
+    transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .hotel-card:hover { border-color: rgba(0,180,216,0.3); transform: translateY(-2px); }
+  .hotel-card.recommended {
+    border-color: rgba(0,180,216,0.5);
+    background: rgba(0,180,216,0.06);
+  }
+  .hotel-card.recommended::before {
+    content: '推奨';
+    position: absolute;
+    top: 0.8rem; right: -2rem;
+    background: var(--teal); color: #fff;
+    padding: 0.18rem 2.2rem;
+    font-size: 0.7rem; font-weight: 700;
+    transform: rotate(45deg);
+  }
+  .hotel-tier {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--teal); margin-bottom: 0.3rem; font-weight: 700;
+  }
+  .hotel-name {
+    font-size: 1.1rem; font-weight: 700;
+    margin-bottom: 0.3rem; color: var(--coral-light);
+  }
+  .hotel-name a { color: inherit; text-decoration: none; border-bottom: 1px dotted; }
+  .hotel-name a:hover { color: var(--teal-light); }
+  .hotel-price {
+    font-size: 1rem; color: var(--coral);
+    margin-bottom: 0.6rem;
+    font-family: 'JetBrains Mono', monospace; font-weight: 600;
+  }
+  .hotel-rating {
+    display: inline-block;
+    font-size: 0.72rem;
+    background: rgba(255,167,38,0.15);
+    color: var(--sun);
+    padding: 2px 8px; border-radius: 10px;
+    margin-bottom: 0.8rem;
+    font-family: 'JetBrains Mono', monospace; font-weight: 600;
+  }
+  .hotel-features {
+    list-style: none; font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .hotel-features li {
+    padding: 0.25rem 0;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .hotel-features li::before {
+    content: '✦';
+    position: absolute; left: 0;
+    color: var(--teal); font-size: 0.7rem;
+  }
+
+  /* Day section / timeline */
+  .day-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 1.2rem;
+    overflow: hidden;
+  }
+  .day-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.2s;
+  }
+  .day-header:hover { background: var(--surface-hover); }
+  .day-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    background: rgba(0,180,216,0.15);
+    color: var(--teal);
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+  .day-title {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .day-header-chevron {
+    color: var(--muted);
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+  }
+  .day-section.collapsed .day-header-chevron { transform: rotate(-90deg); }
+  .timeline {
+    padding: 0 20px 20px;
+  }
+  .day-section.collapsed .timeline { display: none; }
+  .timeline-item {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--teal);
+    flex-shrink: 0;
+    width: 60px;
+    padding-top: 2px;
+  }
+  .timeline-body {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .timeline-body strong { color: var(--text); font-weight: 600; }
+  .timeline-body a { color: var(--teal-light); text-decoration: none; border-bottom: 1px dotted; }
+  .timeline-body .tag-event {
+    display: inline-block;
+    font-size: 0.7rem;
+    background: rgba(232,87,122,0.18);
+    color: var(--hibiscus);
+    padding: 2px 8px; border-radius: 8px;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* Event highlight card */
+  .event-card {
+    background: linear-gradient(135deg, rgba(232,87,122,0.1), rgba(255,167,38,0.05));
+    border: 1px solid rgba(232,87,122,0.3);
+    border-radius: 14px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .event-card .event-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--hibiscus);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  .event-card h3 {
+    font-size: 1.1rem; color: var(--text); margin-bottom: 0.6rem;
+  }
+  .event-detail {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 6px 14px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.6rem;
+  }
+  .event-detail dt { color: var(--muted); font-weight: 600; }
+  .event-detail dd { color: var(--text-secondary); }
+
+  /* Generic table */
+  .table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  .table th {
+    text-align: left; padding: 10px 14px;
+    background: var(--surface); color: var(--muted);
+    font-weight: 600; font-size: 0.78rem; letter-spacing: 0.04em;
+    border-bottom: 1px solid var(--border);
+  }
+  .table td {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+  }
+  .table .price {
+    font-family: 'JetBrains Mono', monospace; color: var(--coral); font-weight: 600;
+  }
+
+  /* Restaurants */
+  .resto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .resto-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+  }
+  .resto-name { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+  .resto-name a { color: inherit; text-decoration: none; border-bottom: 1px dotted; }
+  .resto-name a:hover { color: var(--teal-light); }
+  .resto-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem; color: var(--teal); margin-bottom: 4px;
+  }
+  .resto-desc { font-size: 0.82rem; color: var(--text-secondary); }
+
+  /* Footer */
+  footer {
+    max-width: 1100px;
+    margin: 40px auto 24px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-row1">
+      <span class="hero-badge">UPCOMING TRIP</span>
+      <span class="hero-countdown" id="cd-pill">あと -- 日</span>
+    </div>
+    <div class="hero-row2">
+      <span class="hero-flag">🏝️</span>
+      <h1>OKINAWA 沖縄</h1>
+    </div>
+    <div class="hero-meta">7/3(金)〜6(月) · 3泊4日 · 2名 · 沖縄ルネッサンス × 国際通り</div>
+  </div>
+</section>
+
+<!-- Section Navigation -->
+<div class="section-nav-wrapper">
+  <nav class="nav-bar" aria-label="Page section navigation">
+    <a href="#event">イベント</a>
+    <a href="#flights">フライト</a>
+    <a href="#hotels">ホテル</a>
+    <a href="#itinerary">日程</a>
+    <a href="#food">グルメ</a>
+    <a href="#budget">予算</a>
+    <a href="#checklist">チェックリスト</a>
+  </nav>
+</div>
+
+<!-- Event highlight -->
+<section class="section" id="event">
+  <h2 class="section-title">沖縄ルネッサンス 2026</h2>
+  <p class="section-sub">那覇桜坂のゲイバーマスター・ノリさん主催の年次イベント。今年の本旅行の核。</p>
+
+  <div class="event-card">
+    <div class="event-tag">7/4 (土) ／ NIGHT PARTY</div>
+    <h3>CROWN @ 那覇 松山</h3>
+    <dl class="event-detail">
+      <dt>会場</dt><dd><a href="https://maps.google.com/?q=CROWN+那覇+松山" target="_blank">CROWN（那覇市松山）</a></dd>
+      <dt>開始</dt><dd>21:00〜</dd>
+      <dt>料金</dt><dd>通常 ¥4,000 / フライヤーSNS提示 ¥3,500 / 早割(21–22時) ¥3,000</dd>
+      <dt>ドレス</dt><dd>夏のクラブ仕様。汗対策で着替えTシャツ持参推奨</dd>
+    </dl>
+  </div>
+
+  <div class="event-card">
+    <div class="event-tag">7/5 (日) ／ BEACH PARTY</div>
+    <h3>あざまサンサンビーチ @ 南城市知念</h3>
+    <dl class="event-detail">
+      <dt>会場</dt><dd><a href="https://maps.google.com/?q=あざまサンサンビーチ" target="_blank">あざまサンサンビーチ</a></dd>
+      <dt>時間</dt><dd>12:00〜17:00</dd>
+      <dt>会費</dt><dd>¥5,000（BBQ＋ドリンク込）</dd>
+      <dt>送迎バス</dt><dd>往復 ¥3,000 / 集合 10:30 牧志公園 / 出発 11:00</dd>
+      <dt>持ち物</dt><dd>水着・タオル・日焼け止め・サンダル</dd>
+    </dl>
+  </div>
+
+  <div class="event-card">
+    <div class="event-tag">7/5 (日) ／ AFTER PARTY</div>
+    <h3>CLUB CLUTCH @ 那覇 安里</h3>
+    <dl class="event-detail">
+      <dt>会場</dt><dd><a href="https://maps.google.com/?q=CLUB+CLUTCH+那覇+安里" target="_blank">CLUB CLUTCH（那覇市安里）</a></dd>
+      <dt>時間</dt><dd>22:00〜03:00</dd>
+      <dt>会費</dt><dd>¥2,500（1ドリンク込）</dd>
+    </dl>
+  </div>
+
+  <p style="font-size:0.78rem;color:var(--muted);margin-top:8px">
+    公式: <a href="https://www.okinawa-renaissance.com/" target="_blank">okinawa-renaissance.com</a>
+  </p>
+</section>
+
+<!-- Flights -->
+<section class="section" id="flights">
+  <h2 class="section-title">Flights</h2>
+  <p class="section-sub">大木くんは羽田発で各自手配。Yumaは福岡発をマイル or LCCで押さえる。</p>
+
+  <div class="flight-grid">
+    <!-- 大木くん -->
+    <div class="flight-card">
+      <div class="flight-traveler">大木くん</div>
+      <div class="flight-route">HND ↔ OKA</div>
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.6rem">
+        東京⇄沖縄。彼が独自に手配（JAL/ANA/Skymark/Peach/Jetstar 等から選択）。
+      </p>
+      <div class="airline-note">合流目安: 7/3 夕方 那覇空港 or 国際通りホテルチェックイン</div>
+    </div>
+
+    <!-- Yuma -->
+    <div class="flight-card">
+      <div class="flight-traveler">Yuma</div>
+      <div class="flight-route">FUK ↔ OKA</div>
+      <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.6rem">
+        福岡⇄那覇は5社運航（ANA 9 / JAL 6 / Peach 5 / Skymark 2 / Solaseed 1 便/日）。
+      </p>
+
+      <div class="airline-row">
+        <span class="airline-name">JAL マイル特典航空券</span>
+        <span class="airline-price">7,500–10,000mile/片道</span>
+      </div>
+      <div class="airline-row">
+        <span class="airline-name">Peach LCC（最安）</span>
+        <span class="airline-price">¥5,980〜/片道</span>
+      </div>
+      <div class="airline-row">
+        <span class="airline-name">Skymark</span>
+        <span class="airline-price">¥9,000〜/片道</span>
+      </div>
+      <div class="airline-row">
+        <span class="airline-name">JAL/ANA 通常運賃</span>
+        <span class="airline-price">¥18,000〜/片道</span>
+      </div>
+      <div class="airline-note">
+        推奨: <strong style="color:var(--text)">JALマイル</strong>（夏期繁忙期で枠激戦・<u>本日中に検索</u>）／満席なら <strong style="color:var(--text)">Peach</strong> 即押さえ。
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:8px">
+        Peach 1日4便 09:35–17:45 発帯 / 公式: <a href="https://www.flypeach.com/" target="_blank">flypeach.com</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Hotels -->
+<section class="section" id="hotels">
+  <h2 class="section-title">Hotels</h2>
+  <p class="section-sub">3泊・大人2名・国際通り周辺。イベント会場 (松山 / 牧志公園 / 安里) いずれも徒歩圏。料金は3泊合計 (Trip.com価格 4月時点参照)。</p>
+
+  <div class="hotel-grid">
+    <!-- 推奨 -->
+    <div class="hotel-card recommended">
+      <div class="hotel-tier">中価格・高評価・国際通り直結</div>
+      <div class="hotel-name">
+        <a href="https://www.booking.com/searchresults.ja.html?ss=ホテルグレイスリー那覇&checkin=2026-07-03&checkout=2026-07-06&group_adults=2" target="_blank">ホテルグレイスリー那覇</a>
+      </div>
+      <div class="hotel-price">¥24,000 / 3泊（2名計）</div>
+      <div class="hotel-rating">★ 9.2 / 10 · 国際通りまで 0.25km</div>
+      <ul class="hotel-features">
+        <li>1人 ¥4,000/泊。コスパ・評価・立地のベストバランス</li>
+        <li>松山(CROWN) 徒歩 8分 / 牧志公園 徒歩 6分 / 安里(CLUTCH) 徒歩 12分</li>
+        <li>大浴場あり。深夜帰宅 → 翌朝ビーチパーティに体力回復しやすい</li>
+        <li>藤田観光系。設備新しめ・館内禁煙・チェックイン15時</li>
+      </ul>
+    </div>
+
+    <!-- 激安 -->
+    <div class="hotel-card">
+      <div class="hotel-tier">最安値重視</div>
+      <div class="hotel-name">
+        <a href="https://www.booking.com/searchresults.ja.html?ss=ホテルランタナ那覇国際通り&checkin=2026-07-03&checkout=2026-07-06&group_adults=2" target="_blank">ホテルランタナ那覇国際通り</a>
+      </div>
+      <div class="hotel-price">¥12,900 / 3泊（2名計）</div>
+      <div class="hotel-rating">★ 8.8 / 10 · 国際通りまで 0.14km</div>
+      <ul class="hotel-features">
+        <li>1人 ¥2,150/泊。費用を抑えてイベント費に回す案</li>
+        <li>シンプルなビジネスホテル。寝るだけ用途</li>
+        <li>朝食なし or 別料金。コンビニ朝食前提</li>
+        <li>大木くんと相部屋でも狭く感じる可能性あり（事前合意）</li>
+      </ul>
+    </div>
+
+    <!-- 高グレード -->
+    <div class="hotel-card">
+      <div class="hotel-tier">ゲイバー街(桜坂)直結プレミアム</div>
+      <div class="hotel-name">
+        <a href="https://hyattregencynaha.jp/" target="_blank">ハイアット リージェンシー 那覇 沖縄</a>
+      </div>
+      <div class="hotel-price">¥46,800 / 3泊（2名計）</div>
+      <div class="hotel-rating">★ 9.3 / 10 · 桜坂エリア</div>
+      <ul class="hotel-features">
+        <li>1人 ¥7,800/泊。沖縄ルネッサンス主催者ノリさんの地元</li>
+        <li>2026/4 リブランドリニューアルオープン直後</li>
+        <li>松山(CROWN) 徒歩 10分 / 牧志公園 徒歩 5分</li>
+        <li>プール・ジム・ラウンジ。プチご褒美旅向け</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="margin-top:1.4rem;padding:1rem 1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:0.85rem;color:var(--text-secondary)">
+    <strong style="color:var(--text)">注意:</strong> リッチモンドホテル那覇久茂地は <strong style="color:var(--coral)">2026/4/1〜7/12 全館改装閉館</strong>。本旅行期間NG。
+    比較サイト: <a href="https://www.trivago.jp/" target="_blank">Trivago</a> / <a href="https://www.booking.com/" target="_blank">Booking.com</a> / <a href="https://www.agoda.com/" target="_blank">Agoda</a> / <a href="https://travel.rakuten.co.jp/" target="_blank">楽天トラベル</a>
+  </div>
+</section>
+
+<!-- Itinerary -->
+<section class="section" id="itinerary">
+  <h2 class="section-title">Itinerary（3泊4日）</h2>
+  <p class="section-sub">7/4夜 CROWN・7/5昼ビーチ・7/5深夜CLUTCHの3イベント核。前後は国際通り・首里城・カフェで余白を作る。</p>
+
+  <div class="day-section" id="day1">
+    <div class="day-header" onclick="toggleDay('day1')">
+      <span class="day-badge">DAY 1</span>
+      <span class="day-title">7/3 (金) — 福岡発・那覇着・合流</span>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-time">AM</span>
+        <span class="timeline-body"><strong>福岡空港 → 那覇空港</strong>（Peach or JALマイル）</span>
+      </div>
+      <div class="timeline-time-spacer"></div>
+      <div class="timeline-item">
+        <span class="timeline-time">14:00</span>
+        <span class="timeline-body">那覇空港着 → ゆいレールで <a href="https://maps.google.com/?q=県庁前駅+那覇" target="_blank">県庁前駅</a> または <a href="https://maps.google.com/?q=牧志駅+那覇" target="_blank">牧志駅</a>（約15分・¥270）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">15:00</span>
+        <span class="timeline-body">ホテルチェックイン → 大木くんと合流</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">17:00</span>
+        <span class="timeline-body"><a href="https://maps.google.com/?q=第一牧志公設市場" target="_blank">第一牧志公設市場</a> 散策。沖縄野菜・島豆腐・南国フルーツ</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">19:00</span>
+        <span class="timeline-body">夕食: 沖縄料理デビュー <a href="https://maps.google.com/?q=ゆうなんぎい+那覇" target="_blank">ゆうなんぎい</a>（ラフテー・ジーマミ豆腐・島ラッキョウ）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">21:00</span>
+        <span class="timeline-body">国際通り散策 → 桜坂・松山エリア下見（翌日のCROWN場所確認）</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-section" id="day2">
+    <div class="day-header" onclick="toggleDay('day2')">
+      <span class="day-badge">DAY 2</span>
+      <span class="day-title">7/4 (土) — 観光 → CROWN ナイトパーティ <span class="tag-event">EVENT</span></span>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-time">10:00</span>
+        <span class="timeline-body">朝食 → <a href="https://maps.google.com/?q=首里城公園" target="_blank">首里城公園</a>（再建中の正殿。歴史と眺望）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">13:00</span>
+        <span class="timeline-body">ランチ: <a href="https://maps.google.com/?q=首里そば" target="_blank">首里そば</a>（沖縄そば名店）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">15:00</span>
+        <span class="timeline-body"><a href="https://maps.google.com/?q=壺屋やちむん通り" target="_blank">壺屋やちむん通り</a> 焼物散策。お土産シーサー候補</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">17:00</span>
+        <span class="timeline-body">ホテル戻り → シャワー・ナイトパーティ用着替え</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">19:00</span>
+        <span class="timeline-body">早めの夕食: <a href="https://maps.google.com/?q=やんばる+居酒屋+那覇" target="_blank">島唄居酒屋やんばる</a>（沖縄民謡ライブ）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">21:00</span>
+        <span class="timeline-body"><strong>CROWN @ 松山 ナイトパーティ突入</strong> 早割 ¥3,000（21–22時）<span class="tag-event">沖縄ルネッサンス</span></span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">深夜</span>
+        <span class="timeline-body">CROWN→徒歩でホテル戻り。翌日のビーチパーティに備えて水分補給して就寝</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-section" id="day3">
+    <div class="day-header" onclick="toggleDay('day3')">
+      <span class="day-badge">DAY 3</span>
+      <span class="day-title">7/5 (日) — ビーチパーティ → CLUTCH アフター <span class="tag-event">EVENT×2</span></span>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-time">09:00</span>
+        <span class="timeline-body">朝食しっかり（BBQ前にエネルギー補給）。日焼け止め塗布</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">10:30</span>
+        <span class="timeline-body"><strong>牧志公園集合</strong> 送迎バス（往復 ¥3,000 / 11:00出発）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">12:00</span>
+        <span class="timeline-body"><strong>あざまサンサンビーチ ビーチパーティ</strong> 会費 ¥5,000（BBQ＋ドリンク込）<span class="tag-event">沖縄ルネッサンス</span></span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">17:00</span>
+        <span class="timeline-body">ビーチパーティ終了 → バスで那覇へ戻る（18時頃ホテル）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">19:00</span>
+        <span class="timeline-body">シャワー → 夕食軽め（<a href="https://maps.google.com/?q=ステーキハウス88辻本店" target="_blank">ステーキハウス88</a> or テイクアウト）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">22:00</span>
+        <span class="timeline-body"><strong>CLUB CLUTCH @ 安里 アフターパーティ</strong> ¥2,500（1ドリンク込）<span class="tag-event">沖縄ルネッサンス</span></span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">03:00</span>
+        <span class="timeline-body">CLUTCH撤収 → タクシー or 徒歩でホテル戻り</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="day-section" id="day4">
+    <div class="day-header" onclick="toggleDay('day4')">
+      <span class="day-badge">DAY 4</span>
+      <span class="day-title">7/6 (月) — ブランチ → 帰路</span>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-time">11:00</span>
+        <span class="timeline-body">遅めチェックアウト（事前にレイトCO交渉）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">12:00</span>
+        <span class="timeline-body">ブランチ: <a href="https://maps.google.com/?q=花笠食堂+那覇" target="_blank">花笠食堂</a> or <a href="https://maps.google.com/?q=ジャッキーステーキハウス" target="_blank">ジャッキーステーキハウス</a>（沖縄定番）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">14:00</span>
+        <span class="timeline-body">国際通りでお土産購入（紅芋タルト・泡盛・シーサー・ちんすこう）</span>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-time">16:00</span>
+        <span class="timeline-body">ゆいレールで那覇空港 → 大木くん HND行 / Yuma FUK行</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Food -->
+<section class="section" id="food">
+  <h2 class="section-title">沖縄グルメ・ピックアップ</h2>
+  <p class="section-sub">国際通り・桜坂・松山エリア徒歩圏で押さえたい店。</p>
+
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-meta">DAY 1 DINNER · 居酒屋</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=ゆうなんぎい+那覇" target="_blank">ゆうなんぎい</a></div>
+      <div class="resto-desc">創業60年超の老舗。ラフテー・ミミガー・ジーマミ豆腐の定番セットが安定</div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-meta">DAY 2 LUNCH · 沖縄そば</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=首里そば" target="_blank">首里そば</a></div>
+      <div class="resto-desc">沖縄そばの聖地。シンプルで澄んだスープ。売り切れ次第終了なので早めに</div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-meta">DAY 2 DINNER · 民謡ライブ居酒屋</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=島唄居酒屋やんばる+那覇" target="_blank">島唄居酒屋やんばる</a></div>
+      <div class="resto-desc">三線ライブを聞きながら泡盛。観光気分Max。CROWN前のエネルギーチャージに</div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-meta">DAY 3 LATE NIGHT · ステーキ</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=ステーキハウス88辻本店" target="_blank">ステーキハウス88</a></div>
+      <div class="resto-desc">沖縄=締めはステーキ文化。深夜営業店多数。アメリカンな量で締めの儀式</div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-meta">DAY 4 BRUNCH · 食堂</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=花笠食堂+那覇" target="_blank">花笠食堂</a></div>
+      <div class="resto-desc">ボリューム満点のローカル食堂。ゴーヤチャンプルー定食が王道</div>
+    </div>
+    <div class="resto-card">
+      <div class="resto-meta">スイーツ</div>
+      <div class="resto-name"><a href="https://maps.google.com/?q=ブルーシール+国際通り" target="_blank">ブルーシール 国際通り店</a></div>
+      <div class="resto-desc">沖縄定番アイス。シークワーサーシャーベットが暑い7月にぴったり</div>
+    </div>
+  </div>
+</section>
+
+<!-- Budget -->
+<section class="section" id="budget">
+  <h2 class="section-title">予算ざっくり（Yuma1人分）</h2>
+  <table class="table">
+    <thead>
+      <tr><th>項目</th><th>内容</th><th style="text-align:right">金額</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>フライト</td><td>FUK↔OKA（JALマイル特典 or Peach実費）</td><td class="price" style="text-align:right">¥0–12,000</td></tr>
+      <tr><td>ホテル</td><td>3泊・グレイスリー想定（2名計¥24,000の半額）</td><td class="price" style="text-align:right">¥12,000</td></tr>
+      <tr><td>イベント (3本)</td><td>CROWN早割¥3,000 ＋ ビーチ¥5,000 ＋ バス¥3,000 ＋ CLUTCH¥2,500</td><td class="price" style="text-align:right">¥13,500</td></tr>
+      <tr><td>食事</td><td>4日 × 平均¥3,000</td><td class="price" style="text-align:right">¥12,000</td></tr>
+      <tr><td>交通(ゆいレール・タクシー)</td><td></td><td class="price" style="text-align:right">¥4,000</td></tr>
+      <tr><td>お土産・予備</td><td></td><td class="price" style="text-align:right">¥8,000</td></tr>
+      <tr><td colspan="2" style="font-weight:700;color:var(--text)">合計</td><td class="price" style="text-align:right;font-weight:700">¥49,500–61,500</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Checklist -->
+<section class="section" id="checklist">
+  <h2 class="section-title">チェックリスト</h2>
+  <ul style="list-style:none;font-size:0.9rem;color:var(--text-secondary);line-height:2.0">
+    <li>☐ <strong style="color:var(--text)">フライト福岡⇄那覇予約</strong>（JALマイル枠検索 → 無ければPeach即押さえ）</li>
+    <li>☐ <strong style="color:var(--text)">ホテル予約</strong>（推奨グレイスリー / 大木くんと部屋タイプ確認: ツイン or ダブル）</li>
+    <li>☐ 大木くんと合流時間・ホテル名共有</li>
+    <li>☐ 沖縄ルネッサンス公式SNS確認（フライヤー入手→¥500割引）</li>
+    <li>☐ ビーチパーティ用: 水着・サンダル・日焼け止めSPF50・ラッシュガード</li>
+    <li>☐ クラブ用: 着替えTシャツ2枚・汗ふきシート</li>
+    <li>☐ 7月の沖縄=梅雨明け前後・夕立対策に折りたたみ傘</li>
+    <li>☐ ゆいレール 1日乗車券（¥800・元取れる）</li>
+    <li>☐ 楽天モバイル/povo の通信状況確認（離島ビーチで電波弱い可能性）</li>
+  </ul>
+</section>
+
+<footer>
+  iUMA TRAVEL — Okinawa 2026 / 沖縄ルネッサンス参加プラン
+</footer>
+
+<script>
+  // Countdown
+  (function() {
+    var target = new Date('2026-07-03T00:00:00+09:00');
+    var now = new Date();
+    var days = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+    var pill = document.getElementById('cd-pill');
+    if (pill) {
+      if (days > 0) pill.textContent = 'あと ' + days + ' 日';
+      else if (days === 0) pill.textContent = '今日出発';
+      else pill.textContent = '進行中';
+    }
+  })();
+
+  function toggleDay(id) {
+    var section = document.getElementById(id);
+    if (section) section.classList.toggle('collapsed');
+  }
+</script>
+</body>
+</html>
