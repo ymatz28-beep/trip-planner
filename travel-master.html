@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Master Tips | iUMA Travel</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: rgba(255,255,255,0.035);
+    --surface-hover: rgba(255,255,255,0.065);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f5f5f7;
+    --text-secondary: #a1a1aa;
+    --muted: #71717a;
+    --dim: #3f3f46;
+    --teal: #00B4D8;
+    --teal-light: #90E0EF;
+    --coral: #FF6B6B;
+    --coral-light: #FFA8A8;
+    --sun: #FFA726;
+    --hibiscus: #E8577A;
+    --card-bg: var(--surface);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--teal-light); }
+
+  /* Gnav */
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 52px;
+    background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .site-nav { display: flex; gap: 4px; }
+  .site-nav a {
+    color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
+  }
+  .site-nav a:hover, .site-nav a[aria-current="page"] {
+    background: rgba(255,255,255,0.065); color: #f5f5f7;
+  }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, rgba(0,180,216,0.1), rgba(255,107,107,0.04));
+    border: 1px solid rgba(0,180,216,0.25);
+    border-radius: 12px;
+    padding: 22px 24px;
+    margin: 20px auto;
+    max-width: 1100px;
+  }
+  .hero-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em;
+    color: var(--teal); font-weight: 600; margin-bottom: 4px;
+  }
+  .hero h1 {
+    font-size: 22px; font-weight: 700; color: var(--text); letter-spacing: -0.01em;
+    margin-bottom: 4px;
+  }
+  .hero-sub {
+    font-size: 13px; color: var(--text-secondary);
+  }
+  .hero-stats {
+    display: flex; gap: 24px; margin-top: 12px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+  }
+  .hero-stat-label { color: var(--muted); font-weight: 600; letter-spacing: 0.04em; }
+  .hero-stat-value { color: var(--coral); font-weight: 600; }
+
+  /* Category filter */
+  .cat-nav {
+    max-width: 1100px; margin: 0 auto; padding: 0 16px 8px;
+    display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+  }
+  .cat-nav::-webkit-scrollbar { display: none; }
+  .cat-chip {
+    font-size: 12px; font-weight: 600;
+    padding: 6px 14px; border-radius: 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--text-secondary); cursor: pointer; white-space: nowrap;
+    transition: all 0.15s;
+  }
+  .cat-chip:hover { border-color: var(--border-hover); color: var(--text); }
+  .cat-chip.active {
+    background: rgba(0,180,216,0.15); border-color: var(--teal);
+    color: var(--teal-light);
+  }
+
+  /* Category section */
+  .cat-section {
+    max-width: 1100px; margin: 0 auto;
+    padding: 24px 16px;
+  }
+  @media (min-width: 768px) { .cat-section { padding: 32px 24px; } }
+
+  .cat-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px; margin-bottom: 20px;
+  }
+  .cat-title {
+    font-size: 18px; font-weight: 700; color: var(--text);
+  }
+  .cat-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--muted);
+  }
+
+  /* Tip card */
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+  }
+  .tip-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.2rem 1.3rem;
+    transition: all 0.2s;
+  }
+  .tip-card:hover {
+    border-color: rgba(0,180,216,0.3);
+    transform: translateY(-1px);
+  }
+  .tip-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em;
+    color: var(--teal); font-weight: 600; margin-bottom: 4px;
+  }
+  .tip-title {
+    font-size: 1rem; font-weight: 700; color: var(--text);
+    margin-bottom: 8px;
+  }
+  .tip-rule {
+    font-size: 0.88rem; color: var(--coral-light);
+    margin-bottom: 10px; font-weight: 500;
+    padding-left: 10px; border-left: 2px solid var(--coral);
+  }
+  .tip-section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.1em; margin-top: 10px; margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .tip-rationale {
+    font-size: 0.82rem; color: var(--text-secondary);
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  .tip-list {
+    list-style: none; font-size: 0.82rem; color: var(--text-secondary);
+  }
+  .tip-list li {
+    padding: 2px 0 2px 12px;
+    position: relative;
+  }
+  .tip-list li::before {
+    content: '·';
+    position: absolute; left: 2px;
+    color: var(--teal); font-weight: 700;
+  }
+  .tip-source {
+    font-size: 0.72rem; color: var(--muted);
+    margin-top: 10px; font-style: italic;
+  }
+
+  /* Footer */
+  footer {
+    max-width: 1100px;
+    margin: 40px auto 24px;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .footer-4s {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal); margin-top: 4px;
+  }
+
+  /* Empty state */
+  .empty-state {
+    text-align: center; padding: 60px 20px;
+    color: var(--muted); font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/">Travel</a>
+    <a href="travel-master.html" aria-current="page">Master</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-tag">TRAVEL MASTER TIPS · SSoT</div>
+  <h1>旅行マスター Tips データベース</h1>
+  <div class="hero-sub">旅行のコスパを最大化するルール集。議論で昇格したTipsを蓄積し、将来スキル化予定。</div>
+  <div class="hero-stats">
+    <div><span class="hero-stat-label">TOTAL:</span> <span class="hero-stat-value" id="stat-total">--</span></div>
+    <div><span class="hero-stat-label">CATEGORIES:</span> <span class="hero-stat-value" id="stat-cats">--</span></div>
+    <div><span class="hero-stat-label">SOURCE:</span> <span class="hero-stat-value">data/travel-tips.yaml</span></div>
+  </div>
+</section>
+
+<nav class="cat-nav" id="cat-nav"></nav>
+
+<div id="content"></div>
+
+<footer>
+  iUMA TRAVEL — Master Tips / SSoT: <code>trip-planner/data/travel-tips.yaml</code>
+  <div class="footer-4s">4S: 持続✓ 退避✓ 簡潔✓ 横展開✓</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script>
+  const CATEGORY_META = {
+    'mile-master':     { label: 'マイルマスター',    icon: '✈️', order: 1 },
+    'flight-booking':  { label: '航空券購入術',       icon: '🎫', order: 2 },
+    'hotel-booking':   { label: 'ホテル予約術',       icon: '🏨', order: 3 },
+    'insurance':       { label: '旅行保険',          icon: '🛡️', order: 4 },
+    'visa':            { label: 'ビザ・パスポート',   icon: '📘', order: 5 },
+    'ground-transport':{ label: '現地交通',          icon: '🚆', order: 6 }
+  };
+
+  let allTips = [];
+  let activeCat = 'all';
+
+  async function loadTips() {
+    try {
+      const res = await fetch('data/travel-tips.yaml');
+      const text = await res.text();
+      const data = jsyaml.load(text);
+      allTips = data.tips || [];
+      render();
+    } catch (e) {
+      document.getElementById('content').innerHTML =
+        '<div class="empty-state">YAMLの読み込みに失敗しました: ' + e.message + '</div>';
+    }
+  }
+
+  function render() {
+    const cats = {};
+    allTips.forEach(t => {
+      if (!cats[t.category]) cats[t.category] = [];
+      cats[t.category].push(t);
+    });
+
+    document.getElementById('stat-total').textContent = allTips.length;
+    document.getElementById('stat-cats').textContent = Object.keys(cats).length;
+
+    const catNav = document.getElementById('cat-nav');
+    catNav.innerHTML = '';
+    const allChip = document.createElement('div');
+    allChip.className = 'cat-chip' + (activeCat === 'all' ? ' active' : '');
+    allChip.textContent = 'ALL (' + allTips.length + ')';
+    allChip.onclick = () => { activeCat = 'all'; render(); };
+    catNav.appendChild(allChip);
+
+    Object.keys(cats)
+      .sort((a, b) => (CATEGORY_META[a]?.order || 99) - (CATEGORY_META[b]?.order || 99))
+      .forEach(cat => {
+        const chip = document.createElement('div');
+        chip.className = 'cat-chip' + (activeCat === cat ? ' active' : '');
+        const meta = CATEGORY_META[cat] || { label: cat, icon: '' };
+        chip.textContent = meta.icon + ' ' + meta.label + ' (' + cats[cat].length + ')';
+        chip.onclick = () => { activeCat = cat; render(); };
+        catNav.appendChild(chip);
+      });
+
+    const content = document.getElementById('content');
+    content.innerHTML = '';
+
+    const showCats = activeCat === 'all'
+      ? Object.keys(cats).sort((a, b) => (CATEGORY_META[a]?.order || 99) - (CATEGORY_META[b]?.order || 99))
+      : [activeCat];
+
+    showCats.forEach(cat => {
+      const tips = cats[cat] || [];
+      if (tips.length === 0) return;
+      const meta = CATEGORY_META[cat] || { label: cat, icon: '' };
+      const section = document.createElement('section');
+      section.className = 'cat-section';
+      section.innerHTML =
+        '<div class="cat-header">' +
+          '<div class="cat-title">' + meta.icon + ' ' + meta.label + '</div>' +
+          '<div class="cat-count">' + tips.length + ' tips</div>' +
+        '</div>' +
+        '<div class="tip-grid">' + tips.map(renderTip).join('') + '</div>';
+      content.appendChild(section);
+    });
+
+    if (content.children.length === 0) {
+      content.innerHTML = '<div class="empty-state">該当カテゴリのTipsがありません</div>';
+    }
+  }
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/[&<>"']/g, c => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[c]));
+  }
+
+  function renderTip(t) {
+    const conditions = (t.conditions || []).map(c => '<li>' + escapeHtml(c) + '</li>').join('');
+    const examples = (t.examples || []).map(e => '<li>' + escapeHtml(e) + '</li>').join('');
+    return '<div class="tip-card">' +
+      '<div class="tip-id">' + escapeHtml(t.id) + '</div>' +
+      '<div class="tip-title">' + escapeHtml(t.title) + '</div>' +
+      '<div class="tip-rule">' + escapeHtml(t.rule) + '</div>' +
+      (t.rationale ? '<div class="tip-section-label">WHY</div><div class="tip-rationale">' + escapeHtml(t.rationale) + '</div>' : '') +
+      (conditions ? '<div class="tip-section-label">適用条件</div><ul class="tip-list">' + conditions + '</ul>' : '') +
+      (examples ? '<div class="tip-section-label">実例</div><ul class="tip-list">' + examples + '</ul>' : '') +
+      (t.source ? '<div class="tip-source">出典: ' + escapeHtml(t.source) + '</div>' : '') +
+    '</div>';
+  }
+
+  loadTips();
+</script>
+</body>
+</html>

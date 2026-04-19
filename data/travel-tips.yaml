@@ -1,0 +1,148 @@
+# Travel Master Tips — SSoT
+# Updated: 2026-04-19
+# Schema: category / id / title / rule / rationale / conditions / examples / source
+# Categories: mile-master / flight-booking / hotel-booking / insurance / visa / ground-transport
+# Edit this file → travel-master.html auto-reflects (yaml parsed client-side)
+#
+# 4S 自己診断:
+# - 持続可能: YAML 1ファイル編集で追加可能 ✓
+# - 退避可能: git revert で即戻し ✓
+# - 簡潔: 1スキーマ / 1レンダラー / カテゴリ別カード ✓
+# - 横展開可: カテゴリ追加のみでジャンル拡張可 ✓
+
+tips:
+  # ═══════════════════════════════════════════
+  # MILE MASTER
+  # ═══════════════════════════════════════════
+  - id: mile-001
+    category: mile-master
+    title: 国内線にマイルを使うな
+    rule: ANA国内線特典航空券は1mi=0.7-1円の価値。LCC実費の方が合理的
+    rationale: |
+      区間B(FUK-OKA等) Rシーズン=8,500mi/片道。Peach実費¥7,000と同等=1mi=0.82円。
+      同じマイルを国際線ビジネスに使えば1mi=6-9円。**5-10倍の機会損失**
+    conditions:
+      - 国内線短距離(区間A/B)
+      - LCCが運航している区間
+    examples:
+      - 2026-07 FUK-OKA: マイル17,000mi往復 vs Peachバリュー往復¥15,000 → Peach選択
+    source: ANA公式マイルチャート 2024/10/27改定後
+
+  - id: mile-002
+    category: mile-master
+    title: 国際線ビジネスがマイル最高効率
+    rule: マイルは国際線ビジネスクラスで1mi=6-9円を実現
+    rationale: |
+      欧米ビジネス往復=60,000-85,000mi vs 実費¥500,000-700,000。
+      ハイシーズンや燃油高騰時はさらに効率上がる
+    conditions:
+      - 長距離国際線(欧米・中東・アフリカ)
+      - 実費チケットが¥400,000以上
+    examples:
+      - ANA ビジネス HND-LHR 往復85,000mi (実費¥700,000相当=1mi=8.2円)
+    source: ANA国際線特典航空券チャート
+
+  - id: mile-003
+    category: mile-master
+    title: 特典航空券の変更は同区間なら無料
+    rule: 同区間(同じ出発地・到着地)の別便への変更は手数料ゼロ
+    rationale: |
+      日時変更のみなら回数制限なし・出発24時間前まで変更可。
+      区間変更(別空港)・他社便への切替は払戻扱い=3,000mi取消手数料発生
+    conditions:
+      - 予約済み特典航空券
+      - 出発時刻24時間以上前
+    examples:
+      - FUK-OKA 7/3 09:35便 → 同じFUK-OKA 7/3 15:50便 への変更: 無料
+      - FUK-OKA → FUK-KMJ への変更: 3,000mi手数料
+    source: ANA国内線特典航空券ご利用条件
+
+  - id: mile-004
+    category: mile-master
+    title: マイル払戻の取消手数料は3,000mi固定
+    rule: 特典航空券キャンセル時の手数料は1回3,000mi(全区間未使用が前提)
+    rationale: |
+      出発便時刻前までに取消申請すれば可能。出発時刻過ぎたら全没収。
+      2026/5/19以降の搭乗分は3,000mi or 3,000円どちらか選択可
+    conditions:
+      - 出発便出発時刻前
+      - 全区間未使用
+    examples:
+      - 17,000mi往復使用 → キャンセル時 14,000mi返還
+    source: ANAマイレージクラブ 2026版
+
+  - id: mile-005
+    category: mile-master
+    title: マイル有効期限36ヶ月・使い切る計画を先に立てる
+    rule: ANA一般マイル=36ヶ月で失効。プラチナ・ダイヤは無期限
+    rationale: |
+      貯めたマイルが先に失効しないよう、貯め始めた時点で使途を決めておく。
+      失効直前の駆け込み使用は国内線に流れて価値破壊しやすい
+    conditions:
+      - プラチナ/ダイヤ未満のステイタス
+    examples:
+      - 2026-04加算 → 2029-04末失効。2028年以内に使い切る計画
+    source: ANAマイレージクラブ規約
+
+  - id: mile-006
+    category: mile-master
+    title: ANA SKYコインは最終手段
+    rule: マイル→SKYコイン交換は1mi=1-1.6円。国内線マイル使用より少しマシ
+    rationale: |
+      実費チケット購入に充当可・有効期限1年。ただし1mi=1.6円はANAプラチナ以上で10,000mi以上交換時のみ
+    conditions:
+      - マイル失効直前
+      - 国際線特典枠が取れない時
+    examples:
+      - 10,000mi → 16,000SKYコイン (プラチナ以上・10k以上交換の場合)
+    source: ANA SKYコイン交換レート表
+
+  - id: mile-007
+    category: mile-master
+    title: シーズン区分(L/R/H)を把握して旅程を組む
+    rule: ローシーズンに旅程をずらせば必要マイル数30%減
+    rationale: |
+      区間B ローシーズン=7,000mi vs ハイシーズン=10,500mi。**差3,500mi**。
+      観光地が混雑しない利点も付随
+    conditions:
+      - 旅程に柔軟性あり
+    examples:
+      - GW避けて5月下旬にずらす → H→Lで3,500mi節約
+    source: ANA国内線特典航空券シーズンチャート
+
+  - id: mile-008
+    category: mile-master
+    title: 提携航空会社特典で第5自由飛行を狙う
+    rule: ANA以外のスターアライアンス便にもマイルで乗れる。第5自由=3国間路線
+    rationale: |
+      例: シンガポール→バンコク(タイ国際航空)=10,500mi。ANA直行便なし区間でも使える
+    conditions:
+      - スターアライアンス加盟社運航便
+      - 空席枠あり(ANAより取りにくい)
+    examples:
+      - タイ国際航空 シンガポール-バンコク エコノミー 10,500mi
+    source: ANA提携航空会社特典航空券ゾーンチャート
+
+  - id: mile-009
+    category: mile-master
+    title: 特典枠は発券開始日(355日前)に狙う
+    rule: ANAは国際線355日前・国内線355日前から特典枠開放。人気路線は即日埋まる
+    rationale: |
+      GW・盆・年末年始の欧米ビジネスは開放日夜には全滅。カレンダーリマインダー必須
+    conditions:
+      - 繁忙期の国際線ビジネス
+    examples:
+      - 2026-12-28 出発欧米Jクラス希望 → 2026-01-07 発券開始に予約
+    source: ANA特典航空券発券ルール
+
+  - id: mile-010
+    category: mile-master
+    title: マイル加算漏れは6ヶ月以内に申請
+    rule: 搭乗後マイル未加算は6ヶ月以内ならANAウェブで事後登録可能
+    rationale: |
+      提携航空会社便・ツアー申込便で加算漏れ多発。搭乗券+eチケット控えを保管
+    conditions:
+      - 搭乗後6ヶ月以内
+    examples:
+      - タイ航空便ANAマイル加算漏れ → ANA Webから事後登録可
+    source: ANAマイレージクラブ事後登録ルール
