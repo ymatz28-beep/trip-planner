@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台北旅行プラン 2026年4月16日〜20日 | 4泊5日</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    /* iUMA design system tokens */
+    --bg: #0f1117;
+    --surface: rgba(255,255,255,0.035);
+    --surface-hover: rgba(255,255,255,0.065);
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f5f5f7;
+    --text-secondary: #a1a1aa;
+    --muted: #71717a;
+    --dim: #3f3f46;
+    /* page accent */
+    --pink: #E8577A;
+    --pink-light: #FFB3C6;
+    --teal: #00897B;
+    --gold: #D4A055;
+    --gold-light: #F0D5A8;
+    --card-bg: var(--surface);
+    --glass: var(--border);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Hero — compact next-card pattern (matches index.html) */
+  .hero {
+    display: block;
+    background: linear-gradient(135deg, rgba(232,87,122,0.08), rgba(232,87,122,0.02));
+    border: 1px solid rgba(232,87,122,0.25);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 20px auto;
+    max-width: 720px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-row1 {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .hero-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+    color: var(--pink);
+  }
+  .hero-countdown {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    background: rgba(232,87,122,0.15);
+    color: var(--pink);
+    padding: 4px 10px; border-radius: 12px;
+  }
+  .hero-row2 {
+    display: flex; align-items: baseline; gap: 10px;
+    margin-bottom: 6px;
+  }
+  .hero-flag { font-size: 22px; line-height: 1; }
+  .hero h1 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .hero .subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 400;
+    padding-left: 32px;
+  }
+  .hero-meta {
+    font-size: 12px; color: var(--text-secondary);
+    padding-left: 32px; margin-top: 2px;
+  }
+  /* Legacy fallbacks (unused after refactor) */
+  .countdown-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* Section Nav — sticky horizontal scroll bar */
+  .section-nav-wrapper {
+    position: sticky;
+    top: 52px;
+    z-index: 90;
+    background: rgba(15,17,23,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-bar {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    padding: 10px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-wrap: nowrap;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-bar a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .nav-bar a:hover, .nav-bar a.active {
+    color: var(--text);
+    background: var(--surface-hover);
+  }
+
+  /* Sections */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 16px;
+  }
+  @media (min-width: 768px) {
+    .section { padding: 48px 24px; }
+  }
+  .section-title {
+    font-size: clamp(18px, 2.5vw, 22px);
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .section-sub {
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2.5rem;
+    font-size: 0.95rem;
+  }
+
+  /* Flight Cards */
+  .flight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  /* flight-card styles removed — booked flights use compact inline layout */
+  .airline-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .airline-row:last-child { border-bottom: none; }
+  .airline-name { font-weight: 500; color: rgba(255,255,255,0.8); }
+  .airline-price { color: var(--pink); font-weight: 600; }
+
+  /* Hotel Cards */
+  .hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .hotel-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .hotel-card:hover {
+    border-color: rgba(232,87,122,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+  .hotel-card.recommended {
+    border-color: rgba(0,137,123,0.4);
+    background: rgba(0,137,123,0.05);
+  }
+  .hotel-card.recommended::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: 1rem;
+    right: -2.5rem;
+    background: var(--teal);
+    color: #fff;
+    padding: 0.2rem 2.5rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+  }
+  .hotel-tier {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .hotel-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--pink-light);
+  }
+  .hotel-price {
+    font-size: 1rem;
+    color: var(--pink);
+    margin-bottom: 1rem;
+  }
+  .hotel-features {
+    list-style: none;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .hotel-features li {
+    padding: 0.3rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .hotel-features li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+    font-size: 0.7rem;
+  }
+
+  /* Day Timeline */
+  .day-section {
+    margin-bottom: 3rem;
+    scroll-margin-top: 4rem;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .day-badge {
+    background: linear-gradient(135deg, var(--pink), #c74060);
+    color: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .day-badge .num { font-size: 1.5rem; line-height: 1; }
+  .day-badge .label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; }
+  .day-title { font-size: 1.4rem; font-weight: 700; }
+  .day-date { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--pink), rgba(232,87,122,0.1));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 0.6rem;
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    transition: all 0.3s;
+  }
+  .timeline-item:hover {
+    border-color: rgba(232,87,122,0.2);
+    background: rgba(255,255,255,0.06);
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 1.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--pink);
+    border: 2px solid var(--bg);
+  }
+  .time-label {
+    font-size: 0.75rem;
+    color: var(--pink);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.3rem;
+  }
+  .activity-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  .activity-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(232,87,122,0.15);
+    color: var(--pink-light);
+    padding: 0.15rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+    margin-right: 0.3rem;
+  }
+  .tag.food { background: rgba(212,160,85,0.2); color: var(--gold-light); }
+  .tag.lgbt { background: rgba(232,87,122,0.2); color: var(--pink-light); }
+  .tag.culture { background: rgba(0,137,123,0.2); color: #80cbc4; }
+  .tag.shopping { background: rgba(156,39,176,0.15); color: #ce93d8; }
+
+  /* Restaurant Cards */
+  .resto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .resto-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    transition: all 0.3s;
+  }
+  .resto-card:hover {
+    border-color: rgba(212,160,85,0.3);
+    transform: translateY(-2px);
+  }
+  .resto-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+  }
+  .resto-type {
+    font-size: 0.75rem;
+    color: var(--pink);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .resto-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Tab system */
+  .tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.5);
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.3s;
+  }
+  .tab-btn:hover { border-color: rgba(232,87,122,0.3); color: var(--pink-light); }
+  .tab-btn.active {
+    background: rgba(232,87,122,0.15);
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* LGBT Info */
+  .lgbt-info {
+    background: linear-gradient(135deg, rgba(232,87,122,0.08), rgba(10,10,20,0.5));
+    border: 1px solid rgba(232,87,122,0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .lgbt-info h3 {
+    color: var(--pink);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+  }
+  .lgbt-info p, .lgbt-info li {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+  }
+  .lgbt-info ul { list-style: none; padding-left: 0; }
+  .lgbt-info li::before { content: '▸ '; color: var(--pink); }
+  .venue-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s;
+  }
+  .venue-card:hover { border-color: rgba(232,87,122,0.3); }
+  .venue-name { font-weight: 700; color: var(--pink-light); font-size: 1rem; margin-bottom: 0.2rem; }
+  .venue-addr { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-bottom: 0.4rem; }
+  .venue-hours { font-size: 0.8rem; color: var(--teal); margin-bottom: 0.4rem; }
+  .venue-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+
+  /* Tips */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .tip-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .tip-card h3 {
+    color: var(--pink);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+  .tip-card p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* Budget */
+  .budget-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .budget-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  .budget-card:hover { border-color: rgba(232,87,122,0.2); }
+  .budget-card.recommended { border-color: rgba(0,137,123,0.4); background: rgba(0,137,123,0.05); }
+  .budget-tier {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--teal);
+    margin-bottom: 0.3rem;
+  }
+  .budget-total {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    color: var(--pink);
+    margin-bottom: 1rem;
+  }
+  .budget-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .budget-line:last-child { border-bottom: none; }
+
+  /* Map */
+  .map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 1.5rem;
+  }
+  #map { width: 100%; height: 450px; }
+  .spot-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+  .spot-item {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+  .spot-item:hover { border-color: rgba(232,87,122,0.3); background: rgba(255,255,255,0.06); }
+  .spot-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .spot-icon.food-icon { background: rgba(212,160,85,0.2); }
+  .spot-icon.lgbt-icon { background: rgba(232,87,122,0.2); }
+  .spot-icon.hotel-icon { background: rgba(0,137,123,0.2); }
+  .spot-icon.market-icon { background: rgba(156,39,176,0.2); }
+  .spot-name { font-size: 0.85rem; font-weight: 500; }
+  .spot-area { font-size: 0.7rem; color: rgba(255,255,255,0.4); }
+
+  /* Checklist */
+  .checklist-progress {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    height: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .checklist-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--pink-light));
+    border-radius: 20px;
+    transition: width 0.5s ease;
+  }
+  .checklist-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .check-item:hover { opacity: 0.8; }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box {
+    width: 44px;
+    height: 44px;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s;
+    font-size: 0.7rem;
+    color: transparent;
+  }
+  .check-item input:checked + .check-box {
+    background: var(--pink);
+    border-color: var(--pink);
+    color: #fff;
+  }
+  .check-item input:checked ~ .check-text {
+    text-decoration: line-through;
+    opacity: 0.4;
+  }
+  .check-text {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    transition: all 0.3s;
+  }
+
+  /* Map link */
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    padding: 0.3rem 0.8rem;
+    background: rgba(232,87,122,0.1);
+    border: 1px solid rgba(232,87,122,0.25);
+    border-radius: 20px;
+    color: var(--pink-light);
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .map-link:hover { background: rgba(232,87,122,0.25); border-color: var(--pink); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem;
+    color: rgba(255,255,255,0.2);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Back link — removed, gnav handles navigation */
+  .back-link-removed {
+    display: none;
+    background: rgba(10,10,20,0.85);
+    backdrop-filter: blur(10px);
+    color: var(--pink-light);
+    text-decoration: none;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(232,87,122,0.2);
+    transition: all 0.3s;
+  }
+  .back-link:hover { background: rgba(232,87,122,0.15); border-color: var(--pink); }
+
+  /* Leaflet overrides */
+  .leaflet-popup-content-wrapper {
+    background: #0f0f1a;
+    color: #f5f5f5;
+    border: 1px solid rgba(232,87,122,0.3);
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .leaflet-popup-tip { background: #0f0f1a; }
+  .leaflet-popup-content { font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; line-height: 1.5; }
+  .leaflet-popup-content a { color: var(--pink); text-decoration: none; }
+  .leaflet-popup-content strong { color: var(--pink-light); }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero { margin: 16px 12px; padding: 16px 18px; }
+    .section { padding: 2.5rem 1rem; }
+    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); }
+    .timeline { padding-left: 2rem; }
+    .nav-bar a { padding: 6px 10px; font-size: 11px; }
+    #map { height: 350px; }
+  }
+
+  @media (max-width: 640px) {
+    .section { padding: 2rem 0.8rem; }
+    .section-title { font-size: clamp(1.2rem, 4vw, 1.6rem); }
+    .timeline { padding-left: 1.5rem; }
+    .timeline::before { display: none; }
+    .timeline-item::before { display: none; }
+    .timeline-item { padding: 1rem; }
+    .nav-bar {
+      justify-content: flex-start;
+      padding: 10px 12px;
+      gap: 2px;
+    }
+    .nav-bar a {
+      padding: 6px 12px;
+      font-size: 11px;
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+    }
+    .hotel-grid { grid-template-columns: 1fr; }
+    .resto-grid { grid-template-columns: 1fr; }
+    .flight-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .spot-list { grid-template-columns: 1fr; }
+    .budget-grid { grid-template-columns: 1fr; }
+    #map { height: 280px; }
+    .day-badge { width: 48px; height: 48px; }
+    .day-badge .num { font-size: 1.2rem; }
+    .day-title { font-size: 1.1rem; }
+    .tab-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+  }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 17px; }
+    .hero-meta { font-size: 11px; }
+    .section { padding: 1.5rem 0.6rem; }
+    .section-title { font-size: 1.1rem; }
+    .nav-bar { padding: 8px 0; gap: 2px; }
+    .hotel-card { padding: 1.2rem; }
+    .hotel-name { font-size: 1.05rem; }
+    .resto-card { padding: 1rem; }
+    .tip-card { padding: 1rem; }
+    .day-header { gap: 0.6rem; }
+    .day-badge { width: 42px; height: 42px; border-radius: 10px; }
+    .day-badge .num { font-size: 1rem; }
+    .day-badge .label { font-size: 0.5rem; }
+    .day-title { font-size: 1rem; }
+    .back-link { font-size: 0.7rem; padding: 0.3rem 0.7rem; }
+    .venue-card { padding: 1rem; }
+  }
+
+  /* === Gnav Type A (Public Hub) === */
+  .site-header{display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:52px;background:rgba(22,24,31,0.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+  .site-nav{display:flex;gap:4px}
+  .site-nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;padding:6px 14px;border-radius:6px;transition:background .15s,color .15s;font-family:'Inter','Noto Sans JP',sans-serif}
+  .site-nav a:hover,.site-nav a[aria-current="page"]{background:var(--surface-hover);color:var(--text)}
+  .nav-toggle{display:none}
+  .nav-toggle-label{display:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center}
+  .nav-toggle-label span,.nav-toggle-label span::before,.nav-toggle-label span::after{display:block;background:var(--text-secondary);height:2px;width:20px;border-radius:2px;position:relative;transition:all .3s}
+  .nav-toggle-label span::before,.nav-toggle-label span::after{content:'';position:absolute}
+  .nav-toggle-label span::before{top:-6px}
+  .nav-toggle-label span::after{top:6px}
+  @media(max-width:640px){
+    .site-header{flex-wrap:wrap;gap:8px;padding:8px 12px;height:auto}
+    .nav-toggle-label{display:inline-flex}
+    .site-nav{display:none;width:100%;flex-direction:column;gap:4px;padding-top:8px}
+    .nav-toggle:checked~.site-nav{display:flex}
+    .nav-toggle:checked+.nav-toggle-label span{background:transparent}
+    .nav-toggle:checked+.nav-toggle-label span::before{top:0;transform:rotate(45deg)}
+    .nav-toggle:checked+.nav-toggle-label span::after{top:0;transform:rotate(-45deg)}
+    .site-nav a{padding:8px 12px;font-size:12px;min-height:44px}
+  }
+
+  /* === Day accordion === */
+  .day-header {
+    cursor: pointer;
+    user-select: none;
+  }
+  .day-header-chevron {
+    margin-left: auto;
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .day-section:not(.collapsed) .day-header-chevron {
+    transform: rotate(90deg);
+  }
+  .day-section.collapsed .timeline {
+    display: none;
+  }
+
+  /* === 今日のサマリーカード === */
+  #today-summary {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px 24px;
+  }
+  @media (min-width: 768px) {
+    #today-summary { padding: 0 24px 24px; }
+  }
+  .today-card {
+    background: linear-gradient(135deg, rgba(232,87,122,0.1), rgba(10,10,20,0.6));
+    border: 1px solid rgba(232,87,122,0.25);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 2rem;
+    align-items: flex-start;
+  }
+  .today-card-meta {
+    flex-shrink: 0;
+  }
+  .today-card-date {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .today-card-day {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--pink-light);
+    margin: 2px 0;
+  }
+  .today-card-title {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  .today-card-meals {
+    flex: 1;
+    min-width: 200px;
+  }
+  .today-card-meals-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+  .today-meal-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    padding: 0.2rem 0;
+  }
+  .today-meal-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--pink);
+    flex-shrink: 0;
+  }
+
+  /* === Floating "今日へ" button === */
+  #btn-today {
+    display: none;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 50;
+    background: var(--pink);
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(232,87,122,0.4);
+    transition: background 0.2s, transform 0.15s;
+  }
+  #btn-today:hover { background: #c74060; transform: translateY(-2px); }
+  @media (min-width: 769px) {
+    #btn-today { display: none !important; }
+  }
+</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+<header class="site-header">
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+  <nav class="site-nav" aria-label="Site navigation">
+    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
+    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-row1">
+      <span class="hero-badge">NEXT TRIP</span>
+      <span class="hero-countdown" id="cd-pill">あと -- 日</span>
+    </div>
+    <div class="hero-row2">
+      <span class="hero-flag">🇹🇼</span>
+      <h1>TAIPEI 台北</h1>
+    </div>
+    <div class="hero-meta">4/16(木)〜20(月) · 4泊5日 · 2名 · 熱炒 × 夜市 × 烏龍茶</div>
+  </div>
+</section>
+
+<!-- Section Navigation -->
+<div class="section-nav-wrapper">
+  <nav class="nav-bar" aria-label="Page section navigation">
+    <a href="#flights">フライト</a>
+    <a href="#hotels">ホテル</a>
+    <a href="#itinerary">日程</a>
+    <a href="#meal-plan">食事一覧</a>
+    <a href="#restaurants">グルメ</a>
+    <a href="#tea">烏龍茶</a>
+    <a href="#souvenirs">お土産</a>
+    <a href="#lgbt">LGBTQ+</a>
+    <a href="#currency">通貨</a>
+    <a href="#budget">予算</a>
+    <a href="#map">マップ</a>
+    <a href="#checklist">チェックリスト</a>
+  </nav>
+</div>
+
+<!-- 今日のサマリー (JS-driven, shown only during trip 4/16-4/20) -->
+<div id="today-summary" style="display:none;">
+  <div class="today-card" id="today-card-inner"></div>
+</div>
+
+<!-- Floating "今日へ" button (mobile only, shown during trip) -->
+<button id="btn-today" onclick="scrollToToday()"></button>
+
+<!-- Flights -->
+<section class="section" id="flights">
+  <h2 class="section-title">Flights</h2>
+  <p class="section-sub">エバー航空 直行便 — 羽田 ↔ 台北松山 <span style="background:rgba(0,137,123,0.2); color:var(--teal); padding:2px 10px; border-radius:4px; font-size:0.75rem; margin-left:0.3rem;">予約済み</span></p>
+
+  <div style="background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.2rem 1.5rem;">
+    <!-- Leg rows -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.6rem 2rem; margin-bottom:0.8rem;">
+      <div style="flex:1; min-width:220px; display:flex; align-items:baseline; gap:0.6rem;">
+        <span style="font-size:0.7rem; font-weight:600; color:var(--teal); background:rgba(0,137,123,0.15); padding:2px 8px; border-radius:4px; flex-shrink:0;">行き</span>
+        <span style="font-size:0.85rem; color:var(--text-secondary);">4/16(木)</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600; color:var(--text);">12:40→15:05</span>
+        <span style="font-size:0.75rem; color:var(--muted);">BR191 HND→TSA 直行 3h25m</span>
+      </div>
+      <div style="flex:1; min-width:220px; display:flex; align-items:baseline; gap:0.6rem;">
+        <span style="font-size:0.7rem; font-weight:600; color:var(--teal); background:rgba(0,137,123,0.15); padding:2px 8px; border-radius:4px; flex-shrink:0;">帰り</span>
+        <span style="font-size:0.85rem; color:var(--text-secondary);">4/20(月)</span>
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:600; color:var(--text);">16:20→20:20</span>
+        <span style="font-size:0.75rem; color:var(--muted);">BR190 TSA→HND 直行 3h00m</span>
+      </div>
+    </div>
+    <!-- Booking reference -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.4rem 1.2rem; font-size:0.78rem; color:var(--muted); padding-top:0.6rem; border-top:1px solid var(--border);">
+      <span><span style="color:var(--teal); font-weight:600;">Agoda予約ID</span> <span style="font-family:'JetBrains Mono',monospace; color:var(--text);">1707813388</span></span>
+      <span><span style="color:var(--teal); font-weight:600;">航空会社照会番号(PNR)</span> <span style="font-family:'JetBrains Mono',monospace; color:var(--text);">FD79EM</span></span>
+    </div>
+    <!-- Meta -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.4rem 1.2rem; font-size:0.78rem; color:var(--muted); padding-top:0.6rem; border-top:1px solid var(--border); margin-top:0.6rem;">
+      <span>EVA Air（★Alliance / ANAコードシェア）</span>
+      <span>受託手荷物1個+機内持込1個 無料</span>
+      <span style="font-family:'JetBrains Mono',monospace; color:var(--pink);">¥55,376/人（2名計 ¥110,751）</span>
+    </div>
+    <!-- Airport access -->
+    <div style="font-size:0.78rem; color:var(--muted); margin-top:0.6rem; padding-top:0.6rem; border-top:1px solid var(--border);">
+      <span style="color:var(--teal); font-weight:600;">空港→市内</span>
+      松山空港はMRT文湖線直結。西門まで MRT 約20分（松山機場→忠孝復興で板南線乗換→西門）/ タクシー 15-20分（¥1,500〜2,500）
+      <span style="color:var(--text-secondary); margin-left:0.5rem;">15:05着→MRT→16:30頃から観光開始</span>
+    </div>
+  </div>
+</section>
+
+<!-- Hotels -->
+<section class="section" id="hotels">
+  <h2 class="section-title">Hotels</h2>
+  <p class="section-sub">相鉄グランドフレッサ 台北西門 — 予約済み</p>
+
+  <div class="hotel-card recommended" style="margin:0;">
+    <div class="hotel-tier">Mid-Range｜日系｜<span style="color:var(--teal);">予約済み</span></div>
+    <div class="hotel-name">相鉄グランドフレッサ 台北西門</div>
+    <div class="hotel-price" style="color:var(--pink);">4泊2人 ¥145,627（会員価格・現地払い・朝食付き）</div>
+    <div style="margin:0.8rem 0;">
+      <img src="img/sotetsu-twin-room.png" alt="スタンダードツインルーム" style="width:60%; max-width:280px; border-radius:8px; border:1px solid var(--border);">
+    </div>
+    <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.6rem;">
+      スタンダードツインルーム（眺望なし）・シングルベッド2台 120×200・キャンセル/変更可
+    </div>
+    <ul class="hotel-features">
+      <li>2024年2月開業。設備ピカピカ</li>
+      <li>全室30㎡以上 — 台北では破格の広さ。2人でもゆったり</li>
+      <li>西門MRT 3番出口 徒歩1分</li>
+      <li>日本語フロント常駐。セルフランドリー完備</li>
+      <li>朝食付き: 1F 武蔵野森珈琲（セットメニュー5択・7:00〜10:30）— 宿泊料に込み</li>
+    </ul>
+    <div style="margin-top:0.8rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+      <a class="map-link" href="https://maps.google.com/?q=Sotetsu+Grand+Fresa+Taipei+Ximen" target="_blank">&#128205; Map</a>
+      <a class="map-link" href="https://grandfresa-taipeiximen.sotetsu-hotels.com/" target="_blank" style="border-color:rgba(232,87,122,0.25); background:rgba(232,87,122,0.1); color:var(--pink-light);">&#127968; 公式サイト</a>
+      <a class="map-link" href="https://grandfresa-taipeiximen.sotetsu-hotels.com/breakfast/" target="_blank" style="border-color:rgba(0,137,123,0.25); background:rgba(0,137,123,0.1); color:#80cbc4;">&#9749; 朝食メニュー</a>
+    </div>
+  </div>
+</section>
+
+<!-- Itinerary -->
+<section class="section" id="itinerary">
+  <h2 class="section-title">Itinerary</h2>
+  <p class="section-sub">食 × LGBTQ+ プラン — 観光は軽め、食い倒れ重視。4泊5日確定</p>
+
+  <div class="tabs" id="plan-tabs">
+    <button class="tab-btn active" onclick="switchPlan('4nights')">4泊5日（4/16〜20）</button>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="day-section" id="day1">
+    <div class="day-header" onclick="toggleDaySection('day1')">
+      <div class="day-badge"><span class="num">1</span><span class="label">Day</span></div>
+      <div><div class="day-title">到着 & 西門町探索</div><div class="day-date">4月16日（木）</div></div>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">12:40</div>
+        <div class="activity-title">EVA Air BR191 羽田 → 台北松山</div>
+        <div class="activity-desc">15:05着。松山空港はMRT文湖線直結。忠孝復興で板南線に乗り換えて西門へ（約20分）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">17:30</div>
+        <div class="activity-title">チェックイン & 西門町散策</div>
+        <div class="activity-desc">15:05着→入国→MRT文湖線+板南線で西門へ約20分。荷物を置いて西門町を散策。<a href="https://maps.google.com/?q=Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag shopping">ショッピング</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">18:30</div>
+        <div class="activity-title">港都熱炒 or 33區熱炒で台湾式乾杯</div>
+        <div class="activity-desc"><strong style="color:var(--gold);">港都熱炒</strong>（ゾロ推薦）は日本語タッチパネル注文で初日に最適。中山旗艦店。33區は長安東路の熱炒ストリート代表店。台湾ビール生 × 海鮮炒め × 空心菜。1人NT$400-500（¥2,000〜2,500）。<a href="https://maps.google.com/?q=港都熱炒+台北市中山區民生東路一段52號" target="_blank" style="color:var(--pink);">&#128205; 港都</a> <a href="https://maps.google.com/?q=33區熱炒+長安東路+台北" target="_blank" style="color:var(--pink);">&#128205; 33區</a></div>
+        <span class="tag food">熱炒</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">21:00</div>
+        <div class="activity-title">西門町ナイトウォーク & 王福芋圓</div>
+        <div class="activity-desc">紅樓周辺のバーエリアを散策。テラス席で台湾クラフトビール or モクテル。<strong style="color:var(--gold);">王福芋圓</strong>（ゾロ日本人向け4選）で芋圓デザートも。峨眉街、西門町ど真ん中。<a href="https://maps.google.com/?q=Red+House+Ximending+Taipei" target="_blank" style="color:var(--pink);">&#128205; 紅樓</a> <a href="https://maps.google.com/?q=王福芋圓+臺北市萬華區峨眉街5-2號" target="_blank" style="color:var(--pink);">&#128205; 王福芋圓</a></div>
+        <span class="tag culture">ナイトライフ</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="day-section" id="day2">
+    <div class="day-header" onclick="toggleDaySection('day2')">
+      <div class="day-badge"><span class="num">2</span><span class="label">Day</span></div>
+      <div><div class="day-title">飲茶 & 永康街</div><div class="day-date">4月17日（金）</div></div>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">07:00</div>
+        <div class="activity-title">阜杭豆漿 Fu Hang Soy Milk</div>
+        <div class="activity-desc">台北で最も有名な朝食店。厚餅夾蛋、鹹豆漿、蛋餅が絶品。7時前に到着推奨（行列必至）。<a href="https://maps.google.com/?q=Fu+Hang+Soy+Milk+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">朝食</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">10:00</div>
+        <div class="activity-title">永康街 Yongkang Street</div>
+        <div class="activity-desc">台北のグルメストリートを散策。カフェ、ブティック、ストリートフード。<a href="https://maps.google.com/?q=Yongkang+Street+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag shopping">散策</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">11:30</div>
+        <div class="activity-title">杭州小籠湯包 Hang Zhou XLB</div>
+        <div class="activity-desc">ミシュラン・ビブグルマン。鼎泰豐の半額以下で絶品小籠包。大安エリア。¥800-1,200/人。<a href="https://maps.google.com/?q=Hang+Zhou+Xiao+Long+Bao+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">小籠包</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">14:00</div>
+        <div class="activity-title">微熱山丘 SunnyHills</div>
+        <div class="activity-desc">パイナップルケーキの無料試食体験。民生コミュニティの隈研吾設計ビル。お土産にも最適。<a href="https://maps.google.com/?q=SunnyHills+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">スイーツ</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">15:30</div>
+        <div class="activity-title">大安エリア カフェ巡り</div>
+        <div class="activity-desc">台北のカフェカルチャーを堪能。おしゃれな独立系カフェが密集。</div>
+        <span class="tag food">カフェ</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">18:00</div>
+        <div class="activity-title">香港式飲茶</div>
+        <div class="activity-desc">京星港式飲茶 or Tim Ho Wan（添好運）で本格的な点心コース。ハーガウ、チャーシューバオ、腸粉を堪能。<a href="https://maps.google.com/?q=Tim+Ho+Wan+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">飲茶</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">19:00</div>
+        <div class="activity-title">面線町 → 寧夏夜市</div>
+        <div class="activity-desc">夜市前に赤峰街の<strong style="color:var(--gold);">面線町</strong>（ゾロ推薦）でスープ麺線を軽く。赤峰街は中山駅近くのおしゃれストリート。散策しつつ寧夏方面へ。<a href="https://maps.google.com/?q=面線町+台北市大同區赤峰街49巷25號" target="_blank" style="color:var(--pink);">&#128205; 面線町</a></div>
+        <span class="tag food">軽食</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">20:00</div>
+        <div class="activity-title">寧夏夜市 Ningxia Night Market</div>
+        <div class="activity-desc">食に特化した夜市。<strong style="color:var(--gold);">ゾロ推薦4選</strong>: 方家雞肉飯（鶏肉飯+ネギ卵焼き）、自然捲（もちベーコン・豚キムチ）、香酥地瓜球、豆花荘。+ 定番の蚵仔煎、豬肝湯も。<a href="https://maps.google.com/?q=Ningxia+Night+Market+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">夜市</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">22:00</div>
+        <div class="activity-title">LGBTQ+ ナイトアウト（金曜夜！）</div>
+        <div class="activity-desc">金曜夜は紅樓エリアが最も活気づく夜。G Paradise → HERO Bar → Fairy Taipei（22時以降ゲイバー化、No Pants Day等テーマナイトあり）とハシゴ。大木くん: 台湾ビール＆カクテル充実。Yuma: ノンアルモクテル/スムージー対応あり。</div>
+        <span class="tag lgbt">LGBTQ+</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">LATE</div>
+        <div class="activity-title">小品雅廚 深夜の〆</div>
+        <div class="activity-desc">ミシュランBib Gourmand。翌5時まで営業の最強深夜食堂。清粥小菜スタイルで台湾家庭料理20種+から好きなだけ選ぶ。お粥NT$10（¥50）。ナイトアウト後の〆に最高。中山区。<a href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">深夜飯</span><span class="tag" style="background:rgba(0,137,123,0.2); color:#80cbc4;">Bib Gourmand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="day-section" id="day3">
+    <div class="day-header" onclick="toggleDaySection('day3')">
+      <div class="day-badge"><span class="num">3</span><span class="label">Day</span></div>
+      <div><div class="day-title">ミシュラン & 夜市</div><div class="day-date">4月18日（土）</div></div>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">09:00</div>
+        <div class="activity-title">ゆっくり起床 → 北北車魯肉飯</div>
+        <div class="activity-desc">ホテル朝食 or 台北駅近くの北北車魯肉飯（ゾロ推薦）で脂身トロトロ魯肉飯ブランチ。白菜・筍の煮物もクタクタで美味。<a href="https://maps.google.com/?q=北北車魯肉飯+台北市中正區公園路20巷21號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">11:00</div>
+        <div class="activity-title">中正紀念堂（オプション）</div>
+        <div class="activity-desc">写真スポットとして軽く立ち寄り。衛兵交代式は毎正時。<a href="https://maps.google.com/?q=Chiang+Kai-shek+Memorial+Hall+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag culture">観光</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">12:00</div>
+        <div class="activity-title">朱記餡餅 台北站前店</div>
+        <div class="activity-desc">ゾロ推薦。台北駅地下の餡餅（肉まん焼き）専門店。牛肉餡餅・韮菜盒子がサクサクジューシー。NT$100（¥500）前後で大満足。台北駅直結B1Fでアクセス最高。<a href="https://maps.google.com/?q=朱記餡餅+台北市中正區忠孝西路一段66號B1F" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">ランチ</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">14:00</div>
+        <div class="activity-title">迪化街散策 & 奇跡の国 台湾</div>
+        <div class="activity-desc">レトロな問屋街・迪化街を散策。ドライフルーツ、漢方、茶葉のお土産探し。<strong style="color:var(--gold);">奇跡の国 台湾</strong>はゾロさんが経営するフィナンシェ専門店。パイナップル・タロ芋・あずき3種。11:00〜売り切れ次第終了。<a href="https://maps.google.com/?q=奇跡の国+台湾+臺北市大同區迪化街一段149號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag shopping">お土産</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロの店</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">15:30</div>
+        <div class="activity-title">佳德糕餅 Chia Te Bakery</div>
+        <div class="activity-desc">台湾No.1パイナップルケーキ。2006年台北鳳梨酥フェスティバル優勝。お土産の定番。行列覚悟。<a href="https://maps.google.com/?q=Chia+Te+Bakery+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag shopping">お土産</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">16:00</div>
+        <div class="activity-title">餃匠（ゾロ3星）</div>
+        <div class="activity-desc">台北駅すぐ。餃子屋だが本命は「蒜香辣拌麺」（ニンニクまぜそば）1択。ニンニクの量が尋常じゃない。饒河夜市前の腹ごしらえに。<a href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">ゾロ3星</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">18:30</div>
+        <div class="activity-title">福州世祖胡椒餅（饒河夜市・入口1店目）</div>
+        <div class="activity-desc">ミシュラン・ビブグルマン常連の<strong style="color:var(--gold);">胡椒餅</strong>（フージャオピン）名店。炭火窯に貼り付けて焼く台湾式ペッパーバン。豚バラ・青ネギ・黒胡椒たっぷり。MRT松山駅1番出口を出て饒河夜市の「入口アーチ1軒目」、行列は必ずできるが回転早い（15〜20分）。1個NT$60（¥300）。<strong>焼きたてが命なので夜市巡りの最初にゲット</strong>。<a href="https://maps.google.com/?q=福州世祖胡椒餅+饒河街夜市" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">胡椒餅</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ミシュラン</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">19:00</div>
+        <div class="activity-title">饒河夜市 Raohe Night Market</div>
+        <div class="activity-desc">藥燉排骨（漢方スペアリブスープ）、臭豆腐、紅豆餅（台湾風今川焼き）、蚵仔煎（牡蠣オムレツ）。一本道で迷わない。MRT松山駅直結。<a href="https://maps.google.com/?q=Raohe+Night+Market+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">夜市</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">22:00</div>
+        <div class="activity-title">WERK! @ Triangle &#127752;</div>
+        <div class="activity-desc"><strong>4/18は第3土曜 = WERK!パーティー開催日！</strong> 台北最大級のゲイナイト。Triangle（中山区・玉門街1号）にて22:00〜。ゲストDJ、ドラッグショー、GoGoダンサー。20-30代のローカル＋外国人MIX。大木くん: クラフトビール充実。Yuma: ソフトドリンクOK。<a href="https://maps.google.com/?q=Triangle+Club+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag lgbt">LGBTQ+</span><span class="tag" style="background:rgba(255,193,7,0.2); color:#FFD54F;">WERK! NIGHT</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">LATE</div>
+        <div class="activity-title">小品雅廚 深夜の〆</div>
+        <div class="activity-desc">ミシュランBib Gourmand。翌5時まで営業の最強深夜食堂。WERK!後の〆に最高。清粥小菜スタイルで台湾家庭料理20種+から好きなだけ選ぶ。お粥NT$10（¥50）。中山区。<a href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">深夜飯</span><span class="tag" style="background:rgba(0,137,123,0.2); color:#80cbc4;">Bib Gourmand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="day-section" id="day4">
+    <div class="day-header" onclick="toggleDaySection('day4')">
+      <div class="day-badge"><span class="num">4</span><span class="label">Day</span></div>
+      <div><div class="day-title">リラックス & 食い倒れ</div><div class="day-date">4月19日（日）</div></div>
+      <span class="day-header-chevron">›</span>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time-label">08:00</div>
+        <div class="activity-title">曾家豆漿（ゾロ3星）</div>
+        <div class="activity-desc">「人生でいちばん美味いエッグタルト」。ブリュレたっぷりで濃厚。大行列ができるが日曜は平日より短め。翌日用に持ち帰りもOK。中山區錦州街。<a href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">朝食</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ3星</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">09:30</div>
+        <div class="activity-title">四海豆漿大王 or ホテルジム</div>
+        <div class="activity-desc">ゾロ推薦の朝食名店。台北駅〜中山駅間。小籠湯包NT$90（¥450）が激安で美味い。曾家豆漿で十分ならスキップしてジムでもOK。<a href="https://maps.google.com/?q=四海豆漿大王+台北" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">朝食</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">11:00</div>
+        <div class="activity-title">永康牛肉麵</div>
+        <div class="activity-desc">台北名物・牛肉麵の名店。濃厚スープと柔らかい牛肉。林東芳牛肉麵も候補。¥1,000前後。<a href="https://maps.google.com/?q=Yongkang+Beef+Noodles+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">牛肉麵</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">13:00</div>
+        <div class="activity-title">スパ / マッサージ</div>
+        <div class="activity-desc">台湾式足裏マッサージ or スパでリフレッシュ。オプション: Taipei I/O（ゲイサウナ・Zhongshan）or Soi 13in。</div>
+        <span class="tag culture">リラックス</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">15:00</div>
+        <div class="activity-title">中山エリア散策 & 嘟嘟水餃 → 朱遊記</div>
+        <div class="activity-desc">中山駅周辺を散策しつつ、ゾロ3星の<strong style="color:var(--gold);">嘟嘟水餃</strong>へ。ニラ水餃子 + ピリ辛唐辛子醤油ダレ。コンビニでビール買って持ち込み推奨。余裕があれば同じ中山区の<strong style="color:var(--gold);">朱遊記</strong>（ゾロ3星・撫順街39號）で魯肉飯ハシゴも。<a href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank" style="color:var(--pink);">&#128205; 嘟嘟</a> <a href="https://maps.google.com/?q=朱遊記+台北市中山區撫順街39號" target="_blank" style="color:var(--pink);">&#128205; 朱遊記</a></div>
+        <span class="tag food">ゾロ3星</span><span class="tag shopping">散策</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">17:00</div>
+        <div class="activity-title">南機場夜市（穴場）</div>
+        <div class="activity-desc">観光客ゼロのローカル夜市。ミシュラン掲載多数。来来水餃（10個NT$50（¥250））、臭豆腐、麻油鶏。コスパ最強。MRT小南門駅徒歩10分。<a href="https://maps.google.com/?q=南機場夜市+台北" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">夜市</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">18:30</div>
+        <div class="activity-title">富錦台菜香檳 Fujin Taiwanese Cuisine</div>
+        <div class="activity-desc">旅行最後のディナー。富錦街のモダン台湾料理 — 伝統台菜をシャンパンとペアリングで楽しむ予約制レストラン。松山区の閑静な並木道沿い。WERK!翌日の落ち着いた締めに最適。<strong style="color:var(--pink);">要予約</strong>。<a href="https://maps.google.com/?q=富錦台菜香檳+台北市松山區富錦街359號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+        <span class="tag food">ディナー</span><span class="tag" style="background:rgba(233,30,99,0.15); color:var(--pink);">要予約</span>
+      </div>
+      <div class="timeline-item">
+        <div class="time-label">21:00</div>
+        <div class="activity-title">富錦街散策 → ホテルへ</div>
+        <div class="activity-desc">ディナー後は富錦街の並木道をゆっくり散策。翌朝は帰国便なので早めに切り上げ。荷造り＆パッキング。</div>
+        <span class="tag culture">散策</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 4泊プラン: Day 5 = 出発 ===== -->
+  <div id="plan-4nights-end">
+    <div class="day-section" id="day5-4n">
+      <div class="day-header" onclick="toggleDaySection('day5-4n')">
+        <div class="day-badge"><span class="num">5</span><span class="label">Day</span></div>
+        <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月20日（月）</div></div>
+        <span class="day-header-chevron">›</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-label">08:00</div>
+          <div class="activity-title">李記豆漿 or 永和豆漿大王 ラスト朝食</div>
+          <div class="activity-desc">李記豆漿（ゾロ推薦）: 大稻埕エリアで帰国前に便利。手作り小籠包で台湾旅行を〆る。永和豆漿大王: 24時間営業、燒餅油條・蛋餅・熱豆漿。<a href="https://maps.google.com/?q=李記豆漿+台北市大同區長安西路292號" target="_blank" style="color:var(--pink);">&#128205; 李記</a> <a href="https://maps.google.com/?q=Yonghe+Soymilk+King+Taipei" target="_blank" style="color:var(--pink);">&#128205; 永和</a></div>
+          <span class="tag food">朝食</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">09:30</div>
+          <div class="activity-title">大稻埕米粉湯（オプション）</div>
+          <div class="activity-desc">ゾロ推薦。大稻埕エリアの朝食もう一軒。米粉湯（ビーフン汁）が優しい味。重慶北路、李記と同エリアなのでハシゴも可。<a href="https://maps.google.com/?q=大稻埕米粉湯+台北市大同區重慶北路一段26巷15號" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag food">朝食</span><span class="tag" style="background:rgba(255,193,7,0.15); color:var(--gold-light);">ゾロ推薦</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">10:00</div>
+          <div class="activity-title">ラストミニッツお土産</div>
+          <div class="activity-desc">佳德糕餅でパイナップルケーキ、林華泰茶行で烏龍茶（未購入なら）。空港でも買えるが市内の方が安い。</div>
+          <span class="tag shopping">お土産</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">11:30</div>
+          <div class="activity-title">チェックアウト → 松山空港</div>
+          <div class="activity-desc">EVA Air BR190 16:20発。西門→忠孝復興→松山機場（MRT 約20分）。14:00頃出発推奨。20:20 羽田着。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 5泊プラン: Day 5 = フルday + Day 6 = 出発 ===== -->
+  <div id="plan-5nights-end" style="display:none;">
+    <div class="day-section" id="day5-5n">
+      <div class="day-header" onclick="toggleDaySection('day5-5n')">
+        <div class="day-badge" style="background:linear-gradient(135deg, var(--teal), #00695C);"><span class="num">5</span><span class="label">Day</span></div>
+        <div><div class="day-title">猫空 & 烏龍茶 & ショッピング</div><div class="day-date">4月19日（日）・5泊プラン</div></div>
+        <span class="day-header-chevron">›</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-label">08:00</div>
+          <div class="activity-title">Loco Food ハッシュブラウン蛋餅</div>
+          <div class="activity-desc">ローカルで人気の朝食店。カリカリハッシュブラウン入り蛋餅が絶品。</div>
+          <span class="tag food">朝食</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">09:30</div>
+          <div class="activity-title">猫空ゴンドラ & 茶藝体験</div>
+          <div class="activity-desc">MRT文湖線「動物園」駅 → 猫空ゴンドラ約30分の空中散歩（クリスタルキャビンで透明床を体験）。山上の茶館で包種茶 & 鉄観音を飲みながら台北101の絶景。茶畑散策。大木くん: 茶酒（茶のリキュール）もあり。<a href="https://maps.google.com/?q=Maokong+Gondola+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag food">茶藝</span><span class="tag culture">絶景</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">13:00</div>
+          <div class="activity-title">大稻埕 茶葉ショッピング</div>
+          <div class="activity-desc"><strong>林華泰茶行</strong>（1883年創業、台北最古の茶行。問屋価格で購入可。現金のみ）→ <strong>有記名茶</strong>（炭火焙煎を店内で見学可）。2店で阿里山高山烏龍 & 東方美人を購入。<a href="https://maps.google.com/?q=Lin+Hua+Tai+Tea+Company+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag shopping">烏龍茶</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">15:00</div>
+          <div class="activity-title">迪化街 散策 & お土産</div>
+          <div class="activity-desc">乾物・漢方の問屋街。ドライマンゴー、からすみ、漢方素材も安い。レトロな建築を見ながらぶらぶら。<a href="https://maps.google.com/?q=Dihua+Street+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag shopping">お土産</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">16:30</div>
+          <div class="activity-title">紫藤廬 Wistaria Tea House</div>
+          <div class="activity-desc">1920年代築の日本式木造建築で台湾茶。功夫茶スタイルで自分で淹れる。鯉の泳ぐ中庭。最低消費NT$400（¥2,000）/人、3時間制限。火曜定休。<a href="https://maps.google.com/?q=Wistaria+Tea+House+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag food">茶藝</span><span class="tag culture">歴史建築</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">19:00</div>
+          <div class="activity-title">Red House ファイナルナイト</div>
+          <div class="activity-desc">最後の夜は紅樓テラスで。Mudan & Café Dalidaでゆっくり。大木くん: 台湾クラフトビールで乾杯。Yuma: フルーツスムージーモクテル。日曜も活気あり。</div>
+          <span class="tag lgbt">LGBTQ+</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-section" id="day6-5n">
+      <div class="day-header" onclick="toggleDaySection('day6-5n')">
+        <div class="day-badge" style="background:linear-gradient(135deg, var(--teal), #00695C);"><span class="num">6</span><span class="label">Day</span></div>
+        <div><div class="day-title">最終日 & 出発</div><div class="day-date">4月20日（月）・5泊プラン</div></div>
+        <span class="day-header-chevron">›</span>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="time-label">08:00</div>
+          <div class="activity-title">永和豆漿大王 ラスト朝食</div>
+          <div class="activity-desc">24時間営業。燒餅油條、蛋餅、熱豆漿で最後の台湾朝食。<a href="https://maps.google.com/?q=Yonghe+Soymilk+King+Taipei" target="_blank" style="color:var(--pink);">&#128205; Map</a></div>
+          <span class="tag food">朝食</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">10:00</div>
+          <div class="activity-title">ラストミニッツお土産</div>
+          <div class="activity-desc">買い忘れがあれば市内で。空港の免税店（昇恒昌 Everrich）でも烏龍茶・パイナップルケーキは購入可。</div>
+          <span class="tag shopping">お土産</span>
+        </div>
+        <div class="timeline-item">
+          <div class="time-label">12:00</div>
+          <div class="activity-title">チェックアウト → 空港へ</div>
+          <div class="activity-desc">EVA Air BR190 16:20発。西門→忠孝復興→松山機場（MRT 約20分）。14:00頃出発推奨。20:20 羽田着。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Meal Plan -->
+<section class="section" id="meal-plan">
+  <h2 class="section-title">Meal Plan</h2>
+  <p class="section-sub">5日間の食事を一覧で。タップで展開</p>
+
+  <style>
+    .meal-plan-day { margin-bottom: 1.2rem; }
+    .meal-day-header {
+      display: flex; align-items: center; gap: 0.8rem;
+      padding: 0.9rem 1.2rem; cursor: pointer; user-select: none;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; transition: all 0.2s;
+    }
+    .meal-day-header:hover { background: var(--surface-hover); border-color: var(--border-hover); }
+    .meal-day-header.open { border-radius: 12px 12px 0 0; border-bottom-color: transparent; }
+    .meal-day-num {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--pink), #c2185b);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 0.95rem;
+      color: #fff; flex-shrink: 0;
+    }
+    .meal-day-title { font-weight: 600; font-size: 0.95rem; color: var(--text); }
+    .meal-day-date { font-size: 0.75rem; color: var(--muted); }
+    .meal-day-count {
+      margin-left: auto; font-size: 0.7rem; color: var(--pink);
+      background: rgba(232,87,122,0.1); padding: 2px 8px; border-radius: 4px;
+    }
+    .meal-day-toggle {
+      font-size: 0.7rem; color: var(--muted); transition: transform 0.2s;
+    }
+    .meal-day-header.open .meal-day-toggle { transform: rotate(180deg); }
+    .meal-list {
+      display: none; border: 1px solid var(--border); border-top: none;
+      border-radius: 0 0 12px 12px; overflow: hidden;
+    }
+    .meal-list.open { display: block; }
+    .meal-item {
+      display: flex; align-items: baseline; gap: 0.8rem;
+      padding: 0.7rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.85rem;
+    }
+    .meal-item:last-child { border-bottom: none; }
+    .meal-time {
+      font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+      color: var(--pink); min-width: 42px; flex-shrink: 0;
+    }
+    .meal-name { color: var(--text); font-weight: 500; }
+    .meal-name a { color: var(--text); text-decoration: none; border-bottom: 1px dotted var(--pink); }
+    .meal-name a:hover { color: var(--pink); }
+    .meal-type {
+      font-size: 0.68rem; padding: 1px 6px; border-radius: 3px;
+      margin-left: 0.4rem; flex-shrink: 0;
+    }
+    .mt-breakfast { background: rgba(255,193,7,0.12); color: #FFD54F; }
+    .mt-lunch { background: rgba(0,137,123,0.12); color: #80cbc4; }
+    .mt-dinner { background: rgba(232,87,122,0.12); color: var(--pink-light); }
+    .mt-snack { background: rgba(255,255,255,0.06); color: var(--muted); }
+    .mt-night { background: rgba(156,39,176,0.12); color: #CE93D8; }
+    .mt-reserve { background: rgba(232,87,122,0.2); color: var(--pink); font-weight: 600; }
+    .meal-badge-zorro {
+      font-size: 0.62rem; padding: 1px 5px; border-radius: 3px;
+      background: rgba(255,193,7,0.15); color: var(--gold-light); margin-left: 0.3rem;
+    }
+    .meal-badge-bib {
+      font-size: 0.62rem; padding: 1px 5px; border-radius: 3px;
+      background: rgba(0,137,123,0.15); color: #80cbc4; margin-left: 0.3rem;
+    }
+    @media (max-width: 600px) {
+      .meal-day-header { padding: 0.7rem 0.9rem; gap: 0.6rem; }
+      .meal-item { padding: 0.6rem 0.9rem; font-size: 0.8rem; }
+      .meal-day-num { width: 30px; height: 30px; font-size: 0.8rem; }
+    }
+  </style>
+
+  <!-- Day 1 -->
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">1</div>
+      <div><div class="meal-day-title">到着 & 西門町</div><div class="meal-day-date">4/16（木）</div></div>
+      <div class="meal-day-count">2食</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">18:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=港都熱炒+台北市中山區民生東路一段52號" target="_blank">港都熱炒 or 33區熱炒</a></span>
+        <span class="meal-type mt-dinner">夕食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">21:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=王福芋圓+臺北市萬華區峨眉街5-2號" target="_blank">王福芋圓（タロ芋団子）</a></span>
+        <span class="meal-type mt-snack">デザート</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">2</div>
+      <div><div class="meal-day-title">飲茶 & 永康街</div><div class="meal-day-date">4/17（金）</div></div>
+      <div class="meal-day-count">8食</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">07:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Fu+Hang+Soy+Milk+Taipei" target="_blank">阜杭豆漿</a></span>
+        <span class="meal-type mt-breakfast">朝食</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">11:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Hang+Zhou+Xiao+Long+Bao+Taipei" target="_blank">杭州小籠湯包</a></span>
+        <span class="meal-type mt-lunch">昼食</span>
+        <span class="meal-badge-bib">Bib Gourmand</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">14:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=SunnyHills+Taipei" target="_blank">微熱山丘 SunnyHills（試食）</a></span>
+        <span class="meal-type mt-snack">おやつ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">18:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Tim+Ho+Wan+Taipei" target="_blank">京星港式飲茶 or Tim Ho Wan</a></span>
+        <span class="meal-type mt-dinner">夕食</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">19:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=面線町+台北市大同區赤峰街49巷25號" target="_blank">面線町</a></span>
+        <span class="meal-type mt-snack">軽食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">20:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Ningxia+Night+Market+Taipei" target="_blank">寧夏夜市（方家雞肉飯 / 自然捲 / 蚵仔煎）</a></span>
+        <span class="meal-type mt-night">夜市</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">21:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=豆花荘+台北市大同區寧夏路49號" target="_blank">豆花荘（豆花デザート）</a></span>
+        <span class="meal-type mt-snack">デザート</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">LATE</span>
+        <span class="meal-name"><a href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank">小品雅廚（深夜の〆）</a></span>
+        <span class="meal-type mt-night">深夜飯</span>
+        <span class="meal-badge-bib">Bib Gourmand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">3</div>
+      <div><div class="meal-day-title">ミシュラン & 夜市</div><div class="meal-day-date">4/18（土）</div></div>
+      <div class="meal-day-count">5食</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">09:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=北北車魯肉飯+台北市中正區公園路20巷21號" target="_blank">北北車魯肉飯</a></span>
+        <span class="meal-type mt-breakfast">ブランチ</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">12:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=朱記餡餅+台北市中正區忠孝西路一段66號B1F" target="_blank">朱記餡餅 台北站前店</a></span>
+        <span class="meal-type mt-lunch">昼食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">16:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank">餃匠（ニンニクまぜそば）</a></span>
+        <span class="meal-type mt-snack">おやつ</span>
+        <span class="meal-badge-zorro">&#11088;&#11088;&#11088; ゾロ3星</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">18:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=福州世祖胡椒餅+饒河街夜市" target="_blank">饒河夜市（福州世祖胡椒餅 / 藥燉排骨）</a></span>
+        <span class="meal-type mt-night">夜市</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">LATE</span>
+        <span class="meal-name"><a href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank">小品雅廚（WERK!後の〆）</a></span>
+        <span class="meal-type mt-night">深夜飯</span>
+        <span class="meal-badge-bib">Bib Gourmand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4 -->
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">4</div>
+      <div><div class="meal-day-title">リラックス & 食い倒れ</div><div class="meal-day-date">4/19（日）</div></div>
+      <div class="meal-day-count">6食</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">08:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank">曾家豆漿（エッグタルト）</a></span>
+        <span class="meal-type mt-breakfast">朝食</span>
+        <span class="meal-badge-zorro">&#11088;&#11088;&#11088; ゾロ3星</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">09:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=四海豆漿大王+台北" target="_blank">四海豆漿大王（オプション）</a></span>
+        <span class="meal-type mt-breakfast">朝食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">11:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=Yongkang+Beef+Noodles+Taipei" target="_blank">永康牛肉麵</a></span>
+        <span class="meal-type mt-lunch">昼食</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">15:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank">嘟嘟水餃 → 朱遊記</a></span>
+        <span class="meal-type mt-snack">食べ歩き</span>
+        <span class="meal-badge-zorro">&#11088;&#11088;&#11088; ゾロ3星</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">17:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=南機場夜市+台北" target="_blank">南機場夜市（来来水餃 / 臭豆腐）</a></span>
+        <span class="meal-type mt-night">夜市</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">18:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=富錦台菜香檳+台北市松山區富錦街359號" target="_blank">富錦台菜香檳</a></span>
+        <span class="meal-type mt-reserve">要予約</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 5 -->
+  <div class="meal-plan-day">
+    <div class="meal-day-header" onclick="toggleMealDay(this)">
+      <div class="meal-day-num">5</div>
+      <div><div class="meal-day-title">最終日 & 出発</div><div class="meal-day-date">4/20（月）</div></div>
+      <div class="meal-day-count">2食</div>
+      <div class="meal-day-toggle">&#9660;</div>
+    </div>
+    <div class="meal-list">
+      <div class="meal-item">
+        <span class="meal-time">08:00</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=李記豆漿+台北市大同區長安西路292號" target="_blank">李記豆漿 or 永和豆漿大王</a></span>
+        <span class="meal-type mt-breakfast">朝食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+      <div class="meal-item">
+        <span class="meal-time">09:30</span>
+        <span class="meal-name"><a href="https://maps.google.com/?q=大稻埕米粉湯+台北市大同區重慶北路一段26巷15號" target="_blank">大稻埕米粉湯（オプション）</a></span>
+        <span class="meal-type mt-breakfast">朝食</span>
+        <span class="meal-badge-zorro">&#11088; ゾロ</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMealDay(header) {
+      var list = header.nextElementSibling;
+      header.classList.toggle('open');
+      list.classList.toggle('open');
+    }
+  </script>
+</section>
+
+<!-- Restaurants -->
+<section class="section" id="restaurants">
+  <h2 class="section-title">Dining Guide</h2>
+  <p class="section-sub">日別の食事は上の Meal Plan、全店舗の詳細は↓のフードガイドで</p>
+
+  <a href="taipei-food.html" style="display:block; text-decoration:none; margin:1.5rem auto; max-width:600px; padding:2rem; background:linear-gradient(135deg, rgba(230,57,70,0.08), rgba(212,168,71,0.06)); border:1px solid rgba(230,57,70,0.2); border-radius:16px; text-align:center; transition:all .2s;" onmouseover="this.style.borderColor='rgba(230,57,70,0.4)'" onmouseout="this.style.borderColor='rgba(230,57,70,0.2)'">
+    <div style="font-size:2rem; margin-bottom:0.8rem;">🍜</div>
+    <div style="font-size:1.1rem; font-weight:600; color:var(--text); margin-bottom:0.5rem;">台北フードガイド 2026</div>
+    <div style="font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.6;">
+      ローカル食堂 / ゾロ推薦 / 小籠包 / 牛肉麺 / 夜市 / 朝食 / 熱炒 / カフェ / デザート / お茶
+    </div>
+    <div style="margin-top:1rem; font-size:0.8rem; color:var(--pink); font-weight:500;">フードガイドを開く →</div>
+  </a>
+
+  <div style="margin-top:2rem;">
+    <h3 style="font-size:0.9rem; color:rgba(255,255,255,0.4); margin-bottom:1rem; text-align:center;">🔥 厳選クイックピック</h3>
+    <div class="resto-grid">
+      <div class="resto-card">
+        <div class="resto-name">小品雅廚</div>
+        <div class="resto-type">Bib Gourmand ・ 深夜〆の聖地</div>
+        <a class="map-link" href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank">&#128205; Map</a>
+      </div>
+      <div class="resto-card">
+        <div class="resto-name">金峰魯肉飯</div>
+        <div class="resto-type">Bib Gourmand ・ 台湾ソウルフード</div>
+        <a class="map-link" href="https://maps.google.com/?q=Jin+Feng+Braised+Pork+Rice+Taipei" target="_blank">&#128205; Map</a>
+      </div>
+      <div class="resto-card">
+        <div class="resto-name">阜杭豆漿</div>
+        <div class="resto-type">Bib Gourmand ・ 台北最強の朝食</div>
+        <a class="map-link" href="https://maps.google.com/?q=Fu+Hang+Soy+Milk+Taipei" target="_blank">&#128205; Map</a>
+      </div>
+      <div class="resto-card" style="border-color:rgba(255,193,7,0.3);">
+        <div class="resto-name" style="color:var(--gold-light);">富錦台菜香檳</div>
+        <div class="resto-type">モダン台湾料理 × シャンパン ・ 要予約</div>
+        <a class="map-link" href="https://maps.google.com/?q=富錦台菜香檳+台北市松山區富錦街359號" target="_blank">&#128205; Map</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tea -->
+<section class="section" id="tea">
+  <h2 class="section-title">Taiwan Oolong Tea</h2>
+  <p class="section-sub">台湾は「烏龍茶のシャンパン」— 世界最高峰の茶葉をお土産に</p>
+
+  <div class="lgbt-info" style="background:linear-gradient(135deg, rgba(0,137,123,0.08), rgba(10,10,20,0.5)); border-color:rgba(0,137,123,0.15);">
+    <h3 style="color:var(--teal);">なぜ台湾茶が特別か</h3>
+    <ul>
+      <li>1,000m以上の高山で栽培 → アミノ酸が濃縮され、甘味・旨味が極めて強い</li>
+      <li>午前は日照、午後は霧、夜は冷え込み → カテキン（渋味）が少なく柔らかい味わい</li>
+      <li>生産量が極少でほぼ国内消費。<strong>本物の高山茶は現地でしか手に入らない</strong></li>
+    </ul>
+  </div>
+
+  <h3 style="color:var(--teal); font-size:1.1rem; margin:2rem 0 1rem;">茶葉ショップ（購入向け）</h3>
+
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">林華泰茶行</div>
+      <div class="resto-type">1883年創業 ・ 台北最古 ・ 現金のみ</div>
+      <p class="resto-desc">問屋価格で購入可。飾り気ゼロの倉庫スタイルだが試飲OK。高山烏龍、東方美人、凍頂烏龍。茶器（急須）もコスパ良好。150g TWD 300〜600（¥1,500〜3,000）。重慶北路二段193號。</p>
+      <a class="map-link" href="https://maps.google.com/?q=Lin+Hua+Tai+Tea+Company+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">有記名茶 Wang Tea</div>
+      <div class="resto-type">100年超の歴史 ・ 炭火焙煎見学可</div>
+      <p class="resto-desc">台北で唯一、伝統的な炭火焙煎を店内で実施。焙煎工程の見学が最大の魅力。座って試飲も可。包種茶、焙煎系烏龍がおすすめ。TWD 300〜1,500（¥1,500〜7,500）/150g。大稻埕エリア。</p>
+      <a class="map-link" href="https://maps.google.com/?q=Wang+Tea+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">王德傳茶莊 Wang De Chuan</div>
+      <div class="resto-type">1862年創業 ・ プレミアムギフト最適</div>
+      <p class="resto-desc">台湾最高級茶ブランド。黒と赤の書道アートを用いた洗練パッケージ。ギフトに最適。中山北路旗艦店 or 永康街店。TWD 500〜3,000（¥2,500〜15,000）+/缶。</p>
+      <a class="map-link" href="https://maps.google.com/?q=Wang+De+Chuan+Tea+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">京盛宇 Jing Sheng Yu</div>
+      <div class="resto-type">現代的デザイン ・ ばらまき土産向き</div>
+      <p class="resto-desc">英語対応スタッフによるミニツアー＋試飲。個包装ティーバッグはばらまき土産に最適。永康街エリア。TWD 300〜800（¥1,500〜4,000）。</p>
+      <a class="map-link" href="https://maps.google.com/?q=Jing+Sheng+Yu+Tea+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+  </div>
+
+  <h3 style="color:var(--teal); font-size:1.1rem; margin:2rem 0 1rem;">茶館 & 茶藝体験</h3>
+
+  <div class="venue-card" style="border-color:rgba(0,137,123,0.15);">
+    <div class="venue-name" style="color:#80cbc4;">紫藤廬 Wistaria Tea House</div>
+    <div class="venue-addr">新生南路三段16巷1號・大安区</div>
+    <div class="venue-hours">10:00〜23:00（火曜定休）・最低消費 NT$400（¥2,000）/人 ・ 3時間制限</div>
+    <div class="venue-desc">1920年代築の日本式木造建築。歴史的建造物指定。畳席と椅子席。鯉の泳ぐ中庭。功夫茶スタイルで自分で淹れる。クレジットカード可。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Wistaria+Tea+House+Taipei" target="_blank" style="border-color:rgba(0,137,123,0.25); background:rgba(0,137,123,0.1); color:#80cbc4;">&#128205; Map</a>
+  </div>
+  <div class="venue-card" style="border-color:rgba(0,137,123,0.15);">
+    <div class="venue-name" style="color:#80cbc4;">猫空 Maokong（5泊プランのDay 5で訪問）</div>
+    <div class="venue-addr">MRT文湖線「動物園」駅 → ゴンドラ約30分</div>
+    <div class="venue-hours">ゴンドラ: 外国人 TWD 180（¥900）/片道 ・ EasyCard利用可 ・ 月曜定休</div>
+    <div class="venue-desc">茶畑を見下ろすテラスで包種茶 & 鉄観音。クリスタルキャビン（透明床）+50TWD。台北101のビュースポットも。樟山寺では無料の台湾茶＋パノラマビュー。週末は混雑注意。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Maokong+Taipei" target="_blank" style="border-color:rgba(0,137,123,0.25); background:rgba(0,137,123,0.1); color:#80cbc4;">&#128205; Map</a>
+  </div>
+
+  <h3 style="color:var(--teal); font-size:1.1rem; margin:2rem 0 1rem;">おすすめ茶葉ガイド</h3>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">&#11088; 阿里山高山烏龍</h3>
+      <p>花の香り、バター質感、甘み。最もポピュラーな高山茶。TWD 400〜1,200（¥2,000〜6,000）/150g。<strong>林華泰で買うのが最安</strong>。</p>
+    </div>
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">&#127775; 梨山高山烏龍 Li Shan</h3>
+      <p>最高級。標高1,800〜2,600m。繊細で複雑な香り。入手困難。TWD 800〜3,000（¥4,000〜15,000）+/150g。</p>
+    </div>
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">&#127793; 東方美人 Oriental Beauty</h3>
+      <p>虫に食われた茶葉から生まれる蜂蜜のような甘香。TWD 500〜2,000（¥2,500〜10,000）/150g。ギフト映え。</p>
+    </div>
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">&#128176; 凍頂烏龍 Dong Ding</h3>
+      <p>ナッツの香り、中焙煎。<strong>コスパ最強</strong>。TWD 250〜600（¥1,250〜3,000）/150g。普段飲み用に。</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--teal); font-size:1.1rem; margin:2rem 0 1rem;">穴場 & コスパ情報</h3>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">林華泰が最強な理由</h3>
+      <p>問屋直売なのでデパートの1/3の価格。150g TWD 300（¥1,500）〜で高山烏龍が買える。試飲してから買えるので失敗なし。見た目は倉庫だが、台北の茶通は全員ここで買う。</p>
+    </div>
+    <div class="tip-card">
+      <h3 style="color:var(--gold);">スーパーの茶葉もアリ</h3>
+      <p>カルフール（家樂福）やPXマートに<strong>TWD 100-200（¥500〜1,000）</strong>の茶葉パックがある。普段飲み用なら十分な品質。凍頂烏龍のティーバッグがコスパ最強。空港の半額以下。</p>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem; background:rgba(212,160,85,0.08); border:1px solid rgba(212,160,85,0.15); border-radius:12px; padding:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8;">
+    <strong style="color:var(--gold);">購入戦略</strong><br>
+    &#128640; 本命: 林華泰で阿里山 or 梨山高山烏龍を150g〜300g（最安）<br>
+    &#127873; ギフト: 王德傳のギフトセット（パッケージが美しい）<br>
+    &#127381; ばらまき: 京盛宇の個包装ティーバッグ or 天仁茗茶<br>
+    &#9749; 猫空で: 包種茶 & 鉄観音を少量（地元産の意味がある）<br>
+    &#128176; 自分用: スーパーの凍頂烏龍パック（TWD 100-200（¥500〜1,000）で日常飲みに最適）
+  </div>
+</section>
+
+<!-- Souvenirs -->
+<section class="section" id="souvenirs">
+  <h2 class="section-title">Souvenirs & Tips</h2>
+  <p class="section-sub">パイナップルケーキから税関ルールまで — 台湾お土産完全ガイド</p>
+
+  <h3 style="color:var(--gold); font-size:1.1rem; margin-bottom:1rem;">&#127856; パイナップルケーキ TOP 3</h3>
+
+  <div class="resto-grid">
+    <div class="resto-card">
+      <div class="resto-name">佳德糕餅 Chia Te</div>
+      <div class="resto-type">台湾No.1 ・ 2006年優勝 ・ 行列覚悟</div>
+      <p class="resto-desc">台北鳳梨酥フェスティバル優勝。冬瓜入りの伝統派。12個入 TWD 370（¥1,850）。南京東路三段。早めに行かないと売り切れる。</p>
+      <a class="map-link" href="https://maps.google.com/?q=Chia+Te+Bakery+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">微熱山丘 SunnyHills</div>
+      <div class="resto-type">100%パイナップル ・ 無料試食 ・ 隈研吾建築</div>
+      <p class="resto-desc">冬瓜不使用の100%台湾産土鳳梨酥。酸味がしっかり。隈研吾設計の美しい店舗で無料試食＆お茶のサービス。10個入 TWD 420（¥2,100）。</p>
+      <a class="map-link" href="https://maps.google.com/?q=SunnyHills+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+    <div class="resto-card">
+      <div class="resto-name">小潘蛋糕坊</div>
+      <div class="resto-type">鳳凰酥（塩卵黄入り）・ 地元民人気</div>
+      <p class="resto-desc">パイナップル+冬瓜+塩卵黄の鳳凰酥が絶品。観光客より地元民に愛される店。板橋エリア。MRTでやや遠いが価値あり。</p>
+      <a class="map-link" href="https://maps.google.com/?q=%E5%B0%8F%E6%BD%98%E8%9B%8B%E7%B3%95%E5%9D%8A+Taipei" target="_blank">&#128205; Map</a>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold); font-size:1.1rem; margin:2rem 0 1rem;">&#127873; その他おすすめお土産</h3>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>太陽餅 サンケーキ</h3>
+      <p>バター風味のフレーク生地。甘すぎず上品。如邑堂で購入。TWD 200〜400（¥1,000〜2,000）/箱。</p>
+    </div>
+    <div class="tip-card">
+      <h3>ヌガークラッカー</h3>
+      <p>バター+ミルクヌガーをクラッカーで挟んだもの。糖村（空港にも出店）。TWD 300〜500（¥1,500〜2,500）/箱。</p>
+    </div>
+    <div class="tip-card">
+      <h3>曾拌麵 インスタント麺</h3>
+      <p>世界トップ10入りの台湾まぜ麺。スーパー、空港セブンイレブンで。TWD 100〜200（¥500〜1,000）。<strong>肉エキス不使用を確認</strong>。</p>
+    </div>
+    <div class="tip-card">
+      <h3>ドライマンゴー</h3>
+      <p>台湾産愛文マンゴー。甘みが濃い。迪化街か空港で。TWD 150〜300（¥750〜1,500）。</p>
+    </div>
+    <div class="tip-card">
+      <h3>茄芷袋 Gaji Bag</h3>
+      <p>台湾の伝統的な縞模様エコバッグ。迪化街・夜市で。ばらまきに最適。</p>
+    </div>
+    <div class="tip-card">
+      <h3>台湾フェイスマスク</h3>
+      <p>高品質MIT（Made in Taiwan）。Watson's、ドラッグストアで。日本でも人気の品質。</p>
+    </div>
+  </div>
+
+  <h3 style="color:var(--gold); font-size:1.1rem; margin:2rem 0 1rem;">&#128722; 買い物スポット</h3>
+  <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:2;">
+    <strong style="color:var(--gold-light);">迪化街</strong>: 乾物・茶葉・漢方の問屋街。林華泰・有記名茶もこのエリア<br>
+    <strong style="color:var(--gold-light);">永康街</strong>: 王德傳・京盛宇・來好（レトロ雑貨）が徒歩圏<br>
+    <strong style="color:var(--gold-light);">西門町</strong>: ばらまき土産の宝庫。価格競争で安い<br>
+    <strong style="color:var(--gold-light);">誠品書店 Eslite</strong>: 台湾デザイン雑貨+文房具。一部24時間営業<br>
+    <strong style="color:var(--gold-light);">空港免税店</strong>: 昇恒昌（Everrich）で高山烏龍茶ギフト、新東陽でパイナップルケーキ、7-11も充実
+  </div>
+
+  <div style="margin-top:2rem; background:rgba(232,87,122,0.08); border:1px solid rgba(232,87,122,0.2); border-radius:12px; padding:1.5rem;">
+    <h3 style="color:var(--pink); font-size:1rem; margin-bottom:0.8rem;">&#9888;&#65039; 日本持ち込み注意（税関ルール）</h3>
+    <div style="font-size:0.85rem; color:rgba(255,255,255,0.6); line-height:1.8;">
+      <strong style="color:#81c784;">&#9989; OK</strong>: 茶葉、パイナップルケーキ（肉不使用）、ヌガー、ドライフルーツ、密封加工食品<br>
+      <strong style="color:#ef5350;">&#10060; NG（絶対禁止）</strong>: 肉製品全般（ジャーキー、ソーセージ、肉まん。加熱済みも不可）、生の果物（マンゴー等は検疫証明なしでNG）、肉エキス入りカップ麺<br>
+      <strong style="color:#ef5350;">&#9888;&#65039; 罰則</strong>: 3年以下の懲役 or 300万円以下の罰金。2025年10月〜ASF対策で全入国者X線検査強化中<br>
+      <strong style="color:var(--gold);">&#128161; 結論</strong>: <strong>肉製品は買わないのが無難</strong>。茶葉・菓子・ドライフルーツは全てOK。
+    </div>
+  </div>
+</section>
+
+<!-- LGBTQ+ -->
+<section class="section" id="lgbt">
+  <h2 class="section-title">LGBTQ+ Taipei</h2>
+  <p class="section-sub">アジア初の同性婚合法国 — 西門町Red Houseに25以上のバーが集結</p>
+
+  <div class="lgbt-info">
+    <h3>台湾 = アジアのLGBTQ+首都</h3>
+    <ul>
+      <li><strong>2019年5月</strong>: アジアで初めて同性婚を法制化</li>
+      <li><strong>2023年</strong>: 同性カップルの共同養子縁組も合法化</li>
+      <li><strong>台北プライド</strong>: 毎年10月。アジア最大（15万人以上参加）</li>
+      <li>西門町ではレインボーフラッグが至る所に。同性カップルが手をつなぐのは日常風景</li>
+      <li>&#127987;&#65039;&#8205;&#127752; レインボー交差点が西門町に設置（2019年、同性婚合法化記念）</li>
+    </ul>
+  </div>
+
+  <h3 style="color:var(--pink); font-size:1.1rem; margin-bottom:1rem;">Red House Complex バー（成都路エリア）</h3>
+
+  <div class="venue-card">
+    <div class="venue-name">Cafe Dalida</div>
+    <div class="venue-addr">成都路10巷51号・万華区</div>
+    <div class="venue-hours">月-木 19:00-02:00 / 金-日 18:30-02:00</div>
+    <div class="venue-desc">紅樓エリアの象徴。台北ドラッグクイーンの発祥地。テラス席、モヒート（ノンアルモクテルも対応）。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Cafe+Dalida+Red+House+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">Mudan 牡丹</div>
+    <div class="venue-addr">成都路10巷43号・万華区</div>
+    <div class="venue-hours">月-木 17:00-01:00 / 金 17:00-02:00 / 土 16:00-02:00 / 日 16:00-01:00</div>
+    <div class="venue-desc">紅樓の老舗ゲイカフェバー。広いテラス、スムージーカクテル（ノンアル可）、日本風揚げ物。カジュアルで入りやすい。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Mudan+Bar+Red+House+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">G Paradise</div>
+    <div class="venue-addr">成都路10巷47号・万華区</div>
+    <div class="venue-hours">毎日 18:00-01:00</div>
+    <div class="venue-desc">ベアー系・ミックス。フレンドリーなオーナー。ドリンクが安い。初めてでも入りやすい雰囲気。</div>
+    <a class="map-link" href="https://maps.google.com/?q=G+Paradise+Red+House+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">Chance Bar</div>
+    <div class="venue-addr">成都路27巷・万華区</div>
+    <div class="venue-hours">月-木・日 14:00-03:00 / 金-土 14:00-04:00</div>
+    <div class="venue-desc">シックなインダストリアル内装。テーマナイトあり。午後から営業でデイタイム利用も可。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Chance+Bar+Ximending+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+
+  <h3 style="color:var(--pink); font-size:1.1rem; margin:2rem 0 1rem;">クラブ & その他</h3>
+
+  <div class="venue-card">
+    <div class="venue-name">HERO Bar</div>
+    <div class="venue-addr">昆明街15-2号 2F-4F・万華区</div>
+    <div class="venue-hours">火-木・日 20:00-02:00 / 金-土 20:00-04:00（月曜定休）</div>
+    <div class="venue-desc">ライブDJ、ダンスフロア、フード提供。週末は特に盛り上がる。紅樓から徒歩10分。</div>
+    <a class="map-link" href="https://maps.google.com/?q=HERO+Bar+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">Wonder Bar & Lounge</div>
+    <div class="venue-addr">復興北路183号・松山区</div>
+    <div class="venue-hours">火-木・日 19:00-01:00 / 金-土 19:00-02:00（月曜定休）</div>
+    <div class="venue-desc">レズビアン/フェム/ノンバイナリー向け。ハンドクラフトカクテル（ノンアル対応）。トレンディな空間。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Wonder+Bar+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+
+  <h3 style="color:var(--pink); font-size:1.1rem; margin:2rem 0 1rem;">サウナ & スパ</h3>
+
+  <div class="venue-card">
+    <div class="venue-name">Hans Men's Sauna</div>
+    <div class="venue-addr">西寧南路120号 2F・万華区</div>
+    <div class="venue-hours">24時間 ・ 約300 TWD（¥1,400）</div>
+    <div class="venue-desc">紅樓から徒歩圏。清潔さで定評。ドライサウナ、スチーム、TVラウンジ。ピーク18:00-21:00。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Hans+Mens+Sauna+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">Taipei I/O</div>
+    <div class="venue-addr">雙城街12巷49号・中山区</div>
+    <div class="venue-hours">月-木 12:00-22:00 / 金 12:00-23:00 / 土-日 終日 ・ 300 TWD</div>
+    <div class="venue-desc">モダンな3フロア。ジム、KTV、スチーム。テーマイベント（ふんどしナイト、ヌードナイト、緊縛ナイト等）。ベア/ガチムチ/ぽっちゃり特化。コンドーム・ルーブ無料。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Taipei+IO+Sauna" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">Soi 13in ソイ・サーティーン・イン</div>
+    <div class="venue-addr">民生東路一段13號・中山区（MRT雙連駅 徒歩7分）</div>
+    <div class="venue-hours">24時間 ・ 外国人 800-1,000 TWD / 台湾人 400 TWD ・ 現金のみ</div>
+    <div class="venue-desc">台北で最も人気のゲイサウナ。B1浴場/ジャグジー/サウナ、B2暗室/個室20室以上。20-40代中心、スリム〜細マッチョ多め。<strong>土曜夜18:30-19:30がピーク（約150人規模）</strong>。日韓香港シンガポールの旅行者も多い。</div>
+    <a class="map-link" href="https://maps.google.com/?q=Soi+13+in+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+  <div class="venue-card">
+    <div class="venue-name">XL CLUB</div>
+    <div class="venue-addr">民族東路10号 4F・中山区</div>
+    <div class="venue-hours">営業時間要確認 ・ 200 TWD（最安）</div>
+    <div class="venue-desc">ジム併設＋屋上テラス（ヌード日光浴可）。Muscle Music/下着パーティー等テーマナイトあり。25-40代の筋肉系が中心。</div>
+    <a class="map-link" href="https://maps.google.com/?q=XL+Club+Taipei" target="_blank">&#128205; Map</a>
+  </div>
+
+  <h3 style="color:var(--pink); font-size:1.1rem; margin:2rem 0 1rem;">&#127752; ゲイナイトイベント（4月）</h3>
+
+  <div class="lgbt-info">
+    <h3>4月のイベントカレンダー</h3>
+    <ul>
+      <li><strong style="color:#FFD54F;">WERK! @ Triangle — 4/18（土）22:00〜</strong>: 台北最大級のゲイナイト。毎月第3土曜。ゲストDJ、ドラッグショー、GoGoダンサー。IG: <a href="https://instagram.com/werk_taipei" target="_blank" style="color:var(--pink);">@werk_taipei</a></li>
+      <li><strong>G*Star Club</strong>（水-日 22:00-05:00）: 中山区 龍江路23号B1。2フロア、K-POP＋インターナショナル。テーマナイト＋ステージショー。カラオケ個室あり。若い客層（Twink系多め）</li>
+      <li><strong>Fairy Taipei</strong>（毎日 18:00-01:00 / 週末03:00）: 22時以降にゲイバー化。イケメン率高。No Pants Day等テーマナイトあり</li>
+      <li><strong>Commander D</strong>（火-日 20:00-02:00）: 漢中街 B1。SM/フェティッシュ系クルーズバー。ダークルームあり。Uniform Night、Underwear Party、Dog Night等</li>
+      <li><strong>Locker Room</strong>（水-日 21:00-02:00）: 「Wet Show」（シャワーショー）で有名。SM Night、K-POP Nightあり</li>
+    </ul>
+    <p style="margin-top:1rem;"><strong style="color:rgba(255,255,255,0.7);">&#128161; 注意</strong>: 台北Pride（10月開催、20万人規模）の時期ではないが、<strong>毎週末の紅樓バー街 + G*Star + サウナは通年営業</strong>。4/18 WERK!は絶対行くべき。</p>
+  </div>
+
+  <h3 style="color:var(--pink); font-size:1.1rem; margin:2rem 0 1rem;">&#128241; アプリ & SNS</h3>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>&#128293; Grindr + Hornet（二刀流推奨）</h3>
+      <p>台北ではGrindrが圧倒的シェア1位、Hornetが2位（台湾はHornetの3大市場の1つ）。Jack'dはアジア若年層に人気。9Monstersは日本メインだが台湾にもユーザーあり。</p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128247; フォローすべきInstagram</h3>
+      <p><a href="https://instagram.com/werk_taipei" target="_blank" style="color:var(--pink);">@werk_taipei</a> (WERK!)<br><a href="https://instagram.com/triangle_taipei" target="_blank" style="color:var(--pink);">@triangle_taipei</a> (Triangle)<br>ハッシュタグ: #taipeigay #taipeigaybar</p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128506; クルージングスポット</h3>
+      <p><strong>二二八和平公園</strong>: 台北クィア史の象徴。夕暮れ以降に男性カップルが多くなる。ただしアプリ主流化で「薄め」。MRT台大醫院駅。<strong>南港公園</strong>: 現在最も人気の屋外スポット。</p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128176; サウナ コスパ比較</h3>
+      <p>最安: <strong>XL CLUB 200 TWD</strong><br>バランス: <strong>漢士 400 TWD</strong>（広い・24h）<br>若い客層: <strong>Soi 13in 800-1,000 TWD</strong>（外国人価格高め）</p>
+    </div>
+  </div>
+</section>
+
+<!-- Currency -->
+<section class="section" id="currency">
+  <h2 class="section-title">Currency & Practical Info</h2>
+  <p class="section-sub">台湾ドル、EasyCard、天気 — 実用情報まとめ</p>
+
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>&#128176; 通貨・両替</h3>
+      <p>
+        <strong>台湾ドル (TWD)</strong>: 1 TWD ≒ 4.96 JPY（2026年3月時点）<br>
+        10,000円 ≒ 2,016 TWD<br><br>
+        <strong>おすすめ順</strong>:<br>
+        1. <strong>Wiseデビットカード</strong>（実質最安・後述）<br>
+        2. 松山空港の台湾銀行（到着フロアに窓口あり、レート良好、手数料NT$30（¥150））<br>
+        3. 現地ATM（7-Eleven ATMが至る所に）<br>
+        ⚠️ 日本の空港は最悪レート。絶対避ける
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128179; Wise（必携）</h3>
+      <p>
+        <strong>Wiseデビットカード</strong>: 為替手数料0.6%、ミッドマーケットレートで両替<br>
+        <strong>使い方</strong>: 事前にアプリでJPY→TWDに両替（レートを自分で選べる）<br>
+        <strong>ATM引出し</strong>: 月2回・3万円まで無料。それ以上は1.75%<br>
+        <strong>タッチ決済</strong>: Apple Pay / Google Pay対応。コンビニ・レストランでそのまま使える<br><br>
+        &#128161; 現金が必要な夜市以外はほぼWiseで完結。出発前にカード届くよう早めに申込
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128179; クレカ & 現金</h3>
+      <p>
+        <strong>Visa/Mastercard/JCB</strong>: ホテル・チェーン店で広く利用可<br>
+        <strong>夜市・屋台・熱炒</strong>: 現金のみが多い。必ず持参<br>
+        <strong>Apple Pay / Google Pay</strong>: コンビニ、タクシー、スーパーで拡大中<br><br>
+        &#128161; 初日に3,000-5,000 TWD（¥15,000-25,000）現金があれば安心
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128646; 交通・EasyCard</h3>
+      <p>
+        <strong>悠遊卡 (EasyCard)</strong>: 必須アイテム。MRT・バス・YouBike・コンビニで使える<br>
+        購入: MRT各駅 or コンビニ（NT$100（¥500） + チャージ）<br>
+        MRT初乗り: NT$20（¥100）〜<br>
+        YouBike（シェア自転車）: 30分以内NT$5（¥25）
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#127782;&#65039; 4月の天気</h3>
+      <p>
+        気温: 20-28°C（過ごしやすい）<br>
+        雨: 時折にわか雨あり（梅雨前）<br>
+        服装: 半袖+薄手の羽織り。折りたたみ傘必携<br>
+        湿度: やや高め<br><br>
+        &#128161; マンゴーシーズン開始の時期！
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#127760; 言語・通信</h3>
+      <p>
+        公用語: 中国語（繁体字）<br>
+        英語: 観光地以外はほぼ通じない<br>
+        Google翻訳のカメラ機能が便利<br><br>
+        <strong>通信</strong>: eSIMがおすすめ（Airalo等）。空港でSIMカード購入も可。無制限プラン3日NT$300（¥1,500）〜
+      </p>
+    </div>
+    <div class="tip-card">
+      <h3>&#128161; 知っておくと便利</h3>
+      <p>
+        コンビニ（7-11, FamilyMart）: 至る所にあり万能。ATM、荷物受取、チケット購入も<br>
+        チップ: 不要（台湾にチップ文化なし）<br>
+        トイレ: MRT駅に清潔なトイレあり<br>
+        タクシー: 初乗りNT$70（¥350）。安い。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Budget -->
+<section class="section" id="budget">
+  <h2 class="section-title">Budget</h2>
+  <p class="section-sub">2名合計の予算プラン（4泊5日確定）。航空券・ホテル予約済み</p>
+
+  <!-- 精算カード -->
+  <div style="background:linear-gradient(135deg, rgba(0,137,123,0.12), rgba(0,137,123,0.04)); border:2px solid rgba(0,137,123,0.4); border-radius:16px; padding:1.5rem 2rem; margin-bottom:2rem;">
+    <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:1rem;">
+      <span style="font-size:1.1rem;">&#128176;</span>
+      <span style="font-size:1rem; font-weight:700; color:var(--teal);">1人あたり精算（確定分）</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr auto; gap:0.4rem 1rem; font-size:0.9rem; color:rgba(255,255,255,0.7); max-width:400px;">
+      <span>航空券（EVA Air）</span>
+      <span style="font-family:'JetBrains Mono',monospace; text-align:right;">¥55,376</span>
+      <span>ホテル（相鉄フレッサ 朝食付 4泊）</span>
+      <span style="font-family:'JetBrains Mono',monospace; text-align:right;">¥72,814</span>
+      <span style="border-top:1px solid rgba(255,255,255,0.15); padding-top:0.5rem; margin-top:0.3rem; font-weight:700; color:var(--text);">合計（1人）</span>
+      <span style="border-top:1px solid rgba(255,255,255,0.15); padding-top:0.5rem; margin-top:0.3rem; font-family:'JetBrains Mono',monospace; font-size:1.3rem; font-weight:700; color:var(--teal); text-align:right;">¥128,190</span>
+    </div>
+    <div style="margin-top:1rem; font-size:0.78rem; color:rgba(255,255,255,0.35); line-height:1.6;">
+      ※ 食事・交通・お土産等は現地で各自精算<br>
+      ※ 航空券 ¥110,751 + ホテル ¥145,627 = 2名合計 ¥256,378
+    </div>
+  </div>
+
+  <div>
+    <div class="budget-grid">
+      <div class="budget-card">
+        <div class="budget-tier">Budget 節約（4泊）</div>
+        <div class="budget-total">~¥156,000</div>
+        <div class="budget-line"><span>航空券 (EVA Air HND-TSA)×2</span><span>¥80,000</span></div>
+        <div class="budget-line"><span>ホテル (Budget×4泊×1室)</span><span>¥24,000</span></div>
+        <div class="budget-line"><span>食事×2人</span><span>¥40,000</span></div>
+        <div class="budget-line"><span>交通+その他×2</span><span>¥12,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥78,000</span></div>
+      </div>
+      <div class="budget-card recommended">
+        <div class="budget-tier">Standard おすすめ（4泊）<span style="background:rgba(0,137,123,0.2); color:var(--teal); padding:2px 8px; border-radius:4px; font-size:0.7rem; margin-left:0.5rem;">確定</span></div>
+        <div class="budget-total">~¥336,000</div>
+        <div class="budget-line"><span>航空券 (EVA Air HND-TSA)×2</span><span>¥110,751</span></div>
+        <div class="budget-line"><span>ホテル (相鉄フレッサ×4泊×1室・朝食付)</span><span>¥145,627</span></div>
+        <div class="budget-line"><span>食事×2人 (熱炒+夜市+ローカル飯)</span><span>¥60,000</span></div>
+        <div class="budget-line"><span>交通+その他×2</span><span>¥20,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--teal);">~¥168,000</span></div>
+      </div>
+      <div class="budget-card">
+        <div class="budget-tier">Comfort 快適（4泊）</div>
+        <div class="budget-total">~¥310,000</div>
+        <div class="budget-line"><span>航空券 (EVA Air HND-TSA)×2</span><span>¥100,000</span></div>
+        <div class="budget-line"><span>ホテル (Luxury×4泊×1室)</span><span>¥80,000</span></div>
+        <div class="budget-line"><span>食事×2人 (ミシュラン込)</span><span>¥100,000</span></div>
+        <div class="budget-line"><span>交通+その他×2</span><span>¥30,000</span></div>
+        <div class="budget-line" style="border-top:1px solid rgba(255,255,255,0.1); padding-top:0.6rem; margin-top:0.3rem;"><span style="color:rgba(255,255,255,0.4);">1人あたり</span><span style="color:var(--pink);">~¥155,000</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:1.5rem; font-size:0.8rem; color:rgba(255,255,255,0.35); text-align:center;">
+    ※ ホテルはツイン1室・朝食付き（相鉄フレッサ予約済み ¥145,627）。航空券はEVA Air ¥55,376/人（予約済み）。食事は飲酒代込み見積もり
+  </div>
+</section>
+
+<!-- Map -->
+<section class="section" id="map">
+  <h2 class="section-title">Map</h2>
+  <p class="section-sub">グルメ・夜市・茶藝スポットを地図で確認</p>
+  <div class="map-container">
+    <div id="map"></div>
+  </div>
+  <div class="spot-list">
+    <a class="spot-item" href="https://maps.google.com/?q=Ximending+Taipei" target="_blank">
+      <div class="spot-icon hotel-icon">&#127976;</div>
+      <div><div class="spot-name">西門町 Ximending</div><div class="spot-area">宿泊エリア</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Red+House+Ximending+Taipei" target="_blank">
+      <div class="spot-icon lgbt-icon">&#127987;&#65039;&#8205;&#127752;</div>
+      <div><div class="spot-name">紅樓 Red House</div><div class="spot-area">LGBTQ+ エリア</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Jin+Feng+Braised+Pork+Rice+Taipei" target="_blank">
+      <div class="spot-icon food-icon">&#129378;</div>
+      <div><div class="spot-name">金峰魯肉飯</div><div class="spot-area">中正区</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Ningxia+Night+Market+Taipei" target="_blank">
+      <div class="spot-icon market-icon">&#127982;</div>
+      <div><div class="spot-name">寧夏夜市</div><div class="spot-area">中山区</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Raohe+Night+Market+Taipei" target="_blank">
+      <div class="spot-icon market-icon">&#127982;</div>
+      <div><div class="spot-name">饒河夜市</div><div class="spot-area">松山区</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=南機場夜市+台北" target="_blank">
+      <div class="spot-icon market-icon">&#127982;</div>
+      <div><div class="spot-name">南機場夜市</div><div class="spot-area">中正区・穴場</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Lin+Hua+Tai+Tea+Company+Taipei" target="_blank">
+      <div class="spot-icon food-icon">&#9749;</div>
+      <div><div class="spot-name">林華泰茶行</div><div class="spot-area">大同区・烏龍茶</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Wistaria+Tea+House+Taipei" target="_blank">
+      <div class="spot-icon food-icon">&#9749;</div>
+      <div><div class="spot-name">紫藤廬 Tea House</div><div class="spot-area">大安区・茶藝</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Maokong+Taipei" target="_blank">
+      <div class="spot-icon food-icon">&#127793;</div>
+      <div><div class="spot-name">猫空 Maokong</div><div class="spot-area">文山区・茶畑</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Triangle+Club+Taipei" target="_blank">
+      <div class="spot-icon lgbt-icon">&#127752;</div>
+      <div><div class="spot-name">Triangle / WERK!</div><div class="spot-area">中山区・ゲイナイト</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=Dihua+Street+Taipei" target="_blank">
+      <div class="spot-icon market-icon">&#127873;</div>
+      <div><div class="spot-name">迪化街</div><div class="spot-area">大同区・問屋街</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.app.goo.gl/f5a9xqDmKcS5s87c8" target="_blank">
+      <div class="spot-icon food-icon">&#127836;</div>
+      <div><div class="spot-name">小品雅廚</div><div class="spot-area">中山区・深夜Bib Gourmand</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=嘟嘟水餃+台北市中山區民生東路一段23巷52號" target="_blank">
+      <div class="spot-icon food-icon">&#129791;</div>
+      <div><div class="spot-name">嘟嘟水餃</div><div class="spot-area">中山区・ゾロ3星</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=朱遊記+台北市中山區撫順街39號" target="_blank">
+      <div class="spot-icon food-icon">&#127834;</div>
+      <div><div class="spot-name">朱遊記</div><div class="spot-area">中山区・ゾロ3星</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=餃匠+台北市中正區南陽街19號" target="_blank">
+      <div class="spot-icon food-icon">&#127834;</div>
+      <div><div class="spot-name">餃匠</div><div class="spot-area">中正区・ゾロ3星</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=曾家豆漿+台北市中山區錦州街123號" target="_blank">
+      <div class="spot-icon food-icon">&#127834;</div>
+      <div><div class="spot-name">曾家豆漿</div><div class="spot-area">中山区・ゾロ3星</div></div>
+    </a>
+    <a class="spot-item" href="https://maps.google.com/?q=豆花荘+台北市大同區寧夏路49號" target="_blank">
+      <div class="spot-icon food-icon">&#127849;</div>
+      <div><div class="spot-name">豆花荘</div><div class="spot-area">大同区・デザート</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- Checklist -->
+<section class="section" id="checklist">
+  <h2 class="section-title">Checklist</h2>
+  <p class="section-sub">出発前にすべてチェック</p>
+
+  <div class="checklist-stats">
+    <span id="cl-status">0 / 10 完了</span>
+    <span id="cl-pct">0%</span>
+  </div>
+  <div class="checklist-progress">
+    <div class="checklist-progress-bar" id="cl-bar" style="width:0%"></div>
+  </div>
+
+  <div id="checklist-items">
+    <label class="check-item"><input type="checkbox" data-key="tp-flight" checked><span class="check-box">&#10003;</span><span class="check-text">航空券予約: EVA Air HND↔TSA 4/16-20（BR191/190, PNR: FD79EM）— 予約済み ¥55,376/人</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-hotel" checked><span class="check-box">&#10003;</span><span class="check-text">ホテル予約: 相鉄グランドフレッサ台北西門 4泊 — 予約済み</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-nights" checked><span class="check-box">&#10003;</span><span class="check-text">4泊5日 確定（4/16〜20）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-resto"><span class="check-box">&#10003;</span><span class="check-text">レストラン予約（富錦台菜香檳 4/19夜 + MinSuiZen Raku）+ Wiseカード申込</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-easy"><span class="check-box">&#10003;</span><span class="check-text">EasyCard購入計画</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-tea"><span class="check-box">&#10003;</span><span class="check-text">烏龍茶ショップリスト確認</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-souvenir"><span class="check-box">&#10003;</span><span class="check-text">お土産リスト作成（パイナップルケーキ + 茶葉）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-money"><span class="check-box">&#10003;</span><span class="check-text">台湾ドル両替/ATM確認</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-insurance"><span class="check-box">&#10003;</span><span class="check-text">海外旅行保険（2名）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-esim"><span class="check-box">&#10003;</span><span class="check-text">モバイルWiFi/eSIM手配（2台）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-passport"><span class="check-box">&#10003;</span><span class="check-text">パスポート有効期限確認（2名とも）</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-maps"><span class="check-box">&#10003;</span><span class="check-text">Google Maps オフラインマップDL</span></label>
+    <label class="check-item"><input type="checkbox" data-key="tp-grindr"><span class="check-box">&#10003;</span><span class="check-text">Grindr + Hornet インストール</span></label>
+  </div>
+</section>
+
+<footer>
+  <p>Taipei Trip Planner 2026 &mdash; iUMA Travel</p>
+</footer>
+
+<script>
+// Countdown pill — matches index.html NEXT TRIP style
+function updateCountdown() {
+  var start = new Date('2026-04-16T00:00:00+09:00');
+  var end = new Date('2026-04-21T00:00:00+09:00');
+  var now = new Date();
+  var pill = document.getElementById('cd-pill');
+  if (!pill) return;
+  if (now >= end) { pill.textContent = '完了'; return; }
+  if (now >= start) { pill.textContent = '進行中'; return; }
+  var diff = start - now;
+  var d = Math.ceil(diff / 86400000);
+  if (d === 0) { pill.textContent = '今日出発'; return; }
+  pill.textContent = 'あと ' + d + ' 日';
+}
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
+// Tabs (restaurant)
+function switchTab(id) {
+  var section = event.target.closest('.section');
+  section.querySelectorAll('.tab-content').forEach(function(el) { el.classList.remove('active'); });
+  section.querySelectorAll('.tab-btn').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Itinerary plan toggle (4泊/5泊)
+function switchPlan(plan) {
+  var btns = document.querySelectorAll('#plan-tabs .tab-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+  event.target.classList.add('active');
+  if (plan === '5nights') {
+    document.getElementById('plan-4nights-end').style.display = 'none';
+    document.getElementById('plan-5nights-end').style.display = 'block';
+  } else {
+    document.getElementById('plan-4nights-end').style.display = 'block';
+    document.getElementById('plan-5nights-end').style.display = 'none';
+  }
+}
+
+// Budget tab toggle (4泊/5泊)
+function switchBudgetTab(plan) {
+  var btns = document.querySelectorAll('#budget .tabs .tab-btn');
+  btns.forEach(function(b) { b.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.getElementById('budget-4n').style.display = plan === '4n' ? 'block' : 'none';
+  document.getElementById('budget-5n').style.display = plan === '5n' ? 'block' : 'none';
+}
+
+// Nav highlight
+var navLinks = document.querySelectorAll('.nav-bar a[href^="#"]');
+window.addEventListener('scroll', function() {
+  var scrollPos = window.scrollY + 80;
+  navLinks.forEach(function(link) {
+    var section = document.querySelector(link.getAttribute('href'));
+    if (section && section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      link.classList.add('active');
+    }
+  });
+});
+
+// Checklist with localStorage
+var checks = document.querySelectorAll('#checklist-items input[type="checkbox"]');
+function updateProgress() {
+  var total = checks.length;
+  var done = 0;
+  checks.forEach(function(c) { if (c.checked) done++; });
+  document.getElementById('cl-status').textContent = done + ' / ' + total + ' 完了';
+  var pct = Math.round(done / total * 100);
+  document.getElementById('cl-pct').textContent = pct + '%';
+  document.getElementById('cl-bar').style.width = pct + '%';
+}
+checks.forEach(function(c) {
+  var key = c.getAttribute('data-key');
+  if (localStorage.getItem(key) === 'true') c.checked = true;
+  c.addEventListener('change', function() {
+    localStorage.setItem(key, c.checked);
+    updateProgress();
+  });
+});
+updateProgress();
+
+// ========== Day Accordion ==========
+function toggleDaySection(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.toggle('collapsed');
+}
+
+// Trip date configuration
+var TRIP_DAYS = [
+  { id: 'day1', date: '2026-04-16', num: 1, title: '到着 & 西門町探索',
+    meals: [{ time: '18:30', name: '港都熱炒 or 33區熱炒' }, { time: '21:00', name: '王福芋圓' }] },
+  { id: 'day2', date: '2026-04-17', num: 2, title: '飲茶 & 永康街',
+    meals: [{ time: '07:00', name: '阜杭豆漿' }, { time: '11:30', name: '杭州小籠湯包' }, { time: '18:00', name: '京星港式飲茶' }] },
+  { id: 'day3', date: '2026-04-18', num: 3, title: 'ミシュラン & 夜市',
+    meals: [{ time: '09:00', name: '北北車魯肉飯' }, { time: '16:00', name: '餃匠' }, { time: '18:30', name: '饒河夜市' }] },
+  { id: 'day4', date: '2026-04-19', num: 4, title: 'リラックス & 食い倒れ',
+    meals: [{ time: '08:00', name: '曾家豆漿' }, { time: '11:00', name: '永康牛肉麵' }, { time: '18:30', name: '富錦台菜香檳' }] },
+  { id: 'day5-4n', date: '2026-04-20', num: 5, title: '最終日 & 出発',
+    meals: [{ time: '08:00', name: '李記豆漿 or 永和豆漿大王' }, { time: '09:30', name: '大稻埕米粉湯（オプション）' }] }
+];
+
+function getTodayInJST() {
+  var now = new Date();
+  // Get current date string in JST (UTC+9)
+  var jst = new Date(now.getTime() + 9 * 3600 * 1000);
+  var y = jst.getUTCFullYear();
+  var m = ('0' + (jst.getUTCMonth() + 1)).slice(-2);
+  var d = ('0' + jst.getUTCDate()).slice(-2);
+  return y + '-' + m + '-' + d;
+}
+
+function initDayAccordion() {
+  var todayStr = getTodayInJST();
+  var tripStart = '2026-04-16';
+  var tripEnd = '2026-04-20';
+  var duringTrip = todayStr >= tripStart && todayStr <= tripEnd;
+
+  // Find today's day or default to day1
+  var todayDay = null;
+  for (var i = 0; i < TRIP_DAYS.length; i++) {
+    if (TRIP_DAYS[i].date === todayStr) { todayDay = TRIP_DAYS[i]; break; }
+  }
+  var expandId = todayDay ? todayDay.id : 'day1';
+
+  // Collapse all day-sections in the itinerary section
+  var allDaySections = document.querySelectorAll('#itinerary .day-section');
+  allDaySections.forEach(function(el) {
+    if (el.id !== expandId) {
+      el.classList.add('collapsed');
+    }
+  });
+
+  // Today summary card
+  if (duringTrip && todayDay) {
+    var summaryWrap = document.getElementById('today-summary');
+    var card = document.getElementById('today-card-inner');
+    var dateLabel = todayStr.replace('2026-', '').replace('-', '/') + ' Day ' + todayDay.num;
+    var mealsHtml = todayDay.meals.slice(0, 3).map(function(m) {
+      return '<div class="today-meal-row"><span class="today-meal-time">' + m.time + '</span><span>' + m.name + '</span></div>';
+    }).join('');
+    card.innerHTML = '<div class="today-card-meta"><div class="today-card-date">' + dateLabel + '</div><div class="today-card-day">Day ' + todayDay.num + '</div><div class="today-card-title">' + todayDay.title + '</div></div><div class="today-card-meals"><div class="today-card-meals-label">本日のハイライト</div>' + mealsHtml + '</div>';
+    summaryWrap.style.display = 'block';
+
+    // Floating button (mobile only — CSS hides on desktop)
+    var btn = document.getElementById('btn-today');
+    btn.textContent = 'Day ' + todayDay.num + ' →';
+    btn.style.display = 'block';
+  }
+}
+
+function scrollToToday() {
+  var todayStr = getTodayInJST();
+  var todayDay = null;
+  for (var i = 0; i < TRIP_DAYS.length; i++) {
+    if (TRIP_DAYS[i].date === todayStr) { todayDay = TRIP_DAYS[i]; break; }
+  }
+  if (!todayDay) return;
+  var el = document.getElementById(todayDay.id);
+  if (el) {
+    if (el.classList.contains('collapsed')) el.classList.remove('collapsed');
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+initDayAccordion();
+
+// Leaflet Map
+var map = L.map('map').setView([25.0421, 121.5079], 13);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap &copy; CARTO',
+  maxZoom: 19
+}).addTo(map);
+
+var spots = [
+  { lat: 25.0421, lng: 121.5079, name: '西門町 Ximending', type: 'hotel', desc: '宿泊・LGBTQ+エリア' },
+  { lat: 25.0425, lng: 121.5065, name: '紅樓 Red House', type: 'lgbt', desc: 'LGBTQ+ バー街' },
+  { lat: 25.0327, lng: 121.5178, name: '金峰魯肉飯', type: 'food', desc: '台北No.1魯肉飯' },
+  { lat: 25.0555, lng: 121.5155, name: '寧夏夜市', type: 'market', desc: '食の夜市No.1' },
+  { lat: 25.0504, lng: 121.5775, name: '饒河夜市', type: 'market', desc: '胡椒餅の聖地' },
+  { lat: 25.0275, lng: 121.5065, name: '南機場夜市', type: 'market', desc: 'リピーター御用達の穴場' },
+  { lat: 25.0339, lng: 121.5282, name: '杭州小籠湯包', type: 'food', desc: 'Bib Gourmand XLB' },
+  { lat: 25.0480, lng: 121.5320, name: '33區熱炒', type: 'food', desc: '台湾式居酒屋・海鮮' },
+  { lat: 25.0630, lng: 121.5525, name: '微熱山丘 SunnyHills', type: 'food', desc: 'パイナップルケーキ' },
+  { lat: 25.0478, lng: 121.5170, name: '阜杭豆漿', type: 'food', desc: '台北最強の朝食' },
+  { lat: 25.0637, lng: 121.5521, name: '台北松山空港 TSA', type: 'hotel', desc: '国際空港（MRT文湖線直結、西門まで約20分）' },
+  { lat: 25.0580, lng: 121.5200, name: '林華泰茶行', type: 'food', desc: '1883年・台北最古の茶行' },
+  { lat: 25.0565, lng: 121.5120, name: '有記名茶', type: 'food', desc: '炭火焙煎見学可' },
+  { lat: 25.0295, lng: 121.5340, name: '紫藤廬 Tea House', type: 'food', desc: '1920年代日本式建築の茶館' },
+  { lat: 24.9690, lng: 121.5870, name: '猫空 Maokong', type: 'food', desc: '茶畑＋ゴンドラ' },
+  { lat: 25.0572, lng: 121.5168, name: 'Triangle / WERK!', type: 'lgbt', desc: '第3土曜ゲイナイト' },
+  { lat: 25.0448, lng: 121.5072, name: 'Soi 13in', type: 'lgbt', desc: '台北No.1ゲイサウナ' },
+  { lat: 25.0580, lng: 121.5110, name: '迪化街 Dihua St', type: 'market', desc: '問屋街・お土産' },
+  { lat: 25.0415, lng: 121.5090, name: '佳德糕餅 Chia Te', type: 'food', desc: '台湾No.1パイナップルケーキ' },
+  { lat: 25.0462, lng: 121.5150, name: '餃匠', type: 'food', desc: 'ゾロ3星・ニンニクまぜそば' },
+  { lat: 25.0598, lng: 121.5280, name: '曾家豆漿', type: 'food', desc: 'ゾロ3星・エッグタルト' },
+  { lat: 25.0555, lng: 121.5148, name: '豆花荘', type: 'food', desc: '寧夏路・豆花デザート' }
+];
+
+var colors = { food: '#D4A055', lgbt: '#E8577A', market: '#9c27b0', hotel: '#00897B' };
+spots.forEach(function(s) {
+  L.circleMarker([s.lat, s.lng], {
+    radius: 8, fillColor: colors[s.type], color: '#fff', weight: 1, fillOpacity: 0.9
+  }).addTo(map).bindPopup('<strong>' + s.name + '</strong><br>' + s.desc);
+});
+</script>
+</body>
+</html>
