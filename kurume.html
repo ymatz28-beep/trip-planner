@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>久留米 日帰り — ぬる湯と豚骨と焼き鳥 | 2026.06.13</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+
+  :root {
+    /* iUMA tokens */
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #242836;
+    --border: #2d3348;
+    --gold: #c9a84c;
+    --accent: #6366f1;        /* indigo — 久留米絣の藍 / interactive */
+    --accent-soft: rgba(99,102,241,0.14);
+    --text: #e4e4e7;
+    --text-secondary: #9ca3af;
+    --text-muted: #7c8293;
+    /* category colors */
+    --onsen: #38bdf8;         /* 温泉・銭湯 */
+    --food:  #f59e0b;         /* グルメ */
+    --culture: #a78bfa;       /* 観光・文化 */
+    --move:  #6b7280;         /* 移動 */
+    --green: #22c55e;
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+
+  /* ============ Gnav ============ */
+  .site-header {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 20px; height:52px;
+    background: rgba(15,17,23,0.82);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; z-index:100;
+  }
+  .brand { font-family:var(--font-mono); font-size:12px; letter-spacing:.18em; color:var(--gold); font-weight:600; }
+  .site-nav { display:flex; gap:2px; }
+  .site-nav a {
+    color:var(--text-muted); text-decoration:none; font-size:13px; font-weight:500;
+    padding:6px 13px; border-radius:6px; transition:.15s;
+  }
+  .site-nav a:hover, .site-nav a[aria-current="page"] { background:var(--surface2); color:var(--text); }
+
+  /* ============ Layout ============ */
+  .container { max-width:1080px; margin:0 auto; padding:0 20px; }
+
+  /* ============ Hero ============ */
+  .hero {
+    position:relative; overflow:hidden;
+    background: linear-gradient(135deg, #1e1b4b, #312e81 55%, #1e1b4b);
+    background-size:200% 200%; animation: drift 14s ease-in-out infinite;
+    border-bottom:1px solid var(--border);
+  }
+  @keyframes drift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+  .hero::after {
+    content:''; position:absolute; right:-60px; top:-60px; width:260px; height:260px;
+    background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-inner { padding:30px 20px 26px; max-width:1080px; margin:0 auto; position:relative; z-index:1; }
+  .hero-eyebrow {
+    font-family:var(--font-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:8px;
+  }
+  .hero h1 { font-size:clamp(22px,3.4vw,32px); font-weight:800; letter-spacing:.01em; line-height:1.25; margin-bottom:6px; }
+  .hero .sub { font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:16px; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip {
+    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13);
+    border-radius:999px; padding:4px 12px; font-size:12px; font-weight:500; color:#e8e8f0;
+    display:inline-flex; align-items:center; gap:5px;
+  }
+
+  /* stat strip */
+  .stat-strip {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    margin:-22px auto 0; max-width:1040px; position:relative; z-index:5; box-shadow:0 16px 40px rgba(0,0,0,.45);
+  }
+  .stat { background:var(--surface); padding:16px 14px; text-align:center; }
+  .stat .num { font-family:var(--font-display); font-size:30px; font-weight:700; color:var(--gold); line-height:1; }
+  .stat .num small { font-size:14px; font-family:var(--font-body); font-weight:600; }
+  .stat .lab { font-size:11px; color:var(--text-muted); margin-top:5px; letter-spacing:.04em; }
+
+  /* ============ Section Nav (sticky) ============ */
+  .secnav-wrap { position:sticky; top:52px; z-index:90; background:rgba(15,17,23,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+  .secnav { display:flex; gap:2px; justify-content:center; padding:9px 8px; overflow-x:auto; scrollbar-width:none; }
+  .secnav::-webkit-scrollbar { display:none; }
+  .secnav a { white-space:nowrap; flex-shrink:0; color:var(--text-muted); text-decoration:none; font-size:12.5px; font-weight:600; padding:6px 13px; border-radius:7px; transition:.18s; }
+  .secnav a:hover, .secnav a.active { color:var(--text); background:var(--accent-soft); }
+  .secnav a.active { color:#c7c9ff; }
+
+  /* ============ Section ============ */
+  .section { padding:54px 0 8px; scroll-margin-top:108px; }
+  .sec-head { margin-bottom:26px; }
+  .sec-kicker { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .sec-title { font-size:clamp(18px,2.4vw,23px); font-weight:700; }
+  .sec-sub { color:var(--text-secondary); font-size:14px; margin-top:5px; }
+
+  /* alert callout */
+  .callout {
+    display:flex; gap:13px; align-items:flex-start;
+    background:linear-gradient(90deg, rgba(56,189,248,0.08), rgba(56,189,248,0.02));
+    border:1px solid rgba(56,189,248,0.28); border-left:3px solid var(--onsen);
+    border-radius:12px; padding:15px 17px; margin-top:18px;
+  }
+  .callout .ic { font-size:20px; line-height:1.2; }
+  .callout .t { font-weight:700; font-size:14px; color:#bae6fd; margin-bottom:3px; }
+  .callout .d { font-size:13px; color:var(--text-secondary); }
+
+  /* ============ Highlight cards ============ */
+  .hl-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:14px; }
+  .hl {
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 18px;
+    transition:.25s; position:relative; overflow:hidden;
+  }
+  .hl::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c,var(--accent)); opacity:.85; }
+  .hl:hover { transform:translateY(-3px); border-color:var(--border); box-shadow:0 18px 36px rgba(0,0,0,.34); }
+  .hl .emoji { font-size:26px; }
+  .hl .hl-cat { font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--c,var(--accent)); margin:8px 0 4px; }
+  .hl .hl-name { font-size:15px; font-weight:700; margin-bottom:5px; }
+  .hl .hl-desc { font-size:12.5px; color:var(--text-secondary); line-height:1.65; }
+
+  /* ============ Timeline ============ */
+  .tl { position:relative; padding-left:64px; }
+  .tl::before { content:''; position:absolute; left:46px; top:6px; bottom:30px; width:2px; background:linear-gradient(to bottom,var(--accent),rgba(99,102,241,.12)); }
+
+  .ti { position:relative; margin-bottom:14px; }
+  .ti .time {
+    position:absolute; left:-64px; top:0; width:46px; text-align:right;
+    font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--text);
+  }
+  .ti .time small { display:block; font-size:9px; color:var(--text-muted); font-weight:500; letter-spacing:.08em; margin-top:1px; }
+  .ti .dot {
+    position:absolute; left:-22px; top:5px; width:12px; height:12px; border-radius:50%;
+    background:var(--c,var(--accent)); border:2px solid var(--bg); box-shadow:0 0 0 3px rgba(99,102,241,.12);
+  }
+  .card {
+    background:var(--surface); border:1px solid var(--border); border-radius:13px;
+    border-left:3px solid var(--c,var(--accent)); padding:15px 17px; transition:.22s;
+  }
+  .card:hover { background:var(--surface2); border-color:var(--border); }
+  .card .ttl { font-size:15px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
+  .card .ttl .ico { font-size:16px; }
+  .card .meta { font-size:11.5px; color:var(--c,var(--accent)); font-weight:600; margin-bottom:6px; }
+  .card .desc { font-size:13px; color:var(--text-secondary); line-height:1.68; }
+  .card .desc b { color:var(--text); font-weight:600; }
+  .reason {
+    margin-top:9px; padding:8px 11px; background:var(--accent-soft); border-radius:8px;
+    font-size:12px; color:#c7c9ff; line-height:1.55;
+  }
+  .reason b { color:#e0e1ff; }
+  .badges { margin-top:9px; display:flex; flex-wrap:wrap; gap:5px; }
+  .tag { font-size:10.5px; font-weight:600; padding:2px 9px; border-radius:999px; letter-spacing:.02em; }
+  .tag.onsen { background:rgba(56,189,248,.14); color:#7dd3fc; }
+  .tag.food  { background:rgba(245,158,11,.15); color:#fcd34d; }
+  .tag.culture { background:rgba(167,139,250,.15); color:#c4b5fd; }
+  .tag.move  { background:rgba(107,114,128,.18); color:#cbd5e1; }
+  .tag.must  { background:rgba(201,168,76,.16); color:var(--gold); }
+  .gmap {
+    display:inline-flex; align-items:center; gap:5px; margin-top:10px;
+    font-size:11.5px; font-weight:600; color:var(--accent); text-decoration:none;
+    padding:4px 10px; border:1px solid var(--border); border-radius:999px; transition:.18s;
+  }
+  .gmap:hover { background:var(--accent-soft); border-color:var(--accent); }
+
+  /* connector (移動) */
+  .move-row { position:relative; margin:0 0 14px; }
+  .move-row .pill {
+    margin-left:0; display:inline-flex; align-items:center; gap:7px;
+    font-size:11.5px; color:var(--text-muted); font-weight:500;
+    background:var(--surface); border:1px dashed var(--border); border-radius:999px; padding:3px 12px;
+  }
+  .move-row .dot { position:absolute; left:-22px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--move); border:2px solid var(--bg); }
+
+  /* ============ Comparison cards (onsen) ============ */
+  .cmp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
+  .cmp { background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
+  .cmp-top { padding:18px 20px 14px; border-bottom:1px solid var(--border); background:linear-gradient(135deg, rgba(56,189,248,.08), transparent); }
+  .cmp-role { font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--onsen); }
+  .cmp-name { font-size:18px; font-weight:700; margin-top:4px; }
+  .cmp-tagline { font-size:12.5px; color:var(--text-secondary); margin-top:4px; }
+  .cmp-body { padding:6px 20px 18px; }
+  .cmp-row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .cmp-row:last-child { border-bottom:0; }
+  .cmp-row .k { color:var(--text-muted); flex-shrink:0; }
+  .cmp-row .v { text-align:right; color:var(--text); }
+  .cmp-row .v b { color:var(--onsen); }
+
+  /* ============ Gourmet cards ============ */
+  .food-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+  .fcard { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 19px; border-top:3px solid var(--food); }
+  .fcard .frole { font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--food); }
+  .fcard .fname { font-size:16px; font-weight:700; margin:4px 0 2px; }
+  .fcard .fsub { font-size:12px; color:var(--text-muted); margin-bottom:9px; }
+  .fcard .fdesc { font-size:13px; color:var(--text-secondary); line-height:1.66; }
+  .fcard .fmeta { margin-top:11px; display:flex; flex-wrap:wrap; gap:6px 14px; font-size:11.5px; color:var(--text-muted); }
+  .fcard .fmeta span b { color:var(--text-secondary); font-weight:600; }
+
+  /* ============ Budget table ============ */
+  .btable { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; font-size:13px; }
+  .btable th, .btable td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); }
+  .btable thead th { background:var(--surface2); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); font-weight:600; }
+  .btable td.r, .btable th.r { text-align:right; font-family:var(--font-mono); }
+  .btable tr:last-child td { border-bottom:0; }
+  .btable tr.total td { background:var(--surface2); font-weight:700; color:var(--gold); }
+  .btable .note { color:var(--text-muted); font-size:11px; }
+
+  /* ============ Checklist ============ */
+  .check-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
+  .check { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:15px 16px; }
+  .check h4 { font-size:13px; font-weight:700; margin-bottom:9px; display:flex; align-items:center; gap:7px; }
+  .check ul { list-style:none; }
+  .check li { font-size:12.5px; color:var(--text-secondary); padding:3px 0 3px 20px; position:relative; }
+  .check li::before { content:'›'; position:absolute; left:6px; color:var(--accent); font-weight:700; }
+  .check li.warn::before { content:'!'; color:var(--food); }
+
+  /* ============ Sources ============ */
+  .sources { margin-top:14px; }
+  .sources summary { cursor:pointer; font-size:13px; color:var(--text-secondary); font-weight:600; padding:6px 0; }
+  .sources ul { list-style:none; margin-top:8px; columns:2; column-gap:24px; }
+  .sources li { font-size:11.5px; margin-bottom:6px; break-inside:avoid; }
+  .sources a { color:var(--accent); text-decoration:none; word-break:break-all; }
+  .sources a:hover { text-decoration:underline; }
+
+  /* ============ Footer ============ */
+  footer { display:flex; justify-content:space-between; align-items:center; padding:34px 20px; margin-top:40px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px; max-width:1080px; margin-left:auto; margin-right:auto; font-family:var(--font-mono); letter-spacing:.06em; }
+
+  /* reveal — content is visible by default; animation is purely additive (load-based, not scroll-gated) */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+  .reveal { animation: fadeUp .5s ease both; }
+  @media (prefers-reduced-motion: reduce) { .reveal { animation:none; } }
+
+  /* ============ Mobile ============ */
+  @media (max-width:640px) {
+    .stat-strip { grid-template-columns:repeat(2,1fr); margin-top:-18px; border-radius:12px; }
+    .stat .num { font-size:24px; }
+    .tl { padding-left:54px; }
+    .tl::before { left:40px; }
+    .ti .time { left:-54px; width:40px; font-size:12px; }
+    .ti .dot { left:-18px; }
+    .move-row .dot { left:-18px; }
+    .sources ul { columns:1; }
+    .section { padding:42px 0 4px; }
+    footer { flex-direction:column; gap:10px; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Gnav -->
+<header class="site-header">
+  <div class="brand">iUMA · TRAVEL</div>
+  <nav class="site-nav">
+    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+    <a href="index.html">Trips</a>
+    <a href="kurume.html" aria-current="page">久留米</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Day Trip · Fukuoka → Kurume</div>
+    <h1>久留米  — ぬる湯と豚骨と焼き鳥</h1>
+    <div class="sub">薬院発、カーシェアで巡る温泉&グルメの日帰り一日。源泉かけ流し2湯と、豚骨ラーメン発祥の一杯、焼き鳥日本一の街のダルムで締める。</div>
+    <div class="chips">
+      <span class="chip">📅 2026.06.13 (土)</span>
+      <span class="chip">🚗 カーシェア（薬院発）</span>
+      <span class="chip">👥 3名</span>
+      <span class="chip">⏰ 09:00 – 21:00</span>
+      <span class="chip">☔ 梅雨対策あり</span>
+    </div>
+  </div>
+</div>
+
+<!-- Stat strip -->
+<div class="stat-strip">
+  <div class="stat"><div class="num">2<small>湯</small></div><div class="lab">源泉かけ流し温泉</div></div>
+  <div class="stat"><div class="num">3<small>軒</small></div><div class="lab">グルメ名店</div></div>
+  <div class="stat"><div class="num">90<small>km</small></div><div class="lab">走行（往復目安）</div></div>
+  <div class="stat"><div class="num">¥9<small>k台</small></div><div class="lab">1人あたり予算</div></div>
+</div>
+
+<!-- Section Nav -->
+<div class="secnav-wrap">
+  <div class="secnav">
+    <a href="#highlights" class="active">ハイライト</a>
+    <a href="#plan">1日の流れ</a>
+    <a href="#onsen">温泉2湯</a>
+    <a href="#gourmet">グルメ</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- HIGHLIGHTS -->
+  <section class="section" id="highlights">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Highlights</div>
+      <h2 class="sec-title">この日の主役 — 温泉と「美味しいもの」</h2>
+      <p class="sec-sub">久留米の見どころは中心市街の西「野中町」に集中している。温泉・ラーメン発祥店・庭園が車5分圏内。一筆書きで無駄なく巡れる。</p>
+    </div>
+    <div class="hl-grid reveal">
+      <div class="hl" style="--c:var(--onsen)">
+        <div class="emoji">♨️</div>
+        <div class="hl-cat">本命の温泉</div>
+        <div class="hl-name">湯の坂 久留米温泉</div>
+        <div class="hl-desc">弱アルカリ性硫黄泉の源泉かけ流し。露天・ロウリュサウナ・大浴場に加え、3人で入れる家族湯も。市街地で15分、駐車場も広い。</div>
+      </div>
+      <div class="hl" style="--c:var(--food)">
+        <div class="emoji">🍜</div>
+        <div class="hl-cat">発祥の一杯</div>
+        <div class="hl-name">南京千両 本家</div>
+        <div class="hl-desc">1937年創業、豚骨ラーメン発祥の店。客の8割が頼むワンタンメンが名物。昼のみ営業なので開店直後を狙う。</div>
+      </div>
+      <div class="hl" style="--c:var(--food)">
+        <div class="emoji">🍢</div>
+        <div class="hl-cat">締めのディナー</div>
+        <div class="hl-name">焼鳥ダルム屋</div>
+        <div class="hl-desc">「焼き鳥日本一の街」久留米の名物、豚バラ腸「ダルム」。外パリ中トロの逸品。土曜夜は要予約。</div>
+      </div>
+      <div class="hl" style="--c:var(--onsen)">
+        <div class="emoji">🛁</div>
+        <div class="hl-cat">締めの一湯（任意）</div>
+        <div class="hl-name">ゆのそ 献上の湯</div>
+        <div class="hl-desc">天然かけ流しなのに550円の地元銭湯。穴場感のある締め湯。疲れたら省いてもOKの“余白”枠。</div>
+      </div>
+    </div>
+    <div class="callout reveal">
+      <div class="ic">☔</div>
+      <div>
+        <div class="t">6月13日は梅雨本番 — 屋内比率を高めに設計</div>
+        <div class="d">福岡の6月は月間降水量250mm前後で年間最多クラス。このプランは温泉・ラーメン・美術館・カフェ・焼き鳥と屋内が中心。雨でも崩れない。折りたたみ傘とタオルだけ忘れずに。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAN / TIMELINE -->
+  <section class="section" id="plan">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Itinerary · 09:00–21:00</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院→久留米IC→野中町クラスター（庭園・ラーメン・温泉）→中心部カフェ→締め湯→焼き鳥→帰着。移動はすべて車、バックトラックなし。</p>
+    </div>
+
+    <div class="tl reveal">
+
+      <div class="ti">
+        <div class="time">09:00</div><div class="dot" style="--c:var(--move)"></div>
+        <div class="card" style="--c:var(--move)">
+          <div class="ttl"><span class="ico">🚗</span>薬院でカーシェア出発</div>
+          <div class="meta">福岡都市高速 → 九州自動車道 → 久留米IC</div>
+          <div class="desc">タイムズカー薬院エリア（西鉄薬院駅前／薬院マンション等）でハイブリッド車を確保。<b>12時間パックが割安</b>。3名なので荷物も余裕。出発前にガソリン・ワイパーを確認（梅雨）。</div>
+          <div class="badges"><span class="tag move">高速 約50分</span><span class="tag move">通行料 約1,170円</span></div>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🛣️ 久留米ICまで 約40〜50分・39〜44km</span></div>
+
+      <div class="ti">
+        <div class="time">09:50</div><div class="dot" style="--c:var(--culture)"></div>
+        <div class="card" style="--c:var(--culture)">
+          <div class="ttl"><span class="ico">🌺</span>石橋文化センター</div>
+          <div class="meta">9:00開園・入園無料・駐車場あり（最初2h 200円）</div>
+          <div class="desc">久留米IC・野中町すぐの庭園公園。バラは5月で終わりだが、<b>6月はハナショウブ・アジサイ・スイレン</b>が見頃。久留米市美術館・庭園カフェ併設で、雨でも館内で楽しめる。朝の澄んだ空気の中をさっと散策。</div>
+          <div class="reason"><b>なぜここから?</b> 久留米ICから最も近く、9時開園。朝イチの軽い散策で体を起こしてから温泉・グルメへ。野中町クラスターの起点。</div>
+          <div class="badges"><span class="tag culture">庭園</span><span class="tag culture">美術館</span><span class="tag culture">雨OK</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=石橋文化センター" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 野中町内 車8分</span></div>
+
+      <div class="ti">
+        <div class="time">11:00</div><div class="dot" style="--c:var(--food)"></div>
+        <div class="card" style="--c:var(--food)">
+          <div class="ttl"><span class="ico">🍜</span>南京千両 本家 国分店（ランチ）</div>
+          <div class="meta">豚骨ラーメン発祥 1937年・昼営業 11:00〜14:30・水木休</div>
+          <div class="desc">史上初の豚骨100%ラーメンを生んだ店。文化遺産級の屋台として知られる。<b>客の8割が頼むワンタンメン</b>が名物。駐車場が3台と少ないので満車時は近隣コインパーキングへ。</div>
+          <div class="reason"><b>11時開店直後を狙う理由</b>: 土曜の昼は行列必至。開店と同時に入れば待ち時間ゼロで、この後の温泉時間をしっかり確保できる。</div>
+          <div class="badges"><span class="tag food">豚骨発祥</span><span class="tag must">必食</span><span class="tag food">昼のみ</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=南京千両+国分店+久留米" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 同じ野中町 車5分</span></div>
+
+      <div class="ti">
+        <div class="time">12:00</div><div class="dot" style="--c:var(--onsen)"></div>
+        <div class="card" style="--c:var(--onsen)">
+          <div class="ttl"><span class="ico">♨️</span>湯の坂 久留米温泉（本命の湯）</div>
+          <div class="meta">10:00〜25:00・大人 土日930円・源泉かけ流し・駐車場大</div>
+          <div class="desc">弱アルカリ性硫黄泉の天然温泉。大浴場・露天・<b>ロウリュサウナ</b>を完備。3人でゆっくり入るなら家族湯「ばらの湯」も選べる（要時間予約・別料金）。食事処もあり、ラーメンの後でも休める。ここがこの旅の中心。<b>110分たっぷり</b>。</div>
+          <div class="reason"><b>昼に長湯する設計</b>: 観光で疲れる前に主役の温泉へ。サウナ→水風呂→外気浴で“ととのえて”から午後を軽やかに回る。</div>
+          <div class="badges"><span class="tag onsen">源泉かけ流し</span><span class="tag onsen">サウナ</span><span class="tag onsen">露天</span><span class="tag must">本命</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=湯の坂+久留米温泉" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 中心部（西鉄久留米駅方面）車12分</span></div>
+
+      <div class="ti">
+        <div class="time">14:10</div><div class="dot" style="--c:var(--food)"></div>
+        <div class="card" style="--c:var(--food)">
+          <div class="ttl"><span class="ico">☕</span>DDD.coffee で休憩</div>
+          <div class="meta">西鉄久留米駅 徒歩約10分・スタイリッシュ系カフェ</div>
+          <div class="desc">湯上がりのクールダウンに。スペシャルティ珈琲と<b>“アニメに出てくる”チーズケーキ</b>が名物。雨でも快適な屋内休憩。※洒落CAFE・nonno caffè も近隣の候補。</div>
+          <div class="badges"><span class="tag food">カフェ</span><span class="tag food">スイーツ</span><span class="tag culture">雨OK</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=DDD.coffee+久留米" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 上津町方面 車12分</span></div>
+
+      <div class="ti">
+        <div class="time">15:30</div><div class="dot" style="--c:var(--onsen)"></div>
+        <div class="card" style="--c:var(--onsen)">
+          <div class="ttl"><span class="ico">🛁</span>ゆのそ 献上の湯（締めの銭湯・任意）</div>
+          <div class="meta">10:00〜23:00・大人550円・第1/3/5火休（土曜営業）</div>
+          <div class="desc">アルカリ性単純温泉の<b>天然かけ流しが550円</b>という地元の名銭湯。湯の坂とは泉質も雰囲気も別物で、“はしご湯”として楽しい。子ども用すべり台付き家族風呂もある穴場。<b>疲れていれば省いて休憩枠に回してOK</b>。</div>
+          <div class="reason"><b>“温泉と銭湯の両方”を1日で</b>: 高級系の源泉かけ流し（湯の坂）と、庶民派の天然かけ流し（ゆのそ）。久留米の湯の懐の深さを味わう構成。</div>
+          <div class="badges"><span class="tag onsen">天然かけ流し</span><span class="tag onsen">地元銭湯</span><span class="tag onsen">550円</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=ゆのそ+献上の湯+久留米" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 六ツ門エリア戻り 車12分 ／ 自由枠・お土産・休憩</span></div>
+
+      <div class="ti">
+        <div class="time">18:00</div><div class="dot" style="--c:var(--food)"></div>
+        <div class="card" style="--c:var(--food)">
+          <div class="ttl"><span class="ico">🍢</span>焼鳥ダルム屋（ディナー）</div>
+          <div class="meta">六ツ門町・18:00開店・土曜は翌1:00まで・要予約</div>
+          <div class="desc">久留米焼き鳥の代名詞「ダルム（豚の腸）」を丁寧に下処理。外はパリパリ、中はトロトロ。豚バラ串・野菜巻き・鶏皮も。<b>ダルム3〜4串＋豚バラ＋野菜巻き＋ドリンクで4,000〜5,000円/人</b>。120席・個室あり、3人グループも安心。</div>
+          <div class="reason"><b>土曜夜は満席リスク高 → 18:00着席で予約</b>。電話 0942-36-2526 かネット予約。これで19:30に余裕をもって店を出られる。</div>
+          <div class="badges"><span class="tag food">ダルム名物</span><span class="tag must">要予約</span><span class="tag food">焼き鳥日本一</span></div>
+          <a class="gmap" href="https://maps.google.com/?q=焼鳥+ダルム屋+久留米" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="move-row"><div class="dot"></div><span class="pill">🚗 久留米IC → 都市高速 帰路 約50分</span></div>
+
+      <div class="ti">
+        <div class="time">20:30</div><div class="dot" style="--c:var(--move)"></div>
+        <div class="card" style="--c:var(--move)">
+          <div class="ttl"><span class="ico">🏁</span>薬院 帰着・カーシェア返却</div>
+          <div class="meta">21:00枠内で解散</div>
+          <div class="desc">19:30に久留米を出れば20:30前後に薬院着。給油してから返却（タイムズカーは原則満タン返し不要だが規定を確認）。もっと夜まで居たい場合はダルム屋で延長し、帰着を21:30に伸ばす選択も可。</div>
+          <div class="badges"><span class="tag move">解散</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ONSEN COMPARISON -->
+  <section class="section" id="onsen">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Onsen Guide</div>
+      <h2 class="sec-title">温泉2湯 — 源泉かけ流しを“はしご”する</h2>
+      <p class="sec-sub">同じ久留米でも、高級総合温泉と庶民派銭湯で泉質も体験もまるで違う。両方入って初めて見える街の湯文化。</p>
+    </div>
+    <div class="cmp-grid reveal">
+      <div class="cmp">
+        <div class="cmp-top">
+          <div class="cmp-role">本命 · 12:00 / 110分</div>
+          <div class="cmp-name">♨️ 湯の坂 久留米温泉</div>
+          <div class="cmp-tagline">露天・ロウリュサウナ完備の総合温泉</div>
+        </div>
+        <div class="cmp-body">
+          <div class="cmp-row"><span class="k">泉質</span><span class="v"><b>弱アルカリ性硫黄泉</b>／源泉かけ流し</span></div>
+          <div class="cmp-row"><span class="k">料金</span><span class="v">大人 平日880円・土日930円</span></div>
+          <div class="cmp-row"><span class="k">営業</span><span class="v">10:00〜25:00（無休）</span></div>
+          <div class="cmp-row"><span class="k">設備</span><span class="v">大浴場・露天・サウナ・家族湯7室</span></div>
+          <div class="cmp-row"><span class="k">アクセス</span><span class="v">久留米ICから約10分・駐車場大</span></div>
+          <div class="cmp-row"><span class="k">推し</span><span class="v">サウナ→外気浴で“ととのう”</span></div>
+        </div>
+      </div>
+      <div class="cmp">
+        <div class="cmp-top">
+          <div class="cmp-role">締めの一湯 · 15:30 / 60分（任意）</div>
+          <div class="cmp-name">🛁 ゆのそ 献上の湯</div>
+          <div class="cmp-tagline">550円で天然かけ流しの地元銭湯</div>
+        </div>
+        <div class="cmp-body">
+          <div class="cmp-row"><span class="k">泉質</span><span class="v"><b>アルカリ性単純温泉</b>／天然かけ流し</span></div>
+          <div class="cmp-row"><span class="k">料金</span><span class="v">大人 550円（17時以降600円）</span></div>
+          <div class="cmp-row"><span class="k">営業</span><span class="v">10:00〜23:00（第1/3/5火休）</span></div>
+          <div class="cmp-row"><span class="k">設備</span><span class="v">大浴場・家族風呂5室（すべり台付も）</span></div>
+          <div class="cmp-row"><span class="k">アクセス</span><span class="v">上津町・広川ICから約4分</span></div>
+          <div class="cmp-row"><span class="k">推し</span><span class="v">穴場・コスパ最強の締め湯</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOURMET -->
+  <section class="section" id="gourmet">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Gourmet</div>
+      <h2 class="sec-title">美味しいもの — 豚骨発祥と焼き鳥日本一</h2>
+      <p class="sec-sub">久留米は豚骨ラーメン発祥の地であり、人口あたり焼き鳥店数が日本一の街。昼と夜で「久留米の二枚看板」を制覇する。</p>
+    </div>
+    <div class="food-grid reveal">
+      <div class="fcard">
+        <div class="frole">Lunch · 11:00</div>
+        <div class="fname">🍜 南京千両 本家 国分店</div>
+        <div class="fsub">久留米ラーメン（豚骨）・1937年創業</div>
+        <div class="fdesc">豚骨ラーメン発祥の店。あっさり寄りの元祖豚骨。<b>ワンタンメン</b>がほぼ全員注文の名物。屋台文化の生き証人。</div>
+        <div class="fmeta"><span><b>名物</b> ワンタンメン</span><span><b>価格</b> 800〜950円</span><span><b>休</b> 水・木</span></div>
+      </div>
+      <div class="fcard">
+        <div class="frole">Dinner · 18:00</div>
+        <div class="fname">🍢 焼鳥ダルム屋</div>
+        <div class="fsub">焼き鳥・居酒屋 / 六ツ門町</div>
+        <div class="fdesc">久留米名物「ダルム（豚バラ腸）」の代表店。外パリ中トロ。<b>土曜夜は要予約</b>。個室あり3名◎。</div>
+        <div class="fmeta"><span><b>名物</b> ダルム・豚バラ</span><span><b>予算</b> 4,000〜5,000円</span><span><b>TEL</b> 0942-36-2526</span></div>
+      </div>
+      <div class="fcard">
+        <div class="frole">Alt · 予備</div>
+        <div class="fname">🍥 大砲ラーメン 本店</div>
+        <div class="fsub">久留米ラーメン（豚骨）・1953年創業</div>
+        <div class="fdesc">「呼び戻し」製法の濃厚豚骨。<b>無料駐車場24台</b>で車向き。南京千両が混雑・定休なら即こちらへ。</div>
+        <div class="fmeta"><span><b>名物</b> 豚骨ラーメン・焼めし</span><span><b>営業</b> 10:30〜21:00</span><span><b>休</b> 年末年始のみ</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUDGET -->
+  <section class="section" id="budget">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす（1人あたり）</h2>
+      <p class="sec-sub">カーシェア・高速代は3名で割り勘。温泉・食事は個人負担。締め湯を省けば約1万円。</p>
+    </div>
+    <table class="btable reveal">
+      <thead>
+        <tr><th>項目</th><th>内容</th><th class="r">3名合計</th><th class="r">1人あたり</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>カーシェア</td><td>タイムズ 12時間パック</td><td class="r">5,500</td><td class="r">1,830</td></tr>
+        <tr><td>距離料金</td><td>20km超分（約70km×20円）</td><td class="r">1,400</td><td class="r">470</td></tr>
+        <tr><td>高速代</td><td>都市高速＋九州道 往復</td><td class="r">2,340</td><td class="r">780</td></tr>
+        <tr><td>湯の坂 温泉</td><td>大人 土日</td><td class="r">2,790</td><td class="r">930</td></tr>
+        <tr><td>ゆのそ 銭湯</td><td>大人（任意）</td><td class="r">1,650</td><td class="r">550</td></tr>
+        <tr><td>ランチ</td><td>南京千両 ラーメン</td><td class="r">2,700</td><td class="r">900</td></tr>
+        <tr><td>カフェ</td><td>DDD.coffee</td><td class="r">2,100</td><td class="r">700</td></tr>
+        <tr><td>ディナー</td><td>ダルム屋 焼き鳥</td><td class="r">13,500</td><td class="r">4,500</td></tr>
+        <tr class="total"><td>合計</td><td class="note">締め湯を省くと −550円/人</td><td class="r">31,980</td><td class="r">10,660</td></tr>
+      </tbody>
+    </table>
+    <div class="callout reveal" style="border-left-color:var(--food); background:linear-gradient(90deg,rgba(245,158,11,.07),transparent); border-color:rgba(245,158,11,.25)">
+      <div class="ic">💡</div>
+      <div>
+        <div class="t" style="color:#fcd34d">節約のコツ</div>
+        <div class="d">深夜割引はこの時間帯では効かない。コストの大半はディナー。ダルム屋を品数控えめにすれば1人8,000円台まで落とせる。ガソリン代は走行距離料金に含めず別途実費の場合があるため、返却時に給油レシートを精算。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREP -->
+  <section class="section" id="prep">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前予約チェック</h2>
+      <p class="sec-sub">梅雨対策と、土曜に効く2つの予約。出発前にここだけ押さえる。</p>
+    </div>
+    <div class="check-grid reveal">
+      <div class="check">
+        <h4>📲 事前予約（重要）</h4>
+        <ul>
+          <li class="warn">焼鳥ダルム屋を18:00で予約（土曜夜は満席リスク・TEL 0942-36-2526）</li>
+          <li class="warn">タイムズカーを前日までに確保（薬院・12hパック）</li>
+          <li>湯の坂の家族湯を使うなら時間予約</li>
+        </ul>
+      </div>
+      <div class="check">
+        <h4>☔ 梅雨・雨対策</h4>
+        <ul>
+          <li>折りたたみ傘 ×3</li>
+          <li>温泉用タオル（手ぶらなら現地レンタル可）</li>
+          <li>替えの靴下（雨で濡れる）</li>
+          <li>車のワイパー・タイヤを出発前点検</li>
+        </ul>
+      </div>
+      <div class="check">
+        <h4>♨️ 温泉まわり</h4>
+        <ul>
+          <li>水分補給用の飲料（はしご湯は脱水注意）</li>
+          <li>サウナ用にミニタオル</li>
+          <li>湯上がりの保湿（硫黄泉は乾く）</li>
+          <li>現金少々（地元銭湯は券売機）</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources reveal">
+      <summary>📚 出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://kurume-onsen.com/" target="_blank" rel="noopener">湯の坂 久留米温泉 公式</a></li>
+        <li><a href="https://onsen.nifty.com/kurume-onsen/onsen007861/" target="_blank" rel="noopener">献上の湯（ニフティ温泉）</a></li>
+        <li><a href="https://www.jalan.net/kankou/spt_guide000000208267/" target="_blank" rel="noopener">ゆのそ 献上の湯（じゃらん）</a></li>
+        <li><a href="https://welcome-kurume.com/spots/detail/87f16db2-d2c7-4f02-a51d-9d635e2800a1" target="_blank" rel="noopener">南京千両 国分店（久留米観光公式）</a></li>
+        <li><a href="https://www.taiho.net/app-def/S-102/wp/?page_id=2" target="_blank" rel="noopener">大砲ラーメン 公式</a></li>
+        <li><a href="https://r.gnavi.co.jp/78fx930d0000/" target="_blank" rel="noopener">焼鳥 ダルム屋（ぐるなび）</a></li>
+        <li><a href="https://www.fukuoka-online.jp/column/kurume-yakitori/" target="_blank" rel="noopener">久留米焼き鳥ガイド</a></li>
+        <li><a href="https://www.ishibashi-bunka.jp/" target="_blank" rel="noopener">石橋文化センター 公式</a></li>
+        <li><a href="https://www.fukuoka-online.jp/column/kurume-cafe/" target="_blank" rel="noopener">久留米カフェ特集（DDD.coffee 他）</a></li>
+        <li><a href="https://share.timescar.jp/fare/simulation.html" target="_blank" rel="noopener">タイムズカー料金シミュレーション</a></li>
+        <li><a href="https://www.tabirai.net/sightseeing/fukuoka/info/monthly/jun_weather.aspx" target="_blank" rel="noopener">福岡 6月の気候</a></li>
+        <li><a href="https://welcome-kurume.com/" target="_blank" rel="noopener">久留米観光 公式サイト</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div>iUMA TRAVEL — 2026</div>
+  <div>KURUME DAY TRIP · 06.13</div>
+</footer>
+
+<script>
+  // scroll-spy
+  var links = document.querySelectorAll('.secnav a');
+  var secs = document.querySelectorAll('.section');
+  function spy(){
+    var cur = '';
+    secs.forEach(function(s){ if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
+    links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href').slice(1) === cur); });
+  }
+  window.addEventListener('scroll', spy); spy();
+
+  // (entrance animation is CSS-only and load-based — no JS needed; content never stays hidden)
+</script>
+
+</body>
+</html>
