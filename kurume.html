@@ -4,619 +4,574 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>久留米 日帰り — ワインと、街の美味しいもの | 2026.06.13</title>
+<meta name="theme-color" content="#7c1f43">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap');
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
 
-  :root {
-    /* iUMA tokens */
-    --bg: #0f1117;
-    --surface: #1a1d27;
-    --surface2: #242836;
-    --border: #2d3348;
-    --gold: #c9a84c;
-    --accent: #6366f1;        /* indigo — 久留米絣の藍 / interactive */
-    --accent-soft: rgba(99,102,241,0.14);
-    --text: #e4e4e7;
-    --text-secondary: #9ca3af;
-    --text-muted: #7c8293;
-    /* category colors */
-    --onsen: #38bdf8;         /* 温泉・銭湯 */
-    --food:  #f59e0b;         /* グルメ */
-    --culture: #a78bfa;       /* 観光・文化 */
-    --move:  #6b7280;         /* 移動 */
-    --green: #22c55e;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Inter', 'Noto Sans JP', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --wine:#8a2348;
+    --wine-2:#fbeaf0;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
   }
 
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  a { color: inherit; }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
 
-  /* ============ Gnav ============ */
-  .site-header {
-    display:flex; align-items:center; justify-content:space-between;
-    padding:0 20px; height:52px;
-    background: rgba(15,17,23,0.82);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border-bottom:1px solid var(--border);
-    position:sticky; top:0; z-index:100;
-  }
-  .brand { font-family:var(--font-mono); font-size:12px; letter-spacing:.18em; color:var(--gold); font-weight:600; }
-  .site-nav { display:flex; gap:2px; }
-  .site-nav a {
-    color:var(--text-muted); text-decoration:none; font-size:13px; font-weight:500;
-    padding:6px 13px; border-radius:6px; transition:.15s;
-  }
-  .site-nav a:hover, .site-nav a[aria-current="page"] { background:var(--surface2); color:var(--text); }
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
 
-  /* ============ Layout ============ */
-  .container { max-width:1080px; margin:0 auto; padding:0 20px; }
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
 
   /* ============ Hero ============ */
-  .hero {
-    position:relative; overflow:hidden;
-    background: linear-gradient(135deg, #1e1b4b, #312e81 55%, #1e1b4b);
-    background-size:200% 200%; animation: drift 14s ease-in-out infinite;
-    border-bottom:1px solid var(--border);
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#5d1531 0%,#8a2348 42%,#5b3aa0 100%);
   }
-  @keyframes drift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
-  .hero::after {
-    content:''; position:absolute; right:-60px; top:-60px; width:260px; height:260px;
-    background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%);
-    pointer-events:none;
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#ffd9a3;margin-bottom:14px;
   }
-  .hero-inner { padding:30px 20px 26px; max-width:1080px; margin:0 auto; position:relative; z-index:1; }
-  .hero-eyebrow {
-    font-family:var(--font-mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--gold); margin-bottom:8px;
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#ffd9a3;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
   }
-  .hero h1 { font-size:clamp(22px,3.4vw,32px); font-weight:800; letter-spacing:.01em; line-height:1.25; margin-bottom:6px; }
-  .hero .sub { font-size:13px; color:rgba(255,255,255,0.62); margin-bottom:16px; }
-  .chips { display:flex; flex-wrap:wrap; gap:6px; }
-  .chip {
-    background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.13);
-    border-radius:999px; padding:4px 12px; font-size:12px; font-weight:500; color:#e8e8f0;
-    display:inline-flex; align-items:center; gap:5px;
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
   }
 
-  /* stat strip */
-  .stat-strip {
-    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--border); border:1px solid var(--border); border-radius:14px; overflow:hidden;
-    margin:-22px auto 0; max-width:1040px; position:relative; z-index:5; box-shadow:0 16px 40px rgba(0,0,0,.45);
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
   }
-  .stat { background:var(--surface); padding:16px 14px; text-align:center; }
-  .stat .num { font-family:var(--font-display); font-size:30px; font-weight:700; color:var(--gold); line-height:1; }
-  .stat .num small { font-size:14px; font-family:var(--font-body); font-weight:600; }
-  .stat .lab { font-size:11px; color:var(--text-muted); margin-top:5px; letter-spacing:.04em; }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
 
-  /* ============ Section Nav (sticky) ============ */
-  .secnav-wrap { position:sticky; top:52px; z-index:90; background:rgba(15,17,23,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
-  .secnav { display:flex; gap:2px; justify-content:center; padding:9px 8px; overflow-x:auto; scrollbar-width:none; }
-  .secnav::-webkit-scrollbar { display:none; }
-  .secnav a { white-space:nowrap; flex-shrink:0; color:var(--text-muted); text-decoration:none; font-size:12.5px; font-weight:600; padding:6px 13px; border-radius:7px; transition:.18s; }
-  .secnav a:hover, .secnav a.active { color:var(--text); background:var(--accent-soft); }
-  .secnav a.active { color:#c7c9ff; }
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
 
   /* ============ Section ============ */
-  .section { padding:54px 0 8px; scroll-margin-top:108px; }
-  .sec-head { margin-bottom:26px; }
-  .sec-kicker { font-family:var(--font-mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
-  .sec-title { font-size:clamp(18px,2.4vw,23px); font-weight:700; }
-  .sec-sub { color:var(--text-secondary); font-size:14px; margin-top:5px; }
-
-  /* alert callout */
-  .callout {
-    display:flex; gap:13px; align-items:flex-start;
-    background:linear-gradient(90deg, rgba(56,189,248,0.08), rgba(56,189,248,0.02));
-    border:1px solid rgba(56,189,248,0.28); border-left:3px solid var(--onsen);
-    border-radius:12px; padding:15px 17px; margin-top:18px;
-  }
-  .callout .ic { font-size:20px; line-height:1.2; }
-  .callout .t { font-weight:700; font-size:14px; color:#bae6fd; margin-bottom:3px; }
-  .callout .d { font-size:13px; color:var(--text-secondary); }
-
-  /* ============ Highlight cards ============ */
-  .hl-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr)); gap:14px; }
-  .hl {
-    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:20px 18px;
-    transition:.25s; position:relative; overflow:hidden;
-  }
-  .hl::before { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c,var(--accent)); opacity:.85; }
-  .hl:hover { transform:translateY(-3px); border-color:var(--border); box-shadow:0 18px 36px rgba(0,0,0,.34); }
-  .hl .emoji { font-size:26px; }
-  .hl .hl-cat { font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--c,var(--accent)); margin:8px 0 4px; }
-  .hl .hl-name { font-size:15px; font-weight:700; margin-bottom:5px; }
-  .hl .hl-desc { font-size:12.5px; color:var(--text-secondary); line-height:1.65; }
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
 
   /* ============ Timeline ============ */
-  .tl { position:relative; padding-left:64px; }
-  .tl::before { content:''; position:absolute; left:46px; top:6px; bottom:30px; width:2px; background:linear-gradient(to bottom,var(--accent),rgba(99,102,241,.12)); }
+  .tl{position:relative;padding-left:60px;}
+  .tl::before{content:"";position:absolute;left:18px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
 
-  .ti { position:relative; margin-bottom:14px; }
-  .ti .time {
-    position:absolute; left:-64px; top:0; width:46px; text-align:right;
-    font-family:var(--font-mono); font-size:13px; font-weight:600; color:var(--text);
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-60px;top:13px;width:42px;text-align:right;
+    font-family:var(--num);font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;
   }
-  .ti .time small { display:block; font-size:9px; color:var(--text-muted); font-weight:500; letter-spacing:.08em; margin-top:1px; }
-  .ti .dot {
-    position:absolute; left:-22px; top:5px; width:12px; height:12px; border-radius:50%;
-    background:var(--c,var(--accent)); border:2px solid var(--bg); box-shadow:0 0 0 3px rgba(99,102,241,.12);
+  .stop .node{
+    position:absolute;left:-50px;top:14px;width:18px;height:18px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 4px var(--bg);
+    display:flex;align-items:center;justify-content:center;font-size:9px;
   }
-  .card {
-    background:var(--surface); border:1px solid var(--border); border-radius:13px;
-    border-left:3px solid var(--c,var(--accent)); padding:15px 17px; transition:.22s;
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
   }
-  .card:hover { background:var(--surface2); border-color:var(--border); }
-  .card .ttl { font-size:15px; font-weight:700; margin-bottom:4px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
-  .card .ttl .ico { font-size:16px; }
-  .card .meta { font-size:11.5px; color:var(--c,var(--accent)); font-weight:600; margin-bottom:6px; }
-  .card .desc { font-size:13px; color:var(--text-secondary); line-height:1.68; }
-  .card .desc b { color:var(--text); font-weight:600; }
-  .reason {
-    margin-top:9px; padding:8px 11px; background:var(--accent-soft); border-radius:8px;
-    font-size:12px; color:#c7c9ff; line-height:1.55;
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
   }
-  .reason b { color:#e0e1ff; }
-  .badges { margin-top:9px; display:flex; flex-wrap:wrap; gap:5px; }
-  .tag { font-size:10.5px; font-weight:600; padding:2px 9px; border-radius:999px; letter-spacing:.02em; }
-  .tag.onsen { background:rgba(56,189,248,.14); color:#7dd3fc; }
-  .tag.food  { background:rgba(245,158,11,.15); color:#fcd34d; }
-  .tag.culture { background:rgba(167,139,250,.15); color:#c4b5fd; }
-  .tag.move  { background:rgba(107,114,128,.18); color:#cbd5e1; }
-  .tag.must  { background:rgba(201,168,76,.16); color:var(--gold); }
-  .gmap {
-    display:inline-flex; align-items:center; gap:5px; margin-top:10px;
-    font-size:11.5px; font-weight:600; color:var(--accent); text-decoration:none;
-    padding:4px 10px; border:1px solid var(--border); border-radius:999px; transition:.18s;
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
   }
-  .gmap:hover { background:var(--accent-soft); border-color:var(--accent); }
-
-  /* connector (移動) */
-  .move-row { position:relative; margin:0 0 14px; }
-  .move-row .pill {
-    margin-left:0; display:inline-flex; align-items:center; gap:7px;
-    font-size:11.5px; color:var(--text-muted); font-weight:500;
-    background:var(--surface); border:1px dashed var(--border); border-radius:999px; padding:3px 12px;
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
   }
-  .move-row .dot { position:absolute; left:-22px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--move); border:2px solid var(--bg); }
+  .map:active{transform:scale(.97);}
 
-  /* ============ Comparison cards (onsen) ============ */
-  .cmp-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; }
-  .cmp { background:var(--surface); border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-  .cmp-top { padding:18px 20px 14px; border-bottom:1px solid var(--border); background:linear-gradient(135deg, rgba(56,189,248,.08), transparent); }
-  .cmp-role { font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--onsen); }
-  .cmp-name { font-size:18px; font-weight:700; margin-top:4px; }
-  .cmp-tagline { font-size:12.5px; color:var(--text-secondary); margin-top:4px; }
-  .cmp-body { padding:6px 20px 18px; }
-  .cmp-row { display:flex; justify-content:space-between; gap:12px; padding:10px 0; border-bottom:1px solid var(--border); font-size:13px; }
-  .cmp-row:last-child { border-bottom:0; }
-  .cmp-row .k { color:var(--text-muted); flex-shrink:0; }
-  .cmp-row .v { text-align:right; color:var(--text); }
-  .cmp-row .v b { color:var(--onsen); }
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-46px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
 
-  /* ============ Gourmet cards ============ */
-  .food-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
-  .fcard { background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 19px; border-top:3px solid var(--food); }
-  .fcard .frole { font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--food); }
-  .fcard .fname { font-size:16px; font-weight:700; margin:4px 0 2px; }
-  .fcard .fsub { font-size:12px; color:var(--text-muted); margin-bottom:9px; }
-  .fcard .fdesc { font-size:13px; color:var(--text-secondary); line-height:1.66; }
-  .fcard .fmeta { margin-top:11px; display:flex; flex-wrap:wrap; gap:6px 14px; font-size:11.5px; color:var(--text-muted); }
-  .fcard .fmeta span b { color:var(--text-secondary); font-weight:600; }
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
 
-  /* ============ Budget table ============ */
-  .btable { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:hidden; font-size:13px; }
-  .btable th, .btable td { padding:11px 14px; text-align:left; border-bottom:1px solid var(--border); }
-  .btable thead th { background:var(--surface2); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); font-weight:600; }
-  .btable td.r, .btable th.r { text-align:right; font-family:var(--font-mono); }
-  .btable tr:last-child td { border-bottom:0; }
-  .btable tr.total td { background:var(--surface2); font-weight:700; color:var(--gold); }
-  .btable .note { color:var(--text-muted); font-size:11px; }
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
 
-  /* ============ Checklist ============ */
-  .check-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:12px; }
-  .check { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:15px 16px; }
-  .check h4 { font-size:13px; font-weight:700; margin-bottom:9px; display:flex; align-items:center; gap:7px; }
-  .check ul { list-style:none; }
-  .check li { font-size:12.5px; color:var(--text-secondary); padding:3px 0 3px 20px; position:relative; }
-  .check li::before { content:'›'; position:absolute; left:6px; color:var(--accent); font-weight:700; }
-  .check li.warn::before { content:'!'; color:var(--food); }
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
 
-  /* ============ Sources ============ */
-  .sources { margin-top:14px; }
-  .sources summary { cursor:pointer; font-size:13px; color:var(--text-secondary); font-weight:600; padding:6px 0; }
-  .sources ul { list-style:none; margin-top:8px; columns:2; column-gap:24px; }
-  .sources li { font-size:11.5px; margin-bottom:6px; break-inside:avoid; }
-  .sources a { color:var(--accent); text-decoration:none; word-break:break-all; }
-  .sources a:hover { text-decoration:underline; }
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
 
-  /* ============ Footer ============ */
-  footer { display:flex; justify-content:space-between; align-items:center; padding:34px 20px; margin-top:40px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px; max-width:1080px; margin-left:auto; margin-right:auto; font-family:var(--font-mono); letter-spacing:.06em; }
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
 
-  /* reveal — content is visible by default; animation is purely additive (load-based, not scroll-gated) */
-  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
-  .reveal { animation: fadeUp .5s ease both; }
-  @media (prefers-reduced-motion: reduce) { .reveal { animation:none; } }
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(138,35,72,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
 
-  /* ============ Mobile ============ */
-  @media (max-width:640px) {
-    .stat-strip { grid-template-columns:repeat(2,1fr); margin-top:-18px; border-radius:12px; }
-    .stat .num { font-size:24px; }
-    .tl { padding-left:54px; }
-    .tl::before { left:40px; }
-    .ti .time { left:-54px; width:40px; font-size:12px; }
-    .ti .dot { left:-18px; }
-    .move-row .dot { left:-18px; }
-    .sources ul { columns:1; }
-    .section { padding:42px 0 4px; }
-    footer { flex-direction:column; gap:10px; text-align:center; }
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
   }
 </style>
 </head>
 <body>
 
-<!-- Gnav -->
-<header class="site-header">
-  <div class="brand">iUMA · TRAVEL</div>
-  <nav class="site-nav">
-    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
-    <a href="index.html">Trips</a>
-    <a href="kurume.html" aria-current="page">久留米</a>
-  </nav>
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
+      <a href="index.html">Trips</a>
+      <a href="kurume.html" aria-current="page">久留米</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Day Trip · Fukuoka → Kurume</div>
-    <h1>久留米  — ワインと、街の美味しいもの</h1>
-    <div class="sub">薬院発、カーシェアの日帰り一日。朝は東へ走って耳納連山ふもとのワイナリーへ、森のレストランでワインランチ。午後は街に戻って庭園美術館を散策、カフェでひと息、美肌の炭酸泉でさっぱりして、締めは話題の海鮮居酒屋いっこん。のんびり巡る食とワインの一日。</div>
-    <div class="chips">
-      <span class="chip">📅 2026.06.13 (土)</span>
-      <span class="chip">🚗 カーシェア（薬院発）</span>
-      <span class="chip">👥 3名</span>
-      <span class="chip">⏰ 09:00 – 21:00</span>
-      <span class="chip">☔ 梅雨対策あり</span>
+  <div class="wrap">
+    <div class="eyebrow">Day Trip · 福岡 → 久留米</div>
+    <h1>久留米、ワインの一日
+      <small>耳納のワイナリーと、街の美味しいもの。</small>
+    </h1>
+    <p class="lede">薬院から日帰り。午前は2人で街に入り朝ブランチ、お昼に駅でムーミンと合流して3人に。東のワイナリーでワインランチ、午後は庭園・コーヒー・炭酸泉、締めは海鮮居酒屋。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 6/13 (土)</span>
+      <span class="hpill">🚗 カーシェア・薬院発</span>
+      <span class="hpill">☔ 梅雨対策あり</span>
     </div>
   </div>
 </div>
 
-<!-- Stat strip -->
-<div class="stat-strip">
-  <div class="stat"><div class="num">1<small>湯</small></div><div class="lab">締めの炭酸泉</div></div>
-  <div class="stat"><div class="num">3<small>軒</small></div><div class="lab">ランチ・カフェ・夜</div></div>
-  <div class="stat"><div class="num">120<small>km</small></div><div class="lab">走行（往復目安）</div></div>
-  <div class="stat"><div class="num">¥11<small>k台</small></div><div class="lab">1人あたり予算</div></div>
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">3<span class="u">名</span></div>
+      <div class="s">ムーミンは昼合流</div>
+    </div>
+    <div class="fact">
+      <div class="k">駅で合流</div>
+      <div class="v tnum">12:00</div>
+      <div class="s">西鉄久留米駅で迎え</div>
+    </div>
+    <div class="fact">
+      <div class="k">ワインランチ</div>
+      <div class="v tnum">13:15</div>
+      <div class="s">ホイリゲ（合流後）</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥12<span class="u">k</span></div>
+      <div class="s">湯を省けば約11k</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🚉</div>
+    <div>
+      <div class="t">お昼に駅でムーミンと合流 — ランチは合流後に後ろ倒し</div>
+      <div class="d">午前は2人（マーシャ・ユーマ）で久留米入りして朝ブランチ。<b>12:00に西鉄久留米駅でムーミンを車でピックアップ</b>してから東のワイナリーへ走り、散策とワインランチは<b>13時台</b>に。3人そろってワインの森を楽しむ流れ。合流駅はムーミンの到着しだい — 天神方面の西鉄なら<b>西鉄久留米駅</b>、新幹線・JRなら<b>JR久留米駅</b>。どちらも市街中心で午後の予定はそのまま。</div>
+    </div>
+  </div>
+
 </div>
 
-<!-- Section Nav -->
+<!-- Section nav -->
 <div class="secnav-wrap">
-  <div class="secnav">
-    <a href="#highlights" class="active">ハイライト</a>
-    <a href="#plan">1日の流れ</a>
-    <a href="#onsen">締めの湯</a>
-    <a href="#gourmet">グルメ</a>
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
     <a href="#budget">費用</a>
     <a href="#prep">持ち物・予約</a>
-  </div>
+  </nav>
 </div>
 
-<div class="container">
+<div class="wrap">
 
-  <!-- HIGHLIGHTS -->
-  <section class="section" id="highlights">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Highlights</div>
-      <h2 class="sec-title">この日の主役 — ワインと「美味しいもの」</h2>
-      <p class="sec-sub">朝は耳納連山ふもとのワイナリーでワインの森を歩き、森のレストランでワインランチ。午後は街なかで庭園美術館とカフェ、締めは美肌の炭酸泉と海鮮居酒屋。のんびり食とワインを楽しむ一日。</p>
-    </div>
-    <div class="hl-grid reveal">
-      <div class="hl" style="--c:var(--culture)">
-        <div class="emoji">🍇</div>
-        <div class="hl-cat">ワインの森</div>
-        <div class="hl-name">巨峰ワイナリー</div>
-        <div class="hl-desc">耳納連山のふもと、ぶどう畑に囲まれたワイナリー。ワインの直売・試飲とぶどう畑の散策で一日が始まる。森のレストラン ホイリゲも同じ敷地。お土産のワインもここで。</div>
-      </div>
-      <div class="hl" style="--c:var(--food)">
-        <div class="emoji">🍷</div>
-        <div class="hl-cat">ワインの森ランチ</div>
-        <div class="hl-name">森のレストラン ホイリゲ</div>
-        <div class="hl-desc">巨峰ワイナリー併設、耳納連山の高台に建つ森のレストラン。田主丸の眺めを見下ろしながら、地元食材＋ハウスワインのランチ。牛肉のブルーベリーワイン煮など。要電話予約。</div>
-      </div>
-      <div class="hl" style="--c:var(--food)">
-        <div class="emoji">🍢</div>
-        <div class="hl-cat">締めのディナー</div>
-        <div class="hl-name">久留米いっこん</div>
-        <div class="hl-desc">福岡・今泉で“予約困難”と言われた人気居酒屋が、2026年春に久留米初出店。市場直送の天然魚の刺身と串焼き、月替わりの土鍋ご飯。西鉄久留米駅すぐで、締めにぴったり。</div>
-      </div>
-      <div class="hl" style="--c:var(--onsen)">
-        <div class="emoji">🛁</div>
-        <div class="hl-cat">締めの一湯</div>
-        <div class="hl-name">游心の湯</div>
-        <div class="hl-desc">pH9.7のアルカリ性「美肌の湯」を源泉かけ流し。高濃度炭酸泉とフィンランド式サウナまで揃う締めの一湯。9時〜深夜営業で時間を選ばない。</div>
-      </div>
-    </div>
-    <div class="callout reveal">
-      <div class="ic">☔</div>
-      <div>
-        <div class="t">6月13日は梅雨本番 — 屋内比率を高めに設計</div>
-        <div class="d">福岡の6月は月間降水量250mm前後で年間最多クラス。このプランはワインランチ・美術館・カフェ・温泉・居酒屋と屋内が中心。ワイナリーや庭園の散策だけ屋外なので折りたたみ傘を1本。雨でも崩れない。タオルも忘れずに。</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PLAN / TIMELINE -->
-  <section class="section" id="plan">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Itinerary · 09:00–21:00</div>
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 09:45 – 21:00</div>
       <h2 class="sec-title">1日の流れ</h2>
-      <p class="sec-sub">薬院→久留米IC経由で東の田主丸へ→巨峰ワイナリー散策＆ワインランチ（ホイリゲ）→街に戻って庭園美術館（石橋文化センター）→カフェ→締めの炭酸泉（游心の湯）→海鮮居酒屋→帰着。東への往復は午前の一本だけ。</p>
+      <p class="sec-sub">薬院 → 久留米で朝ブランチ（2人）→ 12:00 駅でムーミン合流 → 東の田主丸でワイン散策＆ランチ → 街に戻って庭園・コーヒー・炭酸泉 → 海鮮居酒屋 → 帰着。東への往復は合流後の一本だけ。</p>
     </div>
 
-    <div class="tl reveal">
+    <div class="tl rv">
 
-      <div class="ti">
-        <div class="time">09:00</div><div class="dot" style="--c:var(--move)"></div>
-        <div class="card" style="--c:var(--move)">
-          <div class="ttl"><span class="ico">🚗</span>薬院でカーシェア出発</div>
-          <div class="meta">福岡都市高速 → 九州自動車道 → 久留米IC</div>
-          <div class="desc">タイムズカー薬院エリア（西鉄薬院駅前／薬院マンション等）でハイブリッド車を確保。<b>12時間パックが割安</b>。3名なので荷物も余裕。出発前にガソリン・ワイパーを確認（梅雨）。</div>
-          <div class="badges"><span class="tag move">高速 約50分</span><span class="tag move">通行料 約1,170円</span></div>
+      <!-- 09:45 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">9:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動 · マーシャ＋ユーマ</span>
+          <div class="meta">福岡都市高速 → 九州道 → 久留米IC · 高速約50分 · 通行料約1,170円</div>
+          <p class="desc">タイムズカー薬院エリアでハイブリッド車を確保。<b>12時間パックが割安</b>。午前は2人で身軽。ランチを13時台に下げた分、朝はゆっくりめの出発でいい。出発前にガソリンとワイパーを確認（梅雨）。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 久留米IC経由で市街へ 約50分</span></div>
+
+      <!-- 10:40 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">10:40</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍳</div><h3>ニュートラル ベイ カフェで朝ブランチ</h3></div>
+          <span class="ctag">朝ごはん · 2人</span>
+          <div class="meta">西鉄久留米駅 徒歩10分 · 8:00–14:30(LO14:00) · 駐車場あり</div>
+          <p class="desc">合流前の2人の朝枠。オーストラリアスタイルのカフェで、自家焙煎コーヒーと名物<b>「ビッグブレッキー」</b>のしっかり朝ごはん。車で乗りつけてゆっくり。<b>軽めなら駅すぐの老舗「むた珈琲」（徒歩1分・フルーツパンケーキ）</b>でも。</p>
+          <div class="why"><b>朝枠を入れる狙い</b>　ランチが13時台に下がって午前に空きができる。先入りの2人はここで朝を過ごし、お腹を整えてから昼の合流＆ワインランチへ。土曜の営業日だけ事前に確認。</div>
+          <a class="map" href="https://maps.google.com/?q=ニュートラルベイカフェ+久留米" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 西鉄久留米駅へ 車5分・駅前で待ち合わせ</span></div>
+
+      <!-- 12:00 -->
+      <div class="stop" style="--c:var(--indigo);--c2:var(--indigo-2)">
+        <div class="time tnum">12:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚉</div><h3>西鉄久留米駅でムーミン合流</h3></div>
+          <span class="ctag">ここから3人</span>
+          <div class="meta">駅前ロータリー / 新幹線・JR着なら JR久留米駅に変更</div>
+          <p class="desc">駅前ロータリーで車に乗せて、ここから3人。<b>合流時刻と駅をムーミンと事前共有</b>しておく。乗せたらそのまま東の田主丸へ。駅前で軽くお土産や飲み物を補充してもいい。</p>
+          <div class="why"><b>合流をランチの直前に</b>　駅から田主丸は車30分。迎えてすぐワイナリー→ランチに繋ぐと、ムーミンも最初からワインの森を一緒に楽しめて、東への往復が一本で済む。</div>
+          <a class="map" href="https://maps.google.com/?q=西鉄久留米駅" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 耳納連山ふもと・田主丸へ 約30分・約20km</span></div>
+
+      <!-- 12:35 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">12:35</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍇</div><h3>巨峰ワイナリー・ワインの森散策</h3></div>
+          <span class="ctag">観光 · 3人</span>
+          <div class="meta">田主丸町益生田246-1 · 直売所 9:00–17:00 · 駐車場あり</div>
+          <p class="desc">耳納連山のふもと、ぶどう畑に囲まれたワイナリー。<b>ワインの直売・試飲</b>とぶどう畑の散策で、ランチ前にこの土地の空気を吸う。お土産のワイン選びもここで（運転手は試飲控えめに）。雨ならショップ＆醸造見学で屋内中心に。</p>
+          <a class="map" href="https://maps.google.com/?q=巨峰ワイナリー+田主丸" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚶 同じ敷地内・ワインの森を抜けて 徒歩すぐ</span></div>
+
+      <!-- 13:15 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">13:15</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>森のレストラン ホイリゲ（ワインランチ）</h3></div>
+          <span class="ctag">この旅の主役 · 要予約</span>
+          <div class="meta">巨峰ワイナリー内 · 11:00–15:00 · 火＋第2第4水休 · 予約 0943-72-2877</div>
+          <p class="desc">耳納連山の高台、ぶどう畑に囲まれた森のレストラン。田主丸の街を見下ろす眺めの中で、地元食材＋ハウスワインのランチをゆっくり。<b>牛肉のブルーベリーワイン煮のコース</b>など、併設ワイナリーのワインに合う料理が揃う。</p>
+          <div class="why"><b>“行きたい”の中心</b>　耳納連山を望むワインと森の昼ごはんを、合流後の3人でゆっくり。<b>13:15予約</b>ならラスト14:30まで余裕。東への往復はこの一本だけにまとめ、午後は街中で完結。土曜は要電話予約。</div>
+          <a class="map" href="https://maps.google.com/?q=森のレストラン+ホイリゲ+巨峰ワイナリー" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 久留米中心部へ戻り 車35分・約20km</span></div>
+
+      <!-- 15:20 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">15:20</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌺</div><h3>石橋文化センター</h3></div>
+          <span class="ctag">観光 · 雨OK · 無料</span>
+          <div class="meta">入園無料 · 9:00–17:00 · 駐車 最初2h 200円</div>
+          <p class="desc">久留米市街の庭園公園。<b>6月はハナショウブ・アジサイ・スイレン</b>が見頃。久留米市美術館・庭園カフェ併設で、雨でも館内でゆっくり。ワインランチの後の腹ごなしに、緑の中をのんびり散策。</p>
+          <a class="map" href="https://maps.google.com/?q=石橋文化センター" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 通町へ 車8分</span></div>
+
+      <!-- 16:05 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">16:05</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>COFFEE COUNTY Kurume</h3></div>
+          <span class="ctag">休憩 · 豆みやげ</span>
+          <div class="meta">通町102-8 · 11:00–19:00 · 火休 · 駐車6台</div>
+          <p class="desc">久留米発祥のスペシャルティコーヒー焙煎所。中米・アフリカの自家焙煎豆をハンドドリップ。朝ブランチでカフェは済ませているので、<b>ここは豆みやげ＆軽く一杯の短め立ち寄り</b>。時間が押したら豆だけ買って温泉へ。</p>
+          <a class="map" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 本山町方面 車12分</span></div>
+
+      <!-- 16:45 -->
+      <div class="stop" style="--c:var(--onsen);--c2:var(--onsen-2)">
+        <div class="time tnum">16:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">♨️</div><h3>游心の湯（締めの一湯）</h3></div>
+          <span class="ctag">温泉 · 疲れたら省略可</span>
+          <div class="meta">9:00–25:00 · 大人 土日990円 · 源泉かけ流し · 駐車120台超</div>
+          <p class="desc">pH9.7のアルカリ性「美肌の湯」を<b>源泉かけ流し</b>。<b>高濃度炭酸泉</b>とフィンランド式サウナまで揃い、湯上がりはツルツル。一日歩いた体を夕方のひとっ風呂でさっぱりリセットして、夜の海鮮居酒屋へ。</p>
+          <div class="why"><b>今日の唯一の温泉</b>　温泉を主役にしない一日でも、夕方にひとつだけ。美肌のアルカリ泉＋炭酸泉でととのえる。疲れていれば省いて休憩枠に回してOK。</div>
+          <a class="map" href="https://maps.google.com/?q=游心の湯+久留米" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 西鉄久留米駅・東町方面 車12分・自由枠</span></div>
+
+      <!-- 18:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">18:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🐟</div><h3>久留米いっこん（ディナー）</h3></div>
+          <span class="ctag">締めの夜 · 3人 · 要予約</span>
+          <div class="meta">東町30-2 · 西鉄久留米駅 徒歩5分 · 土日15:00–23:00 · 無休 · 予約可</div>
+          <p class="desc">福岡・今泉で“予約困難”と言われた人気居酒屋が2026年春に久留米初出店。<b>久留米市場から自社競りで直送する天然魚</b>の刺身盛り、串焼き、月替わりの土鍋ご飯が看板。54席・個室7室で3名でもゆったり。</p>
+          <div class="why"><b>土曜夜は早めに予約</b>　週末は混むので18:30でネット予約（ebica／食べログ）。20:00に余裕をもって店を出られる。<b>豚骨も食べたいなら</b>通し営業の「大砲ラーメン本店」（10:30–21:00・無料駐車24台）を締めに。</div>
+          <a class="map" href="https://maps.google.com/?q=久留米いっこん+東町" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 久留米IC → 都市高速 帰路 約50分</span></div>
+
+      <!-- 20:50 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">20:50</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>薬院 帰着・カーシェア返却</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">21:00前後で解散 / ムーミンは駅で離脱もOK</div>
+          <p class="desc">20:00に久留米を出れば20:50前後に薬院着。<b>ムーミンが久留米泊・現地解散なら、いっこんの後そのまま駅で降ろして2人で帰路</b>でもいい。給油してから返却。もっと夜まで居たいなら帰着を21:30に伸ばす選択も。09:45発なら12hパックは21:45まで枠内。</p>
         </div>
       </div>
 
-      <div class="move-row"><div class="dot"></div><span class="pill">🛣️ 久留米IC経由で耳納連山ふもと・田主丸へ 約80分・約55km</span></div>
-
-      <div class="ti">
-        <div class="time">10:30</div><div class="dot" style="--c:var(--culture)"></div>
-        <div class="card" style="--c:var(--culture)">
-          <div class="ttl"><span class="ico">🍇</span>巨峰ワイナリー・ワインの森散策</div>
-          <div class="meta">田主丸町益生田246-1・直売所 9:00〜17:00・駐車場あり</div>
-          <div class="desc">耳納連山のふもと、ぶどう畑に囲まれたワイナリー。<b>ワインの直売・試飲</b>とぶどう畑の散策で、ランチ前にこの土地の空気を吸う。お土産のワイン選びもここで（運転手は試飲控えめに）。雨ならショップ＆醸造見学で屋内中心に。</div>
-          <div class="reason"><b>東へ出るのは午前のうちに</b>: 同じ敷地のホイリゲのランチ（11時開店）に合わせて先に到着。森を抜けて、そのまま昼へ。</div>
-          <div class="badges"><span class="tag culture">ワイナリー</span><span class="tag culture">直売・試飲</span><span class="tag culture">散策</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=巨峰ワイナリー+田主丸" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚶 同じ敷地内・ワインの森を抜けて 徒歩すぐ</span></div>
-
-      <div class="ti">
-        <div class="time">11:30</div><div class="dot" style="--c:var(--food)"></div>
-        <div class="card" style="--c:var(--food)">
-          <div class="ttl"><span class="ico">🍷</span>森のレストラン ホイリゲ（ワインランチ）</div>
-          <div class="meta">巨峰ワイナリー内・田主丸町益生田246-1・ランチ11:00〜15:00・火休＋第2第4水休・要予約 0943-72-2877</div>
-          <div class="desc">耳納連山の高台、ぶどう畑に囲まれた森のレストラン。田主丸の街を見下ろす眺めの中で、地元食材＋ハウスワインのランチをゆっくり。<b>牛肉のブルーベリーワイン煮のコース</b>など、併設ワイナリーのワインに合う料理が揃う（運転手は試飲・グラスは控えめに）。</div>
-          <div class="reason"><b>この旅の“行きたい”の中心</b>: 耳納連山を望むワインと森の昼ごはん。東への往復は午前のこの一本だけにまとめ、午後は街中の温泉・カフェで完結させる。土曜は要電話予約。</div>
-          <div class="badges"><span class="tag food">ワインランチ</span><span class="tag must">行きたい</span><span class="tag culture">ワイナリー併設</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=森のレストラン+ホイリゲ+巨峰ワイナリー" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚗 久留米中心部へ戻り 車35分・約20km</span></div>
-
-      <div class="ti">
-        <div class="time">14:00</div><div class="dot" style="--c:var(--culture)"></div>
-        <div class="card" style="--c:var(--culture)">
-          <div class="ttl"><span class="ico">🌺</span>石橋文化センター</div>
-          <div class="meta">入園無料・9:00〜17:00・駐車場あり（最初2h 200円）</div>
-          <div class="desc">久留米市街の庭園公園。<b>6月はハナショウブ・アジサイ・スイレン</b>が見頃。久留米市美術館・庭園カフェ併設で、雨でも館内でゆっくり過ごせる。ワインランチの後の腹ごなしに、緑の中をのんびり散策。</div>
-          <div class="reason"><b>のんびり枠</b>: 温泉を主役にしない分、午後は緑と美術でゆったり。雨が強ければ美術館・館内カフェに退避できる。</div>
-          <div class="badges"><span class="tag culture">庭園</span><span class="tag culture">美術館</span><span class="tag culture">雨OK</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=石橋文化センター" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚗 久留米中心部（通町）へ 車8分</span></div>
-
-      <div class="ti">
-        <div class="time">15:30</div><div class="dot" style="--c:var(--food)"></div>
-        <div class="card" style="--c:var(--food)">
-          <div class="ttl"><span class="ico">☕</span>COFFEE COUNTY Kurume で休憩</div>
-          <div class="meta">久留米市通町102-8・11:00〜19:00・火休・駐車6台</div>
-          <div class="desc">久留米発祥のスペシャルティコーヒー焙煎所。中米・アフリカの自家焙煎豆を一杯ずつハンドドリップ。福岡市・台湾にも店を構える、コーヒー好きが目指す名店。<b>豆の物販</b>も充実で、お土産はここのコーヒーを。庭園散策のあとの一杯にぴったり。</div>
-          <div class="badges"><span class="tag food">スペシャルティコーヒー</span><span class="tag food">自家焙煎</span><span class="tag food">豆みやげ</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚗 本山町方面 車12分</span></div>
-
-      <div class="ti">
-        <div class="time">16:30</div><div class="dot" style="--c:var(--onsen)"></div>
-        <div class="card" style="--c:var(--onsen)">
-          <div class="ttl"><span class="ico">♨️</span>游心の湯（締めの一湯）</div>
-          <div class="meta">9:00〜25:00・大人 土日990円・源泉かけ流し・駐車120台超</div>
-          <div class="desc">pH9.7のアルカリ性「美肌の湯」を<b>源泉かけ流し</b>。<b>高濃度炭酸泉</b>とフィンランド式サウナ・塩サウナまで揃い、湯上がりはツルツル。一日歩いた体を、夕方のひとっ風呂でさっぱりリセット。9時〜深夜営業で時間に追われない。<b>疲れていれば省いて休憩枠に回してOK</b>。</div>
-          <div class="reason"><b>今日の唯一の温泉</b>: 温泉を主役にしない一日でも、夕方にひとつだけ。美肌のアルカリ泉＋炭酸泉でととのえて、夜の海鮮居酒屋へ向かう。</div>
-          <div class="badges"><span class="tag onsen">源泉かけ流し</span><span class="tag onsen">炭酸泉</span><span class="tag onsen">サウナ</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=游心の湯+久留米" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚗 西鉄久留米駅・東町方面 車12分 ／ 自由枠・お土産・休憩</span></div>
-
-      <div class="ti">
-        <div class="time">18:00</div><div class="dot" style="--c:var(--food)"></div>
-        <div class="card" style="--c:var(--food)">
-          <div class="ttl"><span class="ico">🐟</span>久留米いっこん（ディナー）</div>
-          <div class="meta">東町30-2・西鉄久留米駅 徒歩5分・土日15:00〜23:00・無休・予約可</div>
-          <div class="desc">福岡・今泉で“予約困難”と言われた人気居酒屋が、2026年春に久留米初出店。<b>久留米市場から自社競りで直送する天然魚</b>の刺身盛り、串焼き、月替わりの土鍋ご飯が看板。54席・個室7室・カウンターありで、3名でもゆったり。締めは海の幸と一杯で。</div>
-          <div class="reason"><b>土曜夜は早めに予約</b>: 本店（今泉）は予約困難の人気店。新店ながら週末は混むので、18:00でネット予約（ebica／食べログ）。これで19:30に余裕をもって店を出られる。</div>
-          <div class="badges"><span class="tag food">市場直送の天然魚</span><span class="tag must">要予約</span><span class="tag food">串焼き・土鍋ご飯</span></div>
-          <a class="gmap" href="https://maps.google.com/?q=久留米いっこん+東町" target="_blank" rel="noopener">📍 Google Maps</a>
-        </div>
-      </div>
-
-      <div class="move-row"><div class="dot"></div><span class="pill">🚗 久留米IC → 都市高速 帰路 約50分</span></div>
-
-      <div class="ti">
-        <div class="time">20:30</div><div class="dot" style="--c:var(--move)"></div>
-        <div class="card" style="--c:var(--move)">
-          <div class="ttl"><span class="ico">🏁</span>薬院 帰着・カーシェア返却</div>
-          <div class="meta">21:00枠内で解散</div>
-          <div class="desc">19:30に久留米を出れば20:30前後に薬院着。給油してから返却（タイムズカーは原則満タン返し不要だが規定を確認）。もっと夜まで居たい場合はいっこんで延長し、帰着を21:30に伸ばす選択も可。</div>
-          <div class="badges"><span class="tag move">解散</span></div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ONSEN COMPARISON -->
-  <section class="section" id="onsen">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Onsen Guide</div>
-      <h2 class="sec-title">締めの一湯 — 美肌の炭酸泉でととのえる</h2>
-      <p class="sec-sub">温泉は主役にしない一日。それでも夕方にひとつだけ、pH9.7の美肌アルカリ泉＋高濃度炭酸泉でさっぱり締めてから夜へ。</p>
-    </div>
-    <div class="cmp-grid reveal">
-      <div class="cmp">
-        <div class="cmp-top">
-          <div class="cmp-role">締めの一湯 · 16:30 / 90分</div>
-          <div class="cmp-name">♨️ 游心の湯</div>
-          <div class="cmp-tagline">pH9.7「美肌の湯」を源泉かけ流し</div>
-        </div>
-        <div class="cmp-body">
-          <div class="cmp-row"><span class="k">泉質</span><span class="v"><b>アルカリ性 pH9.7</b>／源泉かけ流し</span></div>
-          <div class="cmp-row"><span class="k">料金</span><span class="v">大人 平日890円・土日990円</span></div>
-          <div class="cmp-row"><span class="k">営業</span><span class="v">9:00〜25:00（日祝は7:00〜）</span></div>
-          <div class="cmp-row"><span class="k">設備</span><span class="v">露天・高濃度炭酸泉・サウナ・塩サウナ</span></div>
-          <div class="cmp-row"><span class="k">アクセス</span><span class="v">本山町・駐車120台超</span></div>
-          <div class="cmp-row"><span class="k">推し</span><span class="v">炭酸泉×サウナで“ととのう”締め湯</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GOURMET -->
-  <section class="section" id="gourmet">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Gourmet</div>
-      <h2 class="sec-title">美味しいもの — 耳納のワインランチと久留米の夜</h2>
-      <p class="sec-sub">昼は耳納連山ふもとのワイナリーレストランでワインと地元食材、夜は西鉄久留米駅前の話題の海鮮居酒屋で市場直送の魚。豚骨ラーメン発祥の地なので、胃に余裕があれば締めの一杯も。</p>
-    </div>
-    <div class="food-grid reveal">
-      <div class="fcard">
-        <div class="frole">Lunch · 11:30</div>
-        <div class="fname">🍷 森のレストラン ホイリゲ</div>
-        <div class="fsub">ワイン×地元食材・巨峰ワイナリー内（田主丸）</div>
-        <div class="fdesc">耳納連山の高台、ぶどう畑の森に建つレストラン。<b>牛肉のブルーベリーワイン煮のコース</b>など、ハウスワインに合う料理。食後はワイナリーで試飲・直売。</div>
-        <div class="fmeta"><span><b>名物</b> ワイン煮込みコース</span><span><b>営業</b> 11:00〜15:00</span><span><b>休</b> 火・第2第4水</span><span><b>予約</b> 0943-72-2877</span></div>
-      </div>
-      <div class="fcard">
-        <div class="frole">Dinner · 18:00</div>
-        <div class="fname">🐟 久留米いっこん</div>
-        <div class="fsub">海鮮居酒屋・串焼き / 東町（西鉄久留米駅）</div>
-        <div class="fdesc">今泉の予約困難店が2026年春に久留米初出店。市場直送の天然魚の刺身盛りと串焼き、月替わり土鍋ご飯。<b>土曜夜は要予約</b>。個室あり3名◎。</div>
-        <div class="fmeta"><span><b>名物</b> 刺身盛り・串焼き・土鍋ご飯</span><span><b>予算</b> 4,000〜5,500円</span><span><b>予約</b> ネット可</span></div>
-      </div>
-      <div class="fcard">
-        <div class="frole">Alt · 豚骨も食べたいなら</div>
-        <div class="fname">🍥 大砲ラーメン 本店</div>
-        <div class="fsub">久留米ラーメン（豚骨）・1953年創業</div>
-        <div class="fdesc">久留米は豚骨ラーメン発祥の地。「呼び戻し」製法の濃厚豚骨で、<b>無料駐車場24台</b>と車向き。10:30〜21:00通し営業なので、ワインランチを軽めにして締めに一杯、もアリ。</div>
-        <div class="fmeta"><span><b>名物</b> 豚骨ラーメン・焼めし</span><span><b>営業</b> 10:30〜21:00</span><span><b>休</b> 年末年始のみ</span></div>
-      </div>
     </div>
   </section>
 
   <!-- BUDGET -->
-  <section class="section" id="budget">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Budget</div>
-      <h2 class="sec-title">費用のめやす（1人あたり）</h2>
-      <p class="sec-sub">カーシェア・高速代は3名で割り勘。温泉・食事は個人負担。石橋文化センターは入園無料。締め湯を省けば約1.04万円。</p>
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代は3名で割り勘。朝ブランチ・温泉・食事は個人負担。石橋文化センターは入園無料。右の数字は1人あたり。</p>
     </div>
-    <table class="btable reveal">
-      <thead>
-        <tr><th>項目</th><th>内容</th><th class="r">3名合計</th><th class="r">1人あたり</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>カーシェア</td><td>タイムズ 12時間パック</td><td class="r">5,500</td><td class="r">1,830</td></tr>
-        <tr><td>距離料金</td><td>走行分（約120km×16円）</td><td class="r">1,920</td><td class="r">640</td></tr>
-        <tr><td>高速代</td><td>都市高速＋九州道 往復</td><td class="r">2,340</td><td class="r">780</td></tr>
-        <tr><td>游心の湯</td><td>大人 土日</td><td class="r">2,970</td><td class="r">990</td></tr>
-        <tr><td>ランチ</td><td>ホイリゲ ワインコース</td><td class="r">6,000</td><td class="r">2,000</td></tr>
-        <tr><td>カフェ</td><td>COFFEE COUNTY コーヒー</td><td class="r">1,800</td><td class="r">600</td></tr>
-        <tr><td>ディナー</td><td>いっこん 海鮮居酒屋</td><td class="r">13,500</td><td class="r">4,500</td></tr>
-        <tr class="total"><td>合計</td><td class="note">締め湯を省くと −990円/人</td><td class="r">34,030</td><td class="r">11,340</td></tr>
-      </tbody>
-    </table>
-    <div class="callout reveal" style="border-left-color:var(--food); background:linear-gradient(90deg,rgba(245,158,11,.07),transparent); border-color:rgba(245,158,11,.25)">
-      <div class="ic">💡</div>
-      <div>
-        <div class="t" style="color:#fcd34d">節約のコツ</div>
-        <div class="d">深夜割引はこの時間帯では効かない。コストの大半はディナー。いっこんを品数控えめにすれば1人8,000円台まで落とせる。ガソリン代は走行距離料金に含めず別途実費の場合があるため、返却時に給油レシートを精算。</div>
-      </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>タイムズ 12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約120km</small></div><div class="br">¥640</div></div>
+      <div class="brow"><div class="bl">高速代<small>都市高速＋九州道 往復</small></div><div class="br">¥780</div></div>
+      <div class="brow"><div class="bl">朝ブランチ<small>ニュートラル ベイ（合流前の2人）</small></div><div class="br">¥1,200<small> ／2人</small></div></div>
+      <div class="brow"><div class="bl">ワインランチ<small>ホイリゲ ワインコース</small></div><div class="br">¥2,000</div></div>
+      <div class="brow"><div class="bl">コーヒー<small>COFFEE COUNTY</small></div><div class="br">¥600</div></div>
+      <div class="brow"><div class="bl">游心の湯<small>大人 土日</small></div><div class="br">¥990</div></div>
+      <div class="brow"><div class="bl">ディナー<small>いっこん 海鮮居酒屋</small></div><div class="br">¥4,500</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥12,140</div></div>
     </div>
+    <div class="bnote rv">💡 <b>内訳</b>：朝ブランチは合流前の2人だけなので、先入り2人は<b>約¥12,540</b>、ムーミンは<b>約¥11,340</b>。締め湯を省くと各 −¥990。コストの大半はディナー。いっこんを品数控えめにすれば1人8,000円台まで落とせる。</div>
   </section>
 
   <!-- PREP -->
-  <section class="section" id="prep">
-    <div class="sec-head reveal">
-      <div class="sec-kicker">Before You Go</div>
-      <h2 class="sec-title">持ち物・事前予約チェック</h2>
-      <p class="sec-sub">梅雨対策と、土曜に効く2つの予約。出発前にここだけ押さえる。</p>
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前予約</h2>
+      <p class="sec-sub">梅雨対策と、土曜に効く予約。出発前にここだけ押さえる。</p>
     </div>
-    <div class="check-grid reveal">
-      <div class="check">
+
+    <div class="weather rv">
+      <div class="ic">☔</div>
+      <div>
+        <div class="t">6月13日は梅雨本番 — 屋内比率を高めに</div>
+        <div class="d">福岡の6月は月間降水量250mm前後で年間最多クラス。このプランはワインランチ・美術館・カフェ・温泉・居酒屋と屋内が中心。屋外はワイナリーと庭園の散策だけなので、折りたたみ傘とタオルがあれば雨でも崩れない。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
         <h4>📲 事前予約（重要）</h4>
         <ul>
-          <li class="warn">森のレストラン ホイリゲを11:30で予約（要電話・TEL 0943-72-2877／火・第2第4水休、6/13土は営業）</li>
-          <li class="warn">久留米いっこんを18:00で予約（土曜夜は人気店・ネット予約 ebica／食べログ）</li>
-          <li class="warn">タイムズカーを前日までに確保（薬院・12hパック）</li>
+          <li class="must">ムーミンと合流時刻・駅を確定（西鉄久留米駅 12:00／新幹線・JR着なら JR久留米駅に変更）</li>
+          <li class="must">森のレストラン ホイリゲを13:15で予約（要電話 0943-72-2877／火・第2第4水休、6/13土は営業）</li>
+          <li class="must">久留米いっこんを18:30で予約（土曜夜は人気店・ネット予約 ebica／食べログ）</li>
+          <li class="must">タイムズカーを前日までに確保（薬院・12hパック・09:45発）</li>
+          <li>ニュートラル ベイ カフェの土曜営業を確認（8:00–14:30・予約不要だが満席時待ちあり）</li>
           <li>巨峰ワイナリーで試飲する人と運転手を事前に決めておく</li>
         </ul>
       </div>
-      <div class="check">
-        <h4>☔ 梅雨・雨対策</h4>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
         <ul>
-          <li>折りたたみ傘 ×3</li>
+          <li>折りたたみ傘 ×3（梅雨）</li>
           <li>温泉用タオル（手ぶらなら現地レンタル可）</li>
-          <li>替えの靴下（雨で濡れる）</li>
+          <li>替えの靴下（雨で濡れる）／湯上がりの保湿</li>
+          <li>水分補給用の飲料・現金少々（券売機・ロッカー用）</li>
           <li>車のワイパー・タイヤを出発前点検</li>
-        </ul>
-      </div>
-      <div class="check">
-        <h4>♨️ 温泉まわり（游心の湯）</h4>
-        <ul>
-          <li>水分補給用の飲料（湯上がりの脱水注意）</li>
-          <li>サウナ用にミニタオル</li>
-          <li>湯上がりの保湿</li>
-          <li>現金少々（券売機・ロッカー用）</li>
         </ul>
       </div>
     </div>
 
-    <details class="sources reveal">
-      <summary>📚 出典・参考リンク</summary>
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
       <ul>
+        <li><a href="https://www.kyoho-winery.com/shop/heurige.html" target="_blank" rel="noopener">森のレストラン ホイリゲ（巨峰ワイナリー公式）</a></li>
+        <li><a href="https://www.kyoho-winery.com/" target="_blank" rel="noopener">巨峰ワイナリー 公式</a></li>
+        <li><a href="https://www.nishitetsu.jp/nishitetsu_news/entry_type/post-3577/" target="_blank" rel="noopener">ニュートラル ベイ カフェ（にしてつニュース）</a></li>
+        <li><a href="https://www.fukuoka-online.jp/column/kurume-morning/" target="_blank" rel="noopener">久留米のモーニング＆カフェ10選（Fukuoka Online）</a></li>
         <li><a href="https://yushin-yu.com/" target="_blank" rel="noopener">游心の湯 公式</a></li>
         <li><a href="https://yushin-yu.com/usecharge" target="_blank" rel="noopener">游心の湯 料金案内</a></li>
-        <li><a href="https://www.kyoho-winery.com/shop/heurige.html" target="_blank" rel="noopener">森のレストラン ホイリゲ（巨峰ワイナリー公式）</a></li>
-        <li><a href="https://welcome-kurume.com/spots/detail/81798701-4112-4147-adbb-363d17835dd2" target="_blank" rel="noopener">森のレストラン ホイリゲ（久留米観光公式）</a></li>
-        <li><a href="https://www.kyoho-winery.com/" target="_blank" rel="noopener">巨峰ワイナリー 公式</a></li>
-        <li><a href="https://www.taiho.net/app-def/S-102/wp/?page_id=2" target="_blank" rel="noopener">大砲ラーメン 公式</a></li>
-        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40072985/" target="_blank" rel="noopener">久留米いっこん（食べログ）</a></li>
-        <li><a href="https://booking.ebica.jp/webrsv/search/e027001401/36935" target="_blank" rel="noopener">久留米いっこん ネット予約</a></li>
         <li><a href="https://www.ishibashi-bunka.jp/" target="_blank" rel="noopener">石橋文化センター 公式</a></li>
         <li><a href="https://coffeecounty.cc/" target="_blank" rel="noopener">COFFEE COUNTY 公式</a></li>
-        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40051230/" target="_blank" rel="noopener">COFFEE COUNTY Kurume（食べログ）</a></li>
+        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40072985/" target="_blank" rel="noopener">久留米いっこん（食べログ）</a></li>
+        <li><a href="https://booking.ebica.jp/webrsv/search/e027001401/36935" target="_blank" rel="noopener">久留米いっこん ネット予約</a></li>
+        <li><a href="https://www.taiho.net/app-def/S-102/wp/?page_id=2" target="_blank" rel="noopener">大砲ラーメン 公式</a></li>
         <li><a href="https://share.timescar.jp/fare/simulation.html" target="_blank" rel="noopener">タイムズカー料金シミュレーション</a></li>
-        <li><a href="https://www.tabirai.net/sightseeing/fukuoka/info/monthly/jun_weather.aspx" target="_blank" rel="noopener">福岡 6月の気候</a></li>
         <li><a href="https://welcome-kurume.com/" target="_blank" rel="noopener">久留米観光 公式サイト</a></li>
       </ul>
     </details>
@@ -625,22 +580,32 @@
 </div>
 
 <footer>
-  <div>iUMA TRAVEL — 2026</div>
-  <div>KURUME DAY TRIP · 06.13</div>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">久留米 日帰り · ワインと、街の美味しいもの · 06.13 (土)</div>
+  </div>
 </footer>
 
-<script>
-  // scroll-spy
-  var links = document.querySelectorAll('.secnav a');
-  var secs = document.querySelectorAll('.section');
-  function spy(){
-    var cur = '';
-    secs.forEach(function(s){ if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
-    links.forEach(function(l){ l.classList.toggle('active', l.getAttribute('href').slice(1) === cur); });
-  }
-  window.addEventListener('scroll', spy); spy();
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
 
-  // (entrance animation is CSS-only and load-based — no JS needed; content never stays hidden)
+<script>
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
 </script>
 
 </body>
