@@ -144,18 +144,18 @@
   .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
 
   /* ============ Timeline ============ */
-  .tl{position:relative;padding-left:60px;}
-  .tl::before{content:"";position:absolute;left:18px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
 
   .stop{position:relative;margin-bottom:14px;}
   .stop .time{
-    position:absolute;left:-60px;top:13px;width:42px;text-align:right;
-    font-family:var(--num);font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
   }
   .stop .node{
-    position:absolute;left:-50px;top:14px;width:18px;height:18px;border-radius:50%;
-    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 4px var(--bg);
-    display:flex;align-items:center;justify-content:center;font-size:9px;
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
   }
   .card{
     background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
@@ -186,7 +186,7 @@
   .map:active{transform:scale(.97);}
 
   .leg{position:relative;margin:0 0 14px;}
-  .leg::before{content:"";position:absolute;left:-46px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
   .leg span{
     display:inline-flex;align-items:center;gap:7px;
     font-size:12.5px;color:var(--ink-3);font-weight:600;
@@ -294,7 +294,7 @@
     <h1>久留米、ワインの一日
       <small>耳納のワイナリーと、街の美味しいもの。</small>
     </h1>
-    <p class="lede">薬院から日帰り。午前は2人で街に入り朝ブランチ、お昼に駅でムーミンと合流して3人に。東のワイナリーでワインランチ、午後は庭園・コーヒー・炭酸泉、締めは海鮮居酒屋。</p>
+    <p class="lede">薬院から日帰り。午前は2人で街に入り朝コーヒー、お昼に駅でムーミンと合流して3人に。東のワイナリーでワインランチ、午後は庭園と炭酸泉、締めは海鮮居酒屋。</p>
     <div class="hero-meta">
       <span class="hpill">📅 6/13 (土)</span>
       <span class="hpill">🚗 カーシェア・薬院発</span>
@@ -324,8 +324,8 @@
     </div>
     <div class="fact">
       <div class="k">1人めやす</div>
-      <div class="v tnum">¥12<span class="u">k</span></div>
-      <div class="s">湯を省けば約11k</div>
+      <div class="v tnum">¥11<span class="u">k</span></div>
+      <div class="s">湯を省けば約10k</div>
     </div>
   </div>
 
@@ -334,7 +334,7 @@
     <div class="ic">🚉</div>
     <div>
       <div class="t">お昼に駅でムーミンと合流 — ランチは合流後に後ろ倒し</div>
-      <div class="d">午前は2人（マーシャ・ユーマ）で久留米入りして朝ブランチ。<b>12:00に西鉄久留米駅でムーミンを車でピックアップ</b>してから東のワイナリーへ走り、散策とワインランチは<b>13時台</b>に。3人そろってワインの森を楽しむ流れ。合流駅はムーミンの到着しだい — 天神方面の西鉄なら<b>西鉄久留米駅</b>、新幹線・JRなら<b>JR久留米駅</b>。どちらも市街中心で午後の予定はそのまま。</div>
+      <div class="d">午前は2人（マーシャ・ユーマ）で久留米入りして朝コーヒー。<b>12:00に西鉄久留米駅でムーミンを車でピックアップ</b>してから東のワイナリーへ走り、散策とワインランチは<b>13時台</b>に。3人そろってワインの森を楽しむ流れ。合流駅はムーミンの到着しだい — 天神方面の西鉄なら<b>西鉄久留米駅</b>、新幹線・JRなら<b>JR久留米駅</b>。どちらも市街中心で午後の予定はそのまま。</div>
     </div>
   </div>
 
@@ -354,35 +354,35 @@
   <!-- PLAN -->
   <section id="plan">
     <div class="sec-head rv">
-      <div class="kicker">Itinerary · 09:45 – 21:00</div>
+      <div class="kicker">Itinerary · 10:00 – 21:00</div>
       <h2 class="sec-title">1日の流れ</h2>
-      <p class="sec-sub">薬院 → 久留米で朝ブランチ（2人）→ 12:00 駅でムーミン合流 → 東の田主丸でワイン散策＆ランチ → 街に戻って庭園・コーヒー・炭酸泉 → 海鮮居酒屋 → 帰着。東への往復は合流後の一本だけ。</p>
+      <p class="sec-sub">薬院 → 久留米で朝コーヒー（2人）→ 12:00 駅でムーミン合流 → 東の田主丸でワイン散策＆ランチ → 帰り道に善導寺で芋スイーツ → 街に戻って庭園と炭酸泉 → 海鮮居酒屋 → 帰着。東への往復は合流後の一本だけ。</p>
     </div>
 
     <div class="tl rv">
 
-      <!-- 09:45 -->
+      <!-- 10:00 -->
       <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
-        <div class="time tnum">9:45</div><div class="node"></div>
+        <div class="time tnum">10:00</div><div class="node"></div>
         <div class="card">
           <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
           <span class="ctag">移動 · マーシャ＋ユーマ</span>
           <div class="meta">福岡都市高速 → 九州道 → 久留米IC · 高速約50分 · 通行料約1,170円</div>
-          <p class="desc">タイムズカー薬院エリアでハイブリッド車を確保。<b>12時間パックが割安</b>。午前は2人で身軽。ランチを13時台に下げた分、朝はゆっくりめの出発でいい。出発前にガソリンとワイパーを確認（梅雨）。</p>
+          <p class="desc">タイムズカー薬院エリアでハイブリッド車を確保。<b>12時間パックが割安</b>。午前は2人で身軽。朝コーヒー（COFFEE COUNTY 開店11:00）とランチ13時台に合わせて、出発はゆっくりめでいい。出発前にガソリンとワイパーを確認（梅雨）。</p>
         </div>
       </div>
-      <div class="leg"><span>🛣️ 久留米IC経由で市街へ 約50分</span></div>
+      <div class="leg"><span>🛣️ 久留米IC経由で市街・通町へ 約50分</span></div>
 
-      <!-- 10:40 -->
+      <!-- 11:00 -->
       <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
-        <div class="time tnum">10:40</div><div class="node"></div>
+        <div class="time tnum">11:00</div><div class="node"></div>
         <div class="card">
-          <div class="head"><div class="emoji">🍳</div><h3>ニュートラル ベイ カフェで朝ブランチ</h3></div>
-          <span class="ctag">朝ごはん · 2人</span>
-          <div class="meta">西鉄久留米駅 徒歩10分 · 8:00–14:30(LO14:00) · 駐車場あり</div>
-          <p class="desc">合流前の2人の朝枠。オーストラリアスタイルのカフェで、自家焙煎コーヒーと名物<b>「ビッグブレッキー」</b>のしっかり朝ごはん。車で乗りつけてゆっくり。<b>軽めなら駅すぐの老舗「むた珈琲」（徒歩1分・フルーツパンケーキ）</b>でも。</p>
-          <div class="why"><b>朝枠を入れる狙い</b>　ランチが13時台に下がって午前に空きができる。先入りの2人はここで朝を過ごし、お腹を整えてから昼の合流＆ワインランチへ。土曜の営業日だけ事前に確認。</div>
-          <a class="map" href="https://maps.google.com/?q=ニュートラルベイカフェ+久留米" target="_blank" rel="noopener">📍 地図でひらく</a>
+          <div class="head"><div class="emoji">☕</div><h3>COFFEE COUNTY Kurume で朝コーヒー</h3></div>
+          <span class="ctag">朝のひと息 · 2人</span>
+          <div class="meta">通町102-8 · 11:00–19:00 · 火休 · 駐車6台</div>
+          <p class="desc">合流前の2人の朝枠は、久留米発祥のスペシャルティコーヒー焙煎所で。中米・アフリカの自家焙煎豆を一杯ずつハンドドリップ。<b>お土産の豆もここで</b>。開店11:00に合わせてゆっくり入って、一杯で一日を始める。<b>しっかり食べたいなら徒歩圏の「ニュートラル ベイ カフェ」（ビッグブレッキー）</b>でも。</p>
+          <div class="why"><b>朝枠の狙い</b>　ランチが13時台に下がって午前に空きができる。先入りの2人はここで一服して豆みやげも済ませ、12時に駅でムーミンを迎えてワインの森へ。コーヒーは朝のここ一本に集約。</div>
+          <a class="map" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍 地図でひらく</a>
         </div>
       </div>
       <div class="leg"><span>🚗 西鉄久留米駅へ 車5分・駅前で待ち合わせ</span></div>
@@ -426,11 +426,25 @@
           <a class="map" href="https://maps.google.com/?q=森のレストラン+ホイリゲ+巨峰ワイナリー" target="_blank" rel="noopener">📍 地図でひらく</a>
         </div>
       </div>
-      <div class="leg"><span>🚗 久留米中心部へ戻り 車35分・約20km</span></div>
+      <div class="leg"><span>🚗 耳納北麓の道すがら・善導寺へ 車15分</span></div>
 
-      <!-- 15:20 -->
+      <!-- 14:45 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">14:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍠</div><h3>imoya み乃う茶房（食後の芋スイーツ）</h3></div>
+          <span class="ctag">お茶 · 3人</span>
+          <div class="meta">久留米市善導寺町木塚303-28 · 土日 10:00–17:00 · 火〜金休 · 駐車場あり</div>
+          <p class="desc">田主丸からの帰り道、善導寺にある芋スイーツで話題の芋カフェ。<b>焼き芋・冷やし蜜芋・大学芋・芋プリン</b>など、減農薬さつまいものスイーツでワインランチの後の甘い一服。耳納北麓の道すがらに自然に寄れる位置。</p>
+          <div class="why"><b>東の食を一筆書きで</b>　善導寺は田主丸と久留米市街のちょうど間。ワインランチ→芋スイーツまで東で済ませてから、一本で街へ戻る。</div>
+          <a class="map" href="https://maps.google.com/?q=imoya+み乃う茶房+善導寺" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 久留米市街・石橋文化センターへ 車20分</span></div>
+
+      <!-- 15:45 -->
       <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
-        <div class="time tnum">15:20</div><div class="node"></div>
+        <div class="time tnum">15:45</div><div class="node"></div>
         <div class="card">
           <div class="head"><div class="emoji">🌺</div><h3>石橋文化センター</h3></div>
           <span class="ctag">観光 · 雨OK · 無料</span>
@@ -439,20 +453,7 @@
           <a class="map" href="https://maps.google.com/?q=石橋文化センター" target="_blank" rel="noopener">📍 地図でひらく</a>
         </div>
       </div>
-      <div class="leg"><span>🚗 通町へ 車8分</span></div>
-
-      <!-- 16:05 -->
-      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
-        <div class="time tnum">16:05</div><div class="node"></div>
-        <div class="card">
-          <div class="head"><div class="emoji">☕</div><h3>COFFEE COUNTY Kurume</h3></div>
-          <span class="ctag">休憩 · 豆みやげ</span>
-          <div class="meta">通町102-8 · 11:00–19:00 · 火休 · 駐車6台</div>
-          <p class="desc">久留米発祥のスペシャルティコーヒー焙煎所。中米・アフリカの自家焙煎豆をハンドドリップ。朝ブランチでカフェは済ませているので、<b>ここは豆みやげ＆軽く一杯の短め立ち寄り</b>。時間が押したら豆だけ買って温泉へ。</p>
-          <a class="map" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍 地図でひらく</a>
-        </div>
-      </div>
-      <div class="leg"><span>🚗 本山町方面 車12分</span></div>
+      <div class="leg"><span>🚗 本山町方面・游心の湯へ 車15分</span></div>
 
       <!-- 16:45 -->
       <div class="stop" style="--c:var(--onsen);--c2:var(--onsen-2)">
@@ -489,7 +490,7 @@
           <div class="head"><div class="emoji">🏁</div><h3>薬院 帰着・カーシェア返却</h3></div>
           <span class="ctag">解散</span>
           <div class="meta">21:00前後で解散 / ムーミンは駅で離脱もOK</div>
-          <p class="desc">20:00に久留米を出れば20:50前後に薬院着。<b>ムーミンが久留米泊・現地解散なら、いっこんの後そのまま駅で降ろして2人で帰路</b>でもいい。給油してから返却。もっと夜まで居たいなら帰着を21:30に伸ばす選択も。09:45発なら12hパックは21:45まで枠内。</p>
+          <p class="desc">20:00に久留米を出れば20:50前後に薬院着。<b>ムーミンが久留米泊・現地解散なら、いっこんの後そのまま駅で降ろして2人で帰路</b>でもいい。給油してから返却。もっと夜まで居たいなら帰着を21:30に伸ばす選択も。10:00発なら12hパックは22:00まで枠内。</p>
         </div>
       </div>
 
@@ -501,20 +502,19 @@
     <div class="sec-head rv">
       <div class="kicker">Budget</div>
       <h2 class="sec-title">費用のめやす</h2>
-      <p class="sec-sub">カーシェア・高速代は3名で割り勘。朝ブランチ・温泉・食事は個人負担。石橋文化センターは入園無料。右の数字は1人あたり。</p>
+      <p class="sec-sub">カーシェア・高速代は3名で割り勘。朝コーヒー・温泉・食事は個人負担。石橋文化センターは入園無料。右の数字は1人あたり。</p>
     </div>
     <div class="bcard rv">
       <div class="brow"><div class="bl">カーシェア<small>タイムズ 12時間パック</small></div><div class="br">¥1,830</div></div>
       <div class="brow"><div class="bl">距離料金<small>走行 約120km</small></div><div class="br">¥640</div></div>
       <div class="brow"><div class="bl">高速代<small>都市高速＋九州道 往復</small></div><div class="br">¥780</div></div>
-      <div class="brow"><div class="bl">朝ブランチ<small>ニュートラル ベイ（合流前の2人）</small></div><div class="br">¥1,200<small> ／2人</small></div></div>
+      <div class="brow"><div class="bl">朝コーヒー<small>COFFEE COUNTY（合流前の2人）</small></div><div class="br">¥600<small> ／2人</small></div></div>
       <div class="brow"><div class="bl">ワインランチ<small>ホイリゲ ワインコース</small></div><div class="br">¥2,000</div></div>
-      <div class="brow"><div class="bl">コーヒー<small>COFFEE COUNTY</small></div><div class="br">¥600</div></div>
       <div class="brow"><div class="bl">游心の湯<small>大人 土日</small></div><div class="br">¥990</div></div>
       <div class="brow"><div class="bl">ディナー<small>いっこん 海鮮居酒屋</small></div><div class="br">¥4,500</div></div>
-      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥12,140</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥11,140</div></div>
     </div>
-    <div class="bnote rv">💡 <b>内訳</b>：朝ブランチは合流前の2人だけなので、先入り2人は<b>約¥12,540</b>、ムーミンは<b>約¥11,340</b>。締め湯を省くと各 −¥990。コストの大半はディナー。いっこんを品数控えめにすれば1人8,000円台まで落とせる。</div>
+    <div class="bnote rv">💡 <b>内訳</b>：朝コーヒーは合流前の2人だけなので、先入り2人は<b>約¥11,340</b>、ムーミンは<b>約¥10,740</b>。締め湯を省くと各 −¥990。コストの大半はディナー。いっこんを品数控えめにすれば1人8,000円台まで落とせる。</div>
   </section>
 
   <!-- PREP -->
@@ -540,8 +540,8 @@
           <li class="must">ムーミンと合流時刻・駅を確定（西鉄久留米駅 12:00／新幹線・JR着なら JR久留米駅に変更）</li>
           <li class="must">森のレストラン ホイリゲを13:15で予約（要電話 0943-72-2877／火・第2第4水休、6/13土は営業）</li>
           <li class="must">久留米いっこんを18:30で予約（土曜夜は人気店・ネット予約 ebica／食べログ）</li>
-          <li class="must">タイムズカーを前日までに確保（薬院・12hパック・09:45発）</li>
-          <li>ニュートラル ベイ カフェの土曜営業を確認（8:00–14:30・予約不要だが満席時待ちあり）</li>
+          <li class="must">タイムズカーを前日までに確保（薬院・12hパック・10:00発）</li>
+          <li>COFFEE COUNTY Kurume の営業を確認（火休・11:00開店、6/13土は営業）</li>
           <li>巨峰ワイナリーで試飲する人と運転手を事前に決めておく</li>
         </ul>
       </div>
@@ -562,6 +562,7 @@
       <ul>
         <li><a href="https://www.kyoho-winery.com/shop/heurige.html" target="_blank" rel="noopener">森のレストラン ホイリゲ（巨峰ワイナリー公式）</a></li>
         <li><a href="https://www.kyoho-winery.com/" target="_blank" rel="noopener">巨峰ワイナリー 公式</a></li>
+        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40062088/" target="_blank" rel="noopener">imoya み乃う茶房（食べログ）</a></li>
         <li><a href="https://www.nishitetsu.jp/nishitetsu_news/entry_type/post-3577/" target="_blank" rel="noopener">ニュートラル ベイ カフェ（にしてつニュース）</a></li>
         <li><a href="https://www.fukuoka-online.jp/column/kurume-morning/" target="_blank" rel="noopener">久留米のモーニング＆カフェ10選（Fukuoka Online）</a></li>
         <li><a href="https://yushin-yu.com/" target="_blank" rel="noopener">游心の湯 公式</a></li>
