@@ -207,6 +207,13 @@
   .pick.off{opacity:.62;}
   .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
 
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
   /* ============ Budget ============ */
   .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
   .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
@@ -358,6 +365,7 @@
 <div class="secnav-wrap">
   <nav class="secnav">
     <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">お店候補</a>
     <a href="#budget">費用</a>
     <a href="#prep">持ち物・予約</a>
   </nav>
@@ -368,24 +376,61 @@
   <!-- PLAN -->
   <section id="plan">
     <div class="sec-head rv">
-      <div class="kicker">Itinerary · 10:00 – 21:00</div>
+      <div class="kicker">Itinerary · 9:00 – 21:00</div>
       <h2 class="sec-title">1日の流れ</h2>
-      <p class="sec-sub">薬院 → 久留米で朝コーヒー（2人）→ 12:00 駅でムーミン合流 → 東の田主丸でワイン散策＆ランチ → 帰り道に善導寺で芋スイーツ → 街に戻って庭園と炭酸泉 → 梅乃家のナイトランチ → 帰着。東への往復は合流後の一本だけ。</p>
+      <p class="sec-sub">薬院 → 久留米で朝コーヒー＆パン屋めぐり（2人）→ 12:00 駅でムーミン合流 → 東の田主丸でワイン散策＆ランチ → 帰り道に善導寺で芋スイーツ → 街に戻って庭園と炭酸泉 → 梅乃家のナイトランチ → 帰着。東への往復は合流後の一本だけ。</p>
     </div>
 
     <div class="tl rv">
 
-      <!-- 10:00 -->
+      <!-- 9:00 -->
       <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
-        <div class="time tnum">10:00</div><div class="node"></div>
+        <div class="time tnum">9:00</div><div class="node"></div>
         <div class="card">
           <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
           <span class="ctag">移動 · マーシャ＋ユーマ</span>
           <div class="meta">福岡都市高速 → 九州道 → 久留米IC · 高速約50分 · 通行料約1,170円</div>
-          <p class="desc">タイムズカー薬院エリアでハイブリッド車を確保。<b>12時間パックが割安</b>。午前は2人で身軽。朝コーヒー（COFFEE COUNTY 開店11:00）とランチ13時台に合わせて、出発はゆっくりめでいい。出発前にガソリンとワイパーを確認（梅雨）。</p>
+          <p class="desc">タイムズカーは<b>9:00から予約済み</b>（12時間パックで21:00まで枠内）。午前は2人で身軽。<b>9時発で午前にゆとりがある</b>ので、久留米でパン屋を回って朝コーヒー、12時に駅で合流という流れにできる。道中の筑紫野・鳥栖のケーキ／和菓子は10:00開店なので、タイミングが合えば。出発前にガソリンとワイパーを確認（梅雨）。</p>
         </div>
       </div>
-      <div class="leg"><span>🛣️ 久留米IC経由で市街・通町へ 約50分</span></div>
+      <div class="leg"><span>🛣️ 久留米IC経由で市街へ 約50分</span></div>
+
+      <!-- 9:50 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">9:50</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🥐</div><h3>合流前の自由枠：パン屋・ケーキ屋めぐり</h3></div>
+          <span class="ctag">2人 · 気分で1〜2軒</span>
+          <div class="meta">12時の合流までのマーシャ＋ユーマの朝時間 · お土産パン・焼き菓子の調達も</div>
+          <p class="desc">合流までの空き時間に、久留米で評判のパン・ケーキを軽くつまむ。<b>全部は回らず、気分とルートで1〜2軒</b>でいい。朝コーヒー（COFFEE COUNTY）の前後どちらでも寄れる。<b>お土産はここで</b>。</p>
+
+          <div class="picks">
+            <div class="pick rec">
+              <div class="ph"><span class="pn">TRICOT BAKERS MARKET</span><span class="pg">朝いちおし</span></div>
+              <div class="pm">西町・<b>朝7:00開店</b>（水土日のみ営業）。マリトッツォや塩バターキャラメルが名物。駅・市街に近く合流前に寄りやすい。<a class="pmap" href="https://maps.app.goo.gl/9YnS5dnByXx4s1nP9" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">レアクロノ（RHEA CRONOS）</span><span class="pg">パン</span></div>
+              <div class="pm">野中町・土日 9:00–17:00・木金休。2025年秋オープンの話題店で、異国情緒の創作パン。市街の南。<a class="pmap" href="https://maps.app.goo.gl/LfDqxmrrxQykQ8PHA" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">ル・サントーレ 原田本店</span><span class="pg">道中・ケーキ</span></div>
+              <div class="pm">筑紫野市原田・10:00–19:30・火休。ベルギー仏仕込みのパティスリー。<b>薬院から久留米へ向かう道中</b>に寄れる（その場合は9:30発）。092-927-3838。<a class="pmap" href="https://maps.app.goo.gl/VEnKe5bK9eeSSvaK9" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">お菓子村 杏都（あんと）</span><span class="pg">行きたい・道中/次回</span></div>
+              <div class="pm">鳥栖市原古賀・10:00–18:00・月休。アンジェココ系の和菓子専門店＆和風カフェ。鳥栖は道中だが<b>10時開店で午前はタイト</b>。余裕があれば道中で、難しければ次回に。0942-85-7780。<a class="pmap" href="https://maps.app.goo.gl/sh1jbQodqeZZgdPR9" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">haruta bakery</span><span class="pg">午後・東向き</span></div>
+              <div class="pm">善導寺町木塚・9:30–16:00・水休。京都の名店の味を継ぐ人気店。<b>午後の み乃う茶房のすぐ隣</b>なので、東の帰り道に寄るのが自然。0942-27-5959。<a class="pmap" href="https://maps.app.goo.gl/huS9JrshSD7PcgLJ7" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>使い方</b>　駅近で朝早いTRICOTが合流前の本命。ケーキも欲しければ道中のル・サントーレ。<b>haruta は東の善導寺なので、午前ではなく午後の芋スイーツ（み乃う茶房）とセット</b>がおすすめ。次回久留米のパン・スイーツ巡りの引き出しにも。</div>
+        </div>
+      </div>
+      <div class="leg"><span>☕ 通町・COFFEE COUNTY へ すぐ</span></div>
 
       <!-- 11:00 -->
       <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
@@ -523,7 +568,7 @@
           <div class="head"><div class="emoji">🏁</div><h3>薬院 帰着・カーシェア返却</h3></div>
           <span class="ctag">解散</span>
           <div class="meta">21:00前後で解散 / ムーミンは駅で離脱もOK</div>
-          <p class="desc">20:00に久留米を出れば20:50前後に薬院着。<b>ムーミンが久留米泊・現地解散なら、いっこんの後そのまま駅で降ろして2人で帰路</b>でもいい。給油してから返却。もっと夜まで居たいなら帰着を21:30に伸ばす選択も。10:00発なら12hパックは22:00まで枠内。</p>
+          <p class="desc">20:00に久留米を出れば20:50前後に薬院着。<b>ムーミンが久留米泊・現地解散なら、梅乃家の後そのまま駅で降ろして2人で帰路</b>でもいい。給油してから返却。<b>9:00発の12時間パックは21:00まで枠内</b>なので、それまでに返却。</p>
         </div>
       </div>
 
@@ -536,6 +581,75 @@
         <div class="d">六ツ門にある<b>1978年創業のレトロ喫茶</b>。自家焙煎をサイフォンで淹れ、ケーキも15種。<b>朝の COFFEE COUNTY の代わり</b>にしても、<b>午後の一服</b>に寄ってもいい、西鉄久留米駅すぐの中心市街。営業時間がゆるめ（昼11:00頃〜・不定休）なので、土曜の営業だけ事前に確認（TEL 0942-32-0932）。</div>
       </div>
     </div>
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">これまで挙げた行き先を、ジャンルごとにまとめた候補ボード。当日の天気・気分・お腹の空き具合で入れ替えられる。<b>濃い色＝今回行く店</b>、それ以外は差し替え／次回久留米の引き出し。</p>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">🥐 パン屋（ベーカリー）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">TRICOT BAKERS MARKET</span><span class="pg">朝の本命</span></div><div class="pm">西町・朝7:00開（水土日のみ）。マリトッツォ／塩バターキャラメル。駅近で合流前に。<a class="pmap" href="https://maps.app.goo.gl/9YnS5dnByXx4s1nP9" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">レアクロノ（RHEA CRONOS）</span><span class="pg">候補</span></div><div class="pm">野中町・土日9:00–17:00・木金休。2025年秋オープンの話題店、異国情緒の創作パン。<a class="pmap" href="https://maps.app.goo.gl/LfDqxmrrxQykQ8PHA" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">haruta bakery</span><span class="pg">午後・善導寺</span></div><div class="pm">善導寺町木塚・9:30–16:00・水休。京都の名店の味。午後の み乃う茶房のすぐ隣で帰り道に。<a class="pmap" href="https://maps.app.goo.gl/huS9JrshSD7PcgLJ7" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">🍰 ケーキ・洋菓子（パティスリー）</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">ル・サントーレ 原田本店</span><span class="pg">道中・筑紫野</span></div><div class="pm">筑紫野市原田・10:00–19:30・火休。ベルギー仏仕込み。薬院→久留米の道中で寄れる。<a class="pmap" href="https://maps.app.goo.gl/VEnKe5bK9eeSSvaK9" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">🍡 和菓子・甘味</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">imoya み乃う茶房</span><span class="pg">今回・午後</span></div><div class="pm">善導寺町木塚・土日10:00–17:00・火〜金休。減農薬さつまいもの芋スイーツ。ワインランチの食後に。<a class="pmap" href="https://maps.google.com/?q=imoya+み乃う茶房+善導寺" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">お菓子村 杏都（あんと）</span><span class="pg">道中・鳥栖/次回</span></div><div class="pm">鳥栖市原古賀・10:00–18:00・月休。アンジェココ系の和菓子専門店＆和風カフェ。10時開で午前はタイト。<a class="pmap" href="https://maps.app.goo.gl/sh1jbQodqeZZgdPR9" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">☕ コーヒー・喫茶</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">COFFEE COUNTY Kurume</span><span class="pg">今回・朝</span></div><div class="pm">通町・11:00–19:00・火休。久留米発祥のスペシャルティ焙煎所。お土産の豆も。<a class="pmap" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ニュートラル ベイ カフェ</span><span class="pg">朝食・候補</span></div><div class="pm">COFFEE COUNTY 徒歩圏。ビッグブレッキーなど、朝からしっかり食べたい日に。<a class="pmap" href="https://maps.google.com/?q=ニュートラルベイカフェ+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">しのはら珈琲</span><span class="pg">レトロ喫茶・候補</span></div><div class="pm">六ツ門・西鉄久留米駅すぐ。1978年創業、サイフォン＋ケーキ15種。営業ゆるめ（要確認 0942-32-0932）。<a class="pmap" href="https://maps.google.com/?q=しのはら珈琲+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">🍷 ワインランチ（昼）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">森のレストラン ホイリゲ</span><span class="pg">今回の主役</span></div><div class="pm">巨峰ワイナリー内・11:00–15:00・火＋第2第4水休。耳納連山を望む森のワインランチ。要予約 0943-72-2877。<a class="pmap" href="https://maps.google.com/?q=森のレストラン+ホイリゲ+巨峰ワイナリー" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">🍶 夜ごはん（和食・豆腐・居酒屋・焼鳥）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">とうふ処 梅乃家</span><span class="pg">今回・決定</span></div><div class="pm">城南町・豆腐の老舗。夜限定ナイトランチ¥3,100（全19品・デザート＋コーヒー付）。要予約 0942-35-0606・月休。<a class="pmap" href="https://maps.app.goo.gl/Lf5PhbiE46A1nGXM8" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick off"><div class="ph"><span class="pn">久留米いっこん</span><span class="pg">満席・次回</span></div><div class="pm">東町・駅徒歩5分。市場直送の天然魚が看板の海鮮居酒屋。土曜満席→次回の第一候補。<a class="pmap" href="https://maps.google.com/?q=久留米いっこん+東町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">鶏ト飯トリヒロ</span><span class="pg">差し替え・鶏</span></div><div class="pm">駅徒歩5分・17:00–23:00・日休。鶏＋炊きたて土鍋ご飯＋ワインの和モダン。<a class="pmap" href="https://maps.app.goo.gl/XNn6x322mwQNfRzYA" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">焼鳥けむり</span><span class="pg">差し替え・焼鳥</span></div><div class="pm">国分町・17:00–22:30・月休。備長炭の焼鳥。予約 070-9144-0873／ホットペッパー。<a class="pmap" href="https://maps.app.goo.gl/kMf6dDtPfLs9fbw97" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">和ダイニング ひらかわ</span><span class="pg">差し替え・懐石</span></div><div class="pm">天神町・駅近・17:30–22:00・日祝休。きちんとした日本料理・懐石でしめる日に。<a class="pmap" href="https://maps.app.goo.gl/kCGvj945LUnjiJzd8" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv">
+      <h3 class="opth">♨️ 温泉（締めの一湯）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">游心の湯</span><span class="pg">今回・締め</span></div><div class="pm">本山町・9:00–25:00・土日990円。pH9.7の美肌アルカリ泉＋高濃度炭酸泉＋サウナ。疲れたら省略可。<a class="pmap" href="https://maps.google.com/?q=游心の湯+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>差し替えの考え方</b>　朝はパン（TRICOT）かコーヒー（COFFEE COUNTY）を気分で。ケーキ・和菓子は道中（ル・サントーレ＝筑紫野／杏都＝鳥栖）に寄れるが朝はタイトなので無理なら次回。昼ワインランチ（ホイリゲ）・午後の芋スイーツ（み乃う茶房）・夜（梅乃家）・締め湯（游心の湯）は今回の確定ルート。haruta は午後の善導寺で み乃う茶房と一緒に。</div>
   </section>
 
   <!-- BUDGET -->
@@ -581,9 +695,10 @@
           <li class="must">ムーミンと合流時刻・駅を確定（西鉄久留米駅 12:00／新幹線・JR着なら JR久留米駅に変更）</li>
           <li class="must">森のレストラン ホイリゲを13:15で予約（要電話 0943-72-2877／火・第2第4水休、6/13土は営業）</li>
           <li class="must">とうふ処 梅乃家を18:30で予約（ナイトランチ・全19品・電話 0942-35-0606／月休）</li>
-          <li class="must">タイムズカーを前日までに確保（薬院・12hパック・10:00発）</li>
+          <li class="must">タイムズカーは9:00から予約済み（薬院・12hパック・21:00まで枠内）</li>
           <li>COFFEE COUNTY Kurume の営業を確認（火休・11:00開店、6/13土は営業）</li>
           <li>巨峰ワイナリーで試飲する人と運転手を事前に決めておく</li>
+          <li>朝のパン屋の営業日を確認（TRICOTは水土日のみ・6/13土は営業／道中の杏都・ル・サントーレは10:00開店）</li>
         </ul>
       </div>
       <div class="pcard">
@@ -610,6 +725,11 @@
         <li><a href="https://yushin-yu.com/usecharge" target="_blank" rel="noopener">游心の湯 料金案内</a></li>
         <li><a href="https://www.ishibashi-bunka.jp/" target="_blank" rel="noopener">石橋文化センター 公式</a></li>
         <li><a href="https://coffeecounty.cc/" target="_blank" rel="noopener">COFFEE COUNTY 公式</a></li>
+        <li><a href="https://kurumefan.com/tricot-maritozzo" target="_blank" rel="noopener">TRICOT BAKERS MARKET（久留米ファン・パン）</a></li>
+        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40072064/" target="_blank" rel="noopener">レアクロノ RHEA CRONOS（食べログ・パン）</a></li>
+        <li><a href="https://tabelog.com/fukuoka/A4003/A400301/40017964/" target="_blank" rel="noopener">ル・サントーレ 原田本店（食べログ・ケーキ）</a></li>
+        <li><a href="https://angecoco.info/anto/" target="_blank" rel="noopener">お菓子村 杏都 公式（和菓子・鳥栖）</a></li>
+        <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40052990/" target="_blank" rel="noopener">haruta bakery（食べログ・パン・善導寺）</a></li>
         <li><a href="https://welcome-kurume.com/spots/detail/0b1cbc52-1f70-4838-8b9a-bdf9ddb31bc7" target="_blank" rel="noopener">しのはら珈琲（久留米観光公式）</a></li>
         <li><a href="https://umenoya-tofu.com/" target="_blank" rel="noopener">とうふ処 梅乃家 公式（夕食＝ナイトランチ）</a></li>
         <li><a href="https://tabelog.com/fukuoka/A4008/A400801/40072026/" target="_blank" rel="noopener">鶏ト飯トリヒロ（食べログ・差し替え候補）</a></li>
