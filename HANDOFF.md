@@ -1,11 +1,13 @@
 # HANDOFF
 
 ## Resume
-- 📍 今どこ: 九州日帰りプラン7都市のHTML完成 + gen/パッケージ（vibe→都市提案→プラン生成CLI）実装中
-- ✅ 前回: ukiha.html のお店候補を ukihalove.jp 実データ25件で更新完了。gen/ パッケージ骨格作成（match.py動作確認済み）
-- ▶ 次: `template.html` (Jinja2) を作成 → `python -m gen.cli 糸島` でHTMLが自動生成できる仕組みを完成させる
+- 📍 今どこ: `gen/` パイプライン完成（Exa収集→Claude→HTML生成）。Scrapling fallback chain まで実装済み
+- ✅ 前回: `template.html` 作成、`collect.py` を Exa に全面切替、Scrapling→StealthyFetcher→requests の自動フォールバック実装完了。糸島20件取得を確認
+- ▶ 次: ANTHROPIC_API_KEY を `.env` に設定したら `python -m gen.cli 糸島 --date 2026-07-20` がフル稼働する
 
 ## Last Updated
+2026-06-14 — **gen/ パイプライン完成 + Scrapling fallback chain 実装**。`template.html`（Jinja2）作成、`collect.py` を Exa ベースに全面書き換え、薄いコンテンツ(< 300字)は Scrapling Fetcher → StealthyFetcher → requests の順で自動フォールバック。依存: exa-py / scrapling / curl-cffi / playwright / browserforge をシステム Python にインストール済み。残課題: ANTHROPIC_API_KEY が期限切れ（401）→ Anthropic Console で再取得後 `! echo 'ANTHROPIC_API_KEY=sk-ant-...' >> ~/Documents/Projects/trip-planner/.env` で設定すれば即稼働。
+
 2026-04-18 (5) — **佳德糕餅 Chia Te Bakery を削除**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 15:30 の佳德糕餅スケジュール項目を削除。Day 3 17:00 サウナ説明文から「佳德糕餅から中山エリアへ移動し...」のテキストを「2時間のサウナタイム。...」に修正。taipei.html のパイナップルケーキ TOP 3 resto-card から削除。JavaScript markers 配列から削除。taipei-food.html のパイナップルケーキセクション resto-card から削除。JavaScript spots 配列から削除。
 
 2026-04-18 (4) — **Cosma Taipei ゲイナイト追加 & バー立ち寄り追加**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 22:00 の紅樓バー街散策を Cosma Taipei ゲイナイト に変更。Day 3 21:00 に Hunt or Commander D（バー選択肢）を新規追加。Day 3 タイトルを「アート & 烏龍茶 & 寧夏夜市」→「アート & 烏龍茶 & 寧夏夜市 & ゲイナイト」に更新。食事プラン Day 3 を寧夏夜市に統一・小品雅廚説明を「WERK!後」→「ゲイナイト後」に修正。LGBTQ+ セクションに Cosma Taipei を新規追加・WERK! キャンセル通知を更新。Google Mapsリンク付与。
@@ -127,10 +129,10 @@
 - **fukuoka.html アクセント色ずれ**: 指定#FF8C42(warm amber)に対し実装は#C47D4E。要確認・修正判断
 
 ## 次回アクション（優先順）
-1. **fukuoka.html 全面改修実行**: サウナ9施設/温泉10箇所/ドライブ2コース/モデルプラン/市内観光・グルメ拡充。macau.htmlのデザインパターンを参考に同品質で構築
-2. **fukuoka.html アクセント色修正判断**: #C47D4E→#FF8C42に修正するか（全面改修と同時対応推奨）
-3. **台北帰国後レビュー**: 旅行終了（4/20帰着）後に実際の訪問を踏まえて情報を更新
-4. **改善: taipei-food.htmlとtaipei.htmlのグルメ情報重複整理**: ゾロ推薦追加でtaipei.html内のグルメ密度が上がった。taipei-food.htmlとの役割分担・情報重複を整理する余地あり
+1. **ANTHROPIC_API_KEY 設定**: Anthropic Console で新規キー発行 → `! echo 'ANTHROPIC_API_KEY=sk-ant-...' >> ~/Documents/Projects/trip-planner/.env`
+2. **フル稼働確認**: `python -m gen.cli 糸島 --date 2026-07-20` → ブラウザで HTML が自動オープンされることを確認
+3. **他都市に横展開**: data/cities.yaml に新都市を追加するだけでプラン生成可能
+4. **SaaS 化検討（中長期）**: Instagram 自動収集→プラン組み込み → 有料アプリ/サブスク化
 
 ## Key Decisions
 - 2026-04-06: **gnav Pattern B採用（primary+overflow）** — 13項目を5 primary + 8 overflow(⋯ドロップダウン)に分割。Ciscoをprimaryに昇格、Healthをoverflowに降格（ユーザー指示）。モバイルはハンバーガーで全項目フラット表示

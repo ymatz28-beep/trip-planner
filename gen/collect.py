@@ -1,231 +1,233 @@
 """
-スポット収集パイプライン
-1. YouTube Data API v3 → 旅行vlogから地名・スポット抽出
-2. Google Places API (新 Places API) → 各スポットの構造化データ
-3. 観光公式サイト（ukihalove.jp型）→ curated 情報補強
-結果は .cache/spots/{slug}.json にキャッシュして再課金を防ぐ
+都市名 → Exa 検索 → 本文取得 → Claude Haiku でスポット抽出 → .cache/spots/{slug}.json
+
+横展開スクレイピングスタック（全PJ共通・自動フォールバック）:
+  1. Exa search + 内蔵コンテンツ取得
+  2. 薄い(< 300文字)URL → Scrapling Fetcher（CSS、高速）
+  3. それでも弾かれたら → StealthyFetcher（Playwright stealth）
+  4. 最終手段 → requests + ブラウザヘッダ
 """
 import json
 import os
-import time
 from pathlib import Path
 
 CACHE_DIR = Path(__file__).parent.parent / ".cache" / "spots"
-CACHE_DIR.mkdir(parents=True, exist_ok=True)
 
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
-PLACES_API_KEY = os.getenv("GOOGLE_PLACES_API_KEY", "")
+SEARCH_QUERIES = [
+    "{city} カフェ おすすめ 2024 2025",
+    "{city} ランチ グルメ おすすめ",
+    "{city} パン屋 スイーツ",
+    "{city} 観光スポット 穴場",
+    "{city} 温泉 サウナ",
+]
+
+HAIKU_MODEL = "claude-haiku-4-5-20251001"
 
 
-# ---------------------------------------------------------------------------
-# YouTube Data API v3
-# ---------------------------------------------------------------------------
+def _load_keys() -> dict:
+    """複数プロジェクトの .env から API キーを収集する"""
+    keys = {}
+    search_paths = [
+        Path(__file__).parent.parent / ".env",
+        Path.home() / "Documents/Projects/x-bookmarks/.env",
+        Path.home() / "Documents/Projects/sns-auto/.env",
+        Path.home() / ".env",
+    ]
+    for p in search_paths:
+        if not p.exists():
+            continue
+        for line in p.read_text(encoding="utf-8").splitlines():
+            for k in ("EXA_API_KEY", "ANTHROPIC_API_KEY"):
+                if line.startswith(f"{k}=") and k not in keys:
+                    keys[k] = line.split("=", 1)[1].strip()
+    return keys
 
-def search_youtube_vlogs(city_name: str, max_results: int = 8) -> list[dict]:
-    """
-    YouTube で旅行 vlog を検索して video ID + タイトル + description を返す
-    API key が未設定の場合はスキップ（キャッシュを使う）
-    """
-    if not YOUTUBE_API_KEY:
-        print(f"  [YouTube] YOUTUBE_API_KEY 未設定 → スキップ")
-        return []
 
+_THIN_THRESHOLD = 300  # この文字数以下なら次の手段へ
+
+
+def _fallback_fetch(url: str) -> str:
+    """Exa コンテンツが薄い URL を Scrapling → requests の順でフェッチ"""
+    # 1. Scrapling Fetcher（CSS解析・高速）
     try:
-        from googleapiclient.discovery import build
-    except ImportError:
-        print("  [YouTube] google-api-python-client 未インストール: pip install google-api-python-client")
-        return []
+        from scrapling.fetchers import Fetcher
+        page = Fetcher(auto_match=False).get(url, timeout=10)
+        text = " ".join(page.get_all_text(ignore_tags=("script", "style", "nav", "footer", "header")).split())
+        if len(text) > _THIN_THRESHOLD:
+            print(f"[collect]   Scrapling Fetcher OK: {url[:50]}")
+            return text[:4000]
+    except Exception as e:
+        pass
 
-    query = f"{city_name} 旅行 観光 vlog おすすめ"
-    youtube = build("youtube", "v3", developerKey=YOUTUBE_API_KEY)
+    # 2. StealthyFetcher（Playwright stealth・tabelog等の強ブロック用）
+    try:
+        from scrapling.fetchers import StealthyFetcher
+        page = StealthyFetcher(auto_match=False).get(url, timeout=25)
+        text = " ".join(page.get_all_text(ignore_tags=("script", "style", "nav", "footer", "header")).split())
+        if len(text) > _THIN_THRESHOLD:
+            print(f"[collect]   StealthyFetcher OK: {url[:50]}")
+            return text[:4000]
+    except Exception:
+        pass
 
-    search_resp = youtube.search().list(
-        q=query,
-        part="id,snippet",
-        type="video",
-        regionCode="JP",
-        relevanceLanguage="ja",
-        maxResults=max_results,
-        videoDuration="medium",  # 4-20分 (短すぎず長すぎず)
-    ).execute()
+    # 3. requests（最終手段）
+    try:
+        import requests
+        resp = requests.get(
+            url, timeout=8,
+            headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"},
+        )
+        if resp.ok and len(resp.text) > _THIN_THRESHOLD:
+            print(f"[collect]   requests OK: {url[:50]}")
+            return resp.text[:4000]
+    except Exception:
+        pass
 
-    videos = []
-    for item in search_resp.get("items", []):
-        vid_id = item["id"]["videoId"]
-        snippet = item["snippet"]
-        videos.append({
-            "video_id": vid_id,
-            "title": snippet["title"],
-            "description": snippet["description"][:500],
-            "channel": snippet["channelTitle"],
-            "url": f"https://www.youtube.com/watch?v={vid_id}",
-        })
-    return videos
+    return ""
 
 
-def extract_spots_from_videos(videos: list[dict], city_name: str) -> list[str]:
-    """
-    YouTube の動画タイトル + description から Claude API でスポット名を抽出
-    Returns: スポット名リスト（日本語）
-    """
-    if not videos:
-        return []
+def _search_and_fetch(city_name: str, keys: dict) -> list[str]:
+    """Exa で検索し、薄いコンテンツは自動フォールバックで補完して返す"""
+    from exa_py import Exa
+    exa = Exa(api_key=keys["EXA_API_KEY"])
 
+    all_texts = []
+    seen_urls = set()
+
+    for query_tpl in SEARCH_QUERIES:
+        query = query_tpl.format(city=city_name)
+        try:
+            results = exa.search(
+                query,
+                num_results=4,
+                type="neural",
+                contents={"text": {"max_characters": 3000}},
+                include_domains=[
+                    "tabelog.com", "retty.me", "jalan.net", "rurubu.jp",
+                    "travel.rakuten.co.jp", "tripadvisor.jp", "hotpepper.jp",
+                    "norecle.jp", "fukuoka-now.com", "walkerplus.com",
+                ],
+            )
+            for r in results.results:
+                if r.url in seen_urls:
+                    continue
+                seen_urls.add(r.url)
+
+                text = (r.text or "").strip()
+
+                if len(text) >= _THIN_THRESHOLD:
+                    # Exa で十分なコンテンツが取れた
+                    all_texts.append(f"--- {r.url} ---\n{text}")
+                else:
+                    # 薄い or 空 → フォールバック
+                    print(f"[collect] 薄いコンテンツ({len(text)}字) → fallback: {r.url[:60]}")
+                    fallback_text = _fallback_fetch(r.url)
+                    if fallback_text:
+                        all_texts.append(f"--- {r.url} ---\n{fallback_text}")
+
+        except Exception as e:
+            print(f"[collect] Exa 検索失敗 ({query[:30]}...): {e}")
+
+    return all_texts
+
+
+def _extract_spots(city_name: str, texts: list[str], keys: dict) -> list[dict]:
+    """Claude Haiku でスポット情報を JSON として抽出する"""
     import anthropic
-    client = anthropic.Anthropic()
+    client = anthropic.Anthropic(api_key=keys["ANTHROPIC_API_KEY"])
 
-    texts = "\n\n".join(
-        f"【{v['title']}】\n{v['description']}"
-        for v in videos
-    )
-    prompt = f"""以下は「{city_name}」の旅行 vlog の YouTube 動画タイトルと概要です。
-動画に登場する可能性が高い観光スポット・カフェ・飲食店・温泉・神社などの固有名詞を抽出してください。
+    combined = "\n\n".join(texts[:12])[:12000]
 
-条件:
-- {city_name} にある（または近隣）場所のみ
-- 固有名詞（店名・施設名・神社名など）のみ抽出
-- JSON 配列で出力: ["スポット名1", "スポット名2", ...]
-- 最大 20 件
+    prompt = f"""以下は「{city_name}」の旅行・グルメ情報ページの本文テキストです。
+このテキストから観光スポット・カフェ・レストラン・パン屋・温泉・体験施設などを抽出してください。
 
-動画テキスト:
-{texts}
-"""
+# テキスト
+{combined}
+
+# 出力形式（JSON のみ・他テキスト不要）
+{{
+  "spots": [
+    {{
+      "name": "店舗・スポット名",
+      "category": "カフェ|ランチ|パン|スイーツ|温泉|観光|夜ごはん|その他",
+      "desc": "特徴・おすすめポイント（1-2文）",
+      "hours": "営業時間・定休日（わかれば）",
+      "address": "住所・エリア（わかれば）",
+      "source_url": "情報元URL"
+    }}
+  ]
+}}
+
+重複は除いてください。架空の情報は書かないでください。"""
+
     msg = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=512,
+        model=HAIKU_MODEL,
+        max_tokens=2048,
         messages=[{"role": "user", "content": prompt}],
     )
     raw = msg.content[0].text.strip()
+    if raw.startswith("```"):
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
     try:
-        start = raw.index("[")
-        end = raw.rindex("]") + 1
-        return json.loads(raw[start:end])
-    except (ValueError, json.JSONDecodeError):
+        return json.loads(raw.strip()).get("spots", [])
+    except Exception:
         return []
 
 
-# ---------------------------------------------------------------------------
-# Google Places API (新 Places API v1)
-# ---------------------------------------------------------------------------
-
-def fetch_place_details(spot_name: str, city_name: str) -> dict | None:
-    """
-    Google Places API (新) で1スポットの詳細を取得
-    Returns: {name, address, hours, rating, maps_url, genre}
-    """
-    if not PLACES_API_KEY:
-        return None
-
-    import requests
-
-    # Text Search
-    search_url = "https://places.googleapis.com/v1/places:searchText"
-    headers = {
-        "Content-Type": "application/json",
-        "X-Goog-Api-Key": PLACES_API_KEY,
-        "X-Goog-FieldMask": "places.id,places.displayName,places.formattedAddress,places.regularOpeningHours,places.rating,places.googleMapsUri,places.types",
-    }
-    payload = {
-        "textQuery": f"{spot_name} {city_name}",
-        "languageCode": "ja",
-        "maxResultCount": 1,
-    }
-
-    resp = requests.post(search_url, headers=headers, json=payload, timeout=10)
-    if resp.status_code != 200:
-        return None
-
-    places = resp.json().get("places", [])
-    if not places:
-        return None
-
-    p = places[0]
-    hours_raw = p.get("regularOpeningHours", {})
-    hours_text = ""
-    if "weekdayDescriptions" in hours_raw:
-        hours_text = " / ".join(hours_raw["weekdayDescriptions"][:3])
-
-    return {
-        "name": p.get("displayName", {}).get("text", spot_name),
-        "address": p.get("formattedAddress", ""),
-        "hours": hours_text,
-        "rating": p.get("rating"),
-        "maps_url": p.get("googleMapsUri", f"https://maps.google.com/?q={spot_name}+{city_name}"),
-        "types": p.get("types", []),
-        "source": "google_places",
-    }
-
-
-# ---------------------------------------------------------------------------
-# メインパイプライン
-# ---------------------------------------------------------------------------
-
 def collect_spots(city: dict, force_refresh: bool = False) -> list[dict]:
     """
-    都市のスポット一覧を収集してキャッシュに保存
-    Returns: spot dict のリスト
+    都市情報を受け取ってスポットリストを返す。
+    キャッシュがあれば再利用（force_refresh=True で再取得）。
     """
     slug = city["slug"]
+    city_name = city["name"]
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
     cache_path = CACHE_DIR / f"{slug}.json"
 
     if cache_path.exists() and not force_refresh:
-        print(f"  [cache] {slug}.json 使用 (--refresh で再収集)")
-        with open(cache_path) as f:
-            return json.load(f)
+        spots = json.loads(cache_path.read_text(encoding="utf-8"))
+        print(f"[collect] キャッシュ使用: {city_name} {len(spots)}件")
+        return spots
 
-    city_name = city["name"]
-    print(f"\n  [{city_name}] スポット収集開始...")
-    spots = []
+    keys = _load_keys()
 
-    # Step 1: YouTube で vlog 検索
-    print(f"  [YouTube] 旅行 vlog 検索中...")
-    videos = search_youtube_vlogs(city_name)
-    if videos:
-        print(f"  [YouTube] {len(videos)}件の動画を発見")
-        spot_names = extract_spots_from_videos(videos, city_name)
-        print(f"  [YouTube] {len(spot_names)}件のスポット名抽出")
+    if "EXA_API_KEY" not in keys:
+        print("[collect] EXA_API_KEY 未設定 → スキップ")
+        return []
 
-        # Step 2: Google Places で各スポットを構造化
-        for name in spot_names:
-            if not PLACES_API_KEY:
-                spots.append({
-                    "name": name,
-                    "address": f"{city_name}",
-                    "hours": "",
-                    "rating": None,
-                    "maps_url": f"https://maps.google.com/?q={name}+{city_name}",
-                    "source": "youtube_extracted",
-                })
-            else:
-                detail = fetch_place_details(name, city_name)
-                if detail:
-                    spots.append(detail)
-                time.sleep(0.3)  # API レート制限対策
-    else:
-        print(f"  [YouTube] API 未設定 → 手動スポットデータのみ使用")
+    print(f"[collect] {city_name} のスポット検索中（Exa）...")
+    texts = _search_and_fetch(city_name, keys)
+    print(f"[collect] {len(texts)}ページ取得")
 
-    # キャッシュに保存
-    with open(cache_path, "w", encoding="utf-8") as f:
-        json.dump(spots, f, ensure_ascii=False, indent=2)
+    if not texts:
+        print("[collect] 取得ゼロ → スキップ")
+        return []
 
-    print(f"  [{city_name}] {len(spots)}件 → .cache/spots/{slug}.json")
+    if "ANTHROPIC_API_KEY" not in keys:
+        print("[collect] ANTHROPIC_API_KEY 未設定 → スキップ")
+        return []
+
+    print(f"[collect] Haiku でスポット抽出中...")
+    spots = _extract_spots(city_name, texts, keys)
+    print(f"[collect] {len(spots)}件抽出 → {cache_path}")
+    cache_path.write_text(
+        json.dumps(spots, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
     return spots
 
 
 if __name__ == "__main__":
     import sys
     import yaml
-
     data_path = Path(__file__).parent.parent / "data" / "cities.yaml"
-    with open(data_path) as f:
+    with open(data_path, encoding="utf-8") as f:
         cities = yaml.safe_load(f)["cities"]
-
-    target = sys.argv[1] if len(sys.argv) > 1 else "ukiha"
-    city = next((c for c in cities if c["slug"] == target), None)
-    if city:
-        spots = collect_spots(city, force_refresh="--refresh" in sys.argv)
-        print(f"\n収集結果 ({len(spots)}件):")
-        for s in spots[:5]:
-            print(f"  - {s['name']} ({s.get('address','')})")
-    else:
-        print(f"都市 '{target}' が cities.yaml に見つかりません")
+    slug = sys.argv[1] if len(sys.argv) > 1 else "itoshima"
+    city = next((c for c in cities if c["slug"] == slug or slug in c["name"]), None)
+    if not city:
+        print(f"都市 '{slug}' が見つかりません")
+        sys.exit(1)
+    spots = collect_spots(city, force_refresh=True)
+    print(json.dumps(spots[:3], ensure_ascii=False, indent=2))
