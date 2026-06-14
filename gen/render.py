@@ -26,7 +26,7 @@ def render_plan(plan: dict, out_path: Path | None = None) -> Path:
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATE_DIR)),
-        autoescape=True,
+        autoescape=False,
     )
 
     template_path = TEMPLATE_DIR / "template.html"

@@ -69,6 +69,10 @@
     padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
   }
   .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+  .topnav a.hidden-cmd{opacity:.07;font-size:8px;padding:2px 4px;letter-spacing:0;}
+  .topnav a.hidden-cmd:hover{opacity:.35;}
+  .topnav a.topnav-hub{font-weight:700;color:var(--wine);letter-spacing:.04em;}
+  .topnav a.topnav-hub::before{content:"‹ ";font-size:11px;}
 
   /* ============ Hero ============ */
   .hero{
@@ -311,8 +315,8 @@
   <div class="wrap">
     <div class="brand">iUMA · TRAVEL</div>
     <nav class="topnav">
-      <a href="index.html">Trips</a>
-      <a href="kyushu.html">九州</a>
+      <a href="index.html" class="hidden-cmd">Trips</a>
+      <a href="kyushu.html" class="topnav-hub">九州</a>
       <a href="minamiaso.html" aria-current="page">南阿蘇</a>
     </nav>
   </div>
@@ -507,11 +511,11 @@
           <div class="picks">
             <div class="pick rec">
               <div class="ph"><span class="pn">地獄温泉（清風荘）</span><span class="pg">候補・本命系</span></div>
-              <div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a></div>
+              <div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://jigoku-onsen.co.jp/" target="_blank" rel="noopener">🔗ソース</a></div>
             </div>
             <div class="pick">
               <div class="ph"><span class="pn">垂玉温泉</span><span class="pg">候補</span></div>
-              <div class="pm">南阿蘇村・滝の流れる温泉。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div>
+              <div class="pm">南阿蘇村・滝の流れる温泉。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tarutama-onsen.com/" target="_blank" rel="noopener">🔗ソース</a></div>
             </div>
           </div>
 
@@ -608,10 +612,10 @@
       <h3 class="opth">♨️ 温泉（締めの一湯）</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">木の香湯（あそ望の郷くぎの）</span><span class="pg">候補・絶景＆便利</span></div><div class="pm">南阿蘇村・道の駅併設で立ち寄りやすい。阿蘇山を借景の天然温泉、古来「芒硝泉」と呼ばれる名湯。<b>7:00〜22:00（最終受付21:30）</b>。<a class="pmap" href="https://maps.google.com/?q=木の香湯+あそ望の郷くぎの" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.minamiaso-kinokouyu.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick rec"><div class="ph"><span class="pn">地獄温泉（清風荘）</span><span class="pg">候補・本命</span></div><div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">地獄温泉（清風荘）</span><span class="pg">候補・本命</span></div><div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://jigoku-onsen.co.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">体験交流センター 四季の森</span><span class="pg">候補・安い</span></div><div class="pm">南阿蘇村・南阿蘇の大パノラマを望む温浴施設。<b>大人500円・6:30〜21:00</b>とコスパ◎。<a class="pmap" href="https://maps.google.com/?q=四季の森+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">竹之倉温泉</span><span class="pg">候補・美肌</span></div><div class="pm">南阿蘇村・メタケイ酸豊富なかけ流し。露天の寝湯。<b>中学生以上880円・11:00〜15:00</b>（冬季は露天利用不可）。<a class="pmap" href="https://maps.google.com/?q=竹之倉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">垂玉温泉</span><span class="pg">候補</span></div><div class="pm">南阿蘇村・滝の流れる温泉。営業状況は要確認。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">垂玉温泉</span><span class="pg">候補</span></div><div class="pm">南阿蘇村・滝の流れる温泉。営業状況は要確認。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tarutama-onsen.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 

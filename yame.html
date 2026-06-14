@@ -69,6 +69,10 @@
     padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
   }
   .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+  .topnav a.hidden-cmd{opacity:.07;font-size:8px;padding:2px 4px;letter-spacing:0;}
+  .topnav a.hidden-cmd:hover{opacity:.35;}
+  .topnav a.topnav-hub{font-weight:700;color:var(--wine);letter-spacing:.04em;}
+  .topnav a.topnav-hub::before{content:"‹ ";font-size:11px;}
 
   /* ============ Hero ============ */
   .hero{
@@ -311,8 +315,8 @@
   <div class="wrap">
     <div class="brand">iUMA · TRAVEL</div>
     <nav class="topnav">
-      <a href="index.html">Trips</a>
-      <a href="kyushu.html">九州</a>
+      <a href="index.html" class="hidden-cmd">Trips</a>
+      <a href="kyushu.html" class="topnav-hub">九州</a>
       <a href="yame.html" aria-current="page">八女</a>
     </nav>
   </div>
@@ -504,9 +508,9 @@
     <div class="optgroup rv" data-g="townscape">
       <h3 class="opth">🏛️ 文化・街並み</h3>
       <div class="picks">
-        <div class="pick rec"><div class="ph"><span class="pn">八女福島 白壁の街並み</span><span class="pg">今回・朝</span></div><div class="pm">重伝建エリア・無料散策。江戸の商家が並ぶ白壁が八女の産業の歴史を語る。<a class="pmap" href="https://maps.google.com/?q=八女福島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">八女福島 白壁の街並み</span><span class="pg">今回・朝</span></div><div class="pm">重伝建エリア・無料散策。江戸の商家が並ぶ白壁が八女の産業の歴史を語る。<a class="pmap" href="https://maps.google.com/?q=八女福島" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.city.yame.fukuoka.jp/soshiki/3/2170.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick rec"><div class="ph"><span class="pn">茶の文化館</span><span class="pg">今回・午前</span></div><div class="pm">八女市本町・10:00–17:00・火休。八女茶の歴史と玉露試飲・石臼抹茶挽き体験。<a class="pmap" href="https://maps.google.com/?q=茶の文化館" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">黒木町 大淵磨崖仏</span><span class="pg">次回・帰り道</span></div><div class="pm">帰り道の黒木町に。鎌倉時代の磨崖仏。街並みと併せて寄れる穴場。<a class="pmap" href="https://maps.google.com/?q=黒木町+大淵磨崖仏" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">黒木町 大淵磨崖仏</span><span class="pg">次回・帰り道</span></div><div class="pm">帰り道の黒木町に。鎌倉時代の磨崖仏。街並みと併せて寄れる穴場。<a class="pmap" href="https://maps.google.com/?q=黒木町+大淵磨崖仏" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.yame-kanko.jp/spot/kurogimachi/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 
@@ -532,8 +536,8 @@
       <h3 class="opth">🍵 お茶・体験</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">茶の文化館</span><span class="pg">今回・文化館</span></div><div class="pm">星野村10816-5・10:00–17:00・火休・入館無料・駐車30台。八女伝統本玉露を「しずく茶」で味わう。石臼抹茶挽き・茶作り・和菓子作り体験も。お食事処「星野茶寮」で茶そば・抹茶アイス。<a class="pmap" href="https://maps.google.com/?q=茶の文化館+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">古賀茶業（KOGACHA・こが茶カフェ）</span><span class="pg">候補・玉露の名門</span></div><div class="pm">八女伝統本玉露の老舗。全国茶品評会で上位独占の実績。みやま市瀬高町にカフェレストランも。八女茶の買い付け・玉露試飲なら本命。<a class="pmap" href="https://maps.google.com/?q=古賀茶業+八女" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">美緑園 製茶</span><span class="pg">候補・大臣賞</span></div><div class="pm">八女市豊福。全国茶品評会で農林水産大臣賞を受賞した実力派の茶問屋。濃厚なうまみが特長。併設のカフェぶんぶくで試飲・購入。<a class="pmap" href="https://maps.google.com/?q=美緑園製茶+八女市豊福" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">古賀茶業（KOGACHA・こが茶カフェ）</span><span class="pg">候補・玉露の名門</span></div><div class="pm">八女伝統本玉露の老舗。全国茶品評会で上位独占の実績。みやま市瀬高町にカフェレストランも。八女茶の買い付け・玉露試飲なら本命。<a class="pmap" href="https://maps.google.com/?q=古賀茶業+八女" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.kogacha.co.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">美緑園 製茶</span><span class="pg">候補・大臣賞</span></div><div class="pm">八女市豊福。全国茶品評会で農林水産大臣賞を受賞した実力派の茶問屋。濃厚なうまみが特長。併設のカフェぶんぶくで試飲・購入。<a class="pmap" href="https://maps.google.com/?q=美緑園製茶+八女市豊福" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40048932/" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">星のふるさと 茶摘み・しずく茶体験</span><span class="pg">候補・体験予約</span></div><div class="pm">茶の文化館の貸切体験。八女伝統本玉露コース（しずく茶/茶皿点前＋和菓子・1時間貸切）¥2,700。静かな茶室で本格的に味わう。<a class="pmap" href="https://maps.google.com/?q=茶の文化館+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/experience/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
@@ -543,7 +547,7 @@
       <div class="picks">
         <div class="pick"><div class="ph"><span class="pn">八女茶sweets なつめ</span><span class="pg">候補・八女茶専門</span></div><div class="pm">八女市本村榎町1032-2・10:00–18:00・木休・駐車あり・八女ICから5分。奥八女産八女茶のスイーツ専門店。看板は「八女茶バウム」と「葉月プリン」（抹茶＋小豆）。土産に最適。<a class="pmap" href="https://maps.google.com/?q=八女茶sweetsなつめ+八女市" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40059671/" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">お菓子のきくや</span><span class="pg">候補・老舗和菓子</span></div><div class="pm">八女市本町69・9:00–18:00・第2/第4木休・物産館から徒歩5分。創業明治35年。80年以上のロングセラー「茶の実饅頭」（八女茶あん＋シナモン）。白壁散策のついでに。<a class="pmap" href="https://maps.google.com/?q=お菓子のきくや+八女市本町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400903/40001598/" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">隆勝堂</span><span class="pg">候補・茶々菓子</span></div><div class="pm">創業100年。八女茶・抹茶を使った和洋菓子の老舗。「八女茶々菓子」の詰め合わせはギフト向き。八女・久留米に店舗、オンライン通販も。<a class="pmap" href="https://maps.google.com/?q=隆勝堂+八女市" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">隆勝堂</span><span class="pg">候補・茶々菓子</span></div><div class="pm">創業100年。八女茶・抹茶を使った和洋菓子の老舗。「八女茶々菓子」の詰め合わせはギフト向き。八女・久留米に店舗、オンライン通販も。<a class="pmap" href="https://maps.google.com/?q=隆勝堂+八女市" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.ryushodo.co.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">茶匠むろぞの 和カフェ</span><span class="pg">候補・抹茶フラペ</span></div><div class="pm">八女市今福917-2・カフェ13:00–17:30（OS17:00）・第2/第4日休。深蒸し八女茶のフラペティーや抹茶ティラミス・抹茶テリーヌ。テイクアウト可。<a class="pmap" href="https://maps.google.com/?q=茶匠むろぞの+八女市今福" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40059290/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>

@@ -77,44 +77,51 @@ def compose_plan(city: dict, spots: list[dict], date: str, answers: dict) -> dic
 # 収集したスポット候補
 {spots_summary}
 
-# 出力 JSON スキーマ
+# 出力 JSON スキーマ（全フィールド必須）
 {{
   "slug": "{city['slug']}",
-  "title": "都市名 — キャッチコピー",
-  "subtitle": "日帰り/1泊 · 薬院から車X分",
+  "title": "都市名 — キャッチコピー（例: 糸島 — 海と朝焼けパンの一日）",
+  "subtitle": "Day Trip · 薬院から車X分",
   "date": "{date}",
-  "accent": "#HEX",
-  "accent2": "#HEX（薄い背景色）",
-  "hero_gradient": "linear-gradient(...)",
-  "lede": "プランの説明文（2-3文）",
+  "accent": "#HEX（その都市のイメージカラー）",
+  "accent2": "#HEX（accent の薄い背景色・accent に白を混ぜた感じ）",
+  "hero_gradient": "radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%), linear-gradient(150deg,#HEX1 0%,#HEX2 42%,#HEX3 100%)",
+  "lede": "プランの説明文（2-3文・体験が伝わるように）",
+  "hero_pills": ["📅 {date}", "🚗 カーシェア・薬院発", "☀️ 天気コメント"],
   "facts": [
-    {{"k": "距離", "v": "40", "u": "分", "s": "薬院から高速"}},
-    {{"k": "行程", "v": "日帰り", "u": "", "s": "約8時間"}},
-    {{"k": "予算", "v": "5,200", "u": "円〜", "s": "1人あたりの目安"}},
-    {{"k": "ベストシーズン", "v": "通年", "u": "", "s": "季節コメント"}}
+    {{"k": "距離", "v": "{city.get('drive_min', '?')}", "u": "分", "s": "薬院から高速", "jp": false}},
+    {{"k": "行程", "v": "日帰り", "u": "", "s": "約8時間", "jp": true}},
+    {{"k": "予算", "v": "5,200", "u": "円〜", "s": "1人あたりの目安", "jp": false}},
+    {{"k": "ベストシーズン", "v": "通年", "u": "", "s": "季節コメント", "jp": true}}
   ],
+  "keynote": {{
+    "emoji": "🌊",
+    "title": "このプランの肝（1行）",
+    "desc": "補足説明（2-3文）"
+  }},
   "timeline": [
     {{
       "time": "8:30",
       "emoji": "🚗",
       "title": "スポット名",
-      "tag": "カテゴリ",
-      "meta": "住所・料金など",
-      "desc": "説明文",
-      "why": "なぜここ？",
-      "map_q": "Google Maps 検索クエリ",
-      "color_var": "--food|--culture|--onsen|--move"
+      "tag": "カテゴリ・人数など",
+      "meta": "住所・料金・営業時間など",
+      "desc": "説明文（<b>タグで強調可</b>）",
+      "why": "なぜここ？（空文字でも可）",
+      "map_q": "Google Maps 検索クエリ（日本語可）",
+      "color_var": "--food",
+      "leg": "🚗 次のスポットへ XX分（最後のストップは空文字）"
     }}
   ],
   "options_groups": [
     {{
-      "title": "☕ カフェ",
+      "title": "☕ カフェ・コーヒー",
       "picks": [
         {{
           "name": "店名",
-          "label": "今回 or 候補・説明",
-          "desc": "詳細",
-          "map_url": "https://maps.google.com/?q=...",
+          "label": "今回 or 候補・エリア",
+          "desc": "詳細（営業時間・定休日・おすすめ）",
+          "map_url": "https://maps.google.com/?q=店名+地域名",
           "rec": true
         }}
       ]
@@ -122,16 +129,26 @@ def compose_plan(city: dict, spots: list[dict], date: str, answers: dict) -> dic
   ],
   "budget_rows": [
     {{"label": "カーシェア", "note": "12時間パック", "amount": 1830}},
-    {{"label": "高速代", "note": "往復", "amount": 600}}
+    {{"label": "高速代", "note": "往復", "amount": 600}},
+    {{"label": "ランチ", "note": "1人", "amount": 2000}}
   ],
   "budget_total": 5200,
-  "prep_items": ["準備すべきこと1", "準備すべきこと2"],
-  "weather_note": "天候への対策コメント"
+  "budget_note": "内訳の補足（省略可・空文字可）",
+  "prep_items": [
+    "!要予約: ○○を電話予約（TEL XXXX-XXXX）",
+    "!カーシェア9:00から予約済みを確認",
+    "折りたたみ傘（梅雨・夏の夕立対策）",
+    "現金少々（駐車場・露店用）"
+  ],
+  "weather_note": "天候への一言コメント（例: 6月は梅雨。屋内比率を上げると安心）"
 }}
 
-タイムラインは{4 if pace == "low" else 6}〜{6 if pace == "low" else 8}スポット。
-color_var は食事=--food、文化=--culture、温泉/サウナ=--onsen、移動=--moveを使ってください。
-JSON のみ出力してください（他のテキスト不要）。"""
+ルール:
+- タイムラインは{4 if pace == "low" else 6}〜{6 if pace == "low" else 8}スポット
+- color_var は食事=--food、文化・観光=--culture、温泉/サウナ=--onsen、移動=--move
+- prep_items は「!」で始まると「必須事項」扱い（予約・事前確認）
+- facts の jp=true は日本語フォント（数字でない値に使う）
+- JSON のみ出力（マークダウン不要）"""
 
     msg = client.messages.create(
         model=MODEL,

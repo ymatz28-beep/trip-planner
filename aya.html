@@ -69,6 +69,10 @@
     padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
   }
   .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+  .topnav a.hidden-cmd{opacity:.07;font-size:8px;padding:2px 4px;letter-spacing:0;}
+  .topnav a.hidden-cmd:hover{opacity:.35;}
+  .topnav a.topnav-hub{font-weight:700;color:var(--wine);letter-spacing:.04em;}
+  .topnav a.topnav-hub::before{content:"‹ ";font-size:11px;}
 
   /* ============ Hero ============ */
   .hero{
@@ -311,8 +315,8 @@
   <div class="wrap">
     <div class="brand">iUMA · TRAVEL</div>
     <nav class="topnav">
-      <a href="index.html">Trips</a>
-      <a href="kyushu.html">九州</a>
+      <a href="index.html" class="hidden-cmd">Trips</a>
+      <a href="kyushu.html" class="topnav-hub">九州</a>
       <a href="aya.html" aria-current="page">綾町</a>
     </nav>
   </div>
@@ -494,9 +498,9 @@
       <h3 class="opth">🌿 照葉樹林・自然</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">綾の照葉大吊橋</span><span class="pg">今回・西日本最大級</span></div><div class="pm">南俣・高さ142m・¥300。西日本最大級の原生照葉樹林。朝一番の空気が澄んだ時間帯に。<a class="pmap" href="https://maps.google.com/?q=綾の照葉大吊橋+綾町+宮崎" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1474.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick rec"><div class="ph"><span class="pn">綾ユネスコエコパーク</span><span class="pg">今回・散策</span></div><div class="pm">町全体が生物圏保存地域。「人間と自然の共生」が認定された地で、有機農業と原生林が共存する空間を歩く。<a class="pmap" href="https://maps.google.com/?q=綾ユネスコエコパーク+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">綾川渓谷・綾北川</span><span class="pg">候補・渓流</span></div><div class="pm">照葉樹が綾川に影を落とす渓谷。5月中旬〜6月は蛍が乱舞、夏は渓流が美しい。吊橋周辺から綾川荘方面へ。<a class="pmap" href="https://maps.google.com/?q=綾川渓谷+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">森林セラピー（綾川荘発）</span><span class="pg">候補・体験</span></div><div class="pm">綾川荘を拠点に、ガイドと国内最大級の照葉樹林を歩く科学的森林浴。1泊する場合の翌朝アクティビティに。<a class="pmap" href="https://maps.google.com/?q=綾川荘+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">綾ユネスコエコパーク</span><span class="pg">今回・散策</span></div><div class="pm">町全体が生物圏保存地域。「人間と自然の共生」が認定された地で、有機農業と原生林が共存する空間を歩く。<a class="pmap" href="https://maps.google.com/?q=綾ユネスコエコパーク+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1471.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾川渓谷・綾北川</span><span class="pg">候補・渓流</span></div><div class="pm">照葉樹が綾川に影を落とす渓谷。5月中旬〜6月は蛍が乱舞、夏は渓流が美しい。吊橋周辺から綾川荘方面へ。<a class="pmap" href="https://maps.google.com/?q=綾川渓谷+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1472.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">森林セラピー（綾川荘発）</span><span class="pg">候補・体験</span></div><div class="pm">綾川荘を拠点に、ガイドと国内最大級の照葉樹林を歩く科学的森林浴。1泊する場合の翌朝アクティビティに。<a class="pmap" href="https://maps.google.com/?q=綾川荘+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://ayakawasou.com/plan/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 
@@ -505,7 +509,7 @@
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">蔵元 綾 酒泉の杜</span><span class="pg">今回・複合施設</span></div><div class="pm">南俣1800-19・10:00〜17:00・入場無料・月火休・駐車場500台。雲海酒造直営。ワイナリー・焼酎蔵・地ビール・ガラス工房・レストラン・売店が集結する綾観光の中心。<a class="pmap" href="https://maps.google.com/?q=蔵元+綾+酒泉の杜+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/ryokou/" target="_blank" rel="noopener">🔗ソース</a></div></div>
         <div class="pick rec"><div class="ph"><span class="pn">雲海葡萄酒醸造所（綾ワイナリー）</span><span class="pg">今回・試飲</span></div><div class="pm">酒泉の杜内。南九州初の本格観光ワイナリー。国産ぶどう100%・非加熱充填でフレッシュ。南仏風の外観で製造工程を見学できる。お土産ワインはここで。<a class="pmap" href="https://maps.google.com/?q=雲海葡萄酒醸造所+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/wine/" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">綾自然蔵見学館</span><span class="pg">候補・無料試飲</span></div><div class="pm">南俣・要予約（前営業日まで・☎0985-77-3737）・10:30/14:00の2回・約60分・無料。映像→貯蔵庫見学→無料試飲。運転手はソフトドリンク提供あり。月火休。<a class="pmap" href="https://maps.google.com/?q=綾自然蔵見学館+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾自然蔵見学館</span><span class="pg">候補・無料試飲</span></div><div class="pm">南俣・要予約（前営業日まで・☎0985-77-3737）・10:30/14:00の2回・約60分・無料。映像→貯蔵庫見学→無料試飲。運転手はソフトドリンク提供あり。月火休。<a class="pmap" href="https://maps.google.com/?q=綾自然蔵見学館+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/kengaku/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 
@@ -534,9 +538,9 @@
       <h3 class="opth">🎨 クラフト工房・アトリエ</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">綾国際クラフトの城</span><span class="pg">今回・工房巡り</span></div><div class="pm">北俣1012・9:00〜17:30（10〜3月〜17:00）・木休・入館¥350（綾城共通）・無料駐車場・☎0985-77-1223。町内26工房の陶芸・染織・木工・竹細工・ガラス・漆を一堂に展示販売。隣に再現された中世山城・綾城。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1473.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">陶芸体験（綾城焼）</span><span class="pg">候補・体験</span></div><div class="pm">クラフトの城内・体験実習館。10:00〜16:00・定員5名・要予約☎0985-77-0910。湯呑¥2,000〜、コーヒーカップ・平皿¥3,500。¥5,000以上の買い物・体験で入館料キャッシュバック。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">玄太染織工房</span><span class="pg">候補・織物体験</span></div><div class="pm">クラフトの城・織物体験の窓口（☎0985-77-1223）。10:00〜16:00。綾の絹織物・染色の作家工房。ミニ機織り¥1,200〜・藍染めハンカチ¥1,350〜。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
-        <div class="pick"><div class="ph"><span class="pn">黒木国昭 光ガラス工房（酒泉の杜）</span><span class="pg">候補・名工</span></div><div class="pm">酒泉の杜内。国の「現代の名工」黒木国昭氏のガラス工房。「光琳」「綾切子」など手吹きガラス作品を見学・購入。ワイナリーと同じ敷地で動きやすい。<a class="pmap" href="https://maps.google.com/?q=黒木国昭+ガラス工房+酒泉の杜" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">陶芸体験（綾城焼）</span><span class="pg">候補・体験</span></div><div class="pm">クラフトの城内・体験実習館。10:00〜16:00・定員5名・要予約☎0985-77-0910。湯呑¥2,000〜、コーヒーカップ・平皿¥3,500。¥5,000以上の買い物・体験で入館料キャッシュバック。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1473.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">玄太染織工房</span><span class="pg">候補・織物体験</span></div><div class="pm">クラフトの城・織物体験の窓口（☎0985-77-1223）。10:00〜16:00。綾の絹織物・染色の作家工房。ミニ機織り¥1,200〜・藍染めハンカチ¥1,350〜。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1473.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">黒木国昭 光ガラス工房（酒泉の杜）</span><span class="pg">候補・名工</span></div><div class="pm">酒泉の杜内。国の「現代の名工」黒木国昭氏のガラス工房。「光琳」「綾切子」など手吹きガラス作品を見学・購入。ワイナリーと同じ敷地で動きやすい。<a class="pmap" href="https://maps.google.com/?q=黒木国昭+ガラス工房+酒泉の杜" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/craft/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 
