@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>糸島・二丈 半日 — 海とパン屋の午前中 | 2026.06.14</title>
+<meta name="theme-color" content="#1a6fa8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#1a6fa8;
+    --wine-2:#e3f0fb;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(58,175,233,.22), transparent 55%),
+      linear-gradient(150deg,#0d476c 0%,#1a6fa8 42%,#0d7ba3 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#a3d9f7;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#a3d9f7;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#b3d9f7;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(26,111,168,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="itoshima.html" aria-current="page">糸島・二丈</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Half-Day Trip · 福岡 → 糸島市・二丈エリア</div>
+    <h1>糸島の外へ、海とパン屋の半日
+      <small>「観光地外」の二丈エリアが穴場。</small>
+    </h1>
+    <p class="lede">薬院から車で40分。糸島の中心部ではなく、西側の「二丈エリア」が穴場。小規模ワイナリー・個人系パン屋・海沿いカフェが農村景観の中に点在し、観光地にありがちな渋滞や混雑がない。半日でサクッと行けるのが最大の強み。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 半日ドライブ</span>
+      <span class="hpill">🚗 薬院から約40分</span>
+      <span class="hpill">🌊 海と山とパン屋</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2<span class="u">名</span></div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">約40<span class="u">分</span></div>
+      <div class="s">都市高速→前原IC</div>
+    </div>
+    <div class="fact">
+      <div class="k">目的</div>
+      <div class="v jp">パン屋×海</div>
+      <div class="s">午前中完結</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥3<span class="u">k</span></div>
+      <div class="s">食事・移動込み</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🌊</div>
+    <div>
+      <div class="t">糸島の「観光地外」が正解 — 二丈エリアは静かな穴場</div>
+      <div class="d">糸島市の中心部（芥屋・桜井など）は週末渋滞が激しく、カフェも混む。二丈エリアはその西側で、小規模ワイナリー・個人系パン屋・海沿いの農家カフェが農村風景の中に点在。半日でさくっと行けて、糸島の本質的な景色と食が楽しめる。</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">半日の流れ</a>
+    <a href="#options">候補ボード</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 9:00 – 14:30</div>
+      <h2 class="sec-title">半日の流れ</h2>
+      <p class="sec-sub">薬院 → 都市高速・前原IC経由で二丈エリア（約40分） → ワイナリー立ち寄り → 個人系パン屋 → 海沿いランチカフェ → 二見ヶ浦・海岸線散策 → 帰路。午前中だけで往復完結。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 9:00 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">9:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">福岡都市高速 → 前原IC · 約40分 · 通行料約¥500</div>
+          <p class="desc">タイムズカーを9:00から予約。<b>都市高速で北上・前原ICで下りて二丈方面へ</b>。朝早い出発で海沿いカフェに着く前の午前中を最大活用。ガソリン・ワイパーを出発前に確認（梅雨・海風の砂）。</p>
+          <div class="why"><b>半日の鍵は朝出発</b>　9:00発なら9:45にはワイナリー着。10:00には個人系パン屋を回る時間が確保でき、11:30ランチで最適なペーシング。帰路も14:30には薬院着で、土曜午前で完結。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 前原IC経由で二丈エリアへ 約40分</span></div>
+
+      <!-- 9:45 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>糸島マスエワイナリー</h3></div>
+          <span class="ctag">観光 · 2人</span>
+          <div class="meta">糸島市二丈 · 9:00–17:00 · 試飲・ワイン購入可</div>
+          <p class="desc">2024年開業・糸島初のワイナリー。畑に囲まれた小さな醸造所。<b>試飲コーナーでワインを数種類飲み比べ</b>、農村風景の中でこの地の空気を吸う。買いたいワインを見つけたら購入（帰路に持ち帰り）。</p>
+          <div class="why"><b>観光地じゃない朝9:45</b>　開店直後の朝は客も少なく、ゆっくり試飲・スタッフと話ができる。午前中に立ち寄ることで、二丈エリアの「農村×食」という本質を最初に体験。</div>
+          <a class="map" href="https://maps.google.com/?q=糸島マスエワイナリー" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🥐 二丈エリアの個人系ベーカリーへ 車10分</span></div>
+
+      <!-- 10:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">10:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🥐</div><h3>個人系パン屋（二丈・糸島西エリア）</h3></div>
+          <span class="ctag">食事 · 2人 · テイクアウト</span>
+          <div class="meta">二丈地区 · 営業時間は各店舗で確認 · 天然酵母・自家製パン</div>
+          <p class="desc">二丈地区に点在する個人系ベーカリー。小麦・天然酵母・自家製法にこだわった小さなお店が数軒あり、<b>週末午前中でも混む前に立ち寄れる</b>。季節の野菜パン・クロワッサン・食パンなど。テイクアウトでビーチピクニック用に調達。</p>
+          <div class="why"><b>混む前の午前中に確保</b>　個人系パン屋は朝で売り切れが早い。10:30到着なら一通りの品揃えが残っており、その後のランチタイムに被らない。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🌊 海沿いドライブ・ビーチカフェへ 車15分</span></div>
+
+      <!-- 11:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">11:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>Beach Cafe SUNSET（昼食・海カフェ）</h3></div>
+          <span class="ctag">ランチ · 2人 · 決定</span>
+          <div class="meta">糸島市二見ヶ浦 · 11:00–15:00 · テラス・室内から海を見下ろす</div>
+          <p class="desc">1990年創業の海沿い老舗カフェ。<b>テラスと室内から空と海を見ながらランチ</b>。糸島産野菜と魚介を使った料理が主体。ハンバーガー・パスタ・海鮮丼など、ビーチピクニック後の温かい食事。<b>11:30着なら待つこともなく席に着ける</b>。</p>
+          <div class="why"><b>この旅のハイライト</b>　海沿いカフェからの眺めが糸島の本質。朝のワイナリー・パン屋と異なり、ここは「海を眺めながら食べる」という体験が主役。昼時を避けた11:30が最適。</div>
+          <a class="map" href="https://maps.google.com/?q=Beach+Cafe+SUNSET+糸島" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🌊 同じエリア内・二見ヶ浦へ 車5分</span></div>
+
+      <!-- 13:00 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">13:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌊</div><h3>海沿いドライブ・二見ヶ浦・夫婦岩周辺</h3></div>
+          <span class="ctag">散策・景観</span>
+          <div class="meta">糸島市二見ヶ浦 · 駐車場あり · 自由散策</div>
+          <p class="desc">海岸線を流して、<b>二見ヶ浦の夫婦岩を前に</b>ぼんやり。農村と海が共存する二丈エリアの景観が最も映える場所。<b>観光地化していない素朴な海</b>。駐車して少し歩いても、車の中からでも見渡せる。気に入ったスポットをカメラに収める。</p>
+          <div class="why"><b>急がない空気感</b>　15分〜30分くらい、自分たちのペースで散策。パン屋→ランチ→ここという一続きの流れで、糸島の「本質」が浮き彫りになる。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 帰路へ 前原IC経由で薬院へ 約40分</span></div>
+
+      <!-- 14:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">14:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>薬院 帰着・カーシェア返却</h3></div>
+          <span class="ctag">完了</span>
+          <div class="meta">14:30前後に返却完了 / 給油・返却</div>
+          <p class="desc">前原IC → 都市高速 → 薬院で14:30着。<b>朝9:00〜午後14:30で半日完結</b>。ワイナリー試飲・パン屋・海ランチ・海岸線散策を実行して、仕事再開。ワインはそのまま持ち帰り、家でゆっくり。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">二丈エリアの小規模施設や農家カフェを、ジャンルごとに並べた候補ボード。<b>濃い色＝今回行く場所</b>、それ以外は差し替え可。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="bakery">🥐 パン屋</button>
+      <button class="gb-btn" data-g="cafe">☕ 海カフェ</button>
+      <button class="gb-btn" data-g="sweets">🍰 スイーツ工房</button>
+      <button class="gb-btn" data-g="farm">🥬 産直・牡蠣</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉・サウナ</button>
+      <button class="gb-btn" data-g="wine">🍷 ワイナリー</button>
+      <button class="gb-btn" data-g="sea">🌊 海・景観</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="wine">
+      <h3 class="opth">🍷 ワイナリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">糸島マスエワイナリー</span><span class="pg">今回</span></div><div class="pm">二丈・2024年開業・糸島初のワイナリー。畑に囲まれた小さな醸造所で朝の試飲に最適。<a class="pmap" href="https://maps.google.com/?q=糸島マスエワイナリー" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">伊都安蔵里（いとあぐり）</span><span class="pg">候補・酒蔵リノベ</span></div><div class="pm">川付・古い酒蔵をリノベした複合施設。地元食材のレストラン＋糸島の調味料・加工品の物販。ワイナリー帰りに食と土産をまとめたい時に。<a class="pmap" href="https://maps.google.com/?q=伊都安蔵里+糸島市" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="bakery">
+      <h3 class="opth">🥐 パン屋</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">天然酵母パン工房イチマル</span><span class="pg">今回・本命</span></div><div class="pm">志摩御床1814-1・あこ天然酵母×国産小麦100%（糸島産小麦）の無添加パン。<b>店頭販売は日曜・祝日のみ（火〜金は予約販売）／9:00–15:00</b>。黄色いのぼりが目印。<a class="pmap" href="https://maps.google.com/?q=天然酵母パン工房イチマル+糸島市" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4007/A400701/40052234/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">自家製酵母パン のたり</span><span class="pg">候補・無農薬</span></div><div class="pm">志摩桜井2445・櫻井神社近くの古民家。天然酵母×無農薬、卵・乳・白砂糖不使用のハード系が人気。<b>金土日 12:00–17:00（売切れ終い）</b>。昼過ぎ完売もあり早めに。<a class="pmap" href="https://maps.google.com/?q=のたり+パン+糸島市志摩桜井" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4007/A400702/40052900/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">麦パン（mugipan）</span><span class="pg">候補・試食充実</span></div><div class="pm">志摩小金丸1561-4・国産小麦×ホシノ天然酵母。塩バターロール¥160が一番人気、ほぼ全品に大きめ試食あり。<b>8:00–18:00／水曜定休</b>。<a class="pmap" href="https://maps.google.com/?q=麦パン+mugipan+糸島市志摩小金丸" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ヒッポー製パン所</span><span class="pg">候補・ハード系</span></div><div class="pm">今宿（糸島半島の福岡市側）海辺。低温長時間発酵のバゲット・ごぼうパンなど野菜使いが評判。小さなイートインでコーヒーも。やや福岡市寄りで帰路向き。<a class="pmap" href="https://maps.google.com/?q=ヒッポー製パン所+今宿" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ブランジュリ ノアン 糸島本店</span><span class="pg">候補・ランキング上位</span></div><div class="pm">食べログ糸島パンランキング上位の本格ブランジェリー。種類豊富で安定。中心部寄りなので混雑時間帯は注意。<a class="pmap" href="https://maps.google.com/?q=ブランジュリノアン+糸島本店" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ 海カフェ・農家カフェ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">Beach Cafe SUNSET</span><span class="pg">今回の本命</span></div><div class="pm">二見ヶ浦・パームビーチ近くの高台。糸島産野菜のパスタ・カレー・ロコモコ・ジャークチキン。<b>PayPay可・店前に映えスポット（食事した人のみ利用可）</b>。海を見下ろすテラス。<a class="pmap" href="https://maps.google.com/?q=ビーチカフェサンセット+糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">うみもぐら糸島</span><span class="pg">候補・二丈の海沿い</span></div><div class="pm">二丈福井2244-1・畑直送の糸島食材を使う小さな海沿いカフェ。糸島牛のビーフシチューが看板、スイーツ10種以上。<b>カフェ 11:00–16:00／月木金土日（木曜は予約限定）</b>。営業変動多く要事前確認。<a class="pmap" href="https://maps.google.com/?q=うみもぐら糸島+二丈福井" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">お菓子と暮らしの物 りた（わかまつ農園）</span><span class="pg">候補・農家カフェ</span></div><div class="pm">二丈福吉（福吉5-21-15）・有機農家わかまつ農園直営。自家栽培の甘夏スイーツ・農園ピザ・無添加ロールケーキ。<b>10:00–16:00（LO15:30）／火・金定休</b>。各種キャッシュレス可・2階に宿併設。<a class="pmap" href="https://maps.google.com/?q=お菓子と暮らしの物りた+糸島福吉" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">PALM BEACH（パームビーチ）</span><span class="pg">候補・絶景イタリアン</span></div><div class="pm">福岡市西区西浦286（二見ヶ浦のランドマーク）・地産地消の本格イタリアン。人気パスタ「クレオーラ」、ハワイアングリル。<b>11:00–19:00（LO）／不定休</b>。同敷地にサーフサイドカフェ・夏季限定TERRACEも。<a class="pmap" href="https://maps.google.com/?q=PALM+BEACH+糸島+二見ヶ浦" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ロンドンバスカフェ</span><span class="pg">候補・名物</span></div><div class="pm">赤い2階建てロンドンバスが目印。バス2階＆テラスでジェラート・ドリンク・ホットドッグなど軽食。写真映えする糸島の定番スポット。<a class="pmap" href="https://maps.google.com/?q=ロンドンバスカフェ+糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="sea">
+      <h3 class="opth">🌊 海・景観</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">二見ヶ浦・夫婦岩</span><span class="pg">今回</span></div><div class="pm">海岸線ドライブ・散策・景観の中心。農村×海の本質が見える。<a class="pmap" href="https://maps.google.com/?q=二見ヶ浦夫婦岩糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">桜井二見ヶ浦・白い鳥居</span><span class="pg">候補・定番</span></div><div class="pm">海中に立つ白い鳥居と夫婦岩。サンセットの名所でやや観光地化。すぐ近くにパームビーチ。<a class="pmap" href="https://maps.google.com/?q=桜井二見ヶ浦糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">深江海水浴場</span><span class="pg">候補・二丈側</span></div><div class="pm">二丈深江・きららの湯から車3分。海の家も充実し夏はBBQも。二丈エリア西寄りで静か。<a class="pmap" href="https://maps.google.com/?q=深江海水浴場+糸島市二丈" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="sweets">
+      <h3 class="opth">🍰 スイーツ工房・ジェラート</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">糸島手造り工房 爽風（そうふ）</span><span class="pg">候補・里山スイーツ</span></div><div class="pm">志摩桜井2100・櫻井神社近くの里山。工房限定の純生チーズケーキ¥470が看板、田園を眺めてテイクアウト。<b>原則 土日のみ営業（平日は不定期）／駐車4台</b>。Instagramで営業日確認。<a class="pmap" href="https://maps.google.com/?q=糸島手造り工房爽風+志摩桜井" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.sofu-cheese.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">大島農園 糸島やぎ牧場</span><span class="pg">候補・やぎミルク</span></div><div class="pm">志摩小金丸2711-4・やぎミルクの手作りプリン「ほほ笑みプリン」とフレッシュチーズ。保存料・着色料不使用。<b>11:00–16:30／火曜定休</b>。<a class="pmap" href="https://maps.google.com/?q=糸島やぎ牧場+大島農園+志摩小金丸" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">糸島工房</span><span class="pg">候補・シフォン</span></div><div class="pm">川付778-3・地元農家の小麦・無精製糖を使う手作りシフォンケーキとプリン。<b>毎週金曜 11:00–18:30のみ（売切れ終い）／駐車4台</b>。通販あり。<a class="pmap" href="https://maps.google.com/?q=糸島工房+川付" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">つまんでご卵 ケーキ工房</span><span class="pg">候補・ブランド卵</span></div><div class="pm">ブランド卵「つまんでご卵」を使うプリン・ロールケーキが名物。イートインスペースあり。<a class="pmap" href="https://maps.google.com/?q=つまんでご卵+ケーキ工房+糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="farm">
+      <h3 class="opth">🥬 産直・直売所／牡蠣小屋</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">福ふくの里</span><span class="pg">候補・二丈の産直</span></div><div class="pm">二丈福井6333・地元野菜＋福吉漁港の鮮魚（水揚げ日本一の鯛）。柑橘「はるか」のソフトクリーム・クリームサンドはここだけ。<b>9:00–17:00（レストラン11:00–15:00・火水休）</b>。二丈ルートの帰路に。<a class="pmap" href="https://maps.google.com/?q=福ふくの里+糸島市二丈福井" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.itoshima-navi.jp/spot/122" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">JA糸島産直市場 伊都菜彩（いとさいさい）</span><span class="pg">候補・西日本最大級</span></div><div class="pm">波多江567・登録生産者1,500名超の日本有数の直売所。一番人気は甘いトマト、冬はあまおう。糸島牛・糸島豚・鮮魚・お惣菜まで。<b>9:00–18:00／年始休</b>。中心部寄り。<a class="pmap" href="https://maps.google.com/?q=伊都菜彩+糸島市波多江" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick off"><div class="ph"><span class="pn">岐志漁港の牡蠣小屋（恵比須丸・大栄丸ほか）</span><span class="pg">冬季限定 10–4月</span></div><div class="pm">志摩岐志・九州最大級、漁港に9軒＋数軒が横一列。みるく牡蠣を炭火で。<b>例年10月第1土曜〜翌3〜4月／10:00–17:00（最終入店16:00頃）</b>。持ち込みOK店多い。今回（6月）は営業外。<a class="pmap" href="https://maps.google.com/?q=岐志漁港+牡蠣小屋+糸島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick off"><div class="ph"><span class="pn">福吉漁港の牡蠣小屋（彩雲丸・善幸丸ほか）</span><span class="pg">冬季限定・電車可</span></div><div class="pm">二丈福吉・JR福吉駅から徒歩圏で車なしでも行きやすい。二丈エリア西寄り。<b>例年10月〜翌4月頃</b>。今回（6月）は営業外。<a class="pmap" href="https://maps.google.com/?q=福吉漁港+牡蠣小屋+糸島市二丈" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉・サウナ（日帰り）</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">二丈温泉 きららの湯</span><span class="pg">候補・天然温泉</span></div><div class="pm">二丈深江1-20-1・ラドンを含む糸島唯一の天然温泉。大浴場・露天・サウナ・流水浴プール・家族風呂。深江海水浴場まで車3分。コミュニティバス「きららの湯」停すぐ。<a class="pmap" href="https://maps.google.com/?q=二丈温泉きららの湯+糸島市二丈深江" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.kirara-no-yu.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">まむしの湯</span><span class="pg">候補・サウナ充実</span></div><div class="pm">二丈吉井2380-1・脊振山系の山裾の冷泉。高温サウナ＋塩サウナ、露天・ワイン風呂・抹茶風呂など多彩。<b>10:00–21:30</b>・福吉駅南口より送迎バス（要予約）。食事処は糸島食材。<a class="pmap" href="https://maps.google.com/?q=まむしの湯+糸島市二丈吉井" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>時間・天気による差し替え</b>　ワイナリー→パン屋→ランチカフェ→海岸散策は今回確定。パン屋は曜日に注意（イチマルの店頭は日・祝、のたりは金土日のみ）。<b>牡蠣小屋は冬季（10–4月）限定</b>なので6月は対象外。雨の日はワイナリー屋内＋温泉（きらら／まむしの湯）に切替えると半日が成立する。営業日・営業時間は各店SNSで直前確認を。
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">2名・半日ドライブ・昼食1食。1人あたりの概算。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>6時間パック</small></div><div class="br">¥830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約80km</small></div><div class="br">¥430</div></div>
+      <div class="brow"><div class="bl">高速代<small>都市高速 往復</small></div><div class="br">¥500</div></div>
+      <div class="brow"><div class="bl">ランチ<small>Beach Cafe SUNSET</small></div><div class="br">¥1,200</div></div>
+      <div class="brow"><div class="bl">パン屋<small>テイクアウト</small></div><div class="br">¥600</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥3,100</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳</b>：ワイナリー試飲は無料〜試飲料金の場合あり（購入で相殺）。パン屋・ランチで食事費計¥1,800。カーシェア関連で¥1,300程度。ワイン購入する場合は別途。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前準備</h2>
+      <p class="sec-sub">半日でも海・風が強い。確認すべき項目はこれだけ。</p>
+    </div>
+
+    <div class="weather rv">
+      <div class="ic">🌊</div>
+      <div>
+        <div class="t">海側・農村エリア — 風対策と視界</div>
+        <div class="d">二丈エリアは海沿い＆農村で、福岡市街より10℃気温が低く、風が強い日が多い。梅雨時は霧・海風で視界が悪くなることも。サングラス・帽子・軽めの上着を持参。ワイパーもしっかり動く状態で出発。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前確認</h4>
+        <ul>
+          <li class="must">ワイナリーの営業時間確認（朝9:00–）</li>
+          <li class="must">パン屋の営業日確認（イチマル店頭＝日・祝／のたり＝金土日のみ）</li>
+          <li class="must">Beach Cafe SUNSET の営業確認（不定休・SNS要チェック）</li>
+          <li>タイムズカー6時間パック予約（9:00–15:00）</li>
+          <li>ガソリン・ワイパー・タイヤの出発前点検</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>帽子・サングラス（海の紫外線・反射）</li>
+          <li>薄手上着（農村・海沿いは気温低い）</li>
+          <li>タオル2枚（海風で髪が塩っぽくなる）</li>
+          <li>現金（ワイン購入・パン屋は現金のみ店も多い）</li>
+          <li>カメラ・スマホ（海岸線の景観撮影用）</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://kanko-itoshima.jp/spot/masue_winery/" target="_blank" rel="noopener">糸島マスエワイナリー（糸島観光サイト）</a></li>
+        <li><a href="https://kanko-itoshima.jp/" target="_blank" rel="noopener">糸島観光 公式サイト</a></li>
+        <li><a href="https://ichimarupan.com/" target="_blank" rel="noopener">天然酵母パン工房イチマル（公式）</a></li>
+        <li><a href="https://meets-itoshima.com/post-2467/" target="_blank" rel="noopener">自家製酵母パン のたり（紹介記事）</a></li>
+        <li><a href="https://s.tabelog.com/pan/fukuoka/A4009/rank" target="_blank" rel="noopener">糸島 パン 人気ランキング（食べログ）</a></li>
+        <li><a href="https://www.umimogura.jp/" target="_blank" rel="noopener">うみもぐら糸島（公式）</a></li>
+        <li><a href="https://itoshima-olive.com/" target="_blank" rel="noopener">お菓子と暮らしの物 りた／わかまつ農園（公式）</a></li>
+        <li><a href="http://soufu.jp/shop/" target="_blank" rel="noopener">糸島手造り工房 爽風（公式）</a></li>
+        <li><a href="https://www.yagi-itoshima.com/" target="_blank" rel="noopener">大島農園 糸島やぎ牧場（公式）</a></li>
+        <li><a href="https://fukufuku-sato.com/" target="_blank" rel="noopener">福ふくの里（公式）</a></li>
+        <li><a href="https://ja-itoshima.or.jp/itosaisai/" target="_blank" rel="noopener">JA糸島産直市場 伊都菜彩（公式）</a></li>
+        <li><a href="https://cheers-kyushu.com/itoshima/kishigyokou/" target="_blank" rel="noopener">糸島・岐志漁港の牡蠣小屋（営業情報）</a></li>
+        <li><a href="https://kiraranoyu.jp/" target="_blank" rel="noopener">二丈温泉 きららの湯（公式）</a></li>
+        <li><a href="http://www.mamushi-spa.co.jp/" target="_blank" rel="noopener">まむしの湯（公式）</a></li>
+        <li><a href="https://maps.google.com/?q=二見ヶ浦夫婦岩糸島" target="_blank" rel="noopener">二見ヶ浦・夫婦岩（Google Maps）</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">糸島市・二丈エリア 半日 · 海とパン屋の午前中 · 06.14 (土)</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

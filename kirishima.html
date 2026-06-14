@@ -3,1009 +3,691 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>界 霧島 2026年4月9日 最終日プラン</title>
+<title>霧島 1泊2日 — ワイナリーと温泉と果樹園 | 2026.06.14</title>
+<meta name="theme-color" content="#6b2020">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
 
-  :root {
-    /* iUMA design system tokens */
-    --bg: #0f1117;
-    --surface: rgba(255,255,255,0.035);
-    --surface-hover: rgba(255,255,255,0.065);
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.18);
-    --text: #f5f5f7;
-    --text-secondary: #a1a1aa;
-    --muted: #71717a;
-    --dim: #3f3f46;
-    /* Kirishima page accent */
-    --accent: #E8956A;
-    --accent-light: #F0C4A8;
-    --onsen: #6AABE8;
-    --onsen-light: #A8D4F0;
-    --green: #7CB342;
-    --card-bg: var(--surface);
-    --glass: var(--border);
-  }
+    --wine:#6b2020;
+    --wine-2:#f5e8e8;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
 
-  * { margin:0; padding:0; box-sizing:border-box; }
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
 
-  body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
   }
 
-  /* Site Header / Gnav */
-  .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    height: 52px;
-    background: rgba(22,24,31,0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-  .site-nav {
-    display: flex;
-    gap: 4px;
-  }
-  .site-nav a {
-    color: #71717a;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: background .15s, color .15s;
-  }
-  .site-nav a:hover, .site-nav a[aria-current="page"] {
-    background: rgba(255,255,255,0.065);
-    color: #f5f5f7;
-  }
-  .nav-toggle { display: none; }
-  .nav-toggle-label {
-    display: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-  .nav-toggle-label span,
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after {
-    display: block;
-    background: #f5f5f7;
-    height: 2px;
-    width: 20px;
-    border-radius: 2px;
-    position: relative;
-    transition: .3s;
-  }
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after {
-    content: '';
-    position: absolute;
-  }
-  .nav-toggle-label span::before { top: -6px; }
-  .nav-toggle-label span::after { top: 6px; }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
 
-  /* Hero */
-  .hero {
-    background: linear-gradient(135deg, #2a1f1a, #3a2819, #2a1f1a);
-    background-size: 200% 200%;
-    animation: heroShift 12s ease-in-out infinite;
-    border-radius: 16px;
-    padding: 32px 40px;
-    margin: 24px auto;
-    max-width: 1100px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
   }
-  @keyframes heroShift {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
   }
-  .hero-content { position: relative; z-index: 1; }
-  .hero h1 {
-    font-size: clamp(20px, 2.5vw, 26px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#4a1414 0%,#6b2020 42%,#5b3aa0 100%);
   }
-  .hero .subtitle {
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 400;
-    margin-bottom: 16px;
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#ffd9a3;margin-bottom:14px;
   }
-  .hero .trip-info {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 16px;
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#ffd9a3;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
   }
-  .info-chip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 500;
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
   }
 
-  /* Section Nav */
-  .section-nav-wrapper {
-    position: sticky;
-    top: 52px;
-    z-index: 90;
-    background: rgba(15,17,23,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
   }
-  .nav-bar {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    padding: 10px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-wrap: nowrap;
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
   }
-  .nav-bar::-webkit-scrollbar { display: none; }
-  .nav-bar a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
   }
-  .nav-bar a:hover, .nav-bar a.active {
-    color: var(--text);
-    background: var(--surface-hover);
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
   }
 
-  /* Sections */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 24px;
-    scroll-margin-top: 120px;
+  /* ============ Picks ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#e7b9cb;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
   }
-  .section-title {
-    font-size: clamp(18px, 2.5vw, 22px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(107,32,32,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
   }
-  .section-sub {
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 2.5rem;
-    font-size: 0.95rem;
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
   }
 
-  /* Highlight Cards Grid */
-  .highlight-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  .highlight-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .highlight-card:hover {
-    border-color: rgba(232,149,106,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-  .highlight-card.onsen-theme {
-    border-color: rgba(106,171,232,0.25);
-  }
-  .highlight-card.onsen-theme:hover {
-    border-color: rgba(106,171,232,0.5);
-  }
-  .highlight-card.nature-theme {
-    border-color: rgba(124,179,66,0.25);
-  }
-  .highlight-card.nature-theme:hover {
-    border-color: rgba(124,179,66,0.5);
-  }
-  .highlight-card.nature-theme .highlight-title {
-    color: #AED581;
-  }
-  .highlight-icon {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-  }
-  .highlight-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--accent-light);
-    margin-bottom: 0.3rem;
-  }
-  .highlight-card.onsen-theme .highlight-title {
-    color: var(--onsen-light);
-  }
-  .highlight-desc {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-
-  /* Day Timeline */
-  .day-section {
-    margin-bottom: 3rem;
-  }
-  .day-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-  .day-badge {
-    background: linear-gradient(135deg, var(--accent), #d67d4c);
-    color: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    flex-shrink: 0;
-  }
-  .day-badge .num { font-size: 1.5rem; line-height: 1; }
-  .day-badge .label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; }
-  .day-title { font-size: 1.4rem; font-weight: 700; }
-  .day-date { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
-
-  .timeline {
-    position: relative;
-    padding-left: 2.5rem;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0.75rem;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--accent), rgba(232,149,106,0.1));
-  }
-  .timeline-item {
-    position: relative;
-    margin-bottom: 1.5rem;
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 12px;
-    padding: 1.2rem 1.5rem;
-    transition: all 0.3s;
-    opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-  }
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .timeline-item:hover {
-    border-color: rgba(232,149,106,0.2);
-    background: rgba(255,255,255,0.06);
-  }
-  .timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -2rem;
-    top: 1.5rem;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    border: 2px solid var(--bg);
-  }
-  .time-label {
-    font-size: 0.75rem;
-    color: var(--accent);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.3rem;
-  }
-  .activity-title {
-    font-size: 1.05rem;
-    font-weight: 600;
-    margin-bottom: 0.3rem;
-  }
-  .activity-desc {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-  .tag {
-    display: inline-block;
-    background: rgba(232,149,106,0.15);
-    color: var(--accent-light);
-    padding: 0.15rem 0.6rem;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    margin-top: 0.5rem;
-    margin-right: 0.3rem;
-  }
-  .tag.onsen { background: rgba(106,171,232,0.2); color: var(--onsen-light); }
-  .tag.food { background: rgba(212,160,85,0.2); color: #F0D5A8; }
-  .tag.nature { background: rgba(124,179,66,0.15); color: #AED581; }
-  .tag.culture { background: rgba(232,149,106,0.2); color: var(--accent-light); }
-  .tag.wellness { background: rgba(106,171,232,0.15); color: var(--onsen-light); }
-  .tag.photo { background: rgba(156,39,176,0.15); color: #ce93d8; }
-  .tag.climax { background: linear-gradient(135deg, rgba(232,149,106,0.3), rgba(106,171,232,0.3)); color: #fff; }
-
-  /* Map Link */
-  .map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.6rem;
-    padding: 0.3rem 0.8rem;
-    background: rgba(232,149,106,0.1);
-    border: 1px solid rgba(232,149,106,0.25);
-    border-radius: 20px;
-    color: var(--accent-light);
-    font-size: 0.75rem;
-    text-decoration: none;
-    transition: all 0.3s;
-    target: blank;
-  }
-  .map-link:hover { background: rgba(232,149,106,0.25); border-color: var(--accent); }
-
-  /* Onsen Guide Grid */
-  .onsen-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  .onsen-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(106,171,232,0.15);
-    border-radius: 16px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s;
-  }
-  .onsen-card:hover {
-    border-color: rgba(106,171,232,0.3);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  }
-  .onsen-card .card-emoji {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  .onsen-card .card-time {
-    font-size: 0.75rem;
-    color: var(--onsen);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-  }
-  .onsen-card .card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--onsen-light);
-    margin-bottom: 0.5rem;
-  }
-  .onsen-card .card-desc {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-
-  /* Souvenir Grid */
-  .souvenir-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .souvenir-card {
-    background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: all 0.3s;
-  }
-  .souvenir-card:hover {
-    border-color: rgba(232,149,106,0.2);
-    transform: translateY(-2px);
-  }
-  .souvenir-tier {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin-bottom: 0.3rem;
-  }
-  .souvenir-name {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--accent-light);
-    margin-bottom: 0.3rem;
-  }
-  .souvenir-price {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.8rem;
-  }
-  .souvenir-desc {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.6;
-  }
-
-  /* Footer */
-  footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 3rem;
-    color: rgba(255,255,255,0.2);
-    font-size: 0.8rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* Mobile */
-  @media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .section { padding: 2.5rem 1rem; }
-    .section-title { font-size: clamp(1.4rem, 4vw, 2rem); }
-    .timeline { padding-left: 2rem; }
-    .nav-bar a { padding: 6px 10px; font-size: 11px; }
-    .info-chip { font-size: 0.8rem; padding: 0.4rem 1rem; }
-  }
-
-  @media (max-width: 640px) {
-    .site-nav { display: none; flex-direction: column; gap: 0; position: absolute; top: 52px; left: 0; right: 0; z-index: 200; background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 0; }
-    .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
-    .nav-toggle-label { display: block; }
-    .nav-toggle:checked ~ .site-nav { display: flex; }
-    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
-    .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
-    .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
-    .hero { padding: 24px; margin: 16px 8px; }
-    .hero h1 { font-size: clamp(1.6rem, 5vw, 2rem); }
-    .section { padding: 2rem 0.8rem; }
-    .section-title { font-size: clamp(1.2rem, 4vw, 1.6rem); }
-    .timeline { padding-left: 1.5rem; }
-    .timeline::before { display: none; }
-    .timeline-item::before { display: none; }
-    .timeline-item { padding: 1rem; }
-    .nav-bar { justify-content: flex-start; padding: 10px 12px; gap: 2px; }
-    .nav-bar a { padding: 6px 12px; font-size: 11px; }
-    .highlight-grid { grid-template-columns: 1fr; }
-    .onsen-grid { grid-template-columns: 1fr; }
-    .souvenir-grid { grid-template-columns: 1fr; }
-    footer { flex-direction: column; gap: 1rem; text-align: center; }
-  }
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
 </style>
 </head>
 <body>
 
-<!-- Gnav -->
-<header class="site-header">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle">
-  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-  <nav class="site-nav">
-    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
-    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
-    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
-  </nav>
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="kirishima.html" aria-current="page">霧島</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-content">
-    <h1>界 霧島</h1>
-    <div class="subtitle">Hoshino Resorts KAI Kirishima — 霧島周遊プラン</div>
-    <div class="trip-info">
-      <div class="info-chip">2026.04.09 WED</div>
-      <div class="info-chip">霧島温泉郷</div>
-      <div class="info-chip">鹿児島県</div>
-      <div class="info-chip">1名</div>
-      <div class="info-chip">レンタカーあり</div>
+  <div class="wrap">
+    <div class="eyebrow">Overnight Trip · 福岡 → 霧島市（鹿児島）</div>
+    <h1>霧島、ワインと温泉と果樹園
+      <small>果樹園・ワイナリー・温泉が全部ある。</small>
+    </h1>
+    <p class="lede">薬院から2.5時間、鹿児島県霧島市へ。Sakura Farm & Winery（鹿児島初のワイナリー）・果樹園・霧島温泉が一帯に集まる。寒暖差を活かした果物とワイン、9種の泉質を持つ霧島の湯。泊まりで行く価値がある九州屈指の組み合わせ。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 1泊2日推奨</span>
+      <span class="hpill">🚗 薬院から約2.5時間</span>
+      <span class="hpill">♨️ ワイナリー×果樹園×温泉</span>
     </div>
   </div>
 </div>
 
-<!-- Section Nav -->
-<div class="section-nav-wrapper">
-  <div class="nav-bar">
-    <a href="#overview" class="active">概要</a>
-    <a href="#morning">朝</a>
-    <a href="#drive-am">午前ドライブ</a>
-    <a href="#lunch">ランチ</a>
-    <a href="#drive-pm">午後ドライブ</a>
-    <a href="#evening">夕方</a>
-    <a href="#dinner">夕食</a>
-    <a href="#night">夜</a>
-    <a href="#onsen">温泉ガイド</a>
-    <a href="#souvenirs">お土産</a>
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+      <div class="s">少人数推奨</div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">2.5<span class="u">h</span></div>
+      <div class="s">九州道経由</div>
+    </div>
+    <div class="fact">
+      <div class="k">特徴</div>
+      <div class="v jp">ワイン<span class="u">×</span>果樹<span class="u">×</span>温泉</div>
+      <div class="s">3つが集約</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥15<span class="u">k</span></div>
+      <div class="s">1泊2日</div>
+    </div>
   </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🍷</div>
+    <div>
+      <div class="t">果樹園・ワイナリー・温泉が全部ある — 九州で最も「泊まる価値がある」組み合わせ</div>
+      <div class="d">Sakura Farm & Winery（鹿児島初のワイナリー）、霧島連山の寒暖差を活かした果樹園、9種の泉質を持つ霧島温泉群がすべてひとつのエリアに集まる。カフェ文化も育っており、1泊2日の旅の主役になれる唯一のエリア。</div>
+    </div>
+  </div>
+
 </div>
 
-<!-- Overview Section -->
-<section class="section" id="overview">
-  <h2 class="section-title">霧島周遊 — この日のハイライト</h2>
-  <p class="section-sub">レンタカーで霧島を一周。神話の山・火口湖・滝・100年駅舎・龍馬の湯を巡る</p>
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">2日の流れ</a>
+    <a href="#options">選択肢</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">準備</a>
+  </nav>
+</div>
 
-  <div class="highlight-grid">
-    <div class="highlight-card">
-      <div class="highlight-icon">⛩️</div>
-      <div class="highlight-title">霧島神宮 × 桜</div>
-      <div class="highlight-desc">国宝本殿。4月上旬の桜吹雪。樹齢800年の御神木、裏手の山神社は観光客の9割が知らない</div>
-    </div>
-    <div class="highlight-card nature-theme">
-      <div class="highlight-icon">🏔️</div>
-      <div class="highlight-title">えびの高原・大浪池</div>
-      <div class="highlight-desc">標高1,200m。コバルトブルーの火口湖を一周トレッキング。錦江湾×桜島の大パノラマ</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🌄</div>
-      <div class="highlight-title">道の駅 霧島</div>
-      <div class="highlight-desc">標高630m展望台。桜島・錦江湾・高千穂峰の大パノラマ。紫芋ソフトも</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🐷</div>
-      <div class="highlight-title">黒豚の館ランチ</div>
-      <div class="highlight-desc">霧島高原ロイヤルポーク。純粋黒豚8ヶ月飼育のしゃぶしゃぶ。脂身が甘く別次元</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🚂</div>
-      <div class="highlight-title">嘉例川駅</div>
-      <div class="highlight-desc">築100年超の木造無人駅。JR肥薩線。時が止まった大正の空気を纏う</div>
-    </div>
-    <div class="highlight-card">
-      <div class="highlight-icon">🌊</div>
-      <div class="highlight-title">丸尾滝 × 犬飼滝</div>
-      <div class="highlight-desc">温泉水の滝（乳白色〜エメラルド）と龍馬ゆかりの落差36m滝。二つの滝を制覇</div>
-    </div>
-  </div>
-</section>
+<div class="wrap">
 
-<!-- Morning Section -->
-<section class="section" id="morning">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">朝</div>
-        <div class="label">MORNING</div>
-      </div>
-      <div>
-        <div class="day-title">05:50–08:30</div>
-        <div class="day-date">朝湯と朝食。ドライブに備える</div>
-      </div>
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · Day 1 & 2</div>
+      <h2 class="sec-title">2日の流れ</h2>
+      <p class="sec-sub">薬院 → 霧島市 2.5時間 → Sakura Farm & Winery（ワイナリー見学・試飲）→ 果樹園（直売）→ 霧島神宮（参拝）→ 霧島温泉（宿泊）→ 翌朝カフェ → 帰路。東向きの一本で完結。</p>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">05:50</div>
-        <div class="activity-title">朝一番の露天風呂（日の出）</div>
-        <div class="activity-desc">スロープカーで50m下降。霧島連山に朝日が当たり、ススキ野原に靄がかかる幻想的な光景。他の宿泊客が少なく、ほぼ貸切。入浴25分。水分補給300ml忘れずに</div>
-        <div><span class="tag onsen">温泉</span><span class="tag photo">ゴールデンアワー</span></div>
+    <div class="tl rv">
+
+      <!-- Day 1: 7:00 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">7:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院発・霧島市へ</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">九州道 → 鹿児島道 → 霧島IC · 約2.5時間・約180km · 通行料約3,500円（往復）</div>
+          <p class="desc">早朝出発で9:45到着。高速区間が長いため、朝食は自宅で済ませる。<b>ドライバー交代の時間を想定して出発</b>。ICを降りて市街へ向かう前に、カーシェアのガソリンを確認。</p>
+          <div class="why"><b>朝発は時間に余裕</b>　ワイナリー見学は10:00開店。9:45到着なら余裕を持ってSakura Farm & Wineryに寄れる。</div>
+          <a class="map" href="https://maps.google.com/?q=Sakura+Farm+Winery+霧島" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 九州道・鹿児島道経由 約2.5時間</span></div>
+
+      <!-- Day 1: 9:45 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>Sakura Farm & Winery（見学・試飲）</h3></div>
+          <span class="ctag">観光 · 要チェック営業時間</span>
+          <div class="meta">鹿児島県霧島市 · 10:00–17:00 · 不定休あり · 駐車場あり</div>
+          <p class="desc">鹿児島初のワイナリー。<b>霧島の寒暖差を活かしたぶどうから造るワイン</b>。醸造所見学と試飲ができる。<b>運転手は試飲控えめに</b>。お土産のワイン選びもここで決める。</p>
+          <div class="why"><b>朝いちで着いて、地元ワインを知る</b>　Sakura Farm は着いてすぐの第一セトポイント。霧島のワイン文化を体験して、1泊の主役ワインを選ぶ。</div>
+          <a class="map" href="https://maps.google.com/?q=Sakura+Farm+Winery+霧島" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🍇 果樹園エリアへ 車10分</span></div>
+
+      <!-- Day 1: 11:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">11:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍇</div><h3>霧島の果樹園（直売・観光農園）</h3></div>
+          <span class="ctag">食べ物 · 季節による</span>
+          <div class="meta">霧島市内・多数の観光農園 · 直売・試食・農園カフェ</div>
+          <p class="desc">ぶどう・みかん・その他季節果物の直売。<b>霧島の火山土壌が育む独特の甘みの果物</b>。農園によっては狩り体験や直売所カフェも。ここで昼食と果物を調達。</p>
+          <div class="why"><b>ワイナリーの後、果物で一服</b>　霧島市内には複数の観光農園が点在。気分で1〜2軒回り、新鮮な果物を食べながら休憩。</div>
+        </div>
+      </div>
+      <div class="leg"><span>⛩️ 霧島神宮へ 車15分</span></div>
+
+      <!-- Day 1: 13:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">13:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">⛩️</div><h3>霧島神宮（パワースポット散策）</h3></div>
+          <span class="ctag">観光 · 無料</span>
+          <div class="meta">鹿児島県霧島市 · 参拝自由 · 駐車場あり</div>
+          <p class="desc">日本最古の神社のひとつ。<b>樹齢800年を超える杉並木</b>が壮観。ランチ後の散策に、静寂の中で深呼吸。パワースポットとしても知られる。</p>
+          <div class="why"><b>霧島市街と温泉郷の間に位置</b>　ワイナリー→果樹園→神宮で霧島の東向きルートを一気に。神宮から温泉郷はすぐ。</div>
+          <a class="map" href="https://maps.google.com/?q=霧島神宮" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>♨️ 霧島温泉郷へ 車20分</span></div>
+
+      <!-- Day 1: 15:00 -->
+      <div class="stop" style="--c:var(--onsen);--c2:var(--onsen-2)">
+        <div class="time tnum">15:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">♨️</div><h3>霧島温泉・宿チェックイン</h3></div>
+          <span class="ctag">温泉 · 要予約</span>
+          <div class="meta">霧島温泉郷（丸尾温泉・湯之野温泉など） · 9種の泉質</div>
+          <p class="desc"><b>霧島温泉郷には9種類の泉質がある</b>。丸尾温泉は美白の湯、湯之野温泉は含放射能泉など。旅館選びで泉質を指定して、午後から何度でも湯に浸かる。</p>
+          <div class="why"><b>1泊2日の主役は温泉</b>　午後15時のチェックインで、夜中も朝も温泉に浸かれる。温泉旅館の食事は夕食と朝食込みで、この一本で完結。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🛁 館内で食事・温泉三昧・就寝</span></div>
+
+      <!-- Day 1: 19:00 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">19:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍽️</div><h3>夕食・温泉（宿泊）</h3></div>
+          <span class="ctag">宿泊 · 旅館食</span>
+          <div class="meta">霧島温泉郷・各旅館 · 夕朝食込み</div>
+          <p class="desc">温泉旅館の夕食は地産地消の料理。鹿児島黒豚・新鮮な野菜・郷土料理。食後は自由に温泉で深夜まで浸かる。朝風呂も。</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="time-label">07:00</div>
-        <div class="activity-title">朝食</div>
-        <div class="activity-desc">薩摩の郷土食材（さつま揚げ、地鶏、黒酢等）の和食膳。味噌汁で塩分・ミネラル補給。ドライブに備えてしっかり食べる</div>
-        <div><span class="tag food">食事</span></div>
+      <!-- Day 2: 10:00 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">10:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>霧島の朝カフェ（チェックアウト前）</h3></div>
+          <span class="ctag">朝食 · 気分で立ち寄り</span>
+          <div class="meta">霧島市内・各カフェ · チェックアウト前の時間帯</div>
+          <p class="desc">温泉旅館の朝食後、市街のカフェで二度目の朝。霧島の焙煎珈琲やパンをのんびり。チェックアウト後の立ち寄りで。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 薬院へ帰路 約2.5時間</span></div>
+
+      <!-- Day 2: 11:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">11:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>帰路・薬院帰着</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">霧島IC → 鹿児島道 → 九州道 → 薬院 約2.5時間</div>
+          <p class="desc">14:00前後に薬院到着。高速を降りたら給油して返却。朝出発・翌昼帰着の1泊2日の完成。</p>
+        </div>
       </div>
 
-      <div class="timeline-item">
-        <div class="time-label">08:00</div>
-        <div class="activity-title">ドライブ準備・チェックアウト準備</div>
-        <div class="activity-desc">荷物をまとめておく（チェックアウトは明日11:00だが、貴重品以外は部屋に置いてOK）。ドライブ用に水・タオルを車に積む。靴はスニーカー必須（えびの高原ハイキングあり）</div>
-        <div><span class="tag wellness">準備</span></div>
-      </div>
     </div>
-  </div>
-</section>
 
-<!-- AM Drive Section -->
-<section class="section" id="drive-am">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">午前</div>
-        <div class="label">AM DRIVE</div>
-      </div>
-      <div>
-        <div class="day-title">08:30–12:00</div>
-        <div class="day-date">南下ルート — 神宮・滝・100年駅舎を巡る</div>
-      </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 選択肢</div>
+      <h2 class="sec-title">選択肢ボード</h2>
+      <p class="sec-sub">ジャンル別に、行き先候補を整理。気分や季節で入れ替え可。濃い色は推奨。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="wine">🍷 ワイナリー</button>
+      <button class="gb-btn" data-g="orchard">🍇 果樹園</button>
+      <button class="gb-btn" data-g="shrine">⛩️ 神社・文化</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉</button>
+      <button class="gb-btn" data-g="cafe">☕ カフェ</button>
+      <button class="gb-btn" data-g="bakery">🥐 パン</button>
+      <button class="gb-btn" data-g="lunch">🍽️ ランチ・郷土料理</button>
+    </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">08:30</div>
-        <div class="activity-title">界 霧島 出発 → 霧島神宮へ</div>
-        <div class="activity-desc">ルート全体: 界→南下(神宮・滝・駅舎)→西(壺畑ランチ)→北上(えびの高原・硫黄谷温泉・丸尾滝)→界。一筆書きでバックトラックなし。全行程レンタカー</div>
-        <div><span class="tag nature">ドライブ 15分</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">08:45</div>
-        <div class="activity-title">霧島神宮（国宝）</div>
-        <div class="activity-desc">天孫降臨神話の南九州最大の神宮。2022年に本殿が国宝指定。朝一番は参拝者が少なく、杉の森に光の筋が差し込む「光芒」が撮れる。4月上旬は参道の桜が満開〜花吹雪。<br><br><b>見逃し注意:</b> ①御神木の杉（樹齢800年、幹周り7.2m）— 社殿右手奥。観光客の9割が見逃す。②本殿裏手の「山神社」への小径 — 5分登ると苔むした祠。神宮の喧騒が嘘のような静寂。③手水舎の水面に映る社殿 — スマホを水面ギリギリまで下げて反射を撮影。所要60分</div>
-        <div><span class="tag culture">国宝</span><span class="tag nature">桜</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=霧島神宮+鹿児島" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">09:50</div>
-        <div class="activity-title">犬飼滝</div>
-        <div class="activity-desc">霧島神宮から車5分。落差36m、幅22m。坂本龍馬が新婚旅行で訪れた滝。4月は水量が多く迫力満点。駐車場から徒歩10分（遊歩道整備済み、路面湿りあり）。展望台で終わらず、滝壺近くまで降りる道（左手の踏み跡）がある。<br><b>写真Tip:</b> iPhoneのLive Photos→編集→長時間露光で水を絹糸のように撮影可能。所要30分</div>
-        <div><span class="tag nature">自然</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=犬飼滝+霧島市" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">10:25</div>
-        <div class="activity-title">嘉例川駅</div>
-        <div class="activity-desc">犬飼滝から車10分。JR肥薩線の無人駅。築100年超の木造駅舎は鹿児島県内最古（大正時代）。自由見学。木曜日なので名物「かれい川弁当」は販売なし（土日限定）だが、駅舎自体が圧巻。時が止まった大正の空気。ホームに立つだけで映える。所要20分</div>
-        <div><span class="tag culture">歴史</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=嘉例川駅" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">10:50</div>
-        <div class="activity-title">嘉例川 → 霧島温泉郷エリアへ</div>
-        <div class="activity-desc">霧島神宮方面を経由して高原エリアへ北上。標高が上がるにつれ新緑が濃くなるドライブ</div>
-        <div><span class="tag nature">ドライブ 20分</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Lunch Section -->
-<section class="section" id="lunch">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">昼</div>
-        <div class="label">LUNCH</div>
-      </div>
-      <div>
-        <div class="day-title">11:15–12:15</div>
-        <div class="day-date">霧島エリア内でランチ</div>
-      </div>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">11:15</div>
-        <div class="activity-title">黒豚の館（ランチ）</div>
-        <div class="activity-desc">霧島高原ロイヤルポーク（純粋黒豚、8ヶ月飼育）の専門レストラン。界から車15分。<br><br><b>注文:</b> 看板メニューの「黒豚しゃぶしゃぶ御膳」。ポン酢とゴマだれの両方で食べられる。脂身が甘く、市販品と別次元。<br><b>営業:</b> 11:00〜15:00（ラストオーダー14:30）。木曜は比較的空いている<br><b>夜の会席との被り:</b> 界の会席も黒豚が出る可能性が高いが、しゃぶしゃぶ（薄切り）vs 会席（蒸し物/焼き物）で調理法が異なるため問題なし</div>
-        <div><span class="tag food">食事</span><span class="tag food">黒豚</span></div>
-        <a href="https://maps.google.com/?q=黒豚の館+霧島" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PM Drive Section -->
-<section class="section" id="drive-pm">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">午後</div>
-        <div class="label">PM DRIVE</div>
-      </div>
-      <div>
-        <div class="day-title">12:30–16:00</div>
-        <div class="day-date">高原ルート — 火口湖トレッキング・滝・温泉市場・展望台</div>
+    <div class="optgroup rv" data-g="wine">
+      <h3 class="opth">🍷 ワイナリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">霧島さくらフルーツランド（自社農園ワイナリー）</span><span class="pg">今回・鹿児島初</span></div><div class="pm">国分重久5631-2 · 9:00–17:00（L.O.15:00）。東京ドーム10個分の大型観光農園に併設された<b>鹿児島県初のワイン</b>を造るワイナリー。ぶどう棚の下でワインを<b>1コイン500円で試飲</b>。果樹園・直売・レストランも同じ敷地で、ワインと果樹がここ一か所で揃う。<a class="pmap" href="https://maps.google.com/?q=霧島さくらフルーツランド" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.satsumakanko.jp/spot/10007" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧の蔵ベーカリー / 霧島酒造（焼酎の里）</span><span class="pg">候補・酒造系</span></div><div class="pm">ワインではないが、霧島酒造が焼酎モロミを使ったパン工房を併設（9:30–16:00）。酒造の発酵文化を体験できる立ち寄り先。試飲・見学の前後に。<a class="pmap" href="https://maps.google.com/?q=霧の蔵ベーカリー+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">12:30</div>
-        <div class="activity-title">黒豚の館 → えびの高原へ移動</div>
-        <div class="activity-desc">霧島スカイライン（鹿児島県側は通行可能）で高原へ。標高が上がるにつれ新緑が濃くなる。えびのスカイライン宮崎県側は火山活動で通常閉鎖のため鹿児島県側からアクセス</div>
-        <div><span class="tag nature">ドライブ 30分</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">13:00</div>
-        <div class="activity-title">えびの高原 — 大浪池ハイキング</div>
-        <div class="activity-desc">標高1,200m。えびのエコミュージアムセンター駐車場（¥500/日）から出発。大浪池は標高1,411mにある周囲約2kmの火口湖。コバルトブルーの水面が美しい。<br><br><b>コース:</b> 大浪池登山口→火口縁→池一周。約90分（初心者OK）。天気が良ければ錦江湾・桜島が見える。4月は新緑が映え、空気が澄んでいる。<br><b>装備:</b> スニーカー必須、水500ml以上、上着（標高が高く気温10-15℃）</div>
-        <div><span class="tag nature">トレッキング</span><span class="tag nature">絶景</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=えびの高原+大浪池登山口" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">14:30</div>
-        <div class="activity-title">えびの高原 → 丸尾エリアへ移動</div>
-        <div class="activity-desc">霧島スカイラインを南下。高原から温泉郷エリアへ</div>
-        <div><span class="tag nature">ドライブ 20分</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">14:50</div>
-        <div class="activity-title">丸尾滝</div>
-        <div class="activity-desc">霧島ホテルから車5分。温泉水が流れ落ちる全国的にも珍しい滝。硫黄で乳白色〜エメラルドグリーンに変わる水の色が独特。県道沿いに駐車、3分で滝が見える。湯気が立ち上る様子は昼間のほうがよく見える。所要15分</div>
-        <div><span class="tag nature">自然</span><span class="tag onsen">温泉</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=丸尾滝+霧島市" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">16:00</div>
-        <div class="activity-title">霧島温泉市場</div>
-        <div class="activity-desc">丸尾滝から車2分。温泉蒸気で蒸した温泉たまご（5個入¥200）と温泉まんじゅう。焼酎の土産もここで揃う。地元の農産物も。所要20分</div>
-        <div><span class="tag food">グルメ</span><span class="tag food">お土産</span></div>
-        <a href="https://maps.google.com/?q=霧島温泉市場" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">15:30</div>
-        <div class="activity-title">道の駅 霧島</div>
-        <div class="activity-desc">霧島温泉市場から車10分。標高630mの展望台。晴れていれば桜島・錦江湾・高千穂峰の大パノラマ。高千穂峰は「天孫降臨の山」の威容が最も美しく見える角度。霧が出ていればスキップしてOK。紫芋ソフトクリーム（¥350）は意外と美味。所要20分</div>
-        <div><span class="tag nature">絶景</span><span class="tag photo">写真</span></div>
-        <a href="https://maps.google.com/?q=道の駅+霧島" target="_blank" class="map-link">📍 Google Maps</a>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">16:00</div>
-        <div class="activity-title">界 霧島 帰着</div>
-        <div class="activity-desc">道の駅から界まで車10分。帰館後すぐ水分補給。界の露天風呂で一日の疲れを流すもよし。浴衣に着替えて夕食モードへ</div>
-        <div><span class="tag nature">帰着</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Evening Section -->
-<section class="section" id="evening">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">夕</div>
-        <div class="label">EVENING</div>
-      </div>
-      <div>
-        <div class="day-title">16:00–17:30</div>
-        <div class="day-date">帰館。ドライブの余韻と夕食への準備</div>
+    <div class="optgroup rv" data-g="orchard">
+      <h3 class="opth">🍇 果樹園・直売</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">霧島さくらフルーツランド</span><span class="pg">今回・大型</span></div><div class="pm">国分重久5631-2 · 9:00–17:00。<b>東京ドーム10個分・日本最大級の観光農園</b>。いちご(12〜5月・100g300円)・ぶどう・梨・ブルーベリー・栗を栽培。物産館で直売、ワイン試飲・展望レストラン・BBQ(7〜10月)も。<a class="pmap" href="https://maps.google.com/?q=霧島さくらフルーツランド" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.satsumakanko.jp/spot/10007" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">竹ノ内観光農園</span><span class="pg">候補・狩り</span></div><div class="pm">国分エリア · TEL 0995-45-6803。いちご・ぶどう・梨の収穫体験。県エコファーマー認定で安心。ぶどう7月下旬〜9月下旬、いちご狩り1月上旬〜5月上旬。<a class="pmap" href="https://maps.google.com/?q=竹ノ内観光農園+霧島市" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">吉村観光農園</span><span class="pg">候補・狩り</span></div><div class="pm">霧島神宮駅から車15分。8月上旬〜9月下旬にぶどう狩り・なし狩り、1月〜4月下旬にいちご狩り。神宮ルートに近い。<a class="pmap" href="https://maps.google.com/?q=吉村観光農園+霧島市" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧島神話の里公園 ブルーベリー園</span><span class="pg">候補・夏</span></div><div class="pm">霧島田口2583-22 · 9–17時。遊具・道の駅併設のレジャーパーク内。<b>ブルーベリー狩り7月中旬〜8月下旬</b>(摘み取り100g150円・入園無料)。霧島神宮の近く。<a class="pmap" href="https://maps.google.com/?q=霧島神話の里公園" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">16:00</div>
-        <div class="activity-title">帰館 → 界の露天風呂 or ライブラリーで休憩</div>
-        <div class="activity-desc">ドライブ後の選択肢: ①界の露天風呂でハイキングの疲れを流す ②ライブラリーでコーヒー。夕暮れに染まる霧島連山をテラスから眺める。水分補給忘れずに</div>
-        <div><span class="tag wellness">休憩</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">17:00</div>
-        <div class="activity-title">夕食準備</div>
-        <div class="activity-desc">浴衣に着替え、身だしなみを整える。水分を軽く摂る。夕食前の入浴は避ける — 湯上がりで汗が引かない状態での食事は味覚が鈍る</div>
-        <div><span class="tag wellness">準備</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Dinner Section -->
-<section class="section" id="dinner">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">夕</div>
-        <div class="label">DINNER</div>
-      </div>
-      <div>
-        <div class="day-title">17:30–19:30</div>
-        <div class="day-date">日没と薩摩の「四黒」コース。食事と夕景を同時に</div>
+    <div class="optgroup rv" data-g="shrine">
+      <h3 class="opth">⛩️ 神社・自然</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">霧島神宮</span><span class="pg">今回・無料</span></div><div class="pm">霧島田口 · 参拝自由・駐車場あり。日本最古級の神社、樹齢800年の杉並木が壮観。2022年に本殿が国宝指定。パワースポット散策に。<a class="pmap" href="https://maps.google.com/?q=霧島神宮" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://kirishimajingu.or.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧島神水峡（みたらしの滝）</span><span class="pg">候補・自然</span></div><div class="pm">霧島田口 · 神宮の近く。渓谷沿いの遊歩道と滝。新緑・紅葉が美しく、神宮参拝とセットで歩ける自然散策スポット。<a class="pmap" href="https://maps.google.com/?q=霧島神水峡" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">道の駅 霧島 / 神話の里公園</span><span class="pg">候補・展望</span></div><div class="pm">霧島田口 · 桜島・錦江湾を見下ろす高台。物産販売・展望・遊具。ドライブの休憩と土産調達に便利。<a class="pmap" href="https://maps.google.com/?q=道の駅+霧島" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.kagoshima-kankou.com/guide/10288/" target="_blank" rel="noopener">🔗ソース</a></div></div>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">17:30</div>
-        <div class="activity-title">会席コース開始</div>
-        <div class="activity-desc">17:30を推奨する理由：18:35日没で、食事中盤〜終盤に窓の外が茜色→藍色に変わる。食事と夕景を同時に味わえる。春の「四黒」（黒豚・黒牛・黒酢・黒糖焼酎）テーマ。食中酒は「黒霧島EXお湯割り（6:4）」を指定。宿のデフォルト（ビール→日本酒）より霧島の会席には芋焼酎が合う</div>
-        <div><span class="tag food">食事</span><span class="tag culture">焼酎</span><span class="tag wellness">夕景</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">18:35</div>
-        <div class="activity-title">日没タイム</div>
-        <div class="activity-desc">食事中に窓の外が茜色に染まる。カメラを構えておく</div>
-        <div><span class="tag wellness">写真</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">19:30</div>
-        <div class="activity-title">食後の休息</div>
-        <div class="activity-desc">絶対に温泉に入らない時間。満腹で入浴すると消化不良・血圧変動リスク。館内の夜の設え（ライトアップ）を散策。焼酎をもう一杯、窓の外の星空を見ながら。翌日のチェックアウト準備（荷造り）を軽く</div>
-        <div><span class="tag wellness">休息</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Night Section -->
-<section class="section" id="night">
-  <div class="day-section">
-    <div class="day-header">
-      <div class="day-badge">
-        <div class="num">夜</div>
-        <div class="label">NIGHT</div>
-      </div>
-      <div>
-        <div class="day-title">21:00–22:30</div>
-        <div class="day-date">星空の下での最後の温泉。この旅の総括</div>
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉（日帰り・宿泊）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">旅行人山荘</span><span class="pg">今回・日帰り可</span></div><div class="pm">牧園町高千穂3865（丸尾温泉）· TEL 0995-78-2831。標高700m・約5万坪の老舗一軒宿。<b>桜島と錦江湾を望む露天</b>。日帰り入浴12〜15時受付・大人600円、貸切露天50分1,200円(11〜14時受付)。<b>硫黄泉と単純温泉の2源泉かけ流し</b>。<a class="pmap" href="https://maps.google.com/?q=旅行人山荘+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">前田温泉 カジロが湯</span><span class="pg">候補・公衆湯</span></div><div class="pm">牧園町高千穂3914（丸尾）· 9:00–20:00／木曜定休。<b>入浴430円</b>と気軽な霧島温泉郷の立ち寄り湯。単純硫黄温泉(丸尾28号泉)かけ流し、白い湯の花。サウナ・有料足湯・温泉たまごも。<a class="pmap" href="https://maps.google.com/?q=前田温泉+カジロが湯+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">AUBEGIO 霧島観光ホテル</span><span class="pg">候補・展望湯</span></div><div class="pm">牧園町高千穂3885 · TEL 0995-78-2531。桜島・錦江湾を望む展望大浴場。薩摩藩主も使った"殿湯"の単純温泉。日帰り12〜18時(露天15時〜・受付〜16時)・大人1,000円、休憩所あり。<a class="pmap" href="https://maps.google.com/?q=AUBEGIO+霧島観光ホテル" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧島温泉郷（丸尾・湯之野ほか）</span><span class="pg">候補・宿選び</span></div><div class="pm"><b>9種の泉質</b>が集まる温泉郷。丸尾は美肌系の硫黄・単純泉、湯之野は含放射能泉。宿泊旅館は泉質を指定して予約。1泊で1つ、次回に別の泉質を。<a class="pmap" href="https://maps.google.com/?q=丸尾温泉+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="time-label">21:00</div>
-        <div class="activity-title">最後の温泉（星空露天）</div>
-        <div class="activity-desc">この日のクライマックス。霧島は標高が高く光害が少ない。晴れていれば満天の星空の下での露天風呂。スロープカーでの夜の移動は真っ暗な山の中を降りていく儀式のような体験。38-40℃のぬる湯のみ（42℃以上は交感神経を刺激し入眠を妨害）。呼吸法：4秒吸う→7秒止める→8秒吐く。入浴15分</div>
-        <div><span class="tag onsen">温泉</span><span class="tag wellness">星空</span><span class="tag climax">クライマックス</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">21:30</div>
-        <div class="activity-title">スキンケアタイム</div>
-        <div class="activity-desc">硫黄泉で角質が軟化した「剥きたての卵」状態。入浴後5分以内に保湿。化粧水ハンドプレス3回→セラミド乳液→ワセリン。顔パックをするならこのタイミングが最適（毛穴全開+角質軟化で浸透最大）</div>
-        <div><span class="tag wellness">ウェルネス</span></div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="time-label">22:00</div>
-        <div class="activity-title">就寝準備</div>
-        <div class="activity-desc">深部体温が入浴後90分で急降下→この「体温の落差」が入眠トリガー。21:00入浴→22:30就寝が理想。明日チェックアウト11:00。朝もう一度露天風呂に入るなら6:00起床</div>
-        <div><span class="tag wellness">休息</span></div>
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ カフェ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">ヴォアラ珈琲 本店</span><span class="pg">今回・自家焙煎</span></div><div class="pm">霧島市国分。食べログ霧島カフェ人気1位の<b>自家焙煎スペシャルティ珈琲</b>専門店。豆販売もあり、帰りの土産にも。本格的な一杯で朝の二度目の珈琲を。<a class="pmap" href="https://maps.google.com/?q=ヴォアラ珈琲+本店+霧島" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/kagoshima/A4603/A460301/46001268/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">古民家カフェ ちゅるり</span><span class="pg">候補・絶景</span></div><div class="pm">福山町 · 木金土11:00–14:30。店主がセルフリノベした古民家、<b>海が見えるロケーション</b>。日替わりランチ＋手作りケーキ＋珈琲で1,500円。週3営業なので曜日注意。<a class="pmap" href="https://maps.google.com/?q=ちゅるり+霧島市福山町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">OMBAK CAFE（旧マテリアランチ）</span><span class="pg">候補・神宮近く</span></div><div class="pm">霧島田口2257-5（霧島神水峡近く）· 2026年5月オープン。霧島神宮エリアの素材重視カフェレストランの後継店。テラス席あり、神宮参拝とセットで。<a class="pmap" href="https://maps.google.com/?q=OMBAK+CAFE+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">フルーツパーラー タワワ / フルーツ工房 Uma果</span><span class="pg">候補・果物系</span></div><div class="pm">霧島市内。地元フルーツを使ったパフェ・スイーツのフルーツパーラー。果樹園めぐりの締めに旬の果物スイーツを。<a class="pmap" href="https://maps.google.com/?q=フルーツパーラー+タワワ+霧島市" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Onsen Guide Section -->
-<section class="section" id="onsen">
-  <h2 class="section-title">界の露天風呂 — 朝と夜、二つの顔</h2>
-  <p class="section-sub">スロープカーで降りる50mの移動自体が儀式。同じ湯が光で別物になる</p>
-
-  <div class="onsen-grid">
-    <div class="onsen-card">
-      <div class="card-emoji">🌅</div>
-      <div class="card-time">朝湯 05:50</div>
-      <div class="card-title">日の出・霧・澄んだ空気</div>
-      <div class="card-desc">霧島連山に朝日が当たり、ススキ野原に靄がかかる幻想的な光景。他の宿泊客が少なくほぼ貸切。25分。ドライブ前の最高のスタート</div>
+    <div class="optgroup rv" data-g="bakery">
+      <h3 class="opth">🥐 パン・ベーカリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">BOULANGERIE NOEL（ブランジェリ ノエル）</span><span class="pg">今回・名物</span></div><div class="pm">隼人町姫城3-130-1 · 10:00–18:00／日月休。霧島の人気ベーカリー、常時70〜80種。<b>日当山温泉の温泉水で作る"ひなた山温泉食パン"</b>が看板、米粉のお米パンも人気。イートイン・焼き菓子・温泉プリンも。<a class="pmap" href="https://maps.google.com/?q=BOULANGERIE+NOEL+霧島" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/kagoshima/A4603/A460301/46007123/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧の蔵ベーカリー</span><span class="pg">候補・酒造系</span></div><div class="pm">KIRISHIMA FACTORY GARDEN内 · 9:30–16:00。霧島酒造が<b>焼酎モロミを使った石窯パン</b>を焼く。塩パン・食パンが人気、緑に囲まれた明るい店。酒造見学とセットで。<a class="pmap" href="https://maps.google.com/?q=霧の蔵ベーカリー+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ら・すぅーる（la soeur）</span><span class="pg">候補・高千穂牧場前</span></div><div class="pm">霧島田口2638-503・高千穂牧場前(赤い屋根が目印)· 10:00–18:00／火水休。添加物不使用、じっくり発酵のフランスパンが評判。テラスで高千穂の峰を眺めながら。<a class="pmap" href="https://maps.google.com/?q=ら・すぅーる+霧島田口" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">おからパン工房</span><span class="pg">候補・神宮近く</span></div><div class="pm">霧島神宮エリア。ひとつひとつ丁寧に作る小さなベーカリー、体に優しいミニサイズのパンが並ぶ。神宮参拝の行き帰りに。<a class="pmap" href="https://maps.google.com/?q=おからパン工房+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
     </div>
 
-    <div class="onsen-card">
-      <div class="card-emoji">🌙</div>
-      <div class="card-time">夜湯 21:00</div>
-      <div class="card-title">星空・月明かり・シルエット</div>
-      <div class="card-desc">一日の総括。38-40℃のぬる湯で副交感神経を優位に。スロープカーの夜の移動は真っ暗な山の中を降りていく儀式。入浴後90分で就寝が理想</div>
-    </div>
-  </div>
-</section>
-
-<!-- Souvenirs Section -->
-<section class="section" id="souvenirs">
-  <h2 class="section-title">お土産</h2>
-  <p class="section-sub">霧島から持ち帰る記憶と味。都内で手に入らない逸品</p>
-
-  <div class="souvenir-grid">
-    <!-- 必買 -->
-    <div class="souvenir-card">
-      <div class="souvenir-tier">必買</div>
-      <div class="souvenir-name">明るい農村 四合瓶</div>
-      <div class="souvenir-price">¥800–1,200</div>
-      <div class="souvenir-desc">霧島限定芋焼酎。都内で入手困難。通常は販売なし。宿の売店でのみ購入可。番号シリーズの中でも最新版が贈答用として最高</div>
+    <div class="optgroup rv" data-g="lunch">
+      <h3 class="opth">🍽️ ランチ・郷土料理</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">黒豚の産直レストラン（霧島高原純粋黒豚）</span><span class="pg">今回・黒豚</span></div><div class="pm">霧島神宮駅から車5分。牧場直送の<b>かごしま黒豚</b>を出す行列店。看板は「黒豚かつ丼」、サクサク薄衣に出汁と半熟卵。"ゲンセン霧島"7つ星認定の肉質。<a class="pmap" href="https://maps.google.com/?q=黒豚+レストラン+霧島神宮" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.kurobutaya.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">神宮前茶屋</span><span class="pg">候補・神宮前</span></div><div class="pm">霧島田口2454（霧島神宮すぐ前）· 10:00–19:00／不定休。山かけ山菜そば(780円)・野菜ちゃんぽん・<b>黒豚カツ丼</b>が名物の老舗お食事処。屋久杉土産コーナーも。参拝の合間に。<a class="pmap" href="https://maps.google.com/?q=神宮前茶屋+霧島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧島峠茶屋</span><span class="pg">候補・絶景ドライブイン</span></div><div class="pm">県道60号沿い・神宮から車15分。<b>霧島連山を望むドライブイン</b>、60種超のメニュー。名物は地鶏地卵のチーズオムライス、霧島黒豚ロースカツ、季節限定パフェも。<a class="pmap" href="https://maps.google.com/?q=霧島峠茶屋" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">霧島さくらフルーツランド 展望レストラン</span><span class="pg">候補・農園内</span></div><div class="pm">国分重久5631-2 · 11:00–L.O.15:00。果樹園2階で<b>霧島連山を眺めながら</b>定食・軽食・BBQ。予約制で黒豚しゃぶしゃぶも。農園・ワイナリーと同じ敷地で完結。<a class="pmap" href="https://maps.google.com/?q=霧島さくらフルーツランド" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
     </div>
 
-    <div class="souvenir-card">
-      <div class="souvenir-tier">必買</div>
-      <div class="souvenir-name">薩摩蒸氣屋のかすたどん</div>
-      <div class="souvenir-price">¥1,500–2,000（5個）</div>
-      <div class="souvenir-desc">鹿児島版萩の月。蒸し焼きの独特の食感。賞味期限14日。持ち運びしやすく、鹿児島の象徴的な和菓子</div>
+    <div class="optnote rv">🔄 <b>楽しみ方</b>　ワイナリー→果樹園→神宮は確定ルート（さくらフルーツランドはワイン・果樹・ランチが一か所で揃う拠点）。温泉は9種の泉質から選び、1泊でその1つに浸かる（日帰りなら旅行人山荘・カジロが湯）。次回訪問時に別の泉質を。パン・カフェ・ランチは時間と気分で差し替え。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">1泊2日、2〜3名で割り勘。高速代・ガソリンは頭割り。宿泊と食事は旅館込み。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>24時間パック</small></div><div class="br">¥3,000</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約400km</small></div><div class="br">¥2,140</div></div>
+      <div class="brow"><div class="bl">高速代<small>九州道・鹿児島道 往復</small></div><div class="br">¥3,500</div></div>
+      <div class="brow"><div class="bl">ワイナリー見学<small>試飲・入場</small></div><div class="br">¥500</div></div>
+      <div class="brow"><div class="bl">ランチ<small>果樹園カフェ・カジュアル</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">宿泊<small>温泉旅館（1泊）</small></div><div class="br">¥8,000</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥15,000</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>割り勘</b>　走行距離・高速代は3名で割ると 1人あたり約¥1,880。宿泊は１人あたり¥8,000。朝食・ワイナリー試飲・ランチは個人負担。宿泊旅館の選びで前後する。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">準備・予約</h2>
+      <p class="sec-sub">距離が長いため、宿泊予約が必須。運転手は2人で交代。</p>
     </div>
 
-    <!-- 二軍 -->
-    <div class="souvenir-card">
-      <div class="souvenir-tier">余裕あれば</div>
-      <div class="souvenir-name">霧島茶</div>
-      <div class="souvenir-price">¥500–1,000</div>
-      <div class="souvenir-desc">霧島温泉市場で購入。霧島高原の冷涼な気候で育てた深蒸し煎茶。香りが強く甘みが際立つ</div>
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前予約（必須）</h4>
+        <ul>
+          <li class="must">霧島温泉郷の旅館を1泊予約（夕朝食込み・泉質を指定）</li>
+          <li class="must">カーシェアを24時間予約（薬院発・帰路も薬院返却）</li>
+          <li>Sakura Farm & Winery の営業日・営業時間を確認（不定休あり）</li>
+          <li>運転手を2人で決めて、交代ポイント（往路は往路：途中PA、復路は帰路：途中PA）を事前に確認</li>
+          <li>高速の ETC カード確認</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>温泉用バスタオル・フェイスタオル（手ぶらなら現地レンタル可）</li>
+          <li>替えの靴下・下着（1泊分）</li>
+          <li>湯上がりの保湿クリーム</li>
+          <li>日中用サングラス・帽子（初夏の日差し対策）</li>
+          <li>ワイン試飲用に水分補給飲料</li>
+          <li>給油前に車のガソリンメーターを確認</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="souvenir-card">
-      <div class="souvenir-tier">余裕あれば</div>
-      <div class="souvenir-name">小みかんマーマレード</div>
-      <div class="souvenir-price">¥800前後</div>
-      <div class="souvenir-desc">道の駅霧島の限定品。生産量が少ない。甘さ控えめで朝食に最適。ヨーグルトに混ぜても美味</div>
-    </div>
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://kirishima-kankou.com/" target="_blank" rel="noopener">霧島温泉観光協会 公式</a></li>
+        <li><a href="https://maps.google.com/?q=Sakura+Farm+Winery+霧島" target="_blank" rel="noopener">Sakura Farm & Winery（Google Maps）</a></li>
+        <li><a href="https://maps.google.com/?q=霧島神宮" target="_blank" rel="noopener">霧島神宮（Google Maps）</a></li>
+        <li><a href="https://share.timescar.jp/fare/simulation.html" target="_blank" rel="noopener">タイムズカー料金シミュレーション</a></li>
+      </ul>
+    </details>
+  </section>
 
-    <div class="souvenir-card">
-      <div class="souvenir-tier">余裕あれば</div>
-      <div class="souvenir-name">温泉たまご詰め合わせ</div>
-      <div class="souvenir-price">¥500–800</div>
-      <div class="souvenir-desc">霧島温泉市場。温泉蒸気で加熱した新鮮たまご。箱入りで配送も可能。賞味期限2週間</div>
-    </div>
-  </div>
-</section>
+</div>
 
-<!-- Footer -->
 <footer>
-  <div class="foot-left">iUMA TRAVEL — 2026</div>
-  <div class="foot-right">KAI KIRISHIMA</div>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">霧島市 1泊2日 · ワインと温泉と果樹園</div>
+  </div>
 </footer>
 
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
 <script>
-  // Section nav active state
-  const navLinks = document.querySelectorAll('.nav-bar a');
-  const sections = document.querySelectorAll('.section');
-
-  function updateActiveNav() {
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (window.scrollY >= sectionTop - 200) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href').slice(1) === current) {
-        link.classList.add('active');
-      }
-    });
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
   }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
 
-  window.addEventListener('scroll', updateActiveNav);
-
-  // Smooth scroll for nav links
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      target.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-
-  // Stagger animation for timeline items
-  const timelineItems = document.querySelectorAll('.timeline-item');
-  timelineItems.forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.1}s`;
-  });
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
 </script>
 
 </body>

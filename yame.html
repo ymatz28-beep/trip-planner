@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八女・奥八女 日帰り — お茶と棚田の一日 | 2026.06</title>
+<meta name="theme-color" content="#3a6b2a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#3a6b2a;
+    --wine-2:#eaf3e6;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#2d5218 0%,#3a6b2a 42%,#4a7d3a 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#a8d89a;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#a8d89a;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#d4e6cc;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(58,107,42,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="yame.html" aria-current="page">八女</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Day Trip · 福岡 → 八女市・奥八女</div>
+    <h1>八女、お茶と棚田の一日
+      <small>白壁の街並みと、星野村の奥。</small>
+    </h1>
+    <p class="lede">薬院から1.5時間。重伝建の白壁商家を歩き、奥八女の棚田カフェでランチ、八女茶の農家に立ち寄って帰る。観光客が少なく、静かで穴場感が高い。茶の産地という「産業×カフェ」の構造が、田主丸の植木業と重なる。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 日帰り・カーシェア</span>
+      <span class="hpill">🚗 薬院から約1.5時間</span>
+      <span class="hpill">🍵 八女茶の里</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+      <div class="s">シンプルな2人〜3人向け</div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">約1.5<span class="u">h</span></div>
+      <div class="s">九州道 八女IC</div>
+    </div>
+    <div class="fact">
+      <div class="k">重伝建</div>
+      <div class="v jp">八女福島</div>
+      <div class="s">白壁の街並み</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥5<span class="u">k</span></div>
+      <div class="s">程度の予算</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🍵</div>
+    <div>
+      <div class="t">穴場度が高い — 静かで「産業×カフェ」の構造が田主丸と同じ</div>
+      <div class="d">八女茶という産業がある → 茶農家が豊かになった → 古民家や白壁の街が残った → 今はカフェになっている。この流れが田主丸の植木業と全く同じ構造。<b>玉露・棚田・茶露試飲・茶スイーツが一日で全部できる</b>。観光客が少ないので静かに楽しめる。</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">お店候補</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 7:30 – 16:45</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院 → 八女市街で白壁散策 → 茶の文化館で玉露試飲 → 星野村の棚田カフェでランチ → 広内・上原の棚田で原風景を歩く → 帰路。東の棚田ルートは 一本で、午後は静かな自然と文化を一気に。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 7:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">7:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">福岡都市高速 → 九州道 → 八女IC · 約1.5時間 · 通行料約¥1,200</div>
+          <p class="desc">タイムズカーは<b>7:30から予約済み</b>（12時間パックで19:30まで枠内）。<b>九州道・八女IC経由で八女市街へ</b>。梅雨時は雨対策で早めに出発。朝食は家で済ませるか、途中のサービスエリアで。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 九州道・八女ICを経由 約1.5時間</span></div>
+
+      <!-- 9:15 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:15</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏛️</div><h3>八女市街・福島白壁散策</h3></div>
+          <span class="ctag">観光 · 文化</span>
+          <div class="meta">八女市本町周辺 · 重伝建エリア · 無料散策 · 駐車場あり</div>
+          <p class="desc">江戸〜明治の商家が通りに並ぶ白壁の街並み。<b>「田主丸が豪農なら八女は豪商」の第二形態</b>。ここで茶が栄えた産地であることを肌で感じる。白壁をカメラに収めたり、古民家の雰囲気を歩いて感じたり。ゆっくり30分。</p>
+          <a class="map" href="https://maps.google.com/?q=八女福島+重伝建" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚶 市街を散策 徒歩で 30分</span></div>
+
+      <!-- 10:30 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">10:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍵</div><h3>茶の文化館</h3></div>
+          <span class="ctag">観光 · 文化</span>
+          <div class="meta">八女市本町502 · 10:00–17:00 · 火休 · 入場料あり</div>
+          <p class="desc">八女茶の歴史と玉露試飲体験。<b>石臼抹茶挽き体験も</b>。茶の産地ならではの濃い体験。八女茶がどのように作られ、なぜ産業として栄えたのかが理解できる。ここで茶農家の豊かさが街に白壁として残っていることが納得できる。</p>
+          <a class="map" href="https://maps.google.com/?q=茶の文化館+八女" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 星野村方面・奥八女へ 約30分</span></div>
+
+      <!-- 12:00 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">12:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>カフェSora（棚田ランチ）</h3></div>
+          <span class="ctag">この旅の主役 · ランチ · 要予約</span>
+          <div class="meta">〒834-1401 八女市星野村9442-1 · 11:00–17:00 · 定休日要確認 · 駐車場あり</div>
+          <p class="desc">星野村・棚田を見下ろすカフェ。<b>棚田米と地元野菜のランチ</b>（ソラランチ・田舎ランチ）。<b>2週間ごとにメイン替わる</b>ので、事前に確認して訪問時期を選ぶ。奥八女の原風景を眺めながら、棚田で育った食材をいただく。</p>
+          <div class="why"><b">棚田を肌で感じる昼ごはん</b>　カフェSoraはランチの中心。目の前の棚田が季節によって全く表情が変わる。稲の青さ・黄金色・冬枯れの美しさをその時々で楽しめる。</div>
+          <a class="map" href="https://maps.google.com/?q=カフェSora+星野村" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚶 農道を歩いて 車5分・徒歩すぐ</span></div>
+
+      <!-- 14:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">14:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌾</div><h3>広内・上原の棚田</h3></div>
+          <span class="ctag">観光 · 自然 · 農林水産省棚田百選</span>
+          <div class="meta">八女市星野村 · 無料散策 · 稲の季節によって全く顔が変わる</div>
+          <p class="desc">奥八女の原風景。<b>農林水産省棚田百選</b>に選ばれた景観。稲の色・季節によって全く別世界になる景観。カフェSoraから車5分。ランチの後に棚田を歩いて、八女がお茶だけでなく<b>棚田米の産地でもある</b>ことを感じ取る。</p>
+          <a class="map" href="https://maps.google.com/?q=広内+上原の棚田+八女" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 帰路へ・八女IC方面 約30分</span></div>
+
+      <!-- 15:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">15:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>帰路（道中・黒木町の古い商家を流し見）</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">八女IC → 九州道 → 福岡都市高速 · 約1.5時間</div>
+          <p class="desc">帰り道に黒木町を通る際、<b>古い商家を流し見する</b>ことで、八女全体の「商業×お茶」の歴史が繋がる。時間があれば黒木町の街並みを 軽く寄り道するのもいい。</p>
+        </div>
+      </div>
+
+      <!-- 16:45 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">16:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>薬院帰着・カーシェア返却</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">16:30〜17:00頃で帰着 · 給油して返却</div>
+          <p class="desc">9:00発の12時間パックは19:30までなので、余裕を持って帰着。給油して返却。一日お茶と棚田に浸った心地よい疲れで帰宅。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">これまで挙げた行き先を、ジャンルごとにまとめた候補ボード。当日の天気・気分・時間で入れ替えられる。<b>濃い色＝今回行く店</b>、それ以外は差し替え／次回八女の引き出し。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="townscape">🏛️ 文化・街並み</button>
+      <button class="gb-btn" data-g="nature">🌾 棚田・自然</button>
+      <button class="gb-btn" data-g="cafe">☕ カフェ・ランチ</button>
+      <button class="gb-btn" data-g="tea">🍵 お茶・体験</button>
+      <button class="gb-btn" data-g="sweets">🍰 スイーツ・和菓子</button>
+      <button class="gb-btn" data-g="food">🍴 食事処</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉</button>
+      <button class="gb-btn" data-g="farm">🥬 直売所・道の駅</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="townscape">
+      <h3 class="opth">🏛️ 文化・街並み</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">八女福島 白壁の街並み</span><span class="pg">今回・朝</span></div><div class="pm">重伝建エリア・無料散策。江戸の商家が並ぶ白壁が八女の産業の歴史を語る。<a class="pmap" href="https://maps.google.com/?q=八女福島" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">茶の文化館</span><span class="pg">今回・午前</span></div><div class="pm">八女市本町・10:00–17:00・火休。八女茶の歴史と玉露試飲・石臼抹茶挽き体験。<a class="pmap" href="https://maps.google.com/?q=茶の文化館" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">黒木町 大淵磨崖仏</span><span class="pg">次回・帰り道</span></div><div class="pm">帰り道の黒木町に。鎌倉時代の磨崖仏。街並みと併せて寄れる穴場。<a class="pmap" href="https://maps.google.com/?q=黒木町+大淵磨崖仏" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="nature">
+      <h3 class="opth">🌾 棚田・自然</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">広内・上原の棚田</span><span class="pg">今回・午後</span></div><div class="pm">農林水産省棚田百選。無料散策。季節で顔が変わる原風景。<a class="pmap" href="https://maps.google.com/?q=広内+上原の棚田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.city.yame.fukuoka.jp/soshiki/3/2174.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">石堂棚田</span><span class="pg">候補・奥八女</span></div><div class="pm">別の棚田百選スポット。広内より更に奥。時間がある日向け。<a class="pmap" href="https://maps.google.com/?q=石堂棚田+八女" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ カフェ・ランチ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">カフェSora</span><span class="pg">今回の主役</span></div><div class="pm">星野村・11:00–17:00・定休日要確認。棚田を見下ろすカフェ。棚田米＋地元野菜のランチ（2週間ごと交替）。<a class="pmap" href="https://maps.google.com/?q=カフェSora+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40060892/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">八女福島券番 茶楼 蒼／ao cafe</span><span class="pg">候補・古民家</span></div><div class="pm">八女市本町44-2・11:00–17:00（OS16:30）・火休。芸妓文化の「券番」を再生した古民家カフェ。ランチは前日15時まで完全予約制。茶農家夫妻が淹れる八女茶。白壁散策の中心に。<a class="pmap" href="https://maps.google.com/?q=茶楼蒼+八女福島券番" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400903/40054820/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">八女茶カフェ ぶんぶく（美緑園）</span><span class="pg">候補・茶屋カフェ</span></div><div class="pm">八女市豊福269-2・11:00–17:00（OS16:30）・水休。農林水産大臣賞の美緑園が営む茶屋カフェ。店員が淹れる甘く深い八女茶。茶葉・茶菓子も購入できる。<a class="pmap" href="https://maps.google.com/?q=八女茶カフェぶんぶく+八女市豊福" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40048932/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">茶房 星水庵（木屋芳友園）</span><span class="pg">候補・星野村</span></div><div class="pm">八女市星野村4529-1・喫茶12:00–17:00（OS16:30）・火水休。星野川のほとり、大瓦屋根が目印。日本茶鑑定士・木屋康彦の新茶やほうじ茶アイス「星野愛す」。販売は9:00–17:00。<a class="pmap" href="https://maps.google.com/?q=茶房星水庵+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40042345/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="tea">
+      <h3 class="opth">🍵 お茶・体験</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">茶の文化館</span><span class="pg">今回・文化館</span></div><div class="pm">星野村10816-5・10:00–17:00・火休・入館無料・駐車30台。八女伝統本玉露を「しずく茶」で味わう。石臼抹茶挽き・茶作り・和菓子作り体験も。お食事処「星野茶寮」で茶そば・抹茶アイス。<a class="pmap" href="https://maps.google.com/?q=茶の文化館+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">古賀茶業（KOGACHA・こが茶カフェ）</span><span class="pg">候補・玉露の名門</span></div><div class="pm">八女伝統本玉露の老舗。全国茶品評会で上位独占の実績。みやま市瀬高町にカフェレストランも。八女茶の買い付け・玉露試飲なら本命。<a class="pmap" href="https://maps.google.com/?q=古賀茶業+八女" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">美緑園 製茶</span><span class="pg">候補・大臣賞</span></div><div class="pm">八女市豊福。全国茶品評会で農林水産大臣賞を受賞した実力派の茶問屋。濃厚なうまみが特長。併設のカフェぶんぶくで試飲・購入。<a class="pmap" href="https://maps.google.com/?q=美緑園製茶+八女市豊福" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">星のふるさと 茶摘み・しずく茶体験</span><span class="pg">候補・体験予約</span></div><div class="pm">茶の文化館の貸切体験。八女伝統本玉露コース（しずく茶/茶皿点前＋和菓子・1時間貸切）¥2,700。静かな茶室で本格的に味わう。<a class="pmap" href="https://maps.google.com/?q=茶の文化館+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.chano-bunka.jp/experience/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="sweets">
+      <h3 class="opth">🍰 スイーツ・和菓子 <span class="gc">八女茶スイーツ</span></h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">八女茶sweets なつめ</span><span class="pg">候補・八女茶専門</span></div><div class="pm">八女市本村榎町1032-2・10:00–18:00・木休・駐車あり・八女ICから5分。奥八女産八女茶のスイーツ専門店。看板は「八女茶バウム」と「葉月プリン」（抹茶＋小豆）。土産に最適。<a class="pmap" href="https://maps.google.com/?q=八女茶sweetsなつめ+八女市" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40059671/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">お菓子のきくや</span><span class="pg">候補・老舗和菓子</span></div><div class="pm">八女市本町69・9:00–18:00・第2/第4木休・物産館から徒歩5分。創業明治35年。80年以上のロングセラー「茶の実饅頭」（八女茶あん＋シナモン）。白壁散策のついでに。<a class="pmap" href="https://maps.google.com/?q=お菓子のきくや+八女市本町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400903/40001598/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">隆勝堂</span><span class="pg">候補・茶々菓子</span></div><div class="pm">創業100年。八女茶・抹茶を使った和洋菓子の老舗。「八女茶々菓子」の詰め合わせはギフト向き。八女・久留米に店舗、オンライン通販も。<a class="pmap" href="https://maps.google.com/?q=隆勝堂+八女市" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">茶匠むろぞの 和カフェ</span><span class="pg">候補・抹茶フラペ</span></div><div class="pm">八女市今福917-2・カフェ13:00–17:30（OS17:00）・第2/第4日休。深蒸し八女茶のフラペティーや抹茶ティラミス・抹茶テリーヌ。テイクアウト可。<a class="pmap" href="https://maps.google.com/?q=茶匠むろぞの+八女市今福" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40059290/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="food">
+      <h3 class="opth">🍴 食事処 <span class="gc">ランチ・定食</span></h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">うどん茶寮 花むらさき</span><span class="pg">候補・白壁通り</span></div><div class="pm">八女市本町148-6・11:00–15:00（OS14:00）・土日祝休。白壁通り沿いの創作料理。人気の「花ランチ」（黒胡麻豆腐・刺身・ミニ丼・ミニうどん・デザート＋食後コーヒー）¥1,282。<a class="pmap" href="https://maps.google.com/?q=花むらさき+八女市本町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400903/40004201/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">洋食屋 びーふ亭</span><span class="pg">候補・ハンバーグ</span></div><div class="pm">八女市吉田1574-7・11:30–14:30/17:00–21:00・木休。先代が肉屋。オーブン焼きハンバーグが看板、ランチは全メニューにコーヒー＋デザート付き。<a class="pmap" href="https://maps.google.com/?q=洋食屋びーふ亭+八女市吉田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/fukuoka/A4009/A400901/40038072/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">お食事処 招竹梅（道の駅たちばな）</span><span class="pg">候補・フードコート</span></div><div class="pm">八女市立花町下辺春315-1・10:00頃〜。地鶏炭火焼き・うどん・天ぷら定食「志らとり膳」・ハンバーガー「Hideバーガー」が並ぶフードコート。帰路の腹ごしらえに。<a class="pmap" href="https://maps.google.com/?q=道の駅たちばな+招竹梅" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">星野茶寮（茶の文化館内）</span><span class="pg">候補・茶そば</span></div><div class="pm">星野村・茶の文化館内。八女茶をふんだんに使った茶そば・茶飯、抹茶アイス。耳納連山と里山を眺めながら。文化館見学とセットで。<a class="pmap" href="https://maps.google.com/?q=星野茶寮+茶の文化館" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉 <span class="gc">日帰り入浴</span></h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">星の温泉館 きらら</span><span class="pg">候補・星野村</span></div><div class="pm">八女市星野村10780-58・日帰り10:00–22:00（最終21:30）・大人¥600。星野村を一望する大パノラマ内湯と2種の露天（偶数/奇数日入替）。トロっとした美人の湯。駐車50台。<a class="pmap" href="https://maps.google.com/?q=星の温泉館きらら+八女市星野村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.yame-kanko.jp/onsen/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">くつろぎの森 グリーンピア八女</span><span class="pg">候補・黒木町</span></div><div class="pm">八女市黒木町木屋10905・日帰り10:00–22:00（最終21:00）・大人¥600。地下1,600mのアルカリ性単純泉。露天＋サウナ＋水風呂で外気浴。夜は満天の星空。八女ICから約40分。<a class="pmap" href="https://maps.google.com/?q=グリーンピア八女+黒木町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">家族風呂（きらら／グリーンピア）</span><span class="pg">候補・貸切</span></div><div class="pm">どちらも露天付きの家族風呂あり。きらら1室50分¥1,500／グリーンピア八女1室50分¥1,100。少人数でゆっくり。当日電話予約。<a class="pmap" href="https://maps.google.com/?q=星の温泉館きらら+家族風呂" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="farm">
+      <h3 class="opth">🥬 直売所・道の駅 <span class="gc">農産物・お土産</span></h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">道の駅たちばな</span><span class="pg">候補・帰路の定番</span></div><div class="pm">八女市立花町下辺春315-1・直売所9:00–18:00・第2水休・八女ICから約20分。タケノコ・キウイ（福岡県2位）・梅・みかんなど旬の農産物。竹炭米・立花ワイン・手作り加工品。竹炭水の水汲み場も。<a class="pmap" href="https://maps.google.com/?q=道の駅たちばな" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.city.yame.fukuoka.jp/soshiki/3/2166.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">道の駅たちばな ソフトクリーム（Hide）</span><span class="pg">候補・名物</span></div><div class="pm">「西日本一甘い」と評判のソフトクリーム。フードコート招竹梅内のHideで購入可。帰り際のひと休みに。<a class="pmap" href="https://maps.google.com/?q=道の駅たちばな" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">八女観光物産館 ときめき</span><span class="pg">候補・市街の土産</span></div><div class="pm">八女市本町の白壁エリアの起点。八女茶・茶スイーツ・地酒・仏壇仏具など八女の特産が集まる物産館。白壁散策とセットで土産まとめ買い。<a class="pmap" href="https://maps.google.com/?q=八女観光物産館ときめき" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>差し替えの考え方</b>　白壁散策（八女福島）・茶の文化館・カフェSora（棚田ランチ）・広内上原の棚田は今回の確定ルート。帰り道に黒木町を経由すれば古い商家も見える。玉露の里・石堂棚田は時間があるなら追加で寄り道可能。茶農家カフェは午後に別途。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代は複数人で割り勘。食事は個人負担。棚田散策は無料。右の数字は1人あたり。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>タイムズ 12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約160km</small></div><div class="br">¥860</div></div>
+      <div class="brow"><div class="bl">高速代<small>都市高速＋九州道 往復</small></div><div class="br">¥1,200</div></div>
+      <div class="brow"><div class="bl">茶の文化館<small>入場料</small></div><div class="br">¥400</div></div>
+      <div class="brow"><div class="bl">カフェSora<small>棚田ランチ</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">途中のカフェ<small>飲み物・軽食</small></div><div class="br">¥600</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥6,200</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳</b>：カーシェア・距離・高速を人数で割り勘した場合の1人あたり。カフェSora（¥1,500）・茶の文化館（¥400）・途中のカフェ代（¥600）は個人負担。複数人でシェアできる場合は更に下がる。玉露の里・茶農家訪問は別途費用。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前予約</h2>
+      <p class="sec-sub">カフェSoraの営業状況確認と、歩きやすい靴が必須。出発前にここだけ押さえる。</p>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前予約・確認（重要）</h4>
+        <ul>
+          <li class="must">カフェSoraの営業日・メニューを確認（定休日が不定なため。メニューは2週間ごと交替）</li>
+          <li class="must">タイムズカーを7:30から予約済み（薬院・12hパック・19:30まで枠内）</li>
+          <li>茶の文化館の営業を確認（火休・10:00開店）</li>
+          <li>玉露の里を訪問する場合は事前確認・体験予約</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li class="must">歩きやすい靴（棚田は農道・土歩きなので必須）</li>
+          <li>折りたたみ傘（梅雨時期対策）</li>
+          <li>タオル・濡れた時の着替え</li>
+          <li>水分補給用の飲料</li>
+          <li>車のワイパー・タイヤを出発前点検</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://www.hoshinofurusato.jp/" target="_blank" rel="noopener">星野村観光ナビ</a></li>
+        <li><a href="https://www.city.yame.fukuoka.jp/kanko/7/3/3/1513837177383.html" target="_blank" rel="noopener">八女市ホームページ（棚田）</a></li>
+        <li><a href="https://www.city.yame.fukuoka.jp/" target="_blank" rel="noopener">八女市ホームページ</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">八女市・奥八女 日帰り · お茶と棚田の一日</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

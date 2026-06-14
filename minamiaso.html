@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>南阿蘇村・西原村 日帰り — パン屋と高原の一日 | 2026.06.14</title>
+<meta name="theme-color" content="#4a7c59">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#4a7c59;
+    --wine-2:#e8f3ec;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#2d5a3d 0%,#4a7c59 42%,#3d6b4f 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#b5e5c9;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#b5e5c9;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#cfe9d8;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(74,124,89,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="minamiaso.html" aria-current="page">南阿蘇</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Day Trip · 福岡 → 南阿蘇村・西原村</div>
+    <h1>南阿蘇、パン屋と高原の一日
+      <small>九州最強クラスのカフェ・パン密度。</small>
+    </h1>
+    <p class="lede">薬院から1.5時間、熊本・南阿蘇へ。移住者が開いたレベルの高いパン屋とカフェが密集するエリア。牧草地の絶景の中にワイナリーもあり、温泉もセットにできる。観光地化しすぎず、移住者が作った「本物の豊かさ」が詰まっている。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 日帰り・カーシェア</span>
+      <span class="hpill">🚗 薬院から約1.5時間</span>
+      <span class="hpill">🍞 九州最高峰のパン密度</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">1.5<span class="u">h</span></div>
+      <div class="s">九州道・熊本IC経由</div>
+    </div>
+    <div class="fact">
+      <div class="k">特徴</div>
+      <div class="v jp">移住者<br>×パン</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥6<span class="u">k</span></div>
+      <div class="s">温泉・ワイナリー含む</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🌄</div>
+    <div>
+      <div class="t">九州最強クラスのカフェ・パン密度 — 移住者が作った本物の豊かさ</div>
+      <div class="d">南阿蘇・西原村エリアには、都市部から移住した職人系パン屋とカフェが集まっている。牧草地と阿蘇の絶景の中に、東京や大阪で修業した水準のお店が点在する「なぜここに？」という密度。<b>菊鹿ワイナリーへの起点にもなり、温泉もセットにしやすい。</b></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">お店候補</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 7:30 – 17:30</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院 → 西原村・南阿蘇でパン屋とカフェ朝イチ → ランチはカフェで地元食材 → 高原ドライブ・菊鹿ワイナリー方面 → 温泉で一服 → 帰路。移住系の職人パン屋を中心に、九州最高峰の密度を体験。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 7:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">7:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">九州道 → 熊本IC → 国道57号 → 西原村 約1.5時間・約90km</div>
+          <p class="desc">朝そのまま薬院を出発。<b>九州道で熊本IC</b>を目指し、そのまま国道57号で南に下る。西原村のパン屋エリアまで約1.5時間。途中休憩・給油をして、<b>朝イチでパン屋に着く</b>のが狙い。パン屋は土日売り切れ早いので、余裕を持って早めに着く。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 九州道→熊本IC→国道57号へ 約1.5時間</span></div>
+
+      <!-- 9:15 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">9:15</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🥐</div><h3>西原村のパン屋（朝イチ）</h3></div>
+          <span class="ctag">朝食 · 2〜3人 · 移住系パン屋</span>
+          <div class="meta">西原村エリア · 朝から営業 · 駐車場あり</div>
+          <p class="desc">西原村に着いたら、すぐに朝のパン屋へ。<b>パンとカフェ「華野季（けやき）」または8PAN（はちぱん・2025年5月オープン）</b>など、移住した職人系のパン屋が並ぶエリア。<b>土日は朝から行列ができるので、朝9時台に着く</b>のが狙い。焼き立てのパンを食べてから、カフェへ向かう。</p>
+
+          <div class="picks">
+            <div class="pick rec">
+              <div class="ph"><span class="pn">パンとカフェ 華野季（けやき）</span><span class="pg">朝本命</span></div>
+              <div class="pm">西原村・移住者系の職人パン屋。朝から並ぶ人気店。焼き立てパンとカフェ。<a class="pmap" href="https://maps.google.com/?q=パンとカフェ+華野季" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick rec">
+              <div class="ph"><span class="pn">8PAN（はちぱん）</span><span class="pg">新店・2025年5月</span></div>
+              <div class="pm">西原村・2025年5月オープン。話題の新しい職人パン屋。<a class="pmap" href="https://maps.google.com/?q=8PAN+西原村" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">駅舎カフェ 久永屋</span><span class="pg">候補</span></div>
+              <div class="pm">西原村・駅舎を改造したカフェ。駅エリア。<a class="pmap" href="https://maps.google.com/?q=駅舎カフェ+久永屋+西原村" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>朝イチの狙い</b>　移住系パン屋は土日に売り切れが早い。9時台に着いて朝のうちにパンを確保。その後、カフェへの流れで一日を始める。</div>
+        </div>
+      </div>
+      <div class="leg"><span>☕ ルカフェニシハラへ 車10分</span></div>
+
+      <!-- 10:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">10:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>ルカフェニシハラ（コーヒー・スイーツ）</h3></div>
+          <span class="ctag">カフェ · 2〜3人</span>
+          <div class="meta">西原村 · 熊本市内「メゾンドキタガワ」監修 · 高原の絶景</div>
+          <p class="desc">西原村の高原に佇むカフェ。<b>熊本市内の人気スイーツ店「メゾンドキタガワ」が監修</b>した洗練されたスイーツ。高原の絶景を眺めながら、コーヒーと一服。阿蘇の雄大な山々を見ながら、朝の時間をゆっくり過ごす。</p>
+
+          <div class="picks">
+            <div class="pick rec">
+              <div class="ph"><span class="pn">ルカフェニシハラ</span><span class="pg">今回・本命</span></div>
+              <div class="pm">西原村・高原の絶景とスイーツ。メゾンドキタガワ監修。<a class="pmap" href="https://higojournal.com/archives/rucafenishihara.html" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>カフェの狙い</b>　朝のパン屋の後、高原のカフェでコーヒーとスイーツ。阿蘇の景色を眺めながら、一日のペースを整える。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 南阿蘇エリアへ 車15分</span></div>
+
+      <!-- 12:00 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">12:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍽️</div><h3>南阿蘇のランチカフェ</h3></div>
+          <span class="ctag">ランチ · 2〜3人</span>
+          <div class="meta">南阿蘇村 · 地元食材 · 絶景</div>
+          <p class="desc">南阿蘇の山々を見下ろすカフェでランチ。<b>地元食材を使ったランチプレート</b>を食べながら、南阿蘇の絶景を堪能。カフェ山猫軒など、移住者が開いた水準の高いカフェがいくつも並ぶエリア。</p>
+
+          <div class="picks">
+            <div class="pick rec">
+              <div class="ph"><span class="pn">カフェ山猫軒</span><span class="pg">今回・本命</span></div>
+              <div class="pm">南阿蘇村・地元食材のランチ。高原の絶景。<a class="pmap" href="https://maps.google.com/?q=カフェ山猫軒+南阿蘇" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>ランチの狙い</b>　昼に地元食材のランチを食べながら、南阿蘇の絶景を眺める。午後へのエネルギーチャージ。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 高原ドライブ・菊鹿ワイナリー方面へ 車30分</span></div>
+
+      <!-- 14:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">14:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>菊鹿ワイナリー方面・高原ドライブ</h3></div>
+          <span class="ctag">観光 · ドライブ</span>
+          <div class="meta">菊鹿ワイナリー周辺 · 牧草地と阿蘇の風景</div>
+          <p class="desc">午後は高原の風景の中をドライブ。<b>牧草地が広がり、阿蘇の山々が見える景色</b>を流す。菊鹿ワイナリーを起点に、周辺の高原の道を走る。移住者が選んだこのエリアの「風景の豊かさ」を全身で感じる時間。</p>
+
+          <div class="picks">
+            <div class="pick">
+              <div class="ph"><span class="pn">菊鹿ワイナリー</span><span class="pg">候補・寄り道</span></div>
+              <div class="pm">菊鹿町・ワイナリー見学・試飲。立ち寄るなら30分程度。<a class="pmap" href="https://maps.google.com/?q=菊鹿ワイナリー" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>高原ドライブの狙い</b>　食事の後、高原の風景の中をドライブ。観光地化しすぎないこの地の「本物の豊かさ」を堪能。</div>
+        </div>
+      </div>
+      <div class="leg"><span>♨️ 温泉へ 車15分</span></div>
+
+      <!-- 15:30 -->
+      <div class="stop" style="--c:var(--onsen);--c2:var(--onsen-2)">
+        <div class="time tnum">15:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">♨️</div><h3>南阿蘇の温泉</h3></div>
+          <span class="ctag">温泉 · 締めの一湯</span>
+          <div class="meta">地獄温泉・垂玉温泉など · 南阿蘇の名湯</div>
+          <p class="desc">帰り道に南阿蘇の温泉に立ち寄り。<b>地獄温泉や垂玉温泉など、阿蘇の名湯で一服</b>。この地の「泉質の豊かさ」も感じながら、一日を締める前のリセット。</p>
+
+          <div class="picks">
+            <div class="pick rec">
+              <div class="ph"><span class="pn">地獄温泉（清風荘）</span><span class="pg">候補・本命系</span></div>
+              <div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+            <div class="pick">
+              <div class="ph"><span class="pn">垂玉温泉</span><span class="pg">候補</span></div>
+              <div class="pm">南阿蘇村・滝の流れる温泉。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div>
+            </div>
+          </div>
+
+          <div class="why"><b>温泉の狙い</b>　帰り道に立ち寄り、一日の疲れをリセット。南阿蘇の「泉質の豊かさ」も体験。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 薬院へ帰路 約1.5時間</span></div>
+
+      <!-- 17:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">17:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>薬院 帰着・カーシェア返却</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">17:30前後で帰着 / 給油して返却</div>
+          <p class="desc">温泉から帰路へ。給油してからカーシェア返却。一日を通じて、移住者が選んだこのエリアの「本物の豊かさ」を体験した一日の締め。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">これまで挙げた行き先を、ジャンルごとにまとめた候補ボード。当日の天気・気分・時間で入れ替えられる。<b>濃い色＝今回行く店</b>、それ以外は差し替え／次回南阿蘇の引き出し。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="bakery">🥐 パン屋（ベーカリー）</button>
+      <button class="gb-btn" data-g="cafe">☕ カフェ・ランチ</button>
+      <button class="gb-btn" data-g="sweets">🍦 スイーツ・ジェラート</button>
+      <button class="gb-btn" data-g="soba">🍜 そば・あか牛ランチ</button>
+      <button class="gb-btn" data-g="market">🥬 直売所・道の駅</button>
+      <button class="gb-btn" data-g="wine">🍷 ワイナリー</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉（締めの一湯）</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="bakery">
+      <h3 class="opth">🥐 パン屋（ベーカリー）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">パンとカフェ 華野季（けやき）</span><span class="pg">朝の本命</span></div><div class="pm">西原村・移住系パン屋。朝から人気。焼き立てパン。<a class="pmap" href="https://maps.google.com/?q=パンとカフェ+華野季+西原村" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">8pan（はちぱん）</span><span class="pg">新店・候補</span></div><div class="pm">西原村小森3622-4・2025年5月オープン。植木の人気店「BLUE LEAF」で修業した夫婦の店。九州産小麦＋地元野菜、パン約60種。<b>9:00〜16:00（売切れ次第・月火休／現金のみ）</b>。10:30〜11時に全種揃う。<a class="pmap" href="https://maps.google.com/?q=8pan+西原村小森" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">駅舎カフェ 久永屋</span><span class="pg">候補</span></div><div class="pm">西原村・駅舎改造カフェ。<a class="pmap" href="https://maps.google.com/?q=駅舎カフェ+久永屋+西原村" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ カフェ・ランチ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">ルカフェニシハラ</span><span class="pg">今回・朝コーヒー</span></div><div class="pm">西原村・高原絶景。メゾンドキタガワ監修スイーツ。<a class="pmap" href="https://higojournal.com/archives/rucafenishihara.html" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">カフェ山猫軒</span><span class="pg">今回・ランチ</span></div><div class="pm">南阿蘇村・地元食材ランチ。絶景。<a class="pmap" href="https://maps.google.com/?q=カフェ山猫軒+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">グレーテルの森</span><span class="pg">候補・絶景ランチ</span></div><div class="pm">南阿蘇村・全席窓側、阿蘇五岳（烏帽子岳・杵島岳・中岳）を望むレストランカフェ。自然と食事で癒やされる人気店。<a class="pmap" href="https://maps.google.com/?q=グレーテルの森+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">白水郷アートプレイス（MinamiASO_style）</span><span class="pg">候補・隠れ家</span></div><div class="pm">南阿蘇村・元美術館を使った森の隠れ家カフェ＆ギャラリー。絶景ランチとアート空間。<a class="pmap" href="https://maps.google.com/?q=白水郷アートプレイス+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">グランドーマ南阿蘇</span><span class="pg">候補</span></div><div class="pm">南阿蘇村・高原のカフェレストラン。阿蘇の景色を眺めながらの食事。<a class="pmap" href="https://maps.google.com/?q=グランドーマ南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="sweets">
+      <h3 class="opth">🍦 スイーツ・ジェラート</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">山田牧場 ミルクの里</span><span class="pg">候補・本命</span></div><div class="pm">西原村小森1843・酪農牧場直営。搾りたてミルクの濃厚ソフトクリーム＆旬素材のジェラート。<b>パン屋エリアと同じ西原村小森</b>で寄りやすい（併設レストランは休業中）。<a class="pmap" href="https://maps.google.com/?q=山田牧場+ミルクの里+西原村" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://milk-no-sato.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ASO MILK FACTORY</span><span class="pg">候補</span></div><div class="pm">阿蘇・16種のジェラート。フレッシュミルクのジェラートが濃厚で自然な甘さ。<a class="pmap" href="https://maps.google.com/?q=ASO+MILK+FACTORY+阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">南阿蘇ガレージソフト</span><span class="pg">候補・日祝のみ</span></div><div class="pm">南阿蘇村・熊本ではここだけのブレンダーアイス専門店。<b>営業は日曜・祝日のみ</b>、訪問日に注意。<a class="pmap" href="https://maps.google.com/?q=南阿蘇ガレージソフト" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="soba">
+      <h3 class="opth">🍜 そば・あか牛ランチ</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">久木野庵（くぎのあん）</span><span class="pg">候補・手打ちそば</span></div><div class="pm">南阿蘇村・電動石臼で自家製粉、粗挽き細打ちの二八そば。和スイーツも。<a class="pmap" href="https://maps.google.com/?q=久木野庵+南阿蘇" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/kumamoto/A4301/A430101/43001855/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">南阿蘇白水そば なか津</span><span class="pg">候補・名水そば</span></div><div class="pm">南阿蘇村・名水百選の水で打つそば。二八／十割／食べ比べ、地鶏・とろろも。<a class="pmap" href="https://maps.google.com/?q=南阿蘇白水そば+なか津" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">あか牛の館（あそ望の郷くぎの）</span><span class="pg">候補・あか牛</span></div><div class="pm">道の駅あそ望の郷くぎの内・阿蘇名産あか牛の焼肉レストラン。赤身の旨味と適度な脂。<a class="pmap" href="https://maps.google.com/?q=あか牛の館+あそ望の郷くぎの" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">南阿蘇そば道場</span><span class="pg">候補・体験</span></div><div class="pm">道の駅内・十割そば。自分で打つそば打ち体験も可、窓から阿蘇五岳。<a class="pmap" href="https://maps.google.com/?q=南阿蘇そば道場+あそ望の郷くぎの" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="market">
+      <h3 class="opth">🥬 直売所・道の駅</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">道の駅 あそ望の郷くぎの</span><span class="pg">候補・拠点</span></div><div class="pm">南阿蘇村・約3000坪。物産販売所「旬鮮あじわい館」で地元の農畜産物、阿蘇五岳一望の「食事処あじわい館」、あか牛の館、そば道場、木の香湯温泉まで揃う総合拠点。<a class="pmap" href="https://maps.google.com/?q=道の駅+あそ望の郷くぎの" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://asomibounosato.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="wine">
+      <h3 class="opth">🍷 ワイナリー</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">菊鹿ワイナリー</span><span class="pg">候補・ドライブ中</span></div><div class="pm">菊鹿町・ワイン試飲。高原の風景。立ち寄るなら30分程度。<a class="pmap" href="https://maps.google.com/?q=菊鹿ワイナリー" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉（締めの一湯）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">木の香湯（あそ望の郷くぎの）</span><span class="pg">候補・絶景＆便利</span></div><div class="pm">南阿蘇村・道の駅併設で立ち寄りやすい。阿蘇山を借景の天然温泉、古来「芒硝泉」と呼ばれる名湯。<b>7:00〜22:00（最終受付21:30）</b>。<a class="pmap" href="https://maps.google.com/?q=木の香湯+あそ望の郷くぎの" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.minamiaso-kinokouyu.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">地獄温泉（清風荘）</span><span class="pg">候補・本命</span></div><div class="pm">南阿蘇村・源泉かけ流し。2016年噴火後に復旧。営業確認推奨。<a class="pmap" href="https://maps.google.com/?q=地獄温泉+清風荘+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">体験交流センター 四季の森</span><span class="pg">候補・安い</span></div><div class="pm">南阿蘇村・南阿蘇の大パノラマを望む温浴施設。<b>大人500円・6:30〜21:00</b>とコスパ◎。<a class="pmap" href="https://maps.google.com/?q=四季の森+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">竹之倉温泉</span><span class="pg">候補・美肌</span></div><div class="pm">南阿蘇村・メタケイ酸豊富なかけ流し。露天の寝湯。<b>中学生以上880円・11:00〜15:00</b>（冬季は露天利用不可）。<a class="pmap" href="https://maps.google.com/?q=竹之倉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">垂玉温泉</span><span class="pg">候補</span></div><div class="pm">南阿蘇村・滝の流れる温泉。営業状況は要確認。<a class="pmap" href="https://maps.google.com/?q=垂玉温泉+南阿蘇" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>差し替えの考え方</b>　朝はパン屋（華野季 or 8pan）→カフェ（ルカフェニシハラ）がセット。ランチはカフェ山猫軒の地元食材か、そば（久木野庵 / なか津）・あか牛（あか牛の館）に振り替えてもいい。<b>スイーツの山田牧場ミルクの里は西原村小森でパン屋エリアと同じ並び</b>なので朝の流れに足しやすい。午後は菊鹿ワイナリー寄り道を判断。温泉は道の駅併設の木の香湯が便利、こだわるなら地獄温泉。直売所「あそ望の郷くぎの」は温泉・そば・あか牛・直売がワンストップで集まる拠点。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代は割り勘。パン・カフェ・ランチ・温泉は個人負担。1人あたりのめやすは以下。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>タイムズ 12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約200km</small></div><div class="br">¥1,070</div></div>
+      <div class="brow"><div class="bl">高速代<small>九州道 往復</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">朝のパン屋<small>パン＋テイクアウト</small></div><div class="br">¥800</div></div>
+      <div class="brow"><div class="bl">朝のカフェ<small>ルカフェニシハラ</small></div><div class="br">¥700</div></div>
+      <div class="brow"><div class="bl">ランチ<small>カフェ山猫軒</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">温泉<small>地獄温泉など</small></div><div class="br">¥800</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥7,700</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳</b>　カーシェア＋高速料金を人数で割り勘。パン・カフェ・ランチ・温泉は個人負担で約¥3,800。合計約¥7,700（2〜3名で割り勘の場合）。菊鹿ワイナリーに立ち寄って試飲・購入すれば＋¥500〜1,000。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前確認</h2>
+      <p class="sec-sub">朝の出発前にここだけ押さえる。</p>
+    </div>
+
+    <div class="weather rv">
+      <div class="ic">🌤️</div>
+      <div>
+        <div class="t">高原の朝は冷え込む — 上着を用意</div>
+        <div class="d">南阿蘇・西原村は標高が高く、朝夕は薬院より10度近く低い。6月でも朝は上着があると快適。晴天なら高原の絶景が映える一日。天気予報を確認して、傘よりも上着を優先。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前確認（重要）</h4>
+        <ul>
+          <li class="must">朝のパン屋の営業日・営業時間を確認（華野季は朝何時開始か・8PANは完全新店か確認）</li>
+          <li class="must">ルカフェニシハラの営業を確認（営業時間・定休日）</li>
+          <li class="must">カフェ山猫軒の営業を確認（営業時間・定休日）</li>
+          <li class="must">温泉の営業を確認（地獄温泉は2016年噴火後の営業状況・営業時間）</li>
+          <li>カーシェアを9:00発の12時間パックで予約（21:00まで枠内）</li>
+          <li>菊鹿ワイナリーに立ち寄る場合は営業時間確認</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>上着（朝夕の高原は冷える）</li>
+          <li>帽子・日焼け止め（高原は日差し強い）</li>
+          <li>温泉用タオル（手ぶらなら現地レンタル可）</li>
+          <li>カメラ・スマホ（絶景が多い）</li>
+          <li>飲料・スナック（移動時間が長い）</li>
+          <li>車のガソリン・ワイパー確認（出発前点検）</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://tabelog.com/kumamoto/C43432/rstLst/pan/" target="_blank" rel="noopener">西原村 パン屋・カフェ（食べログ）</a></li>
+        <li><a href="https://higojournal.com/archives/rucafenishihara.html" target="_blank" rel="noopener">ルカフェニシハラ（ひごジャーナル）</a></li>
+        <li><a href="https://higojournal.com/archives/8pan.html" target="_blank" rel="noopener">8pan（はちぱん・西原村／ひごジャーナル）</a></li>
+        <li><a href="https://www.yamada-milk.com/" target="_blank" rel="noopener">山田さんちの牧場 ミルクの里（西原村）</a></li>
+        <li><a href="https://www.aso-kugino.jp/" target="_blank" rel="noopener">道の駅 あそ望の郷くぎの（公式・あか牛/そば/木の香湯）</a></li>
+        <li><a href="https://konokayu.jp/" target="_blank" rel="noopener">南阿蘇 日帰り温泉 木の香湯（公式）</a></li>
+        <li><a href="https://www.kuginoan.com/" target="_blank" rel="noopener">久木野庵 南阿蘇 蕎麦（公式）</a></li>
+        <li><a href="https://minamiaso-hakusuisoba.com/" target="_blank" rel="noopener">南阿蘇白水そば なか津（公式）</a></li>
+        <li><a href="https://www.gretel5.com/" target="_blank" rel="noopener">グレーテルの森（南阿蘇カフェ／公式）</a></li>
+        <li><a href="https://minamiaso.info/blog/tachiyoriyu/" target="_blank" rel="noopener">南阿蘇 立ち寄り温泉情報（みなみあそ info）</a></li>
+        <li><a href="https://maps.google.com/?q=菊鹿ワイナリー" target="_blank" rel="noopener">菊鹿ワイナリー（Google Maps）</a></li>
+        <li><a href="https://www.pref.kumamoto.jp/" target="_blank" rel="noopener">熊本県観光サイト</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">南阿蘇村・西原村 日帰り · パン屋と高原の一日</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

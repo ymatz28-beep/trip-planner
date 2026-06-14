@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九州ドライブ — 旅先まとめ | iUMA Travel</title>
+<meta name="theme-color" content="#7a1f1f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+    --wine:#7a1f1f;
+    --wine-2:#f9eded;
+    --gold:#a07a1c;
+    --gold-bg:rgba(160,122,28,.10);
+    --silver:#7a7a90;
+    --silver-bg:rgba(122,122,144,.09);
+    --bronze:#7060c0;
+    --bronze-bg:rgba(112,96,192,.10);
+    --r:14px; --r-sm:9px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 8px 24px rgba(28,24,32,.06);
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+
+  /* ── Topbar ── */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.88);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:7px 11px;border-radius:9px;min-height:36px;display:flex;align-items:center;
+    transition:background .15s,color .15s;
+  }
+  .topnav a:hover{background:rgba(0,0,0,.05);}
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ── Hero ── */
+  .hero{
+    background:linear-gradient(135deg,#3d0f0f 0%,#7a1f1f 50%,#6b3a00 100%);
+    color:#fff;
+    padding:40px 18px 36px;
+  }
+  .hero .wrap{max-width:720px;}
+  .hero-eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:rgba(255,255,255,.55);margin-bottom:10px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .hero-eyebrow::before{content:"";width:16px;height:1.5px;background:rgba(255,255,255,.35);display:block;}
+  .hero-title{font-size:clamp(26px,5vw,38px);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px;}
+  .hero-sub{font-size:13.5px;color:rgba(255,255,255,.65);line-height:1.55;}
+  .hero-stats{
+    display:flex;gap:20px;margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);
+  }
+  .hero-stat{font-size:11px;color:rgba(255,255,255,.5);font-weight:600;letter-spacing:.06em;}
+  .hero-stat span{display:block;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.02em;line-height:1.1;margin-bottom:2px;}
+
+  /* ── Rank filter ── */
+  .filter-bar{
+    display:flex;gap:6px;padding:14px 0 2px;
+    overflow-x:auto;scrollbar-width:none;
+  }
+  .filter-bar::-webkit-scrollbar{display:none;}
+  .fb-btn{
+    flex:0 0 auto;font-size:12.5px;font-weight:700;
+    padding:7px 14px;border:1.5px solid var(--line);border-radius:var(--r-pill);
+    background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;
+    white-space:nowrap;transition:.15s;letter-spacing:.02em;
+  }
+  .fb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .fb-btn:hover:not(.active){border-color:var(--wine);color:var(--wine);}
+
+  /* ── Section ── */
+  .section{padding:20px 0 8px;}
+  .sec-label{
+    font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-3);margin-bottom:14px;
+  }
+
+  /* ── City grid ── */
+  .city-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  @media(max-width:540px){.city-grid{grid-template-columns:1fr;}}
+
+  .city-card{
+    display:flex;flex-direction:column;
+    background:var(--surface);border:1.5px solid var(--line);
+    border-radius:var(--r);padding:18px 16px 14px;
+    text-decoration:none;color:var(--ink);
+    box-shadow:var(--shadow);
+    transition:transform .18s,box-shadow .18s,border-color .18s;
+    position:relative;overflow:hidden;
+  }
+  .city-card:hover{transform:translateY(-3px);box-shadow:0 4px 20px rgba(28,24,32,.10);border-color:rgba(122,31,31,.25);}
+
+  /* Rank color accents */
+  .city-card[data-rank="S"]{border-color:rgba(160,122,28,.35);background:linear-gradient(160deg,#fff 80%,rgba(160,122,28,.04));}
+  .city-card[data-rank="S"]:hover{border-color:rgba(160,122,28,.6);}
+  .city-card[data-rank="A"]{border-color:rgba(122,122,144,.30);}
+  .city-card[data-rank="B"]{border-color:rgba(112,96,192,.25);}
+  .city-card[data-rank="B"]{opacity:.9;}
+
+  /* hidden by filter */
+  .city-card.hidden{display:none;}
+
+  .card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;}
+  .card-emoji{font-size:28px;line-height:1;}
+  .card-rank{
+    font-size:10px;font-weight:800;letter-spacing:.1em;
+    padding:3px 8px;border-radius:var(--r-sm);line-height:1.4;
+  }
+  [data-rank="S"] .card-rank{background:var(--gold-bg);color:var(--gold);}
+  [data-rank="A"] .card-rank{background:var(--silver-bg);color:var(--silver);}
+  [data-rank="B"] .card-rank{background:var(--bronze-bg);color:var(--bronze);}
+
+  .card-city{font-size:16px;font-weight:800;letter-spacing:-.01em;margin-bottom:3px;line-height:1.25;}
+  .card-tagline{font-size:12px;color:var(--ink-2);line-height:1.5;margin-bottom:10px;}
+
+  .card-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:12px;}
+  .card-tag{
+    font-size:10.5px;font-weight:600;color:var(--ink-3);
+    background:var(--surface-2);border:1px solid var(--line-2);
+    padding:2px 7px;border-radius:var(--r-pill);
+    white-space:nowrap;
+  }
+
+  .card-footer{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:auto;padding-top:10px;border-top:1px solid var(--line-2);
+  }
+  .card-dist{font-size:11.5px;font-weight:600;color:var(--ink-3);}
+  .card-arrow{font-size:16px;color:var(--wine);transition:transform .18s;}
+  .city-card:hover .card-arrow{transform:translateX(3px);}
+
+  /* ── Note ── */
+  .note{
+    margin-top:24px;padding:14px 16px;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);
+    font-size:12px;color:var(--ink-3);line-height:1.6;
+  }
+  .note strong{color:var(--ink-2);}
+
+  /* ── Footer ── */
+  footer{
+    margin-top:40px;padding:18px 0 24px;
+    border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;
+    font-size:10.5px;color:var(--ink-3);letter-spacing:.06em;
+    font-weight:600;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Topbar ── -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html" aria-current="page">九州</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Kyushu Day Trip</div>
+    <h1 class="hero-title">九州ドライブ<br>旅先まとめ</h1>
+    <p class="hero-sub">福岡から日帰り〜1泊2日で行ける九州の旅先。重伝建・ワイナリー・温泉・絶品カフェを軸に選んだ8都市。</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span>8</span>都市</div>
+      <div class="hero-stat"><span>3</span>S ランク</div>
+      <div class="hero-stat"><span>40分〜</span>最短距離</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Main ── -->
+<div class="wrap">
+
+  <!-- Rank filter -->
+  <div class="filter-bar" id="filter-bar">
+    <button class="fb-btn active" data-f="all">すべて</button>
+    <button class="fb-btn" data-f="S">⭐ S ランク</button>
+    <button class="fb-btn" data-f="A">A ランク</button>
+    <button class="fb-btn" data-f="B">B ランク</button>
+    <button class="fb-btn" data-f="near">🚗 40分圏内</button>
+  </div>
+
+  <div class="section">
+    <div class="sec-label">S — 絶対外れなし</div>
+    <div class="city-grid" id="city-grid">
+
+      <!-- S ランク -->
+      <a class="city-card" data-rank="S" data-dist="near" href="kurume.html">
+        <div class="card-top">
+          <span class="card-emoji">🍷</span>
+          <span class="card-rank">S</span>
+        </div>
+        <div class="card-city">久留米市</div>
+        <div class="card-tagline">ラーメン聖地 × ワインランチ × 庭園美術館 × 夜の居酒屋</div>
+        <div class="card-tags">
+          <span class="card-tag">久留米ラーメン</span>
+          <span class="card-tag">巨峰ワイナリー</span>
+          <span class="card-tag">石橋文化センター</span>
+          <span class="card-tag">海鮮</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約50分</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="city-card" data-rank="S" data-dist="near" href="ukiha.html">
+        <div class="card-top">
+          <span class="card-emoji">🍇</span>
+          <span class="card-rank">S</span>
+        </div>
+        <div class="card-city">うきは市</div>
+        <div class="card-tagline">吉井白壁重伝建 × スペシャルティコーヒー激戦区 × 農家フルーツ</div>
+        <div class="card-tags">
+          <span class="card-tag">重伝建</span>
+          <span class="card-tag">コーヒー</span>
+          <span class="card-tag">古民家カフェ</span>
+          <span class="card-tag">フルーツ</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約40分</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="city-card" data-rank="S" href="minamiaso.html">
+        <div class="card-top">
+          <span class="card-emoji">🌿</span>
+          <span class="card-rank">S</span>
+        </div>
+        <div class="card-city">南阿蘇村・西原村</div>
+        <div class="card-tagline">九州最高密度のカフェ&パン屋 × 高原の絶景 × 源泉温泉</div>
+        <div class="card-tags">
+          <span class="card-tag">パン屋</span>
+          <span class="card-tag">高原カフェ</span>
+          <span class="card-tag">温泉</span>
+          <span class="card-tag">あか牛</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約1.5h</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="city-card" data-rank="S" href="aya.html">
+        <div class="card-top">
+          <span class="card-emoji">🌳</span>
+          <span class="card-rank">S</span>
+        </div>
+        <div class="card-city">綾町</div>
+        <div class="card-tagline">有機農業の町 × ユネスコエコパーク × ワイナリー × クラフト工房</div>
+        <div class="card-tags">
+          <span class="card-tag">有機農業</span>
+          <span class="card-tag">照葉樹林</span>
+          <span class="card-tag">ワイナリー</span>
+          <span class="card-tag">工芸</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約2.5h</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- A ランク -->
+      <a class="city-card" data-rank="A" href="yame.html">
+        <div class="card-top">
+          <span class="card-emoji">🍵</span>
+          <span class="card-rank">A</span>
+        </div>
+        <div class="card-city">八女市・奥八女</div>
+        <div class="card-tagline">八女茶の産地 × 星野村の棚田 × 重伝建白壁 × 古民家カフェ</div>
+        <div class="card-tags">
+          <span class="card-tag">八女茶</span>
+          <span class="card-tag">棚田</span>
+          <span class="card-tag">重伝建</span>
+          <span class="card-tag">玉露体験</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約1.5h</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="city-card" data-rank="A" href="hita.html">
+        <div class="card-top">
+          <span class="card-emoji">🏚️</span>
+          <span class="card-rank">A</span>
+        </div>
+        <div class="card-city">日田市・大山町</div>
+        <div class="card-tagline">豆田町重伝建 × 豪商屋敷 × 小鹿田焼の里 × 梅栗農産物</div>
+        <div class="card-tags">
+          <span class="card-tag">重伝建</span>
+          <span class="card-tag">小鹿田焼</span>
+          <span class="card-tag">発酵食</span>
+          <span class="card-tag">大山農産物</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約1.5h</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="city-card" data-rank="A" href="kirishima.html">
+        <div class="card-top">
+          <span class="card-emoji">🌋</span>
+          <span class="card-rank">A</span>
+        </div>
+        <div class="card-city">霧島市</div>
+        <div class="card-tagline">霧島神宮 × 霧島温泉 × ワイナリー × 黒豚ランチ（1泊推奨）</div>
+        <div class="card-tags">
+          <span class="card-tag">温泉</span>
+          <span class="card-tag">ワイナリー</span>
+          <span class="card-tag">霧島神宮</span>
+          <span class="card-tag">黒豚</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約2.5h</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <!-- B ランク -->
+      <a class="city-card" data-rank="B" data-dist="near" href="itoshima.html">
+        <div class="card-top">
+          <span class="card-emoji">🌊</span>
+          <span class="card-rank">B</span>
+        </div>
+        <div class="card-city">糸島・二丈エリア</div>
+        <div class="card-tagline">観光地化されてない穴場 × 個人系パン屋 × 海沿いカフェ × 牡蠣小屋（冬）</div>
+        <div class="card-tags">
+          <span class="card-tag">パン屋</span>
+          <span class="card-tag">海カフェ</span>
+          <span class="card-tag">牡蠣（冬）</span>
+          <span class="card-tag">ワイナリー</span>
+        </div>
+        <div class="card-footer">
+          <span class="card-dist">🚗 約40分</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+    </div><!-- /city-grid -->
+  </div>
+
+  <div class="note">
+    <strong>ランク基準</strong>　S = 絶対外れなし・何度でも行ける密度。A = 目的が合えばS並み。B = テーマが刺さる人向け穴場。<br>
+    距離は福岡市薬院エリアからのカーシェア想定（高速利用）。
+  </div>
+
+  <footer>
+    <div>iUMA TRAVEL — 2026</div>
+    <div>九州ドライブ</div>
+    <div>8 cities</div>
+  </footer>
+</div><!-- /wrap -->
+
+<script>
+  var fbBtns = Array.prototype.slice.call(document.querySelectorAll('#filter-bar .fb-btn'));
+  var cards  = Array.prototype.slice.call(document.querySelectorAll('.city-card'));
+
+  fbBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-f');
+      fbBtns.forEach(function(b){ b.classList.toggle('active', b === btn); });
+      cards.forEach(function(c){
+        if(f === 'all'){
+          c.classList.remove('hidden');
+        } else if(f === 'near'){
+          c.classList.toggle('hidden', c.getAttribute('data-dist') !== 'near');
+        } else {
+          c.classList.toggle('hidden', c.getAttribute('data-rank') !== f);
+        }
+      });
+      // Update section label visibility
+      document.querySelectorAll('.sec-label').forEach(function(lbl){ lbl.style.display = ''; });
+    });
+  });
+</script>
+</body>
+</html>

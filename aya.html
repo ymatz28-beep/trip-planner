@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>綾町 日帰り or 1泊2日 — 有機とワインと照葉樹林 | 2026.06.14</title>
+<meta name="theme-color" content="#2e6b3c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#2e6b3c;
+    --wine-2:#e6f2ea;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(150,210,180,.22), transparent 55%),
+      linear-gradient(150deg,#1f4a2e 0%,#2e6b3c 42%,#1f5a3a 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#a8d4b8;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#a8d4b8;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#d4e3da;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(46,107,60,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="aya.html" aria-current="page">綾町</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Day Trip / Overnight · 福岡 → 綾町（宮崎）</div>
+    <h1>綾、有機とワインと照葉樹林
+      <small>九州で最もヨーロッパ感がある有機の町。</small>
+    </h1>
+    <p class="lede">薬院から2.5時間、宮崎県綾町へ。有機農業の先進地で、綾ワイナリー・クラフト工房・天然醸造の職人が集積する。照葉樹林の景観は九州で唯一無二。観光地化されすぎず、こだわりの作り手が多い「本物の産地」。1泊2日の本命エリア。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 日帰り or 1泊2日</span>
+      <span class="hpill">🚗 薬院から約2.5時間</span>
+      <span class="hpill">🌿 有機×ワイナリー×クラフト</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+      <div class="s">柔軟に対応</div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">2.5<span class="u">h</span></div>
+      <div class="s">九州道→宮崎道経由</div>
+    </div>
+    <div class="fact">
+      <div class="k">特徴</div>
+      <div class="v jp">有機×ワイン</div>
+      <div class="s">クラフト職人の集積地</div>
+    </div>
+    <div class="fact">
+      <div class="k">めやす</div>
+      <div class="v tnum">¥8k<span class="u">/</span>15k</div>
+      <div class="s">日帰り／1泊2日</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv" style="background:linear-gradient(180deg,#fff,var(--indigo-2));border-color:#d9dbfb;border-left-color:var(--indigo);">
+    <div class="ic">⭐</div>
+    <div>
+      <div class="t" style="color:#2b2497;">Sランク格上げ — 有機×ワイナリー×クラフトが揃う唯一のエリア</div>
+      <div class="d">綾ワイナリー（宮崎ワインの代表格）・有機農業（日本初の有機農業宣言の地）・天然醸造の工房・クラフト作家のアトリエが一つの町に集まる。これを日帰りで体験できる場所は九州にない。照葉樹林も西日本最大級で、景観もほかとは全く違う。距離だけが唯一の弱点。</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">お店候補</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 7:00 – 19:30</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院 → 綾町で有機とワインと照葉樹林を一気に体験 → 帰路。早出で全部詰め込む日帰り、または1泊で余裕を持つプラン。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 7:00 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">7:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">福岡都市高速 → 九州道 → 宮崎道 → 綾IC · 高速約2.5時間 · 通行料約3,200円</div>
+          <p class="desc">綾町は距離が長い。<b>7:00の早出で9:45に到着</b>して、丸一日を使う。九州道の大分方面を北上して宮崎道に乗り換え、綾ICで下りる。快適な高速なので、朝早発で昼過ぎには全部の体験が入る。1泊する場合も朝出発が正解（午後・夕方に着いて、翌日ゆっくり）。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 九州道→宮崎道→綾IC 約2.5時間</span></div>
+
+      <!-- 9:45 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:45</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌳</div><h3>綾の照葉大吊橋・照葉樹林散策</h3></div>
+          <span class="ctag">観光 · 西日本最大級</span>
+          <div class="meta">綾町大字南俣 · 9:00–17:00 · 入橋料金 ¥300 · 駐車場あり</div>
+          <p class="desc">高さ142mの吊橋から眺める西日本最大級の照葉樹林。橋の上からの眺めは、<b>九州のどこにもない独特の景観</b>。山全体が原生林で、ユーラシア大陸の造成からの遺存植生。朝一番に行くと空気も澄んでいて、この土地の本質が伝わる。</p>
+          <a class="map" href="https://maps.google.com/?q=綾の照葉大吊橋" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 町内・綾ワイナリーへ 車15分</span></div>
+
+      <!-- 11:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">11:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>綾ワイナリー・有機ぶどう畑と試飲</h3></div>
+          <span class="ctag">観光 · 有機農法</span>
+          <div class="meta">綾ユネスコエコパーク内 · 直売所 9:00–17:00 · 試飲あり · 駐車場あり</div>
+          <p class="desc">宮崎ワインの代表格。有機農法で育てたぶどうを自社醸造。<b>ぶどう畑を歩いて醸造所を見学</b>し、試飲もできる。お土産のワイン選びはここで。運転手は試飲を控えめに。有機農業の地だからこそ、ワイナリーも自然と融合している。</p>
+          <a class="map" href="https://maps.google.com/?q=綾ワイナリー" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>☕ 町内のカフェへ 車5分</span></div>
+
+      <!-- 12:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">12:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🥗</div><h3>有機カフェ・ランチ</h3></div>
+          <span class="ctag">昼食 · 有機野菜</span>
+          <div class="meta">綾町内の有機農家レストラン · 予約推奨</div>
+          <p class="desc">綾町内の有機農家が直営するカフェ・レストラン。<b>その朝に収穫した有機野菜を使った昼食</b>。農薬を一切使わない野菜の味は、スーパーのものと全く異なる。素朴だが本格的な食事で、この土地の有機農業を体験する。</p>
+          <div class="why"><b>町の本質を感じる場所</b>　綾は「有機農業宣言」の地。ただのカフェではなく、農家の営みの延長。野菜の味そのもので、なぜここが有機の先進地か理解できる。</div>
+          <a class="map" href="https://maps.google.com/?q=綾町+有機カフェ" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 綾国際クラフトの城へ 車10分</span></div>
+
+      <!-- 14:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">14:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🎨</div><h3>クラフト工房・アトリエ巡り</h3></div>
+          <span class="ctag">観光 · 作家体験</span>
+          <div class="meta">綾国際クラフトの城周辺 · 陶芸・ガラス・木工・染め物の作家が集積</div>
+          <p class="desc">綾町には陶芸・ガラス細工・木工・染め物など、こだわりの職人・作家が多い。<b>工房を巡ってものづくりを見学・購入・体験</b>できる。観光地化されすぎず、作家が普通に仕事をしている空間。高級工芸品ではなく、日々使う器の逸品に出会える。</p>
+          <div class="why"><b>有機農業と職人の暮らしが共存</b>　綾町全体が「ものを大切にする文化」。農業も工芸も、手で丁寧に作る価値観が一致している。</div>
+          <a class="map" href="https://maps.google.com/?q=綾国際クラフトの城" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 帰路 or 宿泊地へ</span></div>
+
+      <!-- 15:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">15:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>帰路 or 1泊（選択）</h3></div>
+          <span class="ctag">解散／宿泊</span>
+          <div class="meta">日帰り: 帰路2.5時間→19:30薬院着 / 1泊: 綾町内の宿</div>
+          <p class="desc"><b>日帰りなら15:30出発で19:30薬院着</b>。朝の照葉樹林・昼のワイナリー・午後のクラフトを詰め込んだ満足度の高い日帰り旅。<b>1泊する場合は、翌朝にゆっくり散策</b>して、より深く綾町に浸かれる。距離があるからこそ、1泊を推奨。</p>
+          <div class="why"><b>距離が長い分、1泊が圧倒的に満足度高い</b>　朝の早出で夜中に帰るなら日帰り可。でも綾町の空気を本当に感じるなら、翌朝の静けさの中で再び照葉樹林を歩くのが正解。</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 拡張メニュー</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">綾町のコア体験（照葉樹林・ワイナリー・有機カフェ・クラフト）に加えて、選べるオプション。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="forest">🌿 照葉樹林・自然</button>
+      <button class="gb-btn" data-g="wine">🍷 ワイナリー・有機酒</button>
+      <button class="gb-btn" data-g="food">🥗 有機食・カフェ</button>
+      <button class="gb-btn" data-g="bread">🥐 パン・ベーカリー</button>
+      <button class="gb-btn" data-g="craft">🎨 クラフト工房・アトリエ</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉・宿泊（1泊の場合）</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="forest">
+      <h3 class="opth">🌿 照葉樹林・自然</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">綾の照葉大吊橋</span><span class="pg">今回・西日本最大級</span></div><div class="pm">南俣・高さ142m・¥300。西日本最大級の原生照葉樹林。朝一番の空気が澄んだ時間帯に。<a class="pmap" href="https://maps.google.com/?q=綾の照葉大吊橋+綾町+宮崎" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1474.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">綾ユネスコエコパーク</span><span class="pg">今回・散策</span></div><div class="pm">町全体が生物圏保存地域。「人間と自然の共生」が認定された地で、有機農業と原生林が共存する空間を歩く。<a class="pmap" href="https://maps.google.com/?q=綾ユネスコエコパーク+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾川渓谷・綾北川</span><span class="pg">候補・渓流</span></div><div class="pm">照葉樹が綾川に影を落とす渓谷。5月中旬〜6月は蛍が乱舞、夏は渓流が美しい。吊橋周辺から綾川荘方面へ。<a class="pmap" href="https://maps.google.com/?q=綾川渓谷+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">森林セラピー（綾川荘発）</span><span class="pg">候補・体験</span></div><div class="pm">綾川荘を拠点に、ガイドと国内最大級の照葉樹林を歩く科学的森林浴。1泊する場合の翌朝アクティビティに。<a class="pmap" href="https://maps.google.com/?q=綾川荘+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="wine">
+      <h3 class="opth">🍷 ワイナリー・地酒</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">蔵元 綾 酒泉の杜</span><span class="pg">今回・複合施設</span></div><div class="pm">南俣1800-19・10:00〜17:00・入場無料・月火休・駐車場500台。雲海酒造直営。ワイナリー・焼酎蔵・地ビール・ガラス工房・レストラン・売店が集結する綾観光の中心。<a class="pmap" href="https://maps.google.com/?q=蔵元+綾+酒泉の杜+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/ryokou/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">雲海葡萄酒醸造所（綾ワイナリー）</span><span class="pg">今回・試飲</span></div><div class="pm">酒泉の杜内。南九州初の本格観光ワイナリー。国産ぶどう100%・非加熱充填でフレッシュ。南仏風の外観で製造工程を見学できる。お土産ワインはここで。<a class="pmap" href="https://maps.google.com/?q=雲海葡萄酒醸造所+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/wine/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾自然蔵見学館</span><span class="pg">候補・無料試飲</span></div><div class="pm">南俣・要予約（前営業日まで・☎0985-77-3737）・10:30/14:00の2回・約60分・無料。映像→貯蔵庫見学→無料試飲。運転手はソフトドリンク提供あり。月火休。<a class="pmap" href="https://maps.google.com/?q=綾自然蔵見学館+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="food">
+      <h3 class="opth">🥗 有機食・カフェ・ランチ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">ぽぽにこ</span><span class="pg">今回・有機ランチ</span></div><div class="pm">南俣2109-1・<b>完全予約制</b>（前日17時まで・☎080-9650-5439/InstaDM）・11:30/12:45の2部制・火水木休。管理栄養士オーナーの無農薬野菜＋自家製発酵調味料の発酵ランチ。綾の有機文化を最も体現する一軒。<a class="pmap" href="https://maps.google.com/?q=ぽぽにこ+綾町+宮崎" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.instagram.com/poponico_aya/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">ラ・ルーナ・ルーチェ</span><span class="pg">今回・森のカフェ</span></div><div class="pm">南俣5176-130・11:00〜15:00（L.O.14:00）・火水休・<b>前日まで予約必須</b>（☎0985-77-3404）。山奥のジブリ風ガーデンカフェ。ランチ・スイーツ・雑貨。細道・駐車台数限られるので運転注意。<a class="pmap" href="https://maps.google.com/?q=ラ・ルーナ・ルーチェ+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.instagram.com/la_luna_luce_aya/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">cafe&zakka nicol</span><span class="pg">候補・スイーツ</span></div><div class="pm">入野598-7・11:00〜16:00（土日〜17:00）・木休・☎0985-77-2622。照葉大吊橋への道沿いのリノベ隠れ家カフェ。ふわふわフレンチトーストとラテアートが名物。<a class="pmap" href="https://maps.google.com/?q=cafe+zakka+nicol+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/miyazaki/A4502/A450201/45006028/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">リバーサイドガーデン綾</span><span class="pg">候補・川沿い</span></div><div class="pm">入野4000・11:00〜16:00・水休・☎0985-30-7115。綾北川沿いの川沿いカフェ。地産地消のカレードリア・パスタ・ワッフル。テラスにブランコ・ハンモック。<a class="pmap" href="https://maps.google.com/?q=リバーサイドガーデン綾+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/miyazaki/A4502/A450201/45006271/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾の里</span><span class="pg">候補・郷土料理</span></div><div class="pm">南俣5690・11:00〜14:00・月木土休・☎0985-77-1470・予約不可。綾川渓谷を眺めながら鮎・地鶏料理。地鶏定食¥1,900、鮎定食¥2,600。水路の船が料理を運ぶ趣向。<a class="pmap" href="https://maps.google.com/?q=綾の里+綾町+宮崎" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/miyazaki/A4502/A450201/45000259/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">レストラン綾ぐるめ（酒泉の杜）</span><span class="pg">候補・チキン南蛮</span></div><div class="pm">酒泉の杜内・南俣1800-19・10:30〜15:00・☎0985-77-2222。地産地消の和洋食。県産若鶏のチキン南蛮が看板、地ビール・ワインも。ワイナリー見学とセットで動きやすい。<a class="pmap" href="https://maps.google.com/?q=レストラン綾ぐるめ+酒泉の杜" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.unkai.co.jp/ryokou/restaurant.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="bread">
+      <h3 class="opth">🥐 パン・ベーカリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">パン工房 綾</span><span class="pg">候補・天然酵母</span></div><div class="pm">入野484-17・10:00〜17:00・月火休・☎0985-77-3264・駐車場3台。木々に囲まれた小さな店。国産小麦＋天然酵母の田舎パン¥630・食パン¥390など7種。喫茶コーナーで焼きたても。<a class="pmap" href="https://maps.google.com/?q=パン工房+綾+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/miyazaki/A4502/A450201/45003861/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">キッチン春風</span><span class="pg">候補・無添加</span></div><div class="pm">綾町内・砂糖卵乳製品不使用の高加水「春風パン」。もちもち食感のフランスパン系。森林浴ランチも。最新営業はSNS確認推奨。<a class="pmap" href="https://maps.google.com/?q=キッチン春風+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.instagram.com/kitchen_harukaze_aya/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">HINAYA BAKERY（ひなやファーム）</span><span class="pg">候補・米粉パン</span></div><div class="pm">綾町産の自社米を米粉に加工したもちもち米粉パン・フレンチトースト。<b>綾てづくりほんものセンター</b>でも購入可、お土産に。<a class="pmap" href="https://maps.google.com/?q=綾てづくりほんものセンター" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.instagram.com/hinayafarm/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="craft">
+      <h3 class="opth">🎨 クラフト工房・アトリエ</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">綾国際クラフトの城</span><span class="pg">今回・工房巡り</span></div><div class="pm">北俣1012・9:00〜17:30（10〜3月〜17:00）・木休・入館¥350（綾城共通）・無料駐車場・☎0985-77-1223。町内26工房の陶芸・染織・木工・竹細工・ガラス・漆を一堂に展示販売。隣に再現された中世山城・綾城。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.town.aya.miyazaki.jp/tourist/attraction/1473.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">陶芸体験（綾城焼）</span><span class="pg">候補・体験</span></div><div class="pm">クラフトの城内・体験実習館。10:00〜16:00・定員5名・要予約☎0985-77-0910。湯呑¥2,000〜、コーヒーカップ・平皿¥3,500。¥5,000以上の買い物・体験で入館料キャッシュバック。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">玄太染織工房</span><span class="pg">候補・織物体験</span></div><div class="pm">クラフトの城・織物体験の窓口（☎0985-77-1223）。10:00〜16:00。綾の絹織物・染色の作家工房。ミニ機織り¥1,200〜・藍染めハンカチ¥1,350〜。<a class="pmap" href="https://maps.google.com/?q=綾国際クラフトの城+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">黒木国昭 光ガラス工房（酒泉の杜）</span><span class="pg">候補・名工</span></div><div class="pm">酒泉の杜内。国の「現代の名工」黒木国昭氏のガラス工房。「光琳」「綾切子」など手吹きガラス作品を見学・購入。ワイナリーと同じ敷地で動きやすい。<a class="pmap" href="https://maps.google.com/?q=黒木国昭+ガラス工房+酒泉の杜" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉・宿泊（1泊の場合）</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">綾川荘（自然休養村センター）</span><span class="pg">今回・宿＋日帰り湯</span></div><div class="pm">北俣・☎0985-77-0070。照葉樹と綾北川の吊橋を望む公共の宿。明光石温泉（人工温泉・サウナ・水風呂）。日帰り入浴も可（10:00〜22:00・大人¥600）。森林セラピーの拠点。<a class="pmap" href="https://maps.google.com/?q=綾川荘+綾町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://ayakawasou.com/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">綾てるはの森の宿 薬石の湯</span><span class="pg">候補・日帰り湯</span></div><div class="pm">北俣3765・☎0985-77-1227・10:00〜22:00。麦飯石を使ったミネラル人工ヘルストン温泉、サウナ付き。日帰り大人¥350前後（町内割引あり）。<a class="pmap" href="https://maps.google.com/?q=綾てるはの森の宿+薬石の湯+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">あゆのお宿 山水</span><span class="pg">候補・川魚＋民宿</span></div><div class="pm">北俣1768・☎0985-69-7857系。綾川渓谷入口の民宿＋川魚料理店。鮎の塩焼き・唐揚げ・鮎飯が名物。気軽な料金で1泊、5〜6月は蛍も。<a class="pmap" href="https://maps.google.com/?q=あゆの山水+綾町" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>このプランの構成</b>　照葉樹林（朝）→ ワイナリー試飲（昼前）→ 有機ランチ（昼）→ クラフト工房（午後）が基本ルート。1泊の場合は翌朝に再び自然散策。距離が長いからこそ、深さを重視した設計。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget · 日帰り想定</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代を2〜3名で割り勘。ワイン・ランチ・工芸品購入は個人負担。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約300km</small></div><div class="br">¥1,610</div></div>
+      <div class="brow"><div class="bl">高速代<small>往復</small></div><div class="br">¥2,400</div></div>
+      <div class="brow"><div class="bl">照葉大吊橋<small>入橋料金</small></div><div class="br">¥300</div></div>
+      <div class="brow"><div class="bl">ランチ<small>有機カフェ</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">ワイン購入<small>お土産</small></div><div class="br">¥2,000</div></div>
+      <div class="brow total"><div class="bl">合計のめやす（1人）</div><div class="br">約 ¥9,200</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳のポイント</b>：カーシェア・高速代は3名割でより安くなる。有機ランチ・ワイン購入は予算の幅あり。工芸品はお土産次第。1泊する場合は宿泊代別途（¥6k～12k程度）。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前準備</h2>
+      <p class="sec-sub">距離が長い分、事前確認が必須。出発前にこれだけは押さえておく。</p>
+    </div>
+
+    <div class="weather rv">
+      <div class="ic">🚗</div>
+      <div>
+        <div class="t">2.5時間の長距離 — 早出と高速走行のコツ</div>
+        <div class="d">薬院から綾町は距離が長い。7:00の早出で朝の澄んだ時間帯に照葉樹林を歩け、昼過ぎに全ての体験が収まる。九州道・宮崎道は交通量が少なく走りやすい。ただし朝早発のため、メンバーの体調確認と睡眠をしっかり。ドライバーは複数いると最高。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前準備（重要）</h4>
+        <ul>
+          <li class="must">有機カフェ・レストランを事前予約（綾町内・昼食12:30確定）</li>
+          <li class="must">タイムズカー 12時間パックを 7:00 から予約確定（薬院出発）</li>
+          <li class="must">ドライバーを複数確認（2.5時間の往復、交代運転あると安全）</li>
+          <li>ワイナリーの営業日・試飲ルールを確認</li>
+          <li>クラフト工房の営業時間を確認（午後3時以降に工房が開いているか）</li>
+          <li>1泊する場合は宿を早めに予約（週末は混雑）</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>運転免許証 ×人数分（カーシェア・レンタカー用）</li>
+          <li>クレジットカード（高速料金・カーシェア支払い）</li>
+          <li>タオル・着替え（1泊の場合）</li>
+          <li>サングラス（高速走行・朝日対策）</li>
+          <li>飲み物・軽食（高速で仮眠時用）</li>
+          <li>カメラ・スマートフォン（クラフト工房の写真・地図用）</li>
+          <li>リュック・エコバッグ（ワイン・お土産用）</li>
+          <li>車のガソリン・タイヤ・ワイパーを出発前に確認</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://www.kanko-aya.jp/" target="_blank" rel="noopener">綾町観光サイト 公式</a></li>
+        <li><a href="https://maps.google.com/?q=綾の照葉大吊橋" target="_blank" rel="noopener">綾の照葉大吊橋（Google Maps）</a></li>
+        <li><a href="https://maps.google.com/?q=綾ワイナリー" target="_blank" rel="noopener">綾ワイナリー（Google Maps）</a></li>
+        <li><a href="https://maps.google.com/?q=綾ユネスコエコパーク" target="_blank" rel="noopener">綾ユネスコエコパーク（Google Maps）</a></li>
+        <li><a href="https://maps.google.com/?q=綾国際クラフトの城" target="_blank" rel="noopener">綾国際クラフトの城（Google Maps）</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">綾町 · 有機とワインと照葉樹林 · 06.14 (土)</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

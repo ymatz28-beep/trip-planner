@@ -286,6 +286,20 @@
     .fact:nth-child(2n){border-right:1px solid var(--line-2);}
     .fact:last-child{border-right:0;}
   }
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+
+  /* ============ Rank badges ============ */
+  .pick .pg-s{font-size:10.5px;font-weight:700;color:#9a6a0c;background:#fff8e1;border:1px solid #f0d060;padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pg-a{font-size:10.5px;font-weight:700;color:#2b5db8;background:#e8f0fe;border:1px solid #c5d8f5;padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pg-b{font-size:10.5px;font-weight:700;color:#5c5c6a;background:#f2f1f5;border:1px solid #dddae6;padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .rank-head{font-size:11px;font-weight:800;color:var(--ink-3);letter-spacing:.1em;margin:13px 0 7px;padding-left:2px;text-transform:uppercase;}
+
   @media print{
     .topbar,.secnav-wrap,.totop,.map{display:none!important;}
     body{background:#fff;}
@@ -302,6 +316,7 @@
     <div class="brand">iUMA · TRAVEL</div>
     <nav class="topnav">
       <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
       <a href="kurume.html" aria-current="page">久留米</a>
     </nav>
   </div>
@@ -601,27 +616,42 @@
     <div class="sec-head rv">
       <div class="kicker">Options · 差し替え自由</div>
       <h2 class="sec-title">お店候補（ジャンル別）</h2>
-      <p class="sec-sub">これまで挙げた行き先を、ジャンルごとにまとめた候補ボード。当日の天気・気分・お腹の空き具合で入れ替えられる。<b>濃い色＝今回行く店</b>、それ以外は差し替え／次回久留米の引き出し。</p>
+      <p class="sec-sub">ジャンルを選ぶと絞り込めます。<b>濃い色＝今回行く店</b>、それ以外は差し替え／次回久留米の引き出し。</p>
     </div>
 
-    <div class="optgroup rv">
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="pan">🥐 パン</button>
+      <button class="gb-btn" data-g="cake">🍰 ケーキ</button>
+      <button class="gb-btn" data-g="wagashi">🍡 和菓子</button>
+      <button class="gb-btn" data-g="coffee">☕ コーヒー</button>
+      <button class="gb-btn" data-g="cafe">🌸 カフェ</button>
+      <button class="gb-btn" data-g="wine">🍷 ワイン</button>
+      <button class="gb-btn" data-g="ramen">🍜 ラーメン</button>
+      <button class="gb-btn" data-g="michinoeki">🛒 道の駅</button>
+      <button class="gb-btn" data-g="plant">🌿 植物</button>
+      <button class="gb-btn" data-g="dinner">🍶 夜ごはん</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉</button>
+    </div>
+
+    <div class="optgroup rv" data-g="pan">
       <h3 class="opth">🥐 パン屋（ベーカリー）</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">TRICOT BAKERS MARKET</span><span class="pg">朝の本命</span></div><div class="pm">西町・朝7:00開（水土日のみ）。マリトッツォ／塩バターキャラメル。駅近で合流前に。<a class="pmap" href="https://maps.app.goo.gl/9YnS5dnByXx4s1nP9" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">レアクロノ（RHEA CRONOS）</span><span class="pg">候補</span></div><div class="pm">野中町・土日9:00–17:00・木金休。2025年秋オープンの話題店、異国情緒の創作パン。<a class="pmap" href="https://maps.app.goo.gl/LfDqxmrrxQykQ8PHA" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">haruta bakery</span><span class="pg">午後・善導寺</span></div><div class="pm">善導寺町木塚・9:30–16:00・水休。京都の名店の味。午後の み乃う茶房のすぐ隣で帰り道に。<a class="pmap" href="https://maps.app.goo.gl/huS9JrshSD7PcgLJ7" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick rec"><div class="ph"><span class="pn">シェ サガラ</span><span class="pg">今回・田主丸</span></div><div class="pm">田主丸町益生田873-12・10:00–17:00・火水木休。<b>巨峰ワイナリーのすぐ近く</b>のテイクアウト焼き菓子店（クロワッサン・デニッシュ／カウンター6席）。ワインランチの前後に立ち寄ってお土産に。予約不可・0943-73-3680。<a class="pmap" href="https://tabelog.com/fukuoka/A4008/A400801/40003061/" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ジュランマルシェ</span><span class="pg">パン・マルシェ</span></div><div class="pm">久留米の人気ベーカリーマルシェ。地元食材を使ったパン・惣菜が並ぶ。お土産にも。<a class="pmap" href="https://maps.google.com/?q=ジュランマルシェ+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="cake">
       <h3 class="opth">🍰 ケーキ・洋菓子（パティスリー）</h3>
       <div class="picks">
         <div class="pick"><div class="ph"><span class="pn">ル・サントーレ 原田本店</span><span class="pg">道中・筑紫野</span></div><div class="pm">筑紫野市原田・10:00–19:30・火休。ベルギー仏仕込み。薬院→久留米の道中で寄れる。<a class="pmap" href="https://maps.app.goo.gl/VEnKe5bK9eeSSvaK9" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="wagashi">
       <h3 class="opth">🍡 和菓子・甘味</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">imoya み乃う茶房</span><span class="pg">今回・午後</span></div><div class="pm">善導寺町木塚・土日10:00–17:00・火〜金休。減農薬さつまいもの芋スイーツ。ワインランチの食後に。<a class="pmap" href="https://maps.google.com/?q=imoya+み乃う茶房+善導寺" target="_blank" rel="noopener">📍地図</a></div></div>
@@ -629,23 +659,99 @@
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="coffee">
       <h3 class="opth">☕ コーヒー・喫茶</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">COFFEE COUNTY Kurume</span><span class="pg">今回・朝</span></div><div class="pm">通町・11:00–19:00・火休。久留米発祥のスペシャルティ焙煎所。お土産の豆も。<a class="pmap" href="https://maps.google.com/?q=COFFEE+COUNTY+Kurume+通町" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">ニュートラル ベイ カフェ</span><span class="pg">朝食・候補</span></div><div class="pm">COFFEE COUNTY 徒歩圏。ビッグブレッキーなど、朝からしっかり食べたい日に。<a class="pmap" href="https://maps.google.com/?q=ニュートラルベイカフェ+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
         <div class="pick"><div class="ph"><span class="pn">しのはら珈琲</span><span class="pg">レトロ喫茶・候補</span></div><div class="pm">六ツ門・西鉄久留米駅すぐ。1978年創業、サイフォン＋ケーキ15種。営業ゆるめ（要確認 0942-32-0932）。<a class="pmap" href="https://maps.google.com/?q=しのはら珈琲+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">珈琲萌え木</span><span class="pg">隠れ家コーヒー</span></div><div class="pm">久留米の隠れ家的コーヒー店。落ち着いた雰囲気でゆっくりできる。<a class="pmap" href="https://maps.google.com/?q=珈琲萌え木+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">🌸 カフェ・ランチ</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">カフェレストランフルール</span><span class="pg">カフェ・ランチ</span></div><div class="pm">久留米のカフェレストラン。軽食〜ランチまで使える。<a class="pmap" href="https://maps.google.com/?q=カフェレストランフルール+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="wine">
       <h3 class="opth">🍷 ワインランチ（昼）</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">森のレストラン ホイリゲ</span><span class="pg">今回の主役</span></div><div class="pm">巨峰ワイナリー内・11:00–15:00・火＋第2第4水休。耳納連山を望む森のワインランチ。要予約 0943-72-2877。<a class="pmap" href="https://maps.google.com/?q=森のレストラン+ホイリゲ+巨峰ワイナリー" target="_blank" rel="noopener">📍地図</a></div></div>
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="ramen">
+      <h3 class="opth">🍜 久留米ラーメン</h3>
+      <div class="optnote" style="margin-bottom:12px;">呼び戻しスープ（継ぎ足し製法）が特徴の発祥の地。博多ラーメンより豚骨が濃厚で、店ごとの差が大きい。<b>初めてなら「大砲ラーメン（昼）＋本田商店（夜）」の2軒がベスト</b>。</div>
+      <div class="rank-head">S ランク — 久留米に行くなら最優先</div>
+      <div class="picks">
+        <div class="pick rec">
+          <div class="ph"><span class="pn">大砲ラーメン 本店</span><span class="pg-s">S — 王道・入門</span></div>
+          <div class="pm">創業1953年。呼び戻しスープの代表格。<b>昔ラーメン</b>が名物。観光客も地元民も納得の一杯。<b>迷ったらここ</b>。<a class="pmap" href="https://maps.google.com/?q=大砲ラーメン+久留米+本店" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">丸星ラーメン</span><span class="pg-s">S — 地元の日常</span></div>
+          <div class="pm">24時間営業で有名だった老舗。安い・早い・豚骨臭しっかり。「観光」より<b>地元の日常</b>を体験したいならここ。<a class="pmap" href="https://maps.google.com/?q=丸星ラーメン+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">本田商店 久留米本店</span><span class="pg-s">S — 豚骨好き向け</span></div>
+          <div class="pm">濃厚・骨感強め・自家製麺。SUSURUも高評価の実力店。<b>純味</b>が看板。大砲（昼）との2軒回しがベスト。<a class="pmap" href="https://maps.google.com/?q=本田商店+久留米+本店" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+      </div>
+      <div class="rank-head">A ランク — かなりおすすめ</div>
+      <div class="picks">
+        <div class="pick">
+          <div class="ph"><span class="pn">久留米ラーメン清陽軒</span><span class="pg-a">A — 初心者向け</span></div>
+          <div class="pm">昭和27年創業。比較的食べやすく家族連れも多い。豚骨が得意でない人の入り口として。<a class="pmap" href="https://maps.google.com/?q=清陽軒+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">ラーメン八</span><span class="pg-a">A — 地元人気</span></div>
+          <div class="pm">食べログ上位常連。豚骨の旨味が濃く地元人気が非常に高い。観光客よりラーメン好きが通う店。<a class="pmap" href="https://maps.google.com/?q=ラーメン八+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">沖食堂</span><span class="pg-a">A — 老舗の食堂系</span></div>
+          <div class="pm">食堂系久留米ラーメン。昔ながらの味・老舗中の老舗。ノスタルジックな久留米を感じたいなら。<a class="pmap" href="https://maps.google.com/?q=沖食堂+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">廣瀬食堂</span><span class="pg-a">A — 食堂系・あっさり</span></div>
+          <div class="pm">食堂系ラーメン・ややあっさり。地元支持が厚く沖食堂と並ぶ名店。<a class="pmap" href="https://maps.google.com/?q=廣瀬食堂+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+      </div>
+      <div class="rank-head">B ランク — 好みで選ぶ</div>
+      <div class="picks">
+        <div class="pick">
+          <div class="ph"><span class="pn">大栄ラーメン</span><span class="pg-b">B — 駅近・〆ラーメン</span></div>
+          <div class="pm">久留米駅周辺。飲んだ後にも合う昔ながらの豚骨。<a class="pmap" href="https://maps.google.com/?q=大栄ラーメン+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">龍ノ家 神ツ久留米</span><span class="pg-b">B — モダン系</span></div>
+          <div class="pm">久留米ラーメンを現代風に進化させた印象。県外人気も高く完成度が高い。<a class="pmap" href="https://maps.google.com/?q=龍ノ家+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+        <div class="pick">
+          <div class="ph"><span class="pn">来福軒</span><span class="pg-b">B — 超老舗</span></div>
+          <div class="pm">創業70年以上。クラシックな久留米ラーメン。歴史を味わうなら。<a class="pmap" href="https://maps.google.com/?q=来福軒+久留米" target="_blank" rel="noopener">📍地図</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="michinoeki">
+      <h3 class="opth">🛒 道の駅・直売所</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">道の駅くるめ</span><span class="pg">直売所・お土産</span></div><div class="pm">久留米の地場産野菜・果物・特産品が揃う道の駅。お土産の調達に。<a class="pmap" href="https://maps.google.com/?q=道の駅くるめ" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="plant">
+      <h3 class="opth">🌿 植物・ガーデン</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">サンタアナガーデン</span><span class="pg">ガーデン・植物</span></div><div class="pm">多肉植物・観葉植物が充実したガーデンショップ。付近にも植物店が点在。植物好きなら立ち寄る価値あり。<a class="pmap" href="https://maps.google.com/?q=サンタアナガーデン+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="dinner">
       <h3 class="opth">🍶 夜ごはん（和食・豆腐・居酒屋・焼鳥）</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">とうふ処 梅乃家</span><span class="pg">今回・決定</span></div><div class="pm">城南町・豆腐の老舗。夜限定ナイトランチ¥3,100（全19品・デザート＋コーヒー付）。要予約 0942-35-0606・月休。<a class="pmap" href="https://maps.app.goo.gl/Lf5PhbiE46A1nGXM8" target="_blank" rel="noopener">📍地図</a></div></div>
@@ -656,7 +762,7 @@
       </div>
     </div>
 
-    <div class="optgroup rv">
+    <div class="optgroup rv" data-g="onsen">
       <h3 class="opth">♨️ 温泉（締めの一湯）</h3>
       <div class="picks">
         <div class="pick rec"><div class="ph"><span class="pn">游心の湯</span><span class="pg">今回・締め</span></div><div class="pm">本山町・9:00–25:00・土日990円。pH9.7の美肌アルカリ泉＋高濃度炭酸泉＋サウナ。疲れたら省略可。<a class="pmap" href="https://maps.google.com/?q=游心の湯+久留米" target="_blank" rel="noopener">📍地図</a></div></div>
@@ -768,6 +874,16 @@
 <button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
 
 <script>
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  showGenre('pan');
+
   // scroll-spy for section nav
   var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
   var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });

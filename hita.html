@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日田・大山町 日帰り — 天領の商家と農の一日 | 2026</title>
+<meta name="theme-color" content="#7a4a1e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#7a4a1e;
+    --wine-2:#f5ede1;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#6b3f22 0%,#8a5a30 42%,#6b4a80 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#ffd9a3;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#ffd9a3;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:6px;opacity:.85;}
+  .psrc:hover{opacity:1;}
+  .pick.rec{border-color:#e8d4c8;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(122,74,30,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="kyushu.html">九州</a>
+      <a href="hita.html" aria-current="page">日田</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Day Trip · 福岡 → 日田市・大山町</div>
+    <h1>日田、天領の商家と農の一日
+      <small>豆田の豪邸と、大山の梅と栗。</small>
+    </h1>
+    <p class="lede">薬院から1.5時間、大分県日田市へ。江戸時代に幕府直轄地（天領）として栄えた豆田町の商家街を歩き、発酵食品の専門店でランチ。午後は大山町の農産物直売と梅農園へ。豪邸が現存する九州屈指の豪商密度エリア。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 日帰り・カーシェア</span>
+      <span class="hpill">🚗 薬院から約1.5時間</span>
+      <span class="hpill">🏚️ 天領の豪商街</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+      <div class="s">小人数向き</div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">約1.5<span class="u">時間</span></div>
+      <div class="s">大分道 日田IC経由</div>
+    </div>
+    <div class="fact">
+      <div class="k">天領時代</div>
+      <div class="v jp">江戸<span class="u">〜明治</span></div>
+      <div class="s">豆田町は現存豪邸密度九州屈指</div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥5.5<span class="u">k</span></div>
+      <div class="s">カーシェア・食事・お土産</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🏛️</div>
+    <div>
+      <div class="t">豆田町 — 江戸天領の豪商屋敷が現存する九州屈指の密度</div>
+      <div class="d">日田は江戸時代に徳川幕府の直轄地（天領）として栄えた。年貢が幕府に入るため、財力のある商人が町を作り、その屋敷が今も残る。隣の大山町は梅・栗農業で有名な農産物直売の聖地。<b>1泊2日の九州ルート（うきは→日田→安心院→久住高原）の中継点としても最適。</b></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">寄り道候補</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 7:30 – 17:00</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院 → 日田IC 約1.5時間 → 豆田町散策（天領の商家街）→ 発酵舎KOGURA（ベーカリー＋カフェ）→ ビストロカフェ リヒト（ランチ）→ 大山町・農産物直売所 → 帰路。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 7:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">7:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院でカーシェア出発</h3></div>
+          <span class="ctag">移動</span>
+          <div class="meta">福岡都市高速 → 大分道 → 日田IC · 約1.5時間 · 通行料約¥1,600</div>
+          <p class="desc">薬院のカーシェアステーションから<b>7:30出発</b>。福岡都市高速で大分道に乗り、日田ICで降りて豆田町へ向かう。朝出発なので、道中と豆田町での滞在をたっぷり取れる。出発前にガソリンとワイパーを確認（梅雨）。</p>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 大分道 日田IC経由で豆田町へ 約1.5時間</span></div>
+
+      <!-- 9:15 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:15</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏚️</div><h3>豆田町・商家街散策</h3></div>
+          <span class="ctag">観光 · 無料 · 1〜1.5時間</span>
+          <div class="meta">豆田町（日田市重伝建地区） · 駐車場：まちなか駐車場あり</div>
+          <p class="desc">江戸天領の面影が色濃く残る商家街。<b>約500mの通りに明治〜江戸の土蔵・商家がそのまま</b>。広瀬資料館（豆田町の歴史）や咸宜園遺跡（江戸時代の私塾）も近くにある。駐車場に停めて徒歩散策。古い町並みを眺めるだけでも、このエリアの豪商の栄華が伝わる。</p>
+          <div class="why"><b>天領の香りを五感で</b>　豆田町は「小京都」と呼ばれるほどの城下町風情。商家の一部は今もお土産店やカフェになっているので、覗きながら散策できる。</div>
+        </div>
+      </div>
+      <div class="leg"><span>☕ 豆田町内の発酵舎KOGURAへ 徒歩5分</span></div>
+
+      <!-- 10:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">10:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🥐</div><h3>発酵舎KOGURA（カフェ＆ベーカリー）</h3></div>
+          <span class="ctag">食事・休憩</span>
+          <div class="meta">豆田町5-21 · 営業 11:00–18:00 · 水曜休 · 駐車場あり</div>
+          <p class="desc">天領日田の発酵文化を引き継ぐ発酵食品カフェ＆ベーカリー。<b>自家製パン・発酵ドリンク・甘糀パン</b>などで知られている。豆田町の中心にあり、散策の合間に立ち寄れる。朝の空き時間に、ゆっくりコーヒーとパンで息つく。</p>
+          <div class="why"><b>天領の発酵をかじる</b>　日田は醤油・味噌・麹などの発酵食品の産地。この店はそれを現代的に再解釈したベーカリー。散策と一セットで、この地の食文化を身体で感じられる。</div>
+          <a class="map" href="https://maps.google.com/?q=発酵舎KOGURA+日田" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🍽️ ビストロカフェ リヒトへ 徒歩3分</span></div>
+
+      <!-- 11:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">11:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍷</div><h3>ビストロカフェ リヒト（ランチ）</h3></div>
+          <span class="ctag">ランチ · 古民家ビストロ</span>
+          <div class="meta">豆田町内 · 11:30–15:00（昼）/ 18:00–22:00（夜・予約制） · 駐車場あり</div>
+          <p class="desc">古民家のたたずまいでヨーロッパ的な雰囲気のビストロ。昼は気軽なランチメニュー、夜は予約制のコース。<b>豆田町の歴史ある建物を活かした店</b>で、ゆったりランチを楽しめる。午前の散策でお腹も満たされ、午後へのエネルギー補給に。</p>
+          <div class="why"><b>街を歩いた後の落ち着き</b>　古い町並みを歩いてから、同じく古い建物の中でランチを取ると、豆田町の時間がそのまま流れ込む感覚。昼は予約不要。</div>
+          <a class="map" href="https://maps.google.com/?q=ビストロカフェリヒト+日田" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 豆田町 → 大山町へ 車約20分</span></div>
+
+      <!-- 13:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">13:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌾</div><h3>道の駅 水辺の郷おおやま（農産物直売所）</h3></div>
+          <span class="ctag">お土産・農産物 · 1時間 · 推奨</span>
+          <div class="meta">大山町（日田から車20分） · 9:00–17:00 · 駐車場あり</div>
+          <p class="desc">大山川沿い、大山農協直売。<b>梅・栗・旬の野菜が揃う九州屈指の農産物直売地</b>。大山町は梅・栗の産地として有名で、この季節は地場産の梅干し・梅酒・栗菓子が充実。お土産として鮮度の高い野菜・加工品が手に入る。一日の締めくくりに、地元の恵みを選ぶ時間。</p>
+          <div class="why"><b>農の現場を肌で</b>　豆田町の商家で「豪商の時代」を見た後、大山町で「農業の現在」を見ることで、この地域の産業の全体像が見える。帰路の前に、農の現場に立ち寄ることで一日が閉じる。</div>
+          <a class="map" href="https://maps.google.com/?q=道の駅水辺の郷おおやま" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 帰路・日田IC → 大分道 約1.5時間</span></div>
+
+      <!-- 15:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">15:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>帰路・大山町出発</h3></div>
+          <span class="ctag">移動 · 帰宅準備</span>
+          <div class="meta">日田IC → 大分道 → 都市高速 · 約1.5時間 · 通行料約¥1,600</div>
+          <p class="desc">大山町の直売所での買い物を済ませたら、帰路へ。日田ICから大分道に乗り、都市高速で薬院へ。16:00出発なら17:00には薬院に着く。カーシェア返却は営業時間内に。</p>
+        </div>
+      </div>
+
+      <!-- 17:00 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">17:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏠</div><h3>薬院 帰着・カーシェア返却</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">日帰り完結 · ステーション営業時間確認</div>
+          <p class="desc">薬院のカーシェアステーションに返却。給油してから返却。</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">寄り道候補（ジャンル別）</h2>
+      <p class="sec-sub">豆田町と大山町の周辺エリアで、気分や季節で寄り道できるスポット。<b>濃い色＝今回のプラン</b>、それ以外は次回の引き出し。</p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="history">🏚️ 歴史・街並み</button>
+      <button class="gb-btn" data-g="cafe">☕ カフェ・ベーカリー</button>
+      <button class="gb-btn" data-g="lunch">🍽️ ランチ・郷土料理</button>
+      <button class="gb-btn" data-g="wagashi">🍡 和菓子・土産</button>
+      <button class="gb-btn" data-g="craft">🏺 小鹿田焼・クラフト</button>
+      <button class="gb-btn" data-g="farm">🌾 農産物・直売所</button>
+      <button class="gb-btn" data-g="onsen">♨️ 温泉</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="history">
+      <h3 class="opth">🏚️ 歴史・街並み</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">豆田町・商家街</span><span class="pg">今回・本体</span></div><div class="pm">重伝建地区・江戸〜明治の土蔵・商家が現存。散策無料。<a class="pmap" href="https://maps.google.com/?q=豆田町+日田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.city.hita.oita.jp/soshiki/kikakubu/kankosuisin/1/1258.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">広瀬資料館</span><span class="pg">候補・歴史</span></div><div class="pm">豆田町の歴史・豪商文化を知る。入館料あり。<a class="pmap" href="https://maps.google.com/?q=広瀬資料館+日田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.city.hita.oita.jp/soshiki/kyoikubu/bunkazai/4/1246.html" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">咸宜園遺跡</span><span class="pg">候補・教育史</span></div><div class="pm">江戸時代の私塾跡。豆田町の北。歴史好きに。<a class="pmap" href="https://maps.google.com/?q=咸宜園+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">天領日田資料館</span><span class="pg">候補・天領史</span></div><div class="pm">豆田町・御幸通沿い。天領時代の古文書・美術工芸品を展示。豪商の暮らしを掘り下げたい時に。<a class="pmap" href="https://maps.google.com/?q=天領日田資料館" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">天領まちの駅・豆田</span><span class="pg">候補・拠点/駐車</span></div><div class="pm">豆田町の観光拠点。土産購入で駐車料金（¥500）が無料に。散策の起点に便利。<a class="pmap" href="https://maps.google.com/?q=天領まちの駅+豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ カフェ・ベーカリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">発酵舎KOGURA</span><span class="pg">今回・休憩</span></div><div class="pm">豆田町5-21・11:00–18:00・水休。発酵ドリンク・自家製パン。散策の合間に。<a class="pmap" href="https://maps.google.com/?q=発酵舎KOGURA+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">ビストロカフェ リヒト</span><span class="pg">今回・ランチ</span></div><div class="pm">豆田町内・古民家ビストロ。昼は予約不要・夜は予約制。<a class="pmap" href="https://maps.google.com/?q=ビストロカフェリヒト+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">麦屋カフェ</span><span class="pg">候補・古民家</span></div><div class="pm">豆田町9-2・古民家カフェ。名物は揚げたてコロネにソフトをのせた「コロネソフト」。キーマカレーパンも人気。木曜休。<a class="pmap" href="https://maps.google.com/?q=麦屋カフェ+日田豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">和カフェ とまり木</span><span class="pg">候補・抹茶スイーツ</span></div><div class="pm">豆田町・天領まちの駅隣。抹茶パフェ・抹茶ティラミス・くず餅など京都宇治の和スイーツ。小鹿田焼の展示販売も。<a class="pmap" href="https://maps.google.com/?q=和カフェとまり木+日田豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">石窯パン工房 ビガロ</span><span class="pg">候補・ベーカリー</span></div><div class="pm">田島2-126-5（市役所前駅徒歩5分）・本格石窯のもちもちパン。牛ゴロゴロビーフカレーパン・塩パンが看板。8:00〜・月＋第1/3日休。駐車12台。<a class="pmap" href="https://maps.google.com/?q=石窯パン工房ビガロ+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ぱんぞうベーカリー</span><span class="pg">候補・ベーカリー</span></div><div class="pm">財津町・地元人気の小さなパン屋。あんバター・おさつフランス・クロワッサン系が評判。9:30〜売切れ次第・月木休。午前が狙い目。<a class="pmap" href="https://maps.google.com/?q=ぱんぞうベーカリー+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="lunch">
+      <h3 class="opth">🍽️ ランチ・郷土料理</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">想夫恋 本店</span><span class="pg">候補・日田焼きそば元祖</span></div><div class="pm">日田焼きそば発祥の店（1957年創業）。麺をパリパリに焼き上げた名物。日田駅から徒歩約11分。11:00〜22:00・元旦休。<a class="pmap" href="https://maps.google.com/?q=想夫恋本店+日田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://tabelog.com/oita/A4403/A440301/44000127/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">天領日田 肉カフェ 嶋屋</span><span class="pg">候補・古民家×和牛</span></div><div class="pm">豆田町10-8・築150年の明治古民家。自社牧場の黒毛和牛ランチ。火〜日11:00〜16:00・月休。ネット予約可。<a class="pmap" href="https://maps.google.com/?q=天領日田肉カフェ嶋屋+豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">二百年蔵 欧風懐石 秋子想</span><span class="pg">候補・記念日ランチ</span></div><div class="pm">築二百年の酒蔵を活かした欧風懐石。特別な日のランチ・コースに。予約推奨。<a class="pmap" href="https://maps.google.com/?q=秋子想+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="wagashi">
+      <h3 class="opth">🍡 和菓子・土産</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">御菓子司 日田とらや</span><span class="pg">候補・丸ぼうろ</span></div><div class="pm">中本町5-41・60年以上続く名物「丸芳露（丸ぼうろ）」。蜂蜜たっぷりでしっとり。鯛最中・クリームチーズクッキーも。日田土産の定番。<a class="pmap" href="https://maps.google.com/?q=日田とらや+中本町" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.instagram.com/hita_toraya/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">手造りおはぎ 田舎庵</span><span class="pg">候補・おはぎ</span></div><div class="pm">豆田町146-1・名物の手造りおはぎとお持ち帰りスイーツ。イートインカフェも。10:30〜17:30・木休。<a class="pmap" href="https://maps.google.com/?q=手造りおはぎ田舎庵+日田豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">おみやげ処 玉屋</span><span class="pg">候補・土産/箸</span></div><div class="pm">豆田町・日田杉の箸など工芸品も扱う土産処。散策ついでに立ち寄れる。<a class="pmap" href="https://maps.google.com/?q=おみやげ処玉屋+日田豆田町" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="craft">
+      <h3 class="opth">🏺 小鹿田焼・クラフト</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">小鹿田焼の里（皿山）</span><span class="pg">候補・民陶の里</span></div><div class="pm">源栄町皿山・国指定重要無形文化財。一子相伝の9軒の窯元が点在し、唐臼の水音が響く。日田ICから車約30分。駐車・散策無料。<a class="pmap" href="https://maps.google.com/?q=小鹿田焼の里+日田" target="_blank" rel="noopener">📍地図</a><a class="psrc" href="https://www.oita-dc.jp/5047/" target="_blank" rel="noopener">🔗ソース</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">小鹿田焼陶芸館</span><span class="pg">候補・展示見学</span></div><div class="pm">里の坂上・小鹿田焼の歴史と作品を展示。入館無料。9:00〜17:00・水曜＋年末年始休。見学所要約60分。<a class="pmap" href="https://maps.google.com/?q=小鹿田焼陶芸館+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ガイド付き 里散策ツアー</span><span class="pg">候補・体験/要予約</span></div><div class="pm">陶芸館集合・60分コース¥2,000（8名以上は¥1,000）。10:00/13:30発、3日前まで要予約（日田市観光協会 0973-22-2036）。水曜除外。<a class="pmap" href="https://maps.google.com/?q=小鹿田焼陶芸館+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="farm">
+      <h3 class="opth">🌾 農産物・直売所</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">道の駅 水辺の郷おおやま</span><span class="pg">今回・お土産</span></div><div class="pm">大山町・大山農協直売。梅・栗・野菜。9:00–17:00。<a class="pmap" href="https://maps.google.com/?q=道の駅水辺の郷おおやま" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">大山梅農園</span><span class="pg">候補・梅狩り/見学</span></div><div class="pm">大山町・梅の産地。季節によって梅狩り体験も。<a class="pmap" href="https://maps.google.com/?q=大山梅農園+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">梅酒蔵おおやま</span><span class="pg">候補・梅酒作り体験</span></div><div class="pm">大山町・梅酒・梅製品の蔵。梅酒作り体験ができる（要予約）。お土産に地元の梅酒・梅シロップ。<a class="pmap" href="https://maps.google.com/?q=梅酒蔵おおやま+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">日田天領水の里 元気の駅</span><span class="pg">候補・名水/直売</span></div><div class="pm">中ノ島町・日田天領水の販売拠点。日田天領水仕込みのサッポロ黒ラベルなど地場品も。帰路の買い出しに。<a class="pmap" href="https://maps.google.com/?q=日田天領水の里元気の駅" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">♨️ 温泉</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">天ヶ瀬温泉（温泉街）</span><span class="pg">候補・帰り道/エリア</span></div><div class="pm">天瀬町・別府/由布院と並ぶ豊後三大温泉。1300年の歴史、ほんのり硫黄の美肌湯。玖珠川沿いに宿と外湯が連なる。日田ICから国道210号で約8km。<a class="pmap" href="https://maps.google.com/?q=天ヶ瀬温泉+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">共同露天風呂（川沿い5ヶ所）</span><span class="pg">候補・秘湯/ワイルド</span></div><div class="pm">玖珠川河川敷の共同露天（駅前湯・益次郎湯・薬師湯・神田湯・鶴舞の湯）。無人で料金箱に志納（¥100〜）。9:00頃〜。湯あみ着OKの湯もあり。<a class="pmap" href="https://maps.google.com/?q=天ヶ瀬温泉+共同露天風呂" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">成天閣（日帰り入浴）</span><span class="pg">候補・施設派</span></div><div class="pm">天瀬町湯山1143・石造り露天と大浴場。日帰り13:00〜18:00（17:30最終）・大人¥700。火水休。屋根付きで雨でも安心。<a class="pmap" href="https://maps.google.com/?q=天ヶ瀬温泉成天閣+日田" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ryokan天龍（食事付き日帰り）</span><span class="pg">候補・ランチ温泉</span></div><div class="pm">天瀬町・源泉かけ流しの大浴場。日帰り入浴¥700（〜16時）。手打ちそばランチ＋温泉＋個室の休憩プランは事前予約制。<a class="pmap" href="https://maps.google.com/?q=ryokan天龍+天ヶ瀬温泉" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>プラン調整の考え方</b>　豆田町の散策・発酵舎KOGURA・ビストロカフェ リヒト・大山農産物直売は今回の本体。時間に余裕があれば、朝早く出発して広瀬資料館や咸宜園を加える、ランチを想夫恋の日田焼きそばや肉カフェ嶋屋に差し替える、丸ぼうろ（日田とらや）やおはぎ（田舎庵）を土産に足す、帰り道に天ヶ瀬温泉の共同露天や成天閣に立ち寄る等の選択肢がある。<b>小鹿田焼の里は日田ICから車30分とやや離れる</b>ため、半日プランや1泊2日ルートに組む時の引き出し。梅酒作り・梅狩りは季節限定。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代は人数で割り勘。食事・お土産は個人負担。散策は無料。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約200km</small></div><div class="br">¥1,070</div></div>
+      <div class="brow"><div class="bl">高速代<small>大分道 往復</small></div><div class="br">¥1,600</div></div>
+      <div class="brow"><div class="bl">発酵舎KOGURA<small>パン・ドリンク</small></div><div class="br">¥700</div></div>
+      <div class="brow"><div class="bl">ランチ<small>ビストロカフェ リヒト</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">農産物お土産<small>梅干し・梅酒・栗菓子等</small></div><div class="br">¥1,000</div></div>
+      <div class="brow total"><div class="bl">合計のめやす（1人当たり）</div><div class="br">約 ¥5,500</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳</b>　3名で割り勘の場合（カーシェア・高速）＋個人負担（食事・お土産）で1人約¥5,500。少人数なら若干割高になるため、2名の場合は約¥6,500程度。広瀬資料館（¥300程度）を加える場合は＋¥300。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・事前確認</h2>
+      <p class="sec-sub">梅雨対策と、必要な確認項目。</p>
+    </div>
+
+    <div class="weather rv">
+      <div class="ic">☔</div>
+      <div>
+        <div class="t">豆田町は散策が中心 — 折りたたみ傘は必須</div>
+        <div class="d">福岡の6月は月間降水量250mm前後で年間最多クラス。豆田町での商家街散策は屋外が多いため、折りたたみ傘とタオルを用意。古い町並みの風情は雨の中でも美しく、しっとりした雰囲気になる。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前確認（重要）</h4>
+        <ul>
+          <li class="must">発酵舎KOGURAの営業日確認（水曜休・営業時間11:00–18:00）</li>
+          <li class="must">ビストロカフェ リヒトの昼営業確認（昼 11:30–15:00・予約不要）</li>
+          <li class="must">タイムズカーの予約（薬院ステーション・7:30以降で可能な時間）</li>
+          <li>高速代・距離料金の事前支払い方法確認（ETCカードの準備）</li>
+          <li>豆田町の駐車場（まちなか駐車場）の営業確認</li>
+          <li>大山農協直売所の営業日・時間確認（9:00–17:00が目安）</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>折りたたみ傘 ×人数分（梅雨）</li>
+          <li>替えの靴下（散策で濡れる）</li>
+          <li>タオル 1〜2枚（汗・雨拭き）</li>
+          <li>スニーカー・歩きやすい靴（豆田町は石畳）</li>
+          <li>小銭・現金（駐車場・買い物用）</li>
+          <li>車のワイパー・ガソリン確認（出発前点検）</li>
+          <li>クーラーボックス（帰路でお土産を冷やす場合）</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://www.kuncho.net/shop/kogura.html" target="_blank" rel="noopener">発酵舎KOGURA</a></li>
+        <li><a href="https://www.city.hita.oita.jp/" target="_blank" rel="noopener">日田市観光協会</a></li>
+        <li><a href="https://maps.google.com/?q=豆田町+日田" target="_blank" rel="noopener">豆田町（豆田古い町並み）</a></li>
+        <li><a href="https://maps.google.com/?q=道の駅水辺の郷おおやま" target="_blank" rel="noopener">道の駅 水辺の郷おおやま</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">日田市・大山町 日帰り · 天領の商家と農の一日</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

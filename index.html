@@ -452,7 +452,7 @@
     var rankColors = { S:"#e6b800", A:"#8888aa", B:"#7060c0" };
     var rankBg    = { S:"rgba(230,184,0,.15)", A:"rgba(180,180,200,.12)", B:"rgba(112,96,192,.15)" };
     return '<div class="section">' +
-      '<div class="section-label">九州ドライブ · 田舎スポット</div>' +
+      '<div class="section-label" style="display:flex;align-items:center;justify-content:space-between;">九州ドライブ · 田舎スポット<a href="kyushu.html" style="font-size:11px;font-weight:600;color:#7a4f1f;text-decoration:none;border:1px solid #c9a068;border-radius:5px;padding:2px 8px;">九州ハブ →</a></div>' +
       '<div class="trips-list">' +
       KYUSHU.map(function(k){
         var rc = rankColors[k.rank]||"#888", rb = rankBg[k.rank]||"transparent";
