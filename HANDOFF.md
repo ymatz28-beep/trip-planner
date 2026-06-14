@@ -1,8 +1,9 @@
 # HANDOFF
 
-## [Constancy] 2026-04-17
-- [WARN] design_token_compliance: Line 71: hardcoded #22c55e should be var(--green)
-- [WARN] design_token_compliance: Line 79: hardcoded #22c55e should be var(--green)
+## Resume
+- 📍 今どこ: 九州日帰りプラン7都市のHTML完成 + gen/パッケージ（vibe→都市提案→プラン生成CLI）実装中
+- ✅ 前回: ukiha.html のお店候補を ukihalove.jp 実データ25件で更新完了。gen/ パッケージ骨格作成（match.py動作確認済み）
+- ▶ 次: `template.html` (Jinja2) を作成 → `python -m gen.cli 糸島` でHTMLが自動生成できる仕組みを完成させる
 
 ## Last Updated
 2026-04-18 (5) — **佳德糕餅 Chia Te Bakery を削除**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 15:30 の佳德糕餅スケジュール項目を削除。Day 3 17:00 サウナ説明文から「佳德糕餅から中山エリアへ移動し...」のテキストを「2時間のサウナタイム。...」に修正。taipei.html のパイナップルケーキ TOP 3 resto-card から削除。JavaScript markers 配列から削除。taipei-food.html のパイナップルケーキセクション resto-card から削除。JavaScript spots 配列から削除。

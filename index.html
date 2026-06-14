@@ -288,6 +288,16 @@
 </div>
 
 <script>
+  var KYUSHU = [
+    { flag:"🍇", title:"うきは市 — 白壁と果物",     meta:"田主丸の兄弟エリア · 重伝建 · 天然酵母パン · 古民家カフェ · 浮羽稲荷",  dist:"🚗 約40分",  rank:"S", url:"ukiha.html" },
+    { flag:"🌿", title:"南阿蘇村・西原村 — パン屋と高原", meta:"九州最強クラスのカフェ・パン密度 · 牧草地 · 温泉セット",       dist:"🚗 約1.5h", rank:"S", url:"minamiaso.html" },
+    { flag:"🌳", title:"綾町 — 有機とワイナリー",    meta:"綾ワイナリー · 有機農業 · 照葉樹林 · クラフト工房",           dist:"🚗 約2.5h", rank:"S", url:"aya.html" },
+    { flag:"🍵", title:"八女市・奥八女 — お茶と棚田", meta:"穴場 · 八女茶 · 棚田 · 古民家カフェ · 重伝建",             dist:"🚗 約1.5h", rank:"A", url:"yame.html" },
+    { flag:"🏚️", title:"日田市・大山町 — 天領の商家", meta:"豆田町重伝建 · 豪商屋敷 · 梅栗農園 · 発酵食品カフェ",        dist:"🚗 約1.5h", rank:"A", url:"hita.html" },
+    { flag:"🌋", title:"霧島市 — ワインと温泉と果樹園", meta:"Sakura Farm & Winery · 霧島温泉 · 1泊2日推奨",          dist:"🚗 約2.5h", rank:"A", url:"kirishima.html" },
+    { flag:"🌊", title:"糸島・二丈エリア — 海とパン屋", meta:"観光地外の穴場 · 小規模ワイナリー · 個人系パン屋 · 海沿いカフェ", dist:"🚗 約40分",  rank:"B", url:"itoshima.html" },
+  ];
+
   var TRIPS = [
     {
       flag: "🍷",
@@ -438,6 +448,29 @@
       '</a>';
   }
 
+  function renderKyushu() {
+    var rankColors = { S:"#e6b800", A:"#8888aa", B:"#7060c0" };
+    var rankBg    = { S:"rgba(230,184,0,.15)", A:"rgba(180,180,200,.12)", B:"rgba(112,96,192,.15)" };
+    return '<div class="section">' +
+      '<div class="section-label">九州ドライブ · 田舎スポット</div>' +
+      '<div class="trips-list">' +
+      KYUSHU.map(function(k){
+        var rc = rankColors[k.rank]||"#888", rb = rankBg[k.rank]||"transparent";
+        return '<a href="'+k.url+'" class="trip-row">' +
+          '<span class="row-flag">'+k.flag+'</span>' +
+          '<div class="row-body">' +
+            '<div class="row-title">'+k.title+
+              ' <span style="display:inline-block;font-size:9px;font-weight:700;letter-spacing:.08em;padding:1px 6px;border-radius:4px;background:'+rb+';color:'+rc+';margin-left:5px;">'+k.rank+'</span>' +
+            '</div>' +
+            '<div class="row-meta">'+k.meta+'</div>' +
+          '</div>' +
+          '<span class="row-date" style="font-size:10px;">'+k.dist+'</span>' +
+          '<span class="row-arrow">→</span>' +
+        '</a>';
+      }).join('') +
+      '</div></div>';
+  }
+
   function render() {
     var container = document.getElementById("content");
     var html = '';
@@ -459,6 +492,9 @@
     if (next) {
       html += '<div class="section">' + renderNext(next) + '</div>';
     }
+
+    // Kyushu day trips
+    html += renderKyushu();
 
     // Guides
     if (guides.length > 0) {

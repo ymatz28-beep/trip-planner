@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>うきは市 日帰り — 白壁と果物の一日 | 2026.06.14</title>
+<meta name="theme-color" content="#c9590e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
+
+    --wine:#c9590e;
+    --wine-2:#fdf0e8;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px;}
+
+  /* ============ Header ============ */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
+  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+
+  /* ============ Hero ============ */
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#8b4513 0%,#c9590e 42%,#d97a3f 100%);
+  }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#ffd9a3;margin-bottom:14px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#ffd9a3;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
+  }
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:38ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
+  }
+
+  /* ============ Facts (overlap card) ============ */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .fact{padding:16px 16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+
+  /* ============ Key callout ============ */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
+  }
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;letter-spacing:.005em;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Section nav ============ */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:680px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
+  }
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ============ Section ============ */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ============ Timeline ============ */
+  .tl{position:relative;padding-left:66px;}
+  .tl::before{content:"";position:absolute;left:51px;top:8px;bottom:34px;width:2px;background:linear-gradient(var(--line),var(--line) 60%,transparent);}
+
+  .stop{position:relative;margin-bottom:14px;}
+  .stop .time{
+    position:absolute;left:-66px;top:14px;width:36px;text-align:right;white-space:nowrap;
+    font-family:var(--num);font-size:13.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;
+    font-variant-numeric:tabular-nums;
+  }
+  .stop .node{
+    position:absolute;left:-22px;top:15px;width:16px;height:16px;border-radius:50%;
+    background:#fff;border:3px solid var(--c,var(--wine));box-shadow:0 0 0 3px var(--bg);
+  }
+  .card{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:15px 16px;box-shadow:var(--shadow-soft);
+  }
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{
+    width:38px;height:38px;flex-shrink:0;border-radius:11px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    background:var(--c2,var(--wine-2));
+  }
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;letter-spacing:.005em;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--c,var(--wine));background:var(--c2,var(--wine-2));padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{
+    margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);
+    font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);
+  }
+  .why b{color:var(--c,var(--wine));font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
+  }
+  .map:active{transform:scale(.97);}
+
+  .leg{position:relative;margin:0 0 14px;}
+  .leg::before{content:"";position:absolute;left:-20px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--move);border:2.5px solid var(--bg);}
+  .leg span{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;color:var(--ink-3);font-weight:600;
+    background:var(--move-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 13px;
+  }
+
+  /* ============ Picks (夜ごはん候補) ============ */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .pick.rec{border-color:#e7b9cb;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.off{opacity:.62;}
+  .pick.off .pg{color:var(--ink-3);background:var(--move-2);}
+
+  /* ============ Options board (ジャンル別 候補) ============ */
+  .optgroup{margin-bottom:16px;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;letter-spacing:.01em;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;}
+  .optnote b{color:var(--ink);font-weight:700;}
+
+  /* ============ Budget ============ */
+  .bcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-soft);overflow:hidden;}
+  .brow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:13px 16px;border-bottom:1px solid var(--line-2);}
+  .brow:last-child{border-bottom:0;}
+  .brow .bl{font-size:14px;font-weight:600;}
+  .brow .bl small{display:block;font-size:11.5px;color:var(--ink-3);font-weight:500;margin-top:1px;}
+  .brow .br{font-family:var(--num);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap;}
+  .brow .br small{font-size:11px;color:var(--ink-3);font-weight:600;}
+  .brow.total{background:var(--wine-2);border-top:1px solid var(--line);}
+  .brow.total .bl{font-weight:800;color:var(--wine);}
+  .brow.total .br{color:var(--wine);font-size:18px;}
+  .bnote{font-size:12.5px;color:var(--ink-2);margin-top:11px;padding:12px 14px;background:var(--food-2);border:1px solid #f0dcc0;border-radius:var(--r-sm);line-height:1.6;}
+  .bnote b{color:var(--food);}
+
+  /* ============ Prep ============ */
+  .prep{display:flex;flex-direction:column;gap:12px;}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;box-shadow:var(--shadow-soft);}
+  .pcard h4{font-size:14px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .pcard ul{list-style:none;}
+  .pcard li{font-size:13.5px;color:var(--ink-2);line-height:1.62;padding:5px 0 5px 22px;position:relative;}
+  .pcard li::before{content:"›";position:absolute;left:6px;color:var(--ink-3);font-weight:800;}
+  .pcard li.must::before{content:"！";color:var(--wine);font-size:11px;top:6px;}
+  .pcard li.must{font-weight:600;color:var(--ink);}
+
+  /* weather */
+  .weather{
+    display:flex;gap:13px;align-items:flex-start;margin-bottom:18px;
+    background:var(--onsen-2);border:1px solid #cfe9f6;border-left:4px solid var(--onsen);
+    border-radius:var(--r);padding:15px 16px;
+  }
+  .weather .ic{font-size:22px;flex-shrink:0;}
+  .weather .t{font-size:14px;font-weight:800;color:#075d84;margin-bottom:3px;}
+  .weather .d{font-size:13px;color:var(--ink-2);line-height:1.68;}
+
+  /* sources */
+  .sources{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:4px 16px;}
+  .sources summary{cursor:pointer;font-size:13.5px;color:var(--ink-2);font-weight:700;padding:12px 0;list-style:none;display:flex;align-items:center;gap:8px;}
+  .sources summary::-webkit-details-marker{display:none;}
+  .sources summary::before{content:"📚";}
+  .sources ul{list-style:none;padding:4px 0 14px;}
+  .sources li{font-size:12.5px;margin-bottom:9px;line-height:1.4;}
+  .sources a{color:var(--indigo);word-break:break-all;}
+
+  /* footer */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
+
+  /* back to top */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(201,89,14,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
+  }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  /* reveal */
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media (prefers-reduced-motion:reduce){.rv{animation:none;}}
+
+  /* ============ ≥720px ============ */
+  @media (min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
+  }
+  @media print{
+    .topbar,.secnav-wrap,.totop,.map{display:none!important;}
+    body{background:#fff;}
+    .card,.bcard,.pcard{box-shadow:none;break-inside:avoid;}
+    h1,h2,h3,h4{break-after:avoid;break-inside:avoid;}
+  }
+
+  /* ============ Genre filter ============ */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="index.html">Trips</a>
+      <a href="ukiha.html" aria-current="page">うきは</a>
+      <a href="kurume.html">久留米</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Day Trip · 福岡 → うきは市</div>
+    <h1>うきは、白壁と果物の一日
+      <small>豪商の街並みと、耳納の恵み。</small>
+    </h1>
+    <p class="lede">薬院から車で40分。白壁土蔵の重伝建エリアを歩き、巨峰ワイナリーの兄弟エリアでフルーツを直買い。浮羽稲荷神社の千本鳥居、棚田、古民家カフェ — 何一つ観光地化しすぎていない、九州の田舎の本物。</p>
+    <div class="hero-meta">
+      <span class="hpill">📅 日帰り・カーシェア</span>
+      <span class="hpill">🚗 薬院から約40分</span>
+      <span class="hpill">🍇 フルーツ王国</span>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">人数</div>
+      <div class="v jp">2〜3<span class="u">名</span></div>
+    </div>
+    <div class="fact">
+      <div class="k">福岡から</div>
+      <div class="v tnum">約40<span class="u">分</span></div>
+      <div class="s">大分道経由</div>
+    </div>
+    <div class="fact">
+      <div class="k">重伝建</div>
+      <div class="v jp">吉井<span class="u">白壁</span></div>
+    </div>
+    <div class="fact">
+      <div class="k">1人めやす</div>
+      <div class="v tnum">¥5<span class="u">k</span></div>
+      <div class="s">前後</div>
+    </div>
+  </div>
+
+  <!-- Key callout -->
+  <div class="keynote rv">
+    <div class="ic">🏛️</div>
+    <div>
+      <div class="t">田主丸の「兄弟エリア」 — 今はむしろこちらが人気</div>
+      <div class="d">田主丸が「豪農の町」なら、吉井は「豪商の町」。白壁土蔵の街並みが重要伝統的建造物群保存地区に指定されており、現在も残る商家の街並みは田主丸より本格的。フルーツ王国・天然酵母パン屋・古民家カフェが揃い、浮羽稲荷神社の千本鳥居がSNSでも話題。距離が近く気軽に行けるのも強み。</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#plan" class="active">1日の流れ</a>
+    <a href="#options">お店候補</a>
+    <a href="#budget">費用</a>
+    <a href="#prep">持ち物・予約</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <!-- PLAN -->
+  <section id="plan">
+    <div class="sec-head rv">
+      <div class="kicker">Itinerary · 8:30 – 17:00</div>
+      <h2 class="sec-title">1日の流れ</h2>
+      <p class="sec-sub">薬院 → うきは市・浮羽稲荷神社（千本鳥居）→ 吉井町白壁街並み散策 → 旅する喫茶でランチ → フルーツ農園直売で巨峰狩り → Plantagoまたは里楽で古民家カフェ → 帰路。</p>
+    </div>
+
+    <div class="tl rv">
+
+      <!-- 8:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">8:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🚗</div><h3>薬院発</h3></div>
+          <span class="ctag">移動 · 2〜3人</span>
+          <div class="meta">九州道→大分道→甘木IC→うきは市内 約45分 · 通行料約800円</div>
+          <p class="desc"><b>九州道で鳥栖JCT経由、大分道の甘木IC下車</b>。早朝発でうきは到着は9:30前後。GWを避けて通勤ラッシュもクリア。<b>駐車場と入場・体験予約を事前に確認</b>。気象を確認し、雨の場合は屋内（古民家カフェ）の比重を高める。</p>
+          <div class="why"><b>朝早い出発でゆったり回る</b>　朝8:30発なら移動中に混雑なし、到着9:30。午前を白壁散策と浮羽稲荷で使い、ランチは11:30から。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🛣️ 九州道・大分道経由で甘木IC 約45分</span></div>
+
+      <!-- 9:30 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">9:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">⛩️</div><h3>浮羽稲荷神社（千本鳥居）</h3></div>
+          <span class="ctag">観光 · 絶景スポット</span>
+          <div class="meta">浮羽市流川 · 参拝無料 · 駐車場あり</div>
+          <p class="desc">旅の始まりに急斜面の鳥居を登る。<b>筑後川と耳納連山を見下ろす眺望が絶景。朝の光が鳥居に差す8〜10時台がベスト</b>。観光客が少ない朝イチに参拝して、身体を動かしながら絶景を見る。インスタ映えスポットとしても人気だが、朝早い時間なら静寂を楽しめる。</p>
+          <div class="why"><b>移動直後に身体を動かす</b>　移動してすぐ、身体を動かしつつ絶景を見る。観光客が少ない朝イチに。</div>
+          <a class="map" href="https://maps.google.com/?q=浮羽稲荷神社" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 吉井町へ 車10分</span></div>
+
+      <!-- 10:30 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">10:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏚️</div><h3>吉井町・白壁の街並み散策</h3></div>
+          <span class="ctag">観光 · 重伝建 · 無料</span>
+          <div class="meta">重要伝統的建造物群保存地区・吉井地区 · 駐車場複数あり</div>
+          <p class="desc">江戸〜明治の商家が連なる通り。<b>約30のギャラリーと工房が点在</b>。田主丸の豪農屋敷と違い「豪商の商家」が通りに並ぶ。白壁とノレン、路地の情景が何一つ観光地化されていない本物の雰囲気。古民家カフェ・陶芸工房・ギャラリーを散策しながら、江戸の商人の暮らしを体験。</p>
+          <div class="why"><b>ここが今日のメインコンテンツ</b>　田主丸と異なる「豪商の街」。白壁と商家が通りに並ぶ景観をゆっくり歩く。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚶 街中に複数の古民家カフェと工房が点在</span></div>
+
+      <!-- 11:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">11:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">☕</div><h3>旅する喫茶うきは（ランチ）</h3></div>
+          <span class="ctag">ランチ · 古民家カフェ</span>
+          <div class="meta">吉井町内・築100年の古民家 · スパイスカレー＋クリームソーダが看板</div>
+          <p class="desc">築100年の古民家をリノベーション。<b>スパイスカレー＋クリームソーダ</b>が看板メニュー。白壁散策の直後に入れる位置にあり、古民家の空間を味わいながらランチ。夏でも涼しい土蔵造りの建物で、時間をかけてゆっくり食事。</p>
+          <div class="why"><b>白壁散策直後のランチ</b>　白壁街並みの中にあり、古民家の空間を味わいながら食事できる。</div>
+          <a class="map" href="https://maps.google.com/?q=旅する喫茶うきは" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 浮羽市流川方面・フルーツ農園へ 車15分</span></div>
+
+      <!-- 13:30 -->
+      <div class="stop" style="--c:var(--food);--c2:var(--food-2)">
+        <div class="time tnum">13:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🍇</div><h3>フルーツ農園・直売（春光園など）</h3></div>
+          <span class="ctag">体験 · フルーツ狩り・直売</span>
+          <div class="meta">浮羽市流川周辺・耳納山麓 · 地下120mミネラル水で栽培 · 年中フルーツ狩り可</div>
+          <p class="desc"><b>地下120mのミネラル水と有機配合で育てる果樹園</b>。年中フルーツ狩り可。<b>巨峰・桃・いちご・ブルーベリー（季節による）</b>の直売も充実。ここが田主丸との連続性。同じ耳納山麓のフルーツ文化をうきはで体験。</p>
+          <div class="why"><b>田主丸とのフルーツ文化の連続</b>　同じ耳納山麓のフルーツ文化をうきはで実体験。</div>
+          <a class="map" href="https://maps.google.com/?q=春光園+うきは" target="_blank" rel="noopener">📍 地図でひらく</a>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 古民家カフェへ 車10分</span></div>
+
+      <!-- 15:00 -->
+      <div class="stop" style="--c:var(--culture);--c2:var(--culture-2)">
+        <div class="time tnum">15:00</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🌿</div><h3>Plantago（プランタゴ）または里楽（古民家カフェ）</h3></div>
+          <span class="ctag">カフェ · どちらかを気分で</span>
+          <div class="meta">Plantago：古民家・週末のみ営業・野草料理とベーグル / 里楽（りらく）：築170年の古民家・里山食材を使ったランチ・ブルーベリー体験</div>
+          <p class="desc">帰る前の一服。<b>Plantagoは野草料理とベーグル、里楽は里山食材を使ったランチ</b>。どちらも築古の古民家で、観光地にはない、地元の暮らしを味わうカフェ。天気や気分で選ぶ。</p>
+          <div class="why"><b>帰る前の一服でまた古民家体験</b>　観光地にはない、地元の暮らしを味わうカフェ。</div>
+        </div>
+      </div>
+      <div class="leg"><span>🚗 帰路・薬院へ 車約45分</span></div>
+
+      <!-- 16:30 -->
+      <div class="stop" style="--c:var(--move);--c2:var(--move-2)">
+        <div class="time tnum">16:30</div><div class="node"></div>
+        <div class="card">
+          <div class="head"><div class="emoji">🏁</div><h3>帰路・薬院</h3></div>
+          <span class="ctag">解散</span>
+          <div class="meta">うきはIC → 九州道 → 都市高速 → 薬院 約45分</div>
+          <p class="desc">お土産のフルーツを車に積んで帰着。夕方の都市高速は混雑を避けて、16:30出発なら17:30前後に薬院到着。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- OPTIONS (別枠・ジャンル別の候補ボード) -->
+  <section id="options">
+    <div class="sec-head rv">
+      <div class="kicker">Options · 差し替え自由</div>
+      <h2 class="sec-title">お店候補（ジャンル別）</h2>
+      <p class="sec-sub">このプランで挙げた行き先を、ジャンルごとにまとめた候補ボード。当日の天気・気分で入れ替えられる。<b>濃い色＝今回行く店</b>、それ以外は次回うきはの引き出し。出典: <a href="https://ukihalove.jp/" target="_blank" rel="noopener">ukihalove.jp</a></p>
+    <div class="genre-bar" id="genre-bar">
+      <button class="gb-btn" data-g="shrine">⛩️ 神社・文化</button>
+      <button class="gb-btn" data-g="cafe">☕ カフェ・珈琲</button>
+      <button class="gb-btn" data-g="lunch">🍽️ グルメ・ランチ</button>
+      <button class="gb-btn" data-g="sweets">🍰 スイーツ・和菓子</button>
+      <button class="gb-btn" data-g="pan">🥐 パン・ベーカリー</button>
+      <button class="gb-btn" data-g="onsen">🧖 サウナ・温泉</button>
+      <button class="gb-btn" data-g="genre">🍇 フルーツ・直売・特産</button>
+    </div>
+    </div>
+
+    <div class="optgroup rv" data-g="shrine">
+      <h3 class="opth">⛩️ 神社・文化</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">浮羽稲荷神社（千本鳥居）</span><span class="pg">今回</span></div><div class="pm">浮羽市流川。朝の光が鳥居に差す8〜10時台がベスト。参拝無料。<a class="pmap" href="https://maps.google.com/?q=浮羽稲荷神社" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">吉井白壁街並み</span><span class="pg">今回・主役</span></div><div class="pm">重要伝統的建造物群保存地区。約30のギャラリーと工房が点在。散策無料。<a class="pmap" href="https://maps.google.com/?q=吉井白壁+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">つづら棚田</span><span class="pg">候補・景観</span></div><div class="pm">うきは市浮羽町。日本の原風景・棚田の景観。春は早苗、秋は黄金色。<a class="pmap" href="https://maps.google.com/?q=つづら棚田+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="cafe">
+      <h3 class="opth">☕ カフェ・珈琲</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">旅する喫茶うきは</span><span class="pg">今回・ランチ</span></div><div class="pm">吉井町内・築100年の古民家。スパイスカレー＋クリームソーダが看板。<a class="pmap" href="https://maps.google.com/?q=旅する喫茶うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">Plantago（プランタゴ）</span><span class="pg">今回か里楽・どちらか</span></div><div class="pm">古民家カフェ・週末のみ営業。野草料理とベーグル。帰る前の一服。<a class="pmap" href="https://maps.google.com/?q=Plantago+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">里楽（りらく）</span><span class="pg">今回か Plantago・どちらか</span></div><div class="pm">築170年の古民家。里山食材を使ったランチ・ブルーベリー体験。<a class="pmap" href="https://ukihalove.jp/contents/irori-cafe-riraku-relaxu/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">Zelkova Coffee</span><span class="pg">候補・スペシャルティ珈琲</span></div><div class="pm">浮羽町流川336-1。世界中からスペシャルティ豆を買い付け。10:00-18:00 木定休。<a class="pmap" href="https://maps.google.com/?q=Zelkova+Coffee+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">jingoro</span><span class="pg">候補・自家焙煎ハンドドリップ</span></div><div class="pm">吉井町鷹取1557-3。深煎り珈琲をハンドドリップで。コロンビア豆中心。11:00-17:00 水木金土定休。<a class="pmap" href="https://maps.google.com/?q=jingoro+うきは+吉井" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">蛭子町珈琲店</span><span class="pg">候補・ネルドリップ＋ジャズ</span></div><div class="pm">吉井町1116。店内焙煎・ネルドリップ、ジャズが流れる小粋な空間。10:00-18:00 月火定休。<a class="pmap" href="https://maps.google.com/?q=蛭子町珈琲店+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">KIRITO COFFEE ROASTERS（幾里人珈琲焙煎所）</span><span class="pg">候補・深煎りマンデリン専門</span></div><div class="pm">浮羽町山北1846-1。深煎りマンデリン専門・重厚なコクと苦味。豆購入で1杯無料。土日11:00-17:00。<a class="pmap" href="https://maps.google.com/?q=KIRITO+COFFEE+ROASTERS+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">月のまつり</span><span class="pg">候補・カフェ＆ギャラリー</span></div><div class="pm">カフェ・ギャラリー・藍染め体験を同時に。白壁街歩きの途中で立ち寄れる。<a class="pmap" href="https://ukihalove.jp/contents/tsukinomatsuri/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">喫菓 jiji</span><span class="pg">候補・焼き菓子カフェ</span></div><div class="pm">カフェ＋自家製焼き菓子。古い町並みの中にある静かな一軒。<a class="pmap" href="https://ukihalove.jp/contents/kikkajiji/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">町家宿 以久波（いくは）</span><span class="pg">候補・113年の町家カフェ</span></div><div class="pm">吉井町1386。113年超の町家造り。自家焙煎「以久波ブレンド」・陶芸家製カップ使用。11:00-17:00 木定休。<a class="pmap" href="https://maps.google.com/?q=町家宿以久波+吉井" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="lunch">
+      <h3 class="opth">🍽️ グルメ・ランチ</h3>
+      <div class="picks">
+        <div class="pick"><div class="ph"><span class="pn">オテル ドゥ やまさき</span><span class="pg">候補・土日限定フランス料理</span></div><div class="pm">土日限定・隠れ家フレンチレストラン。要予約・特別感を重視する日に。<a class="pmap" href="https://ukihalove.jp/contents/hoteldeyamasaki/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">炭と鶏そば 福鶏（ふくどり）</span><span class="pg">候補・鶏そば</span></div><div class="pm">うきは産鶏を使った鶏そば。炭焼きのスモーク感が特徴。<a class="pmap" href="https://ukihalove.jp/contents/torisoba_fukudori/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">〆屋正行（しめやせいこう）</span><span class="pg">候補・鯖そば＋うどん</span></div><div class="pm">鯖そばとうどんの名店。吉井の地元民御用達。<a class="pmap" href="https://ukihalove.jp/contents/shimeyaseikou/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">きふね食堂</span><span class="pg">候補・耳納豚の地元食堂</span></div><div class="pm">耳納豚を使った地元食堂。観光客向けでなく、地元の日常飯。<a class="pmap" href="https://ukihalove.jp/contents/kihunesyokudou/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">深山の牡丹</span><span class="pg">候補・隠れ家レストラン</span></div><div class="pm">吉井町生葉2107-6。栗のティラミス・サイフォンコーヒー。11:00-16:00 木・2水定休。要予約。<a class="pmap" href="https://maps.google.com/?q=深山の牡丹+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick off"><div class="ph"><span class="pn">長崎 カキ丸</span><span class="pg">11月〜季節限定</span></div><div class="pm">海鮮・カキ焼き。11月から3月頃の冬季限定。夏は閉店中。<a class="pmap" href="https://ukihalove.jp/contents/nagasaki_kakimaru/" target="_blank" rel="noopener">📍詳細</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="sweets">
+      <h3 class="opth">🍰 スイーツ・和菓子</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">Kawasemi danish</span><span class="pg">今回・フルーツデニッシュ</span></div><div class="pm">吉井町1340。農家のフルーツを使ったデニッシュ・いちご・みかん・季節のアシェット。10:00-18:00 水木定休。<a class="pmap" href="https://maps.google.com/?q=Kawasemi+danish+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">明星豆花（みょうじょうまめはな）</span><span class="pg">候補・台湾スイーツ</span></div><div class="pm">吉井町1108。毎朝仕込みの台湾豆花（トウファ）。10:00-17:00 火水定休。<a class="pmap" href="https://ukihalove.jp/contents/myojomamehana/" target="_blank" rel="noopener">📍詳細</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">うきはんと</span><span class="pg">候補・和栗サンド＋季節フルーツ</span></div><div class="pm">浮羽町朝田587-1。無添加ふわとろクリームの和栗サンド・シャインマスカット・いちじく。10:00-16:00 月火水定休。<a class="pmap" href="https://maps.google.com/?q=うきはんと+浮羽" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">パティスリーナチュール</span><span class="pg">候補・無添加洋菓子</span></div><div class="pm">吉井町千年251-4。和栗モンブラン・いちじくタルト・さつまいもバスクチーズケーキ。9:30-19:00 月火定休。<a class="pmap" href="https://maps.google.com/?q=パティスリーナチュール+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ひた屋福富</span><span class="pg">候補・モンブラン大福</span></div><div class="pm">吉井町1127-3。和洋折衷のモンブラン大福が人気（秋中心）。9:00-18:00 水・2火定休。<a class="pmap" href="https://maps.google.com/?q=ひた屋福富+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">Le Sucre</span><span class="pg">候補・いちじくタルト</span></div><div class="pm">浮羽町浮羽289-8。いちじくのタルト・うきはマロン。10:00-19:00 水定休。<a class="pmap" href="https://maps.google.com/?q=Le+Sucre+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">白翠-hakusui-</span><span class="pg">候補・かき氷専門</span></div><div class="pm">吉井町1340。焼きリンゴ×カスタードかき氷・いちじくキャラメリゼかき氷。12:00-17:00 不定休。<a class="pmap" href="https://maps.google.com/?q=白翠+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">石橋餅加工所</span><span class="pg">候補・季節のフルーツ大福</span></div><div class="pm">創業53年のお餅専門店。うきはの旬フルーツ農家とコラボした季節限定フルーツ大福・カラフル創作お団子・餡フラワー。道の駅などでも販売。<a class="pmap" href="https://maps.google.com/?q=石橋餅加工所+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">御菓子処 ひた屋福富</span><span class="pg">候補・老舗和菓子／葛ようかん</span></div><div class="pm">吉井町1127-3。昭和22年創業の老舗。とろける名物「葛ようかん」とふわもち「豆大福」が看板。秋はモンブラン大福も。9:00-19:00 水・第2火定休。<a class="pmap" href="https://maps.google.com/?q=ひた屋福富+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">あけぼの河童菓庵</span><span class="pg">候補・白壁の老舗和菓子</span></div><div class="pm">国道沿いの3階建て白壁屋敷が目印。昭和40年から続く老舗和菓子店。9:00-18:00 水曜定休。<a class="pmap" href="https://maps.google.com/?q=あけぼの河童菓庵+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="pan">
+      <h3 class="opth">🥐 パン・ベーカリー</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">ぱんのもっか</span><span class="pg">今回・行列の人気店／ジブリパン</span></div><div class="pm">吉井町1127-5（白壁通り沿い）。トトロ・クロスケのジブリパンが大人気で朝から行列。国産小麦＋地場食材、無添加。高山珈琲のオリジナルブレンドおかわり自由のテラス席あり。9:00-18:00（売切れ次第終了）月木定休。<a class="pmap" href="https://maps.google.com/?q=ぱんのもっか+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ふなきベーカリー</span><span class="pg">候補・地元の愛され町パン屋</span></div><div class="pm">吉井町生葉730-8。平成2年創業、地元行きつけの町パン屋。天皇陛下献上の「絹（シルク）食パン」、ミルキーな「ミルク食パン」が看板。毎月12日はパン全品2割引。6:30-18:30 木日定休。<a class="pmap" href="https://maps.google.com/?q=ふなきベーカリー+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">パン屋なかがわ</span><span class="pg">候補・クロワッサン専門</span></div><div class="pm">浮羽町山北1099-2（最寄り筑後大石駅）。サクサクの自慢クロワッサン・クロワッサンアマンドが看板。土日は早く売り切れるので8-10時が狙い目。駐車場8台。8:00-17:30。<a class="pmap" href="https://maps.google.com/?q=パン屋なかがわ+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">そらいろ</span><span class="pg">候補・古民家蕎麦屋の小さなパン屋</span></div><div class="pm">浮羽町山北694-1（十割蕎麦「きふね」敷地内）。蕎麦茶ブレンドの「蕎麦パン」やミルクパン・ベーグルが評判。広い古民家の敷地で食べられる。11:30〜 不定休（インスタ確認）。<a class="pmap" href="https://maps.google.com/?q=きふね+そらいろ+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="onsen">
+      <h3 class="opth">🧖 サウナ・温泉</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">清乃屋（きよのや）</span><span class="pg">今回・絶景バレルサウナ</span></div><div class="pm">浮羽町古川1099-3 / 0943-77-2188。筑後川×耳納連山を見渡す屋上バレルサウナ。セルフロウリュ・源泉かけ流し温泉・地下水冷水風呂。4,000円/50分/4名まで。<a class="pmap" href="https://maps.google.com/?q=清乃屋+うきは+浮羽" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">原鶴温泉 旅館とよとみ</span><span class="pg">候補・W美肌の湯／日帰り可</span></div><div class="pm">朝倉市杷木久喜宮1343-1 / 0946-62-0225（車で約15分）。地下700mの自家源泉かけ流し「W美肌の湯」。日帰り入浴12:00-19:00（受付18:00まで）、大浴場・露天700円、貸切風呂2,000-2,500円。水曜定休。予約不可。<a class="pmap" href="https://maps.google.com/?q=原鶴温泉+旅館とよとみ" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">原鶴温泉 光泉（こうせん）</span><span class="pg">候補・日帰り専門／とろとろ湯</span></div><div class="pm">朝倉市杷木久喜宮1870-3 / 0946-62-0715。天然かけ流しのとろとろヌルヌル湯の日帰り温泉。10:00-19:00 水曜定休。入浴大人600円、休憩（10-16時）1,500円。気軽に立ち寄れる和風の落ち着いた施設。<a class="pmap" href="https://maps.google.com/?q=原鶴温泉+光泉+朝倉" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">原鶴温泉 延命館</span><span class="pg">候補・筑後川絶景露天</span></div><div class="pm">朝倉市杷木（筑後吉井駅から車約10分）。源泉100%かけ流しの微炭酸ぬる湯。筑後川を一望する露天風呂・屋上の空中ガーデン。宿泊メインだがランチ予約も可。夕陽・星空が絶景。<a class="pmap" href="https://maps.google.com/?q=原鶴温泉+延命館" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">原鶴温泉 泰泉閣（たいせんかく）</span><span class="pg">候補・名物ジャングル風呂</span></div><div class="pm">朝倉市杷木志波。110年以上の歴史ある原鶴の老舗。緑あふれる「ジャングル風呂」「かっぱの湯」が名物。温泉入浴付き日帰り昼食プランあり。グループ宴会・法事利用も。<a class="pmap" href="https://maps.google.com/?q=原鶴温泉+泰泉閣" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optgroup rv" data-g="genre">
+      <h3 class="opth">🍇 フルーツ・農園直売・特産</h3>
+      <div class="picks">
+        <div class="pick rec"><div class="ph"><span class="pn">春光園（フルーツ農園・直売）</span><span class="pg">今回</span></div><div class="pm">浮羽市流川周辺。地下120mミネラル水で栽培。巨峰・桃・いちご・ブルーベリー直売。<a class="pmap" href="https://maps.google.com/?q=春光園+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">耳納山麓の各農園直売所</span><span class="pg">候補・季節で選ぶ</span></div><div class="pm">耳納山麓に複数の果樹園。巨峰（9月）・いちじく（9-10月）・梨・いちご（2-4月）・みかん（12月）など季節で差し替え。<a class="pmap" href="https://maps.google.com/?q=うきは市フルーツ直売" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">道の駅うきは「にじの耳納の里」</span><span class="pg">候補・アイス工房＋直売</span></div><div class="pm">吉井町福益130-1。JAが運営する新鮮果物直売所。焼き芋ソフトクリームが人気。9:00-18:00 毎月2水定休。<a class="pmap" href="https://maps.google.com/?q=道の駅うきは+耳納の里" target="_blank" rel="noopener">📍地図</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">いそのさわ（酒蔵）</span><span class="pg">候補・名水仕込みの地酒</span></div><div class="pm">浮羽町西隈上1-2 / 0943-77-3103。明治26年創業の蔵元。耳納連山の伏流水で仕込む地酒。看板は特別純米「駿」、純米吟醸スパークリング「うきは泡にごり」（金賞）。蔵開き・春祭りも開催。土産・手土産に。<a class="pmap" href="https://maps.google.com/?q=いそのさわ+うきは" target="_blank" rel="noopener">📍地図</a></div></div>
+      </div>
+    </div>
+
+    <div class="optnote rv">🔁 <b>差し替えの考え方</b>　朝は浮羽稲荷（絶景）→ 白壁街並み散策が確定ルート。ランチは「旅する喫茶うきは」または鶏そば福鶏。カフェはZelkova Coffee・jingoro・蛭子町珈琲店から珈琲スタイルで選ぶ。スイーツはKawasemi danishと明星豆花がうきはらしい2択。サウナを入れるなら清乃屋で半日コースに切り替え。天気が悪い場合は白壁古民家カフェ巡りに比重を置く。</div>
+  </section>
+
+  <!-- BUDGET -->
+  <section id="budget">
+    <div class="sec-head rv">
+      <div class="kicker">Budget</div>
+      <h2 class="sec-title">費用のめやす</h2>
+      <p class="sec-sub">カーシェア・高速代は複数人で割り勘。食事・フルーツ・カフェは個人負担。浮羽稲荷・白壁散策は無料。右の数字は1人あたりの目安。</p>
+    </div>
+    <div class="bcard rv">
+      <div class="brow"><div class="bl">カーシェア<small>12時間パック</small></div><div class="br">¥1,830</div></div>
+      <div class="brow"><div class="bl">距離料金<small>走行 約80km</small></div><div class="br">¥430</div></div>
+      <div class="brow"><div class="bl">高速代<small>往復・甘木IC</small></div><div class="br">¥600</div></div>
+      <div class="brow"><div class="bl">ランチ<small>旅する喫茶うきは</small></div><div class="br">¥1,200</div></div>
+      <div class="brow"><div class="bl">フルーツ農園<small>直売・体験</small></div><div class="br">¥1,500</div></div>
+      <div class="brow"><div class="bl">カフェ<small>Plantago or 里楽</small></div><div class="br">¥700</div></div>
+      <div class="brow total"><div class="bl">合計のめやす</div><div class="br">約 ¥5,200</div></div>
+    </div>
+    <div class="bnote rv">💡 <b>内訳</b>：カーシェア＋走行料金＋高速代の合計約¥2,860を2〜3人で割り勘。1人あたり¥1,430〜¥1,860。食事・フルーツ・カフェを合わせて1人約¥5,200。浮羽稲荷・白壁散策は無料。フルーツ狩りの予約と季節を確認。</div>
+  </section>
+
+  <!-- PREP -->
+  <section id="prep">
+    <div class="sec-head rv">
+      <div class="kicker">Before You Go</div>
+      <h2 class="sec-title">持ち物・予約</h2>
+      <p class="sec-sub">梅雨対策と、事前確認。出発前にここだけ押さえる。</p>
+    </div>
+
+    <div class="weather rv">
+      <div class="ic">☔</div>
+      <div>
+        <div class="t">梅雨時期は屋内の白壁散策・古民家カフェが活きる</div>
+        <div class="d">福岡の6月は月間降水量250mm前後で年間最多クラス。このプランは浮羽稲荷（屋外）・白壁散策（屋外）・古民家カフェ・古民家フルーツ農園が中心。雨の場合は屋内カフェ（旅する喫茶・Plantago・里楽）の時間を長めに確保。折りたたみ傘とタオルがあれば十分。</div>
+      </div>
+    </div>
+
+    <div class="prep rv">
+      <div class="pcard">
+        <h4>📲 事前確認・予約（重要）</h4>
+        <ul>
+          <li class="must">フルーツ農園の営業日・フルーツ狩り可否を確認（季節による）</li>
+          <li>旅する喫茶うきはの営業時間を確認</li>
+          <li>Plantagoと里楽の営業日を確認（週末のみ営業の場合あり）</li>
+          <li>深山の牡丹を選ぶ場合は要予約</li>
+          <li>里楽でブルーベリー体験を希望する場合は事前連絡</li>
+          <li>駐車場の有無を確認（浮羽稲荷・吉井白壁・フルーツ農園など）</li>
+        </ul>
+      </div>
+      <div class="pcard">
+        <h4>🎒 持ち物</h4>
+        <ul>
+          <li>折りたたみ傘 ×2〜3（梅雨）</li>
+          <li>タオル（フルーツ狩りで手を拭く）</li>
+          <li>歩きやすい靴（白壁散策・稲荷参拝は階段）</li>
+          <li>フルーツを持ち運ぶバッグ（農園で用意してくれる場合も）</li>
+          <li>水分補給用の飲料</li>
+          <li>車のワイパー・タイヤを出発前点検（梅雨）</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="sources rv">
+      <summary>出典・参考リンク</summary>
+      <ul>
+        <li><a href="https://ukihalove.jp/" target="_blank" rel="noopener">うきは観光サイト 公式</a></li>
+        <li><a href="https://maps.google.com/?q=浮羽稲荷神社" target="_blank" rel="noopener">浮羽稲荷神社</a></li>
+        <li><a href="https://ukihalove.jp/contents/irori-cafe-riraku-relaxu/" target="_blank" rel="noopener">里楽 - うきは観光サイト</a></li>
+      </ul>
+    </details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA TRAVEL — 2026</div>
+    <div class="ft-2">うきは市 日帰り · 白壁と果物の一日</div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="先頭へ戻る">↑</button>
+
+<script>
+  
+  // genre filter
+  var gbBtns = Array.prototype.slice.call(document.querySelectorAll('#genre-bar .gb-btn'));
+  var ogs = Array.prototype.slice.call(document.querySelectorAll('.optgroup[data-g]'));
+  function showGenre(g){
+    gbBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-g')===g); });
+    ogs.forEach(function(og){ og.classList.toggle('og-active', og.getAttribute('data-g')===g); });
+  }
+  gbBtns.forEach(function(btn){ btn.addEventListener('click', function(){ showGenre(btn.getAttribute('data-g')); }); });
+  if(gbBtns.length) showGenre(gbBtns[0].getAttribute('data-g'));
+
+  // scroll-spy for section nav
+  var navlinks = Array.prototype.slice.call(document.querySelectorAll('.secnav a'));
+  var secs = navlinks.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  function spy(){
+    var y = window.scrollY + 130, cur = secs[0];
+    secs.forEach(function(s){ if (s && s.offsetTop <= y) cur = s; });
+    navlinks.forEach(function(a,i){ a.classList.toggle('active', secs[i] === cur); });
+  }
+  // back-to-top
+  var totop = document.getElementById('totop');
+  function onScroll(){
+    spy();
+    totop.classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+  onScroll();
+</script>
+
+</body>
+</html>

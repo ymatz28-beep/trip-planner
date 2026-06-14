@@ -1,0 +1,224 @@
+# 都市データベース — trip-planner SSoT
+# tags: 都市の特徴キーワード（questionnaire のスコアリングに使用）
+# dist: 薬院起点の移動距離感
+# rank: S=最優先候補 A=有力 B=条件次第 I=国際
+
+cities:
+  - slug: ukiha
+    name: うきは市
+    name_en: Ukiha
+    prefecture: 福岡県
+    dist: 九州近郊  # 車40分
+    drive_min: 40
+    tags: [フルーツ, 古民家, 白壁, カフェ, 珈琲, 自然, 静養, 文化, 街歩き]
+    keywords: [いちじく, 巨峰, 鳥居, 千本鳥居, 棚田, 農園, スイーツ, ベーカリー]
+    vibe: 白壁の古民家が並ぶ商家の街と耳納山麓のフルーツ
+    rank: S
+    base_html: ukiha.html
+    season_note: "秋(9-11月)のいちじく・巨峰が旬。春のいちご・梅雨のランチも◎"
+
+  - slug: itoshima
+    name: 糸島・二丈
+    name_en: Itoshima
+    prefecture: 福岡県
+    dist: 九州近郊  # 車40分
+    drive_min: 40
+    tags: [海, パン, カフェ, 自然, 静養, ドライブ, 写真]
+    keywords: [牡蠣, シーサイド, 糸島パン, サンセット, サーフ, オーガニック]
+    vibe: 福岡に一番近い海とおしゃれなベーカリーが集まるドライブコース
+    rank: B
+    base_html: itoshima.html
+    season_note: "冬の牡蠣小屋(11月〜3月)が最大の目玉。夏は海水浴も"
+
+  - slug: yame
+    name: 八女市・奥八女
+    name_en: Yame
+    prefecture: 福岡県
+    dist: 九州近郊  # 車1.5h
+    drive_min: 90
+    tags: [お茶, 棚田, 文化, 自然, 静養, 食, 伝統]
+    keywords: [八女茶, 星野村, 棚田, 和菓子, 茶畑, 灯籠, 陶芸]
+    vibe: 日本を代表するお茶の産地・緑の棚田と静かな山里
+    rank: A
+    base_html: yame.html
+    season_note: "新茶(4-5月)・棚田イルミネーション(11-12月)が絶景"
+
+  - slug: hita
+    name: 日田市・大山町
+    name_en: Hita
+    prefecture: 大分県
+    dist: 九州近郊  # 車1.5h
+    drive_min: 90
+    tags: [文化, 歴史, 天領, 街歩き, 食, 川, 自然]
+    keywords: [豆田町, 商家, 天領, やきそば, 鮎, 三隈川, うめこうじ]
+    vibe: 江戸時代の天領として栄えた豪商の街並みと鮎料理
+    rank: A
+    base_html: hita.html
+    season_note: "5月の水郷ひた亀山公園の藤・7月の祇園山鉾祭が有名"
+
+  - slug: minamiaso
+    name: 南阿蘇村・西原村
+    name_en: Minamiaso
+    prefecture: 熊本県
+    dist: 九州近郊  # 車1.5h
+    drive_min: 90
+    tags: [自然, パン, 高原, 温泉, カフェ, 静養, 写真]
+    keywords: [阿蘇, 草原, ベーカリー, カフェ, 湧水, 外輪山, 牧場, 星空]
+    vibe: 阿蘇外輪山の雄大な景色とパン屋・カフェが点在する高原地帯
+    rank: S
+    base_html: minamiaso.html
+    season_note: "春(4-5月)の新緑と野焼き後の景観、秋の草紅葉が絶景"
+
+  - slug: aya
+    name: 綾町
+    name_en: Aya
+    prefecture: 宮崎県
+    dist: 九州中距離  # 車2.5h
+    drive_min: 150
+    tags: [自然, ワイナリー, 有機, 森, 文化, 静養, 食]
+    keywords: [照葉樹林, ワイン, 有機農業, 工芸, つり橋, エコ, アート]
+    vibe: 照葉樹林ユネスコエコパークに囲まれたワイナリーと有機農業の町
+    rank: S
+    base_html: aya.html
+    season_note: "秋のワイン収穫(10-11月)・紅葉・森歩きが最高シーズン"
+
+  - slug: kirishima
+    name: 霧島市
+    name_en: Kirishima
+    prefecture: 鹿児島県
+    dist: 九州遠距離  # 車2.5h
+    drive_min: 150
+    tags: [温泉, 自然, ワイン, 果樹園, 登山, 静養, 宿泊]
+    keywords: [霧島神宮, 温泉, ワイナリー, りんご, 桜島, 界霧島, 硫黄]
+    vibe: 火山とワインと温泉。鹿児島の大自然と霧島神宮を絡めた1泊コース
+    rank: A
+    base_html: kirishima.html
+    season_note: "ツツジ(4月)・紅葉(11月)・りんご狩り(10-11月)が旬"
+
+  - slug: kurume
+    name: 久留米市
+    name_en: Kurume
+    prefecture: 福岡県
+    dist: 九州近郊  # 車40分
+    drive_min: 40
+    tags: [ラーメン, グルメ, 文化, 城下町, カフェ, 焼鳥, 街歩き]
+    keywords: [久留米ラーメン, 田主丸, 秋月, とんこつ, 焼鳥, 水天宮, 青木繁]
+    vibe: 豚骨ラーメン発祥の地・田主丸のフルーツ農園と合わせた食旅
+    rank: A
+    base_html: kurume.html
+    season_note: "通年OK。桜(3月秋月城址)・5月の藤・11月の紅葉"
+
+  - slug: fukuoka
+    name: 福岡市
+    name_en: Fukuoka
+    prefecture: 福岡県
+    dist: 市内
+    drive_min: 0
+    tags: [グルメ, 街歩き, 屋台, 海, カフェ, 文化, ショッピング]
+    keywords: [屋台, もつ鍋, 中洲, 天神, 糸島, 博多, コーヒー, 薬院]
+    vibe: 食の都・福岡。薬院〜警固〜天神のカフェ巡りと屋台体験
+    rank: A
+    base_html: fukuoka.html
+    season_note: "通年OK。博多どんたく(5月)・放生会(9月)が賑わう"
+
+# International (将来拡張)
+  - slug: taipei
+    name: 台北
+    name_en: Taipei
+    prefecture: 台湾
+    dist: 国際  # 飛行機3h
+    drive_min: 999
+    tags: [グルメ, 夜市, 文化, 街歩き, カフェ, LGBT+, 食]
+    keywords: [小籠包, 飲茶, 夜市, 烏龍茶, MRT, 101, LGBTQ]
+    vibe: 食と文化が混在する台湾の首都。飲茶・夜市・カフェ探索の聖地
+    rank: S
+    base_html: taipei.html
+
+  - slug: macau
+    name: マカオ
+    name_en: Macau
+    prefecture: 中国(特別行政区)
+    dist: 国際
+    drive_min: 999
+    tags: [グルメ, 文化, 歴史, カジノ, 街歩き]
+    keywords: [エッグタルト, ポルトガル料理, セナド広場, カジノ, 世界遺産]
+    vibe: ポルトガルと中国が混在する世界遺産の街とカジノリゾート
+    rank: A
+    base_html: macau.html
+
+  - slug: london
+    name: ロンドン
+    name_en: London
+    prefecture: イギリス
+    dist: 国際
+    drive_min: 999
+    tags: [文化, ミュージアム, パブ, 街歩き, 食, アート]
+    keywords: [大英博物館, パブ, アフタヌーンティー, テムズ川, オックスフォード街]
+    vibe: 世界最大級の博物館と本場のパブ文化を体験する歴史の首都
+    rank: A
+    base_html: london.html
+
+# questionnaire axis weights (各質問の軸 → タグへのマッピング)
+questionnaire:
+  q1_distance:
+    label: "薬院から何時間くらい移動できる？"
+    options:
+      - value: local
+        label: "日帰り・1時間以内"
+        filter: [九州近郊]
+      - value: day_trip
+        label: "日帰り・1-2時間"
+        filter: [九州近郊, 九州中距離]
+      - value: overnight
+        label: "1泊したい"
+        filter: [九州近郊, 九州中距離, 九州遠距離]
+      - value: intl
+        label: "海外もあり"
+        filter: [国際]
+
+  q2_vibe:
+    label: "一番やりたいことは？"
+    options:
+      - value: food
+        label: "食べまくる"
+        tags_boost: [食, グルメ, ラーメン, お茶]
+      - value: nature
+        label: "自然の中でぼーっとする"
+        tags_boost: [自然, 高原, 静養, 写真]
+      - value: culture
+        label: "街歩き・歴史・工芸"
+        tags_boost: [文化, 街歩き, 歴史, 伝統]
+      - value: relax
+        label: "温泉・サウナ・のんびり"
+        tags_boost: [温泉, 静養, 宿泊]
+
+  q3_companion:
+    label: "誰と行く？"
+    options:
+      - value: solo
+        label: "一人"
+        note: "個人カフェ探索向き"
+      - value: couple
+        label: "パートナーと"
+        note: "ロマンチックな景観優先"
+      - value: friends
+        label: "友人と"
+        note: "ドライブと賑やかさ重視"
+      - value: family
+        label: "家族と（子どもあり）"
+        note: "体験・農園・広い場所優先"
+
+  q4_must:
+    label: "外せない要素は？（キーワードで教えて）"
+    type: free_text
+    examples: ["パン屋", "温泉", "コーヒー", "お酒", "海", "棚田", "フルーツ"]
+
+  q5_pace:
+    label: "旅のペースは？"
+    options:
+      - value: packed
+        label: "朝から晩まで詰め込む"
+        timeline_density: high
+      - value: relaxed
+        label: "カフェでぼーっとする時間も欲しい"
+        timeline_density: low
