@@ -1,11 +1,13 @@
 # HANDOFF
 
 ## Resume
-- 📍 今どこ: `gen/` パイプライン完成（Exa収集→Claude→HTML生成）。Scrapling fallback chain まで実装済み
-- ✅ 前回: `template.html` 作成、`collect.py` を Exa に全面切替、Scrapling→StealthyFetcher→requests の自動フォールバック実装完了。糸島20件取得を確認
-- ▶ 次: ANTHROPIC_API_KEY を `.env` に設定したら `python -m gen.cli 糸島 --date 2026-07-20` がフル稼働する
+- 📍 今どこ: 九州8都市HTML QAセッション完了。マップ・食べログURL・ルート地理の3軸で修正済み
+- ✅ 前回: マップリンク2件、食べログURL 6店、ルート地理誤り2件（八女・南阿蘇）を修正。ukiha.htmlに夢語寄家追加
+- ▶ 次: ANTHROPIC_API_KEY を `.env` に設定 → `python -m gen.cli 糸島 --date 2026-07-20` でフル稼働確認
 
 ## Last Updated
+2026-06-16 — **九州8都市HTML QAセッション**。マップリンク2件（シェ サガラ/ルカフェニシハラ）・食べログURL 6店（しのはら珈琲/久留米いっこん×2/COFFEE COUNTY/ニュートラルベイカフェ/BOULANGERIE NOEL/茶房星水庵）・ルート地理2件（yame.html茶の文化館住所を星野村に修正・minamiaso.html菊鹿ワイナリー→白川水源に差し替え）を修正。ukiha.htmlに夢語寄家（むごよか）追加。
+
 2026-06-14 — **gen/ パイプライン完成 + Scrapling fallback chain 実装**。`template.html`（Jinja2）作成、`collect.py` を Exa ベースに全面書き換え、薄いコンテンツ(< 300字)は Scrapling Fetcher → StealthyFetcher → requests の順で自動フォールバック。依存: exa-py / scrapling / curl-cffi / playwright / browserforge をシステム Python にインストール済み。残課題: ANTHROPIC_API_KEY が期限切れ（401）→ Anthropic Console で再取得後 `! echo 'ANTHROPIC_API_KEY=sk-ant-...' >> ~/Documents/Projects/trip-planner/.env` で設定すれば即稼働。
 
 2026-04-18 (5) — **佳德糕餅 Chia Te Bakery を削除**。Yuma Tejima GitHub Issue「旅行更新」対応。Day 3 15:30 の佳德糕餅スケジュール項目を削除。Day 3 17:00 サウナ説明文から「佳德糕餅から中山エリアへ移動し...」のテキストを「2時間のサウナタイム。...」に修正。taipei.html のパイナップルケーキ TOP 3 resto-card から削除。JavaScript markers 配列から削除。taipei-food.html のパイナップルケーキセクション resto-card から削除。JavaScript spots 配列から削除。
