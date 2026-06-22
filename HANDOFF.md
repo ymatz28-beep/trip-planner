@@ -1,9 +1,12 @@
 # HANDOFF
 
+## [Constancy] 2026-06-22
+- [ERROR] freeze_candidates: [ESCALATED: 34d unresolved] プロジェクト 'trip-planner' は 9999d 非活性 (凍結閾値 90d)。 _archived/ への移動または Phase 0 再定義を検討。
+
 ## Resume
 - 📍 今どこ: 九州8都市HTML QAセッション完了。マップ・食べログURL・ルート地理の3軸で修正済み
 - ✅ 前回: マップリンク2件、食べログURL 6店、ルート地理誤り2件（八女・南阿蘇）を修正。ukiha.htmlに夢語寄家追加
-- ▶ 次: ANTHROPIC_API_KEY を `.env` に設定 → `python -m gen.cli 糸島 --date 2026-07-20` でフル稼働確認
+- ▶ 次: 沖縄汎用ページ（okinawa-general.html）作成。データ: maply/data/classifications_export_2026-04-13.json の沖縄147件（food:39/cafe:28/leisure:20/shopping:24/lodging:9）。3泊4日＋1週間の2プラン構成。Google Mapsリンク付き。okinawa.htmlとは別ファイル
 
 ## Last Updated
 2026-06-16 — **九州8都市HTML QAセッション**。マップリンク2件（シェ サガラ/ルカフェニシハラ）・食べログURL 6店（しのはら珈琲/久留米いっこん×2/COFFEE COUNTY/ニュートラルベイカフェ/BOULANGERIE NOEL/茶房星水庵）・ルート地理2件（yame.html茶の文化館住所を星野村に修正・minamiaso.html菊鹿ワイナリー→白川水源に差し替え）を修正。ukiha.htmlに夢語寄家（むごよか）追加。
