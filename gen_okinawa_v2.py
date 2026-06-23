@@ -40,16 +40,20 @@ TIER_COLOR = {2: "#b04010", 3: "#888"}
 # ── Load data ──────────────────────────────────────────────────────
 def load_spots():
     base = json.loads(SPOTS_FILE.read_text())
-    enriched = {}
+    enriched_by_region = {}
+    enriched_by_name = {}
     if ENRICHED_FILE.exists():
         for s in json.loads(ENRICHED_FILE.read_text()):
-            key = (s["name"], s["region"])
-            enriched[key] = s
+            if "region" in s:
+                enriched_by_region[(s["name"], s["region"])] = s
+            enriched_by_name[s["name"]] = s
     merged = []
     for s in base:
         key = (s["name"], s["region"])
-        if key in enriched:
-            merged.append({**s, **enriched[key]})
+        if key in enriched_by_region:
+            merged.append({**s, **enriched_by_region[key]})
+        elif s["name"] in enriched_by_name:
+            merged.append({**s, **enriched_by_name[s["name"]]})
         else:
             merged.append(s)
     return merged
