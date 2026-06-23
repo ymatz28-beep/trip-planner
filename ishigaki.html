@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石垣島 スポットガイド | iUMA Travel</title>
+<meta name="theme-color" content="#e05c3a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#f0f7fb; --surface:#fff; --surface-2:#f5f9fc;
+    --ink:#1a2b35; --ink-2:#4a6070; --ink-3:#8aacbd;
+    --line:#ddeaf2; --line-2:#e8f2f8;
+    --ocean:#0a86bd; --ocean-2:#e3f3fb; --ocean-dk:#054f73;
+    --coral:#e05c3a; --coral-2:#fef0eb;
+    --teal:#1f9d78; --gold:#a07a1c;
+    --r:14px; --r-sm:10px; --r-pill:999px;
+    --shadow:0 1px 3px rgba(10,40,60,.05),0 8px 24px rgba(10,40,60,.07);
+    --shadow-soft:0 1px 2px rgba(10,40,60,.05);
+    --font:'Inter','Noto Sans JP',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(240,247,251,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--ocean);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{font-size:13px;font-weight:600;color:var(--ink-3);padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
+  .topnav a[aria-current="page"]{color:var(--ocean);background:var(--ocean-2);}
+  .topnav a.back{font-weight:700;color:var(--ocean);}
+  .topnav a.back::before{content:"‹ ";font-size:11px;}
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ocean);}
+  footer .ft-2{font-size:11.5px;margin-top:4px;}
+  .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 8px 22px rgba(10,134,189,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;}
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
+
+  .topnav a.back{color:#e05c3a;}
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#e05c3a 0%,#c0392b 100%);}
+  .hero .wrap{padding:32px 18px 68px;position:relative;z-index:2;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:11px;}
+  .hero h1{font-size:clamp(26px,7vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px;}
+  .hero-sub{font-size:13px;color:rgba(255,255,255,.76);line-height:1.7;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(240,247,251,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-2);padding:7px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;}
+  .secnav a.active{color:#fff;background:#e05c3a;border-color:#e05c3a;}
+  section{padding:28px 0 4px;scroll-margin-top:108px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+  .kicker{font-size:13px;font-weight:800;letter-spacing:.04em;}
+  .sec-count{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:var(--r-pill);}
+  .picks{display:grid;gap:7px;}
+  .pick{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;transition:.15s;}
+  .pick:hover{border-color:#e05c3a;background:rgba(10,134,189,.04);}
+  .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pn{font-size:14px;font-weight:700;color:var(--ink);line-height:1.35;}
+  .parrow{flex-shrink:0;font-size:14px;opacity:.5;}
+  .pick:hover .parrow{opacity:1;}
+  .pm{font-size:12px;color:var(--ink-3);font-weight:500;line-height:1.5;}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav"><a href="okinawa-general.html" class="back">沖縄</a><a href="#" aria-current="page">石垣島</a></nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Okinawa · Local Guide</div>
+    <h1>🌺 石垣島</h1>
+    <div class="hero-sub">石垣(29)</div>
+    <div class="hero-pills"><span class="hpill">29スポット</span></div>
+  </div>
+</div>
+<div class="secnav-wrap"><nav class="secnav"><a href="#food">🍽️ 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🏖️ 観光・ビーチ</a><a href="#shopping">🛍️ ショッピング</a><a href="#lodging">🏨 宿泊</a><a href="#nightlife">🍻 ナイト</a></nav></div>
+<div class="wrap"><section id="food">
+  <div class="sec-head"><div class="kicker" style="color:#0a86bd">🍽️ 食事</div><div class="sec-count">16件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E7%82%AD%E7%81%AB%E7%84%BC%E8%82%89%20%E3%81%9F%E3%81%91%E3%81%95%E3%82%93%E4%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%B5%9C%E5%B4%8E%E7%94%BA%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%92%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">炭火焼肉 たけさん亭</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市浜崎町２丁目２−４</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%84%BC%E8%82%89%E3%82%84%E3%81%84%E3%81%BE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%BE%8E%E5%B4%8E%E7%94%BA%EF%BC%99%E2%88%92%EF%BC%99%20%E8%A5%BF%E3%83%93%E3%83%AB%20%EF%BC%91%E9%9A%8E" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">焼肉やいま</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市美崎町９−９ 西ビル １階</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%B2%E3%81%BE%E3%82%8F%E3%82%8A%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0002%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9C%9F%E6%A0%84%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%93%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ひまわり食堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市真栄里１１３−６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E4%B8%AD%E5%9B%BD%E9%A3%AF%E5%BA%97%20%E5%A4%A7%E5%AF%8C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%95%EF%BC%95%EF%BC%95%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">中国飯店 大富</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市登野城５５５−６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%AE%E3%81%94%E3%81%A1%E3%81%9D%E3%81%86%20%E3%81%A6%E3%81%83%E3%82%93%E3%81%8C%E3%83%BC%E3%82%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%96%EF%BC%94%EF%BC%91%E2%88%92%EF%BC%95" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">島のごちそう てぃんがーら</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市登野城６４１−５</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%9F%B3%E5%9E%A3%E7%89%9BMARU%E3%80%90%E7%9F%B3%E5%9E%A3%E7%89%9B%E5%B0%82%E9%96%80%E5%BA%97%E3%80%91%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%92%EF%BC%96%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">石垣牛MARU【石垣牛専門店】</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市登野城２６−４</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%97%AC%E5%AE%B6%E3%81%B0%E3%82%93%E3%81%A1%E3%82%83%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0242%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BD%E4%BF%9D%EF%BC%91%EF%BC%93%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">旬家ばんちゃん</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市白保１３−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%A4%E3%82%B9%E3%81%A8%E3%82%AB%E3%83%9E%E3%83%BC%E3%81%AE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0241%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%A1%83%E9%87%8C%EF%BC%92%EF%BC%90%EF%BC%91%E2%88%92%EF%BC%91%EF%BC%92%EF%BC%99" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ヤスとカマーの店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市桃里２０１−１２９</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%98%8E%E7%9F%B3%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0332%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E4%BC%8A%E5%8E%9F%E9%96%93%EF%BC%93%EF%BC%96%EF%BC%90" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">明石食堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市伊原間３６０</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E4%B8%80%E4%BC%91%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0023%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9F%B3%E5%9E%A3%EF%BC%97%EF%BC%91%EF%BC%96%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">一休食堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市石垣７１６−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%82%E3%82%89%E3%81%8B%E3%82%8F%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0024%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E5%B7%9D%EF%BC%92%EF%BC%93%EF%BC%97%EF%BC%96%E2%88%92%EF%BC%91%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">あらかわ食堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市新川２３７６−１６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%82%E3%81%9A%E3%81%95%E4%B8%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E6%A0%84%E7%94%BA%EF%BC%97%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">あずさ丸</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市新栄町７２−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%B3%B6%E6%96%99%E7%90%86%20%E3%81%A8%E3%82%93%E3%81%A7%E3%81%BF%E3%83%BC%E3%81%AA%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%94%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">島料理 とんでみーな</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市大川２４０−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%9F%B3%E5%9E%A3%20%E9%A3%9F%E5%A0%82%20%E9%85%92%E6%99%B4%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%BE%8E%E5%B4%8E%E7%94%BA%EF%BC%91%EF%BC%91%E2%88%92%EF%BC%91%201F" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">石垣 食堂 酒晴</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市美崎町１１−１ 1F</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%B2%E3%81%A8%E3%81%97%20%E7%9F%B3%E6%95%A2%E7%95%B6%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%91%EF%BC%99%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ひとし 石敢當店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市大川１９７−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%82%E3%82%89%E3%81%A0%E5%AE%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%91%EF%BC%94%EF%BC%94" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">あらだ家</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">石垣市登野城１４４</div>
+</a></div>
+</section><section id="cafe_sweets">
+  <div class="sec-head"><div class="kicker" style="color:#c46030">☕ カフェ・スイーツ</div><div class="sec-count">6件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=poco%20a%20poco%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%91%EF%BC%98%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">poco a poco</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市大川１８８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%F0%9D%99%89%F0%9D%99%90%F0%9D%99%8F%F0%9D%99%8E%F0%9D%99%8F%F0%9D%99%8A%F0%9D%99%92%F0%9D%99%89%20%F0%9D%98%BE%F0%9D%99%8A%F0%9D%99%81%F0%9D%99%81%F0%9D%99%80%F0%9D%99%80%F0%9D%99%8D%F0%9D%99%8A%F0%9D%98%BC%F0%9D%99%8E%F0%9D%99%8F%F0%9D%99%80%F0%9D%99%8D%F0%9D%99%8E%20/%20%E3%83%8A%E3%83%83%E3%83%84%E3%82%BF%E3%82%A6%E3%83%B3%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E7%9F%B3%E5%9E%A3%E5%B3%B6%20%E7%84%99%E7%85%8E%20MORNING%20BRUNCH%20GIBIER%20AVOTOAST%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%95%EF%BC%93%EF%BC%98%E2%88%92%EF%BC%92%20U-viento%2C%201F" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">𝙉𝙐𝙏𝙎𝙏𝙊𝙒𝙉 𝘾𝙊𝙁𝙁𝙀𝙀𝙍𝙊𝘼𝙎𝙏𝙀𝙍𝙎 / ナッツタウン コーヒー 石垣島 焙煎 MORNING BRUNCH GIBIER AVOTOAST</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市大川５３８−２ U-viento, 1F</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%AC%E3%83%AD%E3%83%91%E3%83%B3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%92%EF%BC%92%EF%BC%94%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ガロパン</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市登野城２２４３</div>
+</a><a class="pick" href="https://maps.google.com/?q=KLATCH%20COFFEE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%90%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">KLATCH COFFEE</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市大川２００−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E8%8C%B6%E6%88%BF%20%E3%81%86%E3%81%B5%E3%81%9F%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0451%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%A1%B4%E6%B5%B7%EF%BC%91%EF%BC%94%EF%BC%98%E2%88%92%EF%BC%94%EF%BC%97%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">茶房 うふた</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市桴海１４８−４７１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%91%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%82%E3%82%93%E3%81%B6%E3%82%8C%E3%82%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0003%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B9%B3%E5%BE%97%EF%BC%91%EF%BC%92%EF%BC%90%E2%88%92%EF%BC%91%EF%BC%91%20%E3%82%AA%E3%82%A2%E3%82%B7%E3%82%B9%20%E7%B6%BE%E7%BE%BD203" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">パーラーあんぶれら</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">石垣市平得１２０−１１ オアシス 綾羽203</div>
+</a></div>
+</section><section id="leisure">
+  <div class="sec-head"><div class="kicker" style="color:#1f9d57">🏖️ 観光・ビーチ</div><div class="sec-count">3件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E5%B7%9D%E5%B9%B3%E5%85%AC%E5%9C%92%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0453%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B7%9D%E5%B9%B3%20%E5%B7%9D%E5%B9%B3%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">川平公園展望台</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">石垣市川平 川平公園</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%A4%A7%E5%B4%8E%E3%83%93%E3%83%BC%E3%83%81%28%E3%82%BF%E3%83%81%E3%82%A4%E6%B5%9C%29%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0452%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B4%8E%E6%9E%9D" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">大崎ビーチ(タチイ浜)</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">石垣市崎枝</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%B9%B3%E4%B9%85%E4%BF%9D%E5%B4%8E%E7%81%AF%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0331%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B9%B3%E4%B9%85%E4%BF%9D%EF%BC%92%EF%BC%93%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%90" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">平久保崎灯台</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">石垣市平久保２３４−５０</div>
+</a></div>
+</section><section id="shopping">
+  <div class="sec-head"><div class="kicker" style="color:#7a45cf">🛍️ ショッピング</div><div class="sec-count">1件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%E6%96%B0%E5%B7%9D%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E6%A0%84%E7%94%BA%EF%BC%97%EF%BC%95" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">マックスバリュ新川店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">石垣市新栄町７５</div>
+</a></div>
+</section><section id="lodging">
+  <div class="sec-head"><div class="kicker" style="color:#a07a1c">🏨 宿泊</div><div class="sec-count">2件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=giving%20tree%20home%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0333%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E9%87%8E%E5%BA%95%EF%BC%96%EF%BC%99%EF%BC%98%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">giving tree home</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">石垣市野底６９８−２</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%A4%E3%82%B7%E3%81%AE%E5%AE%B6%20%E3%81%9D%E3%81%86%E3%82%84%20/%20The%20Palm%20House%20Soya%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0023%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9F%B3%E5%9E%A3%EF%BC%95%EF%BC%95%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ヤシの家 そうや / The Palm House Soya</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">石垣市石垣５５１−１</div>
+</a></div>
+</section><section id="nightlife">
+  <div class="sec-head"><div class="kicker" style="color:#555">🍻 ナイト</div><div class="sec-count">1件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%81%82%E3%82%80%E3%82%8A%E3%81%9F%E3%81%AE%E5%BA%AD%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6%E9%9F%B3%E6%A5%BD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%98%EF%BC%92%20%E6%AB%BB%E8%8A%B1%E3%83%93%E3%83%AB" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">あむりたの庭、そして音楽</span><span class="parrow" style="color:#555">↗</span></div>
+  <div class="pm">石垣市大川２８２ 櫻花ビル</div>
+</a></div>
+</section></div>
+<footer><div class="wrap"><div class="ft-1">iUMA · TRAVEL · 石垣島</div><div class="ft-2">データ: Maply キュレーション 2026-04-13</div></div></footer>
+<button class="totop" id="totop" aria-label="トップへ">↑</button>
+<script>
+const tot=document.getElementById('totop');
+window.addEventListener('scroll',()=>{tot.classList.toggle('show',scrollY>300);},{passive:true});
+tot.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const secLinks=document.querySelectorAll('.secnav a');
+const sections=document.querySelectorAll('section');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){secLinks.forEach(a=>a.classList.remove('active'));
+  const a=document.querySelector('.secnav a[href="#'+x.target.id+'"]');if(a)a.classList.add('active');}});
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

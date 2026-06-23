@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>本島中北部 スポットガイド | iUMA Travel</title>
+<meta name="theme-color" content="#0a86bd">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#f0f7fb; --surface:#fff; --surface-2:#f5f9fc;
+    --ink:#1a2b35; --ink-2:#4a6070; --ink-3:#8aacbd;
+    --line:#ddeaf2; --line-2:#e8f2f8;
+    --ocean:#0a86bd; --ocean-2:#e3f3fb; --ocean-dk:#054f73;
+    --coral:#e05c3a; --coral-2:#fef0eb;
+    --teal:#1f9d78; --gold:#a07a1c;
+    --r:14px; --r-sm:10px; --r-pill:999px;
+    --shadow:0 1px 3px rgba(10,40,60,.05),0 8px 24px rgba(10,40,60,.07);
+    --shadow-soft:0 1px 2px rgba(10,40,60,.05);
+    --font:'Inter','Noto Sans JP',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(240,247,251,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--ocean);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{font-size:13px;font-weight:600;color:var(--ink-3);padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
+  .topnav a[aria-current="page"]{color:var(--ocean);background:var(--ocean-2);}
+  .topnav a.back{font-weight:700;color:var(--ocean);}
+  .topnav a.back::before{content:"‹ ";font-size:11px;}
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ocean);}
+  footer .ft-2{font-size:11.5px;margin-top:4px;}
+  .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 8px 22px rgba(10,134,189,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;}
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
+
+  .topnav a.back{color:#0a86bd;}
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#0a86bd 0%,#054f73 100%);}
+  .hero .wrap{padding:32px 18px 68px;position:relative;z-index:2;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:11px;}
+  .hero h1{font-size:clamp(26px,7vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px;}
+  .hero-sub{font-size:13px;color:rgba(255,255,255,.76);line-height:1.7;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(240,247,251,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-2);padding:7px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;}
+  .secnav a.active{color:#fff;background:#0a86bd;border-color:#0a86bd;}
+  section{padding:28px 0 4px;scroll-margin-top:108px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+  .kicker{font-size:13px;font-weight:800;letter-spacing:.04em;}
+  .sec-count{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:var(--r-pill);}
+  .picks{display:grid;gap:7px;}
+  .pick{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;transition:.15s;}
+  .pick:hover{border-color:#0a86bd;background:rgba(10,134,189,.04);}
+  .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pn{font-size:14px;font-weight:700;color:var(--ink);line-height:1.35;}
+  .parrow{flex-shrink:0;font-size:14px;opacity:.5;}
+  .pick:hover .parrow{opacity:1;}
+  .pm{font-size:12px;color:var(--ink-3);font-weight:500;line-height:1.5;}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav"><a href="okinawa-general.html" class="back">沖縄</a><a href="#" aria-current="page">本島中北部</a></nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Okinawa · Local Guide</div>
+    <h1>🌴 本島中北部</h1>
+    <div class="hero-sub">恩納(9) · 読谷(6) · 名護(6) · うるま(5)</div>
+    <div class="hero-pills"><span class="hpill">43スポット</span></div>
+  </div>
+</div>
+<div class="secnav-wrap"><nav class="secnav"><a href="#food">🍽️ 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🏖️ 観光・ビーチ</a><a href="#shopping">🛍️ ショッピング</a><a href="#lodging">🏨 宿泊</a></nav></div>
+<div class="wrap"><section id="food">
+  <div class="sec-head"><div class="kicker" style="color:#0a86bd">🍽️ 食事</div><div class="sec-count">10件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%9D%E3%81%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2205%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E6%A0%84%E9%87%8E%E6%AF%94%EF%BC%91%EF%BC%91%EF%BC%95" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">島そば</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">うるま市栄野比１１５</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%90%89%E7%90%83%E3%83%86%E3%83%A9%E3%82%B9%20%E3%81%86%E3%82%89%E5%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0413%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%86%A8%E7%9D%80%EF%BC%92%EF%BC%95%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">琉球テラス うら庭</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">国頭郡恩納村冨着２５６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B9%E3%83%86%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E3%82%B8%E3%83%A3%E3%83%A0%20%E6%B2%96%E7%B8%84%E6%81%A9%E7%B4%8D%E6%9D%91%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0413%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%86%A8%E7%9D%80%EF%BC%91%EF%BC%95%EF%BC%91%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ステーキハウス ジャム 沖縄恩納村店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">国頭郡恩納村冨着１５１８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4%E9%A3%9F%E5%A0%82%E3%81%97%E3%81%BE%E3%81%B6%E3%81%9F%E5%B1%8B%20%E5%89%8D%E5%85%BC%E4%B9%85%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0414%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%89%8D%E5%85%BC%E4%B9%8596%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">沖縄とんかつ食堂しまぶた屋 前兼久店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">国頭郡恩納村前兼久96−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%95%AA%E6%89%80%E4%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0302%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%96%9C%E5%90%8D%EF%BC%94%EF%BC%97%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">番所亭</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">中頭郡読谷村喜名４７３</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%B3%B6%E8%B1%9A%E4%B8%83%E8%BC%AA%E7%84%BC%20%E6%BA%80%E5%91%B3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-1152%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E4%BC%8A%E5%B7%AE%E5%B7%9D%EF%BC%92%EF%BC%95%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">島豚七輪焼 満味</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">名護市伊差川２５１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%84%BC%E8%82%89%E3%81%93%E3%81%86%E3%81%A1%E3%82%83%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0005%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E7%82%BA%E5%8F%88%EF%BC%91%EF%BC%92%EF%BC%91%EF%BC%99%E2%88%92%EF%BC%91%EF%BC%96%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">焼肉こうちゃん</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">名護市為又１２１９−１６３</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%99%BE%E5%B9%B4%E5%8F%A4%E5%AE%B6%20%E5%A4%A7%E5%AE%B6%20%E3%81%86%E3%81%B5%E3%82%84%E3%83%BC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E4%B8%AD%E5%B1%B1%EF%BC%99%EF%BC%90" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">百年古家 大家 うふやー</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">名護市中山９０</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%A4%A7%E6%88%B8%E5%B1%8B%E3%81%94%E3%81%AF%E3%82%93%E5%87%A6%20%E5%90%8D%E8%AD%B7%E5%AE%AE%E9%87%8C%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0011%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E5%AE%AE%E9%87%8C%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%90" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">大戸屋ごはん処 名護宮里店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">名護市宮里４丁目１４−５０</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%AE%97%E5%83%8F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2226%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%98%89%E6%95%B0%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%90%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">宗像堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">宜野湾市嘉数１丁目２０−２</div>
+</a></div>
+</section><section id="cafe_sweets">
+  <div class="sec-head"><div class="kicker" style="color:#c46030">☕ カフェ・スイーツ</div><div class="sec-count">13件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=hoppe%20pan%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2121%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E5%86%85%E9%96%93%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%91%EF%BC%90" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">hoppe pan</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">浦添市内間２丁目１０−１０</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%91%E3%83%B3%E5%B1%8B%20%E6%B0%B4%E5%86%86%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0301%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%BA%A7%E5%96%9C%E5%91%B3%EF%BC%93%EF%BC%96%EF%BC%97" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">パン屋 水円</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">中頭郡読谷村座喜味３６７</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%B9%B8%E3%81%9B%E3%81%AE%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%20%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9%20%E6%B2%96%E7%B8%84%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0233%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E7%80%AC%E9%95%B7%EF%BC%91%EF%BC%97%EF%BC%94%E2%88%92%EF%BC%96%20%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9%2032" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">幸せのパンケーキ ウミカジテラス 沖縄店</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">豊見城市瀬長１７４−６ ウミカジテラス 32</div>
+</a><a class="pick" href="https://maps.google.com/?q=KUPU%20KUPU%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0114%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E6%B8%AF%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">KUPU KUPU</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">中頭郡北谷町港１５−５８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%A4%E3%83%83%E3%82%B1%E3%83%96%E3%83%BC%E3%82%B9%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0305%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E9%83%BD%E5%B1%8B%EF%BC%94%EF%BC%93%EF%BC%96%E2%88%92%EF%BC%94%EF%BC%94" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ヤッケブースパンケーキハウス</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">中頭郡読谷村都屋４３６−４４</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%A1%E3%82%85%E3%82%89%E6%B5%B7CAFE%20%E3%81%8B%E3%81%B5%E3%81%85%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0417%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%9C%9F%E6%A0%84%E7%94%B0%EF%BC%92%EF%BC%92%EF%BC%92%EF%BC%94%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ちゅら海CAFE かふぅ</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">国頭郡恩納村真栄田２２２４−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%8F%E3%83%AF%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E3%83%91%E3%83%8B%E3%83%A9%E3%83%8B%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0404%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%80%AC%E8%89%AF%E5%9E%A3%EF%BC%96%EF%BC%99%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ハワイアンパンケーキハウス パニラニ</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">国頭郡恩納村瀬良垣６９８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%94%B0%E4%B8%AD%E6%9E%9C%E5%AE%9F%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0404%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%80%AC%E8%89%AF%E5%9E%A3%EF%BC%92%EF%BC%95%EF%BC%90%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">田中果実店</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">国頭郡国頭郡恩納村瀬良垣２５０３</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%AA%E3%83%8F%E3%82%B3%E3%83%AB%E3%83%86%20%E6%B8%AF%E5%B7%9D%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2134%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E6%B8%AF%E5%B7%9D%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91%2018" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">オハコルテ 港川本店</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">浦添市港川２丁目１７−１ 18</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%AA%E3%83%8F%E3%82%B3%E3%83%AB%E3%83%86%20%E6%B8%AF%E5%B7%9D%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2134%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E6%B8%AF%E5%B7%9D%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91%2018" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">オハコルテ 港川本店</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">浦添市港川２丁目１７−１ 18</div>
+</a><a class="pick" href="https://maps.google.com/?q=MAYBE%20BAKERY%20%EF%BC%88%E3%83%A1%E3%82%A4%E3%83%93%E3%83%BC%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0116%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E5%8C%97%E8%B0%B7%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%98%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">MAYBE BAKERY （メイビーベーカリー）</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">中頭郡北谷町北谷２丁目１８−６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E6%B2%96%E7%B8%84%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2227%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%AE%87%E5%9C%B0%E6%B3%8A%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">スターバックス コーヒー 沖縄宜野湾店</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">宜野湾市宇地泊１丁目１−２</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%AE%87%E5%9C%B0%E6%B3%8A%E8%A3%BD%E3%83%91%E3%83%B3%E6%89%80%E3%82%B9%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%AB%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2227%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%AE%87%E5%9C%B0%E6%B3%8A%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91%EF%BC%91%20%EF%BC%91%EF%BC%A6" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">宇地泊製パン所スーリール</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">宜野湾市宇地泊３丁目５−１１ １Ｆ</div>
+</a></div>
+</section><section id="leisure">
+  <div class="sec-head"><div class="kicker" style="color:#1f9d57">🏖️ 観光・ビーチ</div><div class="sec-count">11件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E7%BE%8E%E6%B5%9C%E3%82%BF%E3%82%A6%E3%83%B3%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%B3%E3%83%93%E3%83%AC%E3%83%83%E3%82%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0115%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E7%BE%8E%E6%B5%9C" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">美浜タウンリゾート・アメリカンビレッジ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">中頭郡北谷町美浜</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E4%BB%B2%E6%B3%8A%E6%B5%B7%E5%B2%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0415%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%81%A9%E7%B4%8D%E6%9D%91%E4%BB%B2%E6%B3%8A" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">仲泊海岸</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">恩納村仲泊</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%AE%8B%E6%B3%A2%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0328%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%AE%87%E5%BA%A7%EF%BC%91%EF%BC%99%EF%BC%93%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">残波ビーチ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">中頭郡読谷村宇座１９３３</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E8%B1%8A%E5%B4%8E%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20%E7%BE%8E%E3%82%89SUN%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0225%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E8%B1%8A%E5%B4%8E%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">豊崎海浜公園 美らSUNビーチ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">豊見城市豊崎５−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%BA%A7%E5%96%9C%E5%91%B3%E5%9F%8E%E8%B7%A1%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0301%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%BA%A7%E5%96%9C%E5%91%B3%20%EF%BC%97%EF%BC%90%EF%BC%98%20%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">座喜味城跡</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">中頭郡読谷村座喜味 ７０８ ６</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0417%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%9C%9F%E6%A0%84%E7%94%B0%EF%BC%94%EF%BC%96%EF%BC%99%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">真栄田岬</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">国頭郡恩納村真栄田４６９−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%81%82%E3%81%96%E3%81%BE%E3%82%B5%E3%83%B3%E3%82%B5%E3%83%B3%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-1502%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%9F%A5%E5%BF%B5%E5%AE%89%E5%BA%A7%E7%9C%9F1141%203" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">あざまサンサンビーチ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">南城市知念安座真1141 3</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E7%BE%8E%E3%82%89%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0206%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%9C%AC%E9%83%A8%E7%94%BA%E7%9F%B3%E5%B7%9D%EF%BC%94%EF%BC%92%EF%BC%94" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">沖縄美ら海水族館</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">国頭郡本部町石川４２４</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%AC%E3%83%B3%E3%82%AC%E3%83%A9%E3%83%BC%E3%81%AE%E8%B0%B7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0616%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%8E%89%E5%9F%8E%E5%89%8D%E5%B7%9D%EF%BC%92%EF%BC%90%EF%BC%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ガンガラーの谷</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">南城市玉城前川２０２</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%9E%9C%E5%A0%B1%E3%83%90%E3%83%B3%E3%82%BF%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2423%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E4%B8%8E%E9%82%A3%E5%9F%8E%E5%AE%AE%E5%9F%8E%EF%BC%92%EF%BC%97%EF%BC%96%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">果報バンタ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">うるま市与那城宮城２７６８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%96%8E%E5%A0%B4%E5%BE%A1%E5%B6%BD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-1511%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%9F%A5%E5%BF%B5%E4%B9%85%E6%89%8B%E5%A0%85%EF%BC%95%EF%BC%93%EF%BC%99" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">斎場御嶽</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">南城市知念久手堅５３９</div>
+</a></div>
+</section><section id="shopping">
+  <div class="sec-head"><div class="kicker" style="color:#7a45cf">🛍️ ショッピング</div><div class="sec-count">8件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%9E%E3%83%B3%E3%83%97%E3%83%A9%E3%82%B9%20%E6%B5%A6%E6%B7%BB%E7%B5%8C%E5%A1%9A%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2111%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E7%B5%8C%E5%A1%9A%EF%BC%93%EF%BC%99%EF%BC%92" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ワークマンプラス 浦添経塚店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">浦添市経塚３９２</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%A2%E3%83%BC%E3%82%B9%E3%82%B7%E3%83%83%E3%83%97%20%E3%82%88%E3%81%BF%E3%81%9F%E3%82%93%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0323%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E9%AB%98%E5%BF%97%E4%BF%9D%EF%BC%91%EF%BC%90%EF%BC%94%EF%BC%96" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">アースシップ よみたん店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">中頭郡読谷村高志保１０４６</div>
+</a><a class="pick" href="https://maps.google.com/?q=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E3%81%86%E3%82%8B%E3%81%BE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2231%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E5%A1%A9%E5%B1%8B%20%E6%B5%9C%E5%8E%9F%EF%BC%95%EF%BC%90%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">MEGAドン・キホーテ うるま店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">うるま市塩屋 浜原５０２−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E8%B5%A4%E5%B4%8E%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-1103%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E7%9F%B3%E5%B7%9D%E8%B5%A4%E5%B4%8E%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">サンエー赤崎店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">うるま市石川赤崎２丁目１−１</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%20%E5%85%B7%E5%BF%97%E5%B7%9D%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%86%E3%82%A3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2244%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E6%B1%9F%E6%B4%B2450%EF%BD%B01" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">サンエー 具志川メインシティ</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">うるま市江洲450ｰ1</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%83%AD%E3%83%BC%E3%82%BD%E3%83%B3%20%E5%90%8D%E8%AD%B7%E8%BE%BA%E9%87%8E%E5%8F%A4%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-2171%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E8%BE%BA%E9%87%8E%E5%8F%A4%EF%BC%91%EF%BC%90%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%96%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ローソン 名護辺野古店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">名護市辺野古１０１０−６８</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%A4%E3%82%AA%E3%83%B3%E5%90%8D%E8%AD%B7%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%EF%BC%94%EF%BC%94%EF%BC%97%EF%BC%92%20%E5%90%8D%E8%AD%B7%E5%B8%82%E5%AD%97%E5%90%8D%E8%AD%B7%E8%A6%8B%E5%8F%96%E5%B7%9D%E5%8E%9F" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">イオン名護店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">４４７２ 名護市字名護見取川原</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88%E3%83%A2%E3%83%BC%E3%83%AB%20%E3%81%82%E3%81%97%E3%81%B3%E3%81%AA%E3%83%BC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0225%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E8%B1%8A%E5%B4%8E%EF%BC%91%E2%88%92%EF%BC%91%EF%BC%98%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">沖縄アウトレットモール あしびなー</span><span class="parrow" style="color:#7a45cf">↗</span></div>
+  <div class="pm">豊見城市豊崎１−１８８</div>
+</a></div>
+</section><section id="lodging">
+  <div class="sec-head"><div class="kicker" style="color:#a07a1c">🏨 宿泊</div><div class="sec-count">1件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E6%B5%9C%E8%BE%BA%E3%81%AETIPI%20CAMP%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0416%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%B1%B1%E7%94%B0%EF%BC%93%EF%BC%90%EF%BC%98%EF%BC%98%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">浜辺のTIPI CAMP</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">国頭郡恩納村山田３０８８−１</div>
+</a></div>
+</section></div>
+<footer><div class="wrap"><div class="ft-1">iUMA · TRAVEL · 本島中北部</div><div class="ft-2">データ: Maply キュレーション 2026-04-13</div></div></footer>
+<button class="totop" id="totop" aria-label="トップへ">↑</button>
+<script>
+const tot=document.getElementById('totop');
+window.addEventListener('scroll',()=>{tot.classList.toggle('show',scrollY>300);},{passive:true});
+tot.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const secLinks=document.querySelectorAll('.secnav a');
+const sections=document.querySelectorAll('section');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){secLinks.forEach(a=>a.classList.remove('active'));
+  const a=document.querySelector('.secnav a[href="#'+x.target.id+'"]');if(a)a.classList.add('active');}});
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

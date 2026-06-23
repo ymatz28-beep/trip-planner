@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>その他の離島 スポットガイド | iUMA Travel</title>
+<meta name="theme-color" content="#a07a1c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg:#f0f7fb; --surface:#fff; --surface-2:#f5f9fc;
+    --ink:#1a2b35; --ink-2:#4a6070; --ink-3:#8aacbd;
+    --line:#ddeaf2; --line-2:#e8f2f8;
+    --ocean:#0a86bd; --ocean-2:#e3f3fb; --ocean-dk:#054f73;
+    --coral:#e05c3a; --coral-2:#fef0eb;
+    --teal:#1f9d78; --gold:#a07a1c;
+    --r:14px; --r-sm:10px; --r-pill:999px;
+    --shadow:0 1px 3px rgba(10,40,60,.05),0 8px 24px rgba(10,40,60,.07);
+    --shadow-soft:0 1px 2px rgba(10,40,60,.05);
+    --font:'Inter','Noto Sans JP',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(240,247,251,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--ocean);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{font-size:13px;font-weight:600;color:var(--ink-3);padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
+  .topnav a[aria-current="page"]{color:var(--ocean);background:var(--ocean-2);}
+  .topnav a.back{font-weight:700;color:var(--ocean);}
+  .topnav a.back::before{content:"‹ ";font-size:11px;}
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ocean);}
+  footer .ft-2{font-size:11.5px;margin-top:4px;}
+  .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 8px 22px rgba(10,134,189,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;}
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
+
+  .topnav a.back{color:#a07a1c;}
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#a07a1c 0%,#7a5c0e 100%);}
+  .hero .wrap{padding:32px 18px 68px;position:relative;z-index:2;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:11px;}
+  .hero h1{font-size:clamp(26px,7vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px;}
+  .hero-sub{font-size:13px;color:rgba(255,255,255,.76);line-height:1.7;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(240,247,251,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-2);padding:7px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;}
+  .secnav a.active{color:#fff;background:#a07a1c;border-color:#a07a1c;}
+  section{padding:28px 0 4px;scroll-margin-top:108px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+  .kicker{font-size:13px;font-weight:800;letter-spacing:.04em;}
+  .sec-count{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:var(--r-pill);}
+  .picks{display:grid;gap:7px;}
+  .pick{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;transition:.15s;}
+  .pick:hover{border-color:#a07a1c;background:rgba(10,134,189,.04);}
+  .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pn{font-size:14px;font-weight:700;color:var(--ink);line-height:1.35;}
+  .parrow{flex-shrink:0;font-size:14px;opacity:.5;}
+  .pick:hover .parrow{opacity:1;}
+  .pm{font-size:12px;color:var(--ink-3);font-weight:500;line-height:1.5;}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav"><a href="okinawa-general.html" class="back">沖縄</a><a href="#" aria-current="page">その他の離島</a></nav>
+  </div>
+</header>
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Okinawa · Local Guide</div>
+    <h1>⛵ その他の離島</h1>
+    <div class="hero-sub">久米島(5) · 竹富(2) · 座間味(1)</div>
+    <div class="hero-pills"><span class="hpill">8スポット</span></div>
+  </div>
+</div>
+<div class="secnav-wrap"><nav class="secnav"><a href="#food">🍽️ 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🏖️ 観光・ビーチ</a><a href="#lodging">🏨 宿泊</a></nav></div>
+<div class="wrap"><section id="food">
+  <div class="sec-head"><div class="kicker" style="color:#0a86bd">🍽️ 食事</div><div class="sec-count">2件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%82%84%E3%82%93%E5%B0%8F%EF%BD%9E%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3124%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E4%BB%B2%E6%B3%8A%EF%BC%95%EF%BC%90%EF%BC%99" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">やん小～</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">島尻郡久米島町仲泊５０９</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E4%B8%AD%E8%8F%AF%E6%B5%B7%E9%AE%AE%20%E6%B5%B7%E7%9A%87%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3124%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E4%BB%B2%E6%B3%8A%EF%BC%91%EF%BC%91%EF%BC%92%EF%BC%93%E2%88%92%EF%BC%95" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">中華海鮮 海皇</span><span class="parrow" style="color:#0a86bd">↗</span></div>
+  <div class="pm">島尻郡久米島町仲泊１１２３−５</div>
+</a></div>
+</section><section id="cafe_sweets">
+  <div class="sec-head"><div class="kicker" style="color:#c46030">☕ カフェ・スイーツ</div><div class="sec-count">1件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%81%A1%E3%82%8D%E3%82%8A%E3%82%93%E6%9D%91%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-1101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%85%AB%E9%87%8D%E5%B1%B1%E9%83%A1%E7%AB%B9%E5%AF%8C%E7%94%BA%E7%AB%B9%E5%AF%8C%EF%BC%96%EF%BC%95%EF%BC%93" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">ちろりん村</span><span class="parrow" style="color:#c46030">↗</span></div>
+  <div class="pm">八重山郡竹富町竹富６５３</div>
+</a></div>
+</section><section id="leisure">
+  <div class="sec-head"><div class="kicker" style="color:#1f9d57">🏖️ 観光・ビーチ</div><div class="sec-count">2件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%81%AF%E3%81%A6%E3%81%AE%E6%B5%9C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3106%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E5%A5%A5%E6%AD%A6" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">はての浜</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">島尻郡久米島町奥武</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E5%8C%97%E6%B5%9C%28%E3%83%8B%E3%82%B7%E3%83%90%E3%83%9E%29%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3311%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E5%BA%A7%E9%96%93%E5%91%B3%E6%9D%91%E9%98%BF%E5%98%89" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">北浜(ニシバマ)</span><span class="parrow" style="color:#1f9d57">↗</span></div>
+  <div class="pm">島尻郡座間味村阿嘉</div>
+</a></div>
+</section><section id="lodging">
+  <div class="sec-head"><div class="kicker" style="color:#a07a1c">🏨 宿泊</div><div class="sec-count">3件</div></div>
+  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E6%98%9F%E3%81%AE%E3%82%84%E7%AB%B9%E5%AF%8C%E5%B3%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-1101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%85%AB%E9%87%8D%E5%B1%B1%E9%83%A1%E7%AB%B9%E5%AF%8C%E7%94%BA%E7%AB%B9%E5%AF%8C%EF%BC%91%EF%BC%99%EF%BC%95%EF%BC%95" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">星のや竹富島</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">八重山郡竹富町竹富１９５５</div>
+</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B5%E3%82%A4%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E4%B9%85%E7%B1%B3%E5%B3%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3132%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E5%A4%A7%E5%8E%9F%EF%BC%98%EF%BC%90%EF%BC%93%E2%88%92%EF%BC%91%20%E3%82%B5%E3%82%A4%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">サイプレスリゾート久米島</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">島尻郡久米島町大原８０３−１ サイプレスリゾート久米島 サイプレ</div>
+</a><a class="pick" href="https://maps.google.com/?q=EN%20RESORT%20Kumejima%20EEF%20Beach%20Hotel%20%28%E3%82%A8%E3%83%B3%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E4%B9%85%E7%B1%B3%E5%B3%B6%E3%82%A4%E3%83%BC%E3%83%95%E3%83%93%E3%83%BC%E3%83%81%E3%83%9B%E3%83%86%E3%83%AB%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3107%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E8%AC%9D%E5%90%8D%E5%A0%82%EF%BC%95%EF%BC%94%EF%BC%98" target="_blank" rel="noopener">
+  <div class="ph"><span class="pn">EN RESORT Kumejima EEF Beach Hotel (エンリゾート 久米島イーフビーチホテル）</span><span class="parrow" style="color:#a07a1c">↗</span></div>
+  <div class="pm">島尻郡久米島町謝名堂５４８</div>
+</a></div>
+</section></div>
+<footer><div class="wrap"><div class="ft-1">iUMA · TRAVEL · その他の離島</div><div class="ft-2">データ: Maply キュレーション 2026-04-13</div></div></footer>
+<button class="totop" id="totop" aria-label="トップへ">↑</button>
+<script>
+const tot=document.getElementById('totop');
+window.addEventListener('scroll',()=>{tot.classList.toggle('show',scrollY>300);},{passive:true});
+tot.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+const secLinks=document.querySelectorAll('.secnav a');
+const sections=document.querySelectorAll('section');
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){secLinks.forEach(a=>a.classList.remove('active'));
+  const a=document.querySelector('.secnav a[href="#'+x.target.id+'"]');if(a)a.classList.add('active');}});
+},{rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

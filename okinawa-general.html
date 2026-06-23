@@ -3,28 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>沖縄 ローカルガイド — エリア別スポット147件 | iUMA Travel</title>
+<title>沖縄 エリアガイド | iUMA Travel</title>
 <meta name="theme-color" content="#0a86bd">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
+
   :root{
-    --bg:#f0f7fb;
-    --surface:#ffffff;
-    --surface-2:#f5f9fc;
-    --ink:#1a2b35;
-    --ink-2:#4a6070;
-    --ink-3:#8aacbd;
-    --line:#ddeaf2;
-    --line-2:#e8f2f8;
-    --ocean:#0a86bd;
-    --ocean-2:#e3f3fb;
-    --coral:#e05c3a;
-    --coral-2:#fef0eb;
-    --teal:#1f9d78;
+    --bg:#f0f7fb; --surface:#fff; --surface-2:#f5f9fc;
+    --ink:#1a2b35; --ink-2:#4a6070; --ink-3:#8aacbd;
+    --line:#ddeaf2; --line-2:#e8f2f8;
+    --ocean:#0a86bd; --ocean-2:#e3f3fb; --ocean-dk:#054f73;
+    --coral:#e05c3a; --coral-2:#fef0eb;
+    --teal:#1f9d78; --gold:#a07a1c;
     --r:14px; --r-sm:10px; --r-pill:999px;
-    --shadow:0 1px 3px rgba(10,40,60,.05), 0 8px 24px rgba(10,40,60,.07);
+    --shadow:0 1px 3px rgba(10,40,60,.05),0 8px 24px rgba(10,40,60,.07);
     --shadow-soft:0 1px 2px rgba(10,40,60,.05);
     --font:'Inter','Noto Sans JP',system-ui,sans-serif;
   }
@@ -33,729 +25,119 @@
   body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
   .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
-
-  /* Topbar */
   .topbar{position:sticky;top:0;z-index:60;background:rgba(240,247,251,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
   .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--ocean);}
   .topnav{display:flex;gap:2px;}
   .topnav a{font-size:13px;font-weight:600;color:var(--ink-3);padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
   .topnav a[aria-current="page"]{color:var(--ocean);background:var(--ocean-2);}
-  .topnav a.back{font-weight:700;color:var(--ocean);letter-spacing:.04em;}
+  .topnav a.back{font-weight:700;color:var(--ocean);}
   .topnav a.back::before{content:"‹ ";font-size:11px;}
-
-  /* Hero */
-  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#054f73 0%,#0a86bd 50%,#0db4e8 100%);}
-  .hero::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
-  .hero .wrap{padding:36px 18px 72px;position:relative;z-index:2;}
-  .eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:14px;}
-  .eyebrow::before{content:"";width:18px;height:1.5px;background:rgba(255,255,255,.5);display:inline-block;}
-  .hero h1{font-size:clamp(28px,7.4vw,42px);font-weight:800;line-height:1.15;letter-spacing:.005em;margin-bottom:12px;}
-  .hero h1 small{display:block;font-size:clamp(14px,3.4vw,17px);font-weight:600;color:rgba(255,255,255,.75);margin-top:8px;}
-  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
-  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);padding:6px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
-
-  /* Stats bar */
-  .stats-bar{margin-top:-44px;position:relative;z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(2,1fr);}
-  @media(min-width:560px){.stats-bar{grid-template-columns:repeat(4,1fr);}}
-  .stat{padding:15px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
-  .stat:nth-child(2n){border-right:0;}
-  .stat:nth-last-child(-n+2){border-bottom:0;}
-  @media(min-width:560px){.stat{border-bottom:0;}.stat:nth-child(2n){border-right:1px solid var(--line-2);}.stat:last-child{border-right:0;}}
-  .stat .k{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:4px;}
-  .stat .v{font-size:clamp(22px,6vw,28px);font-weight:800;line-height:1;color:var(--ocean);letter-spacing:-.01em;}
-  .stat .v .u{font-size:13px;font-weight:700;color:var(--ink-2);margin-left:1px;}
-  .stat .s{font-size:11px;color:var(--ink-3);margin-top:5px;font-weight:500;}
-
-  /* Section nav */
-  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(240,247,251,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
-  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
-  .secnav::-webkit-scrollbar{display:none;}
-  .secnav a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-2);padding:7px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;}
-  .secnav a.active{color:#fff;background:var(--ocean);border-color:var(--ocean);}
-
-  /* Region section */
-  .region-section{padding:32px 0 4px;scroll-margin-top:108px;}
-  .region-head{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid #0a86bd;border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow-soft);margin-bottom:18px;}
-  .region-icon{font-size:28px;line-height:1;flex-shrink:0;}
-  .region-title{font-size:18px;font-weight:800;color:var(--ink);margin-bottom:2px;}
-  .region-sub{font-size:12.5px;color:var(--ink-3);font-weight:500;}
-
-  /* Category group */
-  .cat-group{margin-bottom:16px;}
-  .cat-head{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;margin-bottom:9px;padding-left:2px;}
-  .cat-count{font-size:11px;font-weight:700;background:rgba(0,0,0,.07);color:var(--ink-3);padding:2px 7px;border-radius:var(--r-pill);}
-
-  /* Spot list */
-  .spot-list{display:grid;gap:7px;}
-  .spot{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:11px 13px;transition:.15s;cursor:pointer;}
-  .spot:hover{border-color:var(--ocean);background:var(--ocean-2);}
-  .spot-name{font-size:14px;font-weight:700;color:var(--ink);flex:1;line-height:1.35;}
-  .spot-addr{font-size:11.5px;color:var(--ink-3);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;}
-  .spot-map-ic{flex-shrink:0;font-size:14px;color:var(--ocean);opacity:.6;}
-  .spot:hover .spot-map-ic{opacity:1;}
-  @media(max-width:480px){.spot-addr{display:none;}}
-
-  /* Plan cards */
-  .plan-grid{display:grid;gap:14px;}
-  @media(min-width:560px){.plan-grid{grid-template-columns:1fr 1fr;}}
-  .plan-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-soft);}
-  .plan-badge{display:inline-block;font-size:10.5px;font-weight:800;background:var(--ocean);color:#fff;padding:3px 10px;border-radius:var(--r-pill);margin-bottom:10px;letter-spacing:.06em;}
-  .plan-badge-long{background:var(--teal);}
-  .plan-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:12px;}
-  .plan-day{padding:8px 0;border-bottom:1px solid var(--line-2);font-size:13px;color:var(--ink-2);line-height:1.6;}
-  .plan-day:last-child{border-bottom:0;}
-  .day-label{display:inline-block;font-size:10px;font-weight:800;background:var(--ocean-2);color:var(--ocean);padding:2px 8px;border-radius:var(--r-pill);margin-right:6px;white-space:nowrap;}
-
-  /* Footer */
   footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);}
   footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ocean);}
   footer .ft-2{font-size:11.5px;margin-top:4px;}
-
-  /* Back to top */
   .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 8px 22px rgba(10,134,189,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;}
   .totop.show{opacity:1;pointer-events:auto;transform:none;}
+  @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
 
-  @media print{.topbar,.secnav-wrap,.totop{display:none!important;}body{background:#fff;}}
+  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#054f73 0%,#0a86bd 55%,#0db4e8 100%);}
+  .hero .wrap{padding:36px 18px 72px;position:relative;z-index:2;}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:12px;}
+  .hero h1{font-size:clamp(26px,7vw,40px);font-weight:900;line-height:1.15;margin-bottom:10px;}
+  .hero p{font-size:14px;color:rgba(255,255,255,.78);line-height:1.72;max-width:44ch;}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
+  .stats-bar{margin-top:-44px;position:relative;z-index:5;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(2,1fr);}
+  @media(min-width:560px){.stats-bar{grid-template-columns:repeat(4,1fr);}}
+  .stat{padding:14px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .stat:nth-child(2n){border-right:0;}.stat:nth-last-child(-n+2){border-bottom:0;}
+  @media(min-width:560px){.stat{border-bottom:0;}.stat:nth-child(2n){border-right:1px solid var(--line-2);}.stat:last-child{border-right:0;}}
+  .stat .k{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:3px;}
+  .stat .v{font-size:clamp(22px,5.5vw,28px);font-weight:800;color:var(--ocean);line-height:1;}
+  .stat .u{font-size:13px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .stat .s{font-size:11px;color:var(--ink-3);margin-top:4px;font-weight:500;}
+  .rgrid{display:grid;gap:12px;margin-top:28px;}
+  @media(min-width:480px){.rgrid{grid-template-columns:1fr 1fr;}}
+  .rcard{display:block;background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-soft);transition:.18s;position:relative;overflow:hidden;}
+  .rcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--rclr);}
+  .rcard:hover{border-color:var(--rclr);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .rcard-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .ricon{font-size:26px;line-height:1;}
+  .rcount{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--surface-2);padding:3px 9px;border-radius:var(--r-pill);border:1px solid var(--line-2);}
+  .rname{font-size:17px;font-weight:800;color:var(--ink);margin-bottom:3px;}
+  .rsub{font-size:12px;color:var(--ink-3);font-weight:500;margin-bottom:10px;}
+  .rtags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .rtag{font-size:11px;font-weight:600;color:var(--ocean-dk);background:var(--ocean-2);padding:3px 9px;border-radius:var(--r-pill);}
+  .rarrow{font-size:18px;color:var(--rclr);text-align:right;opacity:.6;}
+  .rcard:hover .rarrow{opacity:1;}
 </style>
 </head>
 <body>
-
 <header class="topbar">
   <div class="wrap">
     <div class="brand">iUMA · TRAVEL</div>
-    <nav class="topnav">
-      <a href="index.html" class="back">Travel</a>
-      <a href="okinawa-general.html" aria-current="page">沖縄ガイド</a>
-      <a href="okinawa.html">旅程 7/3-6</a>
-    </nav>
+    <nav class="topnav"><a href="index.html" class="back">Travel</a><a href="okinawa-general.html" aria-current="page">沖縄</a></nav>
   </div>
 </header>
-
 <div class="hero">
   <div class="wrap">
-    <div class="eyebrow">LOCAL GUIDE</div>
-    <h1>OKINAWA 沖縄
-      <small>エリア別スポット — 宮古島・石垣島・那覇・本島・離島</small>
-    </h1>
-    <div class="hero-meta">
-      <span class="hpill">🏝️ 147スポット</span>
-      <span class="hpill">🗺️ 5エリア</span>
-      <span class="hpill">📍 Maplyキュレーション</span>
-    </div>
+    <div class="eyebrow">Okinawa Local Guide</div>
+    <h1>🏝️ 沖縄 エリアガイド</h1>
+    <p>宮古島・石垣島・那覇・本島・離島の5エリア。Maplyキュレーション147スポットを地域別に整理。</p>
+    <div class="hero-pills"><span class="hpill">5エリア</span><span class="hpill">147スポット</span><span class="hpill">📍 Google Maps連携</span></div>
   </div>
 </div>
-
 <div class="wrap">
   <div class="stats-bar">
-    <div class="stat"><div class="k">Total</div><div class="v">121<span class="u">件</span></div><div class="s">キュレーション済み</div></div>
     <div class="stat"><div class="k">食事</div><div class="v">39<span class="u">件</span></div><div class="s">食堂・焼肉・島料理</div></div>
     <div class="stat"><div class="k">カフェ</div><div class="v">28<span class="u">件</span></div><div class="s">コーヒー・パン・スイーツ</div></div>
     <div class="stat"><div class="k">観光</div><div class="v">20<span class="u">件</span></div><div class="s">ビーチ・史跡・展望台</div></div>
+    <div class="stat"><div class="k">宿泊</div><div class="v">14<span class="u">件</span></div><div class="s">ホテル・リゾート</div></div>
   </div>
+  <div class="rgrid">
+<a class="rcard" href="miyako.html" style="--rclr:#1f9d78">
+  <div class="rcard-top"><span class="ricon">🐠</span><span class="rcount">32件</span></div>
+  <div class="rname">宮古島</div>
+  <div class="rsub">来間島・伊良部島を含む</div>
+  <div class="rtags"><span class="rtag">コバルトブルーの海</span><span class="rtag">島料理</span><span class="rtag">与那覇前浜</span><span class="rtag">来間島カフェ</span></div>
+  <div class="rarrow">→</div>
+</a>
+<a class="rcard" href="ishigaki.html" style="--rclr:#e05c3a">
+  <div class="rcard-top"><span class="ricon">🌺</span><span class="rcount">29件</span></div>
+  <div class="rname">石垣島</div>
+  <div class="rsub">川平湾・白保エリア含む</div>
+  <div class="rtags"><span class="rtag">川平公園</span><span class="rtag">石垣牛焼肉</span><span class="rtag">食堂巡り</span><span class="rtag">珈琲焙煎</span></div>
+  <div class="rarrow">→</div>
+</a>
+<a class="rcard" href="naha.html" style="--rclr:#7a45cf">
+  <div class="rcard-top"><span class="ricon">🏙️</span><span class="rcount">9件</span></div>
+  <div class="rname">那覇</div>
+  <div class="rsub">国際通り・牧志・松山</div>
+  <div class="rtags"><span class="rtag">国際通り</span><span class="rtag">公設市場</span><span class="rtag">てびち</span><span class="rtag">首里城</span></div>
+  <div class="rarrow">→</div>
+</a>
+<a class="rcard" href="hontou.html" style="--rclr:#0a86bd">
+  <div class="rcard-top"><span class="ricon">🌴</span><span class="rcount">43件</span></div>
+  <div class="rname">本島中北部</div>
+  <div class="rsub">恩納・読谷・名護・北谷・浦添</div>
+  <div class="rtags"><span class="rtag">真栄田岬</span><span class="rtag">美ら海水族館</span><span class="rtag">残波ビーチ</span><span class="rtag">北谷</span></div>
+  <div class="rarrow">→</div>
+</a>
+<a class="rcard" href="ritou.html" style="--rclr:#a07a1c">
+  <div class="rcard-top"><span class="ricon">⛵</span><span class="rcount">8件</span></div>
+  <div class="rname">その他の離島</div>
+  <div class="rsub">久米島・竹富島・慶良間</div>
+  <div class="rtags"><span class="rtag">はての浜</span><span class="rtag">竹富島</span><span class="rtag">透明度抜群の海</span><span class="rtag">サンゴ礁</span></div>
+  <div class="rarrow">→</div>
+</a></div>
 </div>
-
-<div class="secnav-wrap">
-  <nav class="secnav"><a href="#那覇">🏙️ 那覇</a><a href="#宮古島">🐠 宮古島</a><a href="#石垣島">🌺 石垣島</a><a href="#本島中部北部">🌴 本島（中部・北部）</a><a href="#離島">⛵ その他の離島</a><a href="#plans">📅 プラン</a></nav>
-</div>
-
-<div class="wrap">
-
-<section id="那覇" class="region-section">
-  <div class="region-head" style="border-left-color:#0a86bd">
-    <span class="region-icon">🏙️</span>
-    <div>
-      <div class="region-title">那覇</div>
-      <div class="region-sub">国際通り・牧志 · 9件</div>
-    </div>
-  </div>
-  <div class="cat-group"><div class="cat-head" style="color:#0a86bd">🍽️ 食事 <span class="cat-count">2</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%A6%E3%81%B3%E3%81%A1%E5%B1%8B%E6%9C%AC%E8%88%97%20%E9%82%A3%E8%A6%87%E6%9D%BE%E5%B1%B1%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0032%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E6%9D%BE%E5%B1%B1%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%92%E2%88%92%EF%BC%95%20TM%E3%83%93%E3%83%AB%201F" target="_blank" rel="noopener">
-  <span class="spot-name">てびち屋本舗 那覇松山店</span>
-  <span class="spot-addr">那覇市松山１丁目１２−５ TMビル 1F</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%84%E3%81%97%E3%81%90%E3%81%B5%E3%83%BC%E5%B0%8F%E7%A6%84%E5%85%B7%E5%BF%97%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0146%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E5%85%B7%E5%BF%97%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%91%E2%88%92%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">いしぐふー小禄具志店</span>
-  <span class="spot-addr">那覇市具志３丁目２１−５</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#c46030">☕ カフェ <span class="cat-count">2</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%82%A2%E3%83%8A%E3%83%99%E3%83%AB%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E7%89%A7%E5%BF%97%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%98%E2%88%92%EF%BC%93%EF%BC%91%20%EF%BC%92F" target="_blank" rel="noopener">
-  <span class="spot-name">アナベル</span>
-  <span class="spot-addr">那覇市牧志３丁目８−３１ ２F</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E9%82%A3%E8%A6%87%E5%9B%BD%E9%9A%9B%E9%80%9A%E3%82%8A%E7%89%A7%E5%BF%97%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E7%89%A7%E5%BF%97%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%91%20%E3%83%97%E3%83%A9%E3%83%B3%E3%82%BF%E3%83%93%E3%83%AB" target="_blank" rel="noopener">
-  <span class="spot-name">スターバックス コーヒー 那覇国際通り牧志店</span>
-  <span class="spot-addr">那覇市牧志２丁目１−１ プランタビル</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#7a45cf">🛍️ ショッピング <span class="cat-count">5</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%E7%89%A7%E5%BF%97%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E7%89%A7%E5%BF%97%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">マックスバリュ牧志店</span>
-  <span class="spot-addr">那覇市牧志２丁目１０−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%86%E3%81%A1%E3%81%AA%E3%83%BC%E3%82%80%E3%82%93%20%E3%83%9F%E3%83%A4%E3%82%AE%E3%83%9F%E3%83%BC%E3%83%88%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E6%9D%BE%E5%B0%BE%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%92%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">うちなーむん ミヤギミート</span>
-  <span class="spot-addr">那覇市松尾２丁目１０−２０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%EF%BC%B6%EF%BC%92%EF%BC%91%E3%81%98%E3%82%87%E3%81%86%E3%81%8C%E3%81%8F%E9%A3%9F%E5%93%81%E9%A4%A8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0023%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E6%A5%9A%E8%BE%BA%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">サンエーＶ２１じょうがく食品館</span>
-  <span class="spot-addr">那覇市楚辺１丁目１４−１０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81%20%E3%83%91%E3%83%AC%E3%83%83%E3%83%88%E3%81%8F%E3%82%82%E3%81%98%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0015%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E4%B9%85%E8%8C%82%E5%9C%B0%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%91%20%E3%83%AA%E3%82%A6%E3%83%9C%E3%82%A6%20%EF%BC%98%EF%BC%A6" target="_blank" rel="noopener">
-  <span class="spot-name">無印良品 パレットくもじ</span>
-  <span class="spot-addr">那覇市久茂地１丁目１−１ リウボウ ８Ｆ</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E9%82%A3%E8%A6%87%E3%83%A1%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%82%A4%E3%82%B9%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92900-0006%20%E6%B2%96%E7%B8%84%E7%9C%8C%E9%82%A3%E8%A6%87%E5%B8%82%E3%81%8A%E3%82%82%E3%82%8D%E3%81%BE%E3%81%A1%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%94%E2%88%92%EF%BC%99" target="_blank" rel="noopener">
-  <span class="spot-name">サンエー那覇メインプレイス</span>
-  <span class="spot-addr">那覇市おもろまち４丁目４−９</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div>
-</section>
-<section id="宮古島" class="region-section">
-  <div class="region-head" style="border-left-color:#1f9d57">
-    <span class="region-icon">🐠</span>
-    <div>
-      <div class="region-title">宮古島</div>
-      <div class="region-sub">来間島・伊良部島を含む · 32件</div>
-    </div>
-  </div>
-  <div class="cat-group"><div class="cat-head" style="color:#0a86bd">🍽️ 食事 <span class="cat-count">9</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E5%91%B3%E3%81%94%E3%81%AE%E3%81%BF%E4%B8%8B%E5%8C%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E5%B7%9D%E6%BA%80%EF%BC%96%EF%BC%90%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">味ごのみ下北</span>
-  <span class="spot-addr">宮古島市下地川満６０４−１６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%B0%E3%83%AB%E9%A3%AF%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%20%E5%AD%97%E4%B8%8B%E9%87%8C575%20A106" target="_blank" rel="noopener">
-  <span class="spot-name">ジャングル飯店</span>
-  <span class="spot-addr">宮古島市平良 字下里575 A106</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%95%E3%83%AB%E5%AE%AE%E5%8F%A4%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%96%EF%BC%90%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">ジョイフル宮古店</span>
-  <span class="spot-addr">宮古島市平良下里６０５</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%A4%9A%E8%89%AF%E9%96%93%E7%89%9B%20%E3%83%80%E3%82%B0%E3%82%BA%E3%83%BB%E3%82%B0%E3%83%AA%E3%83%AB%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%95%EF%BC%96%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">多良間牛 ダグズ・グリル 宮古島本店</span>
-  <span class="spot-addr">宮古島市平良西里５６７−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%A4%E3%83%83%E3%82%AB%E3%83%A4%E3%83%83%E3%82%AB%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0306%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%92%EF%BC%96%E2%88%92%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">ヤッカヤッカ</span>
-  <span class="spot-addr">宮古島市下地来間１２６−３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=PANIPANI%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%90%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">PANIPANI</span>
-  <span class="spot-addr">宮古島市下地来間１０５−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=DOUG%E2%80%98S%20BURGER%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%95%EF%BC%93%E2%88%92%EF%BC%93%E2%88%92%EF%BC%91%EF%BC%90%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">DOUG‘S BURGER</span>
-  <span class="spot-addr">宮古島市平良下里１１５３−３−１０１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%99%E3%82%80%E3%81%B0%E3%82%8A%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0002%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E7%8B%A9%E4%BF%A3%EF%BC%97%EF%BC%96%EF%BC%98%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">すむばり食堂</span>
-  <span class="spot-addr">宮古島市平良狩俣７６８−４</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%8F%A4%E8%AC%9D%E3%81%9D%E3%81%B0%E5%B1%8B%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%95%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">古謝そば屋</span>
-  <span class="spot-addr">宮古島市平良下里１５１７−１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#c46030">☕ カフェ <span class="cat-count">6</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=Cafe%20de%20M%EF%BC%88%E3%82%AB%E3%83%95%E3%82%A7%20%E3%83%89%20%E3%82%A8%E3%83%A0%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%94%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">Cafe de M（カフェ ド エム）</span>
-  <span class="spot-addr">宮古島市平良西里４５−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=AOSORA%20PARLOR%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0306%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%90%EF%BC%94%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">AOSORA PARLOR</span>
-  <span class="spot-addr">宮古島市下地来間１０４−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B9%E3%83%8A%E3%83%A4%E3%83%9E%E3%82%AB%E3%83%95%E3%82%A7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0008%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96%EF%BC%96%EF%BC%95%EF%BC%95%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">スナヤマカフェ</span>
-  <span class="spot-addr">宮古島市平良荷川取６５５−２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%80%E3%82%B0%E3%82%BA%E3%83%BB%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%95%EF%BC%93%E2%88%92%EF%BC%93%E2%88%92%EF%BC%91%EF%BC%90%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">ダグズ・コーヒー 宮古島本店</span>
-  <span class="spot-addr">宮古島市平良下里１１５３−３−１０５</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%9D%8F%E5%BF%83%E3%81%AE%E3%83%89%E3%83%BC%E3%83%8A%E3%83%84%E5%B1%8B%E3%81%95%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%BC%8A%E8%89%AF%E9%83%A8%E9%95%B7%E6%B5%9C%EF%BC%91%EF%BC%93%EF%BC%90%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">杏心のドーナツ屋さん</span>
-  <span class="spot-addr">宮古島市伊良部長浜１３０３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%A9%BA%E7%8C%AB%E5%8D%81%E5%AD%97%E7%A4%BE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0008%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96%EF%BC%93%EF%BC%91%EF%BC%98%E2%88%92%EF%BC%91%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">空猫十字社</span>
-  <span class="spot-addr">宮古島市平良荷川取３１８−１１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#1f9d57">🏖️ 観光・ビーチ <span class="cat-count">4</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E7%AB%9C%E5%AE%AE%E5%9F%8E%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93" target="_blank" rel="noopener">
-  <span class="spot-name">竜宮城展望台</span>
-  <span class="spot-addr">宮古島市下地来間</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%AE%AE%E5%8F%A4%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF" target="_blank" rel="noopener">
-  <span class="spot-name">宮古サンセットビーチ</span>
-  <span class="spot-addr">宮古島市平良</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%A0%82%E5%B1%B1%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96" target="_blank" rel="noopener">
-  <span class="spot-name">砂山ビーチ</span>
-  <span class="spot-addr">宮古島市平良荷川取</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E4%B8%8E%E9%82%A3%E8%A6%87%E5%89%8D%E6%B5%9C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0305%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E4%B8%8E%E9%82%A3%E8%A6%871199%E7%95%AA" target="_blank" rel="noopener">
-  <span class="spot-name">与那覇前浜</span>
-  <span class="spot-addr">宮古島市下地与那覇1199番</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#7a45cf">🛍️ ショッピング <span class="cat-count">9</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%83%80%E3%82%A4%E3%82%BD%E3%83%BC%20%E3%82%A4%E3%82%AA%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3%E5%AE%AE%E5%8F%A4%E5%8D%97SC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%BE%E5%8E%9F%EF%BC%95%EF%BC%95%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ダイソー イオンタウン宮古南SC店</span>
-  <span class="spot-addr">宮古島市平良松原５５１−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%E5%AE%AE%E5%8F%A4%E5%8D%97%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%BE%E5%8E%9F%EF%BC%96%EF%BC%93%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">マックスバリュ宮古南店</span>
-  <span class="spot-addr">宮古島市平良松原６３１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%AE%E9%A7%85%E3%81%BF%E3%82%84%E3%81%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0015%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B9%85%E8%B2%9D%EF%BC%98%EF%BC%97%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">島の駅みやこ</span>
-  <span class="spot-addr">宮古島市平良久貝８７０−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=OTS%20car%20rental%20Miyako%20Kukomae%20shop%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%92%EF%BC%91%EF%BC%99%EF%BC%99%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">OTS car rental Miyako Kukomae shop</span>
-  <span class="spot-addr">宮古島市平良下里２１９９−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%82%A6%E3%83%B3%20%E5%AE%AE%E5%8F%A4%E9%A3%9F%E5%93%81%E9%A4%A8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0007%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%B1%E4%BB%B2%E5%AE%97%E6%A0%B9844%EF%BD%B01" target="_blank" rel="noopener">
-  <span class="spot-name">サンエーショッピングタウン 宮古食品館</span>
-  <span class="spot-addr">宮古島市平良東仲宗根844ｰ1</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%91%EF%BC%92%EF%BC%98%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">ドン・キホーテ 宮古島店</span>
-  <span class="spot-addr">宮古島市平良西里１２８３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=Rental%20Shop%20%60Big%20Joy%27%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%B1%E4%BB%B2%E5%AE%97%E6%A0%B9%EF%BC%98%EF%BC%92%EF%BC%97%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">Rental Shop `Big Joy'</span>
-  <span class="spot-addr">宮古島市平良東仲宗根８２７−２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=B.SHOP%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%99%EF%BC%93%EF%BC%97" target="_blank" rel="noopener">
-  <span class="spot-name">B.SHOP</span>
-  <span class="spot-addr">宮古島市平良下里９３７</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%AE%AE%E5%8F%A4%E5%B3%B6%E3%83%81%E3%83%BC%E3%82%BA%E5%B7%A5%E6%88%BF%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%9F%8E%E8%BE%BA%E4%BF%9D%E8%89%AF%EF%BC%93%EF%BC%94%EF%BC%94%E2%88%92%EF%BC%99" target="_blank" rel="noopener">
-  <span class="spot-name">宮古島チーズ工房</span>
-  <span class="spot-addr">宮古島市城辺保良３４４−９</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#a07a1c">🏨 宿泊 <span class="cat-count">3</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%82%B6%20%E3%82%B7%E3%82%AE%E3%83%A9%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0202%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8A%E9%87%8E%E6%96%B0%E9%87%8C%EF%BC%91%EF%BC%94%EF%BC%90%EF%BC%95%E2%88%92%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">ザ シギラ</span>
-  <span class="spot-addr">宮古島市上野新里１４０５−３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%BB%E3%83%88%E3%83%AA%E3%83%95%E3%82%A3%E3%83%BC%E3%83%88%E5%AE%AE%E5%8F%A4%E5%B3%B6%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%92%EF%BC%94%EF%BC%92%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ホテル・トリフィート宮古島リゾート</span>
-  <span class="spot-addr">宮古島市平良下里２４２２−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%BD%E3%83%A9%E3%83%8B%E3%83%AF%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A2%E3%83%B3%E3%83%89%E3%82%AB%E3%83%95%E3%82%A7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0503%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%BC%8A%E8%89%AF%E9%83%A8%E4%BC%8A%E8%89%AF%E9%83%A8%EF%BC%97%EF%BC%92%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ソラニワホテルアンドカフェ</span>
-  <span class="spot-addr">宮古島市伊良部伊良部７２１−１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#2b7a3e">💆 ウェルネス <span class="cat-count">1</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%90%E3%82%8A%E3%83%BC%E3%82%93%E3%82%8A%E3%83%BC%E3%81%B5%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%96%EF%BC%95%EF%BC%97%E2%88%92%EF%BC%91%EF%BC%92%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">ぐりーんりーふ</span>
-  <span class="spot-addr">宮古島市平良下里１６５７−１２８</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div>
-</section>
-<section id="石垣島" class="region-section">
-  <div class="region-head" style="border-left-color:#bf2367">
-    <span class="region-icon">🌺</span>
-    <div>
-      <div class="region-title">石垣島</div>
-      <div class="region-sub">川平湾・白保エリア含む · 29件</div>
-    </div>
-  </div>
-  <div class="cat-group"><div class="cat-head" style="color:#0a86bd">🍽️ 食事 <span class="cat-count">16</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E7%82%AD%E7%81%AB%E7%84%BC%E8%82%89%20%E3%81%9F%E3%81%91%E3%81%95%E3%82%93%E4%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%B5%9C%E5%B4%8E%E7%94%BA%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%92%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">炭火焼肉 たけさん亭</span>
-  <span class="spot-addr">石垣市浜崎町２丁目２−４</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%84%BC%E8%82%89%E3%82%84%E3%81%84%E3%81%BE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%BE%8E%E5%B4%8E%E7%94%BA%EF%BC%99%E2%88%92%EF%BC%99%20%E8%A5%BF%E3%83%93%E3%83%AB%20%EF%BC%91%E9%9A%8E" target="_blank" rel="noopener">
-  <span class="spot-name">焼肉やいま</span>
-  <span class="spot-addr">石垣市美崎町９−９ 西ビル １階</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%B2%E3%81%BE%E3%82%8F%E3%82%8A%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0002%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9C%9F%E6%A0%84%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%93%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">ひまわり食堂</span>
-  <span class="spot-addr">石垣市真栄里１１３−６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E4%B8%AD%E5%9B%BD%E9%A3%AF%E5%BA%97%20%E5%A4%A7%E5%AF%8C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%95%EF%BC%95%EF%BC%95%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">中国飯店 大富</span>
-  <span class="spot-addr">石垣市登野城５５５−６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%AE%E3%81%94%E3%81%A1%E3%81%9D%E3%81%86%20%E3%81%A6%E3%81%83%E3%82%93%E3%81%8C%E3%83%BC%E3%82%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%96%EF%BC%94%EF%BC%91%E2%88%92%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">島のごちそう てぃんがーら</span>
-  <span class="spot-addr">石垣市登野城６４１−５</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%9F%B3%E5%9E%A3%E7%89%9BMARU%E3%80%90%E7%9F%B3%E5%9E%A3%E7%89%9B%E5%B0%82%E9%96%80%E5%BA%97%E3%80%91%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%92%EF%BC%96%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">石垣牛MARU【石垣牛専門店】</span>
-  <span class="spot-addr">石垣市登野城２６−４</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%97%AC%E5%AE%B6%E3%81%B0%E3%82%93%E3%81%A1%E3%82%83%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0242%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BD%E4%BF%9D%EF%BC%91%EF%BC%93%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">旬家ばんちゃん</span>
-  <span class="spot-addr">石垣市白保１３−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%A4%E3%82%B9%E3%81%A8%E3%82%AB%E3%83%9E%E3%83%BC%E3%81%AE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0241%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%A1%83%E9%87%8C%EF%BC%92%EF%BC%90%EF%BC%91%E2%88%92%EF%BC%91%EF%BC%92%EF%BC%99" target="_blank" rel="noopener">
-  <span class="spot-name">ヤスとカマーの店</span>
-  <span class="spot-addr">石垣市桃里２０１−１２９</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%98%8E%E7%9F%B3%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0332%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E4%BC%8A%E5%8E%9F%E9%96%93%EF%BC%93%EF%BC%96%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">明石食堂</span>
-  <span class="spot-addr">石垣市伊原間３６０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E4%B8%80%E4%BC%91%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0023%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9F%B3%E5%9E%A3%EF%BC%97%EF%BC%91%EF%BC%96%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">一休食堂</span>
-  <span class="spot-addr">石垣市石垣７１６−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%82%E3%82%89%E3%81%8B%E3%82%8F%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0024%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E5%B7%9D%EF%BC%92%EF%BC%93%EF%BC%97%EF%BC%96%E2%88%92%EF%BC%91%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">あらかわ食堂</span>
-  <span class="spot-addr">石垣市新川２３７６−１６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%82%E3%81%9A%E3%81%95%E4%B8%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E6%A0%84%E7%94%BA%EF%BC%97%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">あずさ丸</span>
-  <span class="spot-addr">石垣市新栄町７２−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B3%B6%E6%96%99%E7%90%86%20%E3%81%A8%E3%82%93%E3%81%A7%E3%81%BF%E3%83%BC%E3%81%AA%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%94%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">島料理 とんでみーな</span>
-  <span class="spot-addr">石垣市大川２４０−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%9F%B3%E5%9E%A3%20%E9%A3%9F%E5%A0%82%20%E9%85%92%E6%99%B4%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%BE%8E%E5%B4%8E%E7%94%BA%EF%BC%91%EF%BC%91%E2%88%92%EF%BC%91%201F" target="_blank" rel="noopener">
-  <span class="spot-name">石垣 食堂 酒晴</span>
-  <span class="spot-addr">石垣市美崎町１１−１ 1F</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%B2%E3%81%A8%E3%81%97%20%E7%9F%B3%E6%95%A2%E7%95%B6%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%91%EF%BC%99%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ひとし 石敢當店</span>
-  <span class="spot-addr">石垣市大川１９７−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%82%E3%82%89%E3%81%A0%E5%AE%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%91%EF%BC%94%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">あらだ家</span>
-  <span class="spot-addr">石垣市登野城１４４</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#c46030">☕ カフェ <span class="cat-count">6</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=poco%20a%20poco%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%91%EF%BC%98%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">poco a poco</span>
-  <span class="spot-addr">石垣市大川１８８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%F0%9D%99%89%F0%9D%99%90%F0%9D%99%8F%F0%9D%99%8E%F0%9D%99%8F%F0%9D%99%8A%F0%9D%99%92%F0%9D%99%89%20%F0%9D%98%BE%F0%9D%99%8A%F0%9D%99%81%F0%9D%99%81%F0%9D%99%80%F0%9D%99%80%F0%9D%99%8D%F0%9D%99%8A%F0%9D%98%BC%F0%9D%99%8E%F0%9D%99%8F%F0%9D%99%80%F0%9D%99%8D%F0%9D%99%8E%20/%20%E3%83%8A%E3%83%83%E3%83%84%E3%82%BF%E3%82%A6%E3%83%B3%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E7%9F%B3%E5%9E%A3%E5%B3%B6%20%E7%84%99%E7%85%8E%20MORNING%20BRUNCH%20GIBIER%20AVOTOAST%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%95%EF%BC%93%EF%BC%98%E2%88%92%EF%BC%92%20U-viento%2C%201F" target="_blank" rel="noopener">
-  <span class="spot-name">𝙉𝙐𝙏𝙎𝙏𝙊𝙒𝙉 𝘾𝙊𝙁𝙁𝙀𝙀𝙍𝙊𝘼𝙎𝙏𝙀𝙍𝙎 / ナッツタウン コーヒー 石垣島 焙煎 MORNING BRUNCH GIBIER AVOTOAST</span>
-  <span class="spot-addr">石垣市大川５３８−２ U-viento, 1F</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%AC%E3%83%AD%E3%83%91%E3%83%B3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%99%BB%E9%87%8E%E5%9F%8E%EF%BC%92%EF%BC%92%EF%BC%94%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">ガロパン</span>
-  <span class="spot-addr">石垣市登野城２２４３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=KLATCH%20COFFEE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%90%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">KLATCH COFFEE</span>
-  <span class="spot-addr">石垣市大川２００−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E8%8C%B6%E6%88%BF%20%E3%81%86%E3%81%B5%E3%81%9F%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0451%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%A1%B4%E6%B5%B7%EF%BC%91%EF%BC%94%EF%BC%98%E2%88%92%EF%BC%94%EF%BC%97%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">茶房 うふた</span>
-  <span class="spot-addr">石垣市桴海１４８−４７１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%91%E3%83%BC%E3%83%A9%E3%83%BC%E3%81%82%E3%82%93%E3%81%B6%E3%82%8C%E3%82%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0003%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B9%B3%E5%BE%97%EF%BC%91%EF%BC%92%EF%BC%90%E2%88%92%EF%BC%91%EF%BC%91%20%E3%82%AA%E3%82%A2%E3%82%B7%E3%82%B9%20%E7%B6%BE%E7%BE%BD203" target="_blank" rel="noopener">
-  <span class="spot-name">パーラーあんぶれら</span>
-  <span class="spot-addr">石垣市平得１２０−１１ オアシス 綾羽203</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#1f9d57">🏖️ 観光・ビーチ <span class="cat-count">3</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E5%B7%9D%E5%B9%B3%E5%85%AC%E5%9C%92%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0453%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B7%9D%E5%B9%B3%20%E5%B7%9D%E5%B9%B3%E5%85%AC%E5%9C%92" target="_blank" rel="noopener">
-  <span class="spot-name">川平公園展望台</span>
-  <span class="spot-addr">石垣市川平 川平公園</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%A4%A7%E5%B4%8E%E3%83%93%E3%83%BC%E3%83%81%28%E3%82%BF%E3%83%81%E3%82%A4%E6%B5%9C%29%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0452%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B4%8E%E6%9E%9D" target="_blank" rel="noopener">
-  <span class="spot-name">大崎ビーチ(タチイ浜)</span>
-  <span class="spot-addr">石垣市崎枝</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B9%B3%E4%B9%85%E4%BF%9D%E5%B4%8E%E7%81%AF%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0331%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%B9%B3%E4%B9%85%E4%BF%9D%EF%BC%92%EF%BC%93%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">平久保崎灯台</span>
-  <span class="spot-addr">石垣市平久保２３４−５０</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#7a45cf">🛍️ ショッピング <span class="cat-count">1</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%E6%96%B0%E5%B7%9D%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E6%96%B0%E6%A0%84%E7%94%BA%EF%BC%97%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">マックスバリュ新川店</span>
-  <span class="spot-addr">石垣市新栄町７５</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#a07a1c">🏨 宿泊 <span class="cat-count">2</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=giving%20tree%20home%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0333%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E9%87%8E%E5%BA%95%EF%BC%96%EF%BC%99%EF%BC%98%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">giving tree home</span>
-  <span class="spot-addr">石垣市野底６９８−２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%A4%E3%82%B7%E3%81%AE%E5%AE%B6%20%E3%81%9D%E3%81%86%E3%82%84%20/%20The%20Palm%20House%20Soya%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0023%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E7%9F%B3%E5%9E%A3%EF%BC%95%EF%BC%95%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ヤシの家 そうや / The Palm House Soya</span>
-  <span class="spot-addr">石垣市石垣５５１−１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#bf2367">🍻 ナイト <span class="cat-count">1</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%82%E3%82%80%E3%82%8A%E3%81%9F%E3%81%AE%E5%BA%AD%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6%E9%9F%B3%E6%A5%BD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-0022%20%E6%B2%96%E7%B8%84%E7%9C%8C%E7%9F%B3%E5%9E%A3%E5%B8%82%E5%A4%A7%E5%B7%9D%EF%BC%92%EF%BC%98%EF%BC%92%20%E6%AB%BB%E8%8A%B1%E3%83%93%E3%83%AB" target="_blank" rel="noopener">
-  <span class="spot-name">あむりたの庭、そして音楽</span>
-  <span class="spot-addr">石垣市大川２８２ 櫻花ビル</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div>
-</section>
-<section id="本島中部北部" class="region-section">
-  <div class="region-head" style="border-left-color:#c46030">
-    <span class="region-icon">🌴</span>
-    <div>
-      <div class="region-title">本島（中部・北部）</div>
-      <div class="region-sub">恩納・読谷・名護・北谷・浦添・うるま・宜野湾・南城・本部 · 43件</div>
-    </div>
-  </div>
-  <div class="cat-group"><div class="cat-head" style="color:#0a86bd">🍽️ 食事 <span class="cat-count">10</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E7%90%89%E7%90%83%E3%83%86%E3%83%A9%E3%82%B9%20%E3%81%86%E3%82%89%E5%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0413%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%86%A8%E7%9D%80%EF%BC%92%EF%BC%95%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">琉球テラス うら庭</span>
-  <span class="spot-addr">国頭郡恩納村冨着２５６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B9%E3%83%86%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E3%82%B8%E3%83%A3%E3%83%A0%20%E6%B2%96%E7%B8%84%E6%81%A9%E7%B4%8D%E6%9D%91%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0413%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%86%A8%E7%9D%80%EF%BC%91%EF%BC%95%EF%BC%91%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">ステーキハウス ジャム 沖縄恩納村店</span>
-  <span class="spot-addr">国頭郡恩納村冨着１５１８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E3%81%A8%E3%82%93%E3%81%8B%E3%81%A4%E9%A3%9F%E5%A0%82%E3%81%97%E3%81%BE%E3%81%B6%E3%81%9F%E5%B1%8B%20%E5%89%8D%E5%85%BC%E4%B9%85%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0414%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%89%8D%E5%85%BC%E4%B9%8596%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">沖縄とんかつ食堂しまぶた屋 前兼久店</span>
-  <span class="spot-addr">国頭郡恩納村前兼久96−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%95%AA%E6%89%80%E4%BA%AD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0302%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%96%9C%E5%90%8D%EF%BC%94%EF%BC%97%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">番所亭</span>
-  <span class="spot-addr">中頭郡読谷村喜名４７３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B3%B6%E8%B1%9A%E4%B8%83%E8%BC%AA%E7%84%BC%20%E6%BA%80%E5%91%B3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-1152%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E4%BC%8A%E5%B7%AE%E5%B7%9D%EF%BC%92%EF%BC%95%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">島豚七輪焼 満味</span>
-  <span class="spot-addr">名護市伊差川２５１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%84%BC%E8%82%89%E3%81%93%E3%81%86%E3%81%A1%E3%82%83%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0005%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E7%82%BA%E5%8F%88%EF%BC%91%EF%BC%92%EF%BC%91%EF%BC%99%E2%88%92%EF%BC%91%EF%BC%96%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">焼肉こうちゃん</span>
-  <span class="spot-addr">名護市為又１２１９−１６３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%99%BE%E5%B9%B4%E5%8F%A4%E5%AE%B6%20%E5%A4%A7%E5%AE%B6%20%E3%81%86%E3%81%B5%E3%82%84%E3%83%BC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0004%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E4%B8%AD%E5%B1%B1%EF%BC%99%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">百年古家 大家 うふやー</span>
-  <span class="spot-addr">名護市中山９０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%A4%A7%E6%88%B8%E5%B1%8B%E3%81%94%E3%81%AF%E3%82%93%E5%87%A6%20%E5%90%8D%E8%AD%B7%E5%AE%AE%E9%87%8C%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0011%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E5%AE%AE%E9%87%8C%EF%BC%94%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%94%E2%88%92%EF%BC%95%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">大戸屋ごはん処 名護宮里店</span>
-  <span class="spot-addr">名護市宮里４丁目１４−５０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%9D%E3%81%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2205%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E6%A0%84%E9%87%8E%E6%AF%94%EF%BC%91%EF%BC%91%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">島そば</span>
-  <span class="spot-addr">うるま市栄野比１１５</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%AE%97%E5%83%8F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2226%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%98%89%E6%95%B0%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%92%EF%BC%90%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">宗像堂</span>
-  <span class="spot-addr">宜野湾市嘉数１丁目２０−２</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#c46030">☕ カフェ <span class="cat-count">13</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%A1%E3%82%85%E3%82%89%E6%B5%B7CAFE%20%E3%81%8B%E3%81%B5%E3%81%85%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0417%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%9C%9F%E6%A0%84%E7%94%B0%EF%BC%92%EF%BC%92%EF%BC%92%EF%BC%94%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">ちゅら海CAFE かふぅ</span>
-  <span class="spot-addr">国頭郡恩納村真栄田２２２４−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%8F%E3%83%AF%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E3%83%91%E3%83%8B%E3%83%A9%E3%83%8B%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0404%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%80%AC%E8%89%AF%E5%9E%A3%EF%BC%96%EF%BC%99%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">ハワイアンパンケーキハウス パニラニ</span>
-  <span class="spot-addr">国頭郡恩納村瀬良垣６９８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%94%B0%E4%B8%AD%E6%9E%9C%E5%AE%9F%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0404%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%80%AC%E8%89%AF%E5%9E%A3%EF%BC%92%EF%BC%95%EF%BC%90%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">田中果実店</span>
-  <span class="spot-addr">国頭郡国頭郡恩納村瀬良垣２５０３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%91%E3%83%B3%E5%B1%8B%20%E6%B0%B4%E5%86%86%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0301%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%BA%A7%E5%96%9C%E5%91%B3%EF%BC%93%EF%BC%96%EF%BC%97" target="_blank" rel="noopener">
-  <span class="spot-name">パン屋 水円</span>
-  <span class="spot-addr">中頭郡読谷村座喜味３６７</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%A4%E3%83%83%E3%82%B1%E3%83%96%E3%83%BC%E3%82%B9%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%E3%83%8F%E3%82%A6%E3%82%B9%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0305%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E9%83%BD%E5%B1%8B%EF%BC%94%EF%BC%93%EF%BC%96%E2%88%92%EF%BC%94%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">ヤッケブースパンケーキハウス</span>
-  <span class="spot-addr">中頭郡読谷村都屋４３６−４４</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=KUPU%20KUPU%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0114%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E6%B8%AF%EF%BC%91%EF%BC%95%E2%88%92%EF%BC%95%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">KUPU KUPU</span>
-  <span class="spot-addr">中頭郡北谷町港１５−５８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=MAYBE%20BAKERY%20%EF%BC%88%E3%83%A1%E3%82%A4%E3%83%93%E3%83%BC%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0116%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E5%8C%97%E8%B0%B7%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%98%E2%88%92%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">MAYBE BAKERY （メイビーベーカリー）</span>
-  <span class="spot-addr">中頭郡北谷町北谷２丁目１８−６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=hoppe%20pan%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2121%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E5%86%85%E9%96%93%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%91%EF%BC%90" target="_blank" rel="noopener">
-  <span class="spot-name">hoppe pan</span>
-  <span class="spot-addr">浦添市内間２丁目１０−１０</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%AA%E3%83%8F%E3%82%B3%E3%83%AB%E3%83%86%20%E6%B8%AF%E5%B7%9D%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2134%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E6%B8%AF%E5%B7%9D%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91%2018" target="_blank" rel="noopener">
-  <span class="spot-name">オハコルテ 港川本店</span>
-  <span class="spot-addr">浦添市港川２丁目１７−１ 18</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%AA%E3%83%8F%E3%82%B3%E3%83%AB%E3%83%86%20%E6%B8%AF%E5%B7%9D%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2134%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E6%B8%AF%E5%B7%9D%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91%2018" target="_blank" rel="noopener">
-  <span class="spot-name">オハコルテ 港川本店</span>
-  <span class="spot-addr">浦添市港川２丁目１７−１ 18</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E6%B2%96%E7%B8%84%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2227%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%AE%87%E5%9C%B0%E6%B3%8A%EF%BC%91%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">スターバックス コーヒー 沖縄宜野湾店</span>
-  <span class="spot-addr">宜野湾市宇地泊１丁目１−２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%AE%87%E5%9C%B0%E6%B3%8A%E8%A3%BD%E3%83%91%E3%83%B3%E6%89%80%E3%82%B9%E3%83%BC%E3%83%AA%E3%83%BC%E3%83%AB%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2227%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%9C%E9%87%8E%E6%B9%BE%E5%B8%82%E5%AE%87%E5%9C%B0%E6%B3%8A%EF%BC%93%E4%B8%81%E7%9B%AE%EF%BC%95%E2%88%92%EF%BC%91%EF%BC%91%20%EF%BC%91%EF%BC%A6" target="_blank" rel="noopener">
-  <span class="spot-name">宇地泊製パン所スーリール</span>
-  <span class="spot-addr">宜野湾市宇地泊３丁目５−１１ １Ｆ</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%B9%B8%E3%81%9B%E3%81%AE%E3%83%91%E3%83%B3%E3%82%B1%E3%83%BC%E3%82%AD%20%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9%20%E6%B2%96%E7%B8%84%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0233%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E7%80%AC%E9%95%B7%EF%BC%91%EF%BC%97%EF%BC%94%E2%88%92%EF%BC%96%20%E3%82%A6%E3%83%9F%E3%82%AB%E3%82%B8%E3%83%86%E3%83%A9%E3%82%B9%2032" target="_blank" rel="noopener">
-  <span class="spot-name">幸せのパンケーキ ウミカジテラス 沖縄店</span>
-  <span class="spot-addr">豊見城市瀬長１７４−６ ウミカジテラス 32</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#1f9d57">🏖️ 観光・ビーチ <span class="cat-count">11</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E4%BB%B2%E6%B3%8A%E6%B5%B7%E5%B2%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0415%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%81%A9%E7%B4%8D%E6%9D%91%E4%BB%B2%E6%B3%8A" target="_blank" rel="noopener">
-  <span class="spot-name">仲泊海岸</span>
-  <span class="spot-addr">恩納村仲泊</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%9C%9F%E6%A0%84%E7%94%B0%E5%B2%AC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0417%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E7%9C%9F%E6%A0%84%E7%94%B0%EF%BC%94%EF%BC%96%EF%BC%99%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">真栄田岬</span>
-  <span class="spot-addr">国頭郡恩納村真栄田４６９−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%AE%8B%E6%B3%A2%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0328%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%AE%87%E5%BA%A7%EF%BC%91%EF%BC%99%EF%BC%93%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">残波ビーチ</span>
-  <span class="spot-addr">中頭郡読谷村宇座１９３３</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%BA%A7%E5%96%9C%E5%91%B3%E5%9F%8E%E8%B7%A1%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0301%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E5%BA%A7%E5%96%9C%E5%91%B3%20%EF%BC%97%EF%BC%90%EF%BC%98%20%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">座喜味城跡</span>
-  <span class="spot-addr">中頭郡読谷村座喜味 ７０８ ６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E7%BE%8E%E6%B5%9C%E3%82%BF%E3%82%A6%E3%83%B3%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E3%83%BB%E3%82%A2%E3%83%A1%E3%83%AA%E3%82%AB%E3%83%B3%E3%83%93%E3%83%AC%E3%83%83%E3%82%B8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0115%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E5%8C%97%E8%B0%B7%E7%94%BA%E7%BE%8E%E6%B5%9C" target="_blank" rel="noopener">
-  <span class="spot-name">美浜タウンリゾート・アメリカンビレッジ</span>
-  <span class="spot-addr">中頭郡北谷町美浜</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%9E%9C%E5%A0%B1%E3%83%90%E3%83%B3%E3%82%BF%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2423%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E4%B8%8E%E9%82%A3%E5%9F%8E%E5%AE%AE%E5%9F%8E%EF%BC%92%EF%BC%97%EF%BC%96%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">果報バンタ</span>
-  <span class="spot-addr">うるま市与那城宮城２７６８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%81%82%E3%81%96%E3%81%BE%E3%82%B5%E3%83%B3%E3%82%B5%E3%83%B3%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-1502%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%9F%A5%E5%BF%B5%E5%AE%89%E5%BA%A7%E7%9C%9F1141%203" target="_blank" rel="noopener">
-  <span class="spot-name">あざまサンサンビーチ</span>
-  <span class="spot-addr">南城市知念安座真1141 3</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%AC%E3%83%B3%E3%82%AC%E3%83%A9%E3%83%BC%E3%81%AE%E8%B0%B7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0616%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%8E%89%E5%9F%8E%E5%89%8D%E5%B7%9D%EF%BC%92%EF%BC%90%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">ガンガラーの谷</span>
-  <span class="spot-addr">南城市玉城前川２０２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%96%8E%E5%A0%B4%E5%BE%A1%E5%B6%BD%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-1511%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%8D%97%E5%9F%8E%E5%B8%82%E7%9F%A5%E5%BF%B5%E4%B9%85%E6%89%8B%E5%A0%85%EF%BC%95%EF%BC%93%EF%BC%99" target="_blank" rel="noopener">
-  <span class="spot-name">斎場御嶽</span>
-  <span class="spot-addr">南城市知念久手堅５３９</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E7%BE%8E%E3%82%89%E6%B5%B7%E6%B0%B4%E6%97%8F%E9%A4%A8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0206%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%9C%AC%E9%83%A8%E7%94%BA%E7%9F%B3%E5%B7%9D%EF%BC%94%EF%BC%92%EF%BC%94" target="_blank" rel="noopener">
-  <span class="spot-name">沖縄美ら海水族館</span>
-  <span class="spot-addr">国頭郡本部町石川４２４</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E8%B1%8A%E5%B4%8E%E6%B5%B7%E6%B5%9C%E5%85%AC%E5%9C%92%20%E7%BE%8E%E3%82%89SUN%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0225%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E8%B1%8A%E5%B4%8E%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">豊崎海浜公園 美らSUNビーチ</span>
-  <span class="spot-addr">豊見城市豊崎５−１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#7a45cf">🛍️ ショッピング <span class="cat-count">8</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%82%A2%E3%83%BC%E3%82%B9%E3%82%B7%E3%83%83%E3%83%97%20%E3%82%88%E3%81%BF%E3%81%9F%E3%82%93%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0323%20%E6%B2%96%E7%B8%84%E7%9C%8C%E4%B8%AD%E9%A0%AD%E9%83%A1%E8%AA%AD%E8%B0%B7%E6%9D%91%E9%AB%98%E5%BF%97%E4%BF%9D%EF%BC%91%EF%BC%90%EF%BC%94%EF%BC%96" target="_blank" rel="noopener">
-  <span class="spot-name">アースシップ よみたん店</span>
-  <span class="spot-addr">中頭郡読谷村高志保１０４６</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%AD%E3%83%BC%E3%82%BD%E3%83%B3%20%E5%90%8D%E8%AD%B7%E8%BE%BA%E9%87%8E%E5%8F%A4%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-2171%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%90%8D%E8%AD%B7%E5%B8%82%E8%BE%BA%E9%87%8E%E5%8F%A4%EF%BC%91%EF%BC%90%EF%BC%91%EF%BC%90%E2%88%92%EF%BC%96%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">ローソン 名護辺野古店</span>
-  <span class="spot-addr">名護市辺野古１０１０−６８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%A4%E3%82%AA%E3%83%B3%E5%90%8D%E8%AD%B7%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92905-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%EF%BC%94%EF%BC%94%EF%BC%97%EF%BC%92%20%E5%90%8D%E8%AD%B7%E5%B8%82%E5%AD%97%E5%90%8D%E8%AD%B7%E8%A6%8B%E5%8F%96%E5%B7%9D%E5%8E%9F" target="_blank" rel="noopener">
-  <span class="spot-name">イオン名護店</span>
-  <span class="spot-addr">４４７２ 名護市字名護見取川原</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%9E%E3%83%B3%E3%83%97%E3%83%A9%E3%82%B9%20%E6%B5%A6%E6%B7%BB%E7%B5%8C%E5%A1%9A%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-2111%20%E6%B2%96%E7%B8%84%E7%9C%8C%E6%B5%A6%E6%B7%BB%E5%B8%82%E7%B5%8C%E5%A1%9A%EF%BC%93%EF%BC%99%EF%BC%92" target="_blank" rel="noopener">
-  <span class="spot-name">ワークマンプラス 浦添経塚店</span>
-  <span class="spot-addr">浦添市経塚３９２</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=MEGA%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E3%81%86%E3%82%8B%E3%81%BE%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2231%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E5%A1%A9%E5%B1%8B%20%E6%B5%9C%E5%8E%9F%EF%BC%95%EF%BC%90%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">MEGAドン・キホーテ うるま店</span>
-  <span class="spot-addr">うるま市塩屋 浜原５０２−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E8%B5%A4%E5%B4%8E%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-1103%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E7%9F%B3%E5%B7%9D%E8%B5%A4%E5%B4%8E%EF%BC%92%E4%B8%81%E7%9B%AE%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">サンエー赤崎店</span>
-  <span class="spot-addr">うるま市石川赤崎２丁目１−１</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%20%E5%85%B7%E5%BF%97%E5%B7%9D%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%86%E3%82%A3%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-2244%20%E6%B2%96%E7%B8%84%E7%9C%8C%E3%81%86%E3%82%8B%E3%81%BE%E5%B8%82%E6%B1%9F%E6%B4%B2450%EF%BD%B01" target="_blank" rel="noopener">
-  <span class="spot-name">サンエー 具志川メインシティ</span>
-  <span class="spot-addr">うるま市江洲450ｰ1</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%B2%96%E7%B8%84%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88%E3%83%A2%E3%83%BC%E3%83%AB%20%E3%81%82%E3%81%97%E3%81%B3%E3%81%AA%E3%83%BC%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-0225%20%E6%B2%96%E7%B8%84%E7%9C%8C%E8%B1%8A%E8%A6%8B%E5%9F%8E%E5%B8%82%E8%B1%8A%E5%B4%8E%EF%BC%91%E2%88%92%EF%BC%91%EF%BC%98%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">沖縄アウトレットモール あしびなー</span>
-  <span class="spot-addr">豊見城市豊崎１−１８８</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#a07a1c">🏨 宿泊 <span class="cat-count">1</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E6%B5%9C%E8%BE%BA%E3%81%AETIPI%20CAMP%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92904-0416%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%9B%BD%E9%A0%AD%E9%83%A1%E6%81%A9%E7%B4%8D%E6%9D%91%E5%B1%B1%E7%94%B0%EF%BC%93%EF%BC%90%EF%BC%98%EF%BC%98%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <span class="spot-name">浜辺のTIPI CAMP</span>
-  <span class="spot-addr">国頭郡恩納村山田３０８８−１</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div>
-</section>
-<section id="離島" class="region-section">
-  <div class="region-head" style="border-left-color:#7a45cf">
-    <span class="region-icon">⛵</span>
-    <div>
-      <div class="region-title">その他の離島</div>
-      <div class="region-sub">久米島・慶良間諸島・竹富島 · 8件</div>
-    </div>
-  </div>
-  <div class="cat-group"><div class="cat-head" style="color:#0a86bd">🍽️ 食事 <span class="cat-count">2</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%82%84%E3%82%93%E5%B0%8F%EF%BD%9E%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3124%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E4%BB%B2%E6%B3%8A%EF%BC%95%EF%BC%90%EF%BC%99" target="_blank" rel="noopener">
-  <span class="spot-name">やん小～</span>
-  <span class="spot-addr">島尻郡久米島町仲泊５０９</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E4%B8%AD%E8%8F%AF%E6%B5%B7%E9%AE%AE%20%E6%B5%B7%E7%9A%87%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3124%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E4%BB%B2%E6%B3%8A%EF%BC%91%EF%BC%91%EF%BC%92%EF%BC%93%E2%88%92%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">中華海鮮 海皇</span>
-  <span class="spot-addr">島尻郡久米島町仲泊１１２３−５</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#c46030">☕ カフェ <span class="cat-count">1</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%A1%E3%82%8D%E3%82%8A%E3%82%93%E6%9D%91%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-1101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%85%AB%E9%87%8D%E5%B1%B1%E9%83%A1%E7%AB%B9%E5%AF%8C%E7%94%BA%E7%AB%B9%E5%AF%8C%EF%BC%96%EF%BC%95%EF%BC%93" target="_blank" rel="noopener">
-  <span class="spot-name">ちろりん村</span>
-  <span class="spot-addr">八重山郡竹富町竹富６５３</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#1f9d57">🏖️ 観光・ビーチ <span class="cat-count">2</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%81%AF%E3%81%A6%E3%81%AE%E6%B5%9C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3106%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E5%A5%A5%E6%AD%A6" target="_blank" rel="noopener">
-  <span class="spot-name">はての浜</span>
-  <span class="spot-addr">島尻郡久米島町奥武</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E5%8C%97%E6%B5%9C%28%E3%83%8B%E3%82%B7%E3%83%90%E3%83%9E%29%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3311%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E5%BA%A7%E9%96%93%E5%91%B3%E6%9D%91%E9%98%BF%E5%98%89" target="_blank" rel="noopener">
-  <span class="spot-name">北浜(ニシバマ)</span>
-  <span class="spot-addr">島尻郡座間味村阿嘉</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div><div class="cat-group"><div class="cat-head" style="color:#a07a1c">🏨 宿泊 <span class="cat-count">3</span></div><div class="spot-list"><a class="spot" href="https://maps.google.com/?q=%E3%82%B5%E3%82%A4%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%E4%B9%85%E7%B1%B3%E5%B3%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3132%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E5%A4%A7%E5%8E%9F%EF%BC%98%EF%BC%90%EF%BC%93%E2%88%92%EF%BC%91%20%E3%82%B5%E3%82%A4%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88" target="_blank" rel="noopener">
-  <span class="spot-name">サイプレスリゾート久米島</span>
-  <span class="spot-addr">島尻郡久米島町大原８０３−１ サイプレスリゾート久米島 サイ</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=EN%20RESORT%20Kumejima%20EEF%20Beach%20Hotel%20%28%E3%82%A8%E3%83%B3%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E4%B9%85%E7%B1%B3%E5%B3%B6%E3%82%A4%E3%83%BC%E3%83%95%E3%83%93%E3%83%BC%E3%83%81%E3%83%9B%E3%83%86%E3%83%AB%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92901-3107%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%B3%B6%E5%B0%BB%E9%83%A1%E4%B9%85%E7%B1%B3%E5%B3%B6%E7%94%BA%E8%AC%9D%E5%90%8D%E5%A0%82%EF%BC%95%EF%BC%94%EF%BC%98" target="_blank" rel="noopener">
-  <span class="spot-name">EN RESORT Kumejima EEF Beach Hotel (エンリゾート 久米島イーフビーチホテル）</span>
-  <span class="spot-addr">島尻郡久米島町謝名堂５４８</span>
-  <span class="spot-map-ic">↗</span>
-</a><a class="spot" href="https://maps.google.com/?q=%E6%98%9F%E3%81%AE%E3%82%84%E7%AB%B9%E5%AF%8C%E5%B3%B6%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92907-1101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%85%AB%E9%87%8D%E5%B1%B1%E9%83%A1%E7%AB%B9%E5%AF%8C%E7%94%BA%E7%AB%B9%E5%AF%8C%EF%BC%91%EF%BC%99%EF%BC%95%EF%BC%95" target="_blank" rel="noopener">
-  <span class="spot-name">星のや竹富島</span>
-  <span class="spot-addr">八重山郡竹富町竹富１９５５</span>
-  <span class="spot-map-ic">↗</span>
-</a></div></div>
-</section>
-
-<section id="plans" class="region-section">
-  <div class="region-head" style="border-left-color:#0a86bd">
-    <span class="region-icon">📅</span>
-    <div>
-      <div class="region-title">モデルプラン</div>
-      <div class="region-sub">3泊4日 & 1週間</div>
-    </div>
-  </div>
-  <div class="plan-grid">
-    <div class="plan-card">
-      <div class="plan-badge">3泊4日</div>
-      <div class="plan-title">那覇 × 恩納 スタンダード</div>
-      <div class="plan-days">
-        <div class="plan-day"><span class="day-label">Day 1</span>那覇入り → 国際通り散策 → 牧志公設市場 → 夕食（てびち屋本舗）</div>
-        <div class="plan-day"><span class="day-label">Day 2</span>恩納村移動 → 真栄田岬シュノーケル → ちゅら海CAFEかふぅ → 琉球テラス夕食</div>
-        <div class="plan-day"><span class="day-label">Day 3</span>読谷観光（残波ビーチ・座喜味城跡） → 北谷アメリカンビレッジ → 浦添オハコルテ</div>
-        <div class="plan-day"><span class="day-label">Day 4</span>那覇市内（南城：斎場御嶽 or ガンガラーの谷） → 帰路</div>
-      </div>
-    </div>
-    <div class="plan-card">
-      <div class="plan-badge plan-badge-long">1週間</div>
-      <div class="plan-title">本島 + 宮古島 or 石垣島</div>
-      <div class="plan-days">
-        <div class="plan-day"><span class="day-label">Day 1-2</span>那覇・浦添エリア（国際通り・オハコルテ・南城の聖地）</div>
-        <div class="plan-day"><span class="day-label">Day 3-4</span>恩納・名護エリア（美ら海水族館・残波ビーチ・島豚七輪焼 満味）</div>
-        <div class="plan-day"><span class="day-label">Day 5-6</span>宮古島（与那覇前浜・来間島・PANIPANI・ダグズ・コーヒー）</div>
-        <div class="plan-day"><span class="day-label">Day 7</span>石垣島（川平公園・ひとし・KLATCH COFFEE）または久米島（はての浜）</div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="ft-1">iUMA · TRAVEL</div>
-    <div class="ft-2">データソース: Maply キュレーション (2026-04-13) · スポット数 121件</div>
-  </div>
-</footer>
-
-<button class="totop" id="totop" aria-label="トップへ戻る">↑</button>
+<footer><div class="wrap"><div class="ft-1">iUMA · TRAVEL</div><div class="ft-2">データ: Maply キュレーション 2026-04-13</div></div></footer>
+<button class="totop" id="totop" aria-label="トップへ">↑</button>
 
 <script>
-const totop = document.getElementById('totop');
-window.addEventListener('scroll', () => { totop.classList.toggle('show', scrollY > 300); }, {passive:true});
-totop.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
-
-// Section nav active state
-const secLinks = document.querySelectorAll('.secnav a');
-const sections = document.querySelectorAll('.region-section');
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      secLinks.forEach(a => a.classList.remove('active'));
-      const a = document.querySelector('.secnav a[href="#' + e.target.id + '"]');
-      if (a) a.classList.add('active');
-    }
-  });
-}, {rootMargin:'-30% 0px -60% 0px'});
-sections.forEach(s => obs.observe(s));
+const tot=document.getElementById('totop');
+window.addEventListener('scroll',()=>{tot.classList.toggle('show',scrollY>300);},{passive:true});
+tot.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 </script>
 </body>
 </html>
