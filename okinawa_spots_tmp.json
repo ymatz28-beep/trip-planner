@@ -1,0 +1,884 @@
+[
+  {
+    "name": "アナベル",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "那覇",
+    "addr": "那覇市牧志３丁目８−３１ ２F",
+    "maps_url": "http://maps.google.com/?cid=4723406286813740869",
+    "tier": 3
+  },
+  {
+    "name": "hoppe pan",
+    "category": "cafe_sweets",
+    "subcategory": "bakery",
+    "region": "本島",
+    "addr": "浦添市内間２丁目１０−１０",
+    "maps_url": "http://maps.google.com/?cid=1060687433300944919",
+    "tier": 3
+  },
+  {
+    "name": "スターバックス コーヒー 那覇国際通り牧志店",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "那覇",
+    "addr": "那覇市牧志２丁目１−１ プランタビル",
+    "maps_url": "http://maps.google.com/?cid=8852250026075883316",
+    "tier": 2
+  },
+  {
+    "name": "ぐりーんりーふ",
+    "category": "health",
+    "subcategory": "massage",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里１６５７−１２８",
+    "maps_url": "http://maps.google.com/?cid=1884434191345437770",
+    "tier": 3
+  },
+  {
+    "name": "ザ シギラ",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "宮古島",
+    "addr": "宮古島市上野新里１４０５−３",
+    "maps_url": "http://maps.google.com/?cid=2987711255727389358",
+    "tier": 3
+  },
+  {
+    "name": "味ごのみ下北",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "宮古島",
+    "addr": "宮古島市下地川満６０４−１６",
+    "maps_url": "http://maps.google.com/?cid=14824519731625137260",
+    "tier": 3
+  },
+  {
+    "name": "ホテル・トリフィート宮古島リゾート",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里２４２２−１",
+    "maps_url": "http://maps.google.com/?cid=1819931691307528425",
+    "tier": 2
+  },
+  {
+    "name": "てびち屋本舗 那覇松山店",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "那覇",
+    "addr": "那覇市松山１丁目１２−５ TMビル 1F",
+    "maps_url": "http://maps.google.com/?cid=16345259030680363562",
+    "tier": 3
+  },
+  {
+    "name": "Cafe de M（カフェ ド エム）",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "宮古島",
+    "addr": "宮古島市平良西里４５−１",
+    "maps_url": "http://maps.google.com/?cid=8704215441600930373",
+    "tier": 2
+  },
+  {
+    "name": "ジャングル飯店",
+    "category": "food",
+    "subcategory": "chinese",
+    "region": "宮古島",
+    "addr": "宮古島市平良 字下里575 A106",
+    "maps_url": "http://maps.google.com/?cid=1772765546550216070",
+    "tier": 3
+  },
+  {
+    "name": "ジョイフル宮古店",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里６０５",
+    "maps_url": "http://maps.google.com/?cid=5015685051194711013",
+    "tier": 3
+  },
+  {
+    "name": "竜宮城展望台",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "宮古島",
+    "addr": "宮古島市下地来間",
+    "maps_url": "http://maps.google.com/?cid=10456124666542007313",
+    "tier": 2
+  },
+  {
+    "name": "ちろりん村",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "離島",
+    "addr": "八重山郡竹富町竹富６５３",
+    "maps_url": "http://maps.google.com/?cid=3563732777041705453",
+    "tier": 3
+  },
+  {
+    "name": "poco a poco",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "石垣島",
+    "addr": "石垣市大川１８８",
+    "maps_url": "http://maps.google.com/?cid=17314155538475282981",
+    "tier": 3
+  },
+  {
+    "name": "𝙉𝙐𝙏𝙎𝙏𝙊𝙒𝙉 𝘾𝙊𝙁𝙁𝙀𝙀𝙍𝙊𝘼𝙎𝙏𝙀𝙍𝙎 / ナッツタウン コーヒー 石垣島 焙煎 MORNING BRUNCH GIBIER AVOTOAST",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "石垣島",
+    "addr": "石垣市大川５３８−２ U-viento, 1F",
+    "maps_url": "http://maps.google.com/?cid=11465222013863367050",
+    "tier": 2
+  },
+  {
+    "name": "ガロパン",
+    "category": "cafe_sweets",
+    "subcategory": "bakery",
+    "region": "石垣島",
+    "addr": "石垣市登野城２２４３",
+    "maps_url": "http://maps.google.com/?cid=14146631656826768161",
+    "tier": 3
+  },
+  {
+    "name": "川平公園展望台",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "石垣島",
+    "addr": "石垣市川平 川平公園",
+    "maps_url": "http://maps.google.com/?cid=13231467196872181564",
+    "tier": 2
+  },
+  {
+    "name": "大崎ビーチ(タチイ浜)",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "石垣島",
+    "addr": "石垣市崎枝",
+    "maps_url": "http://maps.google.com/?cid=15455251984258722859",
+    "tier": 3
+  },
+  {
+    "name": "炭火焼肉 たけさん亭",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "石垣島",
+    "addr": "石垣市浜崎町２丁目２−４",
+    "maps_url": "http://maps.google.com/?cid=14497403932263154733",
+    "tier": 2
+  },
+  {
+    "name": "焼肉やいま",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "石垣島",
+    "addr": "石垣市美崎町９−９ 西ビル １階",
+    "maps_url": "http://maps.google.com/?cid=11751898434014562520",
+    "tier": 2
+  },
+  {
+    "name": "KLATCH COFFEE",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "石垣島",
+    "addr": "石垣市大川２００−１",
+    "maps_url": "http://maps.google.com/?cid=9990296907297188105",
+    "tier": 2
+  },
+  {
+    "name": "あむりたの庭、そして音楽",
+    "category": "nightlife",
+    "subcategory": "livehouse_club",
+    "region": "石垣島",
+    "addr": "石垣市大川２８２ 櫻花ビル",
+    "maps_url": "http://maps.google.com/?cid=12461772505654473147",
+    "tier": 3
+  },
+  {
+    "name": "ひまわり食堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市真栄里１１３−６",
+    "maps_url": "http://maps.google.com/?cid=1345365049993481999",
+    "tier": 2
+  },
+  {
+    "name": "中国飯店 大富",
+    "category": "food",
+    "subcategory": "chinese",
+    "region": "石垣島",
+    "addr": "石垣市登野城５５５−６",
+    "maps_url": "http://maps.google.com/?cid=15271160564328268722",
+    "tier": 3
+  },
+  {
+    "name": "島のごちそう てぃんがーら",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市登野城６４１−５",
+    "maps_url": "http://maps.google.com/?cid=14012822390692483519",
+    "tier": 3
+  },
+  {
+    "name": "石垣牛MARU【石垣牛専門店】",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "石垣島",
+    "addr": "石垣市登野城２６−４",
+    "maps_url": "http://maps.google.com/?cid=18190239949189980321",
+    "tier": 3
+  },
+  {
+    "name": "giving tree home",
+    "category": "lodging",
+    "subcategory": "hostel",
+    "region": "石垣島",
+    "addr": "石垣市野底６９８−２",
+    "maps_url": "http://maps.google.com/?cid=14318255222440114681",
+    "tier": 3
+  },
+  {
+    "name": "平久保崎灯台",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "石垣島",
+    "addr": "石垣市平久保２３４−５０",
+    "maps_url": "http://maps.google.com/?cid=10402233189400856629",
+    "tier": 2
+  },
+  {
+    "name": "旬家ばんちゃん",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "石垣島",
+    "addr": "石垣市白保１３−１",
+    "maps_url": "http://maps.google.com/?cid=12412837309629997419",
+    "tier": 3
+  },
+  {
+    "name": "ヤスとカマーの店",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市桃里２０１−１２９",
+    "maps_url": "http://maps.google.com/?cid=6824856171163186797",
+    "tier": 3
+  },
+  {
+    "name": "茶房 うふた",
+    "category": "cafe_sweets",
+    "subcategory": "kissaten",
+    "region": "石垣島",
+    "addr": "石垣市桴海１４８−４７１",
+    "maps_url": "http://maps.google.com/?cid=9797094424868059484",
+    "tier": 2
+  },
+  {
+    "name": "明石食堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市伊原間３６０",
+    "maps_url": "http://maps.google.com/?cid=11327091682001079431",
+    "tier": 2
+  },
+  {
+    "name": "パーラーあんぶれら",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "石垣島",
+    "addr": "石垣市平得１２０−１１ オアシス 綾羽203",
+    "maps_url": "http://maps.google.com/?cid=13607336425320981503",
+    "tier": 3
+  },
+  {
+    "name": "ヤシの家 そうや / The Palm House Soya",
+    "category": "lodging",
+    "subcategory": "hostel",
+    "region": "石垣島",
+    "addr": "石垣市石垣５５１−１",
+    "maps_url": "http://maps.google.com/?cid=1195497805767847894",
+    "tier": 3
+  },
+  {
+    "name": "一休食堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市石垣７１６−１",
+    "maps_url": "http://maps.google.com/?cid=15001331807758398895",
+    "tier": 2
+  },
+  {
+    "name": "あらかわ食堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市新川２３７６−１６",
+    "maps_url": "http://maps.google.com/?cid=12784427412187733898",
+    "tier": 2
+  },
+  {
+    "name": "あずさ丸",
+    "category": "food",
+    "subcategory": "sushi_seafood",
+    "region": "石垣島",
+    "addr": "石垣市新栄町７２−１",
+    "maps_url": "http://maps.google.com/?cid=15313295191897904569",
+    "tier": 3
+  },
+  {
+    "name": "島料理 とんでみーな",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "石垣島",
+    "addr": "石垣市大川２４０−１",
+    "maps_url": "http://maps.google.com/?cid=13351488411585322622",
+    "tier": 3
+  },
+  {
+    "name": "石垣 食堂 酒晴",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市美崎町１１−１ 1F",
+    "maps_url": "http://maps.google.com/?cid=16946489674028550802",
+    "tier": 2
+  },
+  {
+    "name": "ひとし 石敢當店",
+    "category": "food",
+    "subcategory": "sushi_seafood",
+    "region": "石垣島",
+    "addr": "石垣市大川１９７−１",
+    "maps_url": "http://maps.google.com/?cid=16082534654790288009",
+    "tier": 3
+  },
+  {
+    "name": "あらだ家",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "石垣島",
+    "addr": "石垣市登野城１４４",
+    "maps_url": "http://maps.google.com/?cid=6781576386942616740",
+    "tier": 2
+  },
+  {
+    "name": "パン屋 水円",
+    "category": "cafe_sweets",
+    "subcategory": "bakery",
+    "region": "本島",
+    "addr": "中頭郡読谷村座喜味３６７",
+    "maps_url": "http://maps.google.com/?cid=10428276524219251965",
+    "tier": 2
+  },
+  {
+    "name": "浜辺のTIPI CAMP",
+    "category": "lodging",
+    "subcategory": "ryokan",
+    "region": "本島",
+    "addr": "国頭郡恩納村山田３０８８−１",
+    "maps_url": "http://maps.google.com/?cid=2642684424027331126",
+    "tier": 3
+  },
+  {
+    "name": "島そば",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "本島",
+    "addr": "うるま市栄野比１１５",
+    "maps_url": "http://maps.google.com/?cid=15437798486131884813",
+    "tier": 2
+  },
+  {
+    "name": "美浜タウンリゾート・アメリカンビレッジ",
+    "category": "leisure",
+    "subcategory": "entertainment",
+    "region": "本島",
+    "addr": "中頭郡北谷町美浜",
+    "maps_url": "http://maps.google.com/?cid=2008179420793048012",
+    "tier": 3
+  },
+  {
+    "name": "仲泊海岸",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "恩納村仲泊",
+    "maps_url": "http://maps.google.com/?cid=16324619492604888959",
+    "tier": 3
+  },
+  {
+    "name": "残波ビーチ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "中頭郡読谷村宇座１９３３",
+    "maps_url": "http://maps.google.com/?cid=9070815779142908891",
+    "tier": 3
+  },
+  {
+    "name": "琉球テラス うら庭",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "本島",
+    "addr": "国頭郡恩納村冨着２５６",
+    "maps_url": "http://maps.google.com/?cid=16186310940862000750",
+    "tier": 3
+  },
+  {
+    "name": "ステーキハウス ジャム 沖縄恩納村店",
+    "category": "food",
+    "subcategory": "western",
+    "region": "本島",
+    "addr": "国頭郡恩納村冨着１５１８",
+    "maps_url": "http://maps.google.com/?cid=9404656881950419105",
+    "tier": 3
+  },
+  {
+    "name": "沖縄とんかつ食堂しまぶた屋 前兼久店",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "本島",
+    "addr": "国頭郡恩納村前兼久96−１",
+    "maps_url": "http://maps.google.com/?cid=17032916444074445158",
+    "tier": 2
+  },
+  {
+    "name": "幸せのパンケーキ ウミカジテラス 沖縄店",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "豊見城市瀬長１７４−６ ウミカジテラス 32",
+    "maps_url": "http://maps.google.com/?cid=13039270336270825903",
+    "tier": 2
+  },
+  {
+    "name": "KUPU KUPU",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "本島",
+    "addr": "中頭郡北谷町港１５−５８",
+    "maps_url": "http://maps.google.com/?cid=7010379324064399871",
+    "tier": 3
+  },
+  {
+    "name": "番所亭",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "本島",
+    "addr": "中頭郡読谷村喜名４７３",
+    "maps_url": "http://maps.google.com/?cid=14360864351059330601",
+    "tier": 2
+  },
+  {
+    "name": "ヤッケブースパンケーキハウス",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "中頭郡読谷村都屋４３６−４４",
+    "maps_url": "http://maps.google.com/?cid=3294547040295953682",
+    "tier": 2
+  },
+  {
+    "name": "ちゅら海CAFE かふぅ",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "本島",
+    "addr": "国頭郡恩納村真栄田２２２４−１",
+    "maps_url": "http://maps.google.com/?cid=4184332778665435156",
+    "tier": 3
+  },
+  {
+    "name": "ハワイアンパンケーキハウス パニラニ",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "国頭郡恩納村瀬良垣６９８",
+    "maps_url": "http://maps.google.com/?cid=13722076567611884412",
+    "tier": 2
+  },
+  {
+    "name": "田中果実店",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "国頭郡国頭郡恩納村瀬良垣２５０３",
+    "maps_url": "http://maps.google.com/?cid=3162863563835909233",
+    "tier": 3
+  },
+  {
+    "name": "宮古サンセットビーチ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "宮古島",
+    "addr": "宮古島市平良",
+    "maps_url": "http://maps.google.com/?cid=4463611518815949680",
+    "tier": 3
+  },
+  {
+    "name": "多良間牛 ダグズ・グリル 宮古島本店",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "宮古島",
+    "addr": "宮古島市平良西里５６７−１",
+    "maps_url": "http://maps.google.com/?cid=14482377909117657027",
+    "tier": 3
+  },
+  {
+    "name": "ソラニワホテルアンドカフェ",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "宮古島",
+    "addr": "宮古島市伊良部伊良部７２１−１",
+    "maps_url": "http://maps.google.com/?cid=10625837175028502319",
+    "tier": 2
+  },
+  {
+    "name": "ヤッカヤッカ",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "宮古島",
+    "addr": "宮古島市下地来間１２６−３",
+    "maps_url": "http://maps.google.com/?cid=9783739575955172950",
+    "tier": 3
+  },
+  {
+    "name": "AOSORA PARLOR",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "宮古島",
+    "addr": "宮古島市下地来間１０４−１",
+    "maps_url": "http://maps.google.com/?cid=13805764815442906801",
+    "tier": 3
+  },
+  {
+    "name": "PANIPANI",
+    "category": "food",
+    "subcategory": "fastfood",
+    "region": "宮古島",
+    "addr": "宮古島市下地来間１０５−１",
+    "maps_url": "http://maps.google.com/?cid=11971374461161704629",
+    "tier": 3
+  },
+  {
+    "name": "砂山ビーチ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "宮古島",
+    "addr": "宮古島市平良荷川取",
+    "maps_url": "http://maps.google.com/?cid=11249511379085735670",
+    "tier": 3
+  },
+  {
+    "name": "スナヤマカフェ",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "宮古島",
+    "addr": "宮古島市平良荷川取６５５−２",
+    "maps_url": "http://maps.google.com/?cid=250091878972398674",
+    "tier": 2
+  },
+  {
+    "name": "ダグズ・コーヒー 宮古島本店",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里１１５３−３−１０５",
+    "maps_url": "http://maps.google.com/?cid=12397649328630697658",
+    "tier": 2
+  },
+  {
+    "name": "DOUG‘S BURGER",
+    "category": "food",
+    "subcategory": "fastfood",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里１１５３−３−１０１",
+    "maps_url": "http://maps.google.com/?cid=12734572746957096984",
+    "tier": 3
+  },
+  {
+    "name": "すむばり食堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "宮古島",
+    "addr": "宮古島市平良狩俣７６８−４",
+    "maps_url": "http://maps.google.com/?cid=5332525890508835040",
+    "tier": 2
+  },
+  {
+    "name": "古謝そば屋",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "宮古島",
+    "addr": "宮古島市平良下里１５１７−１",
+    "maps_url": "http://maps.google.com/?cid=4928719322725787334",
+    "tier": 2
+  },
+  {
+    "name": "杏心のドーナツ屋さん",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "宮古島",
+    "addr": "宮古島市伊良部長浜１３０３",
+    "maps_url": "http://maps.google.com/?cid=10535859847775118410",
+    "tier": 3
+  },
+  {
+    "name": "空猫十字社",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "宮古島",
+    "addr": "宮古島市平良荷川取３１８−１１",
+    "maps_url": "http://maps.google.com/?cid=16933733807977354748",
+    "tier": 3
+  },
+  {
+    "name": "やん小～",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "離島",
+    "addr": "島尻郡久米島町仲泊５０９",
+    "maps_url": "http://maps.google.com/?cid=17437249452675078924",
+    "tier": 3
+  },
+  {
+    "name": "中華海鮮 海皇",
+    "category": "food",
+    "subcategory": "sushi_seafood",
+    "region": "離島",
+    "addr": "島尻郡久米島町仲泊１１２３−５",
+    "maps_url": "http://maps.google.com/?cid=10863602380090971048",
+    "tier": 2
+  },
+  {
+    "name": "島豚七輪焼 満味",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "本島",
+    "addr": "名護市伊差川２５１",
+    "maps_url": "http://maps.google.com/?cid=15384273354305105142",
+    "tier": 3
+  },
+  {
+    "name": "焼肉こうちゃん",
+    "category": "food",
+    "subcategory": "yakiniku_yakitori",
+    "region": "本島",
+    "addr": "名護市為又１２１９−１６３",
+    "maps_url": "http://maps.google.com/?cid=6250470902152127378",
+    "tier": 2
+  },
+  {
+    "name": "百年古家 大家 うふやー",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "本島",
+    "addr": "名護市中山９０",
+    "maps_url": "http://maps.google.com/?cid=7806570637372482677",
+    "tier": 3
+  },
+  {
+    "name": "大戸屋ごはん処 名護宮里店",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "本島",
+    "addr": "名護市宮里４丁目１４−５０",
+    "maps_url": "http://maps.google.com/?cid=8557431966053513499",
+    "tier": 2
+  },
+  {
+    "name": "星のや竹富島",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "離島",
+    "addr": "八重山郡竹富町竹富１９５５",
+    "maps_url": "http://maps.google.com/?cid=2073111585408739093",
+    "tier": 3
+  },
+  {
+    "name": "サイプレスリゾート久米島",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "離島",
+    "addr": "島尻郡久米島町大原８０３−１ サイプレスリゾート久米島 サイプレスリゾート",
+    "maps_url": "http://maps.google.com/?cid=4844273086282113111",
+    "tier": 3
+  },
+  {
+    "name": "いしぐふー小禄具志店",
+    "category": "food",
+    "subcategory": "japanese",
+    "region": "那覇",
+    "addr": "那覇市具志３丁目２１−５",
+    "maps_url": "http://maps.google.com/?cid=12431815454813685148",
+    "tier": 3
+  },
+  {
+    "name": "オハコルテ 港川本店",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "浦添市港川２丁目１７−１ 18",
+    "maps_url": "http://maps.google.com/?cid=4249764377755982544",
+    "tier": 3
+  },
+  {
+    "name": "豊崎海浜公園 美らSUNビーチ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "豊見城市豊崎５−１",
+    "maps_url": "http://maps.google.com/?cid=9846283564397069886",
+    "tier": 2
+  },
+  {
+    "name": "座喜味城跡",
+    "category": "leisure",
+    "subcategory": "historical",
+    "region": "本島",
+    "addr": "中頭郡読谷村座喜味 ７０８ ６",
+    "maps_url": "http://maps.google.com/?cid=12026171182300166152",
+    "tier": 2
+  },
+  {
+    "name": "真栄田岬",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "国頭郡恩納村真栄田４６９−１",
+    "maps_url": "http://maps.google.com/?cid=8203357222013195823",
+    "tier": 2
+  },
+  {
+    "name": "はての浜",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "離島",
+    "addr": "島尻郡久米島町奥武",
+    "maps_url": "http://maps.google.com/?cid=8659022920379935709",
+    "tier": 3
+  },
+  {
+    "name": "与那覇前浜",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "宮古島",
+    "addr": "宮古島市下地与那覇1199番",
+    "maps_url": "http://maps.google.com/?cid=5355107498057417987",
+    "tier": 3
+  },
+  {
+    "name": "北浜(ニシバマ)",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "離島",
+    "addr": "島尻郡座間味村阿嘉",
+    "maps_url": "http://maps.google.com/?cid=4264284477459817882",
+    "tier": 3
+  },
+  {
+    "name": "EN RESORT Kumejima EEF Beach Hotel (エンリゾート 久米島イーフビーチホテル）",
+    "category": "lodging",
+    "subcategory": "hotel",
+    "region": "離島",
+    "addr": "島尻郡久米島町謝名堂５４８",
+    "maps_url": "http://maps.google.com/?cid=5785078188090570486",
+    "tier": 2
+  },
+  {
+    "name": "あざまサンサンビーチ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "南城市知念安座真1141 3",
+    "maps_url": "http://maps.google.com/?cid=12079137144405753211",
+    "tier": 3
+  },
+  {
+    "name": "オハコルテ 港川本店",
+    "category": "cafe_sweets",
+    "subcategory": "sweets",
+    "region": "本島",
+    "addr": "浦添市港川２丁目１７−１ 18",
+    "maps_url": "http://maps.google.com/?cid=16512386164916225193",
+    "tier": 3
+  },
+  {
+    "name": "沖縄美ら海水族館",
+    "category": "leisure",
+    "subcategory": "amusement",
+    "region": "本島",
+    "addr": "国頭郡本部町石川４２４",
+    "maps_url": "http://maps.google.com/?cid=16863911804921552894",
+    "tier": 2
+  },
+  {
+    "name": "ガンガラーの谷",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "南城市玉城前川２０２",
+    "maps_url": "http://maps.google.com/?cid=779342391328326614",
+    "tier": 3
+  },
+  {
+    "name": "果報バンタ",
+    "category": "leisure",
+    "subcategory": "park_nature",
+    "region": "本島",
+    "addr": "うるま市与那城宮城２７６８",
+    "maps_url": "http://maps.google.com/?cid=11512544687395968139",
+    "tier": 3
+  },
+  {
+    "name": "斎場御嶽",
+    "category": "leisure",
+    "subcategory": "historical",
+    "region": "本島",
+    "addr": "南城市知念久手堅５３９",
+    "maps_url": "http://maps.google.com/?cid=4131152330092204825",
+    "tier": 3
+  },
+  {
+    "name": "MAYBE BAKERY （メイビーベーカリー）",
+    "category": "cafe_sweets",
+    "subcategory": "bakery",
+    "region": "本島",
+    "addr": "中頭郡北谷町北谷２丁目１８−６",
+    "maps_url": "http://maps.google.com/?cid=2897084264112792265",
+    "tier": 2
+  },
+  {
+    "name": "スターバックス コーヒー 沖縄宜野湾店",
+    "category": "cafe_sweets",
+    "subcategory": "cafe",
+    "region": "本島",
+    "addr": "宜野湾市宇地泊１丁目１−２",
+    "maps_url": "http://maps.google.com/?cid=6323949865792482587",
+    "tier": 2
+  },
+  {
+    "name": "宇地泊製パン所スーリール",
+    "category": "cafe_sweets",
+    "subcategory": "bakery",
+    "region": "本島",
+    "addr": "宜野湾市宇地泊３丁目５−１１ １Ｆ",
+    "maps_url": "http://maps.google.com/?cid=8347955655592706964",
+    "tier": 3
+  },
+  {
+    "name": "宗像堂",
+    "category": "food",
+    "subcategory": "teishoku",
+    "region": "本島",
+    "addr": "宜野湾市嘉数１丁目２０−２",
+    "maps_url": "http://maps.google.com/?cid=2068932704504792321",
+    "tier": 2
+  }
+]

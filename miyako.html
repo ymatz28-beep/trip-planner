@@ -3,214 +3,437 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>宮古島 スポットガイド | iUMA Travel</title>
-<meta name="theme-color" content="#1f9d78">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<title>🐠 宮古島 ガイド | iUMA Travel</title>
+<meta name="theme-color" content="#00327a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-
   :root{
-    --bg:#f0f7fb; --surface:#fff; --surface-2:#f5f9fc;
-    --ink:#1a2b35; --ink-2:#4a6070; --ink-3:#8aacbd;
-    --line:#ddeaf2; --line-2:#e8f2f8;
-    --ocean:#0a86bd; --ocean-2:#e3f3fb; --ocean-dk:#054f73;
-    --coral:#e05c3a; --coral-2:#fef0eb;
-    --teal:#1f9d78; --gold:#a07a1c;
-    --r:14px; --r-sm:10px; --r-pill:999px;
-    --shadow:0 1px 3px rgba(10,40,60,.05),0 8px 24px rgba(10,40,60,.07);
-    --shadow-soft:0 1px 2px rgba(10,40,60,.05);
-    --font:'Inter','Noto Sans JP',system-ui,sans-serif;
+    --bg:#faf7f2; --surface:#fff; --surface2:#f5f0e8;
+    --ink:#1a1510; --ink2:#4a4035; --ink3:#8a7a6a;
+    --line:#e8dfd0; --line2:#f0e8da;
+    --c1:#00327a; --c2:#0091c2; --c3:#e8f6ff; --ck:#00327a;
+    --r:12px; --r-sm:8px; --r-pill:999px;
+    --shadow:0 1px 3px rgba(26,21,16,.05),0 8px 24px rgba(26,21,16,.08);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-  body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  body{
+    font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;
+    background:var(--bg);color:var(--ink);font-size:15px;line-height:1.75;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
-  .topbar{position:sticky;top:0;z-index:60;background:rgba(240,247,251,.88);backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
+  h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif;}
+
+  /* Topbar */
+  .topbar{position:sticky;top:0;z-index:60;background:rgba(250,247,242,.9);
+    backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);}
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
-  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--ocean);}
+  .brand{font-size:11px;font-weight:700;letter-spacing:.18em;color:var(--c2);text-transform:uppercase;}
   .topnav{display:flex;gap:2px;}
-  .topnav a{font-size:13px;font-weight:600;color:var(--ink-3);padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
-  .topnav a[aria-current="page"]{color:var(--ocean);background:var(--ocean-2);}
-  .topnav a.back{font-weight:700;color:var(--ocean);}
-  .topnav a.back::before{content:"‹ ";font-size:11px;}
-  footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink-3);}
-  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--ocean);}
+  .topnav a{font-size:13px;font-weight:600;color:var(--ink3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;}
+  .topnav a.back{font-weight:700;color:var(--c1);}
+  .topnav a.back::before{content:"‹ ";}
+  .topnav a[aria-current="page"]{color:var(--c1);background:var(--c3);}
+
+  /* Hero */
+  .hero{position:relative;overflow:hidden;color:#fff;
+    background:radial-gradient(120% 90% at 85% 0%,rgba(255,220,180,.18),transparent 55%),
+    linear-gradient(150deg,var(--c1) 0%,var(--c2) 55%,#0091c2bb 100%);}
+  .hero .wrap{padding:32px 18px 68px;position:relative;z-index:2;}
+  .eyebrow{display:inline-flex;align-items:center;gap:7px;
+    font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+    color:rgba(255,255,255,.62);margin-bottom:14px;}
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:rgba(255,255,255,.5);display:inline-block;}
+  .hero h1{font-size:clamp(28px,7.5vw,40px);font-weight:700;line-height:1.2;margin-bottom:8px;}
+  .hero h1 small{display:block;font-family:'Noto Sans JP',sans-serif;
+    font-size:clamp(13px,3.5vw,16px);font-weight:500;color:rgba(255,255,255,.72);margin-top:6px;}
+  .hero .lede{font-size:14px;color:rgba(255,255,255,.78);line-height:1.72;max-width:42ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+  .hpill{display:inline-flex;align-items:center;gap:5px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:5px 11px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
+
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
+
+  /* Stats bar */
+  .stats{margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(2,1fr);}
+  @media(min-width:560px){.stats{grid-template-columns:repeat(4,1fr);}}
+  .stat{padding:15px;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2);}
+  .stat:nth-child(2n){border-right:0;}.stat:nth-last-child(-n+2){border-bottom:0;}
+  @media(min-width:560px){
+    .stat{border-bottom:0;}.stat:nth-child(2n){border-right:1px solid var(--line2);}.stat:last-child{border-right:0;}
+  }
+  .stat .k{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink3);text-transform:uppercase;margin-bottom:4px;}
+  .stat .v{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,5.5vw,28px);
+    font-weight:700;color:var(--c1);line-height:1;}
+  .stat .u{font-size:13px;font-weight:600;color:var(--ink2);margin-left:1px;}
+  .stat .s{font-size:11px;color:var(--ink3);margin-top:4px;}
+
+  /* Secnav */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(250,247,242,.92);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;
+    max-width:720px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{flex:0 0 auto;font-size:12px;font-weight:600;color:var(--ink2);
+    padding:6px 12px;border-radius:var(--r-pill);background:var(--surface);
+    border:1px solid var(--line);min-height:34px;display:flex;align-items:center;
+    white-space:nowrap;transition:.15s;}
+  .secnav a.active{color:#fff;background:var(--c1);border-color:var(--c1);}
+
+  /* Category sections */
+  section{padding:28px 0 4px;scroll-margin-top:108px;}
+  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
+    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+  .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
+  .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
+    border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+
+  /* Spot list — editorial, not round cards */
+  .spot-list{display:flex;flex-direction:column;gap:0;}
+  .spot-item{
+    display:grid;grid-template-columns:1fr auto;
+    gap:4px 12px;padding:14px 0;border-bottom:1px solid var(--line2);
+  }
+  .spot-item:last-child{border-bottom:0;}
+  .spot-name{font-size:15px;font-weight:700;color:var(--ink);line-height:1.4;}
+  .spot-name a{color:var(--c1);}
+  .spot-name a:hover{text-decoration:underline;}
+  .spot-meta{font-size:11.5px;color:var(--ink3);margin-top:3px;line-height:1.5;}
+  .spot-desc{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.6;grid-column:1/-1;}
+  .spot-links{display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap;grid-column:2;grid-row:1/3;justify-content:flex-end;}
+  .slink{
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:11px;font-weight:600;padding:4px 9px;border-radius:6px;
+    white-space:nowrap;transition:.12s;
+  }
+  .slink-map{background:var(--c3);color:var(--c1);border:1px solid var(--c2)33;}
+  .slink-map:hover{background:var(--c2);color:#fff;}
+  .slink-tab{background:#f5f0e8;color:#8a5010;border:1px solid #d4a86033;}
+  .slink-tab:hover{background:#e09828;color:#fff;}
+  .slink-web{background:#f0f0f0;color:#404040;border:1px solid #ccc;}
+  .slink-web:hover{background:#444;color:#fff;}
+  .tier-badge{
+    display:inline-block;font-size:10px;font-weight:700;
+    padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;
+  }
+  .tier2{background:#fff4f0;color:#b04010;border:1px solid #e8843a44;}
+  .tier3{background:var(--surface2);color:var(--ink3);border:1px solid var(--line);}
+
+  /* Hub-specific */
+  .rgrid{display:grid;gap:14px;margin-top:28px;}
+  @media(min-width:480px){.rgrid{grid-template-columns:1fr 1fr;}}
+  .rcard{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);overflow:hidden;display:block;transition:.18s;
+  }
+  .rcard:hover{box-shadow:0 4px 20px rgba(26,21,16,.14);transform:translateY(-2px);}
+  .rcard-top{height:6px;}
+  .rcard-body{padding:18px;}
+  .rcard-flag{font-size:24px;margin-bottom:8px;display:block;}
+  .rcard-name{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+  .rcard-sub{font-size:12px;color:var(--ink3);margin-bottom:10px;}
+  .rcard-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px;}
+  .rtag{font-size:11px;font-weight:600;color:var(--ink2);background:var(--surface2);
+    border:1px solid var(--line);padding:3px 8px;border-radius:var(--r-pill);}
+  .rcard-foot{display:flex;align-items:center;justify-content:space-between;
+    font-size:12.5px;font-weight:600;color:var(--ink3);}
+  .rcard-count{font-size:11px;}
+  .rcard-arrow{color:var(--c2);font-size:16px;}
+
+  /* Footer / ToTop */
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:24px 0 44px;color:var(--ink3);}
+  footer .ft-1{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--c2);text-transform:uppercase;}
   footer .ft-2{font-size:11.5px;margin-top:4px;}
-  .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;border-radius:50%;background:var(--ocean);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:0 8px 22px rgba(10,134,189,.4);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;}
+  .totop{position:fixed;right:16px;bottom:16px;z-index:70;width:46px;height:46px;
+    border-radius:50%;background:var(--c1);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    box-shadow:0 8px 22px #00327a55;opacity:0;pointer-events:none;
+    transform:translateY(8px);transition:.25s;}
   .totop.show{opacity:1;pointer-events:auto;transform:none;}
   @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
-
-  .topnav a.back{color:#1f9d78;}
-  .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#1f9d78 0%,#0db4e8 100%);}
-  .hero .wrap{padding:32px 18px 68px;position:relative;z-index:2;}
-  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:11px;}
-  .hero h1{font-size:clamp(26px,7vw,38px);font-weight:900;line-height:1.2;margin-bottom:8px;}
-  .hero-sub{font-size:13px;color:rgba(255,255,255,.76);line-height:1.7;}
-  .hero-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
-  .hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.22);padding:5px 12px;border-radius:var(--r-pill);font-size:12px;font-weight:600;color:#fff;}
-  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(240,247,251,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
-  .secnav::-webkit-scrollbar{display:none;}
-  .secnav a{flex:0 0 auto;font-size:12.5px;font-weight:600;color:var(--ink-2);padding:7px 13px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;}
-  .secnav a.active{color:#fff;background:#1f9d78;border-color:#1f9d78;}
-  section{padding:28px 0 4px;scroll-margin-top:108px;}
-  .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
-  .kicker{font-size:13px;font-weight:800;letter-spacing:.04em;}
-  .sec-count{font-size:11px;font-weight:700;color:var(--ink-3);background:var(--surface-2);border:1px solid var(--line-2);padding:2px 8px;border-radius:var(--r-pill);}
-  .picks{display:grid;gap:7px;}
-  .pick{display:block;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;transition:.15s;}
-  .pick:hover{border-color:#1f9d78;background:rgba(10,134,189,.04);}
-  .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
-  .pn{font-size:14px;font-weight:700;color:var(--ink);line-height:1.35;}
-  .parrow{flex-shrink:0;font-size:14px;opacity:.5;}
-  .pick:hover .parrow{opacity:1;}
-  .pm{font-size:12px;color:var(--ink-3);font-weight:500;line-height:1.5;}
 </style>
 </head>
 <body>
+
 <header class="topbar">
   <div class="wrap">
-    <div class="brand">iUMA · TRAVEL</div>
-    <nav class="topnav"><a href="okinawa-general.html" class="back">沖縄</a><a href="#" aria-current="page">宮古島</a></nav>
+    <span class="brand">iUMA Travel</span>
+    <nav class="topnav">
+      <a href="okinawa-general.html" class="back">沖縄</a>
+      <a href="#" aria-current="page">宮古島</a>
+    </nav>
   </div>
 </header>
+
 <div class="hero">
   <div class="wrap">
-    <div class="eyebrow">Okinawa · Local Guide</div>
-    <h1>🐠 宮古島</h1>
-    <div class="hero-sub">宮古島(32)</div>
-    <div class="hero-pills"><span class="hpill">32スポット</span></div>
+    <div class="eyebrow">Okinawa · 宮古島</div>
+    <h1>🐠 宮古島<small>与那覇前浜 · 砂山ビーチ · 来間島</small></h1>
+    <p class="lede">Mapplyに保存した23件のスポットを収録。食事・カフェ・観光・宿泊をカテゴリで確認できます。</p>
+    <div class="hero-meta">
+      <span class="hpill">📍 23スポット</span>
+      <span class="hpill">★★ おすすめ 8件</span>
+    </div>
   </div>
 </div>
-<div class="secnav-wrap"><nav class="secnav"><a href="#food">🍽️ 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🏖️ 観光・ビーチ</a><a href="#shopping">🛍️ ショッピング</a><a href="#lodging">🏨 宿泊</a><a href="#health">💆 ウェルネス</a></nav></div>
-<div class="wrap"><section id="food">
-  <div class="sec-head"><div class="kicker" style="color:#0a86bd">🍽️ 食事</div><div class="sec-count">9件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E5%91%B3%E3%81%94%E3%81%AE%E3%81%BF%E4%B8%8B%E5%8C%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E5%B7%9D%E6%BA%80%EF%BC%96%EF%BC%90%EF%BC%94%E2%88%92%EF%BC%91%EF%BC%96" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">味ごのみ下北</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市下地川満６０４−１６</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B8%E3%83%A3%E3%83%B3%E3%82%B0%E3%83%AB%E9%A3%AF%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%20%E5%AD%97%E4%B8%8B%E9%87%8C575%20A106" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ジャングル飯店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良 字下里575 A106</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B8%E3%83%A7%E3%82%A4%E3%83%95%E3%83%AB%E5%AE%AE%E5%8F%A4%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%96%EF%BC%90%EF%BC%95" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ジョイフル宮古店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良下里６０５</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E5%A4%9A%E8%89%AF%E9%96%93%E7%89%9B%20%E3%83%80%E3%82%B0%E3%82%BA%E3%83%BB%E3%82%B0%E3%83%AA%E3%83%AB%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%95%EF%BC%96%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">多良間牛 ダグズ・グリル 宮古島本店</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良西里５６７−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%83%A4%E3%83%83%E3%82%AB%E3%83%A4%E3%83%83%E3%82%AB%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0306%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%92%EF%BC%96%E2%88%92%EF%BC%93" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ヤッカヤッカ</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市下地来間１２６−３</div>
-</a><a class="pick" href="https://maps.google.com/?q=PANIPANI%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%90%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">PANIPANI</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市下地来間１０５−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=DOUG%E2%80%98S%20BURGER%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%95%EF%BC%93%E2%88%92%EF%BC%93%E2%88%92%EF%BC%91%EF%BC%90%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">DOUG‘S BURGER</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良下里１１５３−３−１０１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%81%99%E3%82%80%E3%81%B0%E3%82%8A%E9%A3%9F%E5%A0%82%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0002%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E7%8B%A9%E4%BF%A3%EF%BC%97%EF%BC%96%EF%BC%98%E2%88%92%EF%BC%94" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">すむばり食堂</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良狩俣７６８−４</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E5%8F%A4%E8%AC%9D%E3%81%9D%E3%81%B0%E5%B1%8B%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%95%EF%BC%91%EF%BC%97%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">古謝そば屋</span><span class="parrow" style="color:#0a86bd">↗</span></div>
-  <div class="pm">宮古島市平良下里１５１７−１</div>
-</a></div>
-</section><section id="cafe_sweets">
-  <div class="sec-head"><div class="kicker" style="color:#c46030">☕ カフェ・スイーツ</div><div class="sec-count">6件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=Cafe%20de%20M%EF%BC%88%E3%82%AB%E3%83%95%E3%82%A7%20%E3%83%89%20%E3%82%A8%E3%83%A0%EF%BC%89%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%94%EF%BC%95%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">Cafe de M（カフェ ド エム）</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市平良西里４５−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=AOSORA%20PARLOR%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0306%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93%EF%BC%91%EF%BC%90%EF%BC%94%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">AOSORA PARLOR</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市下地来間１０４−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B9%E3%83%8A%E3%83%A4%E3%83%9E%E3%82%AB%E3%83%95%E3%82%A7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0008%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96%EF%BC%96%EF%BC%95%EF%BC%95%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">スナヤマカフェ</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市平良荷川取６５５−２</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%83%80%E3%82%B0%E3%82%BA%E3%83%BB%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E6%9C%AC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%91%EF%BC%95%EF%BC%93%E2%88%92%EF%BC%93%E2%88%92%EF%BC%91%EF%BC%90%EF%BC%95" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ダグズ・コーヒー 宮古島本店</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市平良下里１１５３−３−１０５</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E6%9D%8F%E5%BF%83%E3%81%AE%E3%83%89%E3%83%BC%E3%83%8A%E3%83%84%E5%B1%8B%E3%81%95%E3%82%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%BC%8A%E8%89%AF%E9%83%A8%E9%95%B7%E6%B5%9C%EF%BC%91%EF%BC%93%EF%BC%90%EF%BC%93" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">杏心のドーナツ屋さん</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市伊良部長浜１３０３</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E7%A9%BA%E7%8C%AB%E5%8D%81%E5%AD%97%E7%A4%BE%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0008%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96%EF%BC%93%EF%BC%91%EF%BC%98%E2%88%92%EF%BC%91%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">空猫十字社</span><span class="parrow" style="color:#c46030">↗</span></div>
-  <div class="pm">宮古島市平良荷川取３１８−１１</div>
-</a></div>
-</section><section id="leisure">
-  <div class="sec-head"><div class="kicker" style="color:#1f9d57">🏖️ 観光・ビーチ</div><div class="sec-count">4件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E7%AB%9C%E5%AE%AE%E5%9F%8E%E5%B1%95%E6%9C%9B%E5%8F%B0%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E6%9D%A5%E9%96%93" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">竜宮城展望台</span><span class="parrow" style="color:#1f9d57">↗</span></div>
-  <div class="pm">宮古島市下地来間</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E5%AE%AE%E5%8F%A4%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">宮古サンセットビーチ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
-  <div class="pm">宮古島市平良</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E7%A0%82%E5%B1%B1%E3%83%93%E3%83%BC%E3%83%81%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%8D%B7%E5%B7%9D%E5%8F%96" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">砂山ビーチ</span><span class="parrow" style="color:#1f9d57">↗</span></div>
-  <div class="pm">宮古島市平良荷川取</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E4%B8%8E%E9%82%A3%E8%A6%87%E5%89%8D%E6%B5%9C%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0305%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8B%E5%9C%B0%E4%B8%8E%E9%82%A3%E8%A6%871199%E7%95%AA" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">与那覇前浜</span><span class="parrow" style="color:#1f9d57">↗</span></div>
-  <div class="pm">宮古島市下地与那覇1199番</div>
-</a></div>
-</section><section id="shopping">
-  <div class="sec-head"><div class="kicker" style="color:#7a45cf">🛍️ ショッピング</div><div class="sec-count">9件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%83%80%E3%82%A4%E3%82%BD%E3%83%BC%20%E3%82%A4%E3%82%AA%E3%83%B3%E3%82%BF%E3%82%A6%E3%83%B3%E5%AE%AE%E5%8F%A4%E5%8D%97SC%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%BE%E5%8E%9F%EF%BC%95%EF%BC%95%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ダイソー イオンタウン宮古南SC店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良松原５５１−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%83%9E%E3%83%83%E3%82%AF%E3%82%B9%E3%83%90%E3%83%AA%E3%83%A5%E5%AE%AE%E5%8F%A4%E5%8D%97%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0014%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%BE%E5%8E%9F%EF%BC%96%EF%BC%93%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">マックスバリュ宮古南店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良松原６３１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E5%B3%B6%E3%81%AE%E9%A7%85%E3%81%BF%E3%82%84%E3%81%93%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0015%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B9%85%E8%B2%9D%EF%BC%98%EF%BC%97%EF%BC%90%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">島の駅みやこ</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良久貝８７０−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=OTS%20car%20rental%20Miyako%20Kukomae%20shop%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%92%EF%BC%91%EF%BC%99%EF%BC%99%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">OTS car rental Miyako Kukomae shop</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良下里２１９９−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%82%B5%E3%83%B3%E3%82%A8%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0%E3%82%BF%E3%82%A6%E3%83%B3%20%E5%AE%AE%E5%8F%A4%E9%A3%9F%E5%93%81%E9%A4%A8%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0007%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%B1%E4%BB%B2%E5%AE%97%E6%A0%B9844%EF%BD%B01" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">サンエーショッピングタウン 宮古食品館</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良東仲宗根844ｰ1</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%83%89%E3%83%B3%E3%83%BB%E3%82%AD%E3%83%9B%E3%83%BC%E3%83%86%20%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%BA%97%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0012%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E8%A5%BF%E9%87%8C%EF%BC%91%EF%BC%92%EF%BC%98%EF%BC%93" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ドン・キホーテ 宮古島店</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良西里１２８３</div>
-</a><a class="pick" href="https://maps.google.com/?q=Rental%20Shop%20%60Big%20Joy%27%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E6%9D%B1%E4%BB%B2%E5%AE%97%E6%A0%B9%EF%BC%98%EF%BC%92%EF%BC%97%E2%88%92%EF%BC%92" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">Rental Shop `Big Joy'</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良東仲宗根８２７−２</div>
-</a><a class="pick" href="https://maps.google.com/?q=B.SHOP%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0000%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%99%EF%BC%93%EF%BC%97" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">B.SHOP</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市平良下里９３７</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E5%AE%AE%E5%8F%A4%E5%B3%B6%E3%83%81%E3%83%BC%E3%82%BA%E5%B7%A5%E6%88%BF%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0101%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%9F%8E%E8%BE%BA%E4%BF%9D%E8%89%AF%EF%BC%93%EF%BC%94%EF%BC%94%E2%88%92%EF%BC%99" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">宮古島チーズ工房</span><span class="parrow" style="color:#7a45cf">↗</span></div>
-  <div class="pm">宮古島市城辺保良３４４−９</div>
-</a></div>
-</section><section id="lodging">
-  <div class="sec-head"><div class="kicker" style="color:#a07a1c">🏨 宿泊</div><div class="sec-count">3件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%82%B6%20%E3%82%B7%E3%82%AE%E3%83%A9%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0202%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%B8%8A%E9%87%8E%E6%96%B0%E9%87%8C%EF%BC%91%EF%BC%94%EF%BC%90%EF%BC%95%E2%88%92%EF%BC%93" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ザ シギラ</span><span class="parrow" style="color:#a07a1c">↗</span></div>
-  <div class="pm">宮古島市上野新里１４０５−３</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%83%9B%E3%83%86%E3%83%AB%E3%83%BB%E3%83%88%E3%83%AA%E3%83%95%E3%82%A3%E3%83%BC%E3%83%88%E5%AE%AE%E5%8F%A4%E5%B3%B6%E3%83%AA%E3%82%BE%E3%83%BC%E3%83%88%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%92%EF%BC%94%EF%BC%92%EF%BC%92%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ホテル・トリフィート宮古島リゾート</span><span class="parrow" style="color:#a07a1c">↗</span></div>
-  <div class="pm">宮古島市平良下里２４２２−１</div>
-</a><a class="pick" href="https://maps.google.com/?q=%E3%82%BD%E3%83%A9%E3%83%8B%E3%83%AF%E3%83%9B%E3%83%86%E3%83%AB%E3%82%A2%E3%83%B3%E3%83%89%E3%82%AB%E3%83%95%E3%82%A7%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0503%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E4%BC%8A%E8%89%AF%E9%83%A8%E4%BC%8A%E8%89%AF%E9%83%A8%EF%BC%97%EF%BC%92%EF%BC%91%E2%88%92%EF%BC%91" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ソラニワホテルアンドカフェ</span><span class="parrow" style="color:#a07a1c">↗</span></div>
-  <div class="pm">宮古島市伊良部伊良部７２１−１</div>
-</a></div>
-</section><section id="health">
-  <div class="sec-head"><div class="kicker" style="color:#555">💆 ウェルネス</div><div class="sec-count">1件</div></div>
-  <div class="picks"><a class="pick" href="https://maps.google.com/?q=%E3%81%90%E3%82%8A%E3%83%BC%E3%82%93%E3%82%8A%E3%83%BC%E3%81%B5%20%E6%97%A5%E6%9C%AC%E3%80%81%E3%80%92906-0013%20%E6%B2%96%E7%B8%84%E7%9C%8C%E5%AE%AE%E5%8F%A4%E5%B3%B6%E5%B8%82%E5%B9%B3%E8%89%AF%E4%B8%8B%E9%87%8C%EF%BC%91%EF%BC%96%EF%BC%95%EF%BC%97%E2%88%92%EF%BC%91%EF%BC%92%EF%BC%98" target="_blank" rel="noopener">
-  <div class="ph"><span class="pn">ぐりーんりーふ</span><span class="parrow" style="color:#555">↗</span></div>
-  <div class="pm">宮古島市平良下里１６５７−１２８</div>
-</a></div>
-</section></div>
-<footer><div class="wrap"><div class="ft-1">iUMA · TRAVEL · 宮古島</div><div class="ft-2">データ: Maply キュレーション 2026-04-13</div></div></footer>
-<button class="totop" id="totop" aria-label="トップへ">↑</button>
+
+<div class="stats wrap">
+  <div class="stat"><div class="k">グルメ</div><div class="v">15<span class="u">件</span></div><div class="s">食事・カフェ</div></div>
+  <div class="stat"><div class="k">観光</div><div class="v">4<span class="u">件</span></div><div class="s">スポット</div></div>
+  <div class="stat"><div class="k">宿泊</div><div class="v">3<span class="u">件</span></div><div class="s">ホテル・宿</div></div>
+  <div class="stat"><div class="k">おすすめ</div><div class="v">8<span class="u">件</span></div><div class="s">Tier 2 厳選</div></div>
+</div>
+
+<div class="secnav-wrap">
+  <div class="secnav"><a href="#food">🍽 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・アクティビティ</a><a href="#lodging">🏨 宿泊</a><a href="#health">💆 ヘルス</a></div>
+</div>
+
+<main class="wrap">
+
+<section id="food">
+  <div class="sec-head">
+    <h2>🍽 食事</h2>
+    <span class="sec-count">9件</span>
+  </div>
+  <div class="spot-list"><div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">すむばり食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良狩俣７６８−４</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">古謝そば屋</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良下里１５１７−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">DOUG‘S BURGER</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良下里１１５３−３−１０１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=11971374461161704629" target="_blank" rel="noopener">PANIPANI</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市下地来間１０５−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11971374461161704629" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">ジャングル飯店</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良 字下里575 A106</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5015685051194711013" target="_blank" rel="noopener">ジョイフル宮古店</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良下里６０５</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5015685051194711013" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=9783739575955172950" target="_blank" rel="noopener">ヤッカヤッカ</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市下地来間１２６−３</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9783739575955172950" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14824519731625137260" target="_blank" rel="noopener">味ごのみ下北</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市下地川満６０４−１６</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14824519731625137260" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">多良間牛 ダグズ・グリル 宮古島本店</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良西里５６７−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
+<section id="cafe_sweets">
+  <div class="sec-head">
+    <h2>☕ カフェ・スイーツ</h2>
+    <span class="sec-count">6件</span>
+  </div>
+  <div class="spot-list"><div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=8704215441600930373" target="_blank" rel="noopener">Cafe de M（カフェ ド エム）</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良西里４５−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=8704215441600930373" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=250091878972398674" target="_blank" rel="noopener">スナヤマカフェ</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良荷川取６５５−２</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=250091878972398674" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=12397649328630697658" target="_blank" rel="noopener">ダグズ・コーヒー 宮古島本店</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良下里１１５３−３−１０５</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12397649328630697658" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=13805764815442906801" target="_blank" rel="noopener">AOSORA PARLOR</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市下地来間１０４−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13805764815442906801" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=10535859847775118410" target="_blank" rel="noopener">杏心のドーナツ屋さん</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市伊良部長浜１３０３</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10535859847775118410" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=16933733807977354748" target="_blank" rel="noopener">空猫十字社</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良荷川取３１８−１１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=16933733807977354748" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
+<section id="leisure">
+  <div class="sec-head">
+    <h2>🌊 観光・アクティビティ</h2>
+    <span class="sec-count">4件</span>
+  </div>
+  <div class="spot-list"><div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=10456124666542007313" target="_blank" rel="noopener">竜宮城展望台</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市下地来間</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10456124666542007313" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5355107498057417987" target="_blank" rel="noopener">与那覇前浜</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市下地与那覇1199番</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5355107498057417987" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=4463611518815949680" target="_blank" rel="noopener">宮古サンセットビーチ</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4463611518815949680" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=11249511379085735670" target="_blank" rel="noopener">砂山ビーチ</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良荷川取</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11249511379085735670" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
+<section id="lodging">
+  <div class="sec-head">
+    <h2>🏨 宿泊</h2>
+    <span class="sec-count">3件</span>
+  </div>
+  <div class="spot-list"><div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=10625837175028502319" target="_blank" rel="noopener">ソラニワホテルアンドカフェ</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市伊良部伊良部７２１−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10625837175028502319" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=1819931691307528425" target="_blank" rel="noopener">ホテル・トリフィート宮古島リゾート</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">宮古島市平良下里２４２２−１</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1819931691307528425" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=2987711255727389358" target="_blank" rel="noopener">ザ シギラ</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市上野新里１４０５−３</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2987711255727389358" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
+<section id="health">
+  <div class="sec-head">
+    <h2>💆 ヘルス</h2>
+    <span class="sec-count">1件</span>
+  </div>
+  <div class="spot-list"><div class="spot-item">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=1884434191345437770" target="_blank" rel="noopener">ぐりーんりーふ</a><span class="tier-badge tier3">チェック</span></div>
+    <div class="spot-meta">宮古島市平良下里１６５７−１２８</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1884434191345437770" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="ft-1">iUMA Travel · 宮古島</div>
+    <div class="ft-2">Mapplyデータ + Exaリサーチ · 23スポット</div>
+  </div>
+</footer>
+
+<button class="totop" aria-label="トップへ戻る">↑</button>
+
 <script>
-const tot=document.getElementById('totop');
-window.addEventListener('scroll',()=>{tot.classList.toggle('show',scrollY>300);},{passive:true});
-tot.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-const secLinks=document.querySelectorAll('.secnav a');
-const sections=document.querySelectorAll('section');
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>{if(x.isIntersecting){secLinks.forEach(a=>a.classList.remove('active'));
-  const a=document.querySelector('.secnav a[href="#'+x.target.id+'"]');if(a)a.classList.add('active');}});
-},{rootMargin:'-30% 0px -60% 0px'});
-sections.forEach(s=>obs.observe(s));
+const btn=document.querySelector('.totop');
+window.addEventListener('scroll',()=>{btn.classList.toggle('show',scrollY>320);});
+btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// secnav active tracking
+const secs=document.querySelectorAll('section[id]');
+const navlinks=document.querySelectorAll('.secnav a');
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){
+    navlinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id));
+  }});
+},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>obs.observe(s));
 </script>
+
 </body>
 </html>
