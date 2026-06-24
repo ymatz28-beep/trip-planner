@@ -5,12 +5,20 @@ from pathlib import Path
 from collections import defaultdict
 
 _DESC_JUNK = re.compile(
-    r'官方消息|已登錄|店家會員'       # 繁体字中国語UIテキスト
-    r'|Switch to Tabelog'             # 英語切替UI
-    r'|\| ---'                        # Markdown表形式
-    r'| \| [A-Za-z]'                  # 英語サイト名（例: | TRAVEL for YOU）
-    r'|ログイン|無料会員登録'           # 認証UI
-    r'|口コミ\s*写真\s*地図'           # 食べログナビ
+    r'官方消息|已登錄|店家會員'         # 繁体字中国語UIテキスト
+    r'|Switch to Tabelog'              # 英語切替UI
+    r'|\| ---'                         # Markdown表形式
+    r'| \| [A-Za-z]'                   # 英語サイト名（例: | TRAVEL for YOU）
+    r'|ログイン|無料会員登録'            # 認証UI
+    r'|口コミ\s*写真\s*地図'            # 食べログナビ
+    r'|英語環境|HAMONI'                # HAMONI系UIゴミ
+    r'|English site is here'           # 英語サイト誘導
+    r'|tiktok\.com'                    # TikTok URL
+    r'|エキテン\s*by|エキテン\s*GMO'   # エキテンUI
+    r'|Retty（レッティ）'              # Rettyページタイトル
+    r'|なび沖】|全国なびから'           # なび沖UI
+    r'|Yahoo! JAPAN'                   # Yahoo UIテキスト
+    r'|TEL:\d{3}'                      # 電話番号混入UI
 )
 
 def _clean_desc(desc: str) -> str:
@@ -297,7 +305,9 @@ def render_spot(s):
     if official_url and official_url not in (tabelog_url, maps_url, ""):
         if "tabelog" not in official_url and "google" not in official_url:
             links.append(f'<a class="slink slink-web" href="{official_url}" target="_blank" rel="noopener">公式</a>')
-    if source_url and source_url not in (maps_url, tabelog_url, official_url, ""):
+    if source_url and "tabelog.com" in source_url and not tabelog_url:
+        links.append(f'<a class="slink slink-tab" href="{source_url}" target="_blank" rel="noopener">食べログ</a>')
+    elif source_url and source_url not in (maps_url, tabelog_url, official_url, ""):
         if "google" not in source_url and "tabelog" not in source_url:
             links.append(f'<a class="slink slink-web" href="{source_url}" target="_blank" rel="noopener">情報元</a>')
     links_html = "".join(links)

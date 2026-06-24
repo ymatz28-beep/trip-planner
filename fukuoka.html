@@ -3,880 +3,854 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fukuoka Local Guide | iUMA Travel</title>
+<title>福岡 ローカルガイド — 温泉・グルメ・エリア | iUMA Travel</title>
+<meta name="theme-color" content="#c46030">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+  :root{
+    --bg:#f4f1ea;
+    --surface:#ffffff;
+    --surface-2:#faf7f1;
+    --ink:#1b1a20;
+    --ink-2:#56535e;
+    --ink-3:#8b8792;
+    --line:#e8e2d6;
+    --line-2:#f1ece2;
 
-  :root {
-    --bg: #0f1117;
-    --surface: rgba(255,255,255,0.035);
-    --surface-hover: rgba(255,255,255,0.065);
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.18);
-    --text: #f5f5f7;
-    --text-secondary: #a1a1aa;
-    --muted: #71717a;
-    --dim: #3f3f46;
-    --accent: #C47D4E;
-    --accent-light: #E8B887;
-    --accent-glow: rgba(196,125,78,0.15);
-    --onsen-warm: #8B5E3C;
-    --card-bg: var(--surface);
+    --wine:#c46030;
+    --wine-2:#fdebd0;
+    --indigo:#4f46e5;
+    --indigo-2:#ecedfd;
+    --gold:#a07a1c;
+
+    --food:#bf6a0c;     --food-2:#fcefdf;
+    --culture:#7a45cf;  --culture-2:#f1eafb;
+    --onsen:#0a86bd;    --onsen-2:#e3f3fb;
+    --move:#73707b;     --move-2:#efedea;
+    --green:#1f9d57;    --green-2:#e8f8ef;
+
+    --r:16px; --r-sm:11px; --r-pill:999px;
+    --shadow:0 1px 2px rgba(28,24,32,.04), 0 10px 30px rgba(28,24,32,.06);
+    --shadow-soft:0 1px 2px rgba(28,24,32,.05);
+    --num:'Inter', sans-serif;
+    --font:'Inter','Noto Sans JP', system-ui, sans-serif;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:var(--font);
+    background:var(--bg);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  .tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 18px;}
 
-  body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
+  /* ── Topbar ── */
+  .topbar{
+    position:sticky;top:0;z-index:60;
+    background:rgba(244,241,234,.86);
+    backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
   }
-
-  /* ── Shared Gnav ── */
-  .site-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 24px; height: 52px;
-    background: rgba(22,24,31,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    position: sticky; top: 0; z-index: 100;
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:50px;}
+  .brand{font-size:12px;font-weight:800;letter-spacing:.16em;color:var(--wine);}
+  .topnav{display:flex;gap:2px;}
+  .topnav a{
+    font-size:13px;font-weight:600;color:var(--ink-3);
+    padding:8px 11px;border-radius:9px;min-height:38px;display:flex;align-items:center;
   }
-  .site-nav { display: flex; gap: 4px; }
-  .site-nav a {
-    color: #71717a; text-decoration: none; font-size: 13px; font-weight: 500;
-    padding: 6px 14px; border-radius: 6px; transition: background .15s, color .15s;
-  }
-  .site-nav a:hover, .site-nav a[aria-current="page"] {
-    background: rgba(255,255,255,0.065); color: #f5f5f7;
-  }
-  .nav-toggle { display: none; }
-  .nav-toggle-label { display: none; cursor: pointer; padding: 8px; min-width: 44px; min-height: 44px; display: none; align-items: center; justify-content: center; }
-  .nav-toggle-label span,
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after {
-    display: block; background: #f5f5f7; height: 2px; width: 20px;
-    border-radius: 2px; position: relative; transition: .3s;
-  }
-  .nav-toggle-label span::before,
-  .nav-toggle-label span::after { content: ''; position: absolute; }
-  .nav-toggle-label span::before { top: -6px; }
-  .nav-toggle-label span::after { top: 6px; }
-  @media (max-width: 640px) {
-    .nav-toggle-label { display: flex; }
-    .site-nav {
-      display: none; flex-direction: column; gap: 0;
-      position: absolute; top: 52px; left: 0; right: 0; z-index: 200;
-      background: rgba(22,24,31,0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08); padding: 8px 0;
-    }
-    .site-nav a { padding: 12px 24px; border-radius: 0; font-size: 14px; }
-    .nav-toggle:checked ~ .site-nav { display: flex; }
-    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
-    .nav-toggle:checked ~ .nav-toggle-label span::before { top: 0; transform: rotate(45deg); }
-    .nav-toggle:checked ~ .nav-toggle-label span::after { top: 0; transform: rotate(-45deg); }
-  }
+  .topnav a[aria-current="page"]{color:var(--wine);background:var(--wine-2);}
+  .topnav a.topnav-hub{font-weight:700;color:var(--wine);letter-spacing:.04em;}
+  .topnav a.topnav-hub::before{content:"‹ ";font-size:11px;}
 
   /* ── Hero ── */
-  .hero {
-    background: linear-gradient(135deg, #1a0f08, #2a1a0e, #1a0f08);
-    background-size: 200% 200%;
-    animation: heroShift 12s ease-in-out infinite;
-    border-radius: 16px;
-    padding: 32px 40px;
-    margin: 24px auto;
-    max-width: 1100px;
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
+  .hero{
+    position:relative;overflow:hidden;color:#fff;
+    background:
+      radial-gradient(120% 90% at 85% 0%, rgba(255,210,150,.22), transparent 55%),
+      linear-gradient(150deg,#7a2e08 0%,#c46030 42%,#b05a28 100%);
   }
-  @keyframes heroShift {
-    0%,100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  .hero .wrap{padding:30px 18px 64px;position:relative;z-index:2;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#ffd9a3;margin-bottom:14px;
   }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -50%; right: -20%;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
-    filter: blur(80px);
-    pointer-events: none;
+  .eyebrow::before{content:"";width:18px;height:1.5px;background:#ffd9a3;display:inline-block;}
+  .hero h1{
+    font-size:clamp(28px,7.4vw,40px);font-weight:800;line-height:1.2;letter-spacing:.005em;
+    margin-bottom:10px;text-wrap:balance;
   }
-  .hero-content { position: relative; z-index: 1; }
-  .hero h1 {
-    font-size: clamp(20px, 2.5vw, 26px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 6px;
-  }
-  .hero .subtitle {
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 400;
-    margin-bottom: 16px;
-  }
-  .hero .trip-info {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-  }
-  .info-chip {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 12px;
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 500;
+  .hero h1 small{display:block;font-size:clamp(14px,3.6vw,17px);font-weight:600;color:rgba(255,255,255,.78);margin-top:8px;letter-spacing:.01em;}
+  .hero .lede{font-size:14.5px;color:rgba(255,255,255,.8);line-height:1.75;max-width:42ch;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px;}
+  .hpill{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:6px 12px;border-radius:var(--r-pill);font-size:12.5px;font-weight:600;color:#fff;
   }
 
-  /* ── Section Nav ── */
-  .section-nav-wrapper {
-    position: sticky;
-    top: 52px;
-    z-index: 90;
-    background: rgba(15,17,23,0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
+  /* ── Facts ── */
+  .facts{
+    margin-top:-44px;position:relative;z-index:5;
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);
+    display:grid;grid-template-columns:repeat(2,1fr);
   }
-  .nav-bar {
-    display: flex;
-    gap: 4px;
-    justify-content: center;
-    padding: 10px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    flex-wrap: nowrap;
-  }
-  .nav-bar::-webkit-scrollbar { display: none; }
-  .nav-bar a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .nav-bar a:hover, .nav-bar a.active {
-    color: var(--text);
-    background: var(--surface-hover);
+  .fact{padding:16px;border-right:1px solid var(--line-2);border-bottom:1px solid var(--line-2);}
+  .fact:nth-child(2n){border-right:0;}
+  .fact:nth-last-child(-n+2){border-bottom:0;}
+  .fact .k{font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-3);text-transform:uppercase;margin-bottom:5px;}
+  .fact .v{font-family:var(--num);font-size:clamp(25px,7vw,31px);font-weight:800;line-height:1;letter-spacing:-.01em;color:var(--ink);}
+  .fact .v .u{font-size:14px;font-weight:700;color:var(--ink-2);margin-left:1px;}
+  .fact .v.jp{font-family:var(--font);font-size:clamp(20px,5.6vw,24px);}
+  .fact .s{font-size:11.5px;color:var(--ink-3);margin-top:6px;font-weight:500;}
+  @media(min-width:720px){
+    .facts{grid-template-columns:repeat(4,1fr);}
+    .fact{border-bottom:0;}
+    .fact:nth-child(2n){border-right:1px solid var(--line-2);}
+    .fact:last-child{border-right:0;}
   }
 
-  /* ── Sections ── */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 64px 24px;
+  /* ── Keynote ── */
+  .keynote{
+    margin-top:16px;display:flex;gap:13px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff,var(--indigo-2));
+    border:1px solid #d9dbfb;border-left:4px solid var(--indigo);
+    border-radius:var(--r);padding:16px 17px;box-shadow:var(--shadow-soft);
   }
-  .section-title {
-    font-size: clamp(18px, 2.5vw, 22px);
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 0.5rem;
+  .keynote .ic{font-size:22px;line-height:1.2;flex-shrink:0;}
+  .keynote .t{font-size:14.5px;font-weight:800;color:#2b2497;margin-bottom:4px;}
+  .keynote .d{font-size:13.5px;color:var(--ink-2);line-height:1.72;}
+  .keynote b{color:var(--ink);font-weight:700;}
+
+  /* ── Section nav ── */
+  .secnav-wrap{position:sticky;top:50px;z-index:55;background:rgba(244,241,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin-top:22px;}
+  .secnav{display:flex;gap:6px;overflow-x:auto;padding:10px 18px;scrollbar-width:none;max-width:720px;margin:0 auto;}
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav a{
+    flex:0 0 auto;font-size:13px;font-weight:600;color:var(--ink-2);
+    padding:7px 14px;border-radius:var(--r-pill);background:var(--surface);border:1px solid var(--line);
+    min-height:36px;display:flex;align-items:center;white-space:nowrap;transition:.15s;
   }
-  .section-sub {
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 2.5rem;
-    font-size: 0.95rem;
+  .secnav a.active{color:#fff;background:var(--wine);border-color:var(--wine);}
+
+  /* ── Section ── */
+  section{padding:34px 0 4px;scroll-margin-top:104px;}
+  .sec-head{margin-bottom:18px;}
+  .kicker{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wine);margin-bottom:7px;}
+  .sec-title{font-size:clamp(21px,5.4vw,26px);font-weight:800;letter-spacing:.005em;line-height:1.25;}
+  .sec-sub{font-size:14px;color:var(--ink-2);margin-top:8px;line-height:1.7;}
+
+  /* ── Cards ── */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-soft);margin-bottom:12px;}
+  .card .head{display:flex;align-items:center;gap:9px;margin-bottom:7px;}
+  .card .emoji{width:40px;height:40px;flex-shrink:0;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--wine-2);}
+  .card h3{font-size:16px;font-weight:800;line-height:1.32;}
+  .ctag{display:inline-block;font-size:11px;font-weight:700;color:var(--wine);background:var(--wine-2);padding:3px 10px;border-radius:var(--r-pill);margin-bottom:9px;}
+  .meta{font-size:12px;color:var(--ink-3);line-height:1.6;margin-bottom:9px;font-weight:500;}
+  .desc{font-size:14px;color:var(--ink-2);line-height:1.74;}
+  .desc b{color:var(--ink);font-weight:700;}
+  .why{margin-top:11px;padding:10px 12px;background:var(--surface-2);border-radius:var(--r-sm);font-size:13px;color:var(--ink-2);line-height:1.66;border:1px solid var(--line-2);}
+  .why b{color:var(--wine);font-weight:700;}
+  .map{
+    display:inline-flex;align-items:center;gap:6px;margin-top:12px;
+    font-size:13px;font-weight:700;color:var(--indigo);
+    padding:8px 14px;border:1px solid var(--indigo-2);background:var(--indigo-2);
+    border-radius:var(--r-pill);min-height:40px;
   }
 
-  /* ── Onsen Cards ── */
-  .onsen-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-  }
-  .onsen-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px;
-    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
-  }
-  .onsen-card:hover {
-    border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(196,125,78,0.08);
-  }
-  .onsen-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent), var(--accent-light));
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .onsen-card:hover::after { opacity: 1; }
+  /* ── Picks ── */
+  .picks{display:grid;gap:9px;margin-top:11px;}
+  .pick{display:block;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;}
+  .pick .ph{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;}
+  .pick .pn{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:.005em;}
+  .pick .pg{font-size:10.5px;font-weight:700;color:var(--food);background:var(--food-2);padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pg-s{font-size:10.5px;font-weight:700;color:#9a6a0c;background:#fff8e1;border:1px solid #f0d060;padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pg-a{font-size:10.5px;font-weight:700;color:#2b5db8;background:#e8f0fe;border:1px solid #c5d8f5;padding:2px 9px;border-radius:var(--r-pill);white-space:nowrap;}
+  .pick .pm{font-size:12.5px;color:var(--ink-2);line-height:1.62;font-weight:500;}
+  .pick .pm b{color:var(--ink);font-weight:700;}
+  .pick a.pmap{color:var(--indigo);font-weight:700;font-size:12px;white-space:nowrap;}
+  .pick a.psrc{font-size:10px;color:#6a8f5a;text-decoration:none;margin-left:8px;opacity:.85;}
+  .pick a.psrc:hover{opacity:1;}
+  .pick.rec{border-color:#ddb898;background:var(--wine-2);}
+  .pick.rec .pg{color:var(--wine);background:#fff;}
+  .pick.verdict-a{border-color:#b0c8f0;background:#f0f5ff;}
+  .rank-head{font-size:11px;font-weight:800;color:var(--ink-3);letter-spacing:.1em;margin:13px 0 7px;padding-left:2px;text-transform:uppercase;}
 
-  .onsen-name {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .onsen-area {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
+  /* ── Genre bar ── */
+  .genre-bar{display:flex;gap:6px;overflow-x:auto;padding:2px 0 14px;scrollbar-width:none;margin-bottom:6px;}
+  .genre-bar::-webkit-scrollbar{display:none;}
+  .gb-btn{flex:0 0 auto;font-size:12.5px;font-weight:700;padding:7px 14px;border:1px solid var(--line);border-radius:var(--r-pill);background:var(--surface);color:var(--ink-2);cursor:pointer;min-height:36px;white-space:nowrap;transition:.15s;}
+  .gb-btn.active{background:var(--wine);border-color:var(--wine);color:#fff;}
+  .optgroup[data-g]{display:none;}
+  .optgroup[data-g].og-active{display:block;}
+  .opth{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:9px;display:flex;align-items:center;gap:8px;}
+  .opth .gc{font-size:11px;font-weight:700;color:var(--ink-3);}
+  .optnote{font-size:12.5px;color:var(--ink-2);background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:11px 13px;line-height:1.66;margin-bottom:12px;}
 
-  .onsen-details {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .onsen-detail {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-  .onsen-detail .icon {
-    flex-shrink: 0;
-    width: 20px;
-    text-align: center;
-    font-size: 14px;
-  }
+  /* ── Candidate compare ── */
+  .cand-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:640px){.cand-grid{grid-template-columns:1fr;}}
+  .cand-card{border-radius:var(--r);border:2px solid var(--line);background:var(--surface);padding:20px;position:relative;overflow:hidden;}
+  .cand-card.rec{border-color:#c46030;background:#fdf3ec;}
+  .rec-badge{display:inline-block;font-size:10px;font-weight:800;background:var(--wine);color:#fff;padding:3px 10px;border-radius:var(--r-pill);margin-bottom:12px;letter-spacing:.06em;}
+  .cand-name{font-size:17px;font-weight:800;margin-bottom:3px;}
+  .cand-type{font-size:11px;font-weight:700;color:var(--wine);letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;}
+  .diff-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:14px;}
+  .diff-table th{text-align:left;font-size:11px;font-weight:700;color:var(--ink-3);padding:5px 8px 5px 0;border-bottom:1px solid var(--line-2);text-transform:uppercase;letter-spacing:.04em;}
+  .diff-table td{padding:7px 8px 7px 0;border-bottom:1px solid var(--line-2);color:var(--ink-2);vertical-align:top;line-height:1.5;}
+  .diff-table td:first-child{font-weight:700;color:var(--ink-3);font-size:11px;width:64px;padding-right:10px;}
+  .diff-table tr:last-child td{border-bottom:0;}
+  .diff-good{color:#1e7a3e;font-weight:700;}
+  .diff-neutral{color:var(--ink-3);}
+  .verdict-why{margin-top:14px;padding:12px 14px;background:var(--surface-2);border:1px solid var(--line-2);border-radius:var(--r-sm);font-size:13px;color:var(--ink-2);line-height:1.7;}
+  .verdict-why b{color:var(--ink);font-weight:700;}
+  .cand-links{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}
+  .cand-link{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;border-radius:var(--r-pill);font-size:12px;font-weight:700;min-height:36px;border:1px solid var(--line);background:var(--surface);color:var(--indigo);transition:.15s;}
+  .cand-link:hover{background:var(--indigo-2);border-color:var(--indigo);}
 
-  .onsen-features {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-  .feature-tag {
-    font-size: 11px;
-    font-weight: 500;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: var(--accent-glow);
-    color: var(--accent-light);
-    border: 1px solid rgba(196,125,78,0.2);
-  }
+  /* ── Area guide ── */
+  .area-grid{display:grid;gap:12px;}
+  @media(min-width:560px){.area-grid{grid-template-columns:1fr 1fr;}}
+  .area-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:var(--shadow-soft);}
+  .area-name{font-size:15px;font-weight:800;margin-bottom:3px;}
+  .area-label{font-size:11px;font-weight:700;color:var(--wine);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+  .area-desc{font-size:13.5px;color:var(--ink-2);line-height:1.7;}
+  .area-spots{margin-top:10px;padding-top:10px;border-top:1px solid var(--line-2);list-style:none;}
+  .area-spots li{font-size:13px;color:var(--ink-2);padding:3px 0 3px 16px;position:relative;}
+  .area-spots li::before{content:"·";position:absolute;left:4px;color:var(--wine);font-weight:700;}
 
-  .map-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 12px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: 1px solid rgba(196,125,78,0.25);
-    transition: all 0.2s;
-  }
-  .map-link:hover {
-    background: var(--accent-glow);
-    border-color: var(--accent);
-  }
+  /* ── Access table ── */
+  .access-table{width:100%;border-collapse:collapse;font-size:13px;}
+  .access-table th{text-align:left;padding:9px 14px;background:var(--surface-2);color:var(--ink-3);font-weight:700;font-size:11px;letter-spacing:.04em;border-bottom:1px solid var(--line);text-transform:uppercase;}
+  .access-table td{padding:11px 14px;border-bottom:1px solid var(--line-2);color:var(--ink-2);}
+  .access-table tr:hover td{background:var(--surface-2);}
+  .price-hl{font-family:var(--num);color:var(--food);font-weight:700;}
 
-  /* ── Area Guide ── */
-  .area-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .area-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px;
-    transition: border-color 0.3s, transform 0.2s;
-  }
-  .area-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-1px);
-  }
-  .area-name {
-    font-size: 16px;
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
-  .area-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .area-desc {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-  .area-spots {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
-  }
-  .area-spots li {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 4px;
-    list-style: none;
-    padding-left: 16px;
-    position: relative;
-  }
-  .area-spots li::before {
-    content: '·';
-    position: absolute;
-    left: 4px;
-    color: var(--accent);
-    font-weight: 700;
-  }
-
-  /* ── Access Info ── */
-  .access-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  .access-table th {
-    text-align: left;
-    padding: 10px 16px;
-    background: var(--surface);
-    color: var(--muted);
-    font-weight: 600;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    border-bottom: 1px solid var(--border);
-  }
-  .access-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-secondary);
-  }
-  .access-table tr:hover td {
-    background: var(--surface);
-  }
-  .price-highlight {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent-light);
-    font-weight: 500;
-  }
-
-  /* ── Gourmet Section ── */
-  .gourmet-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1rem;
-  }
-  .gourmet-item {
-    display: flex;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    transition: border-color 0.2s;
-  }
-  .gourmet-item:hover {
-    border-color: var(--border-hover);
-  }
-  .gourmet-icon {
-    font-size: 24px;
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    display: grid;
-    place-items: center;
-    border-radius: 8px;
-    background: var(--accent-glow);
-  }
-  .gourmet-info h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 2px;
-  }
-  .gourmet-info p {
-    font-size: 12px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-  .gourmet-info .gourmet-area-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--accent);
-    margin-bottom: 4px;
-  }
-
-  /* ── Tips Section ── */
-  .tips-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-  .tip-card {
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-  }
-  .tip-card h4 {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .tip-card p {
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
+  /* ── Tips ── */
+  .tips-grid{display:grid;gap:10px;}
+  @media(min-width:560px){.tips-grid{grid-template-columns:1fr 1fr;}}
+  .tip-card{padding:16px 18px;border-radius:var(--r);border:1px solid var(--line);background:var(--surface);}
+  .tip-card h4{font-size:14px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+  .tip-card p{font-size:13.5px;color:var(--ink-2);line-height:1.7;}
 
   /* ── Footer ── */
-  footer {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 32px 1.5rem 48px;
-    border-top: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  footer span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    color: var(--dim);
-  }
+  footer{margin-top:36px;border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);}
+  footer .wrap{display:flex;flex-direction:column;gap:4px;}
+  footer .ft-1{font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--wine);}
+  footer .ft-2{font-size:11.5px;}
 
-  /* ── Responsive ── */
-  @media (max-width: 768px) {
-    .hero { margin: 16px; padding: 24px; }
-    .section { padding: 2.5rem 1rem; }
-    .onsen-grid { grid-template-columns: 1fr; }
-    .area-grid { grid-template-columns: 1fr; }
-    .gourmet-list { grid-template-columns: 1fr; }
-    .access-table { font-size: 12px; }
-    .access-table th, .access-table td { padding: 8px 10px; }
+  /* ── Back to top ── */
+  .totop{
+    position:fixed;right:16px;bottom:16px;z-index:70;
+    width:46px;height:46px;border-radius:50%;
+    background:var(--wine);color:#fff;border:none;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 8px 22px rgba(196,96,48,.4);
+    opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s;
   }
+  .totop.show{opacity:1;pointer-events:auto;transform:none;}
+
+  @keyframes up{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .rv{animation:up .5s ease both;}
+  @media(prefers-reduced-motion:reduce){.rv{animation:none;}}
+  @media print{.topbar,.secnav-wrap,.totop{display:none!important;}body{background:#fff;}}
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
-  <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
-  <nav class="site-nav">
-    <a href="https://ymatz28-beep.github.io/report-dashboard/">Hub</a>
-    <a href="https://ymatz28-beep.github.io/property-report/">Property</a>
-    <a href="https://ymatz28-beep.github.io/trip-planner/" aria-current="page">Travel</a>
-  </nav>
+<!-- Header -->
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">iUMA · TRAVEL</div>
+    <nav class="topnav">
+      <a href="kyushu.html" class="topnav-hub">九州</a>
+      <a href="fukuoka.html" aria-current="page">福岡</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-content">
-    <h1>Fukuoka Local Guide</h1>
-    <div class="subtitle">福岡ローカルガイド — 温泉・グルメ・エリア別おすすめ</div>
-    <div class="trip-info">
-      <span class="info-chip">拠点: チサンマンション第三博多</span>
-      <span class="info-chip">温泉 × グルメ × 2拠点生活</span>
+  <div class="wrap">
+    <div class="eyebrow">Fukuoka Local Guide · 2拠点生活の拠点</div>
+    <h1>福岡、地元の一冊
+      <small>温泉 × グルメ × エリア — 薬院・警固・天神・博多</small>
+    </h1>
+    <p class="lede">チサンマンション第三博多を拠点に。もつ鍋・水炊き・ラーメンから薬院の隠れ名店まで、地元目線の引き出しをまとめたガイド。</p>
+    <div class="hero-meta">
+      <span class="hpill">🏠 拠点: 第三博多</span>
+      <span class="hpill">♨️ ふくの湯 3店</span>
+      <span class="hpill">🍜 地元店 181件</span>
     </div>
   </div>
 </div>
 
-<!-- Section Nav -->
-<div class="section-nav-wrapper">
-  <div class="nav-bar">
-    <a href="#onsen" class="active">温泉・サウナ</a>
-    <a href="#gourmet">グルメ</a>
-    <a href="#area">エリアガイド</a>
-    <a href="#access">アクセス</a>
-    <a href="#tips">Tips</a>
+<div class="wrap">
+  <!-- Facts -->
+  <div class="facts rv">
+    <div class="fact">
+      <div class="k">温泉</div>
+      <div class="v jp">3<span class="u">店</span></div>
+      <div class="s">ふくの湯 天然温泉</div>
+    </div>
+    <div class="fact">
+      <div class="k">グルメ件数</div>
+      <div class="v tnum">181<span class="u">件</span></div>
+      <div class="s">Maplyデータより</div>
+    </div>
+    <div class="fact">
+      <div class="k">空港→博多</div>
+      <div class="v tnum">5<span class="u">分</span></div>
+      <div class="s">地下鉄空港線 ¥260</div>
+    </div>
+    <div class="fact">
+      <div class="k">警固の推し</div>
+      <div class="v jp" style="font-size:clamp(14px,3.6vw,18px);">コヤマ</div>
+      <div class="s">友達と行くなら</div>
+    </div>
+  </div>
+
+  <!-- Keynote -->
+  <div class="keynote rv">
+    <div class="ic">📍</div>
+    <div>
+      <div class="t">薬院・警固エリアが"地元の裏面"</div>
+      <div class="d">天神・博多は観光客向けの顔。<b>本当に使えるのは薬院大通〜警固の半径500m</b>。コヤマパーキング・REC COFFEE・浄水通りなど、地元民が普段使いする店が密集している。拠点（第三博多）から地下鉄1駅 or タクシー10分で到達できる。</div>
+    </div>
   </div>
 </div>
 
-<!-- ════════════ 温泉・サウナ ════════════ -->
-<section class="section" id="onsen">
-  <h2 class="section-title">温泉・サウナ</h2>
-  <p class="section-sub">ふくの湯 — 福岡エリアのスーパー銭湯チェーン。天然温泉 × 本格サウナ</p>
+<!-- Section nav -->
+<div class="secnav-wrap">
+  <nav class="secnav">
+    <a href="#onsen" class="active">♨️ 温泉</a>
+    <a href="#gourmet">🍜 グルメ</a>
+    <a href="#candidates">🏆 候補ボード</a>
+    <a href="#area">🗺️ エリア</a>
+    <a href="#access">🚃 アクセス</a>
+    <a href="#tips">💡 Tips</a>
+  </nav>
+</div>
 
-  <div class="onsen-grid">
+<div class="wrap">
 
-    <!-- 春日店 -->
-    <div class="onsen-card">
-      <div class="onsen-area">Kasuga</div>
-      <div class="onsen-name">ふくの湯 春日店</div>
-      <div class="onsen-details">
-        <div class="onsen-detail">
-          <span class="icon">📍</span>
-          <span>春日市昇町6-10</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🕐</span>
-          <span>10:00〜翌1:00（最終受付 0:30）</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">💰</span>
-          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🚃</span>
-          <span>JR春日駅から徒歩15分 / 西鉄春日原駅からバス</span>
-        </div>
-      </div>
-      <div class="onsen-features">
-        <span class="feature-tag">天然温泉</span>
-        <span class="feature-tag">岩盤浴</span>
-        <span class="feature-tag">高温サウナ</span>
-        <span class="feature-tag">水風呂</span>
-        <span class="feature-tag">外気浴</span>
-        <span class="feature-tag">食事処</span>
-      </div>
-      <a href="https://maps.google.com/?q=ふくの湯+春日店+春日市" target="_blank" class="map-link">📍 Google Maps</a>
+<!-- ═══════ 温泉・サウナ ═══════ -->
+<section id="onsen">
+  <div class="sec-head rv">
+    <div class="kicker">Onsen & Sauna</div>
+    <h2 class="sec-title">温泉・サウナ</h2>
+    <p class="sec-sub">ふくの湯 — 福岡エリアのスーパー銭湯チェーン。天然温泉 × 本格サウナ × 岩盤浴。どの店舗も無料駐車場完備。</p>
+  </div>
+
+  <div class="card rv">
+    <div class="head"><div class="emoji">♨️</div><h3>ふくの湯 春日店</h3></div>
+    <span class="ctag">春日市 · 天然温泉</span>
+    <div class="meta">春日市昇町6-10 · 10:00〜翌1:00（最終受付 0:30）· 年中無休</div>
+    <div class="desc">
+      料金: 大人 <b>平日880円 / 土日祝930円</b>（岩盤浴 +¥500）。JR春日駅から徒歩15分 / 西鉄春日原駅からバス。
+      <div class="why">高温サウナ＋本格水風呂＋外気浴スペースあり。週末は混むので平日午後が狙い目。</div>
     </div>
+    <a class="map" href="https://maps.google.com/?q=ふくの湯+春日店+春日市昇町" target="_blank" rel="noopener">📍 Google Maps</a>
+  </div>
 
-    <!-- 花畑店 -->
-    <div class="onsen-card">
-      <div class="onsen-area">Hanahata / Minami-ku</div>
-      <div class="onsen-name">ふくの湯 花畑店</div>
-      <div class="onsen-details">
-        <div class="onsen-detail">
-          <span class="icon">📍</span>
-          <span>福岡市南区花畑2-4-35</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🕐</span>
-          <span>10:00〜翌1:00（最終受付 0:30）</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">💰</span>
-          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🚃</span>
-          <span>西鉄大橋駅からバス約10分</span>
-        </div>
-      </div>
-      <div class="onsen-features">
-        <span class="feature-tag">天然温泉</span>
-        <span class="feature-tag">岩盤浴</span>
-        <span class="feature-tag">高温サウナ</span>
-        <span class="feature-tag">水風呂</span>
-        <span class="feature-tag">外気浴</span>
-        <span class="feature-tag">食事処</span>
-      </div>
-      <a href="https://maps.google.com/?q=ふくの湯+花畑店+福岡市南区" target="_blank" class="map-link">📍 Google Maps</a>
+  <div class="card rv">
+    <div class="head"><div class="emoji">♨️</div><h3>ふくの湯 花畑店</h3></div>
+    <span class="ctag">福岡市南区 · 天然温泉</span>
+    <div class="meta">福岡市南区花畑2-4-35 · 10:00〜翌1:00（最終受付 0:30）· 年中無休</div>
+    <div class="desc">
+      料金: 大人 <b>平日880円 / 土日祝930円</b>。西鉄大橋駅からバス約10分。
+      <div class="why">市内南側。大橋エリアから行きやすい。設備は春日店と同等。</div>
     </div>
+    <a class="map" href="https://maps.google.com/?q=ふくの湯+花畑店+福岡市南区花畑" target="_blank" rel="noopener">📍 Google Maps</a>
+  </div>
 
-    <!-- 新宮温泉 -->
-    <div class="onsen-card">
-      <div class="onsen-area">Shingu</div>
-      <div class="onsen-name">ふくの湯 新宮温泉</div>
-      <div class="onsen-details">
-        <div class="onsen-detail">
-          <span class="icon">📍</span>
-          <span>糟屋郡新宮町三代780-5</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🕐</span>
-          <span>10:00〜翌1:00（最終受付 0:30）</span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">💰</span>
-          <span>大人 平日 <strong>880円</strong> / 土日祝 <strong>930円</strong></span>
-        </div>
-        <div class="onsen-detail">
-          <span class="icon">🚃</span>
-          <span>JR新宮中央駅から徒歩約15分 / 車推奨</span>
-        </div>
-      </div>
-      <div class="onsen-features">
-        <span class="feature-tag">天然温泉</span>
-        <span class="feature-tag">岩盤浴</span>
-        <span class="feature-tag">高温サウナ</span>
-        <span class="feature-tag">水風呂</span>
-        <span class="feature-tag">外気浴</span>
-        <span class="feature-tag">食事処</span>
-        <span class="feature-tag">駐車場広い</span>
-      </div>
-      <a href="https://maps.google.com/?q=ふくの湯+新宮温泉+糟屋郡新宮町" target="_blank" class="map-link">📍 Google Maps</a>
+  <div class="card rv">
+    <div class="head"><div class="emoji">♨️</div><h3>ふくの湯 新宮温泉</h3></div>
+    <span class="ctag">糟屋郡新宮町 · 天然温泉</span>
+    <div class="meta">糟屋郡新宮町三代780-5 · 10:00〜翌1:00（最終受付 0:30）· 年中無休</div>
+    <div class="desc">
+      料金: 大人 <b>平日880円 / 土日祝930円</b>。JR新宮中央駅から徒歩約15分（車推奨）。
+      <div class="why">3店の中で最も広い駐車場。休日の車でのお出かけに。ただし市内から少し遠い。</div>
     </div>
-
+    <a class="map" href="https://maps.google.com/?q=ふくの湯+新宮温泉+糟屋郡新宮町" target="_blank" rel="noopener">📍 Google Maps</a>
   </div>
 </section>
 
-<!-- ════════════ グルメ ════════════ -->
-<section class="section" id="gourmet">
-  <h2 class="section-title">グルメ</h2>
-  <p class="section-sub">博多・天神エリアの定番からローカルまで</p>
+<!-- ═══════ グルメ ═══════ -->
+<section id="gourmet">
+  <div class="sec-head rv">
+    <div class="kicker">Gourmet · Maply Data</div>
+    <h2 class="sec-title">グルメ（ジャンル別）</h2>
+    <p class="sec-sub">Maplyデータより。<b>金色★ = 特におすすめ（tier3）</b>、それ以外は候補。ジャンルで絞り込めます。</p>
+  </div>
 
-  <div class="gourmet-list">
-    <div class="gourmet-item">
-      <div class="gourmet-icon">🍜</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">HAKATA</div>
-        <h4>博多ラーメン</h4>
-        <p>豚骨ベース・極細麺・バリカタ。ShinShinは博多駅デイトス地下が並ばず入れる。一蘭・一風堂は観光客向け</p>
+  <div class="genre-bar" id="genre-bar">
+    <button class="gb-btn" data-g="もつ鍋・水炊き">🍲 もつ鍋・水炊き <span style="font-size:10px;opacity:.6">(5)</span></button>
+      <button class="gb-btn" data-g="和食">🍶 和食 <span style="font-size:10px;opacity:.6">(6)</span></button>
+      <button class="gb-btn" data-g="焼肉・焼鳥">🔥 焼肉・焼鳥 <span style="font-size:10px;opacity:.6">(18)</span></button>
+      <button class="gb-btn" data-g="寿司・海鮮">🐟 寿司・海鮮 <span style="font-size:10px;opacity:.6">(13)</span></button>
+      <button class="gb-btn" data-g="洋食">🍽️ 洋食 <span style="font-size:10px;opacity:.6">(11)</span></button>
+      <button class="gb-btn" data-g="ラーメン">🍜 ラーメン <span style="font-size:10px;opacity:.6">(4)</span></button>
+      <button class="gb-btn" data-g="カレー・アジア">🍛 カレー・アジア <span style="font-size:10px;opacity:.6">(7)</span></button>
+      <button class="gb-btn" data-g="中華・餃子">🥟 中華・餃子 <span style="font-size:10px;opacity:.6">(8)</span></button>
+      <button class="gb-btn" data-g="定食">🍱 定食 <span style="font-size:10px;opacity:.6">(37)</span></button>
+      <button class="gb-btn" data-g="居酒屋">🍺 居酒屋 <span style="font-size:10px;opacity:.6">(9)</span></button>
+      <button class="gb-btn" data-g="バー">🍸 バー <span style="font-size:10px;opacity:.6">(2)</span></button>
+      <button class="gb-btn" data-g="カフェ">☕ カフェ <span style="font-size:10px;opacity:.6">(45)</span></button>
+      <button class="gb-btn" data-g="パン">🥐 パン <span style="font-size:10px;opacity:.6">(12)</span></button>
+      <button class="gb-btn" data-g="スイーツ">🍰 スイーツ <span style="font-size:10px;opacity:.6">(4)</span></button>
+  </div>
+
+    <div class="optgroup rv" data-g="もつ鍋・水炊き">
+      <h3 class="opth">🍲 もつ鍋・水炊き <span class="gc">（5件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">もつ鍋・水炊きは博多グルメの代表格。もつ鍋はニラ・キャベツたっぷりの濃厚スープ、水炊きは鶏ガラの白濁スープが特徴。〆はちゃんぽん麺か雑炊が定番。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多もつ将総本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">もつ鍋の専門店。新鮮なもつをニラ・キャベツたっぷりのスープで煮込む。〆はちゃんぽん麺推奨。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E5%B0%86%E7%B7%8F%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x35419183e76daaab:0xa9302e0ef2077498" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E5%B0%86%E7%B7%8F%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">水炊き積 大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">大名エリアの水炊き専門店。鶏ガラを長時間炊いた白濁スープが自慢。コース形式で野菜→鶏→雑炊の流れ。<br><a class="pmap" href="https://www.google.com/maps/place/%E6%B0%B4%E7%82%8A%E3%81%8D%E7%A9%8D+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x354191872091601d:0xe4a9c30b71f5e897" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%B0%B4%E7%82%8A%E3%81%8D%E7%A9%8D%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">もつ料理 幸 大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">もつ料理専門。もつ鍋のほかもつ刺身・唐揚げなど一品料理も充実。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%82%82%E3%81%A4%E6%96%99%E7%90%86+%E5%B9%B8+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x3541918724fbe99d:0xd16cf6920d36f8b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%82%E3%81%A4%E6%96%99%E7%90%86%20%E5%B9%B8%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多水炊き･鶏すき鍋 西新初喜</span><span class="pg-s">★ おすすめ</span></div><div class="pm">西新初喜の水炊き・鶏すき鍋専門。鶏の旨味がしみたスープが絶品。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%EF%BD%A5%E9%B6%8F%E3%81%99%E3%81%8D%E9%8D%8B+%E8%A5%BF%E6%96%B0%E5%88%9D%E5%96%9C/data=!4m2!3m1!1s0x3541934f66dd451f:0xfa4f3e6daa4bdeab" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%EF%BD%A5%E9%B6%8F%E3%81%99%E3%81%8D%E9%8D%8B%20%E8%A5%BF%E6%96%B0%E5%88%9D%E5%96%9C" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">個室完備 博多もつ鍋 居酒屋まいど 天神今泉本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%80%8B%E5%AE%A4%E5%AE%8C%E5%82%99+%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B+%E5%B1%85%E9%85%92%E5%B1%8B%E3%81%BE%E3%81%84%E3%81%A9+%E5%A4%A9%E7%A5%9E%E4%BB%8A%E6%B3%89%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3541918516ee5255:0xbd3be13d678251fd" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%80%8B%E5%AE%A4%E5%AE%8C%E5%82%99%20%E5%8D%9A%E5%A4%9A%E3%82%82%E3%81%A4%E9%8D%8B%20%E5%B1%85%E9%85%92%E5%B1%8B%E3%81%BE%E3%81%84%E3%81%A9%20%E5%A4%A9%E7%A5%9E%E4%BB%8A%E6%B3%89%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
     </div>
-    <div class="gourmet-item">
-      <div class="gourmet-icon">🐔</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">HAKATA</div>
-        <h4>水炊き・もつ鍋</h4>
-        <p>水炊きは博多華味鳥（中洲）。もつ鍋は楽天地（天神本店）が地元民に人気</p>
+    <div class="optgroup rv" data-g="和食">
+      <h3 class="opth">🍶 和食 <span class="gc">（6件）</span></h3>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">鉄なべ 中洲本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多名物・鉄なべ餃子の元祖。一口サイズの餃子を熱々の鉄鍋ごと提供。中洲の超有名店で行列必至。<br><a class="pmap" href="https://www.google.com/maps/place/%E9%89%84%E3%81%AA%E3%81%B9+%E4%B8%AD%E6%B4%B2%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3541919404d16713:0x26f35ceed825d1a5" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%89%84%E3%81%AA%E3%81%B9%20%E4%B8%AD%E6%B4%B2%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">おらが蕎麦 博多デイトス店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多駅直結デイトス内。アクセス抜群で旬の蕎麦料理が楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8A%E3%82%89%E3%81%8C%E8%95%8E%E9%BA%A6+%E5%8D%9A%E5%A4%9A%E3%83%87%E3%82%A4%E3%83%88%E3%82%B9%E5%BA%97/data=!4m2!3m1!1s0x3541914eb3fc8437:0x2102d673c5bb898" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8A%E3%82%89%E3%81%8C%E8%95%8E%E9%BA%A6%20%E5%8D%9A%E5%A4%9A%E3%83%87%E3%82%A4%E3%83%88%E3%82%B9%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">今生焼 今泉店</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E4%BB%8A%E7%94%9F%E7%84%BC+%E4%BB%8A%E6%B3%89%E5%BA%97/data=!4m2!3m1!1s0x35419134c2554fad:0x911ed2bb8e96865a" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%BB%8A%E7%94%9F%E7%84%BC%20%E4%BB%8A%E6%B3%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">西新初喜本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">西新の老舗もつ・もつ鍋の店。地元客に長く愛されている昔ながらの味わい。<br><a class="pmap" href="https://www.google.com/maps/place/%E8%A5%BF%E6%96%B0%E5%88%9D%E5%96%9C%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x354193a47019ced1:0x22de9dbef4da64ed" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E8%A5%BF%E6%96%B0%E5%88%9D%E5%96%9C%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">かんすけ 薬院店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">薬院の居酒屋。料理クオリティが高く日本酒の品揃えが豊富。薬院の夜の一軒に。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8B%E3%82%93%E3%81%99%E3%81%91+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191834ed6b185:0xe44183fa44517a20" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8B%E3%82%93%E3%81%99%E3%81%91%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">割烹よし田 博多店屋町店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多の伝統的な割烹・和食の名店。季節の食材を使った本格日本料理。接待・特別な食事向き。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%89%B2%E7%83%B9%E3%82%88%E3%81%97%E7%94%B0+%E5%8D%9A%E5%A4%9A%E5%BA%97%E5%B1%8B%E7%94%BA%E5%BA%97/data=!4m2!3m1!1s0x354191920105550b:0x9b16f25e6246538d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%89%B2%E7%83%B9%E3%82%88%E3%81%97%E7%94%B0%20%E5%8D%9A%E5%A4%9A%E5%BA%97%E5%B1%8B%E7%94%BA%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
     </div>
-    <div class="gourmet-item">
-      <div class="gourmet-icon">🍢</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">TENJIN / NAKASU</div>
-        <h4>屋台</h4>
-        <p>中洲・天神・長浜の3エリア。中洲は観光客多め。天神エリアの方が地元感あり。焼きラーメン・おでん・餃子が定番</p>
+    <div class="optgroup rv" data-g="焼肉・焼鳥">
+      <h3 class="opth">🔥 焼肉・焼鳥 <span class="gc">（18件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">とりかわ焼き（鶏皮の炭火焼き）は福岡独自のジャンル。博多・天神エリアは焼き鳥の激戦区で、安くて旨い名店が多い。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">ドライブイン鳥 糸島店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">糸島の名物ブロイラー炭火焼き店。丸ごと一羽を豪快に焼いて食べるスタイルで有名。糸島ドライブのついでに。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96%E3%82%A4%E3%83%B3%E9%B3%A5+%E7%B3%B8%E5%B3%B6%E5%BA%97/data=!4m2!3m1!1s0x3541c284b0bd708d:0xc42f8eb23b1bac6e" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%89%E3%83%A9%E3%82%A4%E3%83%96%E3%82%A4%E3%83%B3%E9%B3%A5%20%E7%B3%B8%E5%B3%B6%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">とりぶどう 大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">焼き鳥とナチュラルワインのペアリングが楽しめるユニークなスタイル。大名の人気店。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%A8%E3%82%8A%E3%81%B6%E3%81%A9%E3%81%86+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x35419174cefa8fa3:0x9569df4a8e5ce1a4" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%A8%E3%82%8A%E3%81%B6%E3%81%A9%E3%81%86%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多とりかわ焼 隅-ぐう-</span><span class="pg-s">★ おすすめ</span></div><div class="pm">とりかわ（鶏皮）焼きの専門店。何度も返して焼いた皮はパリパリで香ばしい。博多独自の味。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%81%A8%E3%82%8A%E3%81%8B%E3%82%8F%E7%84%BC+%E9%9A%85-%E3%81%90%E3%81%86-/data=!4m2!3m1!1s0x35419183c2f684d9:0x3bff29d1cc9af94c" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%81%A8%E3%82%8A%E3%81%8B%E3%82%8F%E7%84%BC%20%E9%9A%85-%E3%81%90%E3%81%86-" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">トリボシ大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">大名の焼き鳥店。地元で評判の高い焼き鳥が楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x354191c9ae40bab1:0xa46729835a44bbb1" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">極味や 博多駅地下街店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">柔らかい生肉ハンバーグで話題の人気店。博多駅地下街でアクセスしやすい。<br><a class="pmap" href="https://www.google.com/maps/place/%E6%A5%B5%E5%91%B3%E3%82%84+%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%9C%B0%E4%B8%8B%E8%A1%97%E5%BA%97/data=!4m2!3m1!1s0x354191003402a233:0xd4c601a193f530e8" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%A5%B5%E5%91%B3%E3%82%84%20%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%9C%B0%E4%B8%8B%E8%A1%97%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">焼とりの八兵衛 天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多発祥の焼き鳥チェーンの天神店。リーズナブルに博多焼き鳥が楽しめる地元定番。<br><a class="pmap" href="https://www.google.com/maps/place/%E7%84%BC%E3%81%A8%E3%82%8A%E3%81%AE%E5%85%AB%E5%85%B5%E8%A1%9B+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x35419184473dd8e5:0xacd5d809b220f341" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%84%BC%E3%81%A8%E3%82%8A%E3%81%AE%E5%85%AB%E5%85%B5%E8%A1%9B%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多やきやき三輪</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多の焼き鳥・焼肉系の居酒屋。地元の常連客に支持されている。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%84%E3%81%8D%E3%82%84%E3%81%8D%E4%B8%89%E8%BC%AA/data=!4m2!3m1!1s0x354191c04d6bffff:0xd7995c1db22f19c8" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%82%84%E3%81%8D%E3%82%84%E3%81%8D%E4%B8%89%E8%BC%AA" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">博多水炊きと焼き鳥 ときどきフレンチ ことぷろ博多本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%E3%81%A8%E7%84%BC%E3%81%8D%E9%B3%A5+%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81+%E3%81%93%E3%81%A8%E3%81%B7%E3%82%8D%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3541917d0e6b0a11:0xbb2c4620a1409468" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E6%B0%B4%E7%82%8A%E3%81%8D%E3%81%A8%E7%84%BC%E3%81%8D%E9%B3%A5%20%E3%81%A8%E3%81%8D%E3%81%A9%E3%81%8D%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%20%E3%81%93%E3%81%A8%E3%81%B7%E3%82%8D%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">焼肉 肉大将 薬院本店(NIKUDAISHO YAKUIN)</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E7%84%BC%E8%82%89+%E8%82%89%E5%A4%A7%E5%B0%86+%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97(NIKUDAISHO+YAKUIN)/data=!4m2!3m1!1s0x3541919b8ee63d51:0x93d9df4c694c4e11" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%84%BC%E8%82%89%20%E8%82%89%E5%A4%A7%E5%B0%86%20%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97%28NIKUDAISHO%20YAKUIN%29" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">焼鳥高宮 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E7%84%BC%E9%B3%A5%E9%AB%98%E5%AE%AE+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191781331d8d1:0x62d709fd97e2d116" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%84%BC%E9%B3%A5%E9%AB%98%E5%AE%AE%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">とりかわ やきとり みつます 天神店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%81%A8%E3%82%8A%E3%81%8B%E3%82%8F+%E3%82%84%E3%81%8D%E3%81%A8%E3%82%8A+%E3%81%BF%E3%81%A4%E3%81%BE%E3%81%99+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x35419183fbbfbd7f:0x90954d8d2ba55a83" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%A8%E3%82%8A%E3%81%8B%E3%82%8F%20%E3%82%84%E3%81%8D%E3%81%A8%E3%82%8A%20%E3%81%BF%E3%81%A4%E3%81%BE%E3%81%99%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
     </div>
-    <div class="gourmet-item">
-      <div class="gourmet-icon">🥟</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">HAKATA</div>
-        <h4>博多一口餃子</h4>
-        <p>一口サイズが博多流。テムジン（天神）、旭軒（博多駅）が定番。ビールとの相性抜群</p>
+    <div class="optgroup rv" data-g="寿司・海鮮">
+      <h3 class="opth">🐟 寿司・海鮮 <span class="gc">（13件）</span></h3>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">玄海丸 天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">玄界灘の新鮮な魚介を使った海鮮の店。活きのいい魚を刺身・鍋・焼きで楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E7%8E%84%E6%B5%B7%E4%B8%B8+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541918e83245e3f:0xaed96efad4d779b3" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%8E%84%E6%B5%B7%E4%B8%B8%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">磯丸水産 中洲川端店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">生け簀から魚介を選んで七輪で焼く海鮮居酒屋。深夜まで営業。<br><a class="pmap" href="https://www.google.com/maps/place/%E7%A3%AF%E4%B8%B8%E6%B0%B4%E7%94%A3+%E4%B8%AD%E6%B4%B2%E5%B7%9D%E7%AB%AF%E5%BA%97/data=!4m2!3m1!1s0x35419194b6e646c1:0xdb60495b19e68184" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%A3%AF%E4%B8%B8%E6%B0%B4%E7%94%A3%20%E4%B8%AD%E6%B4%B2%E5%B7%9D%E7%AB%AF%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多豊一 ベイサイドプレイス博多</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E8%B1%8A%E4%B8%80+%E3%83%99%E3%82%A4%E3%82%B5%E3%82%A4%E3%83%89%E3%83%97%E3%83%AC%E3%82%A4%E3%82%B9%E5%8D%9A%E5%A4%9A/data=!4m2!3m1!1s0x354191f1960c779b:0x570191af83a0178c" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E8%B1%8A%E4%B8%80%20%E3%83%99%E3%82%A4%E3%82%B5%E3%82%A4%E3%83%89%E3%83%97%E3%83%AC%E3%82%A4%E3%82%B9%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">稚加榮 福岡店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">老舗の海鮮・寿司・割烹。明太子料理など博多の食文化を楽しめる一軒。<br><a class="pmap" href="https://www.google.com/maps/place/%E7%A8%9A%E5%8A%A0%E6%A6%AE+%E7%A6%8F%E5%B2%A1%E5%BA%97/data=!4m2!3m1!1s0x3541918713dabcc7:0xc1e91a5c0e1cdb9e" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%A8%9A%E5%8A%A0%E6%A6%AE%20%E7%A6%8F%E5%B2%A1%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多シーフードうお田</span><span class="pg-s">★ おすすめ</span></div><div class="pm">海鮮専門店。刺身・海鮮料理が充実し博多の魚介の旨さを堪道できる。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%82%B7%E3%83%BC%E3%83%95%E3%83%BC%E3%83%89%E3%81%86%E3%81%8A%E7%94%B0/data=!4m2!3m1!1s0x3541913bbb546b45:0x49f6b75fd43586cf" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%82%B7%E3%83%BC%E3%83%95%E3%83%BC%E3%83%89%E3%81%86%E3%81%8A%E7%94%B0" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">魚けん 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%AD%9A%E3%81%91%E3%82%93+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x35419183291f78c7:0x247537f5d554b591" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%AD%9A%E3%81%91%E3%82%93%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">海鮮食堂博多まかない屋</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E6%B5%B7%E9%AE%AE%E9%A3%9F%E5%A0%82%E5%8D%9A%E5%A4%9A%E3%81%BE%E3%81%8B%E3%81%AA%E3%81%84%E5%B1%8B/data=!4m2!3m1!1s0x354191bde1ce4abb:0xc299942d0fe16b65" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%B5%B7%E9%AE%AE%E9%A3%9F%E5%A0%82%E5%8D%9A%E5%A4%9A%E3%81%BE%E3%81%8B%E3%81%AA%E3%81%84%E5%B1%8B" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">博多割烹 流れ鮨 海進丸</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E5%89%B2%E7%83%B9+%E6%B5%81%E3%82%8C%E9%AE%A8+%E6%B5%B7%E9%80%B2%E4%B8%B8/data=!4m2!3m1!1s0x354193a157600117:0xfe24a54b6e7bead4" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E5%89%B2%E7%83%B9%20%E6%B5%81%E3%82%8C%E9%AE%A8%20%E6%B5%B7%E9%80%B2%E4%B8%B8" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">海鮮屋はじめの一歩 博多本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E6%B5%B7%E9%AE%AE%E5%B1%8B%E3%81%AF%E3%81%98%E3%82%81%E3%81%AE%E4%B8%80%E6%AD%A9+%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x354191beada3b05d:0x28a94614f8db6ea3" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%B5%B7%E9%AE%AE%E5%B1%8B%E3%81%AF%E3%81%98%E3%82%81%E3%81%AE%E4%B8%80%E6%AD%A9%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
     </div>
-    <div class="gourmet-item">
-      <div class="gourmet-icon">🐟</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">HAKATA / YANAGIBASHI</div>
-        <h4>海鮮・ごまさば</h4>
-        <p>ごまさばは博多名物。柳橋連合市場で朝食もおすすめ。回転寿司なら「ひょうたん寿司」（天神）</p>
+    <div class="optgroup rv" data-g="洋食">
+      <h3 class="opth">🍽️ 洋食 <span class="gc">（11件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">今泉・大名・薬院エリアを中心におしゃれなビストロ・フレンチ・イタリアンが点在。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">L'AS 福岡（ラス 福岡）</span><span class="pg-s">★ おすすめ</span></div><div class="pm">フランス人シェフが手掛ける本格ビストロ。ランチコースが評判高く予約必須の今泉の隠れ名店。<br><a class="pmap" href="https://www.google.com/maps/place/L'AS+%E7%A6%8F%E5%B2%A1%EF%BC%88%E3%83%A9%E3%82%B9+%E7%A6%8F%E5%B2%A1%EF%BC%89/data=!4m2!3m1!1s0x354191884d3e1cc5:0xe1fc5e7488d4bb8c" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=L%27AS%20%E7%A6%8F%E5%B2%A1%EF%BC%88%E3%83%A9%E3%82%B9%20%E7%A6%8F%E5%B2%A1%EF%BC%89" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">しのわ 今泉</span><span class="pg-s">★ おすすめ</span></div><div class="pm">今泉の人気フレンチ・ビストロ。季節食材を使ったコース料理。おしゃれな内装で記念日にも。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%97%E3%81%AE%E3%82%8F+%E4%BB%8A%E6%B3%89/data=!4m2!3m1!1s0x3541910ee6a23017:0xa9ff786bfc9ae781" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%97%E3%81%AE%E3%82%8F%20%E4%BB%8A%E6%B3%89" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">豚ステーキ専門店B 小倉本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E8%B1%9A%E3%82%B9%E3%83%86%E3%83%BC%E3%82%AD%E5%B0%82%E9%96%80%E5%BA%97B+%E5%B0%8F%E5%80%89%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3543bf9f5bc00dd1:0x1e490a827a247f20" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E8%B1%9A%E3%82%B9%E3%83%86%E3%83%BC%E3%82%AD%E5%B0%82%E9%96%80%E5%BA%97B%20%E5%B0%8F%E5%80%89%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">いくら博多店 はんばーぐとおむらいすのお店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">ハンバーグとオムライスの専門店。子どもから大人まで楽しめる洋食の王道。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%84%E3%81%8F%E3%82%89%E5%8D%9A%E5%A4%9A%E5%BA%97+%E3%81%AF%E3%82%93%E3%81%B0%E3%83%BC%E3%81%90%E3%81%A8%E3%81%8A%E3%82%80%E3%82%89%E3%81%84%E3%81%99%E3%81%AE%E3%81%8A%E5%BA%97/data=!4m2!3m1!1s0x3541917a41c504fd:0x83dbd0657a9a7dbd" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%84%E3%81%8F%E3%82%89%E5%8D%9A%E5%A4%9A%E5%BA%97%20%E3%81%AF%E3%82%93%E3%81%B0%E3%83%BC%E3%81%90%E3%81%A8%E3%81%8A%E3%82%80%E3%82%89%E3%81%84%E3%81%99%E3%81%AE%E3%81%8A%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">PIZZA REVO（ピザレボ）薬院店</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/PIZZA+REVO%EF%BC%88%E3%83%94%E3%82%B6%E3%83%AC%E3%83%9C%EF%BC%89%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191825aede1fb:0xf43f11f4a6c9a206" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=PIZZA%20REVO%EF%BC%88%E3%83%94%E3%82%B6%E3%83%AC%E3%83%9C%EF%BC%89%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">挽肉と米 今泉</span><span class="pg-s">★ おすすめ</span></div><div class="pm">話題の挽肉×炊きたてご飯の専門店。ハンバーグを挽肉ペーストで出す独特のスタイル。行列必至。<br><a class="pmap" href="https://www.google.com/maps/place/%E6%8C%BD%E8%82%89%E3%81%A8%E7%B1%B3+%E4%BB%8A%E6%B3%89/data=!4m2!3m1!1s0x3541919a71d8b09f:0x403cb1c367c12d2" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%8C%BD%E8%82%89%E3%81%A8%E7%B1%B3%20%E4%BB%8A%E6%B3%89" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">エルボラーチョ 大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">大名のメキシカン料理店。タコス・ブリトーなど本格メキシカンが楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%82%A8%E3%83%AB%E3%83%9C%E3%83%A9%E3%83%BC%E3%83%81%E3%83%A7+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x354191876ea53d57:0x779637cefd6bb52b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%A8%E3%83%AB%E3%83%9C%E3%83%A9%E3%83%BC%E3%83%81%E3%83%A7%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">bills 福岡</span><span class="pg-s">★ おすすめ</span></div><div class="pm">シドニー発の人気オールデイダイニング。リコッタパンケーキが有名。天神でのブランチに。<br><a class="pmap" href="https://www.google.com/maps/place/bills+%E7%A6%8F%E5%B2%A1/data=!4m2!3m1!1s0x35419193b50363a5:0x25eb1060d04f4ff0" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=bills%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">窯焼きビストロ 博多 NUKUNUKU</span><span class="pg-s">★ おすすめ</span></div><div class="pm">石窯で焼くピザ・肉・野菜が香ばしいビストロ。窯焼き料理が特徴的。<br><a class="pmap" href="https://www.google.com/maps/place/%E7%AA%AF%E7%84%BC%E3%81%8D%E3%83%93%E3%82%B9%E3%83%88%E3%83%AD+%E5%8D%9A%E5%A4%9A+NUKUNUKU/data=!4m2!3m1!1s0x354191c04883de07:0xd2086328963fd8fc" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%AA%AF%E7%84%BC%E3%81%8D%E3%83%93%E3%82%B9%E3%83%88%E3%83%AD%20%E5%8D%9A%E5%A4%9A%20NUKUNUKU" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">イタリアン食堂アマービレ薬院大通</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2%E3%83%B3%E9%A3%9F%E5%A0%82%E3%82%A2%E3%83%9E%E3%83%BC%E3%83%93%E3%83%AC%E8%96%AC%E9%99%A2%E5%A4%A7%E9%80%9A/data=!4m2!3m1!1s0x35419133224c61ef:0x15e7962ced86698b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%A4%E3%82%BF%E3%83%AA%E3%82%A2%E3%83%B3%E9%A3%9F%E5%A0%82%E3%82%A2%E3%83%9E%E3%83%BC%E3%83%93%E3%83%AC%E8%96%AC%E9%99%A2%E5%A4%A7%E9%80%9A" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">博多フレンチ ビストロ サイダ</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81+%E3%83%93%E3%82%B9%E3%83%88%E3%83%AD+%E3%82%B5%E3%82%A4%E3%83%80/data=!4m2!3m1!1s0x354191e9dff7ba69:0xfc8feba5f061111d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%83%95%E3%83%AC%E3%83%B3%E3%83%81%20%E3%83%93%E3%82%B9%E3%83%88%E3%83%AD%20%E3%82%B5%E3%82%A4%E3%83%80" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
     </div>
-    <div class="gourmet-item">
-      <div class="gourmet-icon">☕</div>
-      <div class="gourmet-info">
-        <div class="gourmet-area-tag">YAKUIN / TENJIN</div>
-        <h4>カフェ</h4>
-        <p>薬院〜白金エリアはおしゃれカフェ密集地帯。REC COFFEE（薬院）はスペシャルティコーヒーの名店</p>
+    <div class="optgroup rv" data-g="ラーメン">
+      <h3 class="opth">🍜 ラーメン <span class="gc">（4件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">博多ラーメンは細麺・豚骨白湯・替え玉が三点セット。長浜系（濃厚）と博多系（あっさり）の2系統がある。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">長浜御殿 住吉店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">長浜系の濃厚豚骨ラーメン。屋台文化から発展した長浜スタイルで替え玉・豚骨臭しっかり。<br><a class="pmap" href="https://www.google.com/maps/place/%E9%95%B7%E6%B5%9C%E5%BE%A1%E6%AE%BF+%E4%BD%8F%E5%90%89%E5%BA%97/data=!4m2!3m1!1s0x354191eaa6be0515:0x27b1ba773aebcd25" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%95%B7%E6%B5%9C%E5%BE%A1%E6%AE%BF%20%E4%BD%8F%E5%90%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">麺や ほり野 今泉店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">今泉の評判のラーメン店。豚骨とは異なる醤油・塩系で博多ラーメンの別の顔を見せる。<br><a class="pmap" href="https://www.google.com/maps/place/%E9%BA%BA%E3%82%84+%E3%81%BB%E3%82%8A%E9%87%8E+%E4%BB%8A%E6%B3%89%E5%BA%97/data=!4m2!3m1!1s0x354191d94d25200d:0xafa2b914ffc7e8f6" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%BA%BA%E3%82%84%20%E3%81%BB%E3%82%8A%E9%87%8E%20%E4%BB%8A%E6%B3%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">かいぶつくん 薬院店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">薬院の人気ラーメン店。濃厚ながら飲みやすいスープで地元ファンが多い。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8B%E3%81%84%E3%81%B6%E3%81%A4%E3%81%8F%E3%82%93+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x35419183d5b69fe1:0x23d7853d8ecc8a3b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8B%E3%81%84%E3%81%B6%E3%81%A4%E3%81%8F%E3%82%93%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">長浜ラーメン 力◯ (リキマル)</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%95%B7%E6%B5%9C%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3+%E5%8A%9B%E2%97%AF+(%E3%83%AA%E3%82%AD%E3%83%9E%E3%83%AB)/data=!4m2!3m1!1s0x3541eb977aafccb7:0x408757db7668b188" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%95%B7%E6%B5%9C%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3%20%E5%8A%9B%E2%97%AF%20%28%E3%83%AA%E3%82%AD%E3%83%9E%E3%83%AB%29" target="_blank" rel="noopener">🔗食べログ</a></div></div>
       </div>
+    </div>
+    <div class="optgroup rv" data-g="カレー・アジア">
+      <h3 class="opth">🍛 カレー・アジア <span class="gc">（7件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">大名エリアを中心にスリランカカレー・タイ・ベトナム料理が充実。本格派が多い。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">クボカリー大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">本格スリランカカレーの専門店。スパイスの組み合わせが楽しめる大名エリアの人気店。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%82%AF%E3%83%9C%E3%82%AB%E3%83%AA%E3%83%BC%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x354191433028cb55:0xe2c49fe2307be96" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%AF%E3%83%9C%E3%82%AB%E3%83%AA%E3%83%BC%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">スリランカふくおか大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">本格スリランカ料理。スパイス好きには必須の一軒。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%82%B9%E3%83%AA%E3%83%A9%E3%83%B3%E3%82%AB%E3%81%B5%E3%81%8F%E3%81%8A%E3%81%8B%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x35419186543d2827:0xc25633d178168507" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%B9%E3%83%AA%E3%83%A9%E3%83%B3%E3%82%AB%E3%81%B5%E3%81%8F%E3%81%8A%E3%81%8B%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">フォーシーズンミラン 大名店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">大名のアジア料理店。ベトナム・タイなどアジア各国料理が楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B3%E3%83%9F%E3%83%A9%E3%83%B3+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x35419100328234c7:0x922f0d88d70dd0fb" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%95%E3%82%A9%E3%83%BC%E3%82%B7%E3%83%BC%E3%82%BA%E3%83%B3%E3%83%9F%E3%83%A9%E3%83%B3%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">大名カレー中村屋</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%A4%A7%E5%90%8D%E3%82%AB%E3%83%AC%E3%83%BC%E4%B8%AD%E6%9D%91%E5%B1%8B/data=!4m2!3m1!1s0x35419164df4bdcd9:0xa9515e0b976c89ea" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%A4%A7%E5%90%8D%E3%82%AB%E3%83%AC%E3%83%BC%E4%B8%AD%E6%9D%91%E5%B1%8B" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">博多文化屋カレー店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E6%96%87%E5%8C%96%E5%B1%8B%E3%82%AB%E3%83%AC%E3%83%BC%E5%BA%97/data=!4m2!3m1!1s0x354191bb9eaf73b3:0x494645d8e511285b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E6%96%87%E5%8C%96%E5%B1%8B%E3%82%AB%E3%83%AC%E3%83%BC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">小さな韓国 あぷろ 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%B0%8F%E3%81%95%E3%81%AA%E9%9F%93%E5%9B%BD+%E3%81%82%E3%81%B7%E3%82%8D+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191780e7226d1:0x6db212c08c221b06" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%B0%8F%E3%81%95%E3%81%AA%E9%9F%93%E5%9B%BD%20%E3%81%82%E3%81%B7%E3%82%8D%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">大衆鶏焼酒場 トリボシ 大名店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%A4%A7%E8%A1%86%E9%B6%8F%E7%84%BC%E9%85%92%E5%A0%B4+%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7+%E5%A4%A7%E5%90%8D%E5%BA%97/data=!4m2!3m1!1s0x354191c9ae40bab1:0xa46729835a44bbb1" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%A4%A7%E8%A1%86%E9%B6%8F%E7%84%BC%E9%85%92%E5%A0%B4%20%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7%20%E5%A4%A7%E5%90%8D%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="中華・餃子">
+      <h3 class="opth">🥟 中華・餃子 <span class="gc">（8件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">博多は鉄なべ餃子が有名。一口サイズを熱々の鉄鍋ごと提供するスタイルは博多独自。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">元祖 ぴかいち 博多本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多の餃子専門店の老舗格。皮がもちもちで肉汁たっぷり。地元民が普段使いするリピーター御用達。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%85%83%E7%A5%96+%E3%81%B4%E3%81%8B%E3%81%84%E3%81%A1+%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x354191b931e763bf:0x2f535e4787161e2d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%85%83%E7%A5%96%20%E3%81%B4%E3%81%8B%E3%81%84%E3%81%A1%20%E5%8D%9A%E5%A4%9A%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">餃子屋 弐ノ弐 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%A4%83%E5%AD%90%E5%B1%8B+%E5%BC%90%E3%83%8E%E5%BC%90+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191a390404045:0x38664c4099b33580" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%A4%83%E5%AD%90%E5%B1%8B%20%E5%BC%90%E3%83%8E%E5%BC%90%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">餃子屋弐ノ弐 今泉店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%A4%83%E5%AD%90%E5%B1%8B%E5%BC%90%E3%83%8E%E5%BC%90+%E4%BB%8A%E6%B3%89%E5%BA%97/data=!4m2!3m1!1s0x354191840256016b:0xc14fa50af63b1728" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%A4%83%E5%AD%90%E5%B1%8B%E5%BC%90%E3%83%8E%E5%BC%90%20%E4%BB%8A%E6%B3%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">野菜巻き串と餃子 まきんしゃい 天神店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%87%8E%E8%8F%9C%E5%B7%BB%E3%81%8D%E4%B8%B2%E3%81%A8%E9%A4%83%E5%AD%90+%E3%81%BE%E3%81%8D%E3%82%93%E3%81%97%E3%82%83%E3%81%84+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541910f296697d5:0xd0321a25461e6b55" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%87%8E%E8%8F%9C%E5%B7%BB%E3%81%8D%E4%B8%B2%E3%81%A8%E9%A4%83%E5%AD%90%20%E3%81%BE%E3%81%8D%E3%82%93%E3%81%97%E3%82%83%E3%81%84%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">中華居酒屋 福岡はるまき ぶる 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E4%B8%AD%E8%8F%AF%E5%B1%85%E9%85%92%E5%B1%8B+%E7%A6%8F%E5%B2%A1%E3%81%AF%E3%82%8B%E3%81%BE%E3%81%8D+%E3%81%B6%E3%82%8B+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x3541912df9eddcc7:0xf368f20622120a8f" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%B8%AD%E8%8F%AF%E5%B1%85%E9%85%92%E5%B1%8B%20%E7%A6%8F%E5%B2%A1%E3%81%AF%E3%82%8B%E3%81%BE%E3%81%8D%20%E3%81%B6%E3%82%8B%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="定食">
+      <h3 class="opth">🍱 定食 <span class="gc">（37件）</span></h3>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">お野菜と私 大名みどり</span><span class="pg-s">★ おすすめ</span></div><div class="pm">野菜中心のヘルシーな定食・ランチ。大名エリアでのランチ候補に。女性に人気。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8A%E9%87%8E%E8%8F%9C%E3%81%A8%E7%A7%81+%E5%A4%A7%E5%90%8D%E3%81%BF%E3%81%A9%E3%82%8A/data=!4m2!3m1!1s0x3541918addda05f3:0xdaadd6eed780f148" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8A%E9%87%8E%E8%8F%9C%E3%81%A8%E7%A7%81%20%E5%A4%A7%E5%90%8D%E3%81%BF%E3%81%A9%E3%82%8A" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">スタミナ鉄板 博多アイアンマン 博多店</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%82%B9%E3%82%BF%E3%83%9F%E3%83%8A%E9%89%84%E6%9D%BF+%E5%8D%9A%E5%A4%9A%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B3+%E5%8D%9A%E5%A4%9A%E5%BA%97/data=!4m2!3m1!1s0x354191346d9da471:0x88112d3785b7d093" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%B9%E3%82%BF%E3%83%9F%E3%83%8A%E9%89%84%E6%9D%BF%20%E5%8D%9A%E5%A4%9A%E3%82%A2%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%9E%E3%83%B3%20%E5%8D%9A%E5%A4%9A%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">今泉キッチン</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E4%BB%8A%E6%B3%89%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3/data=!4m2!3m1!1s0x354191259599599b:0xb12782c370efa6de" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%BB%8A%E6%B3%89%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">ボンバーキッチン薬院本店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">薬院の定食・夜ごはん店。ボリュームたっぷりの料理でコスパが高い。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%9C%E3%83%B3%E3%83%90%E3%83%BC%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x354191823223ffff:0x52cd80a6d95f91f5" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%9C%E3%83%B3%E3%83%90%E3%83%BC%E3%82%AD%E3%83%83%E3%83%81%E3%83%B3%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">うどん大文字 大野城本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%81%86%E3%81%A9%E3%82%93%E5%A4%A7%E6%96%87%E5%AD%97+%E5%A4%A7%E9%87%8E%E5%9F%8E%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x35419a7880b9a7c7:0x20745c878444cd93" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%86%E3%81%A9%E3%82%93%E5%A4%A7%E6%96%87%E5%AD%97%20%E5%A4%A7%E9%87%8E%E5%9F%8E%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">ぎょらん亭 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8E%E3%82%87%E3%82%89%E3%82%93%E4%BA%AD+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x354191b6fe12b2a5:0x1921150d3f509f95" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8E%E3%82%87%E3%82%89%E3%82%93%E4%BA%AD%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">天神 わっぱ定食堂</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%A4%A9%E7%A5%9E+%E3%82%8F%E3%81%A3%E3%81%B1%E5%AE%9A%E9%A3%9F%E5%A0%82/data=!4m2!3m1!1s0x3541919ab4d24517:0x134e5262eaa2325b" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%A4%A9%E7%A5%9E%20%E3%82%8F%E3%81%A3%E3%81%B1%E5%AE%9A%E9%A3%9F%E5%A0%82" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">天神福食堂</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%A4%A9%E7%A5%9E%E7%A6%8F%E9%A3%9F%E5%A0%82/data=!4m2!3m1!1s0x354191003274dc99:0x15684998607a648d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%A4%A9%E7%A5%9E%E7%A6%8F%E9%A3%9F%E5%A0%82" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="居酒屋">
+      <h3 class="opth">🍺 居酒屋 <span class="gc">（9件）</span></h3>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">三味 天神大名中心店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神・大名の居酒屋。多彩な一品料理と飲みやすい雰囲気。グループ利用に便利。<br><a class="pmap" href="https://www.google.com/maps/place/%E4%B8%89%E5%91%B3+%E5%A4%A9%E7%A5%9E%E5%A4%A7%E5%90%8D%E4%B8%AD%E5%BF%83%E5%BA%97/data=!4m2!3m1!1s0x354191d361ee2625:0xaaa3c0ff9a6ca15" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%B8%89%E5%91%B3%20%E5%A4%A9%E7%A5%9E%E5%A4%A7%E5%90%8D%E4%B8%AD%E5%BF%83%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">一伍屋 今泉店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">今泉の人気居酒屋。料理の質と酒の種類が揃っており地元ファンが多い。<br><a class="pmap" href="https://www.google.com/maps/place/%E4%B8%80%E4%BC%8D%E5%B1%8B+%E4%BB%8A%E6%B3%89%E5%BA%97/data=!4m2!3m1!1s0x35419183bef8778d:0x97c7aceca825832e" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%B8%80%E4%BC%8D%E5%B1%8B%20%E4%BB%8A%E6%B3%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多 への字</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多の大衆居酒屋。お通しなしで気軽に飲めると地元民に人気。<br><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A+%E3%81%B8%E3%81%AE%E5%AD%97/data=!4m2!3m1!1s0x354191c039790a5f:0xd2496cfcd89a1288" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%20%E3%81%B8%E3%81%AE%E5%AD%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">今泉小路 日和日</span><span class="pg-s">★ おすすめ</span></div><div class="pm">今泉の路地裏にある居酒屋。落ち着いた雰囲気で日本酒の品揃えが良い。<br><a class="pmap" href="https://www.google.com/maps/place/%E4%BB%8A%E6%B3%89%E5%B0%8F%E8%B7%AF+%E6%97%A5%E5%92%8C%E6%97%A5/data=!4m2!3m1!1s0x35419183eb638b95:0x26265b39be123ce0" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%BB%8A%E6%B3%89%E5%B0%8F%E8%B7%AF%20%E6%97%A5%E5%92%8C%E6%97%A5" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">大名NUMBERSHOT</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%A4%A7%E5%90%8DNUMBERSHOT/data=!4m2!3m1!1s0x35419186f60bba5b:0x17340406cc109c47" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%A4%A7%E5%90%8DNUMBERSHOT" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">博多べい</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%8D%9A%E5%A4%9A%E3%81%B9%E3%81%84/data=!4m2!3m1!1s0x354191c004ad8195:0x9dea68bb29b65aed" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%8D%9A%E5%A4%9A%E3%81%B9%E3%81%84" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">屋台居酒屋 大阪 満マル 中洲川端店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E5%B1%8B%E5%8F%B0%E5%B1%85%E9%85%92%E5%B1%8B+%E5%A4%A7%E9%98%AA+%E6%BA%80%E3%83%9E%E3%83%AB+%E4%B8%AD%E6%B4%B2%E5%B7%9D%E7%AB%AF%E5%BA%97/data=!4m2!3m1!1s0x35419162f626ae53:0x2e4b3d1d8e72199e" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E5%B1%8B%E5%8F%B0%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%A4%A7%E9%98%AA%20%E6%BA%80%E3%83%9E%E3%83%AB%20%E4%B8%AD%E6%B4%B2%E5%B7%9D%E7%AB%AF%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">焼く鳥酒場 トリボシ 警固店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E7%84%BC%E3%81%8F%E9%B3%A5%E9%85%92%E5%A0%B4+%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7+%E8%AD%A6%E5%9B%BA%E5%BA%97/data=!4m2!3m1!1s0x3541912ae4300489:0xc1965ca6bba37988" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E7%84%BC%E3%81%8F%E9%B3%A5%E9%85%92%E5%A0%B4%20%E3%83%88%E3%83%AA%E3%83%9C%E3%82%B7%20%E8%AD%A6%E5%9B%BA%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">どんぶり居酒屋 喜水丸 天神店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%81%A9%E3%82%93%E3%81%B6%E3%82%8A%E5%B1%85%E9%85%92%E5%B1%8B+%E5%96%9C%E6%B0%B4%E4%B8%B8+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541918fb0a08ad3:0xd0897655311e5b48" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%A9%E3%82%93%E3%81%B6%E3%82%8A%E5%B1%85%E9%85%92%E5%B1%8B%20%E5%96%9C%E6%B0%B4%E4%B8%B8%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="バー">
+      <h3 class="opth">🍸 バー <span class="gc">（2件）</span></h3>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">バール ヴィータ 天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神のイタリアンバー。ワイン・カクテルと軽食が楽しめる。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%90%E3%83%BC%E3%83%AB+%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x35419184170df1cf:0x4b0d24c210b3d2f4" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%90%E3%83%BC%E3%83%AB%20%E3%83%B4%E3%82%A3%E3%83%BC%E3%82%BF%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">green bean to bar CHOCOLATE 福岡店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/green+bean+to+bar+CHOCOLATE+%E7%A6%8F%E5%B2%A1%E5%BA%97/data=!4m2!3m1!1s0x3541918455d3565f:0xb6f1eb29746b8f8d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=green%20bean%20to%20bar%20CHOCOLATE%20%E7%A6%8F%E5%B2%A1%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="カフェ">
+      <h3 class="opth">☕ カフェ <span class="gc">（44件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">REC COFFEEを筆頭に福岡はスペシャルティコーヒーの聖地。薬院・今泉・大名に個性的なカフェが集中。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">chano-ma 福岡</span><span class="pg-s">★ おすすめ</span></div><div class="pm">床座りスタイルのカフェダイニング。ランチからカフェタイムまで幅広く使える。女性グループに人気。<br><a class="pmap" href="https://www.google.com/maps/place/chano-ma+%E7%A6%8F%E5%B2%A1/data=!4m2!3m1!1s0x35419169e7d689b9:0x49e85a8fc8f8c226" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=chano-ma%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">$nooup 天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/$nooup+%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541911075de2a3b:0x8710416501ad36c1" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%24nooup%20%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">今泉一丁目 rakuda</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E4%BB%8A%E6%B3%89%E4%B8%80%E4%B8%81%E7%9B%AE+rakuda/data=!4m2!3m1!1s0x35419184b636a3c5:0xb0a96aef7cf9ed3c" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%BB%8A%E6%B3%89%E4%B8%80%E4%B8%81%E7%9B%AE%20rakuda" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">DEAN & DELUCA アミュプラザ博多</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/DEAN+%26+DELUCA+%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%97%E3%83%A9%E3%82%B6%E5%8D%9A%E5%A4%9A/data=!4m2!3m1!1s0x354191c876209f25:0xd6e1ed6e4b60e0b9" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=DEAN%20%26%20DELUCA%20%E3%82%A2%E3%83%9F%E3%83%A5%E3%83%97%E3%83%A9%E3%82%B6%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">明太子 やまや総本店「白金小径」(ランチ・カフェ・レストラン)｜福岡/白金 食べ放題</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E6%98%8E%E5%A4%AA%E5%AD%90+%E3%82%84%E3%81%BE%E3%82%84%E7%B7%8F%E6%9C%AC%E5%BA%97%E3%80%8C%E7%99%BD%E9%87%91%E5%B0%8F%E5%BE%84%E3%80%8D(%E3%83%A9%E3%83%B3%E3%83%81%E3%83%BB%E3%82%AB%E3%83%95%E3%82%A7%E3%83%BB%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3)%EF%BD%9C%E7%A6%8F%E5%B2%A1%2F%E7%99%BD%E9%87%91+%E9%A3%9F%E3%81%B9%E6%94%BE%E9%A1%8C/data=!4m2!3m1!1s0x354191e47f24cead:0xa743a3f98e296c20" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E6%98%8E%E5%A4%AA%E5%AD%90%20%E3%82%84%E3%81%BE%E3%82%84%E7%B7%8F%E6%9C%AC%E5%BA%97%E3%80%8C%E7%99%BD%E9%87%91%E5%B0%8F%E5%BE%84%E3%80%8D%28%E3%83%A9%E3%83%B3%E3%83%81%E3%83%BB%E3%82%AB%E3%83%95%E3%82%A7%E3%83%BB%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3%29%EF%BD%9C%E7%A6%8F%E5%B2%A1/%E7%99%BD%E9%87%91%20%E9%A3%9F%E3%81%B9%E6%94%BE%E9%A1%8C" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">九重珈琲 薬院店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E4%B9%9D%E9%87%8D%E7%8F%88%E7%90%B2+%E8%96%AC%E9%99%A2%E5%BA%97/data=!4m2!3m1!1s0x3541919cf0feee1b:0xbcda2f1049390fa2" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E4%B9%9D%E9%87%8D%E7%8F%88%E7%90%B2%20%E8%96%AC%E9%99%A2%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">PLUS ヨーグルト×アサイーカフェ 天神本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/PLUS+%E3%83%A8%E3%83%BC%E3%82%B0%E3%83%AB%E3%83%88%C3%97%E3%82%A2%E3%82%B5%E3%82%A4%E3%83%BC%E3%82%AB%E3%83%95%E3%82%A7+%E5%A4%A9%E7%A5%9E%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3541912f27da1819:0xa46f7f837c099951" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=PLUS%20%E3%83%A8%E3%83%BC%E3%82%B0%E3%83%AB%E3%83%88%C3%97%E3%82%A2%E3%82%B5%E3%82%A4%E3%83%BC%E3%82%AB%E3%83%95%E3%82%A7%20%E5%A4%A9%E7%A5%9E%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">スターバックス コーヒー 博多デイトスアネックス店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9+%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC+%E5%8D%9A%E5%A4%9A%E3%83%87%E3%82%A4%E3%83%88%E3%82%B9%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9%E5%BA%97/data=!4m2!3m1!1s0x35419144637b5d65:0x9fd32be315a55f5d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%90%E3%83%83%E3%82%AF%E3%82%B9%20%E3%82%B3%E3%83%BC%E3%83%92%E3%83%BC%20%E5%8D%9A%E5%A4%9A%E3%83%87%E3%82%A4%E3%83%88%E3%82%B9%E3%82%A2%E3%83%8D%E3%83%83%E3%82%AF%E3%82%B9%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="パン">
+      <h3 class="opth">🥐 パン <span class="gc">（12件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">博多・天神には本格ベーカリーが多い。フランス系・ハード系から食事パン系まで幅広い。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">Pain du jour (パン ドゥ ジュール) マイング博多駅店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多駅マイング内のベーカリー。電車前後にさっと立ち寄れる便利な立地。<br><a class="pmap" href="https://www.google.com/maps/place/Pain+du+jour+(%E3%83%91%E3%83%B3+%E3%83%89%E3%82%A5+%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB)+%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%BA%97/data=!4m2!3m1!1s0x354191c6307319fb:0x4015c3aaa8dfda28" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=Pain%20du%20jour%20%28%E3%83%91%E3%83%B3%20%E3%83%89%E3%82%A5%20%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%29%20%E3%83%9E%E3%82%A4%E3%83%B3%E3%82%B0%E5%8D%9A%E5%A4%9A%E9%A7%85%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">ハートブレッドアンティーク 福岡天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神のパン屋。マジカルチョコリングなど見た目も楽しいパンが人気。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%8F%E3%83%BC%E3%83%88%E3%83%96%E3%83%AC%E3%83%83%E3%83%89%E3%82%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%83%BC%E3%82%AF+%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541918e8479d705:0x7df3013407df1218" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%8F%E3%83%BC%E3%83%88%E3%83%96%E3%83%AC%E3%83%83%E3%83%89%E3%82%A2%E3%83%B3%E3%83%86%E3%82%A3%E3%83%BC%E3%82%AF%20%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">GRANDIR福岡天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神のフランス系ベーカリー。クロワッサン・デニッシュのバターの風味が評判。<br><a class="pmap" href="https://www.google.com/maps/place/GRANDIR%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x354191bbe67a32a1:0xafaa557fdd8aa7b3" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=GRANDIR%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">Cecil Blue（セシルブルー）薬院</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/Cecil+Blue%EF%BC%88%E3%82%BB%E3%82%B7%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC%EF%BC%89%E8%96%AC%E9%99%A2/data=!4m2!3m1!1s0x354191818150345b:0x222e576c792008e3" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=Cecil%20Blue%EF%BC%88%E3%82%BB%E3%82%B7%E3%83%AB%E3%83%96%E3%83%AB%E3%83%BC%EF%BC%89%E8%96%AC%E9%99%A2" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">BOUL'ANGE 天神地下街店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神地下街直結のベーカリー。雨の日でも立ち寄れる。食事パンからスイーツ系まで。<br><a class="pmap" href="https://www.google.com/maps/place/BOUL'ANGE+%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97%E5%BA%97/data=!4m2!3m1!1s0x354191ac68ee3bc5:0x89a9841dc3dda6a2" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=BOUL%27ANGE%20%E5%A4%A9%E7%A5%9E%E5%9C%B0%E4%B8%8B%E8%A1%97%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">コンパニオンプランツ福岡</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%82%B3%E3%83%B3%E3%83%91%E3%83%8B%E3%82%AA%E3%83%B3%E3%83%97%E3%83%A9%E3%83%B3%E3%83%84%E7%A6%8F%E5%B2%A1/data=!4m2!3m1!1s0x354191b5c595ab8b:0x5837338cab142f59" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%B3%E3%83%B3%E3%83%91%E3%83%8B%E3%82%AA%E3%83%B3%E3%83%97%E3%83%A9%E3%83%B3%E3%83%84%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">パンストック天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">福岡の超人気ベーカリー。バゲット・クロワッサンは開店前から行列ができる評判店。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%91%E3%83%B3%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x35419172d76cdbcf:0x30a9b694e5ca2b43" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%91%E3%83%B3%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">フルフル博多</span><span class="pg-s">★ おすすめ</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%83%95%E3%83%AB%E3%83%95%E3%83%AB%E5%8D%9A%E5%A4%9A/data=!4m2!3m1!1s0x3541917df96acc09:0x2877f9dd3bca52ef" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%95%E3%83%AB%E3%83%95%E3%83%AB%E5%8D%9A%E5%A4%9A" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">パンとエスプレッソと博多っと</span><span class="pg-s">★ おすすめ</span></div><div class="pm">博多の話題のパン屋（「パンとエスプレッソと」シリーズの博多版）。インスタ映えするカラフルなパンが人気。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8/data=!4m2!3m1!1s0x354191e083ad5ed9:0xda0742a2188e49f2" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%91%E3%83%B3%E3%81%A8%E3%82%A8%E3%82%B9%E3%83%97%E3%83%AC%E3%83%83%E3%82%BD%E3%81%A8%E5%8D%9A%E5%A4%9A%E3%81%A3%E3%81%A8" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="rank-head" style="margin-top:10px;">候補</div>
+        <div class="pick"><div class="ph"><span class="pn">阪急ベーカリー 博多阪急店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E9%98%AA%E6%80%A5%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC+%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5%E5%BA%97/data=!4m2!3m1!1s0x354191c7fc38ffd9:0x75e968fdbaa98070" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E9%98%AA%E6%80%A5%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC%20%E5%8D%9A%E5%A4%9A%E9%98%AA%E6%80%A5%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">シロヤベーカリー 小倉店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%82%B7%E3%83%AD%E3%83%A4%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC+%E5%B0%8F%E5%80%89%E5%BA%97/data=!4m2!3m1!1s0x3543bf4c43590661:0xe3d8c9900c976c0e" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%82%B7%E3%83%AD%E3%83%A4%E3%83%99%E3%83%BC%E3%82%AB%E3%83%AA%E3%83%BC%20%E5%B0%8F%E5%80%89%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick"><div class="ph"><span class="pn">パン屋 むつか堂 薬院本店</span><span class="pg">候補</span></div><div class="pm"><a class="pmap" href="https://www.google.com/maps/place/%E3%83%91%E3%83%B3%E5%B1%8B+%E3%82%80%E3%81%A4%E3%81%8B%E5%A0%82+%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97/data=!4m2!3m1!1s0x3541918232869c2f:0x2e76292b4e7e74a" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%83%91%E3%83%B3%E5%B1%8B%20%E3%82%80%E3%81%A4%E3%81%8B%E5%A0%82%20%E8%96%AC%E9%99%A2%E6%9C%AC%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+    <div class="optgroup rv" data-g="スイーツ">
+      <h3 class="opth">🍰 スイーツ <span class="gc">（4件）</span></h3>
+      <div class="optnote" style="margin-bottom:10px;">I'm donut?（行列必至）やViTOなど話題のスイーツ店が今泉・薬院エリアに集中。</div>
+      <div class="picks">
+        <div class="rank-head">★ おすすめ</div>
+        <div class="pick rec"><div class="ph"><span class="pn">お茶々万十本舗 富貴 薬院店（ふうき）</span><span class="pg-s">★ おすすめ</span></div><div class="pm">薬院の老舗和菓子・まんじゅうの店。博多土産にも使える伝統的な和菓子が揃う。<br><a class="pmap" href="https://www.google.com/maps/place/%E3%81%8A%E8%8C%B6%E3%80%85%E4%B8%87%E5%8D%81%E6%9C%AC%E8%88%97+%E5%AF%8C%E8%B2%B4+%E8%96%AC%E9%99%A2%E5%BA%97%EF%BC%88%E3%81%B5%E3%81%86%E3%81%8D%EF%BC%89/data=!4m2!3m1!1s0x35419181dea4f447:0xbee5e6e752184813" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=%E3%81%8A%E8%8C%B6%E3%80%85%E4%B8%87%E5%8D%81%E6%9C%AC%E8%88%97%20%E5%AF%8C%E8%B2%B4%20%E8%96%AC%E9%99%A2%E5%BA%97%EF%BC%88%E3%81%B5%E3%81%86%E3%81%8D%EF%BC%89" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">I'm donut? 福岡</span><span class="pg-s">★ おすすめ</span></div><div class="pm">行列ができる話題のドーナツ専門店。もちもち食感のドーナツが人気。今泉店が福岡の拠点。<br><a class="pmap" href="https://www.google.com/maps/place/I'm+donut%3F+%E7%A6%8F%E5%B2%A1/data=!4m2!3m1!1s0x3541913f6cad07bf:0xcbf3addf4e0de96" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=I%27m%20donut%3F%20%E7%A6%8F%E5%B2%A1" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">JACK IN THE DONUTS 福岡天神店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">天神のドーナツ専門店。アメリカンスタイルのドーナツで種類が多い。<br><a class="pmap" href="https://www.google.com/maps/place/JACK+IN+THE+DONUTS+%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97/data=!4m2!3m1!1s0x3541910068b27c97:0x9783b8a1477dd65d" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=JACK%20IN%20THE%20DONUTS%20%E7%A6%8F%E5%B2%A1%E5%A4%A9%E7%A5%9E%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+        <div class="pick rec"><div class="ph"><span class="pn">ViTO 赤坂けやき通り店</span><span class="pg-s">★ おすすめ</span></div><div class="pm">赤坂のジェラート専門店。けやき通り沿いで散歩がてらに立ち寄れる。<br><a class="pmap" href="https://www.google.com/maps/place/ViTO+%E8%B5%A4%E5%9D%82%E3%81%91%E3%82%84%E3%81%8D%E9%80%9A%E3%82%8A%E5%BA%97/data=!4m2!3m1!1s0x354191809061996b:0x7a16b0bd00b7cf71" target="_blank" rel="noopener">📍 地図</a><a class="psrc" href="https://tabelog.com/rstLst/?vs=1&sa=%E7%A6%8F%E5%B2%A1&sk=ViTO%20%E8%B5%A4%E5%9D%82%E3%81%91%E3%82%84%E3%81%8D%E9%80%9A%E3%82%8A%E5%BA%97" target="_blank" rel="noopener">🔗食べログ</a></div></div>
+      </div>
+    </div>
+
+  <div class="optnote rv">💡 <b>ジャンルを選ぶとその欄だけ表示されます。</b>　★金色 = tier3（Maplyが特に評価した店）。候補 = tier2（行く価値あり）。Google Maps・食べログで営業時間・予約可否を事前確認推奨。</div>
+</section>
+
+<!-- ═══════ 候補ボード ═══════ -->
+<section id="candidates">
+  <div class="sec-head rv">
+    <div class="kicker">Candidate Board · 警固エリア</div>
+    <h2 class="sec-title">候補ボード — コヤマ vs 船橋</h2>
+    <p class="sec-sub">同じ警固エリアの2店。「なんとなく似てる」と感じるが<b>用途と体験がまったく違う</b>。選ぶ基準は「誰と・何時から・どんな夜か」。</p>
+  </div>
+
+  <div class="cand-grid rv">
+    <!-- コヤマパーキング（4名以下の友達向き） -->
+    <div class="cand-card rec">
+      <div class="rec-badge">4名以下の友達飲みに</div>
+      <div class="cand-name">めしや コヤマパーキング</div>
+      <div class="cand-type">警固1-6-4 · 産直創作居酒屋 · 食べログ百名店2024</div>
+      <table class="diff-table">
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>営業</td><td><b class="diff-good">13:00〜（平日・土日ともに昼から）</b>最終入店20:00〜20:30</td></tr>
+        <tr><td>価格</td><td>5,000〜6,000円 / 人（飲み込み）</td></tr>
+        <tr><td>席数</td><td>25席・<b class="diff-good">楕円カウンターのみ</b>（個室なし）</td></tr>
+        <tr><td>人数制限</td><td style="color:#c0392b;font-weight:700;">⚠️ 最大4名まで（5名以上は入れない）</td></tr>
+        <tr><td>料理</td><td>産直素材の小皿単品 190円〜。パリパリピーマン肉味噌・いちじくバター等</td></tr>
+        <tr><td>予約</td><td>Instagramのみ（電話不可）· 2〜3週間前必須</td></tr>
+        <tr><td>食べログ</td><td>3.62 / 531件 · 保存39,539人</td></tr>
+        <tr><td>向き</td><td class="diff-good">2〜4人の友達飲み / 昼から長く / アラカルト</td></tr>
+      </table>
+      <div class="verdict-why">
+        <b>なぜ友達向きか</b>: 楕円形カウンター一体型の空間で、隣の人と自然に会話が生まれる。190円〜の単品小皿を次々頼むスタイルなので「これ食べてみる？」と気軽にシェアしながら飲める。昼13時から入れるので早めに集まって長く楽しめる。<b>注意: 5名以上は入れない（4名制限）</b>。予約はInstagramからのみ。
+      </div>
+      <div class="cand-links">
+        <a class="cand-link" href="https://tabelog.com/fukuoka/A4001/A400104/40047075/" target="_blank" rel="noopener">🔗 食べログ</a>
+        <a class="cand-link" href="https://www.tablecheck.com/ja/shops/koyama-parking/reserve" target="_blank" rel="noopener">📅 予約</a>
+        <a class="cand-link" href="https://maps.google.com/?q=めしや+コヤマパーキング+福岡市中央区警固" target="_blank" rel="noopener">📍 地図</a>
+      </div>
+    </div>
+
+    <!-- 船橋洋品店 -->
+    <div class="cand-card">
+      <div class="cand-name">船橋洋品店</div>
+      <div class="cand-type">警固1丁目5-23 · 和洋折衷コース · 一軒家隠れ家</div>
+      <table class="diff-table">
+        <tr><th>項目</th><th>内容</th></tr>
+        <tr><td>営業</td><td class="diff-neutral">平日17:00〜翌1:00 / 土日祝15:00〜翌1:00</td></tr>
+        <tr><td>価格</td><td>6,000〜8,000円 / 人（コース5,500〜6,500円+飲み）</td></tr>
+        <tr><td>席数</td><td>38席 · ライブカウンター16席・テーブル8席・<b class="diff-good">個室14席</b></td></tr>
+        <tr><td>人数</td><td><b class="diff-good">2〜12名対応（個室は最大16名）</b></td></tr>
+        <tr><td>料理</td><td>和洋折衷の創作コース。蟹クリームコロッケ・和牛×フォアグラ土鍋飯など驚きの掛け合わせ</td></tr>
+        <tr><td>予約</td><td>ホットペッパー・食べログ・電話可 · 当日対応あり</td></tr>
+        <tr><td>食べログ</td><td>3.63 / 548件 · 保存19,597人</td></tr>
+        <tr><td>向き</td><td class="diff-neutral">接待 / 記念日 / デート / 5名以上の会食</td></tr>
+      </table>
+      <div class="verdict-why">
+        <b>コヤマと何が違うか</b>: 「食事に来た」という非日常感が売り。路地裏の一軒家を使った隠れ家空間で、料理はコース仕立ての創作和洋。<b>5名以上でも個室で使える</b>のがコヤマとの最大の違い。予約がホットペッパー・電話でも取れて融通が利く。接待・記念日・デートや「ちゃんとした食事の会」向き。
+      </div>
+      <div class="cand-links">
+        <a class="cand-link" href="https://tabelog.com/fukuoka/A4001/A400104/40059018/" target="_blank" rel="noopener">🔗 食べログ</a>
+        <a class="cand-link" href="https://www.hotpepper.jp/strJ004540002/" target="_blank" rel="noopener">📅 ホットペッパー</a>
+        <a class="cand-link" href="https://maps.google.com/?q=船橋洋品店+福岡市中央区警固" target="_blank" rel="noopener">📍 地図</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="keynote rv" style="background:linear-gradient(180deg,#fff,var(--green-2));border-color:#b0e0c0;border-left-color:var(--green);margin-top:16px;">
+    <div class="ic">✅</div>
+    <div>
+      <div class="t" style="color:#1a6e3a;">人数で選ぶ — 4人以下ならコヤマ、5人以上なら船橋</div>
+      <div class="d">両店とも警固エリアにあり<b>徒歩3分ではしご可能</b>。<b>4名以内で昼から気軽に飲む → コヤマパーキング</b>（予約はInstagramで2〜3週間前）。<b>5名以上、または接待・記念日 → 船橋洋品店</b>（ホットペッパー/電話で予約しやすい）。食べログスコアは3.62 vs 3.63でほぼ互角 — 差は「人数・シーン・昼夜」。</div>
     </div>
   </div>
 </section>
 
-<!-- ════════════ エリアガイド ════════════ -->
-<section class="section" id="area">
-  <h2 class="section-title">エリアガイド</h2>
-  <p class="section-sub">福岡の主要エリアの特徴とおすすめスポット</p>
-
+<!-- ═══════ エリアガイド ═══════ -->
+<section id="area">
+  <div class="sec-head rv">
+    <div class="kicker">Area Guide</div>
+    <h2 class="sec-title">エリアガイド</h2>
+    <p class="sec-sub">福岡の主要エリアの特徴と地元目線のポイント。</p>
+  </div>
   <div class="area-grid">
-    <div class="area-card">
-      <div class="area-label">Central</div>
+    <div class="area-card rv">
+      <div class="area-label">Central · 起点</div>
       <div class="area-name">博多駅エリア</div>
-      <div class="area-desc">新幹線・空港アクセスの起点。博多デイトス・KITTE博多でグルメ。駅ビル屋上は穴場ビュースポット</div>
-      <ul class="area-spots">
-        <li>博多デイトス（グルメ街）</li>
-        <li>KITTE博多</li>
-        <li>住吉神社（徒歩10分）</li>
-      </ul>
+      <div class="area-desc">新幹線・空港アクセスの起点。博多デイトス・KITTE博多でグルメ。ビジネスパーソン向けの店が多い。</div>
+      <ul class="area-spots"><li>博多デイトス（グルメ街）</li><li>KITTE博多</li><li>住吉神社</li></ul>
     </div>
-    <div class="area-card">
-      <div class="area-label">Shopping & Nightlife</div>
+    <div class="area-card rv">
+      <div class="area-label">Shopping · 観光顔</div>
       <div class="area-name">天神エリア</div>
-      <div class="area-desc">九州最大の繁華街。天神地下街は雨の日に便利。大名エリアはセレクトショップ・バーが集中</div>
-      <ul class="area-spots">
-        <li>天神地下街</li>
-        <li>大名エリア（カフェ・バー）</li>
-        <li>警固神社</li>
-      </ul>
+      <div class="area-desc">九州最大の繁華街。天神地下街は雨の日に便利。大名エリアはセレクトショップ・バーが集中。</div>
+      <ul class="area-spots"><li>天神地下街</li><li>大名エリア</li><li>警固神社</li></ul>
     </div>
-    <div class="area-card">
+    <div class="area-card rv">
+      <div class="area-label">Local · 地元顔</div>
+      <div class="area-name">薬院・警固エリア</div>
+      <div class="area-desc">おしゃれカフェ・レストランが密集するローカルエリア。コヤマパーキング・REC COFFEE・浄水通りなど。地元民が普段使いする店が集まる。</div>
+      <ul class="area-spots"><li>REC COFFEE 薬院</li><li>コヤマパーキング</li><li>浄水通り・白金エリア</li></ul>
+    </div>
+    <div class="area-card rv">
       <div class="area-label">Nightlife</div>
       <div class="area-name">中洲エリア</div>
-      <div class="area-desc">西日本最大の歓楽街。屋台は那珂川沿いに20軒以上。夜のネオンリフレクションは写真映えする</div>
-      <ul class="area-spots">
-        <li>中洲屋台街</li>
-        <li>キャナルシティ博多</li>
-        <li>櫛田神社</li>
-      </ul>
+      <div class="area-desc">西日本最大の歓楽街。屋台は那珂川沿いに20軒以上。夜のネオンリフレクションは写真映え。</div>
+      <ul class="area-spots"><li>中洲屋台街（18時〜）</li><li>キャナルシティ博多</li><li>櫛田神社</li></ul>
     </div>
-    <div class="area-card">
-      <div class="area-label">Local Vibe</div>
-      <div class="area-name">薬院・白金エリア</div>
-      <div class="area-desc">おしゃれカフェとレストランが集まるローカルエリア。観光客少なめ。散歩に最適</div>
-      <ul class="area-spots">
-        <li>REC COFFEE 薬院</li>
-        <li>白金の飲食店街</li>
-        <li>浄水通り</li>
-      </ul>
-    </div>
-    <div class="area-card">
-      <div class="area-label">Nature & Shrine</div>
+    <div class="area-card rv">
+      <div class="area-label">Nature · 日帰り</div>
       <div class="area-name">太宰府</div>
-      <div class="area-desc">太宰府天満宮は学問の神様。参道の梅ヶ枝餅は必食。スタバ太宰府店は隈研吾デザイン</div>
-      <ul class="area-spots">
-        <li>太宰府天満宮</li>
-        <li>梅ヶ枝餅（参道）</li>
-        <li>スターバックス太宰府天満宮表参道店</li>
-      </ul>
+      <div class="area-desc">太宰府天満宮は学問の神様。参道の梅ヶ枝餅は必食。スタバは隈研吾デザイン。</div>
+      <ul class="area-spots"><li>太宰府天満宮</li><li>梅ヶ枝餅（参道）</li><li>スターバックス太宰府店</li></ul>
     </div>
-    <div class="area-card">
-      <div class="area-label">Seaside</div>
+    <div class="area-card rv">
+      <div class="area-label">Seaside · 日帰り</div>
       <div class="area-name">糸島</div>
-      <div class="area-desc">海沿いのドライブコース。おしゃれなカフェ・雑貨店が点在。二見ヶ浦の夫婦岩はサンセットスポット</div>
-      <ul class="area-spots">
-        <li>二見ヶ浦</li>
-        <li>パームビーチ・ザ・ガーデンズ</li>
-        <li>糸島の牡蠣小屋（冬季）</li>
-      </ul>
+      <div class="area-desc">海沿いのドライブコース。おしゃれなカフェ・雑貨店が点在。二見ヶ浦の夫婦岩はサンセットスポット。</div>
+      <ul class="area-spots"><li>二見ヶ浦</li><li>牡蠣小屋（冬季）</li><li>カフェ各種</li></ul>
     </div>
   </div>
 </section>
 
-<!-- ════════════ アクセス ════════════ -->
-<section class="section" id="access">
-  <h2 class="section-title">アクセス</h2>
-  <p class="section-sub">福岡空港から市内中心部まで地下鉄でわずか5分。日本一アクセスが良い空港</p>
-
-  <div style="overflow-x: auto;">
+<!-- ═══════ アクセス ═══════ -->
+<section id="access">
+  <div class="sec-head rv">
+    <div class="kicker">Access</div>
+    <h2 class="sec-title">アクセス</h2>
+    <p class="sec-sub">福岡空港から市内中心部まで地下鉄5分。日本一アクセスが良い空港。</p>
+  </div>
+  <div style="overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);box-shadow:var(--shadow-soft);">
     <table class="access-table">
-      <thead>
-        <tr>
-          <th>区間</th>
-          <th>交通手段</th>
-          <th>所要時間</th>
-          <th>料金</th>
-        </tr>
-      </thead>
+      <thead><tr><th>区間</th><th>交通手段</th><th>所要</th><th>料金</th></tr></thead>
       <tbody>
-        <tr>
-          <td>福岡空港 → 博多駅</td>
-          <td>地下鉄空港線</td>
-          <td>5分</td>
-          <td class="price-highlight">¥260</td>
-        </tr>
-        <tr>
-          <td>福岡空港 → 天神</td>
-          <td>地下鉄空港線</td>
-          <td>11分</td>
-          <td class="price-highlight">¥260</td>
-        </tr>
-        <tr>
-          <td>博多駅 → 天神</td>
-          <td>地下鉄空港線</td>
-          <td>5分</td>
-          <td class="price-highlight">¥210</td>
-        </tr>
-        <tr>
-          <td>博多駅 → 太宰府</td>
-          <td>西鉄電車（天神乗換）</td>
-          <td>約45分</td>
-          <td class="price-highlight">¥610</td>
-        </tr>
-        <tr>
-          <td>天神 → 糸島（筑前前原）</td>
-          <td>JR筑肥線</td>
-          <td>約35分</td>
-          <td class="price-highlight">¥580</td>
-        </tr>
-        <tr>
-          <td>東京（羽田） → 福岡</td>
-          <td>飛行機</td>
-          <td>約2時間</td>
-          <td class="price-highlight">¥8,000〜30,000</td>
-        </tr>
+        <tr><td>福岡空港 → 博多駅</td><td>地下鉄空港線</td><td>5分</td><td><span class="price-hl">¥260</span></td></tr>
+        <tr><td>福岡空港 → 天神</td><td>地下鉄空港線</td><td>11分</td><td><span class="price-hl">¥260</span></td></tr>
+        <tr><td>博多駅 → 天神</td><td>地下鉄空港線</td><td>5分</td><td><span class="price-hl">¥210</span></td></tr>
+        <tr><td>天神 → 薬院大通</td><td>地下鉄七隈線</td><td>3分</td><td><span class="price-hl">¥210</span></td></tr>
+        <tr><td>博多駅 → 太宰府</td><td>西鉄（天神乗換）</td><td>約45分</td><td><span class="price-hl">¥610</span></td></tr>
+        <tr><td>天神 → 糸島（筑前前原）</td><td>JR筑肥線</td><td>約35分</td><td><span class="price-hl">¥580</span></td></tr>
+        <tr><td>東京（羽田） → 福岡</td><td>飛行機</td><td>約2時間</td><td><span class="price-hl">¥8k〜30k</span></td></tr>
       </tbody>
     </table>
   </div>
 </section>
 
-<!-- ════════════ Tips ════════════ -->
-<section class="section" id="tips">
-  <h2 class="section-title">Tips</h2>
-  <p class="section-sub">福岡滞在を快適にするローカル知識</p>
-
+<!-- ═══════ Tips ═══════ -->
+<section id="tips">
+  <div class="sec-head rv">
+    <div class="kicker">Local Tips</div>
+    <h2 class="sec-title">ローカルTips</h2>
+    <p class="sec-sub">福岡滞在を快適にするローカル知識。</p>
+  </div>
   <div class="tips-grid">
-    <div class="tip-card">
-      <h4>🚇 交通ICカード</h4>
-      <p>Suica/PASMOそのまま使える。地下鉄・西鉄バス・JR全対応。チャージは駅の券売機で</p>
-    </div>
-    <div class="tip-card">
-      <h4>🌤️ ベストシーズン</h4>
-      <p>3〜5月（桜・新緑）と10〜11月（紅葉・快適）がおすすめ。7〜8月は猛暑。1月は博多雑煮が旨い</p>
-    </div>
-    <div class="tip-card">
-      <h4>🏪 コンビニ</h4>
-      <p>博多駅〜天神は密集。郊外（糸島・新宮方面）は減るので、温泉行く前に買い出し推奨</p>
-    </div>
-    <div class="tip-card">
-      <h4>🅿️ 駐車場</h4>
-      <p>ふくの湯は全店無料駐車場あり。天神・博多は駐車場高い（1時間¥300〜600）ので公共交通推奨</p>
-    </div>
-    <div class="tip-card">
-      <h4>🌙 夜の楽しみ方</h4>
-      <p>屋台は18時〜翌2時頃。中洲屋台は金土が賑わう。天神エリアは比較的空いている穴場</p>
-    </div>
-    <div class="tip-card">
-      <h4>💳 キャッシュレス</h4>
-      <p>主要店舗はクレカ対応。屋台は現金のみが多い。¥3,000〜5,000あると安心</p>
-    </div>
+    <div class="tip-card rv"><h4>🚇 交通ICカード</h4><p>Suica/PASMOそのまま使える。地下鉄・西鉄バス・JR全対応。チャージは駅の券売機で。</p></div>
+    <div class="tip-card rv"><h4>🌤️ ベストシーズン</h4><p>3〜5月（桜・新緑）と10〜11月が快適。7〜8月は猛暑。1月は博多雑煮が旨い。</p></div>
+    <div class="tip-card rv"><h4>🍜 ラーメンのルール</h4><p>博多ラーメンは替え玉文化。「かた」指定で歯ごたえのある麺。スープは豚骨白湯が基本。</p></div>
+    <div class="tip-card rv"><h4>🍲 もつ鍋の食べ方</h4><p>〆は必ずちゃんぽん麺か雑炊。最初から麺を入れると溶ける。スープが最高に旨い状態で麺を入れるタイミングが大事。</p></div>
+    <div class="tip-card rv"><h4>🌙 屋台のルール</h4><p>18時〜翌2時頃。現金のみが多いので¥3,000〜5,000持参。相席・混雑は当然。中洲屋台は金土が賑わう。</p></div>
+    <div class="tip-card rv"><h4>💳 キャッシュレス</h4><p>主要店舗はクレカ対応。屋台は現金のみが多い。PayPayは福岡でも広く使える。</p></div>
   </div>
 </section>
 
+</div><!-- /wrap -->
+
 <footer>
-  <span>iUMA TRAVEL — FUKUOKA LOCAL GUIDE</span>
-  <span>2026</span>
+  <div class="wrap">
+    <div class="ft-1">iUMA · TRAVEL — FUKUOKA LOCAL GUIDE</div>
+    <div class="ft-2">Maplyデータより生成 · 181件</div>
+  </div>
+    <a href="kyushu.html" style="opacity:.08;text-decoration:none;color:#7a1f1f;user-select:none;">·</a>
 </footer>
 
-<!-- Section Nav Active State -->
+<button class="totop" id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="先頭に戻る">↑</button>
+
 <script>
-(function() {
-  var sections = document.querySelectorAll('.section[id]');
-  var navLinks = document.querySelectorAll('.nav-bar a');
-  var headerH = 52, snavH = 42;
-
-  function onScroll() {
-    var scrollY = window.scrollY + headerH + snavH + 40;
-    var current = '';
-    sections.forEach(function(s) {
-      if (s.offsetTop <= scrollY) current = s.getAttribute('id');
-    });
-    navLinks.forEach(function(a) {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-    });
+// Section nav active
+(function(){
+  var secs = document.querySelectorAll('section[id]');
+  var links = document.querySelectorAll('.secnav a');
+  var topH = 104;
+  function upd(){
+    var sy = window.scrollY + topH + 40;
+    var cur = '';
+    secs.forEach(function(s){ if(s.offsetTop <= sy) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + cur); });
   }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Smooth scroll for section nav
-  navLinks.forEach(function(a) {
-    a.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        window.scrollTo({
-          top: target.offsetTop - headerH - snavH - 10,
-          behavior: 'smooth'
-        });
-      }
+  window.addEventListener('scroll', upd, {passive:true});
+  upd();
+  links.forEach(function(a){
+    a.addEventListener('click', function(e){
+      var t = document.querySelector(this.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top:t.offsetTop-topH-10,behavior:'smooth'}); }
     });
+  });
+})();
+
+// Back to top
+(function(){
+  var btn = document.getElementById('totop');
+  window.addEventListener('scroll', function(){ btn.classList.toggle('show', window.scrollY > 300); }, {passive:true});
+})();
+
+// Genre filter
+(function(){
+  var bar = document.getElementById('genre-bar');
+  if(!bar) return;
+  var btns = bar.querySelectorAll('.gb-btn');
+  var groups = document.querySelectorAll('.optgroup[data-g]');
+  var active = null;
+  btns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var g = this.dataset.g;
+      if(active === g){
+        active = null;
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        groups.forEach(function(grp){ grp.classList.remove('og-active'); });
+        return;
+      }
+      active = g;
+      btns.forEach(function(b){ b.classList.toggle('active', b.dataset.g === g); });
+      groups.forEach(function(grp){ grp.classList.toggle('og-active', grp.dataset.g === g); });
+      bar.scrollIntoView({behavior:'smooth', block:'nearest'});
+    });
+  });
+})();
+
+// Reveal animation
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.style.opacity=1; });
+  }, {threshold:0.05});
+  document.querySelectorAll('.rv').forEach(function(el){
+    el.style.opacity = '0';
+    obs.observe(el);
   });
 })();
 </script>
