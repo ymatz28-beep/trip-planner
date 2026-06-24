@@ -578,6 +578,7 @@ def gen_hub_page(all_spots):
     <span class="brand">iUMA Travel</span>
     <nav class="topnav">
       <a href="#" aria-current="page">沖縄 エリアガイド</a>
+      <a href="index.html" class="hidden-cmd">Trips</a>
     </nav>
   </div>
 </header>
