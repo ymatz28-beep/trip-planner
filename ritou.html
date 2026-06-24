@@ -88,10 +88,15 @@
   /* Category sections */
   section{padding:28px 0 4px;scroll-margin-top:108px;}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}
   .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
   .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+  .sec-toggle{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}
+  .sec-head.sec-collapsed .sec-toggle{transform:rotate(-90deg);}
+  .spot-list.sec-collapsed{display:none;}
 
   /* Spot list — editorial, not round cards */
   .spot-list{display:flex;flex-direction:column;gap:0;}
@@ -201,16 +206,62 @@
     <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="その他離島内を検索..." autocomplete="off"></div>
     <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
   </div>
-  <div class="secnav"><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a></div>
+  <div class="secnav"><a href="#okinawa_food">🥣 沖縄料理</a><a href="#chinese">🥢 中華料理</a><a href="#western">🍝 洋食</a><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a></div>
 </div>
 
 <main class="wrap">
 <p id="no-results" class="no-results">検索結果がありません</p>
 
+<section id="okinawa_food">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥣 沖縄料理</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="やん小～">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=17437249452675078924" target="_blank" rel="noopener">やん小～</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥1,999</div>
+    <p class="spot-desc">久米島産惣慶もやし・自家製麺の島味噌沖縄そば。古民家の自宅を開放したワンオペの人気店</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=17437249452675078924" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4706/A470601/47001595/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://yanguwa.base.shop/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="chinese">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥢 中華料理</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="中華海鮮 海皇">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=10863602380090971048" target="_blank" rel="noopener">中華海鮮 海皇</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥1,999</div>
+    <p class="spot-desc">久米島唯一の中華海鮮専門店。新鮮な地元海産物を四川風に味付けした中華料理と寿司が楽しめる。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10863602380090971048" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4706/A470601/47001455/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="western">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍝 洋食</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="SOLEMARE ソレマーレ">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14041460954101605914" target="_blank" rel="noopener">SOLEMARE ソレマーレ</a></div>
+    
+    <p class="spot-desc">Cucina Italiana SOLEMARE, Ishigaki Ishigaki, Okinawa 15周年のご挨拶と閉店のお知らせ いつもソレマーレをご利用いただきまして、誠にありがとうございます。 当店は2025年3月31日で15周年を迎えることができました。 島のお客様や日本各地から足を運んでくださるお客様、当店を長年ご愛顧くださる皆様の温かい応援があったからこそ、ここまで歩んでくるこ</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14041460954101605914" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
 <section id="food">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🍽 その他の食事</h2>
     <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="〒907-0013 沖縄県石垣市浜崎町２丁目３−３２">
   <div>
@@ -222,9 +273,10 @@
 </div></div>
 </section>
 <section id="cafe_sweets">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>☕ カフェ・スイーツ</h2>
     <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="ちろりん村">
   <div>
@@ -236,9 +288,10 @@
 </div></div>
 </section>
 <section id="leisure">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🌊 観光・スポット</h2>
     <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="はての浜">
   <div>
@@ -268,9 +321,10 @@
 </div></div>
 </section>
 <section id="activity">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏄 観光・体験</h2>
     <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="カイジ浜（皆治浜）">
   <div>
@@ -293,9 +347,10 @@
 </div></div>
 </section>
 <section id="lodging">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏨 宿泊</h2>
     <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="EN RESORT Kumejima EEF Beach Hotel (エンリゾート 久米島イーフビーチホテル）">
   <div>
@@ -362,6 +417,13 @@ secs.forEach(s=>obs.observe(s));
     document.querySelectorAll('section[id]').forEach(sec=>{
       const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
       sec.style.display=vis?'':'none';
+      // 検索中は自動展開
+      if((q||tier2only)&&vis){
+        const list=sec.querySelector('.spot-list');
+        const head=sec.querySelector('.sec-head');
+        if(list) list.classList.remove('sec-collapsed');
+        if(head) head.classList.remove('sec-collapsed');
+      }
     });
     const nr=document.getElementById('no-results');
     if(nr) nr.style.display=any?'none':'block';
@@ -372,6 +434,22 @@ secs.forEach(s=>obs.observe(s));
     btn.classList.toggle('on',tier2only);
     btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
     applyFilter();
+  });
+})();
+// Category toggle
+function toggleSec(head){
+  const list=head.nextElementSibling;
+  const c=list.classList.toggle('sec-collapsed');
+  head.classList.toggle('sec-collapsed',c);
+}
+// Initial: collapse all but the first section
+(function(){
+  document.querySelectorAll('section[id]').forEach((sec,i)=>{
+    if(i===0) return;
+    const list=sec.querySelector('.spot-list');
+    const head=sec.querySelector('.sec-head');
+    if(list) list.classList.add('sec-collapsed');
+    if(head) head.classList.add('sec-collapsed');
   });
 })();
 </script>

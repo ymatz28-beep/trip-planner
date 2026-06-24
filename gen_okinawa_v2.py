@@ -186,10 +186,15 @@ def shared_css(c1, c2, c3, ck):
   /* Category sections */
   section{{padding:28px 0 4px;scroll-margin-top:108px;}}
   .sec-head{{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}}
   .sec-head h2{{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}}
   .sec-count{{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}}
+  .sec-toggle{{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}}
+  .sec-head.sec-collapsed .sec-toggle{{transform:rotate(-90deg);}}
+  .spot-list.sec-collapsed{{display:none;}}
 
   /* Spot list — editorial, not round cards */
   .spot-list{{display:flex;flex-direction:column;gap:0;}}
@@ -295,6 +300,13 @@ secs.forEach(s=>obs.observe(s));
     document.querySelectorAll('section[id]').forEach(sec=>{
       const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
       sec.style.display=vis?'':'none';
+      // 検索中は自動展開
+      if((q||tier2only)&&vis){
+        const list=sec.querySelector('.spot-list');
+        const head=sec.querySelector('.sec-head');
+        if(list) list.classList.remove('sec-collapsed');
+        if(head) head.classList.remove('sec-collapsed');
+      }
     });
     const nr=document.getElementById('no-results');
     if(nr) nr.style.display=any?'none':'block';
@@ -305,6 +317,22 @@ secs.forEach(s=>obs.observe(s));
     btn.classList.toggle('on',tier2only);
     btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
     applyFilter();
+  });
+})();
+// Category toggle
+function toggleSec(head){
+  const list=head.nextElementSibling;
+  const c=list.classList.toggle('sec-collapsed');
+  head.classList.toggle('sec-collapsed',c);
+}
+// Initial: collapse all but the first section
+(function(){
+  document.querySelectorAll('section[id]').forEach((sec,i)=>{
+    if(i===0) return;
+    const list=sec.querySelector('.spot-list');
+    const head=sec.querySelector('.sec-head');
+    if(list) list.classList.add('sec-collapsed');
+    if(head) head.classList.add('sec-collapsed');
   });
 })();
 </script>
@@ -385,7 +413,11 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
     for cat in by_cat:
         by_cat[cat].sort(key=lambda x: (x.get("tier", 3), x["name"]))
 
-    cat_order = ["food", "cafe_sweets", "leisure", "activity", "lodging", "stay", "health", "nightlife"]
+    cat_order = [
+        "okinawa_food", "izakaya", "steak", "yakiniku", "seafood",
+        "chinese", "western", "asian", "washoku", "bakery", "food",
+        "cafe_sweets", "leisure", "activity", "lodging", "stay", "health", "nightlife",
+    ]
     present_cats = [c for c in cat_order if c in by_cat]
 
     # Secnav
@@ -416,9 +448,10 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
         spots_html = "\n".join(render_spot(s) for s in cat_spots)
         sections_html += f"""
 <section id="{cat}">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>{cat_icon} {cat_name}</h2>
     <span class="sec-count">{len(cat_spots)}件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list">{spots_html}</div>
 </section>"""
@@ -558,7 +591,7 @@ def gen_hub_page(all_spots):
 <div class="hero hub-hero">
   <div class="wrap">
     <div class="eyebrow">Japan · Okinawa</div>
-    <h1>🌺 沖縄 エリアガイド<small>宮古島 · 石垣島 · 那覇 · 本島 · 離島</small></h1>
+    <h1>🌺 沖縄 エリアガイド<small>{" · ".join(rc["name"] for rc in REGIONS.values())}</small></h1>
     <p class="lede">Mapplyに保存した{total}件のスポットを5エリアで収録。エリアを選んでグルメ・観光・宿泊を確認。</p>
     <div class="hero-meta">
       <span class="hpill">📍 {total}スポット</span>

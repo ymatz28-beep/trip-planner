@@ -88,10 +88,15 @@
   /* Category sections */
   section{padding:28px 0 4px;scroll-margin-top:108px;}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}
   .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
   .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+  .sec-toggle{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}
+  .sec-head.sec-collapsed .sec-toggle{transform:rotate(-90deg);}
+  .spot-list.sec-collapsed{display:none;}
 
   /* Spot list — editorial, not round cards */
   .spot-list{display:flex;flex-direction:column;gap:0;}
@@ -201,16 +206,139 @@
     <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="本島中北部内を検索..." autocomplete="off"></div>
     <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
   </div>
-  <div class="secnav"><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#lodging">🏨 宿泊</a></div>
+  <div class="secnav"><a href="#okinawa_food">🥣 沖縄料理</a><a href="#izakaya">🍻 居酒屋</a><a href="#steak">🥩 ステーキ</a><a href="#yakiniku">🔥 焼肉</a><a href="#washoku">🍱 和食</a><a href="#bakery">🍞 パン屋</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#lodging">🏨 宿泊</a></div>
 </div>
 
 <main class="wrap">
 <p id="no-results" class="no-results">検索結果がありません</p>
 
+<section id="okinawa_food">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥣 沖縄料理</h2>
+    <span class="sec-count">4件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="島そば">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=15437798486131884813" target="_blank" rel="noopener">島そば</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥450〜¥1,050</div>
+    <p class="spot-desc">うるま市の地元民に愛される老舗沖縄そば屋。豚骨×カツオのWスープと、トロトロに煮込んだソーキ・てびちが名物。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15437798486131884813" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470302/47001605/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="番所亭">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14360864351059330601" target="_blank" rel="noopener">番所亭</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥580〜¥1,200</div>
+    <p class="spot-desc">読谷村の老舗沖縄そば店。ウコン・紅芋・よもぎを練り込んだ自家製麺と無化調スープが特徴</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14360864351059330601" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470304/47001528/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://banjyutei.com/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="沖縄とんかつ食堂しまぶた屋 前兼久店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=17032916444074445158" target="_blank" rel="noopener">沖縄とんかつ食堂しまぶた屋 前兼久店</a></div>
+    <div class="spot-meta">¥1,000〜¥3,980</div>
+    <p class="spot-desc">やんばる島豚あぐーを自家製パン粉とラードで揚げる恩納村のとんかつ専門食堂。テラス席あり。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=17032916444074445158" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470303/47011882/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://okinawa-sinka.jp/shop/okinawa-tonkatsu/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="百年古家 大家 うふやー">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=7806570637372482677" target="_blank" rel="noopener">百年古家 大家 うふやー</a></div>
+    <div class="spot-meta">¥1,000〜¥4,000</div>
+    <p class="spot-desc">築100年超の琉球古民家でいただく自家製麺の沖縄そばとあぐー豚料理</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7806570637372482677" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470301/47000489/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://ufuya.com/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="izakaya">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍻 居酒屋</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="琉球テラス うら庭">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=16186310940862000750" target="_blank" rel="noopener">琉球テラス うら庭</a></div>
+    <div class="spot-meta">¥3,000〜¥4,000</div>
+    <p class="spot-desc">恩納村の民謡居酒屋。三線生ライブ毎日開催、もとぶ牛・紅あぐー豚・県産地魚の創作沖縄料理。近隣ホテル無料送迎あり。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=16186310940862000750" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470303/47000643/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="steak">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥩 ステーキ</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="ステーキハウス ジャム 沖縄恩納村店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=9404656881950419105" target="_blank" rel="noopener">ステーキハウス ジャム 沖縄恩納村店</a></div>
+    <div class="spot-meta">¥4,000〜¥7,999</div>
+    <p class="spot-desc">石垣産美崎牛・アグー豚の鉄板焼きを南国リゾート風の店内で楽しめる恩納村の人気ステーキハウス</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9404656881950419105" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470303/47000080/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.jam-groups.com/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="yakiniku">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🔥 焼肉</h2>
+    <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="島豚七輪焼 満味">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=15384273354305105142" target="_blank" rel="noopener">島豚七輪焼 満味</a></div>
+    <div class="spot-meta">¥5,000〜¥5,999</div>
+    <p class="spot-desc">やんばる島豚を生産農家直仕入れ・七輪炭火焼きで提供する名護の名店。食べログ焼肉百名店2025選出。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15384273354305105142" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4702/A470201/47000337/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://manmi-yanbaru.com/" target="_blank" rel="noopener">公式</a><a class="slink slink-web" href="https://www.gltjp.com/zh-hant/directory/item/13776/" target="_blank" rel="noopener">情報元</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="焼肉こうちゃん">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=6250470902152127378" target="_blank" rel="noopener">焼肉こうちゃん</a></div>
+    <div class="spot-meta">¥3,000〜¥3,999</div>
+    <p class="spot-desc">名護パイナップルパーク近く。黒毛和牛と沖縄産あぐーを七輪炭火でリーズナブルに楽しめる焼肉店。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6250470902152127378" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4702/A470201/47012349/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="washoku">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍱 和食</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="大戸屋ごはん処 名護宮里店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=8557431966053513499" target="_blank" rel="noopener">大戸屋ごはん処 名護宮里店</a></div>
+    <div class="spot-meta">¥1,000〜¥2,000</div>
+    <p class="spot-desc">名護市唯一の大戸屋チェーン店。鰹の梅はさみ揚げや黒酢あんかけ定食など和食定食が揃う。11〜22時営業、駐車場あり。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=8557431966053513499" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-web" href="https://store.ootoya.com/detail/27362/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="bakery">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍞 パン屋</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="宗像堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=2068932704504792321" target="_blank" rel="noopener">宗像堂</a></div>
+    <div class="spot-meta">¥1,000〜¥1,999</div>
+    <p class="spot-desc">宜野湾市の石窯天然酵母パン専門店。沖縄県パン部門食べログ1位（2024年8月時点）の人気店</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2068932704504792321" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4703/A470404/47000097/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://munakatado.com/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
 <section id="cafe_sweets">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>☕ カフェ・スイーツ</h2>
     <span class="sec-count">13件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ハワイアンパンケーキハウス パニラニ">
   <div>
@@ -318,9 +446,10 @@
 </div></div>
 </section>
 <section id="leisure">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🌊 観光・スポット</h2>
     <span class="sec-count">11件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="美浜タウンリゾート・アメリカンビレッジ">
   <div>
@@ -412,9 +541,10 @@
 </div></div>
 </section>
 <section id="lodging">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏨 宿泊</h2>
     <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="浜辺のTIPI CAMP">
   <div>
@@ -465,6 +595,13 @@ secs.forEach(s=>obs.observe(s));
     document.querySelectorAll('section[id]').forEach(sec=>{
       const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
       sec.style.display=vis?'':'none';
+      // 検索中は自動展開
+      if((q||tier2only)&&vis){
+        const list=sec.querySelector('.spot-list');
+        const head=sec.querySelector('.sec-head');
+        if(list) list.classList.remove('sec-collapsed');
+        if(head) head.classList.remove('sec-collapsed');
+      }
     });
     const nr=document.getElementById('no-results');
     if(nr) nr.style.display=any?'none':'block';
@@ -475,6 +612,22 @@ secs.forEach(s=>obs.observe(s));
     btn.classList.toggle('on',tier2only);
     btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
     applyFilter();
+  });
+})();
+// Category toggle
+function toggleSec(head){
+  const list=head.nextElementSibling;
+  const c=list.classList.toggle('sec-collapsed');
+  head.classList.toggle('sec-collapsed',c);
+}
+// Initial: collapse all but the first section
+(function(){
+  document.querySelectorAll('section[id]').forEach((sec,i)=>{
+    if(i===0) return;
+    const list=sec.querySelector('.spot-list');
+    const head=sec.querySelector('.sec-head');
+    if(list) list.classList.add('sec-collapsed');
+    if(head) head.classList.add('sec-collapsed');
   });
 })();
 </script>

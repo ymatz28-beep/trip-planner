@@ -157,6 +157,20 @@ def enrich_spot(spot: dict, keys: dict) -> dict | None:
     if _desc_junk.search(desc) or desc.count(' - ') + desc.count(' / ') > 4 or desc.count('｜') >= 2:
         desc = ''
 
+    # クロス名汚染チェック: descの冒頭が「--」で始まる場合は別業者のハイライトが混入している
+    if desc.startswith('--'):
+        desc = ''
+
+    # クロス名汚染チェック: desc内でスポット名と全く異なる固有名詞（『〇〇』形式）が先頭に出る場合はクリア
+    _cross_contamination = re.compile(r"^(?:--|『[^』]{3,}』)")
+    if _cross_contamination.search(desc):
+        desc = ''
+
+    # addrがページタイトル形式（「--」や「『』」で始まる）の場合もクリア
+    addr = re.sub(r'^(?:--|『[^』]*』[^\d]*)', '', addr).strip()
+    if not re.search(r'\d', addr):  # 番地数字がなければ住所として無効
+        addr = ''
+
     strict_count = sum(1 for kw in STRICT_KEYWORDS if kw in all_text)
     # Googleスコアが有効範囲（3.5〜5.0）の場合もtier 2
     valid_google = gsc_m and 3.5 <= float(gsc_m.group(1)) <= 5.0

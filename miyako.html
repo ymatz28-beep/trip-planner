@@ -88,10 +88,15 @@
   /* Category sections */
   section{padding:28px 0 4px;scroll-margin-top:108px;}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}
   .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
   .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+  .sec-toggle{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}
+  .sec-head.sec-collapsed .sec-toggle{transform:rotate(-90deg);}
+  .spot-list.sec-collapsed{display:none;}
 
   /* Spot list — editorial, not round cards */
   .spot-list{display:flex;flex-direction:column;gap:0;}
@@ -201,16 +206,257 @@
     <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="宮古島内を検索..." autocomplete="off"></div>
     <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
   </div>
-  <div class="secnav"><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a><a href="#stay">🛏 ホテル・宿</a><a href="#health">🛁 サウナ・スパ</a></div>
+  <div class="secnav"><a href="#okinawa_food">🥣 沖縄料理</a><a href="#izakaya">🍻 居酒屋</a><a href="#steak">🥩 ステーキ</a><a href="#chinese">🥢 中華料理</a><a href="#western">🍝 洋食</a><a href="#asian">🌏 アジア料理</a><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a><a href="#stay">🛏 ホテル・宿</a><a href="#health">🛁 サウナ・スパ</a></div>
 </div>
 
 <main class="wrap">
 <p id="no-results" class="no-results">検索結果がありません</p>
 
+<section id="okinawa_food">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥣 沖縄料理</h2>
+    <span class="sec-count">9件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="くになか食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=3120988680131430795" target="_blank" rel="noopener">くになか食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    <p class="spot-desc">地元民に愛され続ける宮古島の人気食堂「くになか食堂」 | 宮古島の情報メディア
+...
+宮古島の人なら誰もが1度は食べたことがあるはずの「くになか食堂」さんの天ぷら。フワフワで少し甘めの衣の天ぷらは差し入れの定番ですよね。
+...
+「くになか食堂」さんと言えば、天ぷらが有名なお店ですが、横にある食堂も安くて美味しいんです！
+...
+美味しい宮古そばが食べれる＆地元の人が通う美味しい食堂をお探しの方</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3120988680131430795" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="すむばり食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">すむばり食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥800〜¥1,500</div>
+    <p class="spot-desc">池間大橋近くの大衆食堂。地元漁師直仕入れの島ダコを使ったタコ料理専門店で、墨入りタコ焼きそばやタコ丼が名物</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000216/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.sumbari.com/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="古謝そば屋">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">古謝そば屋</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥500〜¥1,000</div>
+    <p class="spot-desc">昭和7年創業。自家製麺所直営の老舗宮古そば店。豚骨×カツオのあっさりスープと直麺が特徴。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000106/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://kojasoba.com/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="大和食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=9505800225850122736" target="_blank" rel="noopener">大和食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9505800225850122736" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="山ちゃん食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=12080390565399971736" target="_blank" rel="noopener">山ちゃん食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">Google ⭐4.0</div>
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12080390565399971736" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47003978/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="島おでんたから">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=6243606402844248666" target="_blank" rel="noopener">島おでんたから</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6243606402844248666" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000098/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="手打そば 食菜 かま田">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=18071947727387620302" target="_blank" rel="noopener">手打そば 食菜 かま田</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    <p class="spot-desc">本格手打ち蕎麦を味わえる「手打ちそば かま田」 宮古島で美味しい手打ちそばを楽しみたいなら、「手打ちそば かま田」をぜひ訪れてみてください。このお店では、宮古島産の蕎麦粉を使用した風味豊かな手打ちそばが堪能できます。 宮古島産蕎麦粉使用手打ちそば かま田では、地元宮古島産の蕎麦粉を使用しており、新鮮で風味豊かなそばを提供しています。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18071947727387620302" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="腰原食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=7520109107611082258" target="_blank" rel="noopener">腰原食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7520109107611082258" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47010723/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="菊栄食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=18189776976694554362" target="_blank" rel="noopener">菊栄食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18189776976694554362" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000104/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="izakaya">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍻 居酒屋</h2>
+    <span class="sec-count">5件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="でいりぐち">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5928777464099746251" target="_blank" rel="noopener">でいりぐち</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    <p class="spot-desc">居酒屋 でいりぐち 本店 - 宮古島BBcom 地図 検索 ホーム»グルメ» 居酒屋 でいりぐち 本店 --- 住所 平良字西里224 GPS 24.804414375097, 125.28107950225 電話 --- 店で扱う食材はすべて旬のものを使うなど、素材本来の味を楽しめる創作料理が充実。 厳選された古酒と一緒に味わおう♪ 泡盛は全て宮古島産の古酒を揃えたというこだわりっぷり。 ホテル</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5928777464099746251" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="郷家">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=9928532960295196525" target="_blank" rel="noopener">郷家</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    <p class="spot-desc">三線ライブのある宮古島の居酒屋 郷家
+
+0980-74-2358
+
+0980-73-8758
+
+宮古島の人の温かさ､心を癒す真っ白な砂浜と青い海、海中ではサンゴが育ち、かわいい熱帯魚が泳ぎ回り、空には太陽（てぃだ）がサンサン。 そんな宮古島のすべての恵みに感謝して、わたしたち郷家は島に訪れてくださった皆さまに沖縄創作料理や三線ライブステージなど、宮古島ならではの温かいひと時を提供したいと考えており</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9928532960295196525" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="The Gozero Grill">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=17857503387109179256" target="_blank" rel="noopener">The Gozero Grill</a></div>
+    
+    <p class="spot-desc">運営店舗 - The Gozero Grill | 株式会社ワイズリゾート沖縄
+
+GG1
+
+The Gozero Grill
+
+たびのホテルlit宮古島
+
+宮古島の中心部、西里に位置するバル風グリルレストラン。【The Gozero Grill】（ザゴーゼログリル）という名前は、 たびのホテルlit宮古島が面する道路に由来しています。
+
+街を愛し、地域と共に発展することを目指し、宮古島と地元の皆様</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=17857503387109179256" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="ひららバルKOSUMI">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=3414951928153114311" target="_blank" rel="noopener">ひららバルKOSUMI</a></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3414951928153114311" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47015412/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="アジアン居酒屋 kuusu">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=13091397429225129306" target="_blank" rel="noopener">アジアン居酒屋 kuusu</a></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13091397429225129306" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47005993/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="steak">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥩 ステーキ</h2>
+    <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="ワインと洋食 Tin">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=5485159469769680643" target="_blank" rel="noopener">ワインと洋食 Tin</a></div>
+    
+    <p class="spot-desc">【ワインと洋食 Tin ティン】離島・ステーキ・ハンバーグ・カレー - じゃらんnet 1. ご当地グルメガイド＞ 2. 沖縄のご当地グルメ＞ 3. 離島のご当地グルメ＞ 4. 宮古島市のご当地グルメ＞ 5. ワインと洋食 Tin ティン -.- （クチコミ0件） エリア ジャンル - メールする 所在地を確認する - 前へ - 次へ 洋食 西洋料理 ワイン ※掲載されている情報や写真については最</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5485159469769680643" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="多良間牛 ダグズ・グリル 宮古島本店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">多良間牛 ダグズ・グリル 宮古島本店</a></div>
+    <div class="spot-meta">¥10,000〜¥14,999</div>
+    <p class="spot-desc">多良間島産の希少な黒毛和牛を塊肉ステーキで提供。食べログ百名店2025選出の宮古島屈指のステーキハウス</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47021184/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://dougsburger.com/dougsgrill/index.php" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="chinese">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥢 中華料理</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ジャングル飯店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">ジャングル飯店</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥2,000</div>
+    <p class="spot-desc">宮古島の繁華街にある唯一無二のらぁ麺と本格中華料理の店。昼は食堂、夜は居酒屋スタイル。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47018962/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="western">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🍝 洋食</h2>
+    <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="DOUG‘S BURGER">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">DOUG‘S BURGER</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="trattoria IPPO">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=18029723139964345702" target="_blank" rel="noopener">trattoria IPPO</a><span class="tier-badge tier2">おすすめ</span></div>
+    
+    <p class="spot-desc">賑わう繁華街の一角にひっそりと佇む、隠れ家のようなトラットリア。 店名の「IPPO」には、この場所へ踏み入れる“その一歩”が、特別な時間の始まりであってほしいという想いを込めています。 一歩足を踏み入れると、料理が完成していく瞬間を楽しめるライブ感。 看板の手打ちパスタは、ご注文ごとに生地から仕上げる一皿です。 香り、音、温度までも含めた“出来たての美味しさ”を五感で感じながら、 気取らず、それで</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18029723139964345702" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="BISTROT PIERROT ビストロピエロ">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=11734563477480668969" target="_blank" rel="noopener">BISTROT PIERROT ビストロピエロ</a></div>
+    
+    
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11734563477480668969" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47015423/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
+<section id="asian">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🌏 アジア料理</h2>
+    <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ネパールレストラン・パリワール">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=7500398780763121638" target="_blank" rel="noopener">ネパールレストラン・パリワール</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">Google ⭐4.3</div>
+    <p class="spot-desc">パリワール | みゃーくずみ ... ... ... 青く輝く宮古ブルーの海と豊かな自然に囲まれた宮古島。そんな南国の島にいながら、本格的なネパールカレーが楽しめると評判のお店が「ネパールレストラン パリワール」です。地元客はもちろん、観光で訪れたカレーファンの間でもじわじわとその名が広まり、今では“島カレー”といえばパリワールと呼ばれるほどの人気ぶりです。 ... 「パリワール」の最大の魅力は、</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7500398780763121638" target="_blank" rel="noopener">📍 地図</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="ミヤコ•スリランカカレー by サマン">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=3627812067276031939" target="_blank" rel="noopener">ミヤコ•スリランカカレー by サマン</a></div>
+    
+    <p class="spot-desc">【閉店】vol.114 あの「サマンカレー」再び！！ MENU 2024-09-18 みなさんに朗報です！なんとスリランカカレーで人気を博したあのSAMANカレーがまた宮古島で食べられるんです！スリランカカレーとストリートフード「Miyako SriLanka Cafe by Saman」が本日プレオープンしました。あのサマンさんのカレーを忘れられない人も多いはず。ウキウキしながら早速いってきまし</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3627812067276031939" target="_blank" rel="noopener">📍 地図</a></div>
+</div></div>
+</section>
 <section id="food">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🍽 その他の食事</h2>
     <span class="sec-count">9件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="Sakuma Terrace サクマテラス">
   <div>
@@ -286,9 +532,10 @@
 </div></div>
 </section>
 <section id="cafe_sweets">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>☕ カフェ・スイーツ</h2>
     <span class="sec-count">12件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="Cafe de M（カフェ ド エム）">
   <div>
@@ -388,9 +635,10 @@
 </div></div>
 </section>
 <section id="leisure">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🌊 観光・スポット</h2>
     <span class="sec-count">5件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="与那覇前浜">
   <div>
@@ -434,9 +682,10 @@
 </div></div>
 </section>
 <section id="activity">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏄 観光・体験</h2>
     <span class="sec-count">20件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="HOTEL R 9 The Yard Miyakojima">
   <div>
@@ -636,9 +885,10 @@ Cafe Irayoi（カフェ イラヨイ）
 </div></div>
 </section>
 <section id="lodging">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏨 宿泊</h2>
     <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ザ シギラ">
   <div>
@@ -666,9 +916,10 @@ Cafe Irayoi（カフェ イラヨイ）
 </div></div>
 </section>
 <section id="stay">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🛏 ホテル・宿</h2>
     <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="星のテラス アルシオーネⅡ">
   <div>
@@ -688,9 +939,10 @@ Cafe Irayoi（カフェ イラヨイ）
 </div></div>
 </section>
 <section id="health">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🛁 サウナ・スパ</h2>
     <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="ぐりーんりーふ">
   <div>
@@ -741,6 +993,13 @@ secs.forEach(s=>obs.observe(s));
     document.querySelectorAll('section[id]').forEach(sec=>{
       const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
       sec.style.display=vis?'':'none';
+      // 検索中は自動展開
+      if((q||tier2only)&&vis){
+        const list=sec.querySelector('.spot-list');
+        const head=sec.querySelector('.sec-head');
+        if(list) list.classList.remove('sec-collapsed');
+        if(head) head.classList.remove('sec-collapsed');
+      }
     });
     const nr=document.getElementById('no-results');
     if(nr) nr.style.display=any?'none':'block';
@@ -751,6 +1010,22 @@ secs.forEach(s=>obs.observe(s));
     btn.classList.toggle('on',tier2only);
     btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
     applyFilter();
+  });
+})();
+// Category toggle
+function toggleSec(head){
+  const list=head.nextElementSibling;
+  const c=list.classList.toggle('sec-collapsed');
+  head.classList.toggle('sec-collapsed',c);
+}
+// Initial: collapse all but the first section
+(function(){
+  document.querySelectorAll('section[id]').forEach((sec,i)=>{
+    if(i===0) return;
+    const list=sec.querySelector('.spot-list');
+    const head=sec.querySelector('.sec-head');
+    if(list) list.classList.add('sec-collapsed');
+    if(head) head.classList.add('sec-collapsed');
   });
 })();
 </script>

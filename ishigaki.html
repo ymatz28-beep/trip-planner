@@ -88,10 +88,15 @@
   /* Category sections */
   section{padding:28px 0 4px;scroll-margin-top:108px;}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}
   .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
   .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+  .sec-toggle{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}
+  .sec-head.sec-collapsed .sec-toggle{transform:rotate(-90deg);}
+  .spot-list.sec-collapsed{display:none;}
 
   /* Spot list — editorial, not round cards */
   .spot-list{display:flex;flex-direction:column;gap:0;}
@@ -201,16 +206,134 @@
     <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="石垣島内を検索..." autocomplete="off"></div>
     <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
   </div>
-  <div class="secnav"><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a><a href="#nightlife">🌙 ナイトライフ</a></div>
+  <div class="secnav"><a href="#okinawa_food">🥣 沖縄料理</a><a href="#steak">🥩 ステーキ</a><a href="#yakiniku">🔥 焼肉</a><a href="#food">🍽 その他の食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a><a href="#nightlife">🌙 ナイトライフ</a></div>
 </div>
 
 <main class="wrap">
 <p id="no-results" class="no-results">検索結果がありません</p>
 
+<section id="okinawa_food">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥣 沖縄料理</h2>
+    <span class="sec-count">6件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="あらかわ食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=12784427412187733898" target="_blank" rel="noopener">あらかわ食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥500〜¥1,200</div>
+    <p class="spot-desc">石垣島名物の牛そば・牛汁が看板。地元客に愛されるアットホームな定食食堂</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12784427412187733898" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47018536/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="ひまわり食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=1345365049993481999" target="_blank" rel="noopener">ひまわり食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥800〜¥1,300</div>
+    <p class="spot-desc">地元民に愛されるボリューム満点の大衆食堂。ハンバーグ定食や八重山そば定食が人気。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1345365049993481999" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47017723/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="一休食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=15001331807758398895" target="_blank" rel="noopener">一休食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥600〜¥1,999</div>
+    <p class="spot-desc">石垣島で山羊汁・牛そばが有名な老舗食堂。マツコの知らない世界でも紹介された地元民御用達の味。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15001331807758398895" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47000278/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://igpa.jp/%E4%B8%80%E4%BC%91%E9%A3%9F%E5%A0%82/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="中国飯店 大富">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=15271160564328268722" target="_blank" rel="noopener">中国飯店 大富</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥1,999</div>
+    <p class="spot-desc">地元石垣島民に長年愛される町中華。あんかけ麺・唐揚げ定食が人気でボリューム満点かつリーズナブル。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15271160564328268722" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47012952/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="明石食堂">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=11327091682001079431" target="_blank" rel="noopener">明石食堂</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥1,999</div>
+    <p class="spot-desc">石垣島北部の行列必至名店。豚骨ベースの濃厚スープとトロトロ軟骨ソーキそばが看板メニュー。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11327091682001079431" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47000038/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="石垣 食堂 酒晴">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=16946489674028550802" target="_blank" rel="noopener">石垣 食堂 酒晴</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥3,000〜¥4,000</div>
+    <p class="spot-desc">美崎町の隠れ家居酒屋。氷温熟成の島魚刺身とやんばる鶏料理が看板メニュー。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=16946489674028550802" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47021457/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://ishigaki-shokudousakabaru.gorp.jp/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="steak">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🥩 ステーキ</h2>
+    <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="焼肉やいま">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=11751898434014562520" target="_blank" rel="noopener">焼肉やいま</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥3,900〜¥6,000</div>
+    <p class="spot-desc">JA石垣牛取扱い認定店。石垣牛・国産和牛・アグー豚をリーズナブルに提供。個室あり、食べ飲み放題コースも人気。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11751898434014562520" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47025057/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://yakiniku.yaima.co.jp/" target="_blank" rel="noopener">公式</a></div>
+</div></div>
+</section>
+<section id="yakiniku">
+  <div class="sec-head" onclick="toggleSec(this)">
+    <h2>🔥 焼肉</h2>
+    <span class="sec-count">5件</span>
+    <span class="sec-toggle">▼</span>
+  </div>
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ひとし 石敢當店">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=16082534654790288009" target="_blank" rel="noopener">ひとし 石敢當店</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥3,000〜¥4,999</div>
+    <p class="spot-desc">マグロ専門居酒屋。本まぐろ3点盛や石垣牛寿司が人気で食べログ居酒屋WEST百名店常連の予約困難店</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=16082534654790288009" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47001357/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.instagram.com/hitoshigroup" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="島のごちそう てぃんがーら">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14012822390692483519" target="_blank" rel="noopener">島のごちそう てぃんがーら</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥1,000〜¥4,000</div>
+    <p class="spot-desc">石垣牛・島野菜の地産地消にこだわるロッジビストロ。自家製生パスタや石垣牛100%ハンバーグが人気</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14012822390692483519" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47024096/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://tune-up.biz/thingara/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="炭火焼肉 たけさん亭">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=14497403932263154733" target="_blank" rel="noopener">炭火焼肉 たけさん亭</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥8,000〜¥9,999</div>
+    <p class="spot-desc">JA公認の石垣牛を一頭丸ごと仕入れ、希少部位を炭火で提供する食べログ上位の人気焼肉店</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14497403932263154733" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47000310/" target="_blank" rel="noopener">食べログ</a></div>
+</div>
+<div class="spot-item" data-tier="2" data-name="石垣牛MARU【石垣牛専門店】">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=18190239949189980321" target="_blank" rel="noopener">石垣牛MARU【石垣牛専門店】</a><span class="tier-badge tier2">おすすめ</span></div>
+    <div class="spot-meta">¥5,000〜¥10,000</div>
+    <p class="spot-desc">JA石垣牛取扱認定店。A5等級の特選石垣牛を部位ごと一頭買いで仕入れ、完全予約制で提供する焼肉専門店。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18190239949189980321" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47006701/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://ishigaki-maru.com/" target="_blank" rel="noopener">公式</a></div>
+</div>
+<div class="spot-item" data-tier="3" data-name="島料理 とんでみーな">
+  <div>
+    <div class="spot-name"><a href="http://maps.google.com/?cid=13351488411585322622" target="_blank" rel="noopener">島料理 とんでみーな</a></div>
+    <div class="spot-meta">¥2,000〜¥4,999</div>
+    <p class="spot-desc">石垣牛たたき・マグロ刺身・チャンプルーが揃う島料理居酒屋。昼から飲み放題対応。</p>
+  </div>
+  <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13351488411585322622" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470501/47026087/" target="_blank" rel="noopener">食べログ</a></div>
+</div></div>
+</section>
 <section id="food">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🍽 その他の食事</h2>
     <span class="sec-count">5件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="フォレスターレ・ウーノ">
   <div>
@@ -254,9 +377,10 @@
 </div></div>
 </section>
 <section id="cafe_sweets">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>☕ カフェ・スイーツ</h2>
     <span class="sec-count">6件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ガロパン">
   <div>
@@ -308,9 +432,10 @@
 </div></div>
 </section>
 <section id="leisure">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🌊 観光・スポット</h2>
     <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="大崎ビーチ(タチイ浜)">
   <div>
@@ -338,9 +463,10 @@
 </div></div>
 </section>
 <section id="activity">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏄 観光・体験</h2>
     <span class="sec-count">3件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="2" data-name="川平湾">
   <div>
@@ -368,9 +494,10 @@
 </div></div>
 </section>
 <section id="lodging">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🏨 宿泊</h2>
     <span class="sec-count">2件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="giving tree home">
   <div>
@@ -390,9 +517,10 @@
 </div></div>
 </section>
 <section id="nightlife">
-  <div class="sec-head">
+  <div class="sec-head" onclick="toggleSec(this)">
     <h2>🌙 ナイトライフ</h2>
     <span class="sec-count">1件</span>
+    <span class="sec-toggle">▼</span>
   </div>
   <div class="spot-list"><div class="spot-item" data-tier="3" data-name="あむりたの庭、そして音楽">
   <div>
@@ -443,6 +571,13 @@ secs.forEach(s=>obs.observe(s));
     document.querySelectorAll('section[id]').forEach(sec=>{
       const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
       sec.style.display=vis?'':'none';
+      // 検索中は自動展開
+      if((q||tier2only)&&vis){
+        const list=sec.querySelector('.spot-list');
+        const head=sec.querySelector('.sec-head');
+        if(list) list.classList.remove('sec-collapsed');
+        if(head) head.classList.remove('sec-collapsed');
+      }
     });
     const nr=document.getElementById('no-results');
     if(nr) nr.style.display=any?'none':'block';
@@ -453,6 +588,22 @@ secs.forEach(s=>obs.observe(s));
     btn.classList.toggle('on',tier2only);
     btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
     applyFilter();
+  });
+})();
+// Category toggle
+function toggleSec(head){
+  const list=head.nextElementSibling;
+  const c=list.classList.toggle('sec-collapsed');
+  head.classList.toggle('sec-collapsed',c);
+}
+// Initial: collapse all but the first section
+(function(){
+  document.querySelectorAll('section[id]').forEach((sec,i)=>{
+    if(i===0) return;
+    const list=sec.querySelector('.spot-list');
+    const head=sec.querySelector('.sec-head');
+    if(list) list.classList.add('sec-collapsed');
+    if(head) head.classList.add('sec-collapsed');
   });
 })();
 </script>

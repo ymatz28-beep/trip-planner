@@ -88,10 +88,15 @@
   /* Category sections */
   section{padding:28px 0 4px;scroll-margin-top:108px;}
   .sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:16px;
-    padding-bottom:10px;border-bottom:2px solid var(--c1);}
+    padding-bottom:10px;border-bottom:2px solid var(--c1);
+    cursor:pointer;user-select:none;}
   .sec-head h2{font-size:clamp(17px,4.5vw,20px);font-weight:700;color:var(--c1);}
   .sec-count{font-size:11px;font-weight:700;color:var(--ink3);background:var(--surface2);
     border:1px solid var(--line2);padding:2px 8px;border-radius:var(--r-pill);}
+  .sec-toggle{margin-left:auto;font-size:10px;color:var(--ink3);
+    display:inline-block;transition:transform .2s;flex-shrink:0;}
+  .sec-head.sec-collapsed .sec-toggle{transform:rotate(-90deg);}
+  .spot-list.sec-collapsed{display:none;}
 
   /* Spot list — editorial, not round cards */
   .spot-list{display:flex;flex-direction:column;gap:0;}
@@ -187,7 +192,7 @@
 <div class="hero hub-hero">
   <div class="wrap">
     <div class="eyebrow">Japan · Okinawa</div>
-    <h1>🌺 沖縄 エリアガイド<small>宮古島 · 石垣島 · 那覇 · 本島 · 離島</small></h1>
+    <h1>🌺 沖縄 エリアガイド<small>那覇 · 本島中北部 · 宮古島 · 石垣島 · その他離島</small></h1>
     <p class="lede">Mapplyに保存した279件のスポットを5エリアで収録。エリアを選んでグルメ・観光・宿泊を確認。</p>
     <div class="hero-meta">
       <span class="hpill">📍 279スポット</span>
@@ -217,7 +222,7 @@
     <div class="rcard-name">那覇</div>
     <div class="rcard-sub">国際通り · 松山 · 牧志</div>
     <div class="rcard-tags">
-      <span class="rtag">🍽 37件</span>
+      <span class="rtag">🍽 36件</span>
       <span class="rtag">🌊 0件</span>
       <span class="rtag">★★ 50件</span>
     </div>
