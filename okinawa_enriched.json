@@ -122,7 +122,7 @@
   },
   {
     "name": "てびち屋本舗 那覇松山店",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "那覇",
     "addr": "沖縄県那覇市松山1-12-5",
@@ -156,7 +156,7 @@
   },
   {
     "name": "ジャングル飯店",
-    "category": "food",
+    "category": "chinese",
     "subcategory": "chinese",
     "region": "宮古島",
     "addr": "沖縄県宮古島市平良下里575",
@@ -311,7 +311,7 @@
   },
   {
     "name": "炭火焼肉 たけさん亭",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "yakiniku_yakitori",
     "region": "石垣島",
     "addr": "沖縄県石垣市浜崎町2-2-4",
@@ -329,7 +329,7 @@
   },
   {
     "name": "焼肉やいま",
-    "category": "food",
+    "category": "steak",
     "subcategory": "yakiniku_yakitori",
     "region": "石垣島",
     "addr": "沖縄県石垣市美崎町9-9",
@@ -380,7 +380,7 @@
   },
   {
     "name": "ひまわり食堂",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県那覇市おもろまち2-5-36",
@@ -397,7 +397,7 @@
   },
   {
     "name": "中国飯店 大富",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "chinese",
     "region": "石垣島",
     "addr": "沖縄県石垣市登野城５５５-６",
@@ -414,7 +414,7 @@
   },
   {
     "name": "島のごちそう てぃんがーら",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県青年農業者会議プロジェクト発表の部「奨励賞」受賞",
@@ -431,7 +431,7 @@
   },
   {
     "name": "石垣牛MARU【石垣牛専門店】",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "yakiniku_yakitori",
     "region": "石垣島",
     "addr": "沖縄県新",
@@ -534,7 +534,7 @@
   },
   {
     "name": "明石食堂",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県石垣市伊原間360",
@@ -585,7 +585,7 @@
   },
   {
     "name": "一休食堂",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県石垣市美崎町７-１９",
@@ -603,7 +603,7 @@
   },
   {
     "name": "あらかわ食堂",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県石垣市新川2376-16",
@@ -637,7 +637,7 @@
   },
   {
     "name": "島料理 とんでみーな",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "japanese",
     "region": "石垣島",
     "addr": "沖縄県石垣市大川240-1",
@@ -654,7 +654,7 @@
   },
   {
     "name": "石垣 食堂 酒晴",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "石垣島",
     "addr": "沖縄県の県魚「グルクン」を丁寧に下拵えし",
@@ -672,7 +672,7 @@
   },
   {
     "name": "ひとし 石敢當店",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "sushi_seafood",
     "region": "石垣島",
     "addr": "沖縄県石垣市大川197−1マップ",
@@ -742,7 +742,7 @@
   },
   {
     "name": "島そば",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "本島",
     "addr": "沖縄県本部町島豚そば・つけ麺の店",
@@ -810,7 +810,7 @@
   },
   {
     "name": "琉球テラス うら庭",
-    "category": "food",
+    "category": "izakaya",
     "subcategory": "japanese",
     "region": "本島",
     "addr": "沖縄県恩納村ラグジュアリーホテル",
@@ -827,7 +827,7 @@
   },
   {
     "name": "ステーキハウス ジャム 沖縄恩納村店",
-    "category": "food",
+    "category": "steak",
     "subcategory": "western",
     "region": "本島",
     "addr": "沖縄県国頭郡恩納村冨着1518",
@@ -844,7 +844,7 @@
   },
   {
     "name": "沖縄とんかつ食堂しまぶた屋 前兼久店",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "本島",
     "addr": "沖縄県国頭郡恩納村字前兼久96-1",
@@ -896,7 +896,7 @@
   },
   {
     "name": "番所亭",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "本島",
     "addr": "沖縄県中頭郡読谷村字喜名473【営業時間】11時～21時(ラストオーダー20時3",
@@ -998,7 +998,7 @@
   },
   {
     "name": "多良間牛 ダグズ・グリル 宮古島本店",
-    "category": "food",
+    "category": "steak",
     "subcategory": "yakiniku_yakitori",
     "region": "宮古島",
     "addr": "沖縄県宮古島市",
@@ -1136,7 +1136,7 @@
   },
   {
     "name": "DOUG‘S BURGER",
-    "category": "food",
+    "category": "western",
     "subcategory": "fastfood",
     "region": "宮古島",
     "addr": "沖縄県宮古島市平良下里1153-3-101",
@@ -1149,7 +1149,7 @@
   },
   {
     "name": "すむばり食堂",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "宮古島",
     "addr": "沖縄県宮古島にある",
@@ -1166,7 +1166,7 @@
   },
   {
     "name": "古謝そば屋",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "宮古島",
     "addr": "沖縄県宮古島市平良字下里1517-1",
@@ -1217,7 +1217,7 @@
   },
   {
     "name": "やん小～",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "teishoku",
     "region": "離島",
     "addr": "沖縄県島尻郡久米島町字仲泊509",
@@ -1234,7 +1234,7 @@
   },
   {
     "name": "中華海鮮 海皇",
-    "category": "food",
+    "category": "chinese",
     "subcategory": "sushi_seafood",
     "region": "離島",
     "addr": "沖縄県島尻郡久米島町字仲泊1123-5",
@@ -1251,7 +1251,7 @@
   },
   {
     "name": "島豚七輪焼 満味",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "yakiniku_yakitori",
     "region": "本島",
     "addr": "沖縄県産のブランド豚「やんばる島豚」をまるまるいただける専門店",
@@ -1269,7 +1269,7 @@
   },
   {
     "name": "焼肉こうちゃん",
-    "category": "food",
+    "category": "yakiniku",
     "subcategory": "yakiniku_yakitori",
     "region": "本島",
     "addr": "沖縄県糸満市赤嶺駅（ゆいレール）",
@@ -1286,7 +1286,7 @@
   },
   {
     "name": "百年古家 大家 うふやー",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "japanese",
     "region": "本島",
     "addr": "沖縄県名護市",
@@ -1303,7 +1303,7 @@
   },
   {
     "name": "大戸屋ごはん処 名護宮里店",
-    "category": "food",
+    "category": "washoku",
     "subcategory": "teishoku",
     "region": "本島",
     "addr": "沖縄県名護市",
@@ -1354,7 +1354,7 @@
   },
   {
     "name": "いしぐふー小禄具志店",
-    "category": "food",
+    "category": "okinawa_food",
     "subcategory": "japanese",
     "region": "那覇",
     "addr": "沖縄県那覇市具志3-21-5",
@@ -1662,7 +1662,7 @@
   },
   {
     "name": "宗像堂",
-    "category": "food",
+    "category": "bakery",
     "subcategory": "teishoku",
     "region": "本島",
     "addr": "沖縄県にて2003年にOPENし",
@@ -1688,7 +1688,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "甘味処 万丸 那覇泉崎店",
@@ -1701,7 +1702,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "スターバックスコーヒー 浦添西海岸パルコシティ店",
@@ -1714,7 +1716,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "スターバックスコーヒー 那覇メインプレイス店",
@@ -1727,7 +1730,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "スターバックスコーヒー イーアス沖縄豊崎店",
@@ -1740,7 +1744,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "スターバックスコーヒー 沖縄津嘉山店",
@@ -1753,7 +1758,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "スターバックスコーヒー 那覇オーパ店",
@@ -1766,7 +1772,8 @@
     "hours": "営業終了 お問い合わせ先 インフォメーションダイヤル ☎0120-936-610(受付時間10:00～17:00 金土日、祝日、年末年始は除く) お客様へは大変ご不便をお掛け致しますが、何卒ご理解賜りたくお願い申し上げます。 ご愛顧",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "お食事処 三笠 久米店",
@@ -1779,7 +1786,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "カレー カフェ沖縄式 那覇市久米 店",
@@ -1792,7 +1800,8 @@
     "hours": "営業時間 10:00～18:00 ランチタイム 11:00～15:00（LO） 定休日 毎週月曜日（祝日の場合は翌平日） ※当館の休館に準ずる TEL・FAX 098-988-0192",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "沖縄そば OKINAWA SOBA EIBUN",
@@ -1805,7 +1814,8 @@
     "hours": "営業時間 12:00-20:00 水曜定休",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "自家製麺 沖縄そば 識名そば",
@@ -1818,7 +1828,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "丸友 那覇総本店",
@@ -1832,7 +1843,8 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "source_url": "https://tabelog.com/okinawa/A4701/A470101/47027913/"
+    "source_url": "https://tabelog.com/okinawa/A4701/A470101/47027913/",
+    "category": ""
   },
   {
     "name": "ホテル・アンドルームス那覇ポート",
@@ -1845,7 +1857,8 @@
     "hours": "営業時間 9:00－23:00 場所 13階",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "ワイズキャビン&ホテル 那覇国際通り",
@@ -1858,7 +1871,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "那覇プライベートサウナ TOTONOI LABO",
@@ -1871,7 +1885,8 @@
     "hours": "営業⏰で朝5:30から利用しました☀️ 朝から幸せなサ活に感謝です✨",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "宮古島テントサウナ",
@@ -1884,7 +1899,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "mills by TruffleBAKERY 沖縄/浦添店",
@@ -1897,7 +1913,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "BEB5沖縄瀬良垣 by 星野リゾート",
@@ -1910,7 +1927,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "ホテルアートステイ那覇国際通り",
@@ -1923,7 +1941,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "ホテルグレイスリー那覇",
@@ -1937,7 +1956,8 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "source_url": "https://gracery.com/naha/"
+    "source_url": "https://gracery.com/naha/",
+    "category": ""
   },
   {
     "name": "沖縄の台所ぱいかじ 恩納店",
@@ -1951,7 +1971,8 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "source_url": "https://paikajionna.owst.jp/"
+    "source_url": "https://paikajionna.owst.jp/",
+    "category": ""
   },
   {
     "name": "北谷公園サンセットビーチ",
@@ -1964,7 +1985,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "宮古島荷川取漁港 みなと食堂",
@@ -1977,7 +1999,8 @@
     "hours": "営業時間：11:30～15:00(L.O14:30)",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "宮古素麺",
@@ -1990,7 +2013,8 @@
     "hours": "営業時間》11:00～(LO.)16:00 《店休日》不定休（詳細は Instagramへ）",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "沖縄そば まるかみ",
@@ -2003,7 +2027,8 @@
     "hours": "営業時間11:00~15:00(ラストオーダー14:30) (売り切れ次第終了) 日曜日 第二第四月曜日 定休日 (不定休あり) 電話番号070 8306 4642 オープン１",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 2
+    "tier": 2,
+    "category": ""
   },
   {
     "name": "石垣やいま村",
@@ -2016,7 +2041,8 @@
     "hours": "",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "石垣島 青の洞窟",
@@ -2029,13 +2055,14 @@
     "hours": "営業時間 | 8:00～18:00 |",
     "score_google": "",
     "score_tabelog": "",
-    "tier": 3
+    "tier": 3,
+    "category": ""
   },
   {
     "name": "アジアン食堂 シロクマ",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=11447753331465595356",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 3,
     "desc": "【公式】 言語を選択​ -- - RESERVE098-923-1980 - RESERVEWEB予約はこちら タイの屋台をイメージした手作りの店内は、カラフルな椅子やアジアン雑貨が散りばめられており、異国情緒タップリです。ご提供しているのは、タイ人シェフ仕込みの本格タイ料理。定番かつイチオシの“トムヤムクン”は、出汁の旨味が詰まった珠玉の逸品です◎ゆったりすごせるソファ席もご用意しており、お子さ",
     "addr": "沖縄県読谷村の屋台風アジアン食堂♪",
@@ -2047,7 +2074,7 @@
     "name": "ステーキハウス88 那覇空港店",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=16988759355275304612",
-    "category": "food",
+    "category": "steak",
     "tier": 2,
     "desc": "ステーキハウス88 | 【公式】ステーキハウス88グループ 沖縄でステーキを食べ忘れてもこれで安心♪那覇空港際内連結ターミナル施設3階にて営業中！飛行機を眺めながらお食事できます。 - MENU - INFORMATION - MAP airport@s88.co.jp ※返信に2,3日お時間を頂戴する場合がございますので、あらかじめご了承ください。 スマホオーダー | 店舗名 | ステーキハウス",
     "addr": "沖縄県那覇市鏡水150",
@@ -2059,7 +2086,7 @@
     "name": "ステーキハウス88Jr 松山店",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=9616562449097728456",
-    "category": "food",
+    "category": "steak",
     "tier": 2,
     "desc": "ステーキハウス88Jr. | 【公式】ステーキハウス88グループ 那覇市の繁華街松山にあり 深夜まで営業しているので〆のステーキを楽しめます。 - MENU - INFORMATION - MAP matsuyama@s88.co.jp ※返信に2,3日お時間を頂戴する場合がございますので、あらかじめご了承ください。 サラダバー スープバー ライスバー テイクアウト | 店舗名 | 1,000円ス",
     "addr": "沖縄県那覇市松山2-10-13",
@@ -2071,7 +2098,7 @@
     "name": "ジャッキーステーキハウス",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=6522606484635319543",
-    "category": "food",
+    "category": "steak",
     "tier": 2,
     "desc": "ジャッキー ステーキハウス – JACK'S STEAK HOUSE お客様のカート カートを閉じる お家でジャッキー！贈り物やご自宅用にどうぞ！！ お家でジャッキー！贈り物やご自宅用にどうぞ！！ いつも当店をご利用いただき、誠にありがとうございます。このたび、4月からの牛肉仕入れ価格の変更に伴い、4月1日よりメニューの一部につきまして価格を改定させていただくこととなりました。日頃よりご愛顧いただ",
     "addr": "沖縄県那覇市西１丁目７－３",
@@ -2120,7 +2147,7 @@
     "name": "酒場KUMECHO",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=16483173853033624253",
-    "category": "food",
+    "category": "izakaya",
     "tier": 2,
     "desc": "久米の酒場 すべて生地から手作りのピザやパスタ、漁港直送の刺盛り等全７品に３時間飲み放題が付いてお一人様３5００円。※前日までの要予約。４名様より対応させて頂いております。 お一人様でもお気軽にどうぞ♪カウンター席はもちろん、掘りごたつ席、テーブル席もあり。 鮮度抜群！漁港直送だからできるこの品質！ 並と大の２種類♪お酒とご一緒にどうぞ。 BBQソースでどうぞ。 クセになります・・。 すべて見る ",
     "addr": "沖縄県那覇市久米1-4-20050-5485-5905",
@@ -2132,7 +2159,7 @@
     "name": "高良食堂",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=17912631759299811384",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "高良食堂（那覇市若狭）ボリューム満点のメニューが揃う有名店！持ち帰りもOK！ | 沖縄巡り.com\n...\n今回紹介するのは那覇市若狭にある『高良食堂』です。いつ伺っても地元のお客さんで一杯の人気店で、圧倒的なメニュー数とコスパの良さが魅力の食堂となっています♪\n...\nお店のメニューは全て持ち帰り（テイクアウト）OK！駐車場は店舗前と横＋第2駐車場が用意されているよ♪\n...\nこちらが『高良食堂",
     "addr": "沖縄県那覇市若狭1-7-10",
@@ -2144,7 +2171,7 @@
     "name": "韓国料理 ぜんの豚（ぜんのぶた）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=13337814293881535328",
-    "category": "food",
+    "category": "asian",
     "tier": 3,
     "desc": "ぜんの豚 2024.02.8 2018.07.7 本格的な韓国料理のお店「ぜんの豚」は、那覇市にあります。 Real Korean Soul Kitchen in Naha, Okinawa. MORE DETAIL お食事メニューは食材にこだわり、またバリエーション豊かに取り揃えました MORE MENU 2024.02.8 2018.07.7 韓国の方にお越し頂いても本場の味に出会えるお店をコ",
     "addr": "沖縄県那覇市久茂地3-11-8",
@@ -2169,7 +2196,7 @@
     "name": "ステーキハウス８８ 辻本店",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=1262213650107094147",
-    "category": "food",
+    "category": "steak",
     "tier": 2,
     "desc": "ステーキハウス88 | 【公式】ステーキハウス88グループ 沖縄ステーキハウスの老舗「ステーキハウス88」の総本店。 ステーキだけで常時20種類超をお取揃え！さらにタコスやタコライス、Ａランチなど沖縄のソウルフードもご用意。 - MENU - INFORMATION - MAP honten@s88.co.jp ※返信に2,3日お時間を頂戴する場合がございますので、あらかじめご了承ください。 テイ",
     "addr": "沖縄県那覇市辻2-8-21",
@@ -2193,7 +2220,7 @@
     "name": "木灰そば･とらや",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=16770325393066716632",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "沖縄リピート 2022.05.25 | 沖縄では是非食べてもらいたい沖縄そば。今回は那覇空港に近い赤嶺にあり、沖縄伝統的な「木灰そば」が食べられるお店「とらや」です。あっさり味のスープに中細麺と平麺が選べる沖縄そばは絶品。人気があるのもよくわかります。 目次 - 1 とらやの沖縄そばはカツオ出汁 - 2 木灰そばとは - 3 とらやの駐車場は あっさり味で透き通ったカツオ出汁スープ。麺は中細麺（写",
     "addr": "沖縄県酒造組合と開催したり",
@@ -2218,7 +2245,7 @@
     "name": "りーさん堂旬鮮食堂",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=2148976399903690414",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市久茂地1丁目5-3",
@@ -2242,7 +2269,7 @@
     "name": "江戸前寿し松乃屋",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=1571886466644020394",
-    "category": "food",
+    "category": "seafood",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市泉崎１丁目１８－１６",
@@ -2254,7 +2281,7 @@
     "name": "鳥と卵の専門店 鳥玉 泉崎店",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=7541597675920875728",
-    "category": "food",
+    "category": "washoku",
     "tier": 2,
     "desc": "鳥と卵の専門店 鳥玉泉崎店 - 鳥・卵料理の専門店 営業時間 11:00～21:00 座席数・お席の種類 総席数 30席 クレジットカード - VISA - MasterCard - JCB 禁煙・喫煙 店内全面禁煙 携帯・Wi-Fi・電源 携帯の電波 au ソフトバンク NTT ドコモ 〒900-0021沖縄県那覇市泉崎1-17-1050-5487-4977 交通手段 ゆいレール 旭橋駅 徒歩4",
     "addr": "沖縄県那覇市泉崎1-17-1050-5487-4977",
@@ -2266,7 +2293,7 @@
     "name": "東雲",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=2402126610178452987",
-    "category": "food",
+    "category": "izakaya",
     "tier": 3,
     "desc": "地元沖縄の食材を使ったおもてなし料理 沖縄県那覇市にある「沖縄食堂 東雲」は、新鮮な地元の食材を使用した美味しい料理が楽しめる食堂居酒屋です。昼はボリューム満点の定食が食べられる食堂として、夜は一品料理からコース料理まで楽しめる居酒屋として営業しています。地元のお客さまはもちろん、観光のお客さまにもご利用いただいています。沖縄ならではの珍しい料理やお酒を存分にお楽しみいただけますので、是非ご来店く",
     "addr": "沖縄県那覇市にある「沖縄食堂",
@@ -2278,7 +2305,7 @@
     "name": "鮮魚 ふくむら",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=10478844257509314118",
-    "category": "food",
+    "category": "seafood",
     "tier": 3,
     "desc": "",
     "addr": "沖縄県那覇市東町１５－１６",
@@ -2326,7 +2353,7 @@
     "name": "あめいろ食堂",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=8032903350289078863",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 3,
     "desc": "沖縄観光情報WEBサイト おきなわ物語 静かな住宅街にたたずむレトロな古民家のあめいろ食堂。 ランチの定食は日によってメニューが変わりますが、どの料理にも地元の食材がふんだんに使われています。 お味噌汁は、沖縄で昔から飲まれている「かちゅーゆ（鰹湯）」。 メインは、県産豚のしょうが焼き定食をはじめ、常時3、4種類を用意。 羽釜で炊いた五分つきのごはんも絶品です！ マイプランに追加 マイプラン登録済",
     "addr": "沖縄県那覇市樋川1-3-7",
@@ -2338,7 +2365,7 @@
     "name": "ピッツバーグ・フォーラム",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=4342684487449535369",
-    "category": "food",
+    "category": "steak",
     "tier": 2,
     "desc": "テンポススター 店舗ID：5922 予算：～3000円～5000円 最寄り駅：ｰ 1962年に創業の老舗Ａサインレストラン 外観はネオンサインが光るアメリカンな雰囲気 料理はスープとサラダ、メインディッシュ、食後のデザート、ドリンクもついています。 味も値段も接客も雰囲気も素晴らしいお店です。 牛ヒレステーキ 28 ～3000円 ～5000円 なし 12:00 - 14:00 18:00 - 21",
     "addr": "沖縄県那覇市泊３丁目７−１４",
@@ -2350,7 +2377,7 @@
     "name": "酒ト旨めし ちょうじ",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=5066096351405454918",
-    "category": "food",
+    "category": "izakaya",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市",
@@ -2374,7 +2401,7 @@
     "name": "魚屋直営食堂 魚まる",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=15190681738882587769",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "☆魚屋直営食堂 魚まる☆ 那覇市にある魚まる小禄店、前島店、樋川店、浦添市にある魚まる経塚店から情報をお届け♪ 新着情報 2026年02月20日 09:57魚まる全店舗にて「兵庫県産 大粒生ガキ」大特価販売！いつも魚まるをご利用いただきありがとうございます。2月20日より、魚まる全店舗にて兵庫県産 大粒生ガキを特別価格でご提供いたします。■ 1個 130円（税込143円）■ おひとり様2個まで■ ",
     "addr": "沖縄県那覇市高良３丁目５−",
@@ -2386,7 +2413,7 @@
     "name": "今いゆ玉しろ",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=2312103209348255617",
-    "category": "food",
+    "category": "seafood",
     "tier": 2,
     "desc": "OKITIVE エンタメ,グルメ,すし・魚料理,テレビ,和食・日本料理,地域,本島南部,那覇市 2022/05/04 公開日2022/05/04 「町の小さな刺身屋が営んでいる定食屋」というコンセプトの通り、沖縄の新鮮な魚の美味しさに出会えます。沖縄の魚を知り尽くした店主が、巧みな技で魚のうまさを引き出した逸品を提供。清潔感のある店内で店主の魚さばきをカウンター越しに見ながら美味しい料理がいただけ",
     "addr": "沖縄県産マグロを２度揚げしてサックリ仕上げた鮪竜田揚げ",
@@ -2410,7 +2437,7 @@
     "name": "ヤフソチキン TACOS&BAR",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=15349840199751196959",
-    "category": "food",
+    "category": "izakaya",
     "tier": 3,
     "desc": "OKITIVE ... アジア・エスニック,グルメ,タコス・タコライス,地域,居酒屋・バー,本島南部,那覇市 ... ... コロナ禍が明け、観光客で賑わいを見せる浮島通りにある「ヤフソチキン」。メキシカンスタイルにとらわれない、オリジナルの創作タコスが人気なのだそう！ 早速家族で行ってきました！ ... ... 「ヤフソチキン」は立ち飲みスタイルのTacos＆Barです。小さなお店ですが、立ち飲",
     "addr": "沖縄県浦添市屋富祖3-2-1アクセス",
@@ -2422,7 +2449,7 @@
     "name": "本場中華料理 萬珍園",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=18390881825280375791",
-    "category": "food",
+    "category": "chinese",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市松尾２丁目２－１４",
@@ -2435,7 +2462,7 @@
     "name": "燕郷房（ヤンキョウファン）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=7228097710644288139",
-    "category": "food",
+    "category": "izakaya",
     "tier": 2,
     "desc": "沖縄 那覇市（泉崎）｜中華｜ちゅらグルメ - メニュー 那覇/南部/中部/北部/石垣島の居酒屋・飲食情報 那覇市泉崎、ビジネス街の喧騒から少し入った場所に、赤提灯が灯る一軒の店があります。 「燕郷房（ヤンキョウファン）」。その名には、渡り鳥である「燕（お客様）」が「郷（故郷）」に帰り、温かい「房（食卓）」を囲む場所でありたいという、深い願いが込められています。 扉を開けた瞬間に鼻腔をくすぐるのは、",
     "addr": "沖縄県那覇市で中華料理レストラン・居酒屋を運営",
@@ -2447,7 +2474,7 @@
     "name": "韓食堂柚花（ハンシｯタンユファ）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=5630882859512441102",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 3,
     "desc": "韓食堂 柚花（ユファ） ～大満足！冷麺セットとキムパ・ヤンニョムチキンセット～:那覇で食べ飲み日記 ２ 那覇の飲食店の料理がメインですが、 時々スイーツや趣味も書いてみようと思います♪ 休日ランチは、こちらにお邪魔しました。 韓食堂 柚花（ユファ）さん。 ＯＣＮのあまくま歩人で紹介されていて 美味しそうだったので行ってみました。 入店すると予想以上に狭い店で 客席数は10席くらいでしょうかこちらが",
     "addr": "沖縄県那覇市牧志2-6-30",
@@ -2459,7 +2486,7 @@
     "name": "お食事処みかど",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=3971588450317076739",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "人気老舗食堂で味わう沖縄家庭料理 那覇を初めて訪れた時から通い続けている大人気の沖縄家庭料理の食堂 ... そんな思い入れ ... 那覇「 ... ... 【那覇・食堂】ふーちきなー & なすと豚肉のみそ煮 \"お食事処 みかど\"那覇・松山の「お食事処みかど」を実食レビュー。地元民と観光客の両方に愛される家庭的な食堂で、沖縄の定番料理を存分に楽しめます。人気のふーちきなーや、なすと豚肉のみそ煮（なす",
     "addr": "沖縄県那覇市｜沖縄そば",
@@ -2483,7 +2510,7 @@
     "name": "神戸カツ丼 一どん",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=15375603562606855322",
-    "category": "food",
+    "category": "washoku",
     "tier": 3,
     "desc": "Kobekatsudon ICHIDON delivery & takeaway menu | Uber Eats Skip to content 4.4 x (430+) • Japanese • Rice-bowls • Tonkatsu • Japanese Style curry • $$ • Info 1丁目 7 7, 那覇市, 沖縄県 900-0021 x ¥0 delivery fe",
     "addr": "沖縄県那覇市泉崎１丁目７－７",
@@ -2495,7 +2522,7 @@
     "name": "アグーとんかつ コション久茂地店",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=4748289244444933455",
-    "category": "food",
+    "category": "yakiniku",
     "tier": 3,
     "desc": "",
     "addr": "沖縄県那覇市久茂地1-2-1",
@@ -2507,7 +2534,7 @@
     "name": "ゆうなんぎい",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=13564136191706926577",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市久茂地３丁目３－３",
@@ -2519,7 +2546,7 @@
     "name": "天ぷら ふじ",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=16452107386274591046",
-    "category": "food",
+    "category": "washoku",
     "tier": 2,
     "desc": "",
     "addr": "",
@@ -2544,7 +2571,7 @@
     "name": "食堂 faidama（ファイダマ）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=721387125548008088",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 3,
     "desc": "食堂faidama（ファイダマ）| 那覇市浮島通りカフェ（沖縄食材の食堂ごはん） --- --- ２週間替わりの定食は、沖縄食材を主に旬のもので素材の味を大切に支度しております。 - faidama定食（2週間替わり） 1,595円〜 - おきなわ紅豚とんかつ定食 1,870円 - お野菜とスープの定食 1,320円 - 越田商店のすばらしい鯖干物定食1,760円 ＊すべての定食には小さな前菜がつ",
     "addr": "沖縄県那覇市松尾2-12-14-1階",
@@ -2556,7 +2583,7 @@
     "name": "大衆食堂ミルク",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=8914876698242178027",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "＜沖縄・那覇＞地元民に愛されている大衆食堂ミルクで、がっつりカツ丼を食べてきました｜たかじーの沖縄グルメ手帖\n\n沖縄の食堂が好きなんです。沖縄でなくても食堂や定食屋が好きなんですけどね。\n\nただ、一見さんには入りづらい店舗って一度はみたことあると思うんですけど、今回紹介するお店もそういう類です。\n\nただただ年季がはいって、外観が醸し出すオーラがすごいだけなんですよね。\n\nそれでは、公設市場から近い",
     "addr": "沖縄県那覇市松尾2-10-20",
@@ -2568,7 +2595,7 @@
     "name": "食堂てんてん",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=9797639956756662465",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市識名４丁目５−２",
@@ -2580,7 +2607,7 @@
     "name": "金壺食堂",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=249482832015010851",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市壺屋１丁目７－９",
@@ -2617,7 +2644,7 @@
     "name": "郷家",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=9928532960295196525",
-    "category": "food",
+    "category": "izakaya",
     "tier": 2,
     "desc": "三線ライブのある宮古島の居酒屋 郷家\n\n0980-74-2358\n\n0980-73-8758\n\n宮古島の人の温かさ､心を癒す真っ白な砂浜と青い海、海中ではサンゴが育ち、かわいい熱帯魚が泳ぎ回り、空には太陽（てぃだ）がサンサン。 そんな宮古島のすべての恵みに感謝して、わたしたち郷家は島に訪れてくださった皆さまに沖縄創作料理や三線ライブステージなど、宮古島ならではの温かいひと時を提供したいと考えており",
     "addr": "沖縄県）",
@@ -2629,7 +2656,7 @@
     "name": "ミヤコ•スリランカカレー by サマン",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=3627812067276031939",
-    "category": "food",
+    "category": "asian",
     "tier": 3,
     "desc": "【閉店】vol.114 あの「サマンカレー」再び！！ MENU 2024-09-18 みなさんに朗報です！なんとスリランカカレーで人気を博したあのSAMANカレーがまた宮古島で食べられるんです！スリランカカレーとストリートフード「Miyako SriLanka Cafe by Saman」が本日プレオープンしました。あのサマンさんのカレーを忘れられない人も多いはず。ウキウキしながら早速いってきまし",
     "addr": "沖縄県宮古島市平良下里８３３（平良第一小学校の正門前）TEL｜-営業時間",
@@ -2654,7 +2681,7 @@
     "name": "山ちゃん食堂",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=12080390565399971736",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県豊見城市字翁長６４８−２",
@@ -2667,7 +2694,7 @@
     "name": "ひららバルKOSUMI",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=3414951928153114311",
-    "category": "food",
+    "category": "izakaya",
     "tier": 3,
     "desc": "",
     "addr": "沖縄県宮古島市平良下里570",
@@ -2692,7 +2719,7 @@
     "name": "ネパールレストラン・パリワール",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=7500398780763121638",
-    "category": "food",
+    "category": "asian",
     "tier": 2,
     "desc": "パリワール | みゃーくずみ ... ... ... 青く輝く宮古ブルーの海と豊かな自然に囲まれた宮古島。そんな南国の島にいながら、本格的なネパールカレーが楽しめると評判のお店が「ネパールレストラン パリワール」です。地元客はもちろん、観光で訪れたカレーファンの間でもじわじわとその名が広まり、今では“島カレー”といえばパリワールと呼ばれるほどの人気ぶりです。 ... 「パリワール」の最大の魅力は、",
     "addr": "沖縄県宮古島市平良字下里35",
@@ -2704,7 +2731,7 @@
     "name": "trattoria IPPO",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=18029723139964345702",
-    "category": "food",
+    "category": "western",
     "tier": 2,
     "desc": "賑わう繁華街の一角にひっそりと佇む、隠れ家のようなトラットリア。 店名の「IPPO」には、この場所へ踏み入れる“その一歩”が、特別な時間の始まりであってほしいという想いを込めています。 一歩足を踏み入れると、料理が完成していく瞬間を楽しめるライブ感。 看板の手打ちパスタは、ご注文ごとに生地から仕上げる一皿です。 香り、音、温度までも含めた“出来たての美味しさ”を五感で感じながら、 気取らず、それで",
     "addr": "沖縄県宮古島市平良字下里934",
@@ -2716,7 +2743,7 @@
     "name": "ワインと洋食 Tin",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=5485159469769680643",
-    "category": "food",
+    "category": "steak",
     "tier": 3,
     "desc": "【ワインと洋食 Tin ティン】離島・ステーキ・ハンバーグ・カレー - じゃらんnet 1. ご当地グルメガイド＞ 2. 沖縄のご当地グルメ＞ 3. 離島のご当地グルメ＞ 4. 宮古島市のご当地グルメ＞ 5. ワインと洋食 Tin ティン -.- （クチコミ0件） エリア ジャンル - メールする 所在地を確認する - 前へ - 次へ 洋食 西洋料理 ワイン ※掲載されている情報や写真については最",
     "addr": "沖縄県宮古島市平良下里692-1",
@@ -2741,7 +2768,7 @@
     "name": "BISTROT PIERROT ビストロピエロ",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=11734563477480668969",
-    "category": "food",
+    "category": "western",
     "tier": 3,
     "desc": "",
     "addr": "沖縄県宮古島市平良下里597-101",
@@ -2754,7 +2781,7 @@
     "name": "アジアン居酒屋 kuusu",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=13091397429225129306",
-    "category": "food",
+    "category": "izakaya",
     "tier": 3,
     "desc": "",
     "addr": "沖縄県宮古島市平良字下里553-3",
@@ -2767,7 +2794,7 @@
     "name": "島おでんたから",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=6243606402844248666",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県宮古島市）おでん出汁と&葉野菜が絶品！",
@@ -2780,7 +2807,7 @@
     "name": "The Gozero Grill",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=17857503387109179256",
-    "category": "food",
+    "category": "izakaya",
     "tier": 3,
     "desc": "運営店舗 - The Gozero Grill | 株式会社ワイズリゾート沖縄\n\nGG1\n\nThe Gozero Grill\n\nたびのホテルlit宮古島\n\n宮古島の中心部、西里に位置するバル風グリルレストラン。【The Gozero Grill】（ザゴーゼログリル）という名前は、 たびのホテルlit宮古島が面する道路に由来しています。\n\n街を愛し、地域と共に発展することを目指し、宮古島と地元の皆様",
     "addr": "",
@@ -2792,7 +2819,7 @@
     "name": "でいりぐち",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=5928777464099746251",
-    "category": "food",
+    "category": "izakaya",
     "tier": 2,
     "desc": "居酒屋 でいりぐち 本店 - 宮古島BBcom 地図 検索 ホーム»グルメ» 居酒屋 でいりぐち 本店 --- 住所 平良字西里224 GPS 24.804414375097, 125.28107950225 電話 --- 店で扱う食材はすべて旬のものを使うなど、素材本来の味を楽しめる創作料理が充実。 厳選された古酒と一緒に味わおう♪ 泡盛は全て宮古島産の古酒を揃えたというこだわりっぷり。 ホテル",
     "addr": "",
@@ -3402,7 +3429,7 @@
     "name": "大和食堂",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=9505800225850122736",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県宮古島市平良字西里819-3",
@@ -3427,7 +3454,7 @@
     "name": "菊栄食堂",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=18189776976694554362",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県宮古島市平良字西里13-6",
@@ -3440,7 +3467,7 @@
     "name": "くになか食堂",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=3120988680131430795",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "地元民に愛され続ける宮古島の人気食堂「くになか食堂」 | 宮古島の情報メディア\n...\n宮古島の人なら誰もが1度は食べたことがあるはずの「くになか食堂」さんの天ぷら。フワフワで少し甘めの衣の天ぷらは差し入れの定番ですよね。\n...\n「くになか食堂」さんと言えば、天ぷらが有名なお店ですが、横にある食堂も安くて美味しいんです！\n...\n美味しい宮古そばが食べれる＆地元の人が通う美味しい食堂をお探しの方",
     "addr": "沖縄県宮古島市平良東仲宗根723-28",
@@ -3477,7 +3504,7 @@
     "name": "手打そば 食菜 かま田",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=18071947727387620302",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "宮古島の本格日本蕎麦 | みゃーくずみ 宮古産そば粉の風味が香る｜本格手打ち蕎麦を味わえる「手打ちそば かま田」 宮古島で美味しい手打ちそばを楽しみたいなら、「手打ちそば かま田」をぜひ訪れてみてください。このお店では、宮古島産の蕎麦粉を使用した風味豊かな手打ちそばが堪能できます。 宮古島産蕎麦粉使用手打ちそば かま田では、地元宮古島産の蕎麦粉を使用しており、新鮮で風味豊かなそばを提供しています。",
     "addr": "沖縄県宮古島市平良下里737-11",
@@ -3501,7 +3528,7 @@
     "name": "腰原食堂",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=7520109107611082258",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県宮古島市平良字下里1325-3",
@@ -3862,7 +3889,7 @@
     "name": "食彩酒房 まつもと",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=11001577555389722551",
-    "category": "food",
+    "category": "okinawa_food",
     "tier": 2,
     "desc": "",
     "addr": "沖縄県那覇市松山１丁目８－５",
@@ -3886,7 +3913,7 @@
     "name": "内田製パン",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=9813307870990124545",
-    "category": "food",
+    "category": "bakery",
     "tier": 2,
     "desc": "【飯田産業の注文住宅】沖縄で注文住宅を建てる｜対応エリア\n...\n沖縄県の注文住宅の購入は飯田産業にお任せください！ 人気条件での注文住宅の設計や、お客様のニーズに合わせた設計を行います。沖縄県で、あなたのニーズに合った注文住宅に住んで素敵な生活を過ごしませんか？ 沖縄県は皆さんご存知の通り、有名な観光地。気候は、最高気温と最低気温の差があまりなく、比較的一年を通して気温が高い地域です。沖縄県独自",
     "addr": "沖縄県の注文住宅の購入は飯田産業にお任せください！",
@@ -3898,7 +3925,7 @@
     "name": "hoppepan（ほっぺパン）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=597656219729476663",
-    "category": "food",
+    "category": "bakery",
     "tier": 3,
     "desc": "hoppepanは、バリエーション豊富な美味しい焼きたてパンが食べられるお店です ... ... 沖縄県宜野湾市大謝名3-3-7 TEL 098-988-4493 営業時間 10:00～19:00 定休日 木曜日、金曜日(第1・第3) ... いつでも焼きたての美味しいパンを！熱き情熱のパン職人の店 アンティークな外観のパン屋さん。店内に入ると、存在感のあるパンたちが美味しそうに並べられています。",
     "addr": "沖縄県宜野湾市大謝名3-3-7",
@@ -3910,7 +3937,7 @@
     "name": "SOLEMARE ソレマーレ",
     "region": "離島",
     "maps_url": "http://maps.google.com/?cid=14041460954101605914",
-    "category": "food",
+    "category": "western",
     "tier": 3,
     "desc": "Cucina Italiana SOLEMARE, Ishigaki Ishigaki, Okinawa 15周年のご挨拶と閉店のお知らせ いつもソレマーレをご利用いただきまして、誠にありがとうございます。 当店は2025年3月31日で15周年を迎えることができました。 島のお客様や日本各地から足を運んでくださるお客様、当店を長年ご愛顧くださる皆様の温かい応援があったからこそ、ここまで歩んでくるこ",
     "addr": "沖縄県石垣市美崎町2-5",
