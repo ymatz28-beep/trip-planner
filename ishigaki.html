@@ -596,16 +596,7 @@ function toggleSec(head){
   const c=list.classList.toggle('sec-collapsed');
   head.classList.toggle('sec-collapsed',c);
 }
-// Initial: collapse all but the first section
-(function(){
-  document.querySelectorAll('section[id]').forEach((sec,i)=>{
-    if(i===0) return;
-    const list=sec.querySelector('.spot-list');
-    const head=sec.querySelector('.sec-head');
-    if(list) list.classList.add('sec-collapsed');
-    if(head) head.classList.add('sec-collapsed');
-  });
-})();
+// Initial: all sections expanded by default
 </script>
 
 </body>
