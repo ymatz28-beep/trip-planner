@@ -451,7 +451,7 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
   <div class="stat"><div class="k">グルメ</div><div class="v">{food_n}<span class="u">件</span></div><div class="s">食事・カフェ</div></div>
   <div class="stat"><div class="k">観光</div><div class="v">{leisure_n}<span class="u">件</span></div><div class="s">スポット・体験</div></div>
   <div class="stat"><div class="k">宿泊</div><div class="v">{lodging_n}<span class="u">件</span></div><div class="s">ホテル・宿</div></div>
-  <div class="stat"><div class="k">おすすめ</div><div class="v">{tier2_n}<span class="u">件</span></div><div class="s">厳選スポット</div></div>
+  <div class="stat" title="Google評価3.5以上、または行列・老舗・受賞など地元名店キーワード2件以上のスポット"><div class="k">おすすめ</div><div class="v">{tier2_n}<span class="u">件</span></div><div class="s">Google 3.5以上 / 地元名店</div></div>
 </div>"""
 
     # Section bodies
@@ -513,7 +513,7 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
 <div class="secnav-wrap">
   <div class="search-row">
     <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="{name}内を検索..." autocomplete="off"></div>
-    <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
+    <button class="tier-filter-btn" id="tier2-toggle" title="Google評価3.5以上、または行列・老舗・受賞など地元名店キーワード2件以上">★ おすすめのみ</button>
   </div>
   <div class="secnav">{secnav_items}</div>
 </div>
@@ -563,7 +563,7 @@ def gen_hub_page(all_spots):
     <div class="rcard-tags">
       <span class="rtag">🍽 {food_n}件</span>
       <span class="rtag">🌊 {leisure_n}件</span>
-      <span class="rtag">★★ {t2}件</span>
+      <span class="rtag" title="Google評価3.5以上 / 地元名店">★★ おすすめ {t2}件</span>
     </div>
     <div class="rcard-foot">
       <span class="rcard-count">全{n}スポット →</span>
@@ -612,7 +612,7 @@ def gen_hub_page(all_spots):
     <div class="hero-meta">
       <span class="hpill">📍 {total}スポット</span>
       <span class="hpill">5エリア</span>
-      <span class="hpill">★★ おすすめ厳選あり</span>
+      <span class="hpill" title="Google評価3.5以上、または行列・老舗・受賞など地元名店キーワード2件以上">★★ おすすめ基準: Google 3.5以上 / 地元名店</span>
     </div>
   </div>
 </div>
