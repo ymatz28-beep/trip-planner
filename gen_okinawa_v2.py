@@ -230,8 +230,7 @@ def shared_css(c1, c2, c3, ck):
   .spot-name a{{color:var(--c1);}}
   .spot-name a:hover{{text-decoration:underline;}}
   .spot-meta{{font-size:11.5px;color:var(--ink3);margin-top:3px;line-height:1.5;}}
-  .spot-desc-fb{{color:var(--ink3);font-style:italic;}}
-.spot-desc{{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.6;grid-column:1/-1;}}
+  .spot-desc{{font-size:12.5px;color:var(--ink2);margin-top:4px;line-height:1.6;grid-column:1/-1;}}
   .spot-links{{display:flex;gap:6px;align-items:flex-start;flex-wrap:wrap;grid-column:2;grid-row:1/3;justify-content:flex-end;}}
   .slink{{
     display:inline-flex;align-items:center;gap:4px;
@@ -400,11 +399,7 @@ def render_spot(s):
             links.append(f'<a class="slink slink-web" href="{source_url}" target="_blank" rel="noopener">情報元</a>')
     links_html = "".join(links)
 
-    if desc:
-        desc_html = f'<p class="spot-desc">{desc}</p>'
-    else:
-        fallback = _CAT_FALLBACK.get(s.get("category", ""), "")
-        desc_html = f'<p class="spot-desc spot-desc-fb">{fallback}</p>' if fallback else ""
+    desc_html = f'<p class="spot-desc">{desc}</p>' if desc else ""
 
     name_esc = name.replace('"', '&quot;')
     return f"""<div class="spot-item" data-tier="{tier}" data-name="{name_esc}">
