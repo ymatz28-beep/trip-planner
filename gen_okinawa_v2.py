@@ -1,8 +1,32 @@
 #!/usr/bin/env python3
 """Okinawa trip-planner HTML generator v2 — Playfair Display design, CID Maps, Exa enriched data."""
-import json, sys, os
+import json, re, sys, os
 from pathlib import Path
 from collections import defaultdict
+
+_DESC_JUNK = re.compile(
+    r'官方消息|已登錄|店家會員'       # 繁体字中国語UIテキスト
+    r'|Switch to Tabelog'             # 英語切替UI
+    r'|\| ---'                        # Markdown表形式
+    r'| \| [A-Za-z]'                  # 英語サイト名（例: | TRAVEL for YOU）
+    r'|ログイン|無料会員登録'           # 認証UI
+    r'|口コミ\s*写真\s*地図'           # 食べログナビ
+)
+
+def _clean_desc(desc: str) -> str:
+    if not desc:
+        return ''
+    if _DESC_JUNK.search(desc):
+        return ''
+    # ｜が2つ以上→ページタイトルかMarkdown表
+    if desc.count('｜') >= 2:
+        return ''
+    # 先頭にページタイトル形式（「名称｜サイト」）→ ｜以降を取る
+    if '｜' in desc[:50]:
+        after = desc.split('｜', 1)[1].strip()
+        # ｜の後も短くなりすぎたら捨てる
+        return after if len(after) > 20 else ''
+    return desc
 
 SPOTS_FILE = Path(__file__).parent / "okinawa_spots_tmp.json"
 ENRICHED_FILE = Path(__file__).parent / "okinawa_enriched.json"
@@ -28,14 +52,16 @@ REGION_MAP = {
 CAT_LABEL = {
     "food":        ("🍽", "食事"),
     "cafe_sweets": ("☕", "カフェ・スイーツ"),
-    "leisure":     ("🌊", "観光・アクティビティ"),
+    "leisure":     ("🌊", "観光・スポット"),
+    "activity":    ("🏄", "観光・体験"),
     "lodging":     ("🏨", "宿泊"),
-    "health":      ("💆", "ヘルス"),
+    "stay":        ("🛏", "ホテル・宿"),
+    "health":      ("🛁", "サウナ・スパ"),
     "nightlife":   ("🌙", "ナイトライフ"),
 }
 
 TIER_LABEL = {2: "★★ おすすめ", 3: "★ チェック"}
-TIER_COLOR = {2: "#b04010", 3: "#888"}
+TIER_COLOR = {2: "#b04010", 3: "var(--text-muted)"}
 
 # ── Load data ──────────────────────────────────────────────────────
 def load_spots():
@@ -122,8 +148,8 @@ def shared_css(c1, c2, c3, ck):
     .stat{{border-bottom:0;}}.stat:nth-child(2n){{border-right:1px solid var(--line2);}}.stat:last-child{{border-right:0;}}
   }}
   .stat .k{{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink3);text-transform:uppercase;margin-bottom:4px;}}
-  .stat .v{{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,5.5vw,28px);
-    font-weight:700;color:var(--c1);line-height:1;}}
+  .stat .v{{font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;font-size:clamp(22px,5.5vw,28px);
+    font-weight:700;color:var(--c1);line-height:1;letter-spacing:-.02em;}}
   .stat .u{{font-size:13px;font-weight:600;color:var(--ink2);margin-left:1px;}}
   .stat .s{{font-size:11px;color:var(--ink3);margin-top:4px;}}
 
@@ -236,12 +262,15 @@ def render_spot(s):
     maps_url = s.get("maps_url", "")
     tabelog_url = s.get("tabelog_url", "")
     official_url = s.get("official_url", "")
-    desc = s.get("description", "")
+    source_url = s.get("source_url", "")
+    desc = _clean_desc(s.get("description", "") or s.get("desc", ""))
     price = s.get("price_range", "")
     addr = s.get("addr", "")
     tier = s.get("tier", 3)
+    score_google = s.get("score_google", "")
+    score_tabelog = s.get("score_tabelog", "")
 
-    tier_badge = f'<span class="tier-badge tier{tier}">{"おすすめ" if tier == 2 else "チェック"}</span>'
+    tier_badge = '<span class="tier-badge tier2">おすすめ</span>' if tier == 2 else ''
 
     # Name — link to Maps if available
     if maps_url:
@@ -251,10 +280,12 @@ def render_spot(s):
 
     # Meta line
     meta_parts = []
-    if addr:
-        meta_parts.append(addr)
     if price:
         meta_parts.append(price)
+    if score_google:
+        meta_parts.append(f'Google ⭐{score_google}')
+    if score_tabelog:
+        meta_parts.append(f'食べログ {score_tabelog}')
     meta_html = " · ".join(meta_parts) if meta_parts else ""
 
     # Link buttons
@@ -266,6 +297,9 @@ def render_spot(s):
     if official_url and official_url not in (tabelog_url, maps_url, ""):
         if "tabelog" not in official_url and "google" not in official_url:
             links.append(f'<a class="slink slink-web" href="{official_url}" target="_blank" rel="noopener">公式</a>')
+    if source_url and source_url not in (maps_url, tabelog_url, official_url, ""):
+        if "google" not in source_url and "tabelog" not in source_url:
+            links.append(f'<a class="slink slink-web" href="{source_url}" target="_blank" rel="noopener">情報元</a>')
     links_html = "".join(links)
 
     desc_html = f'<p class="spot-desc">{desc}</p>' if desc else ""
@@ -295,7 +329,7 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
     for cat in by_cat:
         by_cat[cat].sort(key=lambda x: (x.get("tier", 3), x["name"]))
 
-    cat_order = ["food", "cafe_sweets", "leisure", "lodging", "health", "nightlife"]
+    cat_order = ["food", "cafe_sweets", "leisure", "activity", "lodging", "stay", "health", "nightlife"]
     present_cats = [c for c in cat_order if c in by_cat]
 
     # Secnav
@@ -306,16 +340,16 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
 
     # Stats
     food_n = len(by_cat.get("food", [])) + len(by_cat.get("cafe_sweets", []))
-    leisure_n = len(by_cat.get("leisure", []))
-    lodging_n = len(by_cat.get("lodging", []))
+    leisure_n = len(by_cat.get("leisure", [])) + len(by_cat.get("activity", []))
+    lodging_n = len(by_cat.get("lodging", [])) + len(by_cat.get("stay", []))
     total_n = len(spots)
     tier2_n = sum(1 for s in spots if s.get("tier") == 2)
 
     stats_html = f"""<div class="stats wrap">
   <div class="stat"><div class="k">グルメ</div><div class="v">{food_n}<span class="u">件</span></div><div class="s">食事・カフェ</div></div>
-  <div class="stat"><div class="k">観光</div><div class="v">{leisure_n}<span class="u">件</span></div><div class="s">スポット</div></div>
+  <div class="stat"><div class="k">観光</div><div class="v">{leisure_n}<span class="u">件</span></div><div class="s">スポット・体験</div></div>
   <div class="stat"><div class="k">宿泊</div><div class="v">{lodging_n}<span class="u">件</span></div><div class="s">ホテル・宿</div></div>
-  <div class="stat"><div class="k">おすすめ</div><div class="v">{tier2_n}<span class="u">件</span></div><div class="s">Tier 2 厳選</div></div>
+  <div class="stat"><div class="k">おすすめ</div><div class="v">{tier2_n}<span class="u">件</span></div><div class="s">厳選スポット</div></div>
 </div>"""
 
     # Section bodies
@@ -383,7 +417,7 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
 <footer>
   <div class="wrap">
     <div class="ft-1">iUMA Travel · {name}</div>
-    <div class="ft-2">Mapplyデータ + Exaリサーチ · {total_n}スポット</div>
+    <div class="ft-2">Mapplyデータ + Exaリサーチ · {total_n}スポット · <a href="travel-master.html" style="color:{c1};opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="index.html" style="color:{c1};opacity:.08;text-decoration:none;user-select:none;">·</a></div>
   </div>
 </footer>
 
@@ -492,7 +526,7 @@ def gen_hub_page(all_spots):
 <footer>
   <div class="wrap">
     <div class="ft-1">iUMA Travel · 沖縄</div>
-    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全{total}スポット</div>
+    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全{total}スポット · <a href="travel-master.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="index.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a></div>
   </div>
 </footer>
 
