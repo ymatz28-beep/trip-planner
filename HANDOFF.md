@@ -1,8 +1,5 @@
 # HANDOFF
 
-## [Constancy] 2026-06-22
-- [ERROR] freeze_candidates: [ESCALATED: 34d unresolved] プロジェクト 'trip-planner' は 9999d 非活性 (凍結閾値 90d)。 _archived/ への移動または Phase 0 再定義を検討。
-
 ## Resume
 - 📍 今どこ: 九州8都市HTML QAセッション完了。マップ・食べログURL・ルート地理の3軸で修正済み
 - ✅ 前回: マップリンク2件、食べログURL 6店、ルート地理誤り2件（八女・南阿蘇）を修正。ukiha.htmlに夢語寄家追加

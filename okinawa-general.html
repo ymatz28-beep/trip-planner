@@ -156,6 +156,13 @@
     transform:translateY(8px);transition:.25s;}
   .totop.show{opacity:1;pointer-events:auto;transform:none;}
   @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
+  .search-row{display:flex;align-items:center;gap:8px;padding:8px 18px;max-width:720px;margin:0 auto;border-bottom:1px solid var(--line2);}
+  .search-box{flex:1;display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 12px;}
+  .search-box input{flex:1;border:none;outline:none;background:transparent;font-size:13px;color:var(--ink);font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;}
+  .search-box input::placeholder{color:var(--ink3);font-size:12px;}
+  .tier-filter-btn{flex:0 0 auto;font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-pill);border:1px solid var(--line2);background:var(--surface2);color:var(--ink3);cursor:pointer;white-space:nowrap;transition:.15s;min-height:34px;}
+  .tier-filter-btn.on{background:#fff4f0;color:#b04010;border-color:#e8843a44;}
+  .no-results{padding:32px 18px;text-align:center;color:var(--ink3);font-size:13px;display:none;}
 
   .hub-hero{
     background:
@@ -294,7 +301,7 @@
 <footer>
   <div class="wrap">
     <div class="ft-1">iUMA Travel · 沖縄</div>
-    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全279スポット · <a href="travel-master.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="index.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a></div>
+    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全279スポット · <a href="travel-master.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="kyushu.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a> · <a href="index.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a></div>
   </div>
 </footer>
 

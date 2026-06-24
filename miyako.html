@@ -156,6 +156,13 @@
     transform:translateY(8px);transition:.25s;}
   .totop.show{opacity:1;pointer-events:auto;transform:none;}
   @media print{.topbar,.totop{display:none!important;}body{background:#fff;}}
+  .search-row{display:flex;align-items:center;gap:8px;padding:8px 18px;max-width:720px;margin:0 auto;border-bottom:1px solid var(--line2);}
+  .search-box{flex:1;display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 12px;}
+  .search-box input{flex:1;border:none;outline:none;background:transparent;font-size:13px;color:var(--ink);font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;}
+  .search-box input::placeholder{color:var(--ink3);font-size:12px;}
+  .tier-filter-btn{flex:0 0 auto;font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-pill);border:1px solid var(--line2);background:var(--surface2);color:var(--ink3);cursor:pointer;white-space:nowrap;transition:.15s;min-height:34px;}
+  .tier-filter-btn.on{background:#fff4f0;color:#b04010;border-color:#e8843a44;}
+  .no-results{padding:32px 18px;text-align:center;color:var(--ink3);font-size:13px;display:none;}
 </style>
 </head>
 <body>
@@ -190,17 +197,22 @@
 </div>
 
 <div class="secnav-wrap">
+  <div class="search-row">
+    <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="宮古島内を検索..." autocomplete="off"></div>
+    <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
+  </div>
   <div class="secnav"><a href="#food">🍽 食事</a><a href="#cafe_sweets">☕ カフェ・スイーツ</a><a href="#leisure">🌊 観光・スポット</a><a href="#activity">🏄 観光・体験</a><a href="#lodging">🏨 宿泊</a><a href="#stay">🛏 ホテル・宿</a><a href="#health">🛁 サウナ・スパ</a></div>
 </div>
 
 <main class="wrap">
+<p id="no-results" class="no-results">検索結果がありません</p>
 
 <section id="food">
   <div class="sec-head">
     <h2>🍽 食事</h2>
     <span class="sec-count">33件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="DOUG‘S BURGER">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">DOUG‘S BURGER</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -208,7 +220,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12734572746957096984" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="Sakuma Terrace サクマテラス">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=6755687346202209676" target="_blank" rel="noopener">Sakuma Terrace サクマテラス</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -216,7 +228,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6755687346202209676" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="trattoria IPPO">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=18029723139964345702" target="_blank" rel="noopener">trattoria IPPO</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -224,7 +236,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18029723139964345702" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="くになか食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=3120988680131430795" target="_blank" rel="noopener">くになか食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -238,7 +250,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3120988680131430795" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="すむばり食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">すむばり食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥800〜¥1,500</div>
@@ -246,7 +258,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5332525890508835040" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000216/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.sumbari.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="でいりぐち">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=5928777464099746251" target="_blank" rel="noopener">でいりぐち</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -254,7 +266,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5928777464099746251" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ジャングル飯店">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">ジャングル飯店</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥2,000</div>
@@ -262,7 +274,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1772765546550216070" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47018962/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ネパールレストラン・パリワール">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=7500398780763121638" target="_blank" rel="noopener">ネパールレストラン・パリワール</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">Google ⭐4.3</div>
@@ -270,7 +282,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7500398780763121638" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ハイカラ松">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=6921103124757627227" target="_blank" rel="noopener">ハイカラ松</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -278,7 +290,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6921103124757627227" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47021393/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ヤッカヤッカ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=9783739575955172950" target="_blank" rel="noopener">ヤッカヤッカ</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -286,7 +298,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9783739575955172950" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47002414/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://cafe.miyakojimacity.jp/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="古謝そば屋">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">古謝そば屋</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥500〜¥1,000</div>
@@ -294,7 +306,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4928719322725787334" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000106/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://kojasoba.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="味ごのみ下北">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=14824519731625137260" target="_blank" rel="noopener">味ごのみ下北</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥350〜¥750</div>
@@ -302,7 +314,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14824519731625137260" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47029971/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="大和食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=9505800225850122736" target="_blank" rel="noopener">大和食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -310,7 +322,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9505800225850122736" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="宮古島荷川取漁港 みなと食堂">
   <div>
     <div class="spot-name">宮古島荷川取漁港 みなと食堂<span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥2,000</div>
@@ -318,7 +330,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47025515/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://minatonosoba.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="宮古素麺">
   <div>
     <div class="spot-name">宮古素麺<span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -326,7 +338,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47027565/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="山ちゃん食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=12080390565399971736" target="_blank" rel="noopener">山ちゃん食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">Google ⭐4.0</div>
@@ -334,7 +346,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12080390565399971736" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47003978/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="島おでんたから">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=6243606402844248666" target="_blank" rel="noopener">島おでんたから</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -342,7 +354,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6243606402844248666" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000098/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="島ビストロ メリメロ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=15335133472400938407" target="_blank" rel="noopener">島ビストロ メリメロ</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -350,7 +362,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15335133472400938407" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47027603/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="手打そば 食菜 かま田">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=18071947727387620302" target="_blank" rel="noopener">手打そば 食菜 かま田</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -358,7 +370,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18071947727387620302" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="腰原食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=7520109107611082258" target="_blank" rel="noopener">腰原食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -366,7 +378,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7520109107611082258" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47010723/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="菊栄食堂">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=18189776976694554362" target="_blank" rel="noopener">菊栄食堂</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -374,7 +386,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18189776976694554362" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47000104/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="郷家">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=9928532960295196525" target="_blank" rel="noopener">郷家</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -388,7 +400,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9928532960295196525" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="BISTROT PIERROT ビストロピエロ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11734563477480668969" target="_blank" rel="noopener">BISTROT PIERROT ビストロピエロ</a></div>
     
@@ -396,7 +408,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11734563477480668969" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47015423/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="PANIPANI">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11971374461161704629" target="_blank" rel="noopener">PANIPANI</a></div>
     <div class="spot-meta">¥400〜¥800</div>
@@ -404,7 +416,7 @@
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11971374461161704629" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47001429/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="The Gozero Grill">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=17857503387109179256" target="_blank" rel="noopener">The Gozero Grill</a></div>
     
@@ -422,7 +434,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=17857503387109179256" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="viva 45°(ビバ・フォーティーファイブ)">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=18317281660467561781" target="_blank" rel="noopener">viva 45°(ビバ・フォーティーファイブ)</a></div>
     
@@ -430,7 +442,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18317281660467561781" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47030976/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ひららバルKOSUMI">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=3414951928153114311" target="_blank" rel="noopener">ひららバルKOSUMI</a></div>
     
@@ -438,7 +450,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3414951928153114311" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47015412/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="アジアン居酒屋 kuusu">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=13091397429225129306" target="_blank" rel="noopener">アジアン居酒屋 kuusu</a></div>
     
@@ -446,7 +458,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13091397429225129306" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47005993/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ジョイフル宮古店">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=5015685051194711013" target="_blank" rel="noopener">ジョイフル宮古店</a></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -454,7 +466,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5015685051194711013" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47004639/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.san-a.co.jp/store/1279/" target="_blank" rel="noopener">公式</a><a class="slink slink-web" href="https://www.joyfull.co.jp/shop/archives/666" target="_blank" rel="noopener">情報元</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ミヤコ•スリランカカレー by サマン">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=3627812067276031939" target="_blank" rel="noopener">ミヤコ•スリランカカレー by サマン</a></div>
     
@@ -462,7 +474,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3627812067276031939" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ワインと洋食 Tin">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=5485159469769680643" target="_blank" rel="noopener">ワインと洋食 Tin</a></div>
     
@@ -470,7 +482,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5485159469769680643" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="多良間牛 ダグズ・グリル 宮古島本店">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">多良間牛 ダグズ・グリル 宮古島本店</a></div>
     <div class="spot-meta">¥10,000〜¥14,999</div>
@@ -478,7 +490,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14482377909117657027" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47021184/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://dougsburger.com/dougsgrill/index.php" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="日々是好日">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1746579925795694857" target="_blank" rel="noopener">日々是好日</a></div>
     
@@ -492,7 +504,7 @@ The Gozero Grill
     <h2>☕ カフェ・スイーツ</h2>
     <span class="sec-count">12件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="Cafe de M（カフェ ド エム）">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=8704215441600930373" target="_blank" rel="noopener">Cafe de M（カフェ ド エム）</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -500,7 +512,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=8704215441600930373" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47021559/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://cafe-de-m.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="スナヤマカフェ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=250091878972398674" target="_blank" rel="noopener">スナヤマカフェ</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -508,7 +520,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=250091878972398674" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47005933/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="http://sunayama-cafe.com" target="_blank" rel="noopener">公式</a><a class="slink slink-web" href="https://www.miyakojima-style.jp/yukuru/file05/sunayama-cafe/" target="_blank" rel="noopener">情報元</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="モジャのパン屋">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=6627036797866410096" target="_blank" rel="noopener">モジャのパン屋</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -516,7 +528,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6627036797866410096" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ラトゥール">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1399837364931906376" target="_blank" rel="noopener">ラトゥール</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -524,7 +536,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1399837364931906376" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="杏心のドーナツ屋さん">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=10535859847775118410" target="_blank" rel="noopener">杏心のドーナツ屋さん</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">〜¥999</div>
@@ -532,7 +544,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10535859847775118410" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="AOSORA PARLOR">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=13805764815442906801" target="_blank" rel="noopener">AOSORA PARLOR</a></div>
     <div class="spot-meta">¥500〜¥1,000</div>
@@ -540,7 +552,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13805764815442906801" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47013420/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.aosoragr.com/aosora-parlor" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="beads & knit cafe Fika">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=16258718186794176596" target="_blank" rel="noopener">beads & knit cafe Fika</a></div>
     
@@ -548,7 +560,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=16258718186794176596" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ensemblecoffee miyakoisland">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=15416922554187769125" target="_blank" rel="noopener">ensemblecoffee miyakoisland</a></div>
     
@@ -556,7 +568,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=15416922554187769125" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="カフェウエスヤ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=9532980621535047316" target="_blank" rel="noopener">カフェウエスヤ</a></div>
     
@@ -564,7 +576,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9532980621535047316" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47025691/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="カフェ＆バー Rainbow Fish">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=6339017334559056498" target="_blank" rel="noopener">カフェ＆バー Rainbow Fish</a></div>
     
@@ -572,7 +584,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=6339017334559056498" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ダグズ・コーヒー 宮古島本店">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=12397649328630697658" target="_blank" rel="noopener">ダグズ・コーヒー 宮古島本店</a></div>
     <div class="spot-meta">〜¥999</div>
@@ -580,7 +592,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=12397649328630697658" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47013975/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://dougsburger.com/dougscoffee/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="空猫十字社">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=16933733807977354748" target="_blank" rel="noopener">空猫十字社</a></div>
     <div class="spot-meta">〜¥999</div>
@@ -594,7 +606,7 @@ The Gozero Grill
     <h2>🌊 観光・スポット</h2>
     <span class="sec-count">5件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="3" data-name="与那覇前浜">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=5355107498057417987" target="_blank" rel="noopener">与那覇前浜</a></div>
     
@@ -602,7 +614,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=5355107498057417987" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-web" href="https://ja.wikipedia.org/wiki/%E4%B8%8E%E9%82%A3%E8%A6%87%E5%89%8D%E6%B5%9C" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="宮古サンセットビーチ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=4463611518815949680" target="_blank" rel="noopener">宮古サンセットビーチ</a></div>
     
@@ -610,7 +622,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4463611518815949680" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-web" href="http://www.miyako-sunsetbeach.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="無印良品 宮古島シティ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=4797191351583088471" target="_blank" rel="noopener">無印良品 宮古島シティ</a></div>
     
@@ -618,7 +630,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4797191351583088471" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="砂山ビーチ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11249511379085735670" target="_blank" rel="noopener">砂山ビーチ</a></div>
     
@@ -626,7 +638,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11249511379085735670" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-web" href="https://miyako-island.net/beach_and_spot/beach_spot_001/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="竜宮城展望台">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=10456124666542007313" target="_blank" rel="noopener">竜宮城展望台</a></div>
     
@@ -640,7 +652,7 @@ The Gozero Grill
     <h2>🏄 観光・体験</h2>
     <span class="sec-count">20件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="HOTEL R 9 The Yard Miyakojima">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=9001921064159989999" target="_blank" rel="noopener">HOTEL R 9 The Yard Miyakojima</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -648,7 +660,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=9001921064159989999" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="PAINAGAMA BLUE BOOTH">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=2814667139248026193" target="_blank" rel="noopener">PAINAGAMA BLUE BOOTH</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -656,7 +668,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2814667139248026193" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="けんとじょにーの ミヤコブルーレンタカー KEN&JOHNNY's MIYAKO BLUE RENT A CAR">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=7757942345133252241" target="_blank" rel="noopener">けんとじょにーの ミヤコブルーレンタカー KEN&JOHNNY's MIYAKO BLUE RENT A CAR</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -664,7 +676,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7757942345133252241" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="すまやー">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11768753417314550459" target="_blank" rel="noopener">すまやー</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -676,7 +688,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11768753417314550459" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="サンエー 宮古島シティ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=2895333250320299251" target="_blank" rel="noopener">サンエー 宮古島シティ</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -684,7 +696,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2895333250320299251" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="メシバル パイナテラス">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11290231976884906087" target="_blank" rel="noopener">メシバル パイナテラス</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -692,7 +704,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11290231976884906087" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="海の見えるカフェレストラン ロコまんじぇ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=10772593007894367579" target="_blank" rel="noopener">海の見えるカフェレストラン ロコまんじぇ</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -700,7 +712,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10772593007894367579" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47022858/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="皆愛屋">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=18311724555701026310" target="_blank" rel="noopener">皆愛屋</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -708,7 +720,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=18311724555701026310" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="眞茶屋">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=11422355099452240691" target="_blank" rel="noopener">眞茶屋</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -716,7 +728,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=11422355099452240691" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="磯亭">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=13559658848035918814" target="_blank" rel="noopener">磯亭</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -724,7 +736,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13559658848035918814" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="Grand Bleu Gamin（グランブルーギャマン）">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=3561908283434477056" target="_blank" rel="noopener">Grand Bleu Gamin（グランブルーギャマン）</a></div>
     
@@ -734,7 +746,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=3561908283434477056" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="HOTEL FIOMARE Hotel Fiomare Miyakojima Resort">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=7165300022155238034" target="_blank" rel="noopener">HOTEL FIOMARE Hotel Fiomare Miyakojima Resort</a></div>
     
@@ -752,7 +764,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=7165300022155238034" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="lino Cafe ー リノカフェ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=8065982892082281976" target="_blank" rel="noopener">lino Cafe ー リノカフェ</a></div>
     
@@ -760,7 +772,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=8065982892082281976" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47022319/" target="_blank" rel="noopener">食べログ</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="すくばりテラス（すくばり農園内）">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=14763432767157762052" target="_blank" rel="noopener">すくばりテラス（すくばり農園内）</a></div>
     
@@ -768,7 +780,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14763432767157762052" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="りーちゃん家">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=4558244908463498109" target="_blank" rel="noopener">りーちゃん家</a></div>
     
@@ -776,7 +788,7 @@ The Gozero Grill
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=4558244908463498109" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="カフェ Irayoi">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=2911558281443964115" target="_blank" rel="noopener">カフェ Irayoi</a></div>
     
@@ -804,7 +816,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2911558281443964115" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="グローリーハウス">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1919004115843352077" target="_blank" rel="noopener">グローリーハウス</a></div>
     
@@ -812,7 +824,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=1919004115843352077" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ベーカリー＆カフェ 南西の風">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=14186167358489456832" target="_blank" rel="noopener">ベーカリー＆カフェ 南西の風</a></div>
     
@@ -820,7 +832,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=14186167358489456832" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="福木カフェ・商店">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=13147179695534675449" target="_blank" rel="noopener">福木カフェ・商店</a></div>
     
@@ -828,7 +840,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=13147179695534675449" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="花風">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=16161179279094568141" target="_blank" rel="noopener">花風</a></div>
     
@@ -842,7 +854,7 @@ Cafe Irayoi（カフェ イラヨイ）
     <h2>🏨 宿泊</h2>
     <span class="sec-count">3件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="ザ シギラ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=2987711255727389358" target="_blank" rel="noopener">ザ シギラ</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">Google ⭐4.9</div>
@@ -850,7 +862,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2987711255727389358" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-web" href="https://shigira.com/hotel/shigira" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="2" data-name="ソラニワホテルアンドカフェ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=10625837175028502319" target="_blank" rel="noopener">ソラニワホテルアンドカフェ</a><span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥1,000〜¥1,999</div>
@@ -858,7 +870,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=10625837175028502319" target="_blank" rel="noopener">📍 地図</a><a class="slink slink-tab" href="https://tabelog.com/okinawa/A4705/A470503/47009290/" target="_blank" rel="noopener">食べログ</a><a class="slink slink-web" href="https://www.urban-hotel.jp/soraniwa/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ホテル・トリフィート宮古島リゾート">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1819931691307528425" target="_blank" rel="noopener">ホテル・トリフィート宮古島リゾート</a></div>
     
@@ -872,7 +884,7 @@ Cafe Irayoi（カフェ イラヨイ）
     <h2>🛏 ホテル・宿</h2>
     <span class="sec-count">2件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="星のテラス アルシオーネⅡ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=2946900263288626648" target="_blank" rel="noopener">星のテラス アルシオーネⅡ</a><span class="tier-badge tier2">おすすめ</span></div>
     
@@ -880,7 +892,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-map" href="http://maps.google.com/?cid=2946900263288626648" target="_blank" rel="noopener">📍 地図</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="M-Villaggio Miyakojima">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=17664761026993337310" target="_blank" rel="noopener">M-Villaggio Miyakojima</a></div>
     
@@ -894,7 +906,7 @@ Cafe Irayoi（カフェ イラヨイ）
     <h2>🛁 サウナ・スパ</h2>
     <span class="sec-count">2件</span>
   </div>
-  <div class="spot-list"><div class="spot-item">
+  <div class="spot-list"><div class="spot-item" data-tier="2" data-name="宮古島テントサウナ">
   <div>
     <div class="spot-name">宮古島テントサウナ<span class="tier-badge tier2">おすすめ</span></div>
     <div class="spot-meta">¥5,000〜¥12,000（人数により異なる）</div>
@@ -902,7 +914,7 @@ Cafe Irayoi（カフェ イラヨイ）
   </div>
   <div class="spot-links"><a class="slink slink-web" href="https://miyakojima-sauna.com/" target="_blank" rel="noopener">公式</a></div>
 </div>
-<div class="spot-item">
+<div class="spot-item" data-tier="3" data-name="ぐりーんりーふ">
   <div>
     <div class="spot-name"><a href="http://maps.google.com/?cid=1884434191345437770" target="_blank" rel="noopener">ぐりーんりーふ</a></div>
     
@@ -935,6 +947,34 @@ const obs=new IntersectionObserver(entries=>{
   }});
 },{rootMargin:'-40% 0px -55% 0px'});
 secs.forEach(s=>obs.observe(s));
+(function(){
+  const inp=document.getElementById('search-inp');
+  const btn=document.getElementById('tier2-toggle');
+  if(!inp&&!btn) return;
+  let tier2only=false;
+  function applyFilter(){
+    const q=inp?inp.value.trim().toLowerCase():'';
+    let any=false;
+    document.querySelectorAll('.spot-item').forEach(el=>{
+      const ok=(!q||(el.dataset.name||'').toLowerCase().includes(q))&&(!tier2only||+el.dataset.tier===2);
+      el.style.display=ok?'':'none';
+      if(ok) any=true;
+    });
+    document.querySelectorAll('section[id]').forEach(sec=>{
+      const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
+      sec.style.display=vis?'':'none';
+    });
+    const nr=document.getElementById('no-results');
+    if(nr) nr.style.display=any?'none':'block';
+  }
+  if(inp) inp.addEventListener('input',applyFilter);
+  if(btn) btn.addEventListener('click',()=>{
+    tier2only=!tier2only;
+    btn.classList.toggle('on',tier2only);
+    btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
+    applyFilter();
+  });
+})();
 </script>
 
 </body>

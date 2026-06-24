@@ -244,6 +244,13 @@ def shared_css(c1, c2, c3, ck):
     transform:translateY(8px);transition:.25s;}}
   .totop.show{{opacity:1;pointer-events:auto;transform:none;}}
   @media print{{.topbar,.totop{{display:none!important;}}body{{background:#fff;}}}}
+  .search-row{{display:flex;align-items:center;gap:8px;padding:8px 18px;max-width:720px;margin:0 auto;border-bottom:1px solid var(--line2);}}
+  .search-box{{flex:1;display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-pill);padding:5px 12px;}}
+  .search-box input{{flex:1;border:none;outline:none;background:transparent;font-size:13px;color:var(--ink);font-family:'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;}}
+  .search-box input::placeholder{{color:var(--ink3);font-size:12px;}}
+  .tier-filter-btn{{flex:0 0 auto;font-size:11px;font-weight:700;padding:5px 12px;border-radius:var(--r-pill);border:1px solid var(--line2);background:var(--surface2);color:var(--ink3);cursor:pointer;white-space:nowrap;transition:.15s;min-height:34px;}}
+  .tier-filter-btn.on{{background:#fff4f0;color:#b04010;border-color:#e8843a44;}}
+  .no-results{{padding:32px 18px;text-align:center;color:var(--ink3);font-size:13px;display:none;}}
 """
 
 FONT_LINK = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">'
@@ -262,6 +269,34 @@ const obs=new IntersectionObserver(entries=>{
   }});
 },{rootMargin:'-40% 0px -55% 0px'});
 secs.forEach(s=>obs.observe(s));
+(function(){
+  const inp=document.getElementById('search-inp');
+  const btn=document.getElementById('tier2-toggle');
+  if(!inp&&!btn) return;
+  let tier2only=false;
+  function applyFilter(){
+    const q=inp?inp.value.trim().toLowerCase():'';
+    let any=false;
+    document.querySelectorAll('.spot-item').forEach(el=>{
+      const ok=(!q||(el.dataset.name||'').toLowerCase().includes(q))&&(!tier2only||+el.dataset.tier===2);
+      el.style.display=ok?'':'none';
+      if(ok) any=true;
+    });
+    document.querySelectorAll('section[id]').forEach(sec=>{
+      const vis=[...sec.querySelectorAll('.spot-item')].some(e=>e.style.display!=='none');
+      sec.style.display=vis?'':'none';
+    });
+    const nr=document.getElementById('no-results');
+    if(nr) nr.style.display=any?'none':'block';
+  }
+  if(inp) inp.addEventListener('input',applyFilter);
+  if(btn) btn.addEventListener('click',()=>{
+    tier2only=!tier2only;
+    btn.classList.toggle('on',tier2only);
+    btn.textContent=tier2only?'★ 全件表示':'★ おすすめのみ';
+    applyFilter();
+  });
+})();
 </script>
 """
 
@@ -314,7 +349,8 @@ def render_spot(s):
 
     desc_html = f'<p class="spot-desc">{desc}</p>' if desc else ""
 
-    return f"""<div class="spot-item">
+    name_esc = name.replace('"', '&quot;')
+    return f"""<div class="spot-item" data-tier="{tier}" data-name="{name_esc}">
   <div>
     <div class="spot-name">{name_html}</div>
     {f'<div class="spot-meta">{meta_html}</div>' if meta_html else ''}
@@ -417,10 +453,15 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
 {stats_html}
 
 <div class="secnav-wrap">
+  <div class="search-row">
+    <div class="search-box"><span style="font-size:14px;color:var(--ink3)">🔍</span><input id="search-inp" type="search" placeholder="{name}内を検索..." autocomplete="off"></div>
+    <button class="tier-filter-btn" id="tier2-toggle">★ おすすめのみ</button>
+  </div>
   <div class="secnav">{secnav_items}</div>
 </div>
 
 <main class="wrap">
+<p id="no-results" class="no-results">検索結果がありません</p>
 {sections_html}
 </main>
 
@@ -536,7 +577,7 @@ def gen_hub_page(all_spots):
 <footer>
   <div class="wrap">
     <div class="ft-1">iUMA Travel · 沖縄</div>
-    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全{total}スポット · <a href="travel-master.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="index.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a></div>
+    <div class="ft-2">Mapplyデータ + Exaリサーチ · 全{total}スポット · <a href="travel-master.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">Travel</a> · <a href="kyushu.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a> · <a href="index.html" style="color:#023e5e;opacity:.08;text-decoration:none;user-select:none;">·</a></div>
   </div>
 </footer>
 
