@@ -42,10 +42,10 @@ OUT_DIR = Path(__file__).parent
 
 # ── Region config ──────────────────────────────────────────────────
 REGIONS = {
-    "miyako":   {"name": "宮古島",    "emoji": "🐠", "page": "miyako.html",   "c1": "#00327a", "c2": "#0091c2", "c3": "#e8f6ff", "ck": "#00327a", "hero_sub": "与那覇前浜 · 砂山ビーチ · 来間島"},
-    "ishigaki": {"name": "石垣島",    "emoji": "🌺", "page": "ishigaki.html", "c1": "#6e1700", "c2": "#c44830", "c3": "#fff4f0", "ck": "#6e1700", "hero_sub": "川平湾 · 平久保崎 · 白保"},
     "naha":     {"name": "那覇",      "emoji": "🏯", "page": "naha.html",     "c1": "#3a1055", "c2": "#7745c0", "c3": "#f5eeff", "ck": "#3a1055", "hero_sub": "国際通り · 松山 · 牧志"},
     "hontou":   {"name": "本島中北部","emoji": "🌴", "page": "hontou.html",   "c1": "#0a3020", "c2": "#1a8050", "c3": "#eeffef", "ck": "#0a3020", "hero_sub": "恩納 · 北谷 · 名護 · 読谷"},
+    "miyako":   {"name": "宮古島",    "emoji": "🐠", "page": "miyako.html",   "c1": "#00327a", "c2": "#0091c2", "c3": "#e8f6ff", "ck": "#00327a", "hero_sub": "与那覇前浜 · 砂山ビーチ · 来間島"},
+    "ishigaki": {"name": "石垣島",    "emoji": "🌺", "page": "ishigaki.html", "c1": "#6e1700", "c2": "#c44830", "c3": "#fff4f0", "ck": "#6e1700", "hero_sub": "川平湾 · 平久保崎 · 白保"},
     "ritou":    {"name": "その他離島","emoji": "⛵", "page": "ritou.html",    "c1": "#4a2a00", "c2": "#a06010", "c3": "#fffaee", "ck": "#4a2a00", "hero_sub": "久米島 · 竹富島 · 慶良間"},
 }
 
