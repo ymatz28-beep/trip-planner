@@ -134,6 +134,8 @@ def shared_css(c1, c2, c3, ck):
   .topnav a.back{{font-weight:700;color:var(--c1);}}
   .topnav a.back::before{{content:"‹ ";}}
   .topnav a[aria-current="page"]{{color:var(--c1);background:var(--c3);}}
+  .topnav a.hidden-cmd{{opacity:.07;font-size:8px;padding:2px 4px;letter-spacing:0;}}
+  .topnav a.hidden-cmd:hover{{opacity:.35;}}
 
   /* Hero */
   .hero{{position:relative;overflow:hidden;color:#fff;
@@ -468,6 +470,7 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
     <nav class="topnav">
       <a href="{hub_page}" class="back">沖縄</a>
       <a href="#" aria-current="page">{name}</a>
+      <a href="index.html" class="hidden-cmd">Trips</a>
     </nav>
   </div>
 </header>
