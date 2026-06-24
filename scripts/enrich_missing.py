@@ -41,6 +41,24 @@ STRICT_KEYWORDS = [
     '行列', '地元', '老舗', '元祖', '名店', '名物',
     'テレビ', 'メディア', '雑誌', '受賞', 'ミシュラン', '創業',
 ]
+# 業種キーワードでカテゴリを強制上書き（EXA enrich時の誤分類防止）
+# spot["category"] がこれらにマッチしたら正しいカテゴリに修正する
+_CAT_OVERRIDES = [
+    (re.compile(r'レンタカー|rent.?a.?car', re.I), 'activity'),
+    (re.compile(r'サウナ|スパ|温泉(?!料理)|銭湯'), 'health'),
+    (re.compile(r'ホテル|旅館|民宿|ゲストハウス|コンドミニアム'), 'lodging'),
+    (re.compile(r'離島|島$|クルーズ|ダイビング|シュノーケル|カヤック|マリン'), 'activity'),
+    (re.compile(r'カフェ|珈琲|コーヒー|スイーツ|ケーキ|パン屋|ベーカリー'), 'cafe_sweets'),
+    (re.compile(r'ショッピング|百貨店|ドラッグストア|スーパー|無印良品|ユニクロ'), 'leisure'),
+]
+
+def infer_category(name: str, existing_cat: str) -> str:
+    """スポット名から業種を判定し、誤分類なら上書きする。"""
+    for pattern, cat in _CAT_OVERRIDES:
+        if pattern.search(name):
+            return cat
+    return existing_cat
+
 ADDR_RE = re.compile(r'沖縄県[^\s\n,、。]+')
 HOURS_RE = re.compile(r'(?:営業時間|営業)[^\n]{0,60}(?:\d{1,2}:\d{2})[^\n]{0,60}')
 # Googleスコア: 「4.2/5」「3.8 / 5」「Google 4.5」のいずれかにマッチ
@@ -121,13 +139,19 @@ def enrich_spot(spot: dict, keys: dict) -> dict | None:
                 highlights.append(cleaned)
     desc = ' '.join(highlights[:5])[:200] if highlights else ''
 
-    # ナビUI・ログインページ・繁体字UIテキスト等は空に落とす
+    # ナビUI・ログインページ・繁体字UIテキスト等は空に落とす（gen_okinawa_v2.py の _DESC_JUNK と同期）
     _desc_junk = re.compile(
         r'ログイン|無料会員登録|Yahoo! JAPAN'
         r'|ストーリーを見る|口コミ\s*写真\s*地図|地図\s*お客様アンケート'
-        r'|官方消息|已登錄|店家會員|本店相關'  # 繁体字中国語UIテキスト
-        r'|Switch to Tabelog'               # 英語切替
-        r'|\| ---'                          # Markdown表形式
+        r'|官方消息|已登錄|店家會員|本店相關'    # 繁体字中国語UIテキスト
+        r'|Switch to Tabelog'                  # 英語切替
+        r'|\| ---'                             # Markdown表形式
+        r'|英語環境|HAMONI|English site is here'  # HAMONI系UIゴミ
+        r'|tiktok\.com'                        # TikTok URL
+        r'|エキテン\s*by|エキテン\s*GMO'        # エキテンUI
+        r'|Retty（レッティ）'                   # Rettyページタイトル
+        r'|なび沖】|全国なびから'               # なび沖UI
+        r'|TEL:\d{3}'                          # 電話番号混入UI
     )
     # ｜が2つ以上→ページタイトルか表形式
     if _desc_junk.search(desc) or desc.count(' - ') + desc.count(' / ') > 4 or desc.count('｜') >= 2:
@@ -138,6 +162,8 @@ def enrich_spot(spot: dict, keys: dict) -> dict | None:
     valid_google = gsc_m and 3.5 <= float(gsc_m.group(1)) <= 5.0
     tier = 2 if (strict_count >= 2 or valid_google) else 3
 
+    corrected_cat = infer_category(name, spot.get('category', 'food'))
+
     return {
         'addr': addr,
         'desc': desc,
@@ -146,6 +172,7 @@ def enrich_spot(spot: dict, keys: dict) -> dict | None:
         'score_tabelog': score_tabelog,
         'tier': tier,
         'source_url': hits[0].url if hits else '',
+        'category': corrected_cat,
     }
 
 
