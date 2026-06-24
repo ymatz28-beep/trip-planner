@@ -468,9 +468,9 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
   <div class="wrap">
     <span class="brand">iUMA Travel</span>
     <nav class="topnav">
+      <a href="index.html" class="hidden-cmd">Trips</a>
       <a href="{hub_page}" class="back">沖縄</a>
       <a href="#" aria-current="page">{name}</a>
-      <a href="index.html" class="hidden-cmd">Trips</a>
     </nav>
   </div>
 </header>
@@ -577,8 +577,8 @@ def gen_hub_page(all_spots):
   <div class="wrap">
     <span class="brand">iUMA Travel</span>
     <nav class="topnav">
-      <a href="#" aria-current="page">沖縄 エリアガイド</a>
       <a href="index.html" class="hidden-cmd">Trips</a>
+      <a href="#" aria-current="page">沖縄 エリアガイド</a>
     </nav>
   </div>
 </header>
