@@ -85,6 +85,7 @@ CAT_LABEL = {
     "yakiniku":      ("🔥", "焼肉"),
     "seafood":       ("🐟", "海鮮・寿司"),
     "chinese":       ("🥢", "中華料理"),
+    "korean":        ("🫕", "韓国料理"),
     "western":       ("🍝", "洋食"),
     "asian":         ("🌏", "アジア料理"),
     "washoku":       ("🍱", "和食"),
@@ -94,7 +95,6 @@ CAT_LABEL = {
     "leisure":       ("🌊", "観光・スポット"),
     "activity":      ("🏄", "観光・体験"),
     "lodging":       ("🏨", "宿泊"),
-    "stay":          ("🛏", "ホテル・宿"),
     "health":        ("🛁", "サウナ・スパ"),
     "nightlife":     ("🌙", "ナイトライフ"),
 }
@@ -429,8 +429,8 @@ def gen_region_page(region_key, spots, hub_page="okinawa-general.html"):
 
     cat_order = [
         "okinawa_food", "izakaya", "steak", "yakiniku", "seafood",
-        "chinese", "western", "asian", "washoku", "bakery", "food",
-        "cafe_sweets", "leisure", "activity", "lodging", "stay", "health", "nightlife",
+        "chinese", "korean", "western", "asian", "washoku", "bakery", "food",
+        "cafe_sweets", "leisure", "activity", "lodging", "health", "nightlife",
     ]
     present_cats = [c for c in cat_order if c in by_cat]
 

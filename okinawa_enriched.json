@@ -1,8 +1,8 @@
 [
   {
     "name": "アナベル",
-    "category": "cafe_sweets",
-    "subcategory": "cafe",
+    "category": "nightlife",
+    "subcategory": "bar",
     "region": "那覇",
     "addr": "沖縄県那覇市牧志3丁目8-31",
     "maps_url": "http://maps.google.com/?cid=4723406286813740869",
@@ -11,7 +11,7 @@
     "official_url": "",
     "description": "桜坂エリアのゲイバー。テーブルチャージ600円、ドリンク800円〜。営業は深夜帯",
     "price_range": "¥1,000〜¥2,000",
-    "desc": "",
+    "desc": "桜坂エリアのゲイバー。テーブルチャージ600円、ドリンク800円〜。営業は深夜帯",
     "hours": "営業開始 0:00（水）",
     "score_google": "",
     "score_tabelog": "",
@@ -1708,7 +1708,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "甘味処 万丸 那覇泉崎店",
@@ -1722,7 +1722,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "スターバックスコーヒー 浦添西海岸パルコシティ店",
@@ -1736,7 +1736,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "スターバックスコーヒー 那覇メインプレイス店",
@@ -1750,7 +1750,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "スターバックスコーヒー イーアス沖縄豊崎店",
@@ -1764,7 +1764,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "スターバックスコーヒー 沖縄津嘉山店",
@@ -1778,7 +1778,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "スターバックスコーヒー 那覇オーパ店",
@@ -1792,7 +1792,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "cafe_sweets"
   },
   {
     "name": "お食事処 三笠 久米店",
@@ -1806,7 +1806,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": "",
+    "category": "okinawa_food",
     "source_url": "https://www.ekiten.jp/shop_50091976/"
   },
   {
@@ -1816,12 +1816,12 @@
     "description": "1993年創業の沖縄式カフェ＆カレー店で、15種類のスパイスを泡盛（古酒）で練り込んで熟成させたオリジナル「古酒カレー」が名物。那覇市長賞を受賞した「海人カレー」や、コーヒーに沖縄の香草をブレンドした「ぶくぶく珈琲」など、ここでしか味わえない沖縄食文化の逸品を提供している。",
     "price_range": "¥1,000〜¥1,999",
     "addr": "沖縄県那覇市久米２丁目３１−１１",
-    "desc": "アジアン・ハーブレストラン カフェくるくま/Cafe Curcuma\n\nカフェくるくま 閉店・関連施設終了のお知らせ\n\n平素より「カフェくるくま」ならびに併設のショップ、キャンプサイトをご利用いただき、誠にありがとうございます。 このたび、誠に残念ではございますが、2025年10月31日をもちましてカフェ営業を終了し、併設施設につきましても同日をもって営業を終了させていただくこととなりました。 開",
+    "desc": "",
     "hours": "営業時間 10:00～18:00 ランチタイム 11:00～15:00（LO） 定休日 毎週月曜日（祝日の場合は翌平日） ※当館の休館に準ずる TEL・FAX 098-988-0192",
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "food"
   },
   {
     "name": "沖縄そば OKINAWA SOBA EIBUN",
@@ -1835,7 +1835,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "okinawa_food"
   },
   {
     "name": "自家製麺 沖縄そば 識名そば",
@@ -1849,7 +1849,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "okinawa_food"
   },
   {
     "name": "丸友 那覇総本店",
@@ -1864,7 +1864,7 @@
     "score_tabelog": "3.24",
     "tier": 3,
     "source_url": "https://tabelog.com/okinawa/A4701/A470101/47027913/",
-    "category": ""
+    "category": "seafood"
   },
   {
     "name": "ホテル・アンドルームス那覇ポート",
@@ -1878,7 +1878,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "lodging"
   },
   {
     "name": "ワイズキャビン&ホテル 那覇国際通り",
@@ -1892,7 +1892,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "lodging"
   },
   {
     "name": "那覇プライベートサウナ TOTONOI LABO",
@@ -1906,7 +1906,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": "",
+    "category": "health",
     "source_url": "https://yuru-to.net/detail.php?oid=54246"
   },
   {
@@ -1921,7 +1921,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "health"
   },
   {
     "name": "mills by TruffleBAKERY 沖縄/浦添店",
@@ -1935,7 +1935,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "bakery"
   },
   {
     "name": "BEB5沖縄瀬良垣 by 星野リゾート",
@@ -1949,7 +1949,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "lodging"
   },
   {
     "name": "ホテルアートステイ那覇国際通り",
@@ -1963,7 +1963,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "lodging"
   },
   {
     "name": "ホテルグレイスリー那覇",
@@ -1978,7 +1978,7 @@
     "score_tabelog": "",
     "tier": 2,
     "source_url": "https://gracery.com/naha/",
-    "category": ""
+    "category": "lodging"
   },
   {
     "name": "沖縄の台所ぱいかじ 恩納店",
@@ -1993,7 +1993,7 @@
     "score_tabelog": "",
     "tier": 3,
     "source_url": "https://paikajionna.owst.jp/",
-    "category": ""
+    "category": "okinawa_food"
   },
   {
     "name": "北谷公園サンセットビーチ",
@@ -2007,7 +2007,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "leisure"
   },
   {
     "name": "宮古島荷川取漁港 みなと食堂",
@@ -2021,7 +2021,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": "",
+    "category": "okinawa_food",
     "source_url": "https://retty.me/area/PRE47/ARE275/SUB52902/100001519026/"
   },
   {
@@ -2036,7 +2036,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "okinawa_food"
   },
   {
     "name": "沖縄そば まるかみ",
@@ -2050,7 +2050,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 2,
-    "category": ""
+    "category": "okinawa_food"
   },
   {
     "name": "石垣やいま村",
@@ -2064,7 +2064,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "leisure"
   },
   {
     "name": "石垣島 青の洞窟",
@@ -2078,7 +2078,7 @@
     "score_google": "",
     "score_tabelog": "",
     "tier": 3,
-    "category": ""
+    "category": "leisure"
   },
   {
     "name": "アジアン食堂 シロクマ",
@@ -2503,9 +2503,9 @@
     "name": "韓食堂柚花（ハンシｯタンユファ）",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=5630882859512441102",
-    "category": "okinawa_food",
+    "category": "korean",
     "tier": 3,
-    "desc": "韓食堂 柚花（ユファ） ～大満足！冷麺セットとキムパ・ヤンニョムチキンセット～:那覇で食べ飲み日記 ２ 那覇の飲食店の料理がメインですが、 時々スイーツや趣味も書いてみようと思います♪ 休日ランチは、こちらにお邪魔しました。 韓食堂 柚花（ユファ）さん。 ＯＣＮのあまくま歩人で紹介されていて 美味しそうだったので行ってみました。 入店すると予想以上に狭い店で 客席数は10席くらいでしょうかこちらが",
+    "desc": "",
     "addr": "沖縄県那覇市牧志2-6-30",
     "hours": "営業時間：17:00～23:00 ※営業時間は、情勢によって変更されます。 定休日 年中無休",
     "score_google": "",
@@ -3720,12 +3720,12 @@
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=13994214786258001788",
     "category": "bakery",
-    "tier": 3,
+    "tier": 2,
     "subcategory": "bakery",
-    "desc": "樋川 パン・ベーカリー│那覇ナビゲーター ... ... のうれんプラザ横！まるで絵本の世界を切り取ったようなパン屋さん。お店の醸し出すオシャレな雰囲気と美味しいパンがマッチして、頻繁に通いたくなること間違いなしです！ ... 2021年4月。ハード系メインのパン屋さんが樋川にオープンしました！地元のお客さんが続々と来店する人気のパン屋さんになったようです。 ... のうれんプラザ周辺は、なかなか",
+    "desc": "のうれんプラザ横のハード系パン屋。絵本のようなオシャレな雰囲気で地元に人気。2021年4月オープン。",
     "addr": "沖縄県那覇市樋川2-2-5",
     "hours": "営業時間 月・木・金・土・日7:00～19:00 休業日 火曜日・水曜日 公式ページ詳細情報カテゴリ",
-    "score_google": "",
+    "score_google": "4.7",
     "score_tabelog": ""
   },
   {
@@ -3758,7 +3758,7 @@
     "name": "ホテルロコアナハ",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=3886518210067220015",
-    "category": "stay",
+    "category": "lodging",
     "tier": 3,
     "subcategory": "hotel",
     "desc": "ホテル ロコアナハ, Hotel Rocore Naha – 国内ホテル予約はユートラベルノート 1-1-2 Matsuo Naha Googleマップで見る チェックイン 05月26日 1泊 チェックアウト 05月27日 人数 大人2名・お子様0名 客室 1部屋 変更 - URLコピー - お気に入り 基本紹介 | 備品・施設 | 利用案内 プリンター ロケーション 那覇中心部のホテル ロコアナ",
@@ -3771,7 +3771,7 @@
     "name": "コーポナナマン",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=2094120700727524855",
-    "category": "stay",
+    "category": "lodging",
     "tier": 3,
     "subcategory": "hotel",
     "desc": "ココマンナ【公式】 クレープ、ワッフル、タピオカのおいしいお店 top_mv-pic1 ココマンナは、2005年クレープとワッフル専門店として横浜ワールドポーターズに1号店をオープン致しました。 美味しさはもちろん、食材の添加物や栄養価にも配慮した商品開発に力を入れております。 メインのクレープのほか、ワッフル、タピオカ、ソフトドリンクも豊富にございます。 - 〒251 0055 神奈川県横浜市中",
@@ -3784,7 +3784,7 @@
     "name": "Prince Smart Inn Naha",
     "region": "那覇",
     "maps_url": "http://maps.google.com/?cid=14751673827340711580",
-    "category": "stay",
+    "category": "lodging",
     "tier": 3,
     "subcategory": "hotel",
     "desc": "プリンス スマート イン - PRINCE SMART INN - スマートな滞在が、 今日という旅をアクティブにする。 気持ちをONにする。 私の旅の拠点。プリンス スマート イン。 プリンス スマート インでの滞在は、 スマホアプリでより自由にスマートに スマホで簡単チェックイン あなたのスマホがルームキーに スマホでさくっとチェックアウト ホテルを拠点にアクティブに、行きたい所へ行き、見たい",
@@ -3797,7 +3797,7 @@
     "name": "星のテラス アルシオーネⅡ",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=2946900263288626648",
-    "category": "stay",
+    "category": "lodging",
     "tier": 2,
     "subcategory": "hotel",
     "desc": "【公式】星のテラス アルシオーネⅡ|宮古島 コンドミニアム 宮古島の静かな住宅街に佇む、コンドミニアム「星のテラス アルシオーネＩＩ」。充実した設備で長期滞在にも最適。 お電話でのご予約・お問い合わせは0980-73-4522 - 客室一覧 - 施設紹介 - アクセス - 施設概要 宮古島の静かな住宅街に佇むコンドミニアムタイプのホテル♪充実した設備で長期滞在も快適にお過ごしいただけます。 1階に",
@@ -3810,7 +3810,7 @@
     "name": "M-Villaggio Miyakojima",
     "region": "宮古島",
     "maps_url": "http://maps.google.com/?cid=17664761026993337310",
-    "category": "stay",
+    "category": "lodging",
     "tier": 3,
     "subcategory": "hotel",
     "desc": "Poits 宮古島随一の繁華街「西里大通り」まで徒歩10分。コンビニも徒歩1分程度の場所にあり便利です キッチン、洗濯機、乾燥機付き！お部屋も45㎡でお一人でもカップルでも長期滞在にちょうどよい広さです 駐車場１台無料でご利用頂けます。ご予約も不要です。 自炊できるようキッチン、冷蔵庫をご用意しています 食器類もご用意しております 包丁やフライ返し等の調理器具も一通り取り揃えています レンジ、電気",
